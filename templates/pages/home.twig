@@ -1,0 +1,68 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Conformité RGPD<br><span class="highlight">sans prise de tête</span></h1>
+            <p class="hero-subtitle">{{ subtitle }}</p>
+            <div class="hero-actions">
+                <a href="/demo" class="btn btn-primary btn-lg">Commencer gratuitement</a>
+                <a href="/fonctionnalites" class="btn btn-outline btn-lg">Voir les fonctionnalités</a>
+            </div>
+            <p class="hero-note">Aucune carte de crédit requise · Annulez à tout moment</p>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="card-badge">RGPD Conforme</div>
+                <div class="card-checks">
+                    <span class="check">✓ Bandeau cookies automatique</span>
+                    <span class="check">✓ Politique de confidentialité</span>
+                    <span class="check">✓ Registre des traitements</span>
+                    <span class="check">✓ Mises à jour légales incluses</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fonctionnalités -->
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Tout ce dont vous avez besoin</h2>
+        <p class="section-subtitle">Un outil complet pour gérer votre conformité RGPD</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🍪</div>
+                <h3>Gestion des cookies</h3>
+                <p>Bandeau de consentement personnalisable et conforme à la réglementation en vigueur.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Documents légaux</h3>
+                <p>Générez automatiquement vos politiques de confidentialité et mentions légales.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Registre des traitements</h3>
+                <p>Tenez à jour votre registre de traitement des données personnelles facilement.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Alertes réglementaires</h3>
+                <p>Soyez informé en temps réel des évolutions légales qui impactent votre activité.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Prêt à être conforme ?</h2>
+        <p>Rejoignez des milliers de sites web déjà conformes au RGPD avec Complianz.</p>
+        <a href="/demo" class="btn btn-primary btn-lg">Démarrer l'essai gratuit</a>
+    </div>
+</section>
+{% endblock %}

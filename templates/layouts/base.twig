@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ title ?? 'Page' }}{% endblock %} — {{ app_name }}</title>
+    <meta name="description" content="{% block description %}Complianz — Solution de conformité RGPD{% endblock %}">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% include 'partials/header.twig' %}
+
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'partials/footer.twig' %}
+
+    <script src="/assets/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
