@@ -3,6 +3,8 @@
 /storage/quote_submissions/
 /storage/contact_messages.jsonl
 /storage/logs/*.log
+/storage/_xlsx_inspect/
+/storage/_g.zip
 /public/assets/images/uploads/
 *.cache
 .DS_Store

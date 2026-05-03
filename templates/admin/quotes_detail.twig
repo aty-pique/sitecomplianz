@@ -1,0 +1,55 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Détail — {{ file }}{% endblock %}
+
+{% block content %}
+{% set q = payload.data.quote ?? {} %}
+{% set est = payload.estimation ?? {} %}
+<section class="admin-quotes container" style="padding:2rem 0 4rem">
+    <p class="admin-quotes__back"><a href="/admin/devis?token={{ token|e('url') }}">← Retour à la liste</a></p>
+    <h1 class="admin-quotes__title">Demande {{ file|e }}</h1>
+    <p class="admin-quotes__meta">Reçu le {{ (payload.received_at ?? '')|e }} — IP {{ (payload.ip ?? '')|e }}</p>
+
+    <h2 class="admin-quotes__h2">Synthèse contact</h2>
+    <dl class="admin-quotes__dl">
+        <dt>Entreprise</dt><dd>{{ (q.company_name ?? '')|e }}</dd>
+        <dt>Email</dt><dd>{{ (q.email ?? '')|e }}</dd>
+        <dt>Téléphone</dt><dd>{{ (q.phone ?? '')|e }}</dd>
+    </dl>
+
+    <h2 class="admin-quotes__h2">Estimation automatique</h2>
+    <p><strong>Total indicatif HT :</strong> {{ (est.total_ht ?? 0)|number_format(2, ',', ' ') }} €</p>
+    {% if est.notes is defined and est.notes is iterable %}
+        <ul>
+            {% for n in est.notes %}<li>{{ n|e }}</li>{% endfor %}
+        </ul>
+    {% endif %}
+    <p><a class="btn btn-outline" href="/admin/devis/{{ file|e('url') }}?token={{ token|e('url') }}&amp;format=csv">Exporter les lignes (CSV)</a></p>
+
+    {% if est.lines is defined and est.lines is iterable %}
+        <table class="admin-quotes__table">
+            <thead>
+                <tr>
+                    <th>Libellé</th>
+                    <th>Montant HT</th>
+                    <th>Feuille</th>
+                    <th>Cellule</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for line in est.lines %}
+                    <tr>
+                        <td>{{ (line.label ?? '')|e }}<br><small>{{ (line.description ?? '')|e }}</small></td>
+                        <td>{{ (line.amount_eur ?? 0)|number_format(2, ',', ' ') }} €</td>
+                        <td>{{ (line.sheet ?? '')|e }}</td>
+                        <td>{{ (line.cell ?? '')|e }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <h2 class="admin-quotes__h2">Données formulaire (JSON)</h2>
+    <pre class="admin-quotes__pre">{{ payload_json|e }}</pre>
+</section>
+{% endblock %}

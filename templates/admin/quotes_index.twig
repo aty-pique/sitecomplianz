@@ -1,0 +1,38 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Demandes de pré-devis{% endblock %}
+
+{% block content %}
+<section class="admin-quotes container" style="padding:2rem 0 4rem">
+    <h1 class="admin-quotes__title">Demandes de pré-devis</h1>
+    <p class="admin-quotes__intro">Liste des fichiers enregistrés dans <code>storage/quote_submissions/</code>.</p>
+    {% if items is empty %}
+        <p>Aucune demande enregistrée pour le moment.</p>
+    {% else %}
+        <div class="admin-quotes__table-wrap">
+            <table class="admin-quotes__table">
+                <thead>
+                    <tr>
+                        <th>Reçu le</th>
+                        <th>Entreprise</th>
+                        <th>Email</th>
+                        <th>Total estimé HT</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for it in items %}
+                        <tr>
+                            <td>{{ it.received_at|e }}</td>
+                            <td>{{ it.company|e }}</td>
+                            <td>{{ it.email|e }}</td>
+                            <td>{% if it.total_ht is not null %}{{ it.total_ht|number_format(2, ',', ' ') }} €{% else %}—{% endif %}</td>
+                            <td><a href="/admin/devis/{{ it.file|e('url') }}?token={{ token|e('url') }}">Détail</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

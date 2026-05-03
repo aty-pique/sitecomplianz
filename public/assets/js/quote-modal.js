@@ -95,8 +95,158 @@
     var qRdvSelectedIso = '';
     var qRdvSelectedSlot = '';
 
-    const total = 5;
+    const total = 6;
     var step = 1;
+
+    const elEstLoading = document.getElementById('quote-estimate-loading');
+    const elEstContent = document.getElementById('quote-estimate-content');
+    const elEstError = document.getElementById('quote-estimate-error');
+
+    function formatMoney(n) {
+        var x = typeof n === 'number' ? n : parseFloat(n);
+        if (isNaN(x)) x = 0;
+        return x.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    }
+
+    function clientBenefitsForLine(ln) {
+        if (ln && ln.client_benefits && ln.client_benefits.length) return ln.client_benefits;
+        return [
+            'Un chargé d’affaires valide le périmètre avec vous avant tout engagement.',
+            'Une proposition claire, chiffrée et priorisée.',
+            'Un seul interlocuteur pour faire le lien avec les équipes techniques.',
+        ];
+    }
+
+    function clientDetailParamsForLine(ln) {
+        if (ln && ln.client_detail_params && ln.client_detail_params.length) return ln.client_detail_params;
+        var det = ln.detail_params;
+        if (!det || !det.length) return [];
+        var out = [];
+        for (var j = 0; j < det.length; j++) {
+            var p = String(det[j].param || '');
+            if (/Hypothèses|grille|scénario|intersection/i.test(p)) continue;
+            out.push(det[j]);
+        }
+        return out;
+    }
+
+    function renderEstimate(est) {
+        if (!elEstContent) return;
+        var lines = (est && est.lines) ? est.lines : [];
+        var totalHt = (est && typeof est.total_ht === 'number') ? est.total_ht : 0;
+        var notes = (est && est.notes) ? est.notes : [];
+        var html = '';
+        html += '<div class="quote-estimate__layout">';
+
+        html += '<div class="quote-estimate__hero">';
+        html += '<p class="quote-estimate__hero-label">Total indicatif HT</p>';
+        html += '<p class="quote-estimate__hero-amount">' + formatMoney(totalHt) + '</p>';
+        html += '<p class="quote-estimate__hero-hint">Montant non contractuel — affiné après échange.</p>';
+        html += '</div>';
+
+        html += '<ul class="quote-estimate__trust" aria-label="Nos engagements">';
+        html += '<li class="quote-estimate__trust-item"><span class="quote-estimate__trust-title">Réactivité</span><span class="quote-estimate__trust-text">Retour sous 48 h ouvrées en moyenne.</span></li>';
+        html += '<li class="quote-estimate__trust-item"><span class="quote-estimate__trust-title">Transparence</span><span class="quote-estimate__trust-text">Pas de surprise : le devis suit cette base.</span></li>';
+        html += '<li class="quote-estimate__trust-item"><span class="quote-estimate__trust-title">Expertise</span><span class="quote-estimate__trust-text">Un cadrage métier + technique avec nos consultants.</span></li>';
+        html += '</ul>';
+
+        if (notes.length) {
+            var hasOnlyHints = lines.length > 0;
+            for (var ni = 0; ni < notes.length; ni++) {
+                var t = String(notes[ni] || '');
+                if (/Excel|cellules calculées/i.test(t)) continue;
+                if (lines.length === 0 && /Aucune ligne automatique/i.test(t)) continue;
+                if (hasOnlyHints && /Aucune ligne automatique/i.test(t)) continue;
+                html += '<p class="quote-estimate__note">' + escapeHtml(t) + '</p>';
+            }
+        }
+
+        if (lines.length) {
+            html += '<div class="quote-estimate__cards">';
+            for (var i = 0; i < lines.length; i++) {
+                var ln = lines[i] || {};
+                var amt = typeof ln.amount_eur === 'number' ? ln.amount_eur : parseFloat(ln.amount_eur) || 0;
+                var duration = ln.client_duration_hint ? String(ln.client_duration_hint) : '';
+                var benefits = clientBenefitsForLine(ln);
+                var ctx = clientDetailParamsForLine(ln);
+
+                html += '<article class="quote-estimate-card">';
+                html += '<div class="quote-estimate-card__head">';
+                html += '<h4 class="quote-estimate-card__title">' + escapeHtml(String(ln.label || 'Ligne')) + '</h4>';
+                html += '<p class="quote-estimate-card__price">' + formatMoney(amt) + ' <span>HT</span></p>';
+                html += '</div>';
+                if (duration) {
+                    html += '<div class="quote-estimate-card__time">';
+                    html += '<span class="quote-estimate-card__time-label">Délai indicatif</span>';
+                    html += '<p class="quote-estimate-card__time-text">' + escapeHtml(duration) + '</p>';
+                    html += '</div>';
+                }
+                html += '<div class="quote-estimate-card__benefits-wrap">';
+                html += '<span class="quote-estimate-card__benefits-label">Ce que vous en retirez</span>';
+                html += '<ul class="quote-estimate-card__benefits">';
+                for (var b = 0; b < benefits.length; b++) {
+                    html += '<li>' + escapeHtml(String(benefits[b])) + '</li>';
+                }
+                html += '</ul></div>';
+                if (ctx.length) {
+                    html += '<ul class="quote-estimate-card__context">';
+                    for (var c = 0; c < ctx.length; c++) {
+                        html += '<li><span class="quote-estimate-card__ctx-k">' +
+                            escapeHtml(String(ctx[c].param || '')) + '</span> ' +
+                            escapeHtml(String(ctx[c].value || '')) + '</li>';
+                    }
+                    html += '</ul>';
+                }
+                html += '</article>';
+            }
+            html += '</div>';
+        } else {
+            html += '<div class="quote-estimate__empty-wrap">';
+            html += '<p class="quote-estimate__empty">Nous n’avons pas pu déduire un montant automatique à partir de cette sélection.</p>';
+            html += '<p class="quote-estimate__empty-hint">Pas d’inquiétude : envoyez votre demande — nous chiffrons manuellement et vous recontactons.</p>';
+            html += '</div>';
+        }
+
+        html += '</div>';
+        elEstContent.innerHTML = html;
+    }
+
+    function escapeHtml(s) {
+        return s.replace(/[&<>"']/g, function (ch) {
+            return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch] || ch;
+        });
+    }
+
+    function loadEstimateIfNeeded() {
+        if (!elEstLoading || !elEstContent || !elEstError) return Promise.resolve();
+        elEstLoading.hidden = false;
+        elEstContent.hidden = true;
+        elEstError.hidden = true;
+        elEstError.textContent = '';
+        return fetch('/contact/quote/estimate', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            credentials: 'same-origin',
+        })
+            .then(function (res) {
+                return res.json();
+            })
+            .then(function (data) {
+                if (!data || !data.ok) throw new Error('bad');
+                renderEstimate(data.estimation);
+                elEstLoading.hidden = true;
+                elEstContent.hidden = false;
+            })
+            .catch(function () {
+                elEstLoading.hidden = true;
+                elEstError.textContent =
+                    'Le calcul automatique est momentanément indisponible. Vous pouvez envoyer la demande : nous chiffrerons manuellement à partir de la grille.';
+                elEstError.hidden = false;
+                elEstContent.innerHTML = '';
+                elEstContent.hidden = false;
+            });
+    }
 
     function isVisible(el) {
         if (!el) return false;
@@ -247,6 +397,13 @@
             }
         }
         if (s === 5 && qRdvValMsg) qRdvValMsg.hidden = true;
+        if (s === 6) {
+            var priv = form.querySelector('input[name="quote[privacy_ok]"]');
+            if (priv && !priv.checked) {
+                priv.focus();
+                return false;
+            }
+        }
         return true;
     }
 
@@ -275,6 +432,43 @@
         if (noPolesMsg) noPolesMsg.hidden = any;
     }
 
+    /** Types de projet p1 cochés → panneaux « Questionnaire besoins » (routage). */
+    function selectedP1ProjectTypes() {
+        var out = [];
+        form.querySelectorAll('input[name="quote[p1][project_types][]"]:checked').forEach(function (cb) {
+            out.push(cb.value);
+        });
+        return out;
+    }
+
+    function syncP1Submodules() {
+        var sel = selectedP1ProjectTypes();
+        var intro = document.getElementById('quote-p1-submodules-intro');
+        if (intro) intro.hidden = sel.length === 0;
+        form.querySelectorAll('[data-p1-for]').forEach(function (box) {
+            var v = box.getAttribute('data-p1-for') || '';
+            box.hidden = sel.indexOf(v) === -1;
+        });
+    }
+
+    function selectedP2Levers() {
+        var out = [];
+        form.querySelectorAll('input[name="quote[p2][levers][]"]:checked').forEach(function (cb) {
+            out.push(cb.value);
+        });
+        return out;
+    }
+
+    function syncP2LeverPanels() {
+        var sel = selectedP2Levers();
+        var intro = document.getElementById('quote-p2-lever-panels-intro');
+        if (intro) intro.hidden = sel.length === 0;
+        form.querySelectorAll('[data-p2-for-lever]').forEach(function (box) {
+            var v = box.getAttribute('data-p2-for-lever') || '';
+            box.hidden = sel.indexOf(v) === -1;
+        });
+    }
+
     function showStep(n) {
         step = Math.max(1, Math.min(total, n));
         panes.forEach(function (p) {
@@ -290,8 +484,12 @@
         if (btnPrev) btnPrev.disabled = step === 1;
         if (btnNext) btnNext.hidden = step === total;
         if (btnSubmit) btnSubmit.hidden = step !== total;
-        if (btnNoRdv) btnNoRdv.hidden = step !== total;
-        if (step === 4) syncPoleSections();
+        if (btnNoRdv) btnNoRdv.hidden = step !== 5;
+        if (step === 4) {
+            syncPoleSections();
+            syncP1Submodules();
+            syncP2LeverPanels();
+        }
         if (step === 5 && qRdvGrid) {
             renderQuoteRdvCalendar();
             syncQuoteRdvHidden();
@@ -306,6 +504,8 @@
         resetQuoteRdvUi();
         showStep(1);
         syncPoleSections();
+        syncP1Submodules();
+        syncP2LeverPanels();
         form.querySelectorAll('.quote-pole-card').forEach(function (label) {
             var input = label.querySelector('input[type="checkbox"]');
             if (input) label.classList.toggle('is-selected', input.checked);
@@ -316,6 +516,11 @@
     if (btnNext) {
         btnNext.addEventListener('click', function () {
             if (!validateStep(step)) return;
+            if (step === 5) {
+                showStep(6);
+                loadEstimateIfNeeded();
+                return;
+            }
             if (step < total) showStep(step + 1);
         });
     }
@@ -328,6 +533,13 @@
 
     form.querySelectorAll('[data-pole-checkbox]').forEach(function (ch) {
         ch.addEventListener('change', syncPoleSections);
+    });
+
+    form.querySelectorAll('input[name="quote[p1][project_types][]"]').forEach(function (cb) {
+        cb.addEventListener('change', syncP1Submodules);
+    });
+    form.querySelectorAll('input[name="quote[p2][levers][]"]').forEach(function (cb) {
+        cb.addEventListener('change', syncP2LeverPanels);
     });
 
     form.querySelectorAll('.quote-pole-card').forEach(function (label) {
@@ -397,8 +609,9 @@
             });
             if (qRdvValMsg) qRdvValMsg.hidden = true;
             renderQuoteRdvCalendar();
-            if (!validateAllSteps()) return;
-            form.requestSubmit();
+            if (!validateStep(5)) return;
+            showStep(6);
+            loadEstimateIfNeeded();
         });
     }
 

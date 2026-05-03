@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\BlogController;
+use App\Controllers\AdminQuoteController;
 use App\Controllers\ContactController;
 use App\Controllers\WikiController;
 use App\Controllers\DevFeedbackController;
@@ -18,7 +19,11 @@ $router->get('/', [HomeController::class, 'index']);
 
 $router->get('/contact', [ContactController::class, 'index']);
 $router->post('/contact/quote', [ContactController::class, 'quote']);
+$router->post('/contact/quote/estimate', [ContactController::class, 'quoteEstimate']);
 $router->post('/contact/message', [ContactController::class, 'message']);
+
+$router->get('/admin/devis', [AdminQuoteController::class, 'index']);
+$router->get('/admin/devis/:id', [AdminQuoteController::class, 'show']);
 
 $router->get('/nos-packs', [PackController::class, 'index']);
 $router->get('/nos-packs/:slug', [PackController::class, 'show']);

@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Core\Request;
 use App\Core\View;
+use App\Services\QuotePricingEstimator;
 
 /**
  * Page Contact + réception des formulaires (pré-devis & message).
@@ -42,11 +43,15 @@ class ContactController
             mkdir($dir, 0755, true);
         }
 
+        $estimator = new QuotePricingEstimator();
+        $estimation = $estimator->estimate(is_array($quote) ? $quote : []);
+
         $payload = [
             'received_at' => date('c'),
             'ip'          => $_SERVER['REMOTE_ADDR'] ?? '',
             'user_agent'  => $_SERVER['HTTP_USER_AGENT'] ?? '',
             'data'        => $_POST,
+            'estimation'  => $estimation,
         ];
 
         $file = $dir . '/quote_' . date('Y-m-d_His') . '_' . bin2hex(random_bytes(4)) . '.json';
@@ -101,6 +106,23 @@ class ContactController
         }
 
         header('Location: /contact?msg=ok', true, 303);
+        exit;
+    }
+
+    /**
+     * Prévisualisation JSON de l’estimation (étape 6 du wizard).
+     */
+    public function quoteEstimate(Request $request, array $params = []): void
+    {
+        header('Content-Type: application/json; charset=utf-8');
+        $quote = $_POST['quote'] ?? null;
+        if (!is_array($quote)) {
+            http_response_code(422);
+            echo json_encode(['ok' => false, 'error' => 'invalid_payload'], JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+        $estimation = (new QuotePricingEstimator())->estimate($quote);
+        echo json_encode(['ok' => true, 'estimation' => $estimation], JSON_UNESCAPED_UNICODE);
         exit;
     }
 }

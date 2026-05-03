@@ -3225,6 +3225,32 @@ ul { list-style: none; }
     margin-bottom: 12px;
 }
 
+/* Sous-modules conditionnels (questionnaire besoins — routage par type / levier) */
+.quote-submodule {
+    margin: 14px 0 18px;
+    padding: 14px 14px 4px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--color-primary);
+    background: rgba(89, 122, 175, 0.06);
+}
+.quote-pole-section[data-pole-section="p1"] .quote-submodule {
+    border-left-color: var(--pole-1);
+}
+.quote-pole-section[data-pole-section="p2"] .quote-submodule {
+    border-left-color: var(--pole-2);
+}
+.quote-submodule__title {
+    font-family: var(--font-subtitle);
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--color-dark);
+}
+.quote-p1-submodules-intro,
+.quote-p2-lever-panels-intro {
+    font-style: normal;
+}
+
 .contact-form__grid {
     display: grid;
     gap: 14px;
@@ -13738,4 +13764,279 @@ body.dev-fb-open {
 
 .page-home .home-final-cta {
     box-shadow: none;
+}
+
+/* —— Estimation pré-devis (étape 6) — conversion —— */
+.quote-estimate {
+    margin: 1rem 0 1.25rem;
+    padding: 0;
+    border-radius: 16px;
+    background: linear-gradient(165deg, #f8fafc 0%, #eef2ff 55%, #f1f5f9 100%);
+    border: 1px solid rgba(89, 122, 175, 0.22);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+}
+.quote-estimate__loading {
+    margin: 0;
+    padding: 1.25rem 1.25rem;
+    color: #64748b;
+    font-size: 14px;
+}
+.quote-estimate__content {
+    padding: 1.25rem 1.25rem 1.35rem;
+}
+.quote-estimate__error {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    color: #b45309;
+}
+.quote-estimate__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+.quote-estimate__hero {
+    text-align: center;
+    padding: 1.1rem 1rem 1.15rem;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+.quote-estimate__hero-label {
+    margin: 0 0 0.25rem;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+}
+.quote-estimate__hero-amount {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 800;
+    font-family: var(--font-subtitle, inherit);
+    color: var(--color-primary-dark, #1e3a5f);
+    line-height: 1.1;
+}
+.quote-estimate__hero-hint {
+    margin: 0.5rem 0 0;
+    font-size: 13px;
+    color: #64748b;
+}
+.quote-estimate__trust {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+@media (max-width: 640px) {
+    .quote-estimate__trust {
+        grid-template-columns: 1fr;
+    }
+}
+.quote-estimate__trust-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.quote-estimate__trust-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary, #597aaf);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.quote-estimate__trust-text {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.35;
+}
+.quote-estimate__note {
+    margin: 0;
+    font-size: 13px;
+    color: #475569;
+    text-align: center;
+    line-height: 1.45;
+}
+.quote-estimate__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.quote-estimate-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.035);
+}
+.quote-estimate-card__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.quote-estimate-card__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    max-width: 100%;
+    flex: 1 1 200px;
+}
+.quote-estimate-card__price {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-primary-dark, #1e3a5f);
+    white-space: nowrap;
+}
+.quote-estimate-card__price span {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-left: 2px;
+}
+.quote-estimate-card__time {
+    margin: 0 0 12px;
+}
+.quote-estimate-card__time-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+.quote-estimate-card__time-text {
+    margin: 0;
+    font-size: 13.5px;
+    color: #334155;
+    line-height: 1.45;
+}
+.quote-estimate-card__benefits-wrap {
+    margin: 0 0 10px;
+}
+.quote-estimate-card__benefits-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+.quote-estimate-card__benefits {
+    margin: 0;
+    padding: 0 0 0 1.1rem;
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.45;
+}
+.quote-estimate-card__benefits li {
+    margin-bottom: 4px;
+}
+.quote-estimate-card__context {
+    margin: 0;
+    padding: 10px 0 0;
+    list-style: none;
+    border-top: 1px dashed #e2e8f0;
+    font-size: 12.5px;
+    color: #64748b;
+}
+.quote-estimate-card__context li {
+    margin-bottom: 4px;
+}
+.quote-estimate-card__ctx-k {
+    font-weight: 600;
+    color: #475569;
+}
+.quote-estimate__empty-wrap {
+    text-align: center;
+    padding: 0.5rem 0.25rem 0.25rem;
+}
+.quote-estimate__empty {
+    margin: 0 0 0.5rem;
+    font-size: 15px;
+    font-weight: 600;
+    color: #334155;
+}
+.quote-estimate__empty-hint {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.45;
+}
+.quote-estimate-disclaimer {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 1rem;
+    line-height: 1.45;
+}
+
+/* —— Admin demandes devis —— */
+.admin-quotes__title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+.admin-quotes__intro,
+.admin-quotes__meta {
+    color: #64748b;
+    font-size: 14px;
+}
+.admin-quotes__table-wrap {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+.admin-quotes__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.admin-quotes__table th,
+.admin-quotes__table td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 12px;
+    text-align: left;
+}
+.admin-quotes__table th {
+    background: #f1f5f9;
+}
+.admin-quotes__h2 {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.15rem;
+}
+.admin-quotes__dl {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0.35rem 1rem;
+    font-size: 14px;
+}
+.admin-quotes__dl dt {
+    color: #64748b;
+}
+.admin-quotes__pre {
+    max-height: 420px;
+    overflow: auto;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.45;
+}
+.admin-quotes__back {
+    margin-bottom: 1rem;
 }

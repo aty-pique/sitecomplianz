@@ -1,8 +1,8 @@
 {# Configurateur de pré-devis — champs alignés sur le questionnaire besoins (tronc commun + modules par pôle) #}
 <form class="quote-wizard" id="quote-wizard" action="/contact/quote" method="post" novalidate>
     <div class="quote-wizard__progress" role="tablist" aria-label="Étapes du configurateur">
-        {% for i in 1..5 %}
-            <span class="quote-wizard__step-label{% if i == 1 %} is-active{% endif %}" data-step-indicator="{{ i }}">Étape {{ i }}</span>
+        {% for i in 1..6 %}
+            <span class="quote-wizard__step-label{% if i == 1 %} is-active{% endif %}" data-step-indicator="{{ i }}">{% if i == 6 %}Estimation{% else %}Étape {{ i }}{% endif %}</span>
         {% endfor %}
     </div>
 
@@ -241,10 +241,194 @@
                 <legend class="contact-field__label">Types de projet envisagés</legend>
                 <div class="contact-checkgrid">
                     {% for t in ['CRM / ERP','Développement sur mesure','Site / refonte','Automatisation / API','Infrastructure','Maintenance / debug'] %}
-                        <label class="contact-check"><input type="checkbox" name="quote[p1][project_types][]" value="{{ t }}"> {{ t }}</label>
+                        <label class="contact-check"><input type="checkbox" name="quote[p1][project_types][]" value="{{ t }}" data-p1-project-type> {{ t }}</label>
                     {% endfor %}
                 </div>
             </fieldset>
+            <p class="quote-wizard__hint quote-p1-submodules-intro" id="quote-p1-submodules-intro" hidden>
+                <strong>Sous-questions selon vos choix</strong> — alignées sur le questionnaire besoins (routage conditionnel par type de projet).
+            </p>
+
+            <div class="quote-submodule" data-p1-for="CRM / ERP" hidden>
+                <h5 class="quote-submodule__title">CRM / ERP</h5>
+                <div class="contact-form__grid contact-form__grid--2">
+                    <label class="contact-field">
+                        <span class="contact-field__label">Votre intention principale</span>
+                        <select name="quote[p1][sub][crm_erp][intent]">
+                            <option value="">—</option>
+                            <option value="crm_new">Mettre en place un CRM</option>
+                            <option value="erp_new">Mettre en place un ERP</option>
+                            <option value="improve">Améliorer un outil existant</option>
+                            <option value="replace">Remplacer un système existant</option>
+                        </select>
+                    </label>
+                    <label class="contact-field">
+                        <span class="contact-field__label">Nombre d’utilisateurs cible</span>
+                        <select name="quote[p1][sub][crm_erp][users]">
+                            <option value="">—</option>
+                            <option value="1-5">1 à 5</option>
+                            <option value="5-20">5 à 20</option>
+                            <option value="20-50">20 à 50</option>
+                            <option value="50+">50+</option>
+                        </select>
+                    </label>
+                </div>
+                <fieldset class="contact-fieldset">
+                    <legend class="contact-field__label">Usages à couvrir <small>(plusieurs choix)</small></legend>
+                    <div class="contact-checkgrid">
+                        {% for u in ['Gestion commerciale','Suivi client','Gestion de projet','Facturation','Production / opérations','Reporting','Autre'] %}
+                            <label class="contact-check"><input type="checkbox" name="quote[p1][sub][crm_erp][uses][]" value="{{ u }}"> {{ u }}</label>
+                        {% endfor %}
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="quote-submodule" data-p1-for="Développement sur mesure" hidden>
+                <h5 class="quote-submodule__title">Développement sur mesure</h5>
+                <div class="contact-form__grid contact-form__grid--2">
+                    <label class="contact-field">
+                        <span class="contact-field__label">Type d’outil visé</span>
+                        <select name="quote[p1][sub][dev][kind]">
+                            <option value="">—</option>
+                            <option value="metier">Logiciel métier</option>
+                            <option value="webapp">Application web</option>
+                            <option value="mobile">Application mobile</option>
+                            <option value="plateforme">Plateforme</option>
+                            <option value="interne">Outil interne</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </label>
+                    <label class="contact-field">
+                        <span class="contact-field__label">Nombre de fonctionnalités majeures envisagées</span>
+                        <select name="quote[p1][sub][dev][features]">
+                            <option value="">—</option>
+                            <option value="1-3">1 à 3</option>
+                            <option value="3-5">3 à 5</option>
+                            <option value="5-10">5 à 10</option>
+                            <option value="10+">10+</option>
+                        </select>
+                    </label>
+                </div>
+                <label class="contact-field contact-field--full">
+                    <span class="contact-field__label">Objectif de l’outil</span>
+                    <textarea name="quote[p1][sub][dev][goal]" rows="2" placeholder="En quelques phrases…"></textarea>
+                </label>
+            </div>
+
+            <div class="quote-submodule" data-p1-for="Site / refonte" hidden>
+                <h5 class="quote-submodule__title">Site web &amp; présence</h5>
+                <div class="contact-form__grid contact-form__grid--2">
+                    <label class="contact-field">
+                        <span class="contact-field__label">Type de site</span>
+                        <select name="quote[p1][sub][site][kind]">
+                            <option value="">—</option>
+                            <option value="vitrine">Site vitrine</option>
+                            <option value="ecommerce">Site e-commerce</option>
+                            <option value="webapp">Plateforme / web app</option>
+                            <option value="landing">Landing page</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </label>
+                    <label class="contact-field">
+                        <span class="contact-field__label">Volume de pages envisagé</span>
+                        <select name="quote[p1][sub][site][pages]">
+                            <option value="">—</option>
+                            <option value="1">1 (landing)</option>
+                            <option value="2-5">2 à 5</option>
+                            <option value="5-10">5 à 10</option>
+                            <option value="10-20">10 à 20</option>
+                            <option value="20+">20+</option>
+                        </select>
+                    </label>
+                    <label class="contact-field">
+                        <span class="contact-field__label">Optimisation SEO souhaitée ?</span>
+                        <select name="quote[p1][sub][site][seo_want]">
+                            <option value="">—</option>
+                            <option value="oui">Oui</option>
+                            <option value="non">Non</option>
+                            <option value="ns">Je ne sais pas</option>
+                        </select>
+                    </label>
+                    <label class="contact-field">
+                        <span class="contact-field__label">Accompagnement après mise en ligne</span>
+                        <select name="quote[p1][sub][site][post_launch]">
+                            <option value="">—</option>
+                            <option value="oui">Oui (maintenance)</option>
+                            <option value="non">Non</option>
+                            <option value="ns">Je ne sais pas</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="quote-submodule" data-p1-for="Automatisation / API" hidden>
+                <h5 class="quote-submodule__title">Automatisation &amp; interconnexions</h5>
+                <fieldset class="contact-fieldset">
+                    <legend class="contact-field__label">Processus à automatiser ou connecter <small>(plusieurs choix)</small></legend>
+                    <div class="contact-checkgrid">
+                        {% for pr in ['Gestion commerciale','Suivi client','Facturation / admin','Marketing','Reporting / BI','Process internes','Autre'] %}
+                            <label class="contact-check"><input type="checkbox" name="quote[p1][sub][auto][processes][]" value="{{ pr }}"> {{ pr }}</label>
+                        {% endfor %}
+                    </div>
+                </fieldset>
+                <label class="contact-field">
+                    <span class="contact-field__label">Nombre de flux ou automatisations</span>
+                    <select name="quote[p1][sub][auto][count]">
+                        <option value="">—</option>
+                        <option value="1-2">1 à 2</option>
+                        <option value="3-5">3 à 5</option>
+                        <option value="5-10">5 à 10</option>
+                        <option value="10+">10+</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="quote-submodule" data-p1-for="Infrastructure" hidden>
+                <h5 class="quote-submodule__title">Infrastructure &amp; hébergement</h5>
+                <div class="contact-form__grid contact-form__grid--2">
+                    <label class="contact-field">
+                        <span class="contact-field__label">Besoin principal</span>
+                        <select name="quote[p1][sub][infra][need]">
+                            <option value="">—</option>
+                            <option value="setup">Mise en place</option>
+                            <option value="optimize">Optimisation</option>
+                            <option value="migrate">Migration</option>
+                            <option value="maintain">Maintenance</option>
+                            <option value="secure">Sécurisation</option>
+                        </select>
+                    </label>
+                    <label class="contact-field">
+                        <span class="contact-field__label">Type d’infra actuelle ou cible</span>
+                        <select name="quote[p1][sub][infra][kind]">
+                            <option value="">—</option>
+                            <option value="mutu">Hébergement mutualisé</option>
+                            <option value="cloud">Cloud (AWS, GCP, Azure…)</option>
+                            <option value="dedie">Serveur dédié / VPS</option>
+                            <option value="onprem">On-premise</option>
+                            <option value="ns">Je ne sais pas</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="quote-submodule" data-p1-for="Maintenance / debug" hidden>
+                <h5 class="quote-submodule__title">Maintenance &amp; correctifs</h5>
+                <label class="contact-field contact-field--full">
+                    <span class="contact-field__label">Symptômes ou incidents</span>
+                    <textarea name="quote[p1][sub][maint][symptoms]" rows="2" placeholder="Bugs, lenteur, pannes…"></textarea>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Criticité pour l’activité</span>
+                    <select name="quote[p1][sub][maint][severity]">
+                        <option value="">—</option>
+                        <option value="faible">Faible</option>
+                        <option value="moyen">Moyen</option>
+                        <option value="eleve">Élevé</option>
+                        <option value="bloquant">Bloquant</option>
+                    </select>
+                </label>
+            </div>
+
             <label class="contact-field contact-field--full">
                 <span class="contact-field__label">Besoin principal</span>
                 <textarea name="quote[p1][need]" rows="2"></textarea>
@@ -289,10 +473,123 @@
                 <legend class="contact-field__label">Leviers souhaités</legend>
                 <div class="contact-checkgrid">
                     {% for l in ['Stratégie digitale','SEO','Tunnel de conversion','Acquisition','Data / KPI','Structuration marketing'] %}
-                        <label class="contact-check"><input type="checkbox" name="quote[p2][levers][]" value="{{ l }}"> {{ l }}</label>
+                        <label class="contact-check"><input type="checkbox" name="quote[p2][levers][]" value="{{ l }}" data-p2-lever> {{ l }}</label>
                     {% endfor %}
                 </div>
             </fieldset>
+            <p class="quote-wizard__hint quote-p2-lever-panels-intro" id="quote-p2-lever-panels-intro" hidden>
+                <strong>Précisions par levier</strong> — questions optionnelles (MODULE 3 du questionnaire besoins).
+            </p>
+            <div class="quote-submodule" data-p2-for-lever="Stratégie digitale" hidden>
+                <h5 class="quote-submodule__title">Stratégie digitale globale</h5>
+                <label class="contact-field contact-field--full">
+                    <span class="contact-field__label">Éléments à structurer en priorité</span>
+                    <textarea name="quote[p2][sub][strategie][focus]" rows="2" placeholder="Vision, offres, parcours client, acquisition…"></textarea>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Stratégie déjà formalisée ?</span>
+                    <select name="quote[p2][sub][strategie][formalized]">
+                        <option value="">—</option>
+                        <option value="oui">Oui</option>
+                        <option value="partiel">Partiellement</option>
+                        <option value="non">Non</option>
+                    </select>
+                </label>
+            </div>
+            <div class="quote-submodule" data-p2-for-lever="SEO" hidden>
+                <h5 class="quote-submodule__title">SEO &amp; optimisation site</h5>
+                <label class="contact-field">
+                    <span class="contact-field__label">Besoin principal</span>
+                    <select name="quote[p2][sub][seo][need]">
+                        <option value="">—</option>
+                        <option value="audit">Audit SEO</option>
+                        <option value="tech">Optimisation technique</option>
+                        <option value="content">Création de contenu</option>
+                        <option value="global">Stratégie SEO globale</option>
+                    </select>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Volume de pages du site</span>
+                    <select name="quote[p2][sub][seo][pages]">
+                        <option value="">—</option>
+                        <option value="1-5">1 à 5</option>
+                        <option value="5-20">5 à 20</option>
+                        <option value="20-50">20 à 50</option>
+                        <option value="50+">50+</option>
+                    </select>
+                </label>
+            </div>
+            <div class="quote-submodule" data-p2-for-lever="Tunnel de conversion" hidden>
+                <h5 class="quote-submodule__title">Tunnel de conversion</h5>
+                <label class="contact-field">
+                    <span class="contact-field__label">Tunnel structuré aujourd’hui ?</span>
+                    <select name="quote[p2][sub][tunnel][structured]">
+                        <option value="">—</option>
+                        <option value="oui">Oui</option>
+                        <option value="partiel">Partiellement</option>
+                        <option value="non">Non</option>
+                    </select>
+                </label>
+                <label class="contact-field contact-field--full">
+                    <span class="contact-field__label">Objectif principal</span>
+                    <textarea name="quote[p2][sub][tunnel][goal]" rows="2" placeholder="Leads, conversion, automatisation du parcours…"></textarea>
+                </label>
+            </div>
+            <div class="quote-submodule" data-p2-for-lever="Acquisition" hidden>
+                <h5 class="quote-submodule__title">Pilotage commercial digital</h5>
+                <label class="contact-field">
+                    <span class="contact-field__label">Fréquence de pilotage souhaitée</span>
+                    <select name="quote[p2][sub][acquisition][freq]">
+                        <option value="">—</option>
+                        <option value="hebdo">Hebdomadaire</option>
+                        <option value="mensuel">Mensuelle</option>
+                        <option value="trim">Trimestrielle</option>
+                        <option value="ns">À définir</option>
+                    </select>
+                </label>
+                <label class="contact-field contact-field--full">
+                    <span class="contact-field__label">Indicateurs à suivre</span>
+                    <textarea name="quote[p2][sub][acquisition][kpis]" rows="2" placeholder="CA, leads, conversion…"></textarea>
+                </label>
+            </div>
+            <div class="quote-submodule" data-p2-for-lever="Data / KPI" hidden>
+                <h5 class="quote-submodule__title">Analyse de performance (data / KPI)</h5>
+                <label class="contact-field">
+                    <span class="contact-field__label">Outils de suivi actuels</span>
+                    <select name="quote[p2][sub][data][tools]">
+                        <option value="">—</option>
+                        <option value="oui">Oui, outils en place</option>
+                        <option value="partiel">Partiellement</option>
+                        <option value="non">Non</option>
+                    </select>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Action souhaitée</span>
+                    <select name="quote[p2][sub][data][action]">
+                        <option value="">—</option>
+                        <option value="setup">Mettre en place un suivi</option>
+                        <option value="improve">Améliorer l’existant</option>
+                        <option value="dashboard">Créer des dashboards</option>
+                        <option value="reporting">Automatiser le reporting</option>
+                    </select>
+                </label>
+            </div>
+            <div class="quote-submodule" data-p2-for-lever="Structuration marketing" hidden>
+                <h5 class="quote-submodule__title">Structuration marketing</h5>
+                <label class="contact-field">
+                    <span class="contact-field__label">Marketing structuré aujourd’hui ?</span>
+                    <select name="quote[p2][sub][marketing][structured]">
+                        <option value="">—</option>
+                        <option value="oui">Oui</option>
+                        <option value="partiel">Partiellement</option>
+                        <option value="non">Non</option>
+                    </select>
+                </label>
+                <label class="contact-field contact-field--full">
+                    <span class="contact-field__label">Éléments à structurer</span>
+                    <textarea name="quote[p2][sub][marketing][elements]" rows="2" placeholder="Stratégie, plan d’action, outils, process…"></textarea>
+                </label>
+            </div>
             <label class="contact-field contact-field--full">
                 <span class="contact-field__label">Principal blocage digital aujourd’hui</span>
                 <textarea name="quote[p2][blocker]" rows="2"></textarea>
@@ -371,10 +668,10 @@
         </label>
     </div>
 
-    {# —— Étape 5 : budget + créneau RDV + finalisation —— #}
+    {# —— Étape 5 : budget + créneau RDV (avant estimation) —— #}
     <div class="quote-wizard__pane" data-step="5" hidden>
-        <h3 class="quote-wizard__pane-title">Budget, délai, créneau &amp; finalisation</h3>
-        <p class="quote-wizard__pane-intro">Dernière étape : indiquez vos contraintes, proposez un créneau pour échanger avec nous, ou demandez le devis sans fixer de rendez-vous.</p>
+        <h3 class="quote-wizard__pane-title">Budget, délai &amp; créneau</h3>
+        <p class="quote-wizard__pane-intro">Indiquez vos contraintes, proposez un créneau pour échanger avec nous, ou passez directement à l’estimation sans rendez-vous. L’étape suivante affichera une fourchette indicative calculée à partir de notre grille tarifaire.</p>
         <div class="contact-form__grid contact-form__grid--2">
             <label class="contact-field">
                 <span class="contact-field__label">Échéance ou contrainte de délai ?</span>
@@ -453,7 +750,18 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    {# —— Étape 6 : estimation gratuite + confidentialité + envoi —— #}
+    <div class="quote-wizard__pane" data-step="6" hidden>
+        <h3 class="quote-wizard__pane-title">Votre fourchette indicative — prochaine étape : l’échange humain</h3>
+        <p class="quote-wizard__pane-intro">Nous vous proposons une <strong>vision chiffrée</strong> à partir de vos réponses. <strong>Ce n’est pas un devis contractuel</strong> : un chargé d’affaires vous recontacte en général <strong>sous 48 h ouvrées</strong> pour valider le périmètre et transformer cette base en proposition claire.</p>
+        <div class="quote-estimate" id="quote-estimate-root" aria-live="polite">
+            <p class="quote-estimate__loading" id="quote-estimate-loading">Préparation de votre estimation…</p>
+            <div class="quote-estimate__content" id="quote-estimate-content" hidden></div>
+            <p class="quote-estimate__error" id="quote-estimate-error" hidden role="alert"></p>
+        </div>
+        <p class="quote-estimate-disclaimer">Cette étape sert à cadrer votre besoin : aucun document commercial n’est généré automatiquement ici — nous préparons votre pré-devis sur mesure après échange.</p>
         <label class="contact-check contact-check--legal">
             <input type="checkbox" name="quote[privacy_ok]" value="1" required>
             <span>J’accepte la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a> et l’utilisation de mes données pour traiter ma demande de pré-devis et me recontacter.</span>
