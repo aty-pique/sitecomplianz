@@ -4,7 +4,7 @@
 {% set ph = pole_heroes[pole.pole] ?? 'blue' %}
 
 {% set pole_page_title = pole.hero_h1|default(pole.hero_h1_before|default('') ~ pole.hero_h1_highlight|default('') ~ pole.hero_h1_after|default(pole.name)) %}
-{% set hero_eyebrow = pole.hero_eyebrow|default(pole.hero_badge|default(pole.hero_kicker|default(''))) %}
+{% set hero_eyebrow = pole.hero_eyebrow|default(pole.hero_badge|default('Pôle expertise')) %}
 {% set hero_title = pole.hero_h1|default(pole.hero_h1_before|default('') ~ pole.hero_h1_highlight|default('') ~ pole.hero_h1_after|default(pole.name)) %}
 {% set hero_hook_lines = pole.hero_hook|default([]) %}
 {% set hero_lead = pole.hero_lead|default(hero_hook_lines|length > 0 ? hero_hook_lines|join(' ') : pole.hero_sub|default('')) %}
