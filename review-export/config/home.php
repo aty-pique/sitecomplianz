@@ -138,27 +138,27 @@ return [
         'steps' => [
             [
                 'title' => 'Structurer',
-                'text'  => 'Gouvernance, organisation, gestion des risques et conformité : poser des fondations solides avant la technologie.',
+                'text'  => 'Gouvernance, gestion des risques et conformité : des fondations solides avant la technologie.',
                 'href'  => '/audit-conformite',
             ],
             [
                 'title' => 'Outiller',
-                'text'  => 'Développement de solutions sur-mesure (ERP, CRM, SaaS), intégration et automatisation des processus.',
+                'text'  => 'Solutions sur mesure (ERP, CRM, SaaS), intégration et automatisation des processus.',
                 'href'  => '/solutions-developpement',
             ],
             [
                 'title' => 'Performer',
-                'text'  => 'Stratégie digitale, analyse de données et optimisation continue pour maximiser vos résultats.',
+                'text'  => 'Stratégie digitale, analyse de données et optimisation pour maximiser vos résultats.',
                 'href'  => '/performance-digitale',
             ],
             [
                 'title' => 'Maintenir',
-                'text'  => 'Infogérance, hébergement, supervision et support technique pour garantir continuité et disponibilité.',
+                'text'  => 'Infogérance, hébergement et support technique pour la continuité de service.',
                 'href'  => '/support-maintenance',
             ],
             [
                 'title' => 'Innover',
-                'text'  => 'IA, automatisation et agents intelligents pour anticiper vos besoins et garder une longueur d’avance.',
+                'text'  => 'IA, automatisation et agents intelligents pour anticiper et gagner en efficacité.',
                 'href'  => '/intelligence-artificielle',
             ],
         ],

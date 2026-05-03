@@ -161,7 +161,7 @@
                 {% if pole.intro_tension_title_before is defined and pole.intro_tension_title_highlight is defined %}
                 {{ pole.intro_tension_title_before }} <span class="pole-lp-tension-title__hl">{{ pole.intro_tension_title_highlight }}</span>
                 {% else %}
-                {{ pole.intro_tension_title|default('Pourquoi votre conformité vous ralentit') }}
+                {{ pole.intro_tension_title|default('Pourquoi votre organisation peine à avancer sans système clair') }}
                 {% endif %}
             </h2>
             {% if pole.intro_lead is defined and pole.intro_lead|length > 0 %}
@@ -181,7 +181,7 @@
                     <span class="pole-lp-split__mark pole-lp-split__mark--today" aria-hidden="true">×</span>
                     <p class="pole-lp-split__badge pole-lp-split__badge--today-cap">{{ pole.intro_today_label|default("Aujourd'hui") }}</p>
                 </div>
-                <h3 class="pole-lp-split__card-title">{{ pole.intro_today_card_title|default('Une conformité subie') }}</h3>
+                <h3 class="pole-lp-split__card-title">{{ pole.intro_today_card_title|default('Friction & dispersion') }}</h3>
                 <ul class="pole-lp-split__list pole-lp-split__list--problems pole-lp-split__list--icons">
                     {% for item in pole.intro_problems|default([]) %}
                     {% set txt = item.text is defined ? item.text : item %}
@@ -209,7 +209,7 @@
                     <span class="pole-lp-split__mark pole-lp-split__mark--tomorrow" aria-hidden="true">✓</span>
                     <p class="pole-lp-split__badge pole-lp-split__badge--positive pole-lp-split__badge--tomorrow-cap">{{ pole.intro_tomorrow_label|default('Demain') }}</p>
                 </div>
-                <h3 class="pole-lp-split__card-title">{{ pole.intro_tomorrow_card_title|default('Une conformité structurante') }}</h3>
+                <h3 class="pole-lp-split__card-title">{{ pole.intro_tomorrow_card_title|default('Un système cohérent & piloté') }}</h3>
                 <ul class="pole-lp-split__list pole-lp-split__list--solutions pole-lp-split__list--icons">
                     {% for item in pole.intro_solutions|default([]) %}
                     {% set txt = item.text is defined ? item.text : item %}
@@ -233,7 +233,7 @@
             <div class="pole-lp-conviction__mark" aria-hidden="true">💡</div>
             <div class="pole-lp-conviction__body">
                 <p class="pole-lp-conviction__label">{{ pole.intro_conviction.label|default('Notre conviction') }}</p>
-                <p class="pole-lp-conviction__statement">{{ pole.intro_conviction.statement|default('La conformité n’est pas une fin en soi.') }}</p>
+                <p class="pole-lp-conviction__statement">{{ pole.intro_conviction.statement|default('La méthode prime sur l’empilement d’outils.') }}</p>
                 {% if pole.intro_conviction.sub is defined %}
                 <p class="pole-lp-conviction__sub">{{ pole.intro_conviction.sub }}</p>
                 {% endif %}
@@ -496,6 +496,8 @@
 {% set g_news_articles = g_news.articles|default([]) %}
 {% set g_trust = guide.guide_aside_trust|default('') %}
 {% set ph_search = guide.guide_search_placeholder|default('Recherchez un sujet, un guide, une norme…') %}
+{% set has_guide = g_nav|length > 0 or g_start|length > 0 or g_obj|length > 0 or g_pop|length > 0 or (g_news.title is defined and g_news.title and g_news_articles|length > 0) %}
+{% if has_guide %}
 <section class="pole-lp-guide sp-section" aria-labelledby="pole-guide-title">
     <div class="container">
         <header class="pole-lp-guide__head">
@@ -505,11 +507,11 @@
                     {% if guide.guide_hero_title_before is defined and guide.guide_hero_title_before %}
                     {{ guide.guide_hero_title_before }}<span>{{ guide.guide_hero_title_highlight|default('') }}</span>{{ guide.guide_hero_title_after|default('') }}
                     {% else %}
-                    Le guide complet de la <span>conformité</span> et de la performance
+                    Guides &amp; ressources <span>pour avancer avec méthode</span>
                     {% endif %}
                 </h2>
                 <p class="pole-lp-guide__sub">
-                    {{ guide.guide_hero_sub|default('Explorez nos ressources pour comprendre, appliquer et optimiser la conformité, les outils et la structuration de votre entreprise.') }}
+                    {{ guide.guide_hero_sub|default('Parcours, expertises et contenus pour prioriser vos chantiers et éviter les investissements dans le mauvais ordre.') }}
                 </p>
             </div>
             <div class="pole-lp-guide__head-visual" aria-hidden="true">
@@ -681,6 +683,7 @@
         {% endif %}
     </div>
 </section>
+{% endif %}
 
 {% set cta_fin = pole.cta_final|default({}) %}
 {% include 'partials/pole-final-cta.twig' with { cta_fin: cta_fin, ph: ph } only %}

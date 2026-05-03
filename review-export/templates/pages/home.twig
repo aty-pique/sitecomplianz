@@ -317,7 +317,7 @@
 
 {% set pole_heroes = ['blue', 'green', 'beige', 'soft', 'ia'] %}
 {% set ps = home.poles_section %}
-<section class="home-poles" aria-labelledby="home-poles-title">
+<section class="home-poles" aria-labelledby="home-poles-title" data-home-poles>
     <div class="container">
         <header class="home-poles__page-head">
             <p class="home-poles__eyebrow">{{ ps.tag }}</p>
@@ -338,26 +338,31 @@
                         <span class="home-poles__process-accent">{{ ps.process_intro.accent }}</span>
                     </p>
                 </div>
-                <ol class="home-poles__process-list" role="list">
-                    {% for step in ps.steps %}
-                    <li class="home-poles__process-item">
-                        <div class="home-poles__process-rail" aria-hidden="true">
-                            <span class="home-poles__process-node"></span>
-                        </div>
-                        <div class="home-poles__process-card">
-                            <div class="home-poles__process-ico" aria-hidden="true">
-                                {% include 'partials/home-poles-step-icon.twig' with { step: loop.index } only %}
+                <div class="home-poles__process-stack" data-home-poles-process>
+                    <span class="home-poles__rail-track" aria-hidden="true">
+                        <span class="home-poles__rail-fill"></span>
+                    </span>
+                    <ol class="home-poles__process-list" role="list">
+                        {% for step in ps.steps %}
+                        <li class="home-poles__process-item">
+                            <div class="home-poles__process-rail" aria-hidden="true">
+                                <span class="home-poles__process-node"></span>
                             </div>
-                            <h3 class="home-poles__process-title">{{ step.title }}</h3>
-                            <span class="home-poles__process-vsep" aria-hidden="true"></span>
-                            <div class="home-poles__process-copycol">
-                                <p class="home-poles__process-desc">{{ step.text }}</p>
-                                <a class="home-poles__process-link" href="{{ step.href }}">Explorer →</a>
+                            <div class="home-poles__process-card">
+                                <div class="home-poles__process-ico" aria-hidden="true">
+                                    {% include 'partials/home-poles-step-icon.twig' with { step: loop.index } only %}
+                                </div>
+                                <h3 class="home-poles__process-title">{{ step.title }}</h3>
+                                <span class="home-poles__process-vsep" aria-hidden="true"></span>
+                                <div class="home-poles__process-copycol">
+                                    <p class="home-poles__process-desc">{{ step.text }}</p>
+                                    <a class="home-poles__process-link" href="{{ step.href }}">Explorer →</a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ol>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </div>
             </div>
         </div>
 
@@ -647,5 +652,6 @@
 {% block scripts %}
 <script src="/assets/js/home-chaos-system.js" defer></script>
 <script src="/assets/js/home-method-timeline.js" defer></script>
+<script src="/assets/js/home-poles-process-rail.js" defer></script>
 <script src="/assets/js/home-journey-scroll.js" defer></script>
 {% endblock %}

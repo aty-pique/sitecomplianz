@@ -5,30 +5,33 @@
 (function () {
     'use strict';
 
-    var root = document.querySelector('[data-home-method]');
-    if (!root) return;
+    var section = document.querySelector('[data-home-method]');
+    if (!section) return;
+
+    /** Zone dont le scroll pilote la jauge (timeline + cartes, pas tout le bandeau titre). */
+    var track = section.querySelector('.home-method__diagram') || section;
 
     function clamp01(t) {
         return Math.min(1, Math.max(0, t));
     }
 
     function getScrollProgress() {
-        var rect = root.getBoundingClientRect();
+        var rect = track.getBoundingClientRect();
         var vh = window.innerHeight || 1;
-        var total = root.offsetHeight - vh;
-        if (total <= 0) return 1;
-        var scrolled = -rect.top;
-        var p = scrolled / total;
+        var range = track.offsetHeight - vh * 0.55;
+        if (range <= 0) return 1;
+        var scrolled = -rect.top + vh * 0.12;
+        var p = scrolled / range;
         if (typeof p !== 'number' || !isFinite(p)) return 0;
         return clamp01(p);
     }
 
     function update() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            root.style.setProperty('--method-tl', '1');
+            section.style.setProperty('--method-tl', '1');
             return;
         }
-        root.style.setProperty('--method-tl', getScrollProgress().toFixed(4));
+        section.style.setProperty('--method-tl', getScrollProgress().toFixed(4));
     }
 
     update();
