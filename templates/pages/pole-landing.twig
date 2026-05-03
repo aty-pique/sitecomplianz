@@ -3,6 +3,13 @@
 {% set pole_heroes = ['blue', 'green', 'beige', 'soft', 'ia'] %}
 {% set ph = pole_heroes[pole.pole] ?? 'blue' %}
 
+{% set pole_page_title = pole.hero_h1|default(pole.hero_h1_before|default('') ~ pole.hero_h1_highlight|default('') ~ pole.hero_h1_after|default(pole.name)) %}
+{% set hero_eyebrow = pole.hero_eyebrow|default(pole.hero_badge|default(pole.hero_kicker|default(''))) %}
+{% set hero_title = pole.hero_h1|default(pole.hero_h1_before|default('') ~ pole.hero_h1_highlight|default('') ~ pole.hero_h1_after|default(pole.name)) %}
+{% set hero_hook_lines = pole.hero_hook|default([]) %}
+{% set hero_lead = pole.hero_lead|default(hero_hook_lines|length > 0 ? hero_hook_lines|join(' ') : pole.hero_sub|default('')) %}
+{% set intro_text = pole.intro|default(pole.intro_lead is defined and pole.intro_lead|length > 0 ? pole.intro_lead|join(' ') : pole.intro_conviction.sub|default('')) %}
+
 {% block title %}{{ pole.meta_title }}{% endblock %}
 {% block description %}{{ pole.meta_description }}{% endblock %}
 
@@ -13,7 +20,7 @@
   "@graph": [
     {
       "@type": "CollectionPage",
-      "name": {{ pole.name|json_encode|raw }},
+      "name": {{ pole_page_title|json_encode|raw }},
       "description": {{ pole.meta_description|json_encode|raw }},
       "url": "{{ app_url }}{{ pole.path }}"
     },
@@ -37,93 +44,698 @@
         <span class="sp-blob sp-blob--2"></span>
     </div>
     <div class="container pole-lp-hero__inner">
-        <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
-            <a href="/">Accueil</a>
-            <span class="sp-breadcrumb__sep">/</span>
-            <span aria-current="page">{{ pole.name }}</span>
-        </nav>
-        <p class="sp-hero__eyebrow">{{ pole.hero_eyebrow }}</p>
-        <h1 class="sp-hero__title">{{ pole.name }}</h1>
-        <p class="sp-hero__lead">{{ pole.hero_lead }}</p>
-        <div class="sp-hero__actions">
-            <button type="button" class="btn btn-primary btn-lg" data-open-quote-modal>Demander un devis</button>
-            <a href="/nos-packs#pole-{{ pole.pole }}" class="btn btn-outline">Voir les packs de ce pôle</a>
-            <a href="/contact" class="btn btn-outline">Contact</a>
+        {% set trust_items = pole.hero_trust_pillars|default([]) %}
+        <div class="pole-lp-hero__grid{% if pole.hero_illustration is defined and pole.hero_illustration %} pole-lp-hero__grid--split{% endif %}">
+            <div class="pole-lp-hero__copy">
+                <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                    <a href="/">Accueil</a>
+                    <span class="sp-breadcrumb__sep">/</span>
+                    <span aria-current="page">{{ pole.name }}</span>
+                </nav>
+                {% if hero_eyebrow %}
+                <p class="pole-lp-hero__badge">
+                    <span class="pole-lp-hero__badge-dot"></span>
+                    <span>{{ hero_eyebrow }}</span>
+                </p>
+                {% endif %}
+                <h1 class="pole-lp-hero__title">
+                    {% if pole.hero_h1_highlight is defined and pole.hero_h1_before is defined and pole.hero_h1_after is defined %}
+                    {{ pole.hero_h1_before }}<span class="pole-lp-hero__hl">{{ pole.hero_h1_highlight }}</span>{{ pole.hero_h1_after }}
+                    {% else %}
+                    {{ hero_title }}
+                    {% endif %}
+                </h1>
+                {% if pole.hero_kicker is defined and pole.hero_kicker %}
+                <p class="pole-lp-hero__kicker">{{ pole.hero_kicker }}</p>
+                {% endif %}
+                {% if hero_hook_lines|length > 0 %}
+                <div class="pole-lp-hero__hook">
+                    {% for line in hero_hook_lines %}
+                    <p class="pole-lp-hero__hook-line{% if loop.index == 2 %} pole-lp-hero__hook-line--em{% endif %}">{{ line }}</p>
+                    {% endfor %}
+                </div>
+                {% elseif hero_lead %}
+                <p class="pole-lp-hero__lead">{{ hero_lead }}</p>
+                {% endif %}
+                <div class="sp-hero__actions pole-lp-hero__actions">
+                    <button type="button" class="btn btn-primary btn-lg pole-lp-hero__cta" data-open-quote-modal>{{ pole.hero_cta_primary|default('Demander un devis') }}</button>
+                    <a href="{{ pole.hero_cta_secondary_href|default('/contact') }}" class="btn btn-outline btn-lg pole-lp-hero__cta pole-lp-hero__cta--ghost">{{ pole.hero_cta_secondary|default('Contact') }}</a>
+                </div>
+            </div>
+
+            {% if pole.hero_illustration is defined and pole.hero_illustration %}
+            <div class="pole-lp-hero__visual">
+                <div class="pole-lp-hero__panel">
+                    <div class="pole-lp-hero__panel-head">
+                        <p class="pole-lp-hero__panel-title">Votre entreprise, maîtrisée.</p>
+                        <ul class="pole-lp-hero__panel-list">
+                            {% for item in trust_items|slice(0, 4) %}
+                            <li>
+                                <span class="pole-lp-hero__panel-dot"></span>
+                                <span>{{ item.title }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="pole-lp-hero__score">
+                        <span class="pole-lp-hero__score-ring"></span>
+                        <span class="pole-lp-hero__score-label">SYSTÈME MAÎTRISÉ</span>
+                        <strong>92%</strong>
+                    </div>
+                </div>
+
+                <div class="pole-lp-hero__stack">
+                    <img src="{{ pole.hero_illustration }}" alt="{{ pole.hero_illustration_alt|default('') }}" width="560" height="420" loading="eager" decoding="async" class="pole-lp-hero__illo-img" />
+                    {% for item in trust_items|slice(0, 4) %}
+                    <div class="pole-lp-hero__mini pole-lp-hero__mini--{{ loop.index }}">
+                        <span class="pole-lp-hero__mini-title">{{ item.title }}</span>
+                        <span class="pole-lp-hero__mini-text">{{ item.text }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
         </div>
-    </div>
-</section>
 
-<section class="pole-lp-band">
-    <div class="container pole-lp-intro">
-        <p>{{ pole.intro }}</p>
-        <ul class="pole-lp-highlights">
-            {% for line in pole.highlights %}
-                <li>{{ line }}</li>
+        {% if trust_items|length > 0 %}
+        <div class="pole-lp-hero__trust">
+            {% for item in trust_items|slice(0, 4) %}
+            <div class="pole-lp-hero__trust-item">
+                <span class="pole-lp-hero__trust-item-head">
+                    <span class="pole-lp-hero__trust-icon">
+                        {% include 'partials/pole-guide-icon.twig' with { name: item.icon|default('shield'), size: 14 } %}
+                    </span>
+                    <span class="pole-lp-hero__trust-title">{{ item.title }}</span>
+                </span>
+                <span class="pole-lp-hero__trust-text">{{ item.text }}</span>
+            </div>
             {% endfor %}
-        </ul>
+            {% if pole.hero_trust_proof is defined and pole.hero_trust_proof.title is defined %}
+            <div class="pole-lp-hero__proof">
+                <span class="pole-lp-hero__proof-icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </span>
+                <span class="pole-lp-hero__proof-body">
+                    <strong>{{ pole.hero_trust_proof.title }}</strong>
+                    {% if pole.hero_trust_proof.sub is defined %}
+                    <span>{{ pole.hero_trust_proof.sub }}</span>
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
 </section>
 
-<section class="pole-lp-section sp-section">
+<section class="pole-lp-band pole-lp-band--split" aria-labelledby="pole-intro-tension">
+    <div class="container pole-lp-intro-split">
+        <header class="pole-lp-intro-head">
+            {% if pole.intro_section_badge is defined and pole.intro_section_badge %}
+            <p class="pole-lp-intro-badge">
+                <span class="pole-lp-intro-badge__dot"></span>
+                <span>{{ pole.intro_section_badge }}</span>
+            </p>
+            {% endif %}
+            <h2 id="pole-intro-tension" class="pole-lp-tension-title pole-lp-tension-title--featured">
+                {% if pole.intro_tension_title_before is defined and pole.intro_tension_title_highlight is defined %}
+                {{ pole.intro_tension_title_before }} <span class="pole-lp-tension-title__hl">{{ pole.intro_tension_title_highlight }}</span>
+                {% else %}
+                {{ pole.intro_tension_title|default('Pourquoi votre conformité vous ralentit') }}
+                {% endif %}
+            </h2>
+            {% if pole.intro_lead is defined and pole.intro_lead|length > 0 %}
+            <div class="pole-lp-intro-lead">
+                {% for line in pole.intro_lead|slice(0, 2) %}
+                <p class="pole-lp-intro-lead__line{% if loop.last %} pole-lp-intro-lead__line--strong{% endif %}">{{ line }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </header>
+
+        {% set prob_icons = ['shield', 'file', 'unlink', 'clock'] %}
+        {% set sol_icons = ['nodes', 'target', 'puzzle', 'chart'] %}
+        <div class="pole-lp-split pole-lp-split--featured">
+            <div class="pole-lp-split__col pole-lp-split__col--today">
+                <div class="pole-lp-split__card-head">
+                    <span class="pole-lp-split__mark pole-lp-split__mark--today" aria-hidden="true">×</span>
+                    <p class="pole-lp-split__badge pole-lp-split__badge--today-cap">{{ pole.intro_today_label|default("Aujourd'hui") }}</p>
+                </div>
+                <h3 class="pole-lp-split__card-title">{{ pole.intro_today_card_title|default('Une conformité subie') }}</h3>
+                <ul class="pole-lp-split__list pole-lp-split__list--problems pole-lp-split__list--icons">
+                    {% for item in pole.intro_problems|default([]) %}
+                    {% set txt = item.text is defined ? item.text : item %}
+                    {% set ic = item.icon is defined ? item.icon : prob_icons[loop.index0]|default('shield') %}
+                    <li class="pole-lp-split__li">
+                        {% include 'partials/pole-split-li-icon.twig' with { name: ic, tone: 'danger' } %}
+                        <span class="pole-lp-split__li-text">{{ txt }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if pole.intro_today_result is defined and pole.intro_today_result %}
+                <div class="pole-lp-split__result pole-lp-split__result--today">
+                    <p class="pole-lp-split__result-text">{{ pole.intro_today_result }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="pole-lp-split__bridge" aria-hidden="true">
+                <span class="pole-lp-split__bridge-ring"></span>
+                <span class="pole-lp-split__bridge-arrow">→</span>
+            </div>
+
+            <div class="pole-lp-split__col pole-lp-split__col--tomorrow">
+                <div class="pole-lp-split__card-head">
+                    <span class="pole-lp-split__mark pole-lp-split__mark--tomorrow" aria-hidden="true">✓</span>
+                    <p class="pole-lp-split__badge pole-lp-split__badge--positive pole-lp-split__badge--tomorrow-cap">{{ pole.intro_tomorrow_label|default('Demain') }}</p>
+                </div>
+                <h3 class="pole-lp-split__card-title">{{ pole.intro_tomorrow_card_title|default('Une conformité structurante') }}</h3>
+                <ul class="pole-lp-split__list pole-lp-split__list--solutions pole-lp-split__list--icons">
+                    {% for item in pole.intro_solutions|default([]) %}
+                    {% set txt = item.text is defined ? item.text : item %}
+                    {% set ic = item.icon is defined ? item.icon : sol_icons[loop.index0]|default('nodes') %}
+                    <li class="pole-lp-split__li">
+                        {% include 'partials/pole-split-li-icon.twig' with { name: ic, tone: 'success' } %}
+                        <span class="pole-lp-split__li-text">{{ txt }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if pole.intro_tomorrow_result is defined and pole.intro_tomorrow_result %}
+                <div class="pole-lp-split__result pole-lp-split__result--tomorrow">
+                    <p class="pole-lp-split__result-text">{{ pole.intro_tomorrow_result }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if pole.intro_conviction is defined %}
+        <aside class="pole-lp-conviction" aria-label="{{ pole.intro_conviction.label|default('Notre conviction') }}">
+            <div class="pole-lp-conviction__mark" aria-hidden="true">💡</div>
+            <div class="pole-lp-conviction__body">
+                <p class="pole-lp-conviction__label">{{ pole.intro_conviction.label|default('Notre conviction') }}</p>
+                <p class="pole-lp-conviction__statement">{{ pole.intro_conviction.statement|default('La conformité n’est pas une fin en soi.') }}</p>
+                {% if pole.intro_conviction.sub is defined %}
+                <p class="pole-lp-conviction__sub">{{ pole.intro_conviction.sub }}</p>
+                {% endif %}
+            </div>
+        </aside>
+        {% endif %}
+    </div>
+</section>
+
+<section class="pole-lp-section pole-lp-domains sp-section{% if pole.domains_cta_card is defined %} pole-lp-domains--featured pole-lp-domains--dark{% endif %}">
     <div class="container">
-        <div class="sp-section-header">
-            <p class="sp-section-tag">Expertises</p>
-            <h2>Nos domaines sur ce pôle</h2>
-            <p class="sp-section-sub">Accédez aux familles de services et à toutes les fiches détaillées.</p>
+        <div class="pole-lp-domains__head">
+            <p class="pole-lp-domains__badge">
+                <span class="pole-lp-domains__badge-dot"></span>
+                <span>{{ pole.domains_section_badge|default('Expertises') }}</span>
+            </p>
+            <h2 class="pole-lp-domains__title">
+                {% if pole.domains_title_highlight is defined and pole.domains_title_before is defined and pole.domains_title_after is defined %}
+                {{ pole.domains_title_before }}<span class="pole-lp-domains__title-hl">{{ pole.domains_title_highlight }}</span>{{ pole.domains_title_after }}
+                {% else %}
+                Nos domaines d'expertise
+                {% endif %}
+            </h2>
+            <p class="pole-lp-domains__sub">{{ pole.domains_subtitle|default('Chaque domaine répond à une intention précise avec une approche méthodique et des livrables concrets pour des résultats mesurables.') }}</p>
         </div>
-        <div class="pole-lp-cat-grid">
-            {% for cat in pole.categories %}
-                <a href="{{ cat.href }}" class="pole-lp-cat-card">
-                    <span class="pole-lp-cat-card__title">{{ cat.title }}</span>
-                    <span class="pole-lp-cat-card__text">{{ cat.text }}</span>
-                    <span class="pole-lp-cat-card__cta">Découvrir →</span>
+
+        <div class="pole-lp-domains__carousel" data-pole-domains-carousel>
+            <button type="button" class="pole-lp-domains__nav pole-lp-domains__nav--prev" data-pole-domains-prev aria-label="Faire défiler les offres vers la gauche">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="pole-lp-domains__viewport">
+                <div class="pole-lp-domains__track" data-pole-domains-track tabindex="0" role="region" aria-label="{{ pole.domains_carousel_label|default('Offres et expertises du pôle') }}">
+            {% for cat in pole.categories|default([]) %}
+            {% set accent = cat.accent|default(loop.index in [2,4] ? 'green' : (loop.index == 5 ? 'orange' : 'blue')) %}
+            <article class="pole-lp-domains-card pole-lp-domains-card--{{ accent }}">
+                <a href="{{ cat.href }}" class="pole-lp-domains-card__body">
+                    <div class="pole-lp-domains-card__top">
+                        <span class="pole-lp-domains-card__icon-wrap">
+                            {% include 'partials/pole-domain-card-icon.twig' with { icon: cat.icon|default('chart') } %}
+                        </span>
+                        <div class="pole-lp-domains-card__head-text">
+                            <h3 class="pole-lp-domains-card__name">{{ cat.title }}</h3>
+                            <p class="pole-lp-domains-card__tagline">{{ cat.card_tagline|default(cat.seo_line|default('')) }}</p>
+                        </div>
+                    </div>
+                    <p class="pole-lp-domains-card__desc">{{ cat.text|default('') }}</p>
+                    {% if cat.seo_line is defined and cat.seo_line and cat.seo_line != cat.card_tagline|default('') %}
+                    <p class="pole-lp-domains-card__desc pole-lp-domains-card__desc--alt">{{ cat.seo_line }}</p>
+                    {% endif %}
+                    {% if cat.keywords is defined and cat.keywords|length > 0 %}
+                    <ul class="pole-lp-domains-card__kw">
+                        {% for kw in cat.keywords|slice(0, 4) %}
+                        <li><span class="pole-lp-domains-card__kw-tag">{{ kw }}</span></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </a>
+                <div class="pole-lp-domains-card__footer">
+                    <a href="{{ cat.href_cases|default(cat.href ~ '#cas-concrets') }}" class="pole-lp-domains-card__foot-link pole-lp-domains-card__foot-link--cas">
+                        <span>Voir les cas concrets</span>
+                    </a>
+                    <a href="{{ cat.href_process|default(cat.href ~ '#processus') }}" class="pole-lp-domains-card__foot-link pole-lp-domains-card__foot-link--proc">
+                        <span>Voir le processus</span>
+                    </a>
+                </div>
+            </article>
             {% endfor %}
+
+            {% if pole.domains_cta_card is defined %}
+            <aside class="pole-lp-domains-cta">
+                <div class="pole-lp-domains-cta__head">
+                    <div class="pole-lp-domains-cta__icon-ring" aria-hidden="true">
+                        {% include 'partials/pole-domain-card-icon.twig' with { icon: pole.domains_cta_card.icon|default('target-cta') } %}
+                    </div>
+                    <div class="pole-lp-domains-cta__intro">
+                        <h3 class="pole-lp-domains-cta__title">{{ pole.domains_cta_card.title }}</h3>
+                        <p class="pole-lp-domains-cta__text">{{ pole.domains_cta_card.text }}</p>
+                    </div>
+                </div>
+                {% if pole.domains_cta_card.bullets is defined and pole.domains_cta_card.bullets|length > 0 %}
+                <ul class="pole-lp-domains-cta__list">
+                    {% for line in pole.domains_cta_card.bullets %}
+                    <li><span class="pole-lp-domains-cta__check" aria-hidden="true">✓</span><span>{{ line }}</span></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <button type="button" class="pole-lp-domains-cta__btn" data-open-rdv-modal>
+                    <span class="pole-lp-domains-cta__btn-cal" aria-hidden="true">
+                        <svg class="pole-lp-domains-cta__cal-ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    </span>
+                    <span class="pole-lp-domains-cta__btn-label">{{ pole.domains_cta_card.cta_label|default('Échanger avec un expert') }}</span>
+                    <span class="pole-lp-domains-cta__btn-arrow" aria-hidden="true">→</span>
+                </button>
+            </aside>
+            {% endif %}
+                </div>
+            </div>
+            <button type="button" class="pole-lp-domains__nav pole-lp-domains__nav--next" data-pole-domains-next aria-label="Faire défiler les offres vers la droite">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
         </div>
     </div>
 </section>
 
 <section class="pole-lp-packs sp-section">
     <div class="container">
+        {% if pole.packs_hub is defined and pole.packs_hub.featured and pole.packs_hub.order is defined %}
+        <header class="pole-lp-packs-feat__head">
+            <p class="pole-lp-packs-feat__badge">
+                <span class="pole-lp-packs-feat__badge-dot"></span>
+                <span>{{ pole.packs_hub.badge|default('Nos parcours packagés') }}</span>
+            </p>
+            <h2 class="pole-lp-packs-feat__title">
+                {% if pole.packs_hub.title_highlight is defined and pole.packs_hub.title_before is defined %}
+                {{ pole.packs_hub.title_before }}<span class="pole-lp-packs-feat__title-hl">{{ pole.packs_hub.title_highlight }}</span>{{ pole.packs_hub.title_after|default('') }}
+                {% else %}
+                Parcours packagés — {{ pole.name }}
+                {% endif %}
+            </h2>
+            {% if pole.packs_hub.subtitle is defined and pole.packs_hub.subtitle %}
+            <p class="pole-lp-packs-feat__sub">{{ pole.packs_hub.subtitle }}</p>
+            {% endif %}
+        </header>
+
+        {% if pole.packs_hub.method_steps is defined and pole.packs_hub.method_steps|length > 0 %}
+        <div class="pole-lp-pack-method" aria-label="{{ pole.packs_hub.method_label|default('Notre méthode') }}">
+            <p class="pole-lp-pack-method__label">{{ pole.packs_hub.method_label|default('Notre méthode') }}</p>
+            <div class="pole-lp-pack-method__track">
+                {% for st in pole.packs_hub.method_steps %}
+                <div class="pole-lp-pack-method__step">
+                    <span class="pole-lp-pack-method__orb">{{ loop.index }}</span>
+                    <div class="pole-lp-pack-method__step-body">
+                        <span class="pole-lp-pack-method__step-title">{{ st.title }}</span>
+                        {% if st.text is defined %}<span class="pole-lp-pack-method__step-desc">{{ st.text }}</span>{% endif %}
+                    </div>
+                </div>
+                {% if not loop.last %}<span class="pole-lp-pack-method__arrow">→</span>{% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if pole.packs_hub.chooser_label is defined %}
+        <p class="pole-lp-packs-feat__chooser">{{ pole.packs_hub.chooser_label }}</p>
+        {% endif %}
+
+        {% if pole_packs|length > 0 %}
+        <ul class="pole-lp-packs-feat__grid">
+            {% for slug in pole.packs_hub.order %}
+            {% if pole_packs[slug] is defined %}
+            {% set base = pole_packs[slug] %}
+            {% set ov = pole.packs_hub.cards[slug]|default({}) %}
+            {% set accent = ov.accent|default('blue') %}
+            {% set niveau = ov.niveau|default(loop.index) %}
+            {% set bullets = ov.hub_bullets|default(base.benefits|default([])|slice(0, 3)) %}
+            {% set pack_intro = ov.hub_intro|default(base.intro|default('')) %}
+            {% set pack_icon = ov.hub_icon|default('file') %}
+            <li>
+                <article class="pole-lp-pack-card pole-lp-pack-card--{{ accent }}">
+                    <span class="pole-lp-pack-card__lvl pole-lp-pack-card__lvl--{{ accent }}">Niveau {{ niveau }}</span>
+                    <div class="pole-lp-pack-card__top">
+                        <span class="pole-lp-pack-card__ico-wrap pole-lp-pack-card__ico-wrap--{{ accent }}" aria-hidden="true">
+                            {% include 'partials/pole-guide-icon.twig' with { name: pack_icon, size: 22 } %}
+                        </span>
+                        <div class="pole-lp-pack-card__titles">
+                            <h3 class="pole-lp-pack-card__title">{{ ov.hub_title|default(base.title) }}</h3>
+                            <p class="pole-lp-pack-card__tag pole-lp-pack-card__tag--{{ accent }}">{{ ov.hub_tagline|default(base.tagline) }}</p>
+                        </div>
+                    </div>
+                    {% if pack_intro %}
+                    <p class="pole-lp-pack-card__intro">{{ pack_intro }}</p>
+                    {% endif %}
+                    {% if bullets|length > 0 %}
+                    <ul class="pole-lp-pack-card__bullets">
+                        {% for b in bullets %}
+                        <li>{{ b }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <details class="pole-lp-pack-card__acc">
+                        <summary class="pole-lp-pack-card__acc-summary">
+                            <span class="pole-lp-pack-card__acc-label">Tarif &amp; détails</span>
+                            <span class="pole-lp-pack-card__acc-chev" aria-hidden="true"></span>
+                        </summary>
+                        <div class="pole-lp-pack-card__acc-body">
+                            <div class="pole-lp-pack-card__price-box pole-lp-pack-card__price-box--{{ accent }}">
+                                <strong class="pole-lp-pack-card__price">{{ ov.price_label|default(base.price) }}</strong>
+                                <span class="pole-lp-pack-card__dur">{{ ov.duration_label|default(base.duration|default('')) }}</span>
+                            </div>
+                            <a href="/nos-packs/{{ slug }}" class="pole-lp-pack-card__more">En savoir plus <span aria-hidden="true">→</span></a>
+                        </div>
+                    </details>
+                </article>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="pole-lp-empty">Les offres pack pour ce pôle sont en cours d’alignement. <a href="/contact">Écrivez-nous</a> pour un devis sur mesure.</p>
+        {% endif %}
+
+        {% if pole.packs_hub.cta_diagnostic is defined or pole.packs_hub.cta_expert is defined %}
+        <div class="pole-lp-packs-feat__dual">
+            {% if pole.packs_hub.cta_diagnostic is defined %}
+            <div class="pole-lp-packs-feat__dual-box pole-lp-packs-feat__dual-box--diag">
+                <p class="pole-lp-packs-feat__dual-text">{{ pole.packs_hub.cta_diagnostic.text }}</p>
+                <button type="button" class="pole-lp-packs-feat__diag-btn" data-open-quote-modal>
+                    {{ pole.packs_hub.cta_diagnostic.button_label|default('Faire le diagnostic gratuit') }}
+                    <span aria-hidden="true">→</span>
+                </button>
+                {% if pole.packs_hub.cta_diagnostic.footnote is defined %}
+                <p class="pole-lp-packs-feat__dual-note">{{ pole.packs_hub.cta_diagnostic.footnote }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if pole.packs_hub.cta_expert is defined %}
+            <div class="pole-lp-packs-feat__dual-box pole-lp-packs-feat__dual-box--expert">
+                <p class="pole-lp-packs-feat__dual-text">{{ pole.packs_hub.cta_expert.text }}</p>
+                <a href="{{ pole.packs_hub.cta_expert.href|default('/contact') }}" class="pole-lp-packs-feat__expert-link">{{ pole.packs_hub.cta_expert.link_label|default('Prendre rendez-vous') }} <span aria-hidden="true">→</span></a>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% else %}
         <div class="sp-section-header">
             <p class="sp-section-tag">Nos packs</p>
             <h2>Parcours packagés — {{ pole.name }}</h2>
             <p class="sp-section-sub">Tarifs indicatifs ; votre chargé d’affaires adapte le périmètre à votre contexte.</p>
         </div>
         {% if pole_packs|length > 0 %}
-            <ul class="pack-index__grid pole-lp-packs__grid">
-                {% for slug, p in pole_packs %}
-                    <li>
-                        <a href="/nos-packs/{{ slug }}" class="pack-index__card{% if p.signature %} pack-index__card--sig{% endif %}">
-                            <span class="pack-index__card-title">{{ p.title }}</span>
-                            <span class="pack-index__card-tag">{{ p.tagline }}</span>
-                            <span class="pack-index__card-price">{{ p.price }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+        <ul class="pack-index__grid pole-lp-packs__grid">
+            {% for slug, p in pole_packs %}
+            <li>
+                <a href="/nos-packs/{{ slug }}" class="pack-index__card{% if p.signature %} pack-index__card--sig{% endif %}">
+                    <span class="pack-index__card-title">{{ p.title }}</span>
+                    <span class="pack-index__card-tag">{{ p.tagline }}</span>
+                    <span class="pack-index__card-price">{{ p.price }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
         {% else %}
-            <p class="pole-lp-empty">Les offres pack pour ce pôle sont en cours d’alignement. <a href="/contact">Écrivez-nous</a> pour un devis sur mesure.</p>
+        <p class="pole-lp-empty">Les offres pack pour ce pôle sont en cours d’alignement. <a href="/contact">Écrivez-nous</a> pour un devis sur mesure.</p>
         {% endif %}
-        <p class="pole-lp-packs-foot">
-            <a href="/nos-packs">Voir tous les packs Complianz →</a>
-        </p>
+        {% endif %}
     </div>
 </section>
 
-<section class="sp-cta-final sp-cta-final--{{ ph }}">
+{% set guide = pole.seo_deep_section|default({}) %}
+{% set guide_subs = guide.subsections|default([]) %}
+{% set guide_wiki = guide.wiki_links|default([]) %}
+{% set guide_blog = guide.blog_links|default([]) %}
+{% set g_nav = guide.guide_nav|default([]) %}
+{% set g_start = guide.guide_start_cards|default([]) %}
+{% set g_obj = guide.guide_objectives|default([]) %}
+{% set g_pop = guide.guide_popular|default([]) %}
+{% set g_news = guide.guide_news|default({}) %}
+{% set g_news_articles = g_news.articles|default([]) %}
+{% set g_trust = guide.guide_aside_trust|default('') %}
+{% set ph_search = guide.guide_search_placeholder|default('Recherchez un sujet, un guide, une norme…') %}
+<section class="pole-lp-guide sp-section" aria-labelledby="pole-guide-title">
     <div class="container">
-        <div class="sp-cta-final__inner">
-            <div class="sp-cta-final__text">
-                <h2>Un projet {{ pole.name }} ?</h2>
-                <p>Décrivez votre contexte : nous vous orientons vers la bonne famille de services ou un pack adapté.</p>
+        <header class="pole-lp-guide__head">
+            <div class="pole-lp-guide__head-copy">
+                <p class="pole-lp-guide__badge">Guide</p>
+                <h2 id="pole-guide-title" class="pole-lp-guide__title">
+                    {% if guide.guide_hero_title_before is defined and guide.guide_hero_title_before %}
+                    {{ guide.guide_hero_title_before }}<span>{{ guide.guide_hero_title_highlight|default('') }}</span>{{ guide.guide_hero_title_after|default('') }}
+                    {% else %}
+                    Le guide complet de la <span>conformité</span> et de la performance
+                    {% endif %}
+                </h2>
+                <p class="pole-lp-guide__sub">
+                    {{ guide.guide_hero_sub|default('Explorez nos ressources pour comprendre, appliquer et optimiser la conformité, les outils et la structuration de votre entreprise.') }}
+                </p>
             </div>
-            <div class="sp-cta-final__actions">
-                <button type="button" class="btn btn-primary btn-lg" data-open-quote-modal>Demander un devis</button>
-                <a href="/contact" class="btn btn-outline sp-cta-final__outline">Échanger avec un expert</a>
+            <div class="pole-lp-guide__head-visual" aria-hidden="true">
+                {% include 'partials/pole-guide-icon.twig' with { name: 'book', size: 42 } %}
+            </div>
+        </header>
+
+        <div class="pole-lp-guide__search">
+            <span class="pole-lp-guide__search-ico">{% include 'partials/pole-guide-icon.twig' with { name: 'search', size: 18 } %}</span>
+            <input type="search" placeholder="{{ ph_search }}" aria-label="Rechercher dans les guides" />
+        </div>
+
+        <div class="pole-lp-guide__layout">
+            <aside class="pole-lp-guide__aside">
+                <h3>Parcours &amp; thématiques</h3>
+                {% if g_nav|length > 0 %}
+                <ul class="pole-lp-guide__nav">
+                    {% for nav in g_nav %}
+                    <li class="{% if nav.active|default(false) %}is-active{% endif %}">
+                        <a href="{{ nav.href|default('#') }}">
+                            <span class="pole-lp-guide__nav-ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: nav.icon|default('file'), size: 16 } %}</span>
+                            <span class="pole-lp-guide__nav-label">{{ nav.label }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <ul>
+                    <li class="is-active"><a href="#pole-guide-title">Vue d’ensemble</a></li>
+                    {% for sub in guide_subs|slice(0, 8) %}
+                    <li><a href="{{ guide.id is defined ? '#' ~ guide.id ~ '-h3-' ~ sub.slug : '#' }}">{{ sub.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="pole-lp-guide__aside-cta">
+                    <h4>Besoin d’un accompagnement sur-mesure ?</h4>
+                    <p>Nos experts construisent avec vous le parcours adapté à vos enjeux.</p>
+                    <button type="button" class="pole-lp-guide__aside-cta-btn" data-open-rdv-modal>Échanger avec un expert <span aria-hidden="true">→</span></button>
+                    {% if g_trust %}
+                    <div class="pole-lp-guide__aside-trust" aria-hidden="true">
+                        <span class="pole-lp-guide__aside-trust-avatars">
+                            <span class="pole-lp-guide__aside-trust-dot"></span>
+                            <span class="pole-lp-guide__aside-trust-dot pole-lp-guide__aside-trust-dot--b"></span>
+                            <span class="pole-lp-guide__aside-trust-dot pole-lp-guide__aside-trust-dot--c"></span>
+                        </span>
+                        <span class="pole-lp-guide__aside-trust-check">✓</span>
+                        <span class="pole-lp-guide__aside-trust-txt">{{ g_trust }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </aside>
+
+            <div class="pole-lp-guide__main">
+                <section class="pole-lp-guide__block">
+                    <h3>Commencez par ici</h3>
+                    <p>Les guides essentiels pour bien démarrer.</p>
+                    <div class="pole-lp-guide__cards">
+                        {% if g_start|length > 0 %}
+                        {% for c in g_start %}
+                        {% set acc = c.accent is defined and c.accent ? c.accent : (loop.index is odd ? 'blue' : 'green') %}
+                        <article class="pole-lp-guide-card">
+                            <span class="pole-lp-guide-card__ico pole-lp-guide-card__ico--{{ acc }}">{% include 'partials/pole-guide-icon.twig' with { name: c.icon|default('file'), size: 18 } %}</span>
+                            <h4>{{ c.title }}</h4>
+                            <p>{{ c.text|default('') }}</p>
+                            <a href="{{ c.href|default('#') }}">Lire le guide <span aria-hidden="true">→</span></a>
+                        </article>
+                        {% endfor %}
+                        {% else %}
+                        {% for sub in guide_subs|slice(0, 4) %}
+                        {% set acc = loop.index is odd ? 'green' : 'blue' %}
+                        <article class="pole-lp-guide-card">
+                            <span class="pole-lp-guide-card__ico pole-lp-guide-card__ico--{{ acc }}">{% include 'partials/pole-guide-icon.twig' with { name: loop.index == 1 ? 'target' : (loop.index == 2 ? 'layers' : (loop.index == 3 ? 'shield' : 'trend')), size: 18 } %}</span>
+                            <h4>{{ sub.title }}</h4>
+                            <p>{{ sub.paragraphs[0]|default('Ressource pratique pour avancer avec méthode.')|slice(0, 110) ~ '…' }}</p>
+                            <a href="{{ guide.id is defined ? '#' ~ guide.id ~ '-h3-' ~ sub.slug : '#' }}">Lire le guide <span aria-hidden="true">→</span></a>
+                        </article>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </section>
+
+                {% if g_obj|length > 0 %}
+                <section class="pole-lp-guide__block pole-lp-guide__block--objectives">
+                    <h3>Parcours par objectif</h3>
+                    <p>Choisissez une intention : nous vous orientons vers les bons contenus et expertises.</p>
+                    <div class="pole-lp-guide__objectives">
+                        {% for o in g_obj %}
+                        <article class="pole-lp-guide-obj">
+                            <a href="{{ o.href|default('#') }}" class="pole-lp-guide-obj__main">
+                                <span class="pole-lp-guide-obj__ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: o.icon|default('target'), size: 18 } %}</span>
+                                <span class="pole-lp-guide-obj__title">{{ o.title }}</span>
+                                <span class="pole-lp-guide-obj__chev" aria-hidden="true">›</span>
+                            </a>
+                            {% if o.resources_href is defined and o.resources_href %}
+                            <a href="{{ o.resources_href }}" class="pole-lp-guide-obj__resources">{{ o.resources_label|default('Voir les ressources') }}</a>
+                            {% endif %}
+                        </article>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+                <section class="pole-lp-guide__block">
+                    <h3>Les sujets les plus consultés</h3>
+                    <div class="pole-lp-guide__links-grid">
+                        {% if g_pop|length > 0 %}
+                        {% for it in g_pop %}
+                        <a href="{{ it.href }}" class="pole-lp-guide__topic-row">
+                            <span class="pole-lp-guide__topic-row-ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: it.icon|default('file'), size: 17 } %}</span>
+                            <span class="pole-lp-guide__topic-row-label">{{ it.label }}</span>
+                            <span class="pole-lp-guide__topic-row-chev" aria-hidden="true">›</span>
+                        </a>
+                        {% endfor %}
+                        {% else %}
+                        {% for l in guide_blog|slice(0, 4) %}
+                        <a href="{{ l.href }}" class="pole-lp-guide__topic-row">
+                            <span class="pole-lp-guide__topic-row-ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'file', size: 17 } %}</span>
+                            <span class="pole-lp-guide__topic-row-label">{{ l.label }}</span>
+                            <span class="pole-lp-guide__topic-row-chev" aria-hidden="true">›</span>
+                        </a>
+                        {% endfor %}
+                        {% for l in guide_wiki|slice(0, 4) %}
+                        <a href="{{ l.href }}" class="pole-lp-guide__topic-row">
+                            <span class="pole-lp-guide__topic-row-ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'book', size: 17 } %}</span>
+                            <span class="pole-lp-guide__topic-row-label">{{ l.label }}</span>
+                            <span class="pole-lp-guide__topic-row-chev" aria-hidden="true">›</span>
+                        </a>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <p class="pole-lp-guide__resources-foot">
+                        <a href="/blog" class="pole-lp-guide__resources-foot-link">Voir toutes les ressources <span aria-hidden="true">→</span></a>
+                    </p>
+                </section>
+
+                <section class="pole-lp-guide__quick">
+                    <a href="/wiki" class="pole-lp-guide__quick-link">Wiki interne <span aria-hidden="true">→</span></a>
+                    <a href="/wiki/modeles" class="pole-lp-guide__quick-link">Modèles &amp; templates <span aria-hidden="true">→</span></a>
+                    <a href="/blog" class="pole-lp-guide__quick-link">Blog &amp; actualités <span aria-hidden="true">→</span></a>
+                </section>
             </div>
         </div>
+
+        {% if g_news.title is defined and g_news.title and g_news_articles|length > 0 %}
+        <div class="pole-lp-guide__news">
+            <div class="pole-lp-guide__news-inner">
+                <div class="pole-lp-guide__news-intro">
+                    <span class="pole-lp-guide__news-book" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'book', size: 36 } %}</span>
+                    <h3 class="pole-lp-guide__news-title">{{ g_news.title }}</h3>
+                    {% if g_news.lead is defined and g_news.lead %}<p class="pole-lp-guide__news-lead">{{ g_news.lead }}</p>{% endif %}
+                    {% if g_news.cta_href is defined and g_news.cta_href %}
+                    <a href="{{ g_news.cta_href }}" class="pole-lp-guide__news-cta">{{ g_news.cta_label|default('Découvrir les articles') }} <span aria-hidden="true">→</span></a>
+                    {% endif %}
+                </div>
+                <div class="pole-lp-guide__news-cards">
+                    {% for art in g_news_articles %}
+                    <article class="pole-lp-guide-news-card">
+                        <div class="pole-lp-guide-news-card__meta">
+                            {% if art.date is defined and art.date %}<time class="pole-lp-guide-news-card__date">{{ art.date }}</time>{% endif %}
+                            {% if art.tag is defined and art.tag %}<span class="pole-lp-guide-news-card__tag">{{ art.tag }}</span>{% endif %}
+                        </div>
+                        <h4 class="pole-lp-guide-news-card__title"><a href="{{ art.href|default('#') }}">{{ art.title }}</a></h4>
+                        <a href="{{ art.href|default('#') }}" class="pole-lp-guide-news-card__more">Lire l’article <span aria-hidden="true">→</span></a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </section>
+
+{% if guide.title is defined and guide.title and guide.id is defined and guide_subs|length > 0 %}
+<section class="pole-lp-editorial sp-section" id="{{ guide.id }}" aria-labelledby="pole-editorial-title">
+    <div class="container pole-lp-editorial__inner">
+        <header class="pole-lp-editorial__head">
+            <h2 id="pole-editorial-title" class="pole-lp-editorial__title">{{ guide.title }}</h2>
+            {% if guide.lead is defined and guide.lead %}
+            <p class="pole-lp-editorial__lead">{{ guide.lead }}</p>
+            {% endif %}
+        </header>
+        {% for sub in guide_subs %}
+        <article class="pole-lp-editorial__chunk" id="{{ guide.id }}-h3-{{ sub.slug }}">
+            <h3 class="pole-lp-editorial__h3">{{ sub.title }}</h3>
+            {% for para in sub.paragraphs|default([]) %}
+            <p class="pole-lp-editorial__p">{{ para }}</p>
+            {% endfor %}
+            {% if sub.service_links is defined and sub.service_links|length > 0 %}
+            <ul class="pole-lp-editorial__svc">
+                {% for sl in sub.service_links %}
+                <li><a href="{{ sl.href }}">{{ sl.label }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </article>
+        {% endfor %}
+        {% if guide_wiki|length > 0 or guide_blog|length > 0 %}
+        <div class="pole-lp-editorial__refs">
+            <h3 class="pole-lp-editorial__h3 pole-lp-editorial__h3--small">Pour aller plus loin</h3>
+            <ul class="pole-lp-editorial__ref-list">
+                {% for l in guide_blog %}
+                <li><a href="{{ l.href }}">{{ l.label }}</a></li>
+                {% endfor %}
+                {% for l in guide_wiki %}
+                <li><a href="{{ l.href }}">{{ l.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% if guide.cases_intro is defined and guide.cases_intro %}
+        <div class="pole-lp-editorial__cases">
+            <p class="pole-lp-editorial__cases-intro">{{ guide.cases_intro }}</p>
+            {% if guide.cases_links is defined and guide.cases_links|length > 0 %}
+            <ul class="pole-lp-editorial__ref-list">
+                {% for cl in guide.cases_links %}
+                <li><a href="{{ cl.href }}">{{ cl.label }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{% set cta_fin = pole.cta_final|default({}) %}
+{% include 'partials/pole-final-cta.twig' with { cta_fin: cta_fin, ph: ph } only %}
 
 {% endblock %}

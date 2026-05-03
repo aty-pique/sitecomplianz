@@ -2,6 +2,23 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+        const setSiteStickyTop = () => {
+            const h = siteHeader.getBoundingClientRect().height;
+            if (h > 0) {
+                document.documentElement.style.setProperty('--site-sticky-top', `${Math.ceil(h)}px`);
+            }
+        };
+        setSiteStickyTop();
+        if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(setSiteStickyTop).observe(siteHeader);
+        } else {
+            window.addEventListener('resize', setSiteStickyTop);
+        }
+        window.addEventListener('load', setSiteStickyTop);
+    }
+
     /* ── Liens actifs nav (exact ou préfixe pour /blog/…) ────────────────────── */
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('.header-nav a').forEach(link => {
@@ -101,19 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (next instanceof Node && layout.contains(next)) return;
             const panel = layout.closest('.mgm-panel');
             if (panel) deactivateCards(panel);
-        });
-    });
-
-    tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => {
-            if (tab.classList.contains('active') && panels.classList.contains('open')) {
-                clearTimeout(closeTimer);
-                tabs.forEach(t => t.classList.remove('active'));
-                allPanels.forEach(p => p.classList.remove('active'));
-                panels.classList.remove('open');
-            } else {
-                openTab(i);
-            }
         });
     });
 

@@ -75,7 +75,6 @@ return [
             'chaos_title'   => 'Aujourd’hui : le chaos',
             'system_title'    => 'Demain : le système',
             'bridge'          => 'On ne remplace pas vos outils. On les organise.',
-            'cta'             => 'Parler de votre organisation',
             /**
              * Logos outils : PNG dans public/assets/images/photos/.
              * (Chemins encodés pour les espaces dans les noms de fichier.)
@@ -139,27 +138,27 @@ return [
         'steps' => [
             [
                 'title' => 'Structurer',
-                'text'  => 'Gouvernance, gestion des risques et organisation : poser le cadre avant d’empiler les technologies.',
+                'text'  => 'Gouvernance, organisation, gestion des risques et conformité : poser des fondations solides avant la technologie.',
                 'href'  => '/audit-conformite',
             ],
             [
                 'title' => 'Outiller',
-                'text'  => 'ERP, CRM, développement et SaaS — choisis et branchés sur vos processus réels.',
+                'text'  => 'Développement de solutions sur-mesure (ERP, CRM, SaaS), intégration et automatisation des processus.',
                 'href'  => '/solutions-developpement',
             ],
             [
                 'title' => 'Performer',
-                'text'  => 'Stratégie digitale, acquisition, tunnels et pilotage : mesurer ce qui compte.',
+                'text'  => 'Stratégie digitale, analyse de données et optimisation continue pour maximiser vos résultats.',
                 'href'  => '/performance-digitale',
             ],
             [
                 'title' => 'Maintenir',
-                'text'  => 'Infogérance, hébergement, maintenance et support : garder le SI disponible et à jour.',
+                'text'  => 'Infogérance, hébergement, supervision et support technique pour garantir continuité et disponibilité.',
                 'href'  => '/support-maintenance',
             ],
             [
                 'title' => 'Innover',
-                'text'  => 'IA, automatisation et agents intelligents — avec gouvernance, transfert et garde-fous.',
+                'text'  => 'IA, automatisation et agents intelligents pour anticiper vos besoins et garder une longueur d’avance.',
                 'href'  => '/intelligence-artificielle',
             ],
         ],
@@ -272,11 +271,44 @@ return [
         'title' => 'Votre parcours avec nous',
         'lead'  => 'Ce que vivent nos clients : une progression explicite — de la dispersion à la maîtrise — avec des étapes qu’on voit et qu’on pilote.',
         'steps' => [
-            ['label' => 'Chaos', 'hint' => 'Urgences, silos, peu de cap commun'],
-            ['label' => 'Clarté', 'hint' => 'Vision partagée, priorités, arbitrages'],
-            ['label' => 'Structure', 'hint' => 'Organisation, outils et conformité alignés'],
-            ['label' => 'Performance', 'hint' => 'Mesure, optimisation, résultats'],
-            ['label' => 'Maîtrise', 'hint' => 'Pilotage long terme, autonomie renforcée'],
+            [
+                'title'       => 'Chaos',
+                'text'        => 'Urgences, silos, peu de cap commun.',
+                'footer'      => 'Beaucoup d’actions, peu de résultats.',
+                'footer_tone' => 'warning',
+            ],
+            [
+                'title'       => 'Clarté',
+                'text'        => 'Vision partagée, priorités, arbitrages.',
+                'footer'      => 'On sait où aller et pourquoi.',
+                'footer_tone' => 'positive',
+            ],
+            [
+                'title'       => 'Structure',
+                'text'        => 'Organisation, outils et conformité alignés.',
+                'footer'      => 'Des fondations solides et cohérentes.',
+                'footer_tone' => 'positive',
+            ],
+            [
+                'title'       => 'Performance',
+                'text'        => 'Mesure, optimisation, résultats.',
+                'footer'      => 'On améliore en continu ce qui compte.',
+                'footer_tone' => 'positive',
+            ],
+            [
+                'title'       => 'Maîtrise',
+                'text'        => 'Pilotage long terme, autonomie renforcée.',
+                'footer'      => 'Sérénité, impact durable, croissance.',
+                'footer_tone' => 'positive',
+            ],
+        ],
+        /** Barre du bas — icône + texte (segment en vert dans le template) */
+        'promises' => [
+            ['icon' => 'pin',    'before' => 'Un chemin clair pour passer de ', 'accent' => 'l’urgence à la maîtrise.', 'after' => ''],
+            ['icon' => 'people', 'before' => 'Une ', 'accent' => 'méthode éprouvée', 'after' => ' adaptée à votre réalité terrain.'],
+            ['icon' => 'shield', 'before' => 'Des choix ', 'accent' => 'structurants', 'after' => ' qui sécurisent et pérennisent vos résultats.'],
+            ['icon' => 'trend',  'before' => 'Des gains ', 'accent' => 'mesurables', 'after' => ' à chaque étape de votre évolution.'],
+            ['icon' => 'compass','before' => 'Un pilotage ', 'accent' => 'durable', 'after' => ' pour garder le cap, même dans la complexité.'],
         ],
     ],
 

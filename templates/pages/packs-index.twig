@@ -27,6 +27,7 @@
 
 <section class="pack-index__content sp-section">
     <div class="container">
+        {% include 'partials/pack-journey.twig' %}
         {% for pole in poles %}
             <div class="pack-index__pole" id="pole-{{ pole.id }}">
                 <h2 class="pack-index__pole-title"><a href="{{ pole.url }}">{{ pole.name }}</a></h2>
@@ -35,6 +36,9 @@
                         {% if p.pole == pole.id %}
                             <li>
                                 <a href="/nos-packs/{{ slug }}" class="pack-index__card{% if p.signature %} pack-index__card--sig{% endif %}">
+                                    {% if p.pour_qui is defined and p.pour_qui != '' %}
+                                    <span class="pack-index__card-for">{{ p.pour_qui }}</span>
+                                    {% endif %}
                                     <span class="pack-index__card-title">{{ p.title }}</span>
                                     <span class="pack-index__card-tag">{{ p.tagline }}</span>
                                     <span class="pack-index__card-price">{{ p.price }}</span>

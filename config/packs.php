@@ -13,9 +13,10 @@ return [
         'meta_title'       => 'Pack Diagnostic & Vision — audit express & feuille de route | Complianz',
         'meta_description' => 'Analyse globale de l’entreprise : blocages, risques, priorités stratégiques. Tarif indicatif 3 000–7 000 €. Restitution et plan d’action priorisé.',
         'price'            => '3 000–7 000 €',
-        'tagline'          => 'Comprendre, clarifier et poser les bases avant d\'investir.',
+        'tagline'          => 'Vous identifiez précisément où vous perdez du temps et de l\'argent avant d\'investir.',
+        'pour_qui'         => 'PME désorganisée ou avant un gros investissement',
         'signature'        => false,
-        'objective'        => 'Comprendre, clarifier et poser les bases.',
+        'objective'        => 'Vous identifiez précisément où vous perdez du temps et de l\'argent avant d\'investir.',
         'intro'            => 'Analyse globale de l’entreprise permettant d’identifier les blocages, les risques, les axes d’amélioration et les priorités stratégiques.',
         'value_headline'   => 'Une analyse globale pour identifier les blocages et définir les priorités stratégiques — avant d’engager des budgets dans le mauvais ordre.',
         'benefits'         => [
@@ -136,7 +137,8 @@ return [
         'meta_title'       => 'Pack Mise en conformité RGPD / ISO & sécurisation | Complianz',
         'meta_description' => 'Passer des constats aux registres, politiques et mesures techniques proportionnées. RGPD, ISO 27001 ou SMSI : un chemin structuré. Indicatif 8 000–20 000 €.',
         'price'            => '8 000–20 000 €',
-        'tagline'          => 'Réduire les risques juridiques et techniques avec des preuves exploitables.',
+        'tagline'          => 'Vous devenez conforme sans alourdir votre organisation au quotidien.',
+        'pour_qui'         => 'Structure réglementée ou sous contrainte ISO / RGPD',
         'signature'        => false,
         'intro'            => 'Nous transformons les obligations (RGPD, référentiels ISO, politique de sécurité) en dispositifs opérationnels : documentation, gouvernance, sensibilisation courte et points de contrôle.',
         'ideal_for'        => [
@@ -177,7 +179,8 @@ return [
         'meta_title'       => 'Pack Structuration & organisation — gouvernance & processus | Complianz',
         'meta_description' => 'Clarifiez rôles, processus et pilotage : schéma de gouvernance, référentiels et indicateurs alignés sur la stratégie. Indicatif 10 000–30 000 €.',
         'price'            => '10 000–30 000 €',
-        'tagline'          => 'Un système d\'entreprise lisible : qui décide, qui fait, avec quels outils.',
+        'tagline'          => 'Vous clarifiez rôles et flux — moins de silos, des décisions qui avancent.',
+        'pour_qui'         => 'Entreprise en croissance ou multi-sites',
         'signature'        => false,
         'intro'            => 'Au-delà de la conformité ponctuelle, ce pack installe une organisation qui tient dans la durée : cartographie des flux, règles de gestion, interfaces entre métiers et SI, et indicateurs utiles au COMEX.',
         'ideal_for'        => [
@@ -218,7 +221,8 @@ return [
         'meta_title'       => 'Pack Structuration & performance globale — transformation ★ | Complianz',
         'meta_description' => 'Offre signature : alignement stratégique, conformité, organisation et pilotage de la performance dans une trajectoire coordonnée. Indicatif 20 000–50 000 €+.',
         'price'            => '20 000–50 000 €+',
-        'tagline'          => 'Transformation complète de l\'entreprise avec une équipe projet dédiée.',
+        'tagline'          => 'Vous pilotez conformité, SI et organisation avec une trajectoire unique et mesurable.',
+        'pour_qui'         => 'ETI / transformation multi-enjeux (M&A, international, certification)',
         'signature'        => true,
         'intro'            => 'Pour les dirigeants qui veulent une dynamique unique : diagnostic partagé, plan maître RSE / conformité / organisation / SI, et pilotage jusqu\'aux résultats mesurables.',
         'ideal_for'        => [
@@ -259,7 +263,8 @@ return [
         'meta_title'       => 'Direction stratégique externalisée — COMEX à temps partagé | Complianz',
         'meta_description' => 'Un senior disponible en récurrence pour arbitrer la stratégie, la conformité et les grands projets. Formule récurrente indicative 1 000–3 000 €/mois.',
         'price'            => '1 000–3 000 €/mois',
-        'tagline'          => 'Accompagnement continu du dirigeant : clarté, priorités, décisions.',
+        'tagline'          => 'Vous décidez avec des arbitrages préparés et des priorités qui tiennent dans le temps.',
+        'pour_qui'         => 'Dirigeant sans COMEX dédoublé ou en transition',
         'signature'        => false,
         'intro'            => 'Une présence régulière (mensuelle ou bi-hebdomadaire) pour tenir le cap : préparation de COMEX, arbitrages structurants, liaison avec vos experts internes et externes.',
         'ideal_for'        => [
@@ -300,7 +305,8 @@ return [
         'meta_title'       => 'Pack présence web & outil de base — vitrine, CRM léger | Complianz',
         'meta_description' => 'Site vitrine ou e-commerce léger, messagerie pro, socle CRM ou ticketing selon besoin. Fondations digitales propres. Indicatif 5 000–12 000 €.',
         'price'            => '5 000–12 000 €',
-        'tagline'          => 'Les fondations digitales de l\'entreprise, sans surdimensionner.',
+        'tagline'          => 'Vous obtenez une présence web crédible et des demandes mieux qualifiées, vite.',
+        'pour_qui'         => 'PME qui professionnalise sa présence ou refonte d’image',
         'signature'        => false,
         'intro'            => 'Un socle web crédible, rapide à administrer, relié à vos processus commerciaux ou support essentiels — sans projet ERP interminable.',
         'ideal_for'        => [
@@ -341,7 +347,8 @@ return [
         'meta_title'       => 'Pack CRM/ERP, automatisation & pilotage | Complianz',
         'meta_description' => 'Harmonisez outils métiers, flux de données et tableaux de bord : intégrations, workflows, rôles et indicateurs. Indicatif 15 000–40 000 €.',
         'price'            => '15 000–40 000 €',
-        'tagline'          => 'Même donnée, même référentiel : moins de tableurs, plus de décisions.',
+        'tagline'          => 'Vous arrêtez les ressaisies : une donnée fiable pour piloter le réel.',
+        'pour_qui'         => 'Équipes noyées sous les exports Excel',
         'signature'        => false,
         'intro'            => 'Quand l\'entreprise a plusieurs outils qui se marchent dessus, ce pack redessine le schéma cible : quel outil porte quelle donnée, quelles intégrations, quels workflows automatisés.',
         'ideal_for'        => [
@@ -382,7 +389,8 @@ return [
         'meta_title'       => 'Pack automatisation avancée & logiciel sur mesure | Complianz',
         'meta_description' => 'Automatisez les processus à forte valeur : API, scripts, workflows métier, briques logicielles ciblées. Indicatif 20 000–60 000 €.',
         'price'            => '20 000–60 000 €',
-        'tagline'          => 'Productivité maximale là où les ressaisies et les validations coûtent cher.',
+        'tagline'          => 'Vous réduisez le travail manuel là où il coûte cher en temps et en erreurs.',
+        'pour_qui'         => 'Opérations à fort volume (facturation, logistique, support)',
         'signature'        => false,
         'intro'            => 'Pour les processus mûrs mais encore trop manuels : orchestration, micro-services, connecteurs et interfaces utilisateurs minimales mais efficaces.',
         'ideal_for'        => [
@@ -423,7 +431,8 @@ return [
         'meta_title'       => 'Pack système digital complet — ERP/CRM, dev & infra ★ | Complianz',
         'meta_description' => 'Offre signature : site / apps, socle ERP-CRM, intégrations et infrastructure coordonnés. Vision produit de bout en bout. Indicatif 40 000–120 000 €+.',
         'price'            => '40 000–120 000 €+',
-        'tagline'          => 'ERP/CRM + développements + infrastructure : un écosystème cohérent.',
+        'tagline'          => 'Vous livrez front, back et flux alignés avec un pilotage projet central.',
+        'pour_qui'         => 'Scale-up / industrialisation du modèle',
         'signature'        => true,
         'intro'            => 'Pour les organisations qui veulent un partenaire unique sur la chaîne de valeur digitale : cadrage produit, delivery agile, qualité et transfert vers vos équipes ou notre infogérance.',
         'ideal_for'        => [
@@ -464,7 +473,8 @@ return [
         'meta_title'       => 'Pack écosystème digital & maintenance continue | Complianz',
         'meta_description' => 'Après la mise en ligne : maintenance, évolutions, support utilisateur et coordination technique en récurrence. Indicatif 2 000–5 000 €/mois.',
         'price'            => '2 000–5 000 €/mois',
-        'tagline'          => 'Maintenance, support et évolutions continues — votre stack reste à jour.',
+        'tagline'          => 'Vos systèmes restent sécurisés et évolutifs sans dérive progressive invisible.',
+        'pour_qui'         => 'Plateforme critique sans DSI à plein temps',
         'signature'        => false,
         'intro'            => 'Un dispositif récurrent qui combine astreinte raisonnée, petites évolutions, veille sécurité et accompagnement utilisateurs pour éviter la dérive progressive.',
         'ideal_for'        => [
@@ -505,7 +515,8 @@ return [
         'meta_title'       => 'Pack stratégie digitale & fondations marketing | Complianz',
         'meta_description' => 'Positionnement, offres, messages clés, canaux et roadmap d\'actions priorisées — sans dispersion. Indicatif 4 000–10 000 €.',
         'price'            => '4 000–10 000 €',
-        'tagline'          => 'Une stratégie digitale claire : où jouer, avec quels messages, dans quel ordre.',
+        'tagline'          => 'Vous savez où mettre le prochain euro marketing au lieu de disperser budget et équipes.',
+        'pour_qui'         => 'Marque en repositionnement ou lancement d’offre',
         'signature'        => false,
         'intro'            => 'Avant d\'acheter des pubs ou de produire des contenus à la chaîne, ce pack aligne produit, marché et données disponibles pour décider où investir le prochain euro.',
         'ideal_for'        => [
@@ -546,7 +557,8 @@ return [
         'meta_title'       => 'Pack SEO + tunnel de conversion — performance digitale | Complianz',
         'meta_description' => 'Combiner visibilité organique et optimisation du tunnel : SEO technique, contenus prioritaires et CRO ciblée. Indicatif 5 000–15 000 €.',
         'price'            => '5 000–15 000 €',
-        'tagline'          => 'Du clic qualifié à la conversion : même langage entre acquisition et vente.',
+        'tagline'          => 'Vous convertissez plus de visiteurs en opportunités qualifiées (SEO + tunnel).',
+        'pour_qui'         => 'Site avec trafic mais peu de leads ou CPA trop élevé',
         'signature'        => false,
         'intro'            => 'Pour les sites qui ont du trafic mais peu de leads, ou des leads mais un coût d\'acquisition trop élevé — nous traitons les deux faces avec une même backlog priorisée.',
         'ideal_for'        => [
@@ -587,7 +599,8 @@ return [
         'meta_title'       => 'Pack performance digitale globale — stratégie, SEO, conversion ★ | Complianz',
         'meta_description' => 'Offre signature : stratégie, SEO, acquisition payante, tunnel et pilotage complet — formule projet ou récurrente. Indicatif 12 000–30 000 € ou 1 500–4 000 €/mois.',
         'price'            => '12 000–30 000 € ou 1 500–4 000 €/mois',
-        'tagline'          => 'Stratégie + SEO + conversion + pilotage : une équipe digitale complète à la demande.',
+        'tagline'          => 'Vous pilotez acquisition et conversion sur des indicateurs business, pas des vanity metrics.',
+        'pour_qui'         => 'Croissance nationale / objectifs de pipeline exigeants',
         'signature'        => true,
         'intro'            => 'Pour les directions qui veulent un pilotage unique : campagnes, contenus, optimisation continue et tableaux de bord orientés business plutôt que vanity metrics.',
         'ideal_for'        => [
@@ -628,7 +641,8 @@ return [
         'meta_title'       => 'Pack maintenance, support & hébergement sécurisé | Complianz',
         'meta_description' => 'Maintenance corrective, support utilisateur, supervision et sauvegardes selon vos environnements. Indicatif 300–1 000 €/mois.',
         'price'            => '300–1 000 €/mois',
-        'tagline'          => 'Gardez vos systèmes disponibles, patchés et compréhensibles pour votre équipe.',
+        'tagline'          => 'Vous gardez correctifs, sauvegardes et incidents suivis avec une vision claire.',
+        'pour_qui'         => 'PME sans administrateur système dédié',
         'signature'        => false,
         'intro'            => 'Le socle pour dormir tranquille : surveillance légère sauf besoin critique, application des correctifs, gestion des incidents récurrents et communication claire.',
         'ideal_for'        => [
@@ -669,7 +683,8 @@ return [
         'meta_title'       => 'Pack infogérance complète — infra, hébergement, maintenance ★ | Complianz',
         'meta_description' => 'Offre signature : infogérance, hébergement managé, maintenance applicative et résolution de incidents avec SLA élevé. Indicatif 2 000–5 000 €/mois.',
         'price'            => '2 000–5 000 €/mois',
-        'tagline'          => 'Infogérance + hébergement + maintenance + debug : un guichet unique technique.',
+        'tagline'          => 'Un interlocuteur unique pour dispo, sécurité et résolution incident bout-en-bout.',
+        'pour_qui'         => 'SaaS, e-commerce ou plateforme métier critique',
         'signature'        => true,
         'intro'            => 'Pour les environnements où l\'indisponibilité coûte cher : nous portons la responsabilité opérationnelle bout-en-bout avec transparence sur les fenêtres de maintenance et les escalades.',
         'ideal_for'        => [
@@ -710,7 +725,8 @@ return [
         'meta_title'       => 'Pack audit IA & feuille de route — cas d\'usage & risques | Complianz',
         'meta_description' => 'Identifiez où l\'IA crée de la valeur dans vos processus, avec une analyse risques / données / conformité. Indicatif 3 000–8 000 €.',
         'price'            => '3 000–8 000 €',
-        'tagline'          => 'Prioriser les cas d\'usage IA réalistes avant d\'acheter des licences ou des GPU.',
+        'tagline'          => 'Vous priorisez les cas d\'usage rentables avant licences, GPU ou POC sans lendemain.',
+        'pour_qui'         => 'Organisation mature ou fortement contrainte (données, réglementation)',
         'signature'        => false,
         'intro'            => 'Ateliers, revue des données disponibles, évaluation de maturité et feuille de route par vagues (quick wins vs chantiers structurants).',
         'ideal_for'        => [
@@ -751,7 +767,8 @@ return [
         'meta_title'       => 'Pack automatisation IA — workflows, agents, n8n / Make | Complianz',
         'meta_description' => 'Déployez des workflows intelligents : extraction, routage, synthèse et actions connectées à vos outils. Indicatif 5 000–30 000 €.',
         'price'            => '5 000–30 000 €',
-        'tagline'          => 'Relier vos apps et vos données avec des automatisations IA supervisées.',
+        'tagline'          => 'Vous réduisez le traitement manuel avec des flux IA traçables et supervisés.',
+        'pour_qui'         => 'Back-office à fort flux documentaire ou ticketing',
         'signature'        => false,
         'intro'            => 'Conception et mise en production d\'automatisations (n8n, Make, agents spécialisés) avec garde-fous humains, logs et reprise sur erreur.',
         'ideal_for'        => [
@@ -792,7 +809,8 @@ return [
         'meta_title'       => 'Pack transformation IA complète — audit à déploiement ★ | Complianz',
         'meta_description' => 'Offre signature : audit, architecture données, agents IA, intégration SI, formation et gouvernance. Budget sur devis selon périmètre.',
         'price'            => 'Sur devis',
-        'tagline'          => 'Audit + déploiement d\'agents + intégration SI + formation des équipes.',
+        'tagline'          => 'Vous passez du POC à une capacité IA durable : données, SI, formation et gouvernance.',
+        'pour_qui'         => 'Programme IA multi-métiers ou environnement réglementé',
         'signature'        => true,
         'intro'            => 'Programme complet pour passer de l\'expérimentation à une capacité IA durable au sein de votre SI : gouvernance, mise en production, mesure et adoption.',
         'ideal_for'        => [

@@ -57,6 +57,7 @@
     var chaosPathEl = null;
     var sysPaths = [];
     var lastStageRect = null;
+    var layoutRetryCount = 0;
 
     function clamp01(t) {
         return Math.min(1, Math.max(0, t));
@@ -82,11 +83,22 @@
         var total = root.offsetHeight - vh;
         if (total <= 0) return 0;
         var scrolled = -rect.top;
-        return clamp01(scrolled / total);
+        var t = scrolled / total;
+        if (typeof t !== 'number' || !isFinite(t)) return 0;
+        return clamp01(t);
     }
 
     function round2(x) {
         return Math.round(x * 100) / 100;
+    }
+
+    /** Rejette NaN / ±Infinity / types non numériques avant écriture dans les paths SVG */
+    function isValidPoint() {
+        var i;
+        for (i = 0; i < arguments.length; i++) {
+            if (!Number.isFinite(arguments[i])) return false;
+        }
+        return true;
     }
 
     function iconPixelPositions(w, h) {
@@ -141,54 +153,88 @@
 
     function ensureSysPaths() {
         if (!sysSvg || !viz || !stack) return;
-        while (sysSvg.firstChild) sysSvg.removeChild(sysSvg.firstChild);
-        sysPaths = [];
 
         var vr = viz.getBoundingClientRect();
         var vw = vr.width;
         var vh = vr.height;
-        if (vw < 8 || vh < 8) return;
+        /* Ne jamais vider le SVG si les dimensions ne sont pas encore valides */
+        if (!isValidPoint(vw, vh) || vw < 8 || vh < 8) return;
 
         sysSvg.setAttribute('viewBox', '0 0 ' + round2(vw) + ' ' + round2(vh));
         sysSvg.setAttribute('preserveAspectRatio', 'none');
 
-        var defs = document.createElementNS(NS, 'defs');
-        var mk = document.createElementNS(NS, 'marker');
-        mk.setAttribute('id', 'home-cs-arw');
-        mk.setAttribute('viewBox', '0 0 10 10');
-        mk.setAttribute('refX', '9');
-        mk.setAttribute('refY', '5');
-        mk.setAttribute('markerWidth', '6');
-        mk.setAttribute('markerHeight', '6');
-        mk.setAttribute('orient', 'auto');
-        mk.setAttribute('markerUnits', 'userSpaceOnUse');
-        var mkp = document.createElementNS(NS, 'path');
-        mkp.setAttribute('d', 'M0 0 L10 5 L0 10 z');
-        mkp.setAttribute('fill', '#15803d');
-        mk.appendChild(mkp);
-        defs.appendChild(mk);
-        sysSvg.appendChild(defs);
+        var defs = sysSvg.querySelector('defs');
+        var layer = sysSvg.querySelector('[data-home-cs-sys-layer]');
+        if (!defs || !layer) {
+            while (sysSvg.firstChild) sysSvg.removeChild(sysSvg.firstChild);
+            defs = document.createElementNS(NS, 'defs');
+            var mk = document.createElementNS(NS, 'marker');
+            mk.setAttribute('id', 'home-cs-arw');
+            mk.setAttribute('viewBox', '0 0 10 10');
+            mk.setAttribute('refX', '9');
+            mk.setAttribute('refY', '5');
+            mk.setAttribute('markerWidth', '6');
+            mk.setAttribute('markerHeight', '6');
+            mk.setAttribute('orient', 'auto');
+            mk.setAttribute('markerUnits', 'userSpaceOnUse');
+            var mkp = document.createElementNS(NS, 'path');
+            mkp.setAttribute('d', 'M0 0 L10 5 L0 10 z');
+            mkp.setAttribute('fill', '#15803d');
+            mk.appendChild(mkp);
+            defs.appendChild(mk);
+            sysSvg.appendChild(defs);
+            layer = document.createElementNS(NS, 'g');
+            layer.setAttribute('data-home-cs-sys-layer', '1');
+            sysSvg.appendChild(layer);
+        } else {
+            while (layer.firstChild) layer.removeChild(layer.firstChild);
+        }
+
+        sysPaths = [];
         var mkUrl = 'url(#home-cs-arw)';
 
         function box(el) {
             var r = el.getBoundingClientRect();
+            var left = r.left - vr.left;
+            var right = r.right - vr.left;
+            var top = r.top - vr.top;
+            var bottom = r.bottom - vr.top;
+            var width = r.width;
+            var height = r.height;
+            var cx = left + width / 2;
+            var cy = top + height / 2;
+            if (!isValidPoint(left, right, top, bottom, width, height, cx, cy)) {
+                return null;
+            }
             return {
-                left: r.left - vr.left,
-                right: r.right - vr.left,
-                top: r.top - vr.top,
-                bottom: r.bottom - vr.top,
-                cx: r.left + r.width / 2 - vr.left,
-                cy: r.top + r.height / 2 - vr.top
+                left: left,
+                right: right,
+                top: top,
+                bottom: bottom,
+                width: width,
+                height: height,
+                cx: cx,
+                cy: cy
             };
         }
 
-        function addPath(d, markerEnd, cls) {
+        function appendPathD(d, markerEnd, cls) {
+            if (!d || d.indexOf('NaN') !== -1 || d.indexOf('Infinity') !== -1) return;
             var pth = document.createElementNS(NS, 'path');
             pth.setAttribute('d', d);
             if (markerEnd) pth.setAttribute('marker-end', markerEnd);
             if (cls) pth.setAttribute('class', cls);
-            sysSvg.appendChild(pth);
+            layer.appendChild(pth);
             sysPaths.push(pth);
+        }
+
+        function addLinePath(markerEnd, cls, x1, y1, x2, y2) {
+            if (!isValidPoint(x1, y1, x2, y2)) return;
+            appendPathD(
+                'M ' + round2(x1) + ' ' + round2(y1) + ' L ' + round2(x2) + ' ' + round2(y2),
+                markerEnd,
+                cls
+            );
         }
 
         if (icons.length === 0) {
@@ -196,9 +242,18 @@
             return;
         }
 
-        var iconBoxes = icons.map(function (el) {
-            return box(el);
-        });
+        var iconBoxes = icons
+            .map(function (el) {
+                return box(el);
+            })
+            .filter(function (b) {
+                return b !== null;
+            });
+        if (iconBoxes.length === 0) {
+            dashOffsetSysPaths();
+            return;
+        }
+
         var yBar =
             Math.max.apply(
                 null,
@@ -206,28 +261,27 @@
                     return b.bottom;
                 })
             ) + 8;
+        if (!isValidPoint(yBar)) {
+            dashOffsetSysPaths();
+            return;
+        }
+
         var xs = iconBoxes.map(function (b) {
             return b.cx;
         });
         var xL = Math.min.apply(null, xs);
         var xR = Math.max.apply(null, xs);
+        if (!isValidPoint(xL, xR)) {
+            dashOffsetSysPaths();
+            return;
+        }
+
         var hubIcons = (xL + xR) / 2;
 
         iconBoxes.forEach(function (b) {
-            addPath(
-                'M ' +
-                    round2(b.cx) +
-                    ' ' +
-                    round2(b.bottom) +
-                    ' L ' +
-                    round2(b.cx) +
-                    ' ' +
-                    round2(yBar),
-                null,
-                null
-            );
+            addLinePath(null, null, b.cx, b.bottom, b.cx, yBar);
         });
-        addPath('M ' + round2(xL) + ' ' + round2(yBar) + ' L ' + round2(xR) + ' ' + round2(yBar), null, null);
+        addLinePath(null, null, xL, yBar, xR, yBar);
 
         var rows = stack.querySelectorAll('.home-cs__stack-row');
         var outcome = stack.querySelector('.home-cs__stack-outcome');
@@ -238,84 +292,93 @@
 
         var narrow = isNarrow();
         var sg = box(stack);
-        var hubX = sg.left + sg.width / 2;
-
-        if (Math.abs(hubIcons - hubX) > 3) {
-            addPath(
-                'M ' + round2(hubIcons) + ' ' + round2(yBar) + ' L ' + round2(hubX) + ' ' + round2(yBar),
-                null,
-                null
-            );
+        if (!sg) {
+            dashOffsetSysPaths();
+            return;
         }
 
-        var firstTop = box(rows[0]).top;
-        addPath(
-            'M ' + round2(hubX) + ' ' + round2(yBar) + ' L ' + round2(hubX) + ' ' + round2(firstTop - 6),
-            mkUrl,
-            null
-        );
+        var hubX = sg.cx;
+        if (!isValidPoint(hubX)) {
+            dashOffsetSysPaths();
+            return;
+        }
+
+        if (isValidPoint(hubIcons) && Math.abs(hubIcons - hubX) > 3) {
+            addLinePath(null, null, hubIcons, yBar, hubX, yBar);
+        }
+
+        var firstRowBox = box(rows[0]);
+        if (!firstRowBox) {
+            dashOffsetSysPaths();
+            return;
+        }
+
+        addLinePath(mkUrl, null, hubX, yBar, hubX, firstRowBox.top - 6);
 
         for (var j = 0; j < rows.length - 1; j++) {
             var ra = box(rows[j]);
             var rb = box(rows[j + 1]);
-            addPath(
-                'M ' +
-                    round2(hubX) +
-                    ' ' +
-                    round2(ra.bottom + 2) +
-                    ' L ' +
-                    round2(hubX) +
-                    ' ' +
-                    round2(rb.top - 4),
-                mkUrl,
-                null
-            );
+            if (!ra || !rb) continue;
+            addLinePath(mkUrl, null, hubX, ra.bottom + 2, hubX, rb.top - 4);
         }
 
         if (outcome) {
             var rLast = box(rows[rows.length - 1]);
             var ob = box(outcome);
-            addPath(
-                'M ' +
-                    round2(hubX) +
-                    ' ' +
-                    round2(rLast.bottom + 2) +
-                    ' L ' +
-                    round2(hubX) +
-                    ' ' +
-                    round2(ob.top - 4),
-                mkUrl,
-                null
-            );
+            if (rLast && ob) {
+                addLinePath(mkUrl, null, hubX, rLast.bottom + 2, hubX, ob.top - 4);
+            }
         }
 
         if (!narrow) {
             var benefits = viz.querySelectorAll('.home-cs__benefit-card');
-            for (var bi = 0; bi < benefits.length; bi++) {
-                var bg = box(benefits[bi]);
-                var targetRow = rows[Math.min(bi, rows.length - 1)];
-                var tBox = box(targetRow);
-                var xStart = bg.left + 2;
-                var yMid = bg.cy;
-                var xMid = sg.right + (hubX - sg.right) * 0.5;
-                var xEnd = sg.right + 4;
-                var yEnd = tBox.cy;
-                addPath(
-                    'M ' +
-                        round2(xStart) +
-                        ' ' +
-                        round2(yMid) +
-                        ' L ' +
-                        round2(xMid) +
-                        ' ' +
-                        round2(yMid) +
-                        ' L ' +
-                        round2(xEnd) +
-                        ' ' +
-                        round2(yEnd),
-                    mkUrl,
-                    'home-cs__flow-benefit'
-                );
+            var stackTargets = Array.prototype.slice.call(rows);
+            if (outcome) stackTargets.push(outcome);
+
+            var spineX = null;
+            if (benefits.length > 0) {
+                var b0g = box(benefits[0]);
+                if (b0g && isValidPoint(sg.right, b0g.left)) {
+                    spineX = sg.right + (b0g.left - sg.right) * 0.46;
+                    spineX = Math.min(Math.max(spineX, sg.right + 12), b0g.left - 10);
+                }
+            }
+
+            if (spineX !== null && isValidPoint(spineX)) {
+                /* Bus horizontal sous les icônes jusqu’à l’axe « spine » (maquette : rattachement couche intégration) */
+                var xBusLo = Math.min(xR + 4, spineX);
+                var xBusHi = Math.max(xR + 4, spineX);
+                if (xBusHi - xBusLo > 3) {
+                    addLinePath(null, null, xBusLo, yBar, xBusHi, yBar);
+                }
+                /* Descente verticale sur la spine depuis le bus jusqu’au premier bénéfice (si plus bas) */
+                var b0first = box(benefits[0]);
+                if (
+                    b0first &&
+                    b0first.cy > yBar + 10 &&
+                    isValidPoint(b0first.cy)
+                ) {
+                    addLinePath(null, 'home-cs__flow-benefit', spineX, yBar, spineX, b0first.cy);
+                }
+
+                for (var bi = 0; bi < benefits.length; bi++) {
+                    var bg = box(benefits[bi]);
+                    var targetEl = stackTargets[bi];
+                    if (!bg || !targetEl) continue;
+                    var tBox = box(targetEl);
+                    if (!tBox) continue;
+
+                    var yB = bg.cy;
+                    var yT = tBox.cy;
+                    /* 1 — bord gauche carte → axe vertical dans le passage pile / bénéfices */
+                    addLinePath(null, 'home-cs__flow-benefit', bg.left, yB, spineX, yB);
+                    /* 2 — le long de la spine */
+                    if (Math.abs(yT - yB) > 2) {
+                        addLinePath(null, 'home-cs__flow-benefit', spineX, yB, spineX, yT);
+                    }
+                    /* 3 — entrée dans la pile centrale (flèche) */
+                    addLinePath(mkUrl, 'home-cs__flow-benefit', spineX, yT, sg.right + 3, yT);
+                }
             }
         }
 
@@ -340,8 +403,10 @@
             var ay = centers[a].y;
             var bx = centers[b].x;
             var by = centers[b].y;
+            if (!isValidPoint(ax, ay, bx, by)) return;
             var mx = (ax + bx) / 2 + (a - b) * 8;
             var my = (ay + by) / 2 + Math.sin(a + b) * 14;
+            if (!isValidPoint(mx, my)) return;
             d += 'M ' + ax + ' ' + ay + ' Q ' + mx + ' ' + my + ' ' + bx + ' ' + by + ' ';
         });
         chaosPathEl.setAttribute('d', d.trim());
@@ -362,6 +427,7 @@
 
     function updateStackVisibility(p) {
         if (!stack) return;
+        if (typeof p !== 'number' || !isFinite(p)) return;
         var base = smoothstep((p - 0.58) / 0.32);
         var rows = stack.querySelectorAll('.home-cs__stack-row');
         var outcome = stack.querySelector('.home-cs__stack-outcome');
@@ -387,11 +453,15 @@
         var rect = stage.getBoundingClientRect();
         var w = rect.width;
         var h = rect.height;
+        if (!isValidPoint(w, h) || w < 8 || h < 8) return;
         var pos = iconPixelPositions(w, h);
         icons.forEach(function (el, i) {
             var fn = pos.finals[i];
-            el.style.transform =
-                'translate(' + Math.round(fn.x) + 'px,' + Math.round(fn.y) + 'px)';
+            if (!fn) return;
+            var x = Math.round(fn.x);
+            var y = Math.round(fn.y);
+            if (!isFinite(x) || !isFinite(y)) return;
+            el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
         });
         requestAnimationFrame(function () {
             ensureSysPaths();
@@ -404,6 +474,7 @@
 
     function tick() {
         smoothP += (targetP - smoothP) * 0.09;
+        if (!isFinite(smoothP)) smoothP = targetP;
         if (Math.abs(targetP - smoothP) < 0.0004) smoothP = targetP;
 
         applyProgress(smoothP);
@@ -421,13 +492,24 @@
     }
 
     function applyProgress(p) {
+        if (typeof p !== 'number' || !isFinite(p)) p = 0;
+        p = clamp01(p);
         if (section) section.style.setProperty('--cs-p', String(p));
         if (sticky) sticky.style.setProperty('--cs-p', String(p));
 
         var rect = stage.getBoundingClientRect();
         var w = rect.width;
         var h = rect.height;
-        if (w < 20 || h < 20) return;
+        if (!isValidPoint(w, h) || w < 20 || h < 20) {
+            if (layoutRetryCount < 12) {
+                layoutRetryCount += 1;
+                requestAnimationFrame(function () {
+                    applyProgress(smoothP);
+                });
+            }
+            return;
+        }
+        layoutRetryCount = 0;
 
         var pos = iconPixelPositions(w, h);
         var moveT = easeMove(p);
@@ -435,10 +517,10 @@
         icons.forEach(function (el, i) {
             var ch = pos.chaos[i];
             var fn = pos.finals[i];
-            var x = ch.x + (fn.x - ch.x) * moveT;
-            var y = ch.y + (fn.y - ch.y) * moveT;
-            el.style.transform =
-                'translate(' + Math.round(x) + 'px,' + Math.round(y) + 'px)';
+            var x = Math.round(ch.x + (fn.x - ch.x) * moveT);
+            var y = Math.round(ch.y + (fn.y - ch.y) * moveT);
+            if (!isFinite(x) || !isFinite(y)) return;
+            el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
         });
 
         if (
@@ -472,6 +554,7 @@
     }
 
     function onResize() {
+        layoutRetryCount = 0;
         lastStageRect = null;
         targetP = getScrollProgress();
         smoothP = targetP;
@@ -481,17 +564,11 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
 
-    var ro = typeof ResizeObserver !== 'undefined'
-        ? new ResizeObserver(function () {
-              onResize();
-          })
-        : null;
-    if (ro) {
-        ro.observe(stage);
-        ro.observe(viz);
-    }
-
-    onScroll();
-    smoothP = targetP;
-    applyProgress(smoothP);
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            onScroll();
+            smoothP = targetP;
+            applyProgress(smoothP);
+        });
+    });
 })();

@@ -1,0 +1,122 @@
+{# CTA bas de page hub pôle — mise en page conversion (2 colonnes) #}
+{% set c = cta_fin|default({}) %}
+{% set badge_t = c.badge|default('Passer à l\'action') %}
+{% set title_before = c.title_before|default('') %}
+{% set title_highlight = c.title_highlight|default('') %}
+{% set title_after = c.title_after|default('') %}
+{% set fallback_title = c.title|default('Votre entreprise est-elle vraiment structurée ?') %}
+{% set text_lines = [] %}
+{% if c.text_lines is defined %}
+    {% set text_lines = c.text_lines %}
+{% elseif c.text is defined %}
+    {% if c.text is iterable %}
+        {% set text_lines = c.text %}
+    {% else %}
+        {% set text_lines = [c.text] %}
+    {% endif %}
+{% endif %}
+{% if text_lines is empty %}
+{% set text_lines = [
+    'Faites un diagnostic rapide pour identifier vos priorités — conformité, organisation et pilotage.',
+    'Sans engagement : vous repartez avec une vision claire et des prochaines étapes concrètes.'
+] %}
+{% endif %}
+{% set microcopy = c.microcopy|default('Sans engagement • 2 minutes') %}
+{% set primary_label = c.primary_label|default('Faire un diagnostic gratuit') %}
+{% set secondary_label = c.secondary_label|default('Être rappelé par un expert') %}
+{% set secondary_href = c.secondary_href|default('/contact') %}
+{% set features = c.features|default([
+    { icon: 'search', title: 'Vision claire', text: 'Priorités et risques mis à plat avant d’investir.' },
+    { icon: 'clock', title: 'Gain de temps', text: 'Moins de ressaisies et de dossiers « pour la forme ».' },
+    { icon: 'shield', title: 'Conformité utile', text: 'RGPD et ISO reliés à vos processus réels.' },
+    { icon: 'chart', title: 'Pilotage mesurable', text: 'Indicateurs lisibles pour la direction et les équipes.' },
+]) %}
+{% set logo_hub = 'assets/images/logo/Monochromes/WebP/Plan de travail 1 copie 16.webp' %}
+{% set orbit_items = c.orbit|default([
+    { icon: 'target', title: 'Stratégie', subtitle: 'Alignée', accent: 'green', pos: 'tl' },
+    { icon: 'shield', title: 'Conformité', subtitle: 'Maîtrisée', accent: 'blue', pos: 'tr' },
+    { icon: 'gear', title: 'Processus', subtitle: 'Optimisés', accent: 'blue', pos: 'bl' },
+    { icon: 'chart', title: 'Performance', subtitle: 'Durable', accent: 'green', pos: 'br' },
+]) %}
+<section class="pole-lp-final-cta sp-cta-final sp-cta-final--{{ ph }}" aria-labelledby="pole-cta-final-title">
+    <div class="container pole-lp-final-cta__shell">
+        <div class="pole-lp-final-cta__grid">
+            <div class="pole-lp-final-cta__copy">
+                <p class="pole-lp-final-cta__badge">
+                    <span class="pole-lp-final-cta__badge-ico" aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </span>
+                    {{ badge_t }}
+                </p>
+                <h2 id="pole-cta-final-title" class="pole-lp-final-cta__title">
+                    {% if title_before or title_highlight %}
+                    {{ title_before }}<span class="pole-lp-final-cta__title-hl">{{ title_highlight }}</span>{{ title_after }}
+                    {% else %}
+                    {{ fallback_title }}
+                    {% endif %}
+                </h2>
+                <div class="pole-lp-final-cta__lead">
+                    {% for line in text_lines %}
+                    <p>{{ line }}</p>
+                    {% endfor %}
+                </div>
+                <div class="pole-lp-final-cta__actions">
+                    <button type="button" class="pole-lp-final-cta__btn pole-lp-final-cta__btn--primary btn btn-lg" data-open-quote-modal>
+                        <svg class="pole-lp-final-cta__btn-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        {{ primary_label }}
+                        <span class="pole-lp-final-cta__btn-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <a href="{{ secondary_href }}" class="pole-lp-final-cta__btn pole-lp-final-cta__btn--ghost btn btn-lg">
+                        <svg class="pole-lp-final-cta__btn-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        {{ secondary_label }}
+                    </a>
+                </div>
+                <p class="pole-lp-final-cta__micro">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    {{ microcopy }}
+                </p>
+                <div class="pole-lp-final-cta__features">
+                    {% for feat in features %}
+                    <div class="pole-lp-final-cta__feat pole-lp-final-cta__feat--{{ loop.index0 }}">
+                        <span class="pole-lp-final-cta__feat-ico" aria-hidden="true">
+                            {% include 'partials/pole-guide-icon.twig' with { name: feat.icon|default('file'), size: 22 } %}
+                        </span>
+                        <span class="pole-lp-final-cta__feat-title">{{ feat.title }}</span>
+                        <span class="pole-lp-final-cta__feat-text">{{ feat.text }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="pole-lp-final-cta__viz">
+                <div class="pole-lp-final-cta__orbit" aria-hidden="true">
+                    <span class="pole-lp-final-cta__orbit-ring pole-lp-final-cta__orbit-ring--a"></span>
+                    <span class="pole-lp-final-cta__orbit-ring pole-lp-final-cta__orbit-ring--b"></span>
+                    <span class="pole-lp-final-cta__orbit-ring pole-lp-final-cta__orbit-ring--c"></span>
+                    <div class="pole-lp-final-cta__orbit-center">
+                        <div class="pole-lp-final-cta__orbit-hex" aria-hidden="true">
+                            <img class="pole-lp-final-cta__orbit-logo" src="{{ asset_base }}/{{ logo_hub|replace({' ': '%20'}) }}" alt="" width="56" height="56" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+                    {% for oc in orbit_items %}
+                    {% set acc = oc.accent|default('green') %}
+                    <div class="pole-lp-final-cta__orbit-card pole-lp-final-cta__orbit-card--{{ oc.pos|default('tl') }} pole-lp-final-cta__orbit-card--accent-{{ acc }}">
+                        <span class="pole-lp-final-cta__orbit-card-ico-wrap">
+                            <span class="pole-lp-final-cta__orbit-card-ico">{% include 'partials/pole-guide-icon.twig' with { name: oc.icon|default('target'), size: 18 } %}</span>
+                        </span>
+                        <span class="pole-lp-final-cta__orbit-card-copy">
+                            {% if oc.title is defined and oc.title %}
+                            <span class="pole-lp-final-cta__orbit-card-title">{{ oc.title }}</span>
+                            {% if oc.subtitle is defined and oc.subtitle %}
+                            <span class="pole-lp-final-cta__orbit-card-sub pole-lp-final-cta__orbit-card-sub--{{ acc }}">{{ oc.subtitle }}</span>
+                            {% endif %}
+                            {% else %}
+                            <span class="pole-lp-final-cta__orbit-card-title">{{ oc.label|default('') }}</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

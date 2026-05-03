@@ -1,0 +1,12 @@
+{# Parcours progressif — hubs pôle & index packs #}
+<div class="pole-lp-journey">
+    <p class="pole-lp-journey__intro">Un parcours en 5 étapes pour structurer votre entreprise</p>
+    <ol class="pole-lp-journey__steps" aria-label="Étapes du parcours">
+        {% for label in ['Diagnostic', 'Structuration', 'Digitalisation', 'Performance', 'Pilotage'] %}
+        <li class="pole-lp-journey__step">
+            <span class="pole-lp-journey__num">{{ loop.index }}</span>
+            <span class="pole-lp-journey__label">{{ label }}</span>
+        </li>
+        {% endfor %}
+    </ol>
+</div>

@@ -250,10 +250,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="home-cs__cta-wrap">
-                    <a href="/contact" class="btn btn-lg home-cs__cta" data-home-cs-cta>{{ ss.cta }}</a>
-                </div>
             </div>
         </div>
     </div>
@@ -268,20 +264,15 @@
     <div class="container">
         <div class="home-approach-strip__card">
             <div class="home-approach-strip__icon-wrap" aria-hidden="true">
-                <svg class="home-approach-strip__hex" viewBox="0 0 88 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M44 4l36 20.8v41.6L44 87 8 66.4V24.8L44 4z" fill="url(#home-approach-hex)" stroke="rgba(89, 122, 175, 0.18)" stroke-width="1.2"/>
-                    <defs>
-                        <linearGradient id="home-approach-hex" x1="8" y1="12" x2="76" y2="84" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#eef2f7"/>
-                            <stop offset="1" stop-color="#e2e8f0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg class="home-approach-strip__cubes" width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M6 10l8-4.5 8 4.5v10l-8 4.5-8-4.5V10Z" stroke="#15803d" stroke-width="1.35" stroke-linejoin="round"/>
-                    <path d="M14 5.5L22 10v10l-8 4.5" stroke="#15803d" stroke-width="1.35" stroke-linejoin="round" opacity="0.88"/>
-                    <path d="M10 12l8 4.5 8-4.5M10 12v10l8 4.5M18 16.5v10" stroke="#15803d" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
-                </svg>
+                <img
+                    class="home-approach-strip__illu"
+                    src="{{ asset_base }}/assets/images/illustrations/WebP/Plan%20de%20travail%205.webp"
+                    alt=""
+                    width="72"
+                    height="78"
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
             <div class="home-approach-strip__hook">
                 <h2 id="home-approach-strip-title" class="home-approach-strip__title">
@@ -340,6 +331,7 @@
 
         <div class="home-poles__dark">
             <div class="home-poles__dark-glow" aria-hidden="true"></div>
+            <div class="home-poles__dark-glow home-poles__dark-glow--br" aria-hidden="true"></div>
             <div class="home-poles__dark-inner">
                 <div class="home-poles__process-copy">
                     <p class="home-poles__process-lead">
@@ -350,13 +342,19 @@
                 <ol class="home-poles__process-list" role="list">
                     {% for step in ps.steps %}
                     <li class="home-poles__process-item">
-                        <div class="home-poles__process-ico" aria-hidden="true">
-                            {% include 'partials/home-poles-step-icon.twig' with { step: loop.index } only %}
+                        <div class="home-poles__process-rail" aria-hidden="true">
+                            <span class="home-poles__process-node"></span>
                         </div>
-                        <div class="home-poles__process-body">
+                        <div class="home-poles__process-card">
+                            <div class="home-poles__process-ico" aria-hidden="true">
+                                {% include 'partials/home-poles-step-icon.twig' with { step: loop.index } only %}
+                            </div>
                             <h3 class="home-poles__process-title">{{ step.title }}</h3>
-                            <p class="home-poles__process-desc">{{ step.text }}</p>
-                            <a class="home-poles__process-link" href="{{ step.href }}">Explorer →</a>
+                            <span class="home-poles__process-vsep" aria-hidden="true"></span>
+                            <div class="home-poles__process-copycol">
+                                <p class="home-poles__process-desc">{{ step.text }}</p>
+                                <a class="home-poles__process-link" href="{{ step.href }}">Explorer →</a>
+                            </div>
                         </div>
                     </li>
                     {% endfor %}
@@ -419,7 +417,7 @@
 </section>
 
 {% set proc = home.process %}
-<section class="home-method" aria-labelledby="home-method-title">
+<section class="home-method" aria-labelledby="home-method-title" data-home-method>
     <div class="container">
         <header class="home-method__header">
             <p class="home-method__eyebrow">{{ proc.tag }}</p>
@@ -520,26 +518,79 @@
     </div>
 </section>
 
-<section class="home-journey" aria-labelledby="home-journey-title">
+<section class="home-journey" id="parcours-client" aria-labelledby="home-journey-title" data-home-journey>
     <div class="container">
         <header class="home-journey__header">
             <p class="home-journey__tag">{{ home.client_journey.tag }}</p>
             <h2 id="home-journey-title" class="home-journey__title">{{ home.client_journey.title }}</h2>
             <p class="home-journey__lead">{{ home.client_journey.lead }}</p>
         </header>
+
         <div class="home-journey__visual">
-            <ol class="home-journey__steps">
+            <div class="home-journey__timeline">
+                <svg class="home-journey__wave" viewBox="0 0 1000 88" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="hj-wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#E67E22"/>
+                            <stop offset="22%" stop-color="#A2AD00"/>
+                            <stop offset="48%" stop-color="#2980B9"/>
+                            <stop offset="72%" stop-color="#27AE60"/>
+                            <stop offset="100%" stop-color="#2ECC71"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Tracé commun (ligne ondulée) -->
+                    {% set wave_d = 'M48,52 C148,22 188,82 288,52 S428,22 488,52 S628,82 688,52 S828,22 888,52 S952,46 980,44' %}
+                    <path class="home-journey__path home-journey__path--dash" d="{{ wave_d }}" fill="none" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 7"/>
+                    <path id="hj-wave-path-fill" class="home-journey__path home-journey__path--fill" d="{{ wave_d }}" fill="none" stroke="url(#hj-wave-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <ol class="home-journey__orbs" role="list">
+                    {% for step in home.client_journey.steps %}
+                    <li class="home-journey__orb-slot home-journey__orb-slot--{{ loop.index }}">
+                        <span class="home-journey__orb"><span class="home-journey__orb-num">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span></span>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+            <ol class="home-journey__steps" role="list">
                 {% for step in home.client_journey.steps %}
                 <li class="home-journey__step home-journey__step--{{ loop.index }}">
-                    <span class="home-journey__orb" aria-hidden="true"><span class="home-journey__orb-inner">{{ loop.index }}</span></span>
-                    <div class="home-journey__card">
-                        <span class="home-journey__label">{{ step.label }}</span>
-                        <span class="home-journey__hint">{{ step.hint }}</span>
-                    </div>
+                    <article class="home-journey__card">
+                        <div class="home-journey__card-icon" aria-hidden="true">
+                            {% include 'partials/home-journey-card-icon.twig' with { step: loop.index } only %}
+                        </div>
+                        <h3 class="home-journey__card-title">{{ step.title }}</h3>
+                        <p class="home-journey__card-text">{{ step.text }}</p>
+                        <div class="home-journey__card-tag{% if step.footer_tone == 'warning' %} home-journey__card-tag--warning{% else %} home-journey__card-tag--positive{% endif %}">
+                            {% if step.footer_tone == 'warning' %}
+                            <span class="home-journey__tag-ico home-journey__tag-ico--warn" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4l2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            {% else %}
+                            <span class="home-journey__tag-ico home-journey__tag-ico--ok" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            {% endif %}
+                            <span class="home-journey__tag-copy">{{ step.footer }}</span>
+                        </div>
+                    </article>
                 </li>
                 {% endfor %}
             </ol>
         </div>
+
+        {% if home.client_journey.promises is defined %}
+        <div class="home-journey__promises" role="group" aria-label="Engagements">
+            {% for p in home.client_journey.promises %}
+            <div class="home-journey__promise">
+                <span class="home-journey__promise-ico" aria-hidden="true">
+                    {% include 'partials/home-journey-promise-icon.twig' with { name: p.icon } only %}
+                </span>
+                <p class="home-journey__promise-text">{{ p.before }}<strong>{{ p.accent }}</strong>{{ p.after }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </section>
 
@@ -585,7 +636,7 @@
         </div>
         <div class="sp-cta-final__actions">
             <button type="button" class="btn btn-lg sp-cta-final__outline" data-open-quote-modal>Demander un devis</button>
-            <a href="/contact" class="btn btn-lg sp-cta-final__outline">Nous contacter</a>
+            <a href="/contact" class="btn btn-lg btn-outline sp-cta-final__outline">Nous contacter</a>
         </div>
     </div>
 </section>
@@ -597,4 +648,6 @@
 
 {% block scripts %}
 <script src="{{ asset_base }}/assets/js/home-chaos-system.js" defer></script>
+<script src="{{ asset_base }}/assets/js/home-method-timeline.js" defer></script>
+<script src="{{ asset_base }}/assets/js/home-journey-scroll.js" defer></script>
 {% endblock %}

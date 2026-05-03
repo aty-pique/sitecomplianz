@@ -237,26 +237,6 @@
             );
         }
 
-        function addBentPath(markerEnd, cls, x1, y1, xm, ym, x2, y2) {
-            if (!isValidPoint(x1, y1, xm, ym, x2, y2)) return;
-            appendPathD(
-                'M ' +
-                    round2(x1) +
-                    ' ' +
-                    round2(y1) +
-                    ' L ' +
-                    round2(xm) +
-                    ' ' +
-                    round2(ym) +
-                    ' L ' +
-                    round2(x2) +
-                    ' ' +
-                    round2(y2),
-                markerEnd,
-                cls
-            );
-        }
-
         if (icons.length === 0) {
             dashOffsetSysPaths();
             return;
@@ -352,17 +332,53 @@
 
         if (!narrow) {
             var benefits = viz.querySelectorAll('.home-cs__benefit-card');
-            for (var bi = 0; bi < benefits.length; bi++) {
-                var bg = box(benefits[bi]);
-                var targetRow = rows[Math.min(bi, rows.length - 1)];
-                var tBox = box(targetRow);
-                if (!bg || !tBox) continue;
-                var xStart = bg.left + 2;
-                var yMid = bg.cy;
-                var xMid = sg.right + (hubX - sg.right) * 0.5;
-                var xEnd = sg.right + 4;
-                var yEnd = tBox.cy;
-                addBentPath(mkUrl, 'home-cs__flow-benefit', xStart, yMid, xMid, yMid, xEnd, yEnd);
+            var stackTargets = Array.prototype.slice.call(rows);
+            if (outcome) stackTargets.push(outcome);
+
+            var spineX = null;
+            if (benefits.length > 0) {
+                var b0g = box(benefits[0]);
+                if (b0g && isValidPoint(sg.right, b0g.left)) {
+                    spineX = sg.right + (b0g.left - sg.right) * 0.46;
+                    spineX = Math.min(Math.max(spineX, sg.right + 12), b0g.left - 10);
+                }
+            }
+
+            if (spineX !== null && isValidPoint(spineX)) {
+                /* Bus horizontal sous les icônes jusqu’à l’axe « spine » (maquette : rattachement couche intégration) */
+                var xBusLo = Math.min(xR + 4, spineX);
+                var xBusHi = Math.max(xR + 4, spineX);
+                if (xBusHi - xBusLo > 3) {
+                    addLinePath(null, null, xBusLo, yBar, xBusHi, yBar);
+                }
+                /* Descente verticale sur la spine depuis le bus jusqu’au premier bénéfice (si plus bas) */
+                var b0first = box(benefits[0]);
+                if (
+                    b0first &&
+                    b0first.cy > yBar + 10 &&
+                    isValidPoint(b0first.cy)
+                ) {
+                    addLinePath(null, 'home-cs__flow-benefit', spineX, yBar, spineX, b0first.cy);
+                }
+
+                for (var bi = 0; bi < benefits.length; bi++) {
+                    var bg = box(benefits[bi]);
+                    var targetEl = stackTargets[bi];
+                    if (!bg || !targetEl) continue;
+                    var tBox = box(targetEl);
+                    if (!tBox) continue;
+
+                    var yB = bg.cy;
+                    var yT = tBox.cy;
+                    /* 1 — bord gauche carte → axe vertical dans le passage pile / bénéfices */
+                    addLinePath(null, 'home-cs__flow-benefit', bg.left, yB, spineX, yB);
+                    /* 2 — le long de la spine */
+                    if (Math.abs(yT - yB) > 2) {
+                        addLinePath(null, 'home-cs__flow-benefit', spineX, yB, spineX, yT);
+                    }
+                    /* 3 — entrée dans la pile centrale (flèche) */
+                    addLinePath(mkUrl, 'home-cs__flow-benefit', spineX, yT, sg.right + 3, yT);
+                }
             }
         }
 
