@@ -1,0 +1,509 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 150 chars description) ─────────────────── #}
+{% block title %}Intégration Odoo | Déploiement & personnalisation ERP | Complianz{% endblock %}
+
+{% block description %}Déployez et personnalisez Odoo pour votre entreprise. Modules sur mesure, migration de données, formation et support. Intégration avec vos outils existants.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Intégration Odoo & ERP existants",
+      "url": "{{ app_url }}/solutions-developpement/erp-crm/integration-odoo",
+      "description": "Audit des besoins, installation et configuration Odoo, développement de modules sur mesure, migration des données existantes, formation des utilisateurs et support maintenance Odoo.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Intégration Odoo",
+      "offers": [
+        { "@type": "Offer", "name": "Intégration Odoo Starter",   "price": "5900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9900"  } },
+        { "@type": "Offer", "name": "Intégration Odoo Standard",  "price": "9900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "19000" } },
+        { "@type": "Offer", "name": "Odoo Enterprise custom",     "price": "19000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "40000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "ERP & CRM",                 "item": "{{ app_url }}/solutions-developpement/erp-crm" },
+        { "@type": "ListItem", "position": 4, "name": "Intégration Odoo",          "item": "{{ app_url }}/solutions-developpement/erp-crm/integration-odoo" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi choisir Odoo plutôt qu'un ERP sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Odoo est une excellente solution lorsque vos processus s'adaptent à des workflows standards. Il offre un large écosystème de modules (CRM, comptabilité, stocks, RH, e-commerce…), une communauté active et un coût initial plus faible qu'un ERP entièrement sur mesure. Nous le personnalisons et l'adaptons à votre organisation pour qu'il corresponde à vos besoins spécifiques." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps prend une intégration Odoo ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 6 à 10 semaines pour une intégration Starter (3 modules standards), de 3 à 5 mois pour une intégration Standard (5-8 modules avec personnalisations), et de 5 à 9 mois pour un déploiement Enterprise avec modules sur mesure. Le délai dépend du nombre de modules, des personnalisations et du volume de données à migrer." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on migrer nos données Excel ou ancien ERP vers Odoo ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — la migration de vos données est incluse dans notre périmètre. Nous réalisons un audit et un nettoyage de vos données sources (fichiers Excel, ancien ERP, base Access…), puis migrons les données dans Odoo avec validation à chaque étape. Les contacts, articles, historique des ventes et stocks sont repris intégralement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Odoo peut-il se connecter à nos autres outils (compta, e-commerce…) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — Odoo propose de nombreux connecteurs natifs (WooCommerce, Shopify, Amazon, Stripe, PayPal…) et nous développons des connecteurs sur mesure pour vos outils spécifiques (logiciel de comptabilité, plateforme logistique, ERP legacy…). L'objectif est de centraliser vos données dans Odoo sans créer de silos d'information." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/erp-crm">ERP &amp; CRM</a>
+                <span>›</span>
+                <span>Intégration Odoo</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Partenaire intégrateur Odoo</span>
+                Intégration Odoo &amp; ERP existants
+            </h1>
+            <p class="sp-hero__lead">
+                Nous déployons et personnalisons <strong>Odoo pour votre entreprise</strong> — configuration des modules, développement de fonctionnalités sur mesure, migration des données et formation des équipes. Un Odoo qui <strong>s'adapte à vous</strong>, pas l'inverse.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis Odoo
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit des besoins offert avant déploiement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Modules sur mesure selon vos processus</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Migration données &amp; formation incluses</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre Odoo</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>Odoo opérationnel, personnalisé et adopté par vos équipes</strong> — données migrées, modules configurés selon vos processus et équipes formées pour une utilisation autonome.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>6 sem.</strong>
+                        <span>à 9 mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>personnalisé</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–35%</strong>
+                        <span>temps admin</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients adoptent Odoo à <strong>90%+ dès le premier mois</strong> grâce à notre méthode de formation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos autres solutions ERP, CRM &amp; gestion</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>CRM sur mesure</h2>
+                    <p>Pour des processus commerciaux trop spécifiques pour Odoo, développez un CRM entièrement sur mesure.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/erp-sur-mesure" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>ERP sur mesure</h2>
+                    <p>Pour des processus très atypiques ou des contraintes sectorielles fortes, l'ERP sur mesure est la solution.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/gestion-commerciale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Gestion commerciale</h2>
+                    <p>Module gestion commerciale (devis, facturation, stocks) standalone ou intégré dans Odoo.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>ERP &amp; CRM sur mesure</h2>
+                    <p>Vue d'ensemble de toutes nos solutions de gestion d'entreprise — sur mesure ou Odoo.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit des besoins offert avant déploiement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Modules Odoo personnalisés selon vos processus
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Migration données &amp; formation incluses
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                <p><strong>+40</strong> déploiements Odoo réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                <p><strong>90%+</strong> adoption dès le 1er mois</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend votre intégration Odoo</h2>
+            <p class="sp-section-sub">De l'audit des besoins à la formation des utilisateurs — un déploiement Odoo structuré pour une adoption rapide et durable.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit des besoins &amp; processus</h3><p>Analyse de vos processus métiers, identification des modules Odoo adaptés et définition du plan de déploiement par phases.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Installation &amp; configuration Odoo</h3><p>Déploiement sur votre infrastructure ou en cloud Odoo.sh, configuration des modules sélectionnés et paramétrage de sécurité.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Développement de modules sur mesure</h3><p>Développement Python/JS des fonctionnalités non couvertes par les modules standards — adaptations de workflows, champs personnalisés, rapports.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div><h3>Migration des données existantes</h3><p>Import de vos contacts, articles, historique des ventes, stocks et données financières depuis Excel, ancien ERP ou base de données.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation des utilisateurs</h3><p>Sessions de formation adaptées à chaque profil — utilisateurs, managers, administrateurs Odoo — pour une adoption rapide et autonome.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg>
+                </div>
+                <div><h3>Support &amp; maintenance Odoo</h3><p>Contrat de maintenance pour les mises à jour Odoo, corrections de bugs, ajout de fonctionnalités et support utilisateurs en post-déploiement.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi Odoo ?</p>
+            <h2>Ce que vous gagnez avec Odoo bien intégré</h2>
+            <p class="sp-section-sub">Odoo est l'ERP le plus populaire pour les PME et ETI — un écosystème complet, évolutif et ouvert, personnalisable à l'infini selon vos besoins.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Écosystème complet</h3>
+                <p>CRM, ventes, stocks, comptabilité, RH, e-commerce, marketing… 30+ modules natifs couvrant toute votre gestion.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Déploiement plus rapide</h3>
+                <p>Les modules Odoo standards accélèrent le déploiement vs. un ERP 100% sur mesure — time-to-market réduit.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Personnalisable à l'infini</h3>
+                <p>Architecture ouverte permettant de développer des modules sur mesure pour adapter Odoo à vos processus spécifiques.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Évolutif avec votre croissance</h3>
+                <p>Commencez avec 3 modules et ajoutez-en selon vos besoins — Odoo grandit avec votre entreprise.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une intégration Odoo professionnelle ?</h2>
+            <p class="sp-section-sub">Le coût dépend du nombre de modules, des personnalisations nécessaires et du volume de données à migrer. L'audit des besoins est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Intégration Odoo Starter</p>
+                    <p class="sp-plan__price"><span>5 900 – 9 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">3 modules standards, PME &lt;20 users</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit des besoins offert</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 modules configurés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Migration des données</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation utilisateurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 1 mois post-déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Intégration Odoo Standard</p>
+                    <p class="sp-plan__price"><span>9 900 – 19 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">5-8 modules + personnalisations</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet des processus</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5-8 modules configurés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Modules sur mesure (petits)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations API (1 à 3)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation multi-profils</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Odoo Enterprise custom</p>
+                    <p class="sp-plan__price"><span>19 000 – 40 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Modules sur mesure, multi-entités</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture Odoo avancée</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Modules sur mesure complexes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-entités &amp; multi-sociétés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations multiples</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance mensuelle Odoo</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs intégration — la licence Odoo Community est gratuite (open source). Odoo Enterprise est facturé par utilisateur par Odoo S.A.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions complémentaires à votre déploiement Odoo</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/erp-crm" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+                <div><strong>ERP &amp; CRM sur mesure</strong><p>Comparez Odoo avec nos solutions ERP/CRM entièrement sur mesure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/erp-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <div><strong>ERP sur mesure</strong><p>Pour des processus trop spécifiques pour Odoo — développez un ERP entièrement sur mesure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>CRM sur mesure</strong><p>Pour des processus commerciaux très spécifiques, développez un CRM entièrement adapté.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit &amp; cybersécurité</strong><p>Sécurisez votre infrastructure Odoo avant et après le déploiement.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'intégration Odoo</h2>
+                <p>Notre équipe répond sous 24h et propose un audit gratuit pour évaluer si Odoo est la bonne solution pour votre organisation.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Pourquoi choisir Odoo plutôt qu'un ERP sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Odoo est excellent lorsque vos processus s'adaptent à des workflows standards. Il offre un large écosystème de modules, une communauté active et un coût initial plus faible qu'un <a href="/solutions-developpement/erp-crm/erp-sur-mesure">ERP entièrement sur mesure</a>. Nous le personnalisons pour qu'il corresponde à vos besoins spécifiques tout en bénéficiant des mises à jour de la communauté.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps prend une intégration Odoo ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>6 à 10 semaines</strong> pour une intégration Starter (3 modules), de <strong>3 à 5 mois</strong> pour une intégration Standard (5-8 modules), et de <strong>5 à 9 mois</strong> pour un déploiement Enterprise avec modules sur mesure. Le délai dépend du nombre de modules et du volume de données à migrer.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on migrer nos données vers Odoo ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — la <strong>migration des données</strong> est incluse dans notre périmètre. Nous importons vos contacts, articles, historique des ventes, stocks et données financières depuis Excel, ancien ERP ou base de données avec validation à chaque étape. <strong>Aucune donnée n'est perdue</strong> lors de la transition.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Odoo peut-il se connecter à nos outils existants ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — Odoo propose de nombreux <strong>connecteurs natifs</strong> (WooCommerce, Shopify, Amazon, Stripe, PayPal…) et nous développons des connecteurs sur mesure pour vos outils spécifiques (logiciel de comptabilité, plateforme logistique, ERP legacy…). L'objectif est de <strong>centraliser vos données dans Odoo</strong> sans créer de silos d'information.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à déployer Odoo pour piloter votre gestion d'entreprise ?</h2>
+                <p>Audit gratuit pour évaluer si Odoo est la bonne solution, définir les modules nécessaires et établir une estimation précise. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet Odoo
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Migration données incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

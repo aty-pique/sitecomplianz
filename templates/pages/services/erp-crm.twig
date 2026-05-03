@@ -1,0 +1,627 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (41 chars titre / 133 chars description) ─────────────────── #}
+{% block title %}Création ERP & CRM sur mesure{% endblock %}
+
+{% block description %}Créez votre ERP ou CRM sur mesure pour centraliser vos données, automatiser vos processus et piloter votre activité. Devis gratuit, cadrage offert.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Création ERP & CRM sur mesure",
+      "url": "{{ app_url }}/solutions-developpement/erp-crm",
+      "description": "Conception et mise en place d'un ERP ou d'un CRM sur mesure ou semi-sur-mesure pour centraliser les données, structurer les processus et piloter l'activité de l'entreprise.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "ERP CRM sur mesure",
+      "offers": [
+        { "@type": "Offer", "name": "CRM simple",            "price": "5000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "15000"  } },
+        { "@type": "Offer", "name": "ERP / CRM structuré",   "price": "15000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "40000"  } },
+        { "@type": "Offer", "name": "ERP complet multi-process", "price": "40000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "100000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Création ERP & CRM sur mesure", "item": "{{ app_url }}/solutions-developpement/erp-crm" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un ERP et un CRM ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un CRM (Customer Relationship Management) gère la relation client : prospects, opportunités, devis, suivi commercial. Un ERP (Enterprise Resource Planning) couvre l'ensemble des processus de l'entreprise : ventes, achats, production, RH, finance, stocks. Les deux sont complémentaires et peuvent être développés sur mesure ou intégrés dans un outil hybride." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la création d'un ERP ou d'un CRM sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 5 000 € à 15 000 € pour un CRM simple (suivi prospects, pipeline commercial), de 15 000 € à 40 000 € pour un ERP/CRM structuré (multi-modules, automatisations), et de 40 000 € à 100 000 €+ pour un ERP complet multi-process. Un abonnement SaaS ou maintenance mensuelle est possible." }
+        },
+        {
+          "@type": "Question",
+          "name": "Vaut-il mieux développer un CRM/ERP sur mesure ou utiliser un outil existant comme Odoo ou Salesforce ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un outil existant (Odoo, Salesforce, HubSpot) est souvent adapté pour des besoins standards. Pour des processus métier spécifiques, une organisation atypique ou des contraintes d'intégration fortes, le développement sur mesure offre plus de flexibilité et d'adaptation. Nous proposons également l'intégration et le paramétrage d'Odoo pour répondre aux deux besoins." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour mettre en place un ERP ou CRM sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 à 3 mois pour un CRM simple, de 3 à 6 mois pour un ERP/CRM structuré, et de 6 à 12 mois pour un ERP complet. Nous travaillons en méthodologie itérative pour livrer des versions fonctionnelles progressivement, avec validation à chaque étape." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on intégrer un ERP ou CRM sur mesure avec nos outils existants ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — l'intégration avec vos outils existants (comptabilité, e-commerce, logistique, messagerie, téléphonie…) est au cœur de notre approche. Nous développons les connecteurs et API nécessaires pour créer un écosystème cohérent autour de votre ERP ou CRM." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <span>ERP &amp; CRM sur mesure</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">ERP, CRM &amp; logiciels de gestion sur mesure</span>
+                Création ERP &amp; CRM sur mesure&nbsp;: pilotez votre activité avec un outil centralisé, adapté à votre organisation
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et déployons des <strong>ERP et CRM sur mesure</strong> parfaitement alignés avec vos processus métier — pour centraliser vos données, structurer votre gestion et piloter efficacement votre activité. L'objectif&nbsp;: un outil <strong>cohérent avec votre organisation réelle</strong>, sans complexité inutile.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis ERP / CRM
+                </a>
+                <a href="#processus" class="btn btn-outline">
+                    Notre méthode de déploiement
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit processus offert avant déploiement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Intégration avec vos outils existants</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation équipes &amp; support post-lancement</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre ERP / CRM</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous pilotez votre entreprise avec un <strong>outil centralisé, clair et parfaitement adapté à votre fonctionnement</strong> — suivi clients, processus automatisés, données unifiées, décisions éclairées.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>1 à 12</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>adapté métier</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>temps de gestion</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients réduisent leur <strong>temps de gestion de 40%</strong> dès le premier mois d'utilisation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — 4 solutions
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos solutions ERP, CRM &amp; gestion</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>CRM sur mesure</h2>
+                    <p>Pilotez votre relation client et votre pipeline commercial avec un CRM entièrement adapté à votre cycle de vente.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/erp-sur-mesure" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>ERP sur mesure</h2>
+                    <p>Centralisez et automatisez l'ensemble de vos processus métier dans un ERP conçu sur-mesure pour votre organisation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/gestion-commerciale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Logiciel de gestion commerciale</h2>
+                    <p>Devis, commandes, factures, stocks — un logiciel de gestion commerciale adapté à votre activité et vos flux.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/integration-odoo" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Intégration Odoo &amp; ERP existants</h2>
+                    <p>Déployez et personnalisez Odoo ou connectez votre ERP existant à vos autres outils via des API sur mesure.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit des processus existants inclus
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Outil adapté à votre organisation réelle
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation équipes &amp; documentation complète
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                <p><strong>+60</strong> ERP &amp; CRM déployés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>–40%</strong> temps de gestion moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que comprend le projet
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="processus">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend votre projet ERP / CRM</h2>
+            <p class="sp-section-sub">De l'analyse de vos processus à la formation de vos équipes — un accompagnement complet pour un déploiement réussi.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des besoins métiers</h3><p>Ateliers de travail pour comprendre vos processus, flux de données et objectifs de gestion</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Audit des processus existants</h3><p>Cartographie de vos flux actuels, identification des inefficacités et opportunités d'automatisation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Définition de l'architecture ERP / CRM</h3><p>Choix de la technologie (sur mesure ou Odoo), structure des modules et plan de déploiement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Paramétrage ou développement sur mesure</h3><p>Configuration ou développement des modules selon vos processus exacts — aucun compromis imposé</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div><h3>Structuration des données</h3><p>Modélisation des données, migration depuis vos fichiers Excel / anciens outils, nettoyage et normalisation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Mise en place des processus</h3><p>Configuration des flux de vente, production, suivi client, RH, finance — chaque processus modélisé dans l'outil</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Automatisation des tâches</h3><p>Relances automatiques, alertes, workflows déclenchés par événements, rapports programmés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg>
+                </div>
+                <div><h3>Intégration avec vos outils existants</h3><p>API, connecteurs, webhooks — votre ERP/CRM communique avec votre compta, logistique, e-commerce</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests et validation</h3><p>Recette fonctionnelle, tests de charge et validation par vos équipes avant toute mise en production</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Déploiement progressif possible</h3><p>Rollout par module ou par équipe pour minimiser les disruptions et assurer une adoption réussie</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation des utilisateurs</h3><p>Sessions de formation adaptées à chaque profil — utilisateurs, managers, administrateurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation &amp; support au lancement</h3><p>Documentation utilisateur complète et support dédié pendant les premières semaines de production</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi choisir un ERP / CRM sur mesure</p>
+            <h2>Ce que vous gagnez en pilotant votre activité avec un outil adapté</h2>
+            <p class="sp-section-sub">Un ERP ou CRM sur mesure n'est pas réservé aux grandes entreprises. C'est l'outil qui permet aux PME et ETI de gagner en efficacité sans subir les contraintes des solutions génériques.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Centralisation des données</h3>
+                <p>Une source de vérité unique. Toutes vos équipes accèdent aux mêmes informations en temps réel.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Meilleure visibilité sur l'activité</h3>
+                <p>Tableaux de bord, KPIs en temps réel, alertes — vous pilotez avec les bonnes informations.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>Suivi clients, ventes &amp; processus</h3>
+                <p>Pipeline commercial, historique client, suivi des commandes et projets — tout dans un seul outil.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <h3>Automatisation des processus internes</h3>
+                <p>Relances, devis, factures, alertes stocks — les tâches répétitives s'exécutent automatiquement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps opérationnel</h3>
+                <p>Vos équipes se concentrent sur la valeur ajoutée. Le logiciel gère l'administratif.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des erreurs</h3>
+                <p>Fini les saisies doubles, les oublis de relance et les erreurs de calcul. Les règles métier sont encapsulées.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Amélioration du pilotage</h3>
+                <p>Reporting automatisé, indicateurs personnalisés — prenez les bonnes décisions plus vite.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Meilleure prise de décision</h3>
+                <p>Données fiables, historiques complets, prévisions — votre management a toutes les cartes en main.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le coût et la durée de votre ERP / CRM</h2>
+                    <p class="sp-section-sub">Chaque organisation est unique. Le cadrage gratuit permet d'analyser ces variables ensemble et d'établir une estimation précise avant tout engagement.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de solution</span>
+                        <span class="sp-variable-value">CRM seul, ERP seul ou solution hybride CRM+ERP</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de modules</span>
+                        <span class="sp-variable-value">Vente, RH, production, finance, stocks, projets…</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité des processus</span>
+                        <span class="sp-variable-value">Processus simples vs workflows complexes multi-niveaux</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données &amp; utilisateurs</span>
+                        <span class="sp-variable-value">Infrastructure à dimensionner selon votre charge cible</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Intégrations requises</span>
+                        <span class="sp-variable-value">Nombre et complexité des API / connecteurs à développer</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Qualité des données existantes</span>
+                        <span class="sp-variable-value">Travail de migration et nettoyage des données actuelles</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="ERP CRM sur mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un ERP ou CRM sur mesure ?</h2>
+            <p class="sp-section-sub">Le coût dépend du type de solution, du nombre de modules et de la complexité des processus à modéliser. Un cadrage gratuit permet d'établir une estimation précise.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRM simple</p>
+                    <p class="sp-plan__price"><span>5 000 – 15 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Suivi commercial, pipeline, contacts</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse &amp; cadrage besoins</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gestion contacts &amp; prospects</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pipeline commercial</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisations de base</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">ERP / CRM structuré</p>
+                    <p class="sp-plan__price"><span>15 000 – 40 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-modules, automatisations, intégrations</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet des processus</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 à 6 modules métier</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisations avancées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations API (2 à 5)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard &amp; reporting</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">ERP complet multi-process</p>
+                    <p class="sp-plan__price"><span>40 000 – 100 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ERP full custom, architecture scalable</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture ERP complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Modules illimités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations multiples</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gestion multi-entités / sites</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolution mensuelle</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un cadrage gratuit permet d'établir une estimation précise avant tout engagement. Un abonnement SaaS / maintenance est disponible après livraison.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions complémentaires à votre ERP / CRM</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Complétez votre ERP/CRM avec des modules spécifiques développés sur mesure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit &amp; cybersécurité</strong><p>Sécurisez votre infrastructure avant et après le déploiement de votre ERP/CRM.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Performance digitale</strong><p>Optimisez votre présence en ligne en parallèle de la structuration de votre gestion interne.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div><strong>Audit global &amp; conseil</strong><p>Auditez votre organisation avant de déployer votre ERP/CRM pour maximiser l'efficacité.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'ERP &amp; le CRM sur mesure</h2>
+                <p>Notre équipe répond sous 24h et propose un cadrage gratuit pour analyser vos besoins et vous orienter vers la meilleure solution.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle est la différence entre un ERP et un CRM ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>CRM</strong> (Customer Relationship Management) gère la relation client&nbsp;: prospects, opportunités, devis, suivi commercial. Un <strong>ERP</strong> (Enterprise Resource Planning) couvre l'ensemble des processus de l'entreprise&nbsp;: ventes, achats, production, RH, finance, stocks. Les deux sont complémentaires et peuvent être intégrés dans un outil hybride adapté à votre organisation.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un ERP ou CRM sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>5 000 € à 15 000 €</strong> pour un <a href="/solutions-developpement/erp-crm/crm-sur-mesure">CRM simple</a>, de <strong>15 000 € à 40 000 €</strong> pour un ERP/CRM structuré (multi-modules, automatisations), et de <strong>40 000 € à 100 000 €+</strong> pour un <a href="/solutions-developpement/erp-crm/erp-sur-mesure">ERP complet</a> multi-process. Un cadrage gratuit permet d'établir une estimation précise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Sur mesure ou outil existant comme Odoo / Salesforce ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un outil existant est souvent adapté pour des besoins standards. Pour des processus métier spécifiques ou des contraintes d'intégration fortes, le développement sur mesure offre plus de flexibilité. Nous proposons également l'<a href="/solutions-developpement/erp-crm/integration-odoo">intégration et le paramétrage d'Odoo</a> pour combiner les deux approches.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour déployer un ERP ou CRM ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 à 3 mois</strong> pour un CRM simple, de <strong>3 à 6 mois</strong> pour un ERP/CRM structuré, et de <strong>6 à 12 mois</strong> pour un ERP complet. Nous travaillons en méthodologie itérative pour livrer des versions fonctionnelles progressivement.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on intégrer l'ERP/CRM avec nos outils actuels ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — l'intégration avec vos outils existants (comptabilité, logistique, e-commerce, messagerie…) est au cœur de notre approche. Nous développons les connecteurs API nécessaires. Nous pouvons également faire le lien avec votre <a href="/solutions-developpement/developpement-logiciel/automatisation-api">infrastructure d'automatisation</a>.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à centraliser votre gestion avec un ERP ou CRM adapté à votre activité ?</h2>
+                <p>Cadrage gratuit pour analyser vos processus, identifier le bon type de solution et vous proposer une architecture adaptée. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet ERP / CRM
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit processus offert</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{# Icônes discrets pour les 5 étapes du processus (ordre 1–5) #}
+{% if step == 1 %}
+<svg class="home-poles__step-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/></svg>
+{% elseif step == 2 %}
+<svg class="home-poles__step-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 9l-5 5 5 5M16 15l5-5-5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+{% elseif step == 3 %}
+<svg class="home-poles__step-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18V6M10 18V10M16 18v-5M22 18V8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4 18h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+{% elseif step == 4 %}
+<svg class="home-poles__step-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L4 17l2 2 5.1-5.1a4 4 0 0 0 5.6-5.6z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="m4 20 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+{% else %}
+<svg class="home-poles__step-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.2 6.8H21l-5.5 4 2.1 6.7L12 15.8 6.4 19.5l2.1-6.7L3 8.8h6.8L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+{% endif %}

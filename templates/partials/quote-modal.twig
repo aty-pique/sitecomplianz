@@ -1,0 +1,22 @@
+{# Modale globale — configurateur de pré-devis (inclus sur toutes les pages via base.twig) #}
+<div id="quote-modal" class="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title" hidden>
+    <div class="quote-modal__backdrop" data-quote-modal-close tabindex="-1"></div>
+    <div class="quote-modal__panel" role="document">
+        <header class="quote-modal__head">
+            <div class="quote-modal__head-text">
+                <h2 id="quote-modal-title" class="quote-modal__title">Configurateur de pré-devis</h2>
+                <p class="quote-modal__sub">Estimation rapide, gratuite et sans engagement — réponse sous 24h en général.</p>
+            </div>
+            <button type="button" class="quote-modal__close" aria-label="Fermer la fenêtre" data-quote-modal-close>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </header>
+        <div class="quote-modal__body">
+            {% include 'partials/contact-quote-wizard.twig' %}
+            <p class="quote-modal__legal">
+                En soumettant ce formulaire, vous acceptez notre
+                <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+            </p>
+        </div>
+    </div>
+</div>

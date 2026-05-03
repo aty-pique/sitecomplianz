@@ -1,0 +1,509 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 140 chars description) ─────────────────── #}
+{% block title %}Landing pages conversion | Pages d'atterrissage optimisées | Complianz{% endblock %}
+
+{% block description %}Créez des landing pages qui convertissent vos visiteurs en leads. Design persuasif, A/B testing, intégration CRM. Livraison en 1-2 semaines.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Création de landing pages à fort taux de conversion",
+      "url": "{{ app_url }}/solutions-developpement/creation-site-web/landing-pages",
+      "description": "Conception et développement de landing pages orientées conversion : copywriting persuasif, design optimisé, A/B testing, intégration outils marketing et tracking analytics.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Création landing pages",
+      "offers": [
+        { "@type": "Offer", "name": "Landing page Simple",              "price": "800",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1800" } },
+        { "@type": "Offer", "name": "Pack 3 Landing pages",             "price": "2200", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4500" } },
+        { "@type": "Offer", "name": "Landing page Premium + A/B testing","price": "2500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4900" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Création de sites web",     "item": "{{ app_url }}/solutions-developpement/creation-site-web" },
+        { "@type": "ListItem", "position": 4, "name": "Landing pages",             "item": "{{ app_url }}/solutions-developpement/creation-site-web/landing-pages" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une landing page et à quoi ça sert ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une landing page (page d'atterrissage) est une page web conçue pour convertir un visiteur en lead ou en client via une action précise : remplir un formulaire, s'inscrire, télécharger, acheter. Contrairement à un site web généraliste, elle est focalisée sur un objectif unique, sans distraction, ce qui maximise le taux de conversion de vos campagnes publicitaires ou d'emailing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour créer une landing page ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 à 2 semaines pour une landing page Simple, de 2 à 3 semaines pour une landing page Premium avec A/B testing. Le délai dépend de la disponibilité des contenus et des validations. Pour les campagnes urgentes, nous pouvons nous adapter avec un délai accéléré." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment mesurer les performances d'une landing page ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intégrons Google Analytics 4, Google Tag Manager et les pixels publicitaires (Meta, Google Ads…) pour suivre précisément les conversions, le taux de rebond, le temps passé et les sources de trafic. Un tableau de bord de suivi des performances est livré avec chaque landing page Premium." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'A/B testing est-il vraiment utile pour une landing page ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — l'A/B testing permet de tester plusieurs variantes (titre, CTA, formulaire, visuels) pour identifier celle qui convertit le mieux. En pratique, un test A/B bien conduit peut améliorer le taux de conversion de 20 à 50%. Nous gérons tout le dispositif : paramétrage, analyse et recommandations d'optimisation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/creation-site-web">Création de sites web</a>
+                <span>›</span>
+                <span>Landing pages</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Landing pages &amp; pages de conversion</span>
+                Création de landing pages à fort taux de conversion
+            </h1>
+            <p class="sp-hero__lead">
+                Nous créons des <strong>landing pages qui convertissent vos visiteurs en leads</strong> — copywriting persuasif, design orienté action, A/B testing et intégration avec vos outils marketing. Livrées en <strong>1 à 2 semaines</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer ma landing page
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Ce qui est inclus
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Copywriting persuasif inclus</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Tracking &amp; analytics configurés</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Livraison en 1-2 semaines</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre landing page</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>page d'atterrissage optimisée pour convertir</strong> — message percutant, design persuasif, formulaire optimisé et tracking configuré pour mesurer chaque conversion.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>1–2</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>A/B</strong>
+                        <span>testing</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+CVR</strong>
+                        <span>garanti</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos landing pages affichent un <strong>taux de conversion 2 à 3× supérieur</strong> aux pages de site standard</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos autres solutions de création de sites web</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/creation-site-web/site-vitrine" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Site vitrine professionnel</h2>
+                    <p>Complétez vos landing pages avec un site vitrine qui renforce votre crédibilité globale.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/site-ecommerce" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Boutique e-commerce</h2>
+                    <p>Créez des pages produits optimisées ou une boutique complète pour convertir vos campagnes.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/refonte-site" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Refonte de site web</h2>
+                    <p>Modernisez l'ensemble de votre présence en ligne pour amplifier l'impact de vos campagnes.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/wordpress-cms" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>WordPress &amp; CMS</h2>
+                    <p>Intégrez vos landing pages dans un CMS pour les gérer et les mettre à jour facilement.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Copywriting &amp; design orientés conversion
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Tracking &amp; analytics configurés dès le lancement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Intégration HubSpot, Mailchimp, CRM incluse
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>+200</strong> landing pages créées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <p><strong>×2–3</strong> conversion vs. pages standards</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce qui est inclus</p>
+            <h2>Ce que comprend votre landing page</h2>
+            <p class="sp-section-sub">Du copywriting au tracking — chaque landing page est conçue pour maximiser les conversions de vos campagnes marketing.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Copywriting persuasif</h3><p>Rédaction d'un message clair, accrocheur et orienté bénéfices — titres percutants, arguments différenciants et appels à l'action efficaces.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div><h3>Design orienté conversion</h3><p>Mise en page focalisée sur l'objectif, hiérarchie visuelle claire, visuels percutants et suppression des éléments de distraction.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Formulaire &amp; CTA optimisés</h3><p>Formulaires courts et pertinents, boutons d'action visibles et incitatifs, micro-copie rassurante pour lever les objections.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Intégration outils marketing</h3><p>Connexion avec HubSpot, Mailchimp, ActiveCampaign, votre CRM ou tout autre outil de marketing automation pour capturer et qualifier les leads.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>A/B testing</h3><p>Mise en place de tests A/B pour comparer les variantes (titre, visuels, CTA) et optimiser continuellement le taux de conversion.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Tracking &amp; analytics</h3><p>Configuration de Google Analytics 4, Google Tag Manager, pixels Meta et Google Ads pour mesurer précisément chaque conversion et optimiser les campagnes.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Cas d'usage</p>
+            <h2>Quand utiliser une landing page dédiée ?</h2>
+            <p class="sp-section-sub">Une landing page dédiée est toujours plus performante qu'une page de site classique pour vos campagnes. Voici les 4 cas où elle fait la différence.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Campagnes publicitaires</h3>
+                <p>Google Ads, Meta Ads — une landing page dédiée à chaque campagne multiplie par 2-3 votre taux de conversion.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg>
+                </div>
+                <h3>Génération de leads qualifiés</h3>
+                <p>Téléchargement de livre blanc, demande de démo, inscription à un webinaire — capturez et qualifiez vos prospects.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Lancement de produit ou offre</h3>
+                <p>Page de pré-lancement, offre limitée, événement — créez l'urgence et capturez l'intérêt au bon moment.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <h3>Emailing &amp; marketing automation</h3>
+                <p>Complétez vos séquences d'emailing avec des pages dédiées qui transforment les clics en conversions mesurables.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une landing page professionnelle ?</h2>
+            <p class="sp-section-sub">Le prix dépend de la complexité du design, du copywriting inclus et des fonctionnalités (A/B testing, intégrations). Le cadrage est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Landing page Simple</p>
+                    <p class="sp-plan__price"><span>800 – 1 800 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">1 page, design efficace</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Design orienté conversion</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formulaire de capture</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Responsive &amp; rapide</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tracking basique inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livraison en 1-2 semaines</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack 3 Landing pages</p>
+                    <p class="sp-plan__price"><span>2 200 – 4 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">3 pages, cohérence &amp; économie</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>3 pages cohérentes</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copywriting inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration CRM / emailing</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tracking complet (GA4, pixels)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de performance</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 1 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Landing page Premium + A/B</p>
+                    <p class="sp-plan__price"><span>2 500 – 4 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">1 page + variantes A/B</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Design premium personnalisé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2-3 variantes A/B</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copywriting + UX avancé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse &amp; optimisation continue</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un cadrage gratuit permet d'établir une estimation précise selon votre objectif de conversion et votre audience cible.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Maximisez vos conversions avec ces services</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/creation-site-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Complétez vos landing pages avec un site vitrine ou e-commerce professionnel.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Performance digitale</strong><p>Diffusez vos landing pages via des campagnes Google Ads, Meta Ads ou emailing.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>CRM sur mesure</strong><p>Capturez vos leads dans un CRM adapté pour les qualifier et les convertir efficacement.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/site-vitrine" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg></div>
+                <div><strong>Site vitrine professionnel</strong><p>Un site vitrine qui crédibilise votre marque et renforce la confiance de vos prospects.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les landing pages</h2>
+                <p>Notre équipe répond sous 24h. Le cadrage de votre projet est gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'une landing page et à quoi ça sert ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une <strong>landing page</strong> est une page web conçue pour convertir un visiteur en lead ou en client via une action précise. Contrairement à un site web généraliste, elle est focalisée sur un <strong>objectif unique</strong> — remplir un formulaire, demander une démo, s'inscrire — ce qui multiplie par 2 à 3 le taux de conversion de vos campagnes.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour créer une landing page ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 à 2 semaines</strong> pour une landing page Simple, de <strong>2 à 3 semaines</strong> pour une landing page Premium avec A/B testing. Pour les campagnes urgentes, nous pouvons nous adapter. Le délai dépend de la disponibilité des contenus et des validations.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment mesurer les performances d'une landing page ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous intégrons <strong>Google Analytics 4, Google Tag Manager</strong> et les pixels publicitaires (Meta, Google Ads…) pour suivre précisément les conversions, le taux de rebond et les sources de trafic. Un tableau de bord de suivi est livré avec chaque landing page Premium.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'A/B testing est-il vraiment utile ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — l'<strong>A/B testing</strong> permet de tester plusieurs variantes (titre, CTA, formulaire) pour identifier celle qui convertit le mieux. En pratique, un test A/B bien conduit peut améliorer le taux de conversion de <strong>20 à 50%</strong>. Nous gérons tout le dispositif : paramétrage, analyse et recommandations.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à multiplier vos conversions avec des landing pages optimisées ?</h2>
+                <p>Cadrage gratuit pour définir votre objectif de conversion, votre audience et établir une estimation précise. Livraison en 1 à 2 semaines.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer ma landing page
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livraison en 1-2 semaines</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

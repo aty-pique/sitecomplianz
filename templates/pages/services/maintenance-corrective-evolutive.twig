@@ -1,0 +1,631 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 151 chars description) ─────────────────── #}
+{% block title %}Maintenance corrective — bugs & corrections rapides{% endblock %}
+
+{% block description %}Correction rapide de bugs, anomalies et dysfonctionnements sur vos sites, logiciels et serveurs. Diagnostic technique, rétablissement du service et documentation.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Maintenance corrective & évolutive",
+      "url": "{{ app_url }}/support-maintenance/maintenance/maintenance-corrective-evolutive",
+      "description": "Intervention technique visant à corriger les anomalies, bugs ou dysfonctionnements affectant les outils digitaux (sites, logiciels, serveurs) afin de rétablir un fonctionnement normal et sécurisé.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Maintenance corrective informatique",
+      "offers": [
+        { "@type": "Offer", "name": "Correction simple",          "price": "150",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "500"  } },
+        { "@type": "Offer", "name": "Correction intermédiaire",   "price": "500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1500" } },
+        { "@type": "Offer", "name": "Correction complexe",        "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000" } },
+        { "@type": "Offer", "name": "Forfait d'heures",           "price": "0",   "priceCurrency": "EUR" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",     "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Maintenance, support & évolutions", "item": "{{ app_url }}/support-maintenance/maintenance" },
+        { "@type": "ListItem", "position": 4, "name": "Maintenance corrective & évolutive", "item": "{{ app_url }}/support-maintenance/maintenance/maintenance-corrective-evolutive" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la maintenance corrective informatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La maintenance corrective informatique désigne l'ensemble des interventions techniques visant à corriger des anomalies, bugs ou dysfonctionnements qui perturbent le fonctionnement normal de vos outils digitaux (site web, application, logiciel, serveur). Elle intervient après détection d'un problème pour rétablir le service le plus rapidement possible." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre maintenance corrective et préventive ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La maintenance corrective intervient après qu'un problème a été détecté — c'est du curatif. La maintenance préventive consiste à anticiper les problèmes avant qu'ils surviennent (mises à jour, audits réguliers, surveillance proactive). Idéalement, un contrat de maintenance mensuel combine les deux : correction rapide des problèmes survenant, et prévention des futures interruptions." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels types de bugs et anomalies corrigez-vous ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intervenons sur tous types de dysfonctionnements digitaux : bugs d'affichage (CSS/HTML), erreurs PHP/JavaScript, problèmes de base de données, pannes serveur, bugs de formulaires et d'e-commerce, erreurs après mises à jour WordPress/plugins, problèmes de performance, failles de sécurité, et dysfonctionnements d'applications métier ou de logiciels sur mesure." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une intervention de maintenance corrective ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 150 € à 500 € pour une correction simple (bug d'affichage, formulaire cassé, erreur JS mineure), de 500 € à 1 500 € pour une correction intermédiaire (bug PHP, problème de base de données, conflit de plugins), et de 1 500 € à 5 000 €+ pour une correction complexe (refonte partielle, sécurité critique, bug de logiciel sur mesure). Un forfait d'heures est disponible pour les besoins récurrents." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le délai d'intervention pour une maintenance corrective urgente ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour les interventions urgentes (site hors ligne, panne critique, faille de sécurité active), nous intervenons sous 2 à 4 heures en journée. Pour les corrections non urgentes, notre délai standard est de 24 à 48 heures selon notre charge. Un forfait d'heures mensuel garantit une priorité d'intervention et un délai d'intervention contractuel." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg, #eef2f8) 0%, #f5f8fc 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/maintenance">Maintenance &amp; Support</a>
+                <span>›</span>
+                <span>Maintenance corrective &amp; évolutive</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Maintenance corrective</span>
+                Vos bugs sont corrigés rapidement — pour assurer le bon fonctionnement de vos outils et la continuité de votre activité
+            </h1>
+            <p class="sp-hero__lead">
+                Nous intervenons techniquement pour <strong>corriger les anomalies, bugs et dysfonctionnements</strong> affectant vos sites, logiciels, applications et serveurs. Diagnostic précis, correction validée et <strong>rétablissement du service</strong> dans les meilleurs délais — avec documentation complète des corrections effectuées.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Signaler un bug — intervention rapide
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Intervention sous 2–4h pour les urgences</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Correction testée &amp; validée avant livraison</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Documentation complète des corrections</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Votre outil fonctionne à nouveau</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos bugs sont <strong>diagnostiqués, corrigés et validés</strong> — votre outil digital reprend un fonctionnement normal et vous disposez d'une documentation complète des corrections.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>&lt;4h</strong>
+                        <span>délai urgence</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>documenté</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–85%</strong>
+                        <span>récidive bugs</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Chaque heure d'interruption</strong> d'un outil digital coûte en moyenne <strong>3× plus cher</strong> qu'une intervention corrective rapide</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — services connexes maintenance
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services complémentaires de maintenance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/maintenance/debug" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Debug &amp; résolution de bugs</h2>
+                    <p>Investigation approfondie des bugs complexes — debugging méthodique pour trouver et corriger la cause racine.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/support-technique" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Support technique externalisé</h2>
+                    <p>Votre équipe de support technique à la demande — réponse aux incidents et assistance quotidienne.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Maintenance mensuelle (contrat)</h2>
+                    <p>Passez d'une approche réactive à un contrat de maintenance préventif et correctif pour éviter les interruptions.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Intervention urgence sous 2–4h
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Correction testée &amp; validée avant livraison
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Devis transparent avant intervention
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <p><strong>+500</strong> bugs corrigés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>&lt;4h</strong> délai intervention urgence</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — types de bugs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Types d'interventions</p>
+            <h2>Quels types de bugs &amp; anomalies corrigeons-nous ?</h2>
+            <p class="sp-section-sub">Sites web, applications, logiciels, serveurs — nous intervenons sur tous vos outils digitaux pour corriger les dysfonctionnements et rétablir votre service.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Bugs de site web</h3>
+                <p>Erreurs d'affichage CSS/HTML, pages cassées après mise à jour, formulaires qui ne fonctionnent pas, problèmes de responsive, pages blanches WordPress.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Erreurs PHP &amp; JavaScript</h3>
+                <p>Erreurs 500, exceptions PHP, scripts JS cassés, conflits de librairies, bugs après déploiement, erreurs d'API et de webhooks.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Problèmes de base de données</h3>
+                <p>Requêtes lentes, données corrompues, tables cassées, erreurs de connexion MySQL/PostgreSQL, migrations ratées et problèmes d'intégrité des données.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <h3>Bugs e-commerce</h3>
+                <p>Bugs de panier, problèmes de paiement en ligne, erreurs de calcul de frais, dysfonctionnements WooCommerce/PrestaShop, problèmes de stock et de commandes.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Failles de sécurité &amp; piratages</h3>
+                <p>Sites piratés, malwares, injections SQL, XSS, pages redirigées, contenu malveillant — nettoyage, correction et sécurisation des accès.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>Bugs de logiciels &amp; applications métier</h3>
+                <p>Dysfonctionnements d'applications sur mesure, bugs d'ERP/CRM, erreurs d'intégration API, problèmes de synchronisation entre systèmes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend une intervention de maintenance corrective</h2>
+            <p class="sp-section-sub">Un processus structuré de la détection à la documentation — pour corriger le problème à la racine et éviter qu'il ne se reproduise.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse du dysfonctionnement</h3><p>Prise en charge rapide, recueil des informations et analyse du contexte du bug pour le localiser avec précision</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Diagnostic technique</h3><p>Investigation approfondie pour identifier la cause racine — logs d'erreurs, analyse du code, base de données, configuration serveur</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div><h3>Correction des anomalies</h3><p>Développement et application de la correction — en environnement de test avant déploiement en production</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests et validation</h3><p>Tests fonctionnels complets avant mise en production — vérification que la correction n'introduit pas de régressions</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <div><h3>Intervention sites, logiciels, serveurs</h3><p>Déploiement de la correction sur votre environnement de production — sites WordPress, Symfony, Laravel, VPS, serveurs dédics</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Rétablissement du service</h3><p>Vérification du bon fonctionnement complet après correction et confirmation de la résolution du problème</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Documentation des corrections</h3><p>Rapport de l'intervention : cause identifiée, correction appliquée et recommandations pour éviter la récidive</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                </div>
+                <div><h3>Support réactif</h3><p>Disponibilité pour répondre aux questions post-intervention et assurer que la correction tient dans le temps</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 5 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi intervenir vite</p>
+            <h2>Ce que vous gagnez avec une maintenance corrective rapide</h2>
+            <p class="sp-section-sub">Chaque heure d'interruption d'un outil digital coûte en moyenne 3× plus cher qu'une intervention corrective rapide — en perte de CA, en expérience client dégradée, et en image de marque.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Résolution rapide des bugs</h3>
+                <p>Vos bugs sont traités en priorité et corrigés dans les meilleurs délais — votre outil reprend un fonctionnement normal rapidement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Rétablissement des outils</h3>
+                <p>Votre site, logiciel ou serveur reprend son fonctionnement normal — vos équipes peuvent travailler, vos clients peuvent acheter.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Réduction des interruptions</h3>
+                <p>Une correction à la racine réduit la probabilité de récidive de 85% — vous sortez du cycle récurrent des mêmes bugs.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                </div>
+                <h3>Continuité de l'activité</h3>
+                <p>Vos outils fonctionnent — vos équipes travaillent sans friction, vos clients sont servis, votre chiffre d'affaires n'est pas impacté.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Sécurisation des systèmes</h3>
+                <p>Les failles détectées lors de l'intervention sont également corrigées — votre outil est plus sûr après notre passage qu'avant le problème.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le coût d'une intervention corrective</h2>
+                    <p class="sp-section-sub">Chaque bug est unique. Ces variables sont évaluées lors du diagnostic initial pour vous fournir un devis transparent avant toute intervention.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de bug</span>
+                        <span class="sp-variable-value">Affichage CSS/HTML à bug logique complexe ou faille de sécurité critique</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité technique</span>
+                        <span class="sp-variable-value">Correction simple (1h) à investigation approfondie avec refactoring partiel</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Outil concerné</span>
+                        <span class="sp-variable-value">WordPress / WooCommerce / Laravel / Symfony / logiciel sur mesure / serveur</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de criticité</span>
+                        <span class="sp-variable-value">Bug mineur (visuel) à panne totale du service ou faille de sécurité exploitée</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Urgence de l'intervention</span>
+                        <span class="sp-variable-value">Correction standard (24-48h) à intervention d'urgence (2-4h) — impact sur la tarification</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Accès aux systèmes</span>
+                        <span class="sp-variable-value">Accès complet disponible à accès limité ou environnement complexe nécessitant une coordination</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Maintenance corrective informatique" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une intervention de maintenance corrective ?</h2>
+            <p class="sp-section-sub">Devis transparent avant toute intervention. Un forfait d'heures mensuel est disponible pour les besoins récurrents avec priorité d'intervention garantie.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Correction simple</p>
+                    <p class="sp-plan__price"><span>150 – 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Bug visuel, formulaire, affichage</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic rapide</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction CSS/HTML/JS</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests de validation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Délai standard 24-48h</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Signaler un bug</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus fréquent</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Correction intermédiaire</p>
+                    <p class="sp-plan__price"><span>500 – 1 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Bug PHP, BDD, plugin, logique métier</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Diagnostic approfondi</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse logs &amp; code source</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction PHP/BDD/API</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests complets + rapport</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Délai 24-48h (urgence &lt;4h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Signaler un bug</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Correction complexe</p>
+                    <p class="sp-plan__price"><span>1 500 – 5 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Sécurité, logiciel métier, refactoring</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Investigation &amp; architecture</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction sécurité &amp; piratage</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Refactoring &amp; optimisation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Environnement de test dédié</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation complète</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Un <strong>forfait d'heures mensuel</strong> est disponible pour les besoins récurrents : priorité d'intervention garantie, tarif préférentiel et pas de surprise sur la facturation. <a href="/support-maintenance/maintenance">Voir les contrats de maintenance</a>.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Évitez les prochains bugs avec un contrat de maintenance</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/maintenance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div><strong>Contrat de maintenance mensuel</strong><p>Passez d'une approche réactive à une maintenance préventive — moins de bugs, plus de sérénité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/debug" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+                <div><strong>Debug & résolution de bugs complexes</strong><p>Pour les bugs tenaces qui résistent aux corrections classiques — investigation approfondie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/infogerance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div><strong>Infogérance & hébergement serveurs</strong><p>Déléguez la gestion complète de votre infrastructure pour éviter les pannes serveur.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Audit & sécurisation des systèmes</strong><p>Renforcez la sécurité de vos outils pour prévenir les piratages et les failles critiques.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la maintenance corrective</h2>
+                <p>Notre équipe répond sous 4h en journée. Pour les urgences, indiquez-le clairement dans votre message.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Signaler un bug</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que la maintenance corrective informatique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>maintenance corrective informatique</strong> désigne les interventions techniques visant à corriger des anomalies, bugs ou dysfonctionnements qui perturbent le fonctionnement de vos outils digitaux. Elle intervient après détection d'un problème pour <strong>rétablir le service</strong> le plus rapidement possible, avec une correction à la racine pour éviter la récidive.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel est votre délai d'intervention pour les urgences ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Pour les urgences (site hors ligne, panne critique, faille de sécurité active), nous intervenons sous <strong>2 à 4 heures en journée</strong>. Pour les corrections non urgentes, notre délai standard est de 24 à 48 heures. Un <a href="/support-maintenance/maintenance">forfait d'heures mensuel</a> garantit une priorité d'intervention contractuelle.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels types de bugs et anomalies corrigez-vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous intervenons sur tous types de dysfonctionnements&nbsp;: bugs d'affichage CSS/HTML, erreurs PHP/JavaScript, problèmes de base de données, pannes serveur, bugs de formulaires ou d'e-commerce, erreurs après mises à jour WordPress, problèmes de sécurité (piratages, malwares), et <strong>dysfonctionnements d'applications métier</strong> ou de logiciels sur mesure.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment est calculé le tarif d'une intervention ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>150 € à 500 €</strong> pour une correction simple (CSS, formulaire), de <strong>500 € à 1 500 €</strong> pour une correction intermédiaire (PHP, base de données), et de <strong>1 500 € à 5 000 €+</strong> pour une correction complexe (sécurité, logiciel métier). Nous fournissons toujours un <strong>devis transparent avant intervention</strong>. Un <a href="#tarifs">forfait d'heures</a> est disponible.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment éviter les bugs à répétition ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La meilleure façon d'éviter les bugs à répétition est de passer d'une approche réactive à un <strong><a href="/support-maintenance/maintenance">contrat de maintenance mensuel</a></strong> qui inclut des mises à jour préventives, des audits réguliers et une surveillance proactive. Notre taux de récidive post-correction est de moins de 15% — et une maintenance préventive le réduit encore davantage.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Un bug bloque votre activité ? Nos techniciens interviennent rapidement.</h2>
+                <p>Décrivez votre problème et nous vous répondons sous 4h en journée avec un diagnostic et un devis transparent avant toute intervention.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Signaler mon bug — réponse sous 4h
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Devis transparent</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intervention rapide</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction documentée</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

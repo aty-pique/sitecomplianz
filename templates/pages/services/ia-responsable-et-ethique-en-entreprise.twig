@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}IA responsable & éthique | IA éthique en entreprise | Complianz{% endblock %}
+
+{% block description %}Adoptez une IA responsable et éthique dans votre entreprise. Biais algorithmiques, transparence, conformité AI Act et charte d'utilisation de l'IA.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "IA responsable et éthique en entreprise",
+      "url": "{{ app_url }}/intelligence-artificielle/impact-ia/ia-responsable-et-ethique-en-entreprise",
+      "description": "Guide pratique pour adopter une IA responsable et éthique en entreprise : gestion des biais, transparence, explicabilité, gouvernance et charte IA.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Impact IA", "item": "{{ app_url }}/intelligence-artificielle/impact-ia" },
+        { "@type": "ListItem", "position": 4, "name": "IA responsable et éthique", "item": "{{ app_url }}/intelligence-artificielle/impact-ia/ia-responsable-et-ethique-en-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une IA éthique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une IA éthique respecte plusieurs principes fondamentaux : équité (absence de discrimination injustifiée), transparence (les décisions peuvent être expliquées aux personnes concernées), responsabilité (des humains sont identifiables comme responsables des systèmes IA), respect de la vie privée (conformité RGPD et minimisation des données), robustesse et sécurité (fiabilité dans toutes les conditions), et bénéfice humain (l'IA au service de l'être humain, pas l'inverse). Ces principes sont désormais encadrés par l'AI Act européen." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment identifier et gérer les biais dans ses systèmes IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La gestion des biais IA passe par plusieurs étapes : identification des sources potentielles de biais (données d'entraînement, définition des critères, conception du modèle), tests de détection de biais sur des groupes protégés (genre, âge, origine), métriques d'équité adaptées au cas d'usage, audits réguliers des systèmes en production, et processus de correction. La supervision humaine systématique des décisions impactantes est la dernière ligne de défense contre les biais non détectés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une charte IA d'entreprise et pourquoi en créer une ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une charte IA d'entreprise définit les règles d'utilisation de l'IA pour tous les collaborateurs : usages autorisés et interdits, données qu'il est possible de partager avec les outils IA (et celles qui ne doivent pas l'être), processus de validation humaine pour les décisions critiques, responsabilités et signalement des problèmes, et engagements éthiques de l'organisation. La charte IA est le premier pas vers une gouvernance IA structurée — elle réduit les risques et renforce la confiance des collaborateurs et des clients." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA éthique est-elle incompatible avec la performance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non — au contraire. Les organisations qui adoptent une approche éthique de l'IA bénéficient d'une meilleure confiance des clients, d'un moindre risque réglementaire (AI Act), d'une plus grande adoption par les équipes, et d'une meilleure réputation. L'IA éthique est un investissement : les crises liées à des biais ou à des utilisations non conformes coûtent bien plus cher que la mise en place d'une gouvernance préventive." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/impact-ia">Impact IA</a><span>›</span>
+                <span>IA responsable et éthique</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">IA responsable &amp; éthique</span>
+                IA responsable et éthique en entreprise
+            </h1>
+            <p class="sp-hero__lead">
+                Adoptez l'IA de manière responsable — <strong>gestion des biais, transparence, charte IA et conformité AI Act</strong>. L'IA éthique n'est pas un frein à la performance : c'est un facteur de confiance, de durabilité et de différenciation.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Adopter une IA responsable</a>
+                <a href="/intelligence-artificielle/impact-ia" class="btn btn-outline">Impact de l'IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">IA responsable &amp; conforme</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>Charte</strong><span>IA d'entreprise</span></div>
+                    <div class="sp-dc-stat"><strong>Biais</strong><span>gérés &amp; audités</span></div>
+                    <div class="sp-dc-stat"><strong>AI Act</strong><span>conformité anticipée</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi l'IA éthique est-elle un enjeu business et pas seulement moral ?</h2>
+                <p>L'IA éthique n'est pas seulement une question de valeurs — c'est un enjeu business concret. Les crises liées à des biais discriminatoires, des décisions IA opaques ou des utilisations non conformes coûtent des millions en amendes (AI Act), en atteinte à la réputation et en perte de confiance des clients. Les organisations qui anticipent et gèrent ces risques transforment l'éthique IA en avantage concurrentiel.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les principes d'une IA responsable en entreprise</h2>
+                <p><strong>Équité et non-discrimination :</strong> les systèmes IA ne doivent pas discriminer sur la base du genre, de l'âge, de l'origine, du handicap ou d'autres critères protégés. Les biais peuvent être systémiques et difficiles à détecter sans audit proactif.</p>
+                <p><strong>Transparence et explicabilité :</strong> les personnes affectées par une décision IA ont le droit de comprendre comment elle a été prise. Les systèmes IA en production doivent être documentés et leurs décisions doivent pouvoir être expliquées.</p>
+                <p><strong>Responsabilité humaine :</strong> il doit toujours y avoir un humain identifiable comme responsable des systèmes IA et de leurs décisions. L'"on ne savait pas" n'est plus une défense valable avec l'AI Act.</p>
+                <p><strong>Respect de la vie privée :</strong> conformité RGPD, minimisation des données, consentement éclairé pour les traitements IA. Les données personnelles dans les modèles IA nécessitent des protections spécifiques.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Comment créer une charte IA d'entreprise ?</h2>
+                <p>Une charte IA d'entreprise définit concrètement : les usages autorisés et interdits de l'IA pour les collaborateurs, les données qu'il est possible de partager avec les outils IA (et les données confidentielles à ne jamais partager), les processus de validation humaine pour les décisions impactantes, et les responsabilités en cas de problème. La charte IA est le premier pas indispensable avant tout déploiement à grande échelle.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur l'IA éthique</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <div><h3>L'éthique IA = avantage compétitif</h3><p>Confiance clients, conformité réglementaire, adoption par les équipes — l'IA éthique est un investissement qui se rentabilise</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><h3>Biais — risque invisible</h3><p>Les biais algorithmiques peuvent être présents sans qu'on les voie. Des audits réguliers des systèmes IA en production sont indispensables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>AI Act — conformité obligatoire</h3><p>L'AI Act encadre juridiquement l'éthique IA avec des sanctions jusqu'à 35M€. Anticiper vaut mieux que corriger</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div>
+                <div><h3>Charte IA — premier pas indispensable</h3><p>Définir les règles d'usage de l'IA pour vos collaborateurs est le fondement de toute gouvernance IA responsable</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Explorer l'impact complet de l'IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/impact-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2z"/></svg></div>
+                <div><strong>Impact de l'IA</strong><p>Vue d'ensemble — environnement, emploi et éthique.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>Les obligations légales qui encadrent l'IA éthique.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                <div><strong>Gouvernance données &amp; IA</strong><p>Gouvernance des données — fondation de l'IA responsable.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/impact-de-l-ia-sur-l-emploi" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>Impact de l'IA sur l'emploi</strong><p>La dimension humaine et sociale de l'adoption IA.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'IA éthique</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Adopter une IA responsable</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'une IA éthique ?</summary>
+                    <div class="sp-faq-item__answer"><p>Une IA qui respecte <strong>équité, transparence, responsabilité, respect de la vie privée, robustesse et bénéfice humain</strong>. Ces principes sont désormais encadrés juridiquement par l'AI Act européen.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment identifier et gérer les biais dans ses systèmes IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Identification des sources de biais, <strong>tests sur les groupes protégés</strong> (genre, âge, origine), métriques d'équité, audits réguliers en production. La supervision humaine est la dernière ligne de défense.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'une charte IA d'entreprise et pourquoi en créer une ?</summary>
+                    <div class="sp-faq-item__answer"><p>La charte IA définit les règles pour tous les collaborateurs : <strong>usages autorisés/interdits, données à ne pas partager, validations humaines requises</strong>. C'est le premier pas vers une gouvernance IA structurée.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'IA éthique est-elle incompatible avec la performance ?</summary>
+                    <div class="sp-faq-item__answer"><p>Non — au contraire. <strong>Meilleure confiance clients, moindre risque réglementaire, adoption facilitée</strong> par les équipes. L'IA éthique est un investissement : les crises IA coûtent bien plus cher que la gouvernance préventive.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à adopter l'IA de manière responsable et éthique dans votre entreprise, et à en faire un avantage compétitif durable ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Adopter une IA responsable</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Charte IA sur mesure incluse</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité AI Act anticipée</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

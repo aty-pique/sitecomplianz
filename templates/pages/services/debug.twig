@@ -1,0 +1,637 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (59 chars titre / 151 chars description) ─────────────────── #}
+{% block title %}Debug & résolution de bugs complexes — sites & logiciels{% endblock %}
+
+{% block description %}Analyse approfondie et résolution durable de bugs complexes sur vos sites, logiciels et serveurs. Recherche de causes racines, correction experte et stabilisation des systèmes.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Debug & résolution de bugs complexes",
+      "url": "{{ app_url }}/support-maintenance/maintenance/debug",
+      "description": "Analyse approfondie et résolution de problèmes techniques complexes affectant les sites, logiciels ou infrastructures, nécessitant une expertise avancée. Recherche de causes racines, diagnostic avancé, correction et stabilisation.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Debug et résolution de bugs informatiques",
+      "offers": [
+        { "@type": "Offer", "name": "Debug simple",   "price": "300",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1000" } },
+        { "@type": "Offer", "name": "Debug complexe", "price": "1000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } },
+        { "@type": "Offer", "name": "Debug critique", "price": "3000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "10000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",             "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Maintenance, support & évolutions", "item": "{{ app_url }}/support-maintenance/maintenance" },
+        { "@type": "ListItem", "position": 4, "name": "Debug & résolution de bugs",        "item": "{{ app_url }}/support-maintenance/maintenance/debug" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre le debug et la maintenance corrective ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La maintenance corrective traite les bugs courants et anomalies standard — corrections rapides sur des problèmes bien identifiés. Le debug s'attaque aux problèmes complexes, difficiles à reproduire, qui nécessitent une analyse approfondie des causes racines, un diagnostic expert et une intervention sur des environnements techniques complexes. Le debug est plus long, plus méthodique et mobilise une expertise technique avancée." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels types de bugs résolvez-vous ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intervenons sur tous les bugs complexes : bugs intermittents difficiles à reproduire, problèmes de performance dégradée sans cause évidente, conflits entre systèmes ou dépendances, erreurs critiques en production, corruptions de données, failles de sécurité exploitées, bugs liés à des migrations ou des mises à jour majeures, et tout problème technique résistant aux corrections standards." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure une mission de debug ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un debug simple (bug identifiable après analyse) se résout généralement en 1 à 3 jours. Un debug complexe (bug intermittent, problème architectural) nécessite souvent 1 à 2 semaines d'investigation. Un debug critique sur une infrastructure peut prendre plusieurs semaines selon la complexité des systèmes impliqués. Nous vous communiquons une estimation après l'analyse préliminaire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pouvez-vous intervenir sur n'importe quelle technologie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intervenons sur les principales technologies web et applicatives : PHP, JavaScript, Python, Node.js, Java, React, Vue.js, WordPress, Symfony, Laravel, ainsi que sur les bases de données (MySQL, PostgreSQL, MongoDB), les serveurs (Linux, Nginx, Apache) et les infrastructures cloud (AWS, OVH, Azure). Pour des technologies très spécifiques, nous évaluons notre capacité lors de la prise de contact." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se déroule la mission de debug ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La mission suit un processus structuré : analyse approfondie du problème, recherche des causes racines (root cause analysis), diagnostic avancé avec logs et outils de monitoring, correction technique précise, tests poussés en environnement isolé, stabilisation et déploiement progressif, puis documentation complète de la résolution pour éviter toute récidive." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg, #eef2f8) 0%, #f5f8fc 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/maintenance">Maintenance &amp; Support</a>
+                <span>›</span>
+                <span>Debug &amp; résolution de bugs</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Debug &amp; résolution de bugs complexes</span>
+                Vos problèmes techniques les plus complexes identifiés, corrigés et stabilisés durablement
+            </h1>
+            <p class="sp-hero__lead">
+                Quand les corrections classiques ne suffisent pas, notre équipe mène une <strong>analyse approfondie des causes racines</strong> de vos bugs les plus difficiles — sites, logiciels, serveurs, bases de données. Résolution durable, systèmes stabilisés, documentation complète pour <strong>éviter toute récidive</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                    Soumettre mon bug complexe
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Root cause analysis — pas de correctif superficiel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Tests poussés avant tout déploiement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Documentation complète — zéro récidive</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Problèmes complexes résolus durablement</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos bugs les plus complexes sont <strong>identifiés à la racine</strong> et corrigés durablement — systèmes stabilisés, documentation fournie, récidive évitée.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>causes racines trouvées</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–95%</strong>
+                        <span>taux de récidive</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Expert</strong>
+                        <span>intervention senior</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Un bug complexe non résolu à la racine <strong>revient en moyenne 4 fois</strong> avant d'être correctement traité — coûtant 4× plus cher qu'une analyse approfondie initiale</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES CONNEXES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services complémentaires de maintenance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Maintenance corrective</h2>
+                    <p>Correction rapide des bugs courants et anomalies standard — pour les problèmes bien identifiés.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/support-technique" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Support technique externalisé</h2>
+                    <p>Assistance au quotidien pour vos équipes — réponse aux questions et résolution des problèmes courants.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/infogerance" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Infogérance &amp; hébergement</h2>
+                    <p>Gestion proactive de votre infrastructure pour prévenir les problèmes avant qu'ils ne deviennent critiques.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Root cause analysis systématique — pas de pansement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Intervention senior sur environnements complexes
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Documentation fournie — éviter la récidive garantie
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                <p><strong>+300</strong> bugs complexes résolus</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>–95%</strong> taux de récidive</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — types de bugs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre d'intervention</p>
+            <h2>Sur quels types de bugs complexes intervenons-nous ?</h2>
+            <p class="sp-section-sub">Du bug intermittent impossible à reproduire aux problèmes critiques qui paralysent votre activité — notre équipe intervient sur les cas les plus difficiles, sur tous types de systèmes.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Bugs de sites web complexes</h3>
+                <p>Problèmes d'affichage intermittents, conflits JavaScript, bugs liés à des caches corrompus, problèmes de compatibilité cross-browser, erreurs 500 sans message clair.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Bugs d'applications &amp; logiciels</h3>
+                <p>Erreurs métier complexes, bugs reproduits uniquement en production, problèmes liés à des migrations, conflits entre modules ou dépendances, memory leaks.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <h3>Problèmes de serveurs &amp; infrastructure</h3>
+                <p>Crashes serveur intermittents, problèmes de performance sous charge, erreurs de configuration, conflits entre services, problèmes DNS ou de réseau.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Corruptions &amp; anomalies base de données</h3>
+                <p>Données corrompues ou incohérentes, requêtes lentes sans explication, verrous en base, problèmes de réplication, perte de données partielle et restauration.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Failles de sécurité &amp; intrusions</h3>
+                <p>Analyse post-piratage, identification du vecteur d'attaque, nettoyage de malware, fermeture des failles exploitées et durcissement des accès pour éviter la récidive.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Dégradation de performances</h3>
+                <p>Application ou site soudainement lent sans raison apparente — profilage, identification des goulots d'étranglement, optimisation ciblée et monitoring post-intervention.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous résolvons les bugs complexes ?</h2>
+            <p class="sp-section-sub">Un processus d'investigation rigoureux — de l'analyse initiale à la documentation finale — pour s'assurer que le problème est résolu à la racine et ne reviendra pas.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse approfondie</h3><p>Collecte de toutes les informations disponibles : logs, contexte, conditions de reproduction, historique des changements et environnement technique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </div>
+                <div><h3>Recherche des causes racines</h3><p>Root cause analysis méthodique — on ne s'arrête pas au symptôme, on remonte à la source profonde du problème pour une correction définitive</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Diagnostic avancé</h3><p>Utilisation d'outils de profiling, monitoring, debugging et analyse de logs avancés pour pinpointer exactement l'origine du problème</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div><h3>Correction technique précise</h3><p>Développement de la correction en environnement isolé — intervention chirurgicale sur le code, la configuration ou l'infrastructure sans effets de bord</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests poussés</h3><p>Batterie de tests exhaustive pour valider la correction et s'assurer de l'absence d'effets secondaires — tests fonctionnels, de charge et de régression</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Stabilisation des systèmes</h3><p>Intervention sur les systèmes adjacents pouvant être fragilisés par le bug ou par la correction — pour garantir la stabilité globale</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <div><h3>Intervention sur environnements complexes</h3><p>Capacité à intervenir sur des architectures complexes — microservices, multi-environnements, systèmes legacy, infrastructures hybrides</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation complète</h3><p>Rapport de bug détaillé : cause racine identifiée, correction appliquée, tests réalisés et recommandations pour éviter toute récidive</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un debug expert</h2>
+            <p class="sp-section-sub">Corriger un bug superficiellement coûte moins cher à court terme — mais revient en moyenne 4 fois plus cher sur le long terme. Un debug expert résout le problème une fois pour toutes.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </div>
+                <h3>Résolution de problèmes complexes</h3>
+                <p>Les bugs les plus difficiles — intermittents, architecturaux, multi-systèmes — sont identifiés et corrigés là où les approches classiques ont échoué.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Stabilisation des systèmes</h3>
+                <p>Au-delà de la correction, vos systèmes sont stabilisés — les fragilités adjacentes identifiées et traitées pour garantir une fiabilité durable.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <h3>Réduction des risques</h3>
+                <p>Un bug complexe non traité à la racine est un risque permanent. La correction définitive élimine ce risque et protège la continuité de votre activité.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Amélioration de la fiabilité</h3>
+                <p>Chaque bug complexe résolu améliore la robustesse globale de votre système — vos outils deviennent progressivement plus fiables et prévisibles.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>Intervention experte</h3>
+                <p>Développeurs senior spécialisés en debugging complexe — expérience de centaines d'architectures différentes, connaissance des patterns de bugs récurrents.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le budget d'une mission de debug</h2>
+                    <p class="sp-section-sub">Le coût d'un debug dépend principalement de la complexité du problème et de la criticité du système. Nous fournissons une estimation après l'analyse préliminaire, sans frais caché.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité du problème</span>
+                        <span class="sp-variable-value">Bug isolé et reproductible à bug intermittent non reproductible en environnement contrôlé</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de système</span>
+                        <span class="sp-variable-value">Site WordPress à application sur mesure avec architecture microservices et dépendances multiples</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de criticité</span>
+                        <span class="sp-variable-value">Bug gênant (dégradation mineure) à bug critique (arrêt complet de l'activité ou perte de données)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Urgence</span>
+                        <span class="sp-variable-value">Résolution planifiée à intervention d'urgence nécessitant une mobilisation immédiate de l'équipe</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Technologies utilisées</span>
+                        <span class="sp-variable-value">Technologies standards (PHP, JS) à stack très spécifique ou legacy nécessitant une expertise rare</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Accès aux systèmes</span>
+                        <span class="sp-variable-value">Accès complet aux logs et environnements à accès restreint ou systèmes en production impossible à arrêter</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Historique du problème</span>
+                        <span class="sp-variable-value">Problème récent avec historique clair à bug ancien sans logs ni documentation disponibles</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de sécurité</span>
+                        <span class="sp-variable-value">Système standard à environnement hautement sécurisé avec contraintes d'accès et de confidentialité spécifiques</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Debug résolution de bugs complexes" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une mission de debug ?</h2>
+            <p class="sp-section-sub">Le tarif est estimé après l'analyse préliminaire du problème. Devis transparent avant engagement, sans frais d'investigation cachés.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Debug simple</p>
+                    <p class="sp-plan__price"><span>300 – 1 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Bug identifiable et correctif ciblé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse du problème</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction ciblée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests fonctionnels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation de la résolution</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus fréquent</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Debug complexe</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Root cause analysis approfondie</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Root cause analysis complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic avancé (logs, profiling)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction &amp; tests poussés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stabilisation des systèmes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport complet &amp; recommandations</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Debug critique</p>
+                    <p class="sp-plan__price"><span>3 000 – 10 000 €</span> <em>HT+</em></p>
+                    <p class="sp-plan__duration">Urgence, sécurité, systèmes complexes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Mobilisation d'urgence</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Équipe senior dédiée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Environnements complexes (legacy, sécurité)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restauration de données si nécessaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Post-mortem &amp; plan de prévention</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Contacter en urgence</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Pour les bugs courants et correctifs rapides, consultez notre <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive">service de maintenance corrective</a> (150–1 500 €). Un <a href="/support-maintenance/maintenance">contrat de maintenance global</a> inclut un budget de debug prioritaire.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au debug</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div><strong>Maintenance corrective</strong><p>Pour les bugs courants et correctifs rapides — sans investigation approfondie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/infogerance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div><strong>Infogérance &amp; hébergement</strong><p>Surveillance proactive de votre infrastructure pour détecter les problèmes avant qu'ils ne dégénèrent.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/cybersecurite-ia/audit-cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Audit &amp; sécurisation des systèmes</strong><p>Après un piratage ou une faille exploitée, audit complet et durcissement de votre sécurité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement sur mesure</strong><p>Quand un bug révèle un problème architectural qui dépasse la correction — refonte ou développement ciblé.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le debug &amp; la résolution de bugs</h2>
+                <p>Notre équipe répond sous 4h pour qualifier votre problème et estimer le niveau d'intervention nécessaire.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Soumettre mon bug</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle différence entre debug et maintenance corrective ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive">maintenance corrective</a> traite les bugs courants avec des correctifs rapides. Le <strong>debug</strong> s'attaque aux problèmes complexes, difficiles à reproduire ou à fort impact, qui nécessitent une <strong>root cause analysis</strong> approfondie, un diagnostic expert et une investigation méthodique sur plusieurs jours.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps dure une mission de debug ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>debug simple</strong> se résout généralement en 1 à 3 jours. Un <strong>debug complexe</strong> (bug intermittent, problème architectural) nécessite souvent 1 à 2 semaines. Un <strong>debug critique</strong> sur une infrastructure complexe peut prendre plusieurs semaines. Nous communiquons une estimation précise après l'analyse préliminaire.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels types de bugs résolvez-vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous intervenons sur tous les bugs complexes : bugs intermittents difficiles à reproduire, problèmes de performance dégradée, conflits entre systèmes, erreurs critiques en production, corruptions de données, failles de sécurité exploitées, bugs liés à des migrations et tout problème résistant aux corrections standards.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pouvez-vous intervenir en urgence ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, nous proposons des <strong>interventions d'urgence</strong> pour les bugs critiques paralysant l'activité. Contactez-nous directement par téléphone pour une qualification rapide de l'urgence. Le <a href="#tarifs">debug critique</a> inclut une mobilisation prioritaire de l'équipe senior dans les meilleurs délais.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment éviter les bugs complexes à l'avenir ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Chaque mission de debug inclut un rapport avec des recommandations de prévention. Pour une protection proactive, une <a href="/support-maintenance/infogerance">infogérance</a> avec monitoring actif détecte les anomalies avant qu'elles ne deviennent des bugs critiques. Un <a href="/support-maintenance/maintenance">contrat de maintenance global</a> inclut également un budget de debug prioritaire.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Un bug complexe qui résiste ? Nos experts le trouvent et le corrigent à la racine.</h2>
+                <p>Décrivez votre problème technique — notre équipe qualifie l'intervention et vous fournit une estimation dans les 4h ouvrées.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                    Soumettre mon bug complexe
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Estimation gratuite</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Devis avant engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de résolution fourni</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

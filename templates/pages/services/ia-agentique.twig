@@ -1,0 +1,221 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}IA agentique | Agents IA autonomes pour entreprise | Complianz{% endblock %}
+
+{% block description %}Découvrez l'IA agentique : des agents IA capables de raisonner, planifier et exécuter des tâches complexes de manière autonome. Cas d'usage et déploiement.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "IA agentique — Les agents IA autonomes",
+      "url": "{{ app_url }}/intelligence-artificielle/agents-ia/ia-agentique",
+      "description": "Guide complet sur l'IA agentique : définition, fonctionnement, cas d'usage en entreprise et différences avec les chatbots et les LLMs classiques.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Agents IA", "item": "{{ app_url }}/intelligence-artificielle/agents-ia" },
+        { "@type": "ListItem", "position": 4, "name": "IA agentique", "item": "{{ app_url }}/intelligence-artificielle/agents-ia/ia-agentique" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'IA agentique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA agentique désigne des systèmes d'intelligence artificielle capables d'agir de façon autonome pour atteindre des objectifs complexes. Contrairement aux LLMs classiques qui génèrent une réponse à une question, les agents IA agentiques planifient leurs actions, utilisent des outils (APIs, bases de données, navigateur web), mémorisent le contexte sur plusieurs étapes et s'adaptent aux résultats intermédiaires pour poursuivre leurs objectifs." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un LLM et un agent IA agentique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un LLM (ChatGPT, Claude) répond à une question en générant du texte — c'est une interaction question/réponse unique. Un agent IA agentique va beaucoup plus loin : il décompose un objectif complexe en sous-tâches, utilise des outils pour collecter des informations ou agir sur des systèmes, s'adapte selon les résultats et persiste sur plusieurs cycles d'exécution jusqu'à atteindre l'objectif. L'agent agit, pas seulement répond." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les risques de l'IA agentique en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les principaux risques sont : actions non désirées si les limites ne sont pas bien définies, accumulation d'erreurs sur des tâches multi-étapes, accès excessifs aux systèmes si les permissions ne sont pas restreintes. Pour les mitiger : définir clairement le périmètre d'action de l'agent, implémenter des mécanismes de validation humaine pour les actions critiques, monitorer les logs en continu et tester exhaustivement avant tout déploiement en production." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils utilise-t-on pour créer des agents IA agentiques ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les principaux frameworks sont : LangChain et LangGraph pour créer des agents complexes avec mémoire et outils, AutoGen de Microsoft pour les systèmes multi-agents collaboratifs, CrewAI pour orchestrer des équipes d'agents spécialisés, n8n pour les agents no-code, et les APIs d'assistants d'OpenAI et Anthropic pour des agents plus simples. Le choix dépend de la complexité de l'agent et de vos contraintes techniques." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/agents-ia">Agents IA</a><span>›</span>
+                <span>IA agentique</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">IA agentique</span>
+                IA agentique — Les agents IA autonomes
+            </h1>
+            <p class="sp-hero__lead">
+                L'IA agentique représente une <strong>rupture dans l'usage de l'intelligence artificielle</strong> — des systèmes capables de raisonner, planifier et exécuter des tâches complexes de façon autonome. Découvrez ce paradigme et comment le déployer dans votre entreprise.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer des agents IA</a>
+                <a href="/intelligence-artificielle/agents-ia" class="btn btn-outline">Nos services agents IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">L'IA agentique en chiffres</p><p class="sp-deliverables-card__subtitle">Autonomie, planification, action</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>Multi</strong><span>étapes autonomes</span></div>
+                    <div class="sp-dc-stat"><strong>Outils</strong><span>utilisés dynamiquement</span></div>
+                    <div class="sp-dc-stat"><strong>ROI</strong><span>10× vs LLM seul</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Qu'est-ce que l'IA agentique ?</h2>
+                <p>L'IA agentique (ou Agentic AI) désigne des systèmes d'intelligence artificielle capables d'agir de façon autonome pour atteindre des objectifs complexes. Contrairement aux LLMs classiques (ChatGPT, Claude utilisés directement) qui génèrent une réponse à une question, les agents IA agentiques <strong>planifient leurs actions, utilisent des outils, mémorisent le contexte</strong> et s'adaptent selon les résultats pour persister jusqu'à atteindre l'objectif.</p>
+                <p>Un agent agentique, face à l'objectif "analyse les avis clients du mois dernier et identifie les problèmes récurrents", va : se connecter à votre outil d'avis, extraire les données, les analyser avec un LLM, regrouper les thèmes, générer un rapport et l'envoyer au bon responsable — de façon entièrement autonome.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les 4 capacités clés d'un agent IA agentique</h2>
+                <p><strong>Planification (Planning) :</strong> l'agent décompose un objectif complexe en sous-tâches séquentielles ou parallèles, détermine l'ordre d'exécution optimal et adapte le plan en cas d'obstacle.</p>
+                <p><strong>Utilisation d'outils (Tool Use) :</strong> l'agent appelle des APIs, interroge des bases de données, navigue sur le web, envoie des emails, manipule des fichiers — autant d'outils qu'il utilise dynamiquement selon les besoins de la tâche en cours.</p>
+                <p><strong>Mémoire contextuelle (Memory) :</strong> l'agent retient le contexte à court terme (dans une session) et à long terme (informations persistantes entre les sessions) pour maintenir la cohérence sur des tâches longues.</p>
+                <p><strong>Réflexivité (Reflection) :</strong> l'agent évalue ses propres actions et résultats, détecte les erreurs et ajuste sa stratégie — il apprend de ses tentatives pour améliorer son approche.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Cas d'usage de l'IA agentique en entreprise</h2>
+                <p>La recherche et synthèse d'informations complexes (veille concurrentielle, recherche juridique), l'analyse de données multi-sources avec rapport automatique, la gestion complète de processus (de la réception à la clôture), le dev et debug de code assisté, et l'orchestration de campagnes marketing multi-canal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur l'IA agentique</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Plus puissant qu'un LLM seul</h3><p>Un agent agentique accomplit des tâches impossibles pour un LLM seul — il planifie, agit et persiste sur des processus complexes multi-étapes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Supervision nécessaire</h3><p>Les agents agentiques nécessitent une supervision humaine pour les actions critiques — nous configurons toujours des mécanismes de validation et d'alerte</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><h3>Frameworks spécialisés</h3><p>LangChain, LangGraph, AutoGen, CrewAI — des frameworks matures pour créer des agents robustes, testables et maintenables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><h3>Phase de tests critique</h3><p>Les agents agentiques nécessitent des tests extensifs en conditions réelles avant déploiement — pour éviter des actions non désirées en production</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Passer de la théorie à la pratique</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Déployez vos premiers agents IA agentiques avec notre équipe.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Formation agents IA</strong><p>Apprenez à créer vos propres agents IA agentiques.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Commencez par l'automatisation avant les agents complexes.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Solutions IA sur mesure</strong><p>Des solutions IA complètes intégrant l'IA agentique.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'IA agentique</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que l'IA agentique ?</summary>
+                    <div class="sp-faq-item__answer"><p>L'IA agentique désigne des systèmes IA capables d'agir de façon autonome : ils <strong>planifient leurs actions, utilisent des outils, mémorisent le contexte</strong> et s'adaptent selon les résultats — bien au-delà d'un simple LLM qui répond à des questions.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre un LLM et un agent IA agentique ?</summary>
+                    <div class="sp-faq-item__answer"><p>Un LLM répond à une question. Un agent agentique <strong>décompose un objectif complexe, utilise des outils, agit sur des systèmes</strong> et persiste sur plusieurs cycles jusqu'à atteindre l'objectif. L'agent agit, pas seulement répond.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels sont les risques de l'IA agentique en entreprise ?</summary>
+                    <div class="sp-faq-item__answer"><p>Actions non désirées si les limites sont mal définies, accumulation d'erreurs sur des tâches multi-étapes. Pour les mitiger : définir le <strong>périmètre d'action</strong>, implémenter des validations humaines pour les actions critiques et monitorer les logs en continu.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils utilise-t-on pour créer des agents IA agentiques ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>LangChain, LangGraph</strong> pour les agents complexes, <strong>AutoGen</strong> pour les multi-agents, <strong>CrewAI</strong> pour orchestrer des équipes d'agents, et <strong>n8n</strong> pour les agents no-code. Le choix dépend de la complexité et de vos contraintes techniques.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à déployer vos premiers agents IA agentiques et à automatiser vos processus complexes ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer des agents IA</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests extensifs avant déploiement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Supervision humaine intégrée</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

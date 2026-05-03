@@ -1,0 +1,406 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}Registre des traitements RGPD | Mise en place &amp; maintenance | Complianz{% endblock %}
+
+{% block description %}Créez et maintenez votre registre des traitements RGPD article 30. Cartographie complète de vos données personnelles. Documentation conforme CNIL.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Registre des traitements RGPD — Mise en place et tenue",
+      "url": "{{ app_url }}/audit-conformite/conformite-rgpd/registre-traitements",
+      "description": "Création et maintenance du registre des traitements RGPD article 30 : inventaire des activités de traitement, fiches par traitement (finalité, base légale, durées de conservation), export PDF/Excel, formation équipe et modèle de procédure de mise à jour. Documentation conforme CNIL.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Registre des traitements RGPD",
+      "offers": [
+        { "@type": "Offer", "name": "Registre initial",               "price": "900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1800" } },
+        { "@type": "Offer", "name": "Registre + accompagnement",      "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2800" } },
+        { "@type": "Offer", "name": "Maintenance annuelle",           "price": "600",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1200" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Conformité RGPD",             "item": "{{ app_url }}/audit-conformite/conformite-rgpd" },
+        { "@type": "ListItem", "position": 4, "name": "Registre des traitements",   "item": "{{ app_url }}/audit-conformite/conformite-rgpd/registre-traitements" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qui doit tenir un registre des traitements RGPD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'article 30 du RGPD impose la tenue d'un registre des activités de traitement à toutes les organisations sauf les entreprises de moins de 250 salariés dont les traitements ne sont pas susceptibles d'engendrer un risque pour les droits des personnes, ne sont pas effectués de manière occasionnelle, ou ne portent pas sur des données sensibles. En pratique, la grande majorité des PME doivent tenir un registre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que doit contenir le registre des traitements ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Selon l'article 30 du RGPD, le registre doit contenir pour chaque traitement : le nom et les coordonnées du responsable de traitement, la finalité du traitement, les catégories de personnes concernées et de données, les destinataires, les transferts hors UE, les délais de conservation prévus et les mesures de sécurité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le registre des traitements est-il obligatoire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, l'article 30 du RGPD impose la tenue d'un registre des activités de traitement. Ce registre doit être mis à disposition de la CNIL sur demande. En cas de contrôle, l'absence de registre constitue une non-conformité pouvant faire l'objet d'une sanction." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un registre et une cartographie des données ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La cartographie des données est une vue d'ensemble des flux de données dans l'organisation (quelles données, où, qui y accède). Le registre des traitements est le document formel requis par l'article 30 du RGPD qui liste et documente chaque activité de traitement avec ses caractéristiques réglementaires. La cartographie alimente le registre." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/conformite-rgpd">Conformité RGPD</a>
+                <span>›</span>
+                <span>Registre des traitements</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Documentation RGPD article 30</span>
+                Registre des traitements RGPD — Mise en place et tenue conforme CNIL
+            </h1>
+            <p class="sp-hero__lead">
+                Nous créons et maintenons votre <strong>registre des traitements RGPD</strong> article 30&nbsp;: inventaire complet de vos activités de traitement, fiches par traitement avec finalité, bases légales, durées de conservation et destinataires. Un registre <strong>conforme CNIL</strong>, exportable et maintenu à jour.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer mon registre RGPD
+                </a>
+                <a href="#livrables" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Registre livré en 2 à 3 semaines</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Format CNIL, export PDF &amp; Excel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation équipe incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À l'issue de la mission</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>registre des traitements complet</strong>, conforme à l'article 30 du RGPD, documentant chaque traitement avec ses caractéristiques réglementaires — prêt pour un contrôle CNIL.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>2–3</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>art. 30</strong>
+                        <span>conforme</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>5</strong>
+                        <span>livrables</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>1ère vérification</strong> lors d'un contrôle CNIL : présenter son registre des traitements</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Registre livré en 2 à 3 semaines
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Format CNIL, export PDF &amp; Excel
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation et procédure de maintenance incluses
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <p><strong>+150</strong> registres créés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p><strong>0</strong> non-conformité signalée</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LIVRABLES DU REGISTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="livrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Livrables de la mission</p>
+            <h2>Ce que vous recevez à l'issue de la mise en place</h2>
+            <p class="sp-section-sub">Un registre complet, documenté et autonome — votre équipe peut le maintenir à jour sans dépendre d'un consultant.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Inventaire de toutes les activités de traitement</h3><p>Liste exhaustive de vos traitements identifiés par service (RH, marketing, IT, commercial, direction…)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Fiche par traitement (finalité, base légale, durée…)</h3><p>Fiche complète pour chaque traitement : finalité, base légale, catégories de données, destinataires, durée de conservation, mesures de sécurité et transferts hors UE</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Format structuré export PDF &amp; Excel</h3><p>Registre au format CNIL, exportable en PDF pour présentation et en Excel pour maintenance autonome</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Formation équipe pour mise à jour</h3><p>Session de formation dédiée pour les personnes en charge de la mise à jour du registre</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div><h3>Modèle de procédure de mise à jour</h3><p>Procédure documentée pour ajouter, modifier ou supprimer un traitement du registre en autonomie</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la mise en place d'un registre des traitements ?</h2>
+            <p class="sp-section-sub">Le coût dépend du nombre d'activités de traitement à documenter et du niveau de complexité de votre organisation. Devis remis sous 24h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Registre initial</p>
+                    <p class="sp-plan__price"><span>900 – 1 800 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE / PME jusqu'à 30 traitements</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Inventaire des traitements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Fiches par traitement</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Export PDF &amp; Excel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Procédure de mise à jour</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Registre + accompagnement</p>
+                    <p class="sp-plan__price"><span>1 500 – 2 800 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME, périmètre étendu</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Registre complet tous traitements</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipe (2h)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des bases légales</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recommandations de durées de conservation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi 1 mois post-livraison</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Maintenance annuelle</p>
+                    <p class="sp-plan__price"><span>600 – 1 200 €</span> <em>HT / an</em></p>
+                    <p class="sp-plan__duration">Maintien à jour de votre registre</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Révision annuelle du registre</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration des nouveaux traitements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise à jour suite aux évolutions CNIL</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de conformité annuel</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon le nombre de traitements et la complexité de votre organisation.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre registre des traitements</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité RGPD complète</strong><p>Le registre est un élément clé de votre conformité RGPD globale — intégrez-le dans une démarche complète.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/dpo-externalise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>DPO externalisé</strong><p>Votre DPO externalisé prend en charge la maintenance continue de votre registre des traitements.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/audit-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit RGPD</strong><p>L'audit RGPD comprend la cartographie des traitements qui servira de base à votre registre.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+                <div><strong>Politique de confidentialité</strong><p>Le registre et la politique de confidentialité sont deux documents RGPD complémentaires — créez-les ensemble.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le registre des traitements</h2>
+                <p>Nos experts RGPD répondent sous 24h à toute question sur votre registre article 30.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qui doit tenir un registre des traitements RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>article 30 du RGPD</strong> impose la tenue d'un registre à toutes les organisations. Une exception partielle existe pour les entreprises de moins de 250 salariés dont les traitements ne sont pas risqués, pas réguliers ou ne portent pas sur des données sensibles. En pratique, la grande majorité des PME doivent tenir un registre.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que doit contenir le registre des traitements ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Pour chaque traitement, le registre doit contenir&nbsp;: le nom du responsable de traitement, la <strong>finalité</strong>, les catégories de <strong>personnes concernées</strong> et de données, les <strong>destinataires</strong>, les éventuels transferts hors UE, les <strong>délais de conservation</strong> et les mesures de sécurité techniques et organisationnelles.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Le registre des traitements est-il obligatoire ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, l'<strong>article 30 du RGPD</strong> impose la tenue d'un registre. Ce registre doit être mis à disposition de la CNIL sur demande. En cas de contrôle, l'absence de registre constitue une <strong>non-conformité</strong> pouvant faire l'objet d'une mise en demeure ou d'une sanction.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre registre et cartographie des données ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>cartographie des données</strong> est une vue d'ensemble des flux de données (quelles données, où, qui y accède). Le <strong>registre des traitements</strong> est le document formel requis par l'article 30, listant et documentant chaque activité de traitement avec ses caractéristiques réglementaires. La cartographie alimente et enrichit le registre.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à créer votre registre des traitements RGPD ?</h2>
+                <p>Nos experts RGPD créent votre registre article 30 complet en 2 à 3 semaines. Livré en PDF et Excel, avec formation de votre équipe. Premier échange gratuit.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer mon registre RGPD
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livré en 2 à 3 semaines</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Format CNIL, PDF &amp; Excel</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipe incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,497 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 150 chars description) ─────────────────── #}
+{% block title %}Infogérance complète | Externalisation DSI & IT | Complianz{% endblock %}
+
+{% block description %}Externalisez l'intégralité de votre DSI avec notre service d'infogérance complète. Gestion serveurs, réseau, postes de travail, sécurité et support utilisateurs.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Infogérance complète — Externalisation DSI",
+      "url": "{{ app_url }}/support-maintenance/infogerance/infogerance-complete",
+      "description": "Externalisation complète de la DSI : gestion et supervision des serveurs 24/7, administration réseau et sécurité, support utilisateurs helpdesk, gestion des sauvegardes et PRA, mises à jour et patching.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Infogérance et externalisation DSI",
+      "offers": [
+        { "@type": "Offer", "name": "Infogérance PME (≤20 postes)",       "price": "890",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1800" } },
+        { "@type": "Offer", "name": "Infogérance Standard (20-50 postes)", "price": "1800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3500" } },
+        { "@type": "Offer", "name": "Infogérance Enterprise (50+ postes)", "price": "3500", "priceCurrency": "EUR" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",              "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance","item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Infogérance",          "item": "{{ app_url }}/support-maintenance/infogerance" },
+        { "@type": "ListItem", "position": 4, "name": "Infogérance complète", "item": "{{ app_url }}/support-maintenance/infogerance/infogerance-complete" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'infogérance complète ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'infogérance complète désigne l'externalisation totale de la gestion de votre système d'information : serveurs, réseau, postes de travail, sécurité, sauvegardes et support utilisateurs. Vous déléguez l'ensemble des responsabilités IT à un prestataire spécialisé, qui devient votre DSI externalisé. Cela vous permet de vous concentrer sur votre cœur de métier sans gérer les problématiques techniques." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre infogérance partielle et complète ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'infogérance partielle couvre un périmètre défini : uniquement les serveurs, ou uniquement le support utilisateurs. L'infogérance complète prend en charge l'ensemble du SI — infrastructure, réseau, sécurité, postes de travail et helpdesk. C'est une délégation totale qui convient aux entreprises sans DSI interne ou qui souhaitent réduire leurs coûts IT tout en améliorant la qualité de service." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les avantages de l'infogérance par rapport à une DSI interne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'infogérance offre plusieurs avantages : coût maîtrisé (forfait mensuel vs charges d'un DSI), expertise multi-technologies (une équipe plutôt qu'un seul profil), disponibilité élargie (astreintes 24/7), mises à jour continues des compétences et technologies, et absence de risque RH. Pour les PME, l'infogérance offre un niveau de service équivalent à une grande DSI à une fraction du coût." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se passe la transition vers l'infogérance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La transition débute par un audit complet de votre infrastructure existante (inventaire matériel, logiciel, réseau). Nous définissons ensuite le périmètre d'intervention, les SLAs (niveaux de service) et les procédures. Une phase de transition de 2 à 4 semaines permet la prise en main progressive. Nous assurons la continuité de service tout au long du processus — zéro interruption garantie." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--soft" style="background: linear-gradient(135deg, var(--pole-3-bg) 0%, #f0f4fa 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/infogerance">Infogérance</a>
+                <span>›</span>
+                <span>Infogérance complète</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Infogérance complète</span>
+                Externalisez votre DSI et concentrez-vous sur votre cœur de métier
+            </h1>
+            <p class="sp-hero__lead">
+                Nous prenons en charge l'<strong>intégralité de votre système d'information</strong> — serveurs, réseau, sécurité, postes de travail et support utilisateurs. Une équipe d'experts dédiée, des <strong>SLAs garantis</strong> et une supervision 24/7 pour que votre infrastructure IT ne soit plus jamais un frein à votre développement.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Externaliser mon IT
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Supervision 24/7 &amp; astreinte incluse</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>SLAs contractuels garantis</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Transition sans interruption de service</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">IT géré, sécurisé et disponible 24/7</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>IT entièrement géré par des experts</strong> — infrastructure disponible, sécurisée et optimisée en permanence, avec un interlocuteur unique pour toutes vos problématiques IT.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>99.9%</strong>
+                        <span>disponibilité garantie</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Dès 890€</strong>
+                        <span>par mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>-40%</strong>
+                        <span>vs DSI interne</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>L'infogérance coûte en moyenne <strong>40% moins cher</strong> qu'un DSI interne, pour un niveau de service souvent supérieur</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services Support &amp; Maintenance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/infogerance/cloud-infrastructure" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Cloud &amp; infrastructure managée</h2>
+                    <p>Migrez et gérez votre infrastructure cloud (AWS, Azure, OVH) avec notre équipe dédiée.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/hebergement-serveur" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Hébergement serveur</h2>
+                    <p>Hébergement dédié et VPS gérés avec supervision et garanties de disponibilité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Cybersécurité &amp; audit</h2>
+                    <p>Protégez votre infrastructure avec des audits de sécurité et une stratégie de défense proactive.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Supervision 24/7
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                99.9% disponibilité garantie
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Transition sans interruption
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+                <p><strong>+200</strong> sites infogérés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>99.9%</strong> uptime moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend l'infogérance complète</h2>
+            <p class="sp-section-sub">Une couverture totale de votre système d'information — de l'infrastructure physique au support de vos utilisateurs, en passant par la sécurité et les sauvegardes.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div><h3>Gestion et supervision des serveurs (24/7)</h3><p>Monitoring en temps réel de vos serveurs physiques et virtuels, gestion des ressources et intervention immédiate en cas d'alerte</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Administration réseau et sécurité</h3><p>Gestion du réseau local et WAN, configuration des firewalls, VPN, détection d'intrusions et mise en œuvre de la politique de sécurité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Support aux utilisateurs (helpdesk)</h3><p>Assistance de premier et second niveau pour vos collaborateurs : incidents, demandes, installation logiciels et formation sur les outils</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div><h3>Gestion des sauvegardes et PRA</h3><p>Plan de sauvegarde automatisé avec tests réguliers de restauration, et plan de reprise d'activité (PRA) pour assurer la continuité en cas de sinistre</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+                </div>
+                <div><h3>Mise à jour et patching</h3><p>Application régulière des correctifs de sécurité sur les systèmes d'exploitation, applications et équipements réseau pour maintenir le niveau de protection</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Reporting mensuel IT</h3><p>Rapport mensuel de performance avec disponibilité des systèmes, incidents traités, temps de résolution et recommandations d'optimisation</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>4 profils qui bénéficient de l'infogérance complète</h2>
+            <p class="sp-section-sub">L'infogérance complète convient à toutes les entreprises qui veulent déléguer leur IT à des experts sans investir dans une DSI interne coûteuse.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>PME sans DSI interne</h3>
+                <p>Votre entreprise de 10 à 50 salariés n'a pas les moyens d'embaucher un responsable IT à temps plein. L'infogérance vous donne accès à une équipe complète pour un forfait mensuel maîtrisé.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>ETI en croissance rapide</h3>
+                <p>Votre SI existant ne suit plus la croissance de vos équipes. L'infogérance assure la scalabilité de votre infrastructure sans que vous ayez à gérer les recrutements IT en parallèle.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Entreprise après incident sécurité</h3>
+                <p>Après une cyberattaque ou un incident majeur, l'infogérance permet de remettre à niveau la sécurité de l'ensemble du SI et d'instaurer une supervision préventive.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg>
+                </div>
+                <h3>Migration vers le cloud</h3>
+                <p>Vous souhaitez migrer votre infrastructure vers le cloud mais manquez d'expertise interne. L'infogérance couvre la migration et la gestion continue de la nouvelle infrastructure.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'infogérance complète ?</h2>
+            <p class="sp-section-sub">Le tarif mensuel dépend du nombre de postes, de serveurs et du périmètre d'intervention. Nous commençons toujours par un audit du SI existant pour un devis précis.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--soft">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Infogérance PME</p>
+                    <p class="sp-plan__price"><span>890 – 1 800 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Jusqu'à 20 postes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Supervision serveurs (24/7)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support utilisateurs (heures ouvrées)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sauvegardes quotidiennes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel IT</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Infogérance Standard</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 500 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">20 à 50 postes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Supervision 24/7 + astreinte</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Helpdesk étendu 7j/7</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sécurité réseau avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> PRA avec tests trimestriels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Patching &amp; mises à jour</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--soft">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Infogérance Enterprise</p>
+                    <p class="sp-plan__price"><span>Sur devis</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">50+ postes et multi-sites</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Couverture multi-sites</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLAs personnalisés contractuels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Équipe dédiée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RSSI à temps partagé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard IT temps réel</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — devis personnalisé après audit du SI. Engagement minimum 12 mois. Frais de reprise en main lors de la première mise en place selon la complexité de l'existant.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à l'infogérance</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/infogerance/cloud-infrastructure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg></div>
+                <div><strong>Cloud &amp; infrastructure managée</strong><p>Migrez votre infrastructure vers le cloud et réduisez vos coûts d'exploitation IT.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/hebergement-serveur" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></div>
+                <div><strong>Hébergement serveur dédié</strong><p>Hébergement de vos serveurs avec garanties de disponibilité et supervision incluse.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/maintenance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div><strong>Maintenance applicative</strong><p>Maintenez vos applications métiers à jour et performantes en complément de l'infogérance infrastructure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Cybersécurité &amp; conformité</strong><p>Auditez et renforcez la posture de sécurité de votre SI pour vous conformer aux réglementations.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'infogérance complète</h2>
+                <p>Notre équipe répond sous 24h. Premier audit SI offert pour définir le périmètre adapté à votre infrastructure.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que l'infogérance complète ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'infogérance complète désigne l'<strong>externalisation totale de votre DSI</strong> — serveurs, réseau, postes de travail, sécurité, sauvegardes et support utilisateurs. Vous déléguez l'ensemble des responsabilités IT à notre équipe, qui devient votre DSI externalisé. Vous vous concentrez sur votre cœur de métier.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre infogérance partielle et complète ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'infogérance partielle couvre un périmètre défini (uniquement les serveurs, ou uniquement le helpdesk). L'<strong>infogérance complète</strong> prend en charge l'ensemble du SI — infrastructure, réseau, sécurité, postes et helpdesk. C'est une délégation totale qui convient aux entreprises sans DSI interne ou qui souhaitent réduire leurs coûts IT tout en améliorant la qualité de service.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels avantages par rapport à une DSI interne ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'infogérance offre un <strong>coût maîtrisé</strong> (forfait vs charges d'un DSI), une <strong>expertise multi-technologies</strong>, une disponibilité élargie (astreintes 24/7) et une absence de risque RH. Pour les PME, l'infogérance offre un niveau de service équivalent à une grande DSI à <strong>40% moins cher</strong> en moyenne.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment se passe la transition vers l'infogérance ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La transition débute par un <strong>audit complet de votre infrastructure</strong> existante. Nous définissons ensuite le périmètre, les SLAs et les procédures. Une phase de transition de 2 à 4 semaines permet la prise en main progressive. Nous assurons la <strong>continuité de service</strong> tout au long — zéro interruption garantie. Découvrez aussi notre offre <a href="/support-maintenance/infogerance/cloud-infrastructure">d'infrastructure cloud managée</a>.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à externaliser votre IT et à profiter d'une infrastructure gérée, sécurisée et disponible 24/7 ?</h2>
+                <p>Audit SI gratuit pour analyser votre infrastructure existante, identifier les risques et vous proposer un plan d'infogérance adapté à votre taille et vos contraintes.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Externaliser mon IT
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dès 890€/mois</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 99.9% uptime garanti</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Supervision 24/7</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

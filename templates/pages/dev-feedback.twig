@@ -1,0 +1,64 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}Liste des retours client — outil interne.{% endblock %}
+
+{% block head %}
+<meta name="robots" content="noindex,nofollow">
+{% endblock %}
+
+{% block content %}
+
+<section class="dev-feedback-page">
+    <div class="container">
+        <h1 class="dev-feedback-page__title">Retours client → développeur</h1>
+        <p class="dev-feedback-page__intro">Stockage : <code>dev-notes/inbox.jsonl</code> uniquement. Désactiver le mode : <code>DEV_CLIENT_FEEDBACK_ENABLED=0</code> dans <code>.env</code>.</p>
+
+        {% if flash_ok %}
+        <p class="dev-feedback-page__alert dev-feedback-page__alert--ok" role="status">Message enregistré.</p>
+        {% endif %}
+        {% if flash_err == '1' %}
+        <p class="dev-feedback-page__alert dev-feedback-page__alert--err" role="alert">Le message ne peut pas être vide.</p>
+        {% endif %}
+        {% if flash_err == '2' %}
+        <p class="dev-feedback-page__alert dev-feedback-page__alert--err" role="alert">Message trop long (max. 8000 caractères).</p>
+        {% endif %}
+        {% if flash_cleared %}
+        <p class="dev-feedback-page__alert dev-feedback-page__alert--ok" role="status">Fichier des retours supprimé.</p>
+        {% endif %}
+
+        <div class="dev-feedback-page__list-wrap">
+            {% if entries|length == 0 %}
+            <p class="dev-feedback-page__empty">Aucun retour pour l’instant.</p>
+            {% else %}
+            <ul class="dev-feedback-list">
+                {% for e in entries %}
+                <li class="dev-feedback-item">
+                    <div class="dev-feedback-item__meta">
+                        <time datetime="{{ e.created_at }}">{{ e.created_at }}</time>
+                        {% if e.page_url %}<a href="{{ e.page_url|e('html_attr') }}" class="dev-feedback-item__url" target="_blank" rel="noopener">{{ e.page_url }}</a>{% endif %}
+                    </div>
+                    <p class="dev-feedback-item__msg">{{ e.message }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        {% if clear_token_configured %}
+        <form class="dev-feedback-clear" action="/dev-feedback/clear" method="post">
+            <label class="dev-feedback-clear__label">
+                <span>Jeton (<code>DEV_FEEDBACK_CLEAR_TOKEN</code> dans <code>.env</code>)</span>
+                <input type="password" name="token" required autocomplete="off" placeholder="Saisir le jeton">
+            </label>
+            <button type="submit" class="btn btn-outline">Vider toute la file</button>
+        </form>
+        {% else %}
+        <p class="dev-feedback-page__hint-clear">Pour vider depuis cette page, définissez <code>DEV_FEEDBACK_CLEAR_TOKEN</code> dans <code>.env</code>. Sinon supprimez le fichier <code>dev-notes/inbox.jsonl</code> à la main.</p>
+        {% endif %}
+
+        <p class="dev-feedback-page__back"><a href="/">← Retour au site</a></p>
+    </div>
+</section>
+
+{% endblock %}

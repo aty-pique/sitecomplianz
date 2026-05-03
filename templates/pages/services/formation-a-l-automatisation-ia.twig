@@ -1,0 +1,221 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Formation automatisation IA | Apprendre n8n et IA | Complianz{% endblock %}
+
+{% block description %}Formez-vous à l'automatisation IA : n8n, Make, Zapier et agents autonomes. Formations pratiques pour automatiser votre activité dès le premier jour.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Formation à l'automatisation IA — Maîtrisez les outils",
+      "url": "{{ app_url }}/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia",
+      "description": "Formez-vous à l'automatisation IA : n8n, Make, Zapier et agents autonomes. Programmes pratiques pour tous les niveaux.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Automatisation IA", "item": "{{ app_url }}/intelligence-artificielle/automatisation-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Formation à l'automatisation IA", "item": "{{ app_url }}/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels outils d'automatisation IA apprend-on dans la formation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Selon le niveau et la formation choisie, nous couvrons : n8n pour les workflows IA complexes (recommandé), Make (ex-Integromat) pour les automatisations visuelles, Zapier pour les cas simples, les APIs d'OpenAI/Anthropic pour intégrer les LLMs dans vos workflows, et LangChain pour créer des agents IA autonomes. Chaque formation est 100% pratique — vous repartez avec des automatisations fonctionnelles sur vos cas réels." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il des compétences techniques pour suivre la formation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non pour nos formations débutants et intermédiaires — elles sont conçues pour des profils non-techniques souhaitant automatiser leur activité. Pour la formation avancée (n8n + agents IA), une sensibilité aux outils numériques est recommandée mais aucune compétence en programmation n'est requise. Nos formateurs adaptent le rythme au niveau du groupe." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que pourra-t-on automatiser après la formation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "À l'issue de la formation, vous serez capables de créer vos propres workflows d'automatisation : traitement automatique des emails, synchronisation entre outils, génération de rapports, notifications intelligentes, qualification de leads, et intégration de l'IA dans vos processus. L'objectif est l'autonomie complète — vous n'avez plus besoin de prestataire pour créer des automatisations simples à intermédiaires." }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation est-elle disponible en intra-entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, nous proposons des formations intra-entreprise adaptées à vos outils spécifiques et vos cas d'usage réels. La formation intra est particulièrement efficace car nous pouvons travailler directement sur vos processus existants — les participants repartent avec des automatisations déjà connectées à leurs vrais outils. Contactez-nous pour un devis adapté à la taille de votre groupe." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/automatisation-ia">Automatisation IA</a><span>›</span>
+                <span>Formation à l'automatisation IA</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Formation automatisation</span>
+                Formation à l'automatisation IA — Maîtrisez les outils
+            </h1>
+            <p class="sp-hero__lead">
+                Apprenez à créer vos propres <strong>workflows d'automatisation IA</strong> avec n8n, Make et Zapier. Formations 100% pratiques — vous repartez avec des automatisations fonctionnelles sur vos <strong>cas réels, dès le premier jour</strong>.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+                <a href="/intelligence-artificielle/formation-ia" class="btn btn-outline">Toutes nos formations IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Autonomie totale sur l'automatisation</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>100%</strong><span>pratique</span></div>
+                    <div class="sp-dc-stat"><strong>J+1</strong><span>opérationnel</span></div>
+                    <div class="sp-dc-stat"><strong>CPF</strong><span>financement possible</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi se former à l'automatisation IA ?</h2>
+                <p>L'automatisation IA n'est plus réservée aux grandes entreprises avec des équipes tech dédiées. Des outils comme n8n, Make ou Zapier permettent à n'importe qui de créer des workflows intelligents sans coder. La formation à l'automatisation IA vous donne les clés pour réduire drastiquement le temps passé sur les tâches répétitives — et le faire vous-même, sans dépendre d'un prestataire pour chaque modification.</p>
+                <p>Un collaborateur formé à l'automatisation IA peut créer et maintenir ses propres workflows, économiser 5 à 15 heures par semaine et devenir un acteur clé de la transformation digitale de son organisation.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Nos programmes de formation à l'automatisation IA</h2>
+                <p><strong>Initiation à l'automatisation (1 jour) :</strong> découverte de Zapier et Make, premiers workflows, connexion de 2 à 3 outils, automatisations simples opérationnelles dès la fin de la journée. Idéal pour les profils non-techniques souhaitant automatiser des tâches quotidiennes.</p>
+                <p><strong>Formation n8n + IA (2 jours) :</strong> maîtrise de n8n, intégration de ChatGPT/Claude dans les workflows, logique conditionnelle, gestion des erreurs, déploiement et maintenance. À l'issue, vous créez des automatisations IA complexes de façon autonome.</p>
+                <p><strong>Programme avancé agents IA (3 jours) :</strong> création d'agents IA avec n8n + LangChain, systèmes multi-agents, mémoire contextuelle, outils custom. Pour les profils souhaitant développer des automatisations IA avancées.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Comment se déroulent nos formations ?</h2>
+                <p>Nos formations sont <strong>100% pratiques</strong> — pas de slides interminables, mais des exercices sur vos cas réels. Chaque participant travaille sur ses propres processus avec ses propres outils. Les formateurs alternent démonstrations, exercices guidés et projets autonomes pour garantir une montée en compétences rapide.</p>
+                <p>Un support post-formation d'un mois est inclus dans tous nos programmes — pour vous aider sur les premiers projets réels après la formation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que vous apprenez</p>
+            <h2>Compétences acquises à l'issue de la formation</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><h3>Créer des workflows no-code</h3><p>Concevoir et déployer des automatisations avec n8n, Make ou Zapier selon la complexité de vos besoins</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Intégrer l'IA dans vos workflows</h3><p>Connecter ChatGPT, Claude ou Gemini pour ajouter de l'intelligence à vos automatisations — analyse, génération, décision</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><h3>Connecter vos outils existants</h3><p>Lier CRM, ERP, email, Slack, Notion et vos outils métier pour synchroniser les données automatiquement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Gérer les erreurs et les exceptions</h3><p>Construire des workflows robustes qui gèrent les cas limites, les erreurs et envoient des alertes en cas de problème</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Après la formation — passez à l'action</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Service automatisation IA</strong><p>Besoin d'aide pour les automatisations complexes — notre équipe prend le relais.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/automatisation-ia-avec-n8n" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Automatisation IA avec n8n</strong><p>Tout savoir sur n8n, l'outil que nous utilisons en formation.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Toutes nos formations IA</strong><p>IA générative, outils IA, formation dirigeants — le catalogue complet.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia/formation-agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Formation agents IA</strong><p>Créez vos propres agents IA autonomes — le niveau suivant après l'automatisation.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la formation automatisation IA</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels outils apprend-on dans la formation ?</summary>
+                    <div class="sp-faq-item__answer"><p>Selon le niveau : <strong>n8n</strong> pour les workflows IA complexes, <strong>Make</strong> pour les automatisations visuelles, <strong>Zapier</strong> pour les cas simples, APIs <strong>OpenAI/Anthropic</strong> pour intégrer les LLMs, et <strong>LangChain</strong> pour les agents IA. 100% pratique sur vos cas réels.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il des compétences techniques pour la formation ?</summary>
+                    <div class="sp-faq-item__answer"><p>Non pour les formations débutants et intermédiaires — elles sont conçues pour des <strong>profils non-techniques</strong>. Une sensibilité aux outils numériques est suffisante. Nos formateurs adaptent le rythme au niveau du groupe.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que pourra-t-on automatiser après la formation ?</summary>
+                    <div class="sp-faq-item__answer"><p>Traitement des emails, synchronisation entre outils, génération de rapports, notifications intelligentes, qualification de leads, et intégration de l'IA dans vos processus. L'objectif est l'<strong>autonomie complète</strong> — vous créez et maintenez vos automatisations sans prestataire.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La formation est-elle disponible en intra-entreprise ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui, avec un programme adapté à <strong>vos outils spécifiques et vos cas réels</strong>. La formation intra est particulièrement efficace — les participants repartent avec des automatisations déjà connectées à leurs vrais outils. Contactez-nous pour un devis.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à maîtriser l'automatisation IA et à libérer vos équipes des tâches répétitives ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% pratique sur vos cas réels</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support post-formation inclus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

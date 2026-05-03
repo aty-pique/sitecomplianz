@@ -1,0 +1,413 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 149 chars description) ─────────────────── #}
+{% block title %}Audit organisationnel | Diagnostic structure &amp; gouvernance | Complianz{% endblock %}
+
+{% block description %}Réalisez un audit organisationnel complet pour optimiser votre structure, vos processus et votre gouvernance. Rapport + plan de transformation. Dès 2 900€.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit organisationnel — Diagnostic de votre structure d'entreprise",
+      "url": "{{ app_url }}/audit-conformite/audit-conseil/audit-organisationnel",
+      "description": "Audit organisationnel complet pour optimiser votre structure d'entreprise : analyse de la structure organisationnelle, cartographie des processus, évaluation des rôles et responsabilités, analyse des flux de communication, benchmarking sectoriel et plan de transformation. Dès 2 900€ HT.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit organisationnel",
+      "offers": [
+        { "@type": "Offer", "name": "Audit organisationnel PME",                    "price": "2900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5500"  } },
+        { "@type": "Offer", "name": "Audit organisationnel ETI",                    "price": "5500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Audit + Accompagnement transformation",        "price": "9000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                       "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",   "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Audit & Conseil",               "item": "{{ app_url }}/audit-conformite/audit-conseil" },
+        { "@type": "ListItem", "position": 4, "name": "Audit organisationnel",         "item": "{{ app_url }}/audit-conformite/audit-conseil/audit-organisationnel" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit organisationnel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit organisationnel est une analyse structurée de la façon dont une entreprise est organisée : sa structure hiérarchique, ses processus, les rôles et responsabilités de chacun, ses flux de communication et sa gouvernance. Il identifie les inefficacités, les redondances et les blocages, et aboutit à des recommandations concrètes pour améliorer la performance organisationnelle." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quand faut-il réaliser un audit organisationnel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit organisationnel est particulièrement pertinent lors d'une période de croissance rapide, d'une fusion-acquisition, d'une réorganisation interne, d'une baisse de performance, d'un fort turnover ou lors de la préparation d'une transformation stratégique. Il permet de partir d'une base solide pour toute décision d'organisation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien dure un audit organisationnel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit organisationnel PME dure généralement 3 à 6 semaines : 1 à 2 semaines de collecte documentaire et d'entretiens, 1 à 2 semaines d'analyse et de rédaction, 1 semaine de finalisation et restitution. Pour une ETI, compter 6 à 12 semaines selon la complexité de l'organisation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre audit organisationnel et audit des processus ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit des processus se concentre sur l'efficacité et la conformité des processus opérationnels. L'audit organisationnel a un périmètre plus large : il inclut la structure, les rôles, la gouvernance, les flux de communication et la culture d'entreprise en plus des processus. L'un est un focus opérationnel, l'autre est une vision systémique de l'organisation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/audit-conseil">Audit &amp; Conseil</a>
+                <span>›</span>
+                <span>Audit organisationnel</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Diagnostic structurel &amp; transformation organisationnelle</span>
+                Audit organisationnel — diagnostic complet de votre structure d'entreprise
+            </h1>
+            <p class="sp-hero__lead">
+                Nous réalisons un <strong>audit organisationnel complet</strong>&nbsp;: analyse de votre structure, cartographie des processus, évaluation des rôles et responsabilités, analyse des flux de communication et benchmarking sectoriel. Résultat&nbsp;: un rapport de diagnostic et un <strong>plan de transformation</strong> concret et priorisé.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un diagnostic organisationnel
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport livré en 3 à 6 semaines</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Benchmarking sectoriel inclus</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Plan de transformation concret</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À l'issue de l'audit organisationnel</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>vision claire</strong> de vos forces et faiblesses organisationnelles, les leviers d'efficacité identifiés, et un <strong>plan de transformation</strong> priorisé pour optimiser votre structure.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3–6</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>dès 2 900</strong>
+                        <span>€ HT</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>360°</strong>
+                        <span>vision</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>60% des dirigeants</strong> estiment que leur organisation freine leur croissance — un audit identifie exactement pourquoi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Confidentialité totale des informations
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Regard externe impartial et expert
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Plan de transformation opérationnel
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <p><strong>+60</strong> audits organisationnels</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>+25%</strong> gain d'efficacité moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE DE L'AUDIT
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre de l'audit</p>
+            <h2>Ce que nous analysons dans votre organisation</h2>
+            <p class="sp-section-sub">Un diagnostic à 360° qui couvre tous les dimensions de votre organisation — pas seulement votre organigramme.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Analyse de la structure organisationnelle</h3><p>Revue de l'organigramme, des entités, des niveaux hiérarchiques et de la répartition des responsabilités</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Cartographie des processus</h3><p>Identification et modélisation de vos processus clés, leurs interactions, les goulets d'étranglement et les redondances</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Évaluation des rôles et responsabilités</h3><p>Analyse des fiches de poste, des zones de chevauchement, des lacunes et de la clarté des périmètres d'action</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Analyse des flux de communication</h3><p>Évaluation des canaux de communication interne, des circuits décisionnels et des points de blocage informationnels</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Benchmarking sectoriel</h3><p>Comparaison de votre organisation avec les meilleures pratiques de votre secteur et identification des écarts</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Plan de transformation</h3><p>Feuille de route priorisée pour optimiser votre organisation, avec actions court, moyen et long terme</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit organisationnel ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre organisation, du périmètre audité et de la profondeur de l'analyse souhaitée. Devis remis sous 48h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit organisationnel PME</p>
+                    <p class="sp-plan__price"><span>2 900 – 5 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME jusqu'à 100 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse de la structure</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie des processus clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de diagnostic</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution avec la direction (2h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit + Accompagnement transformation</p>
+                    <p class="sp-plan__price"><span>9 000 – 20 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME/ETI avec projet de transformation</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit organisationnel 360°</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de transformation détaillé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement à la mise en œuvre</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement du changement</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi 3 à 6 mois inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit organisationnel ETI</p>
+                    <p class="sp-plan__price"><span>5 500 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI 100 à 500 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit multi-entités / multi-sites</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des flux inter-services</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Benchmarking sectoriel approfondi</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de transformation avec jalons</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution COMEX</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre audit organisationnel</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit &amp; conseil global</strong><p>L'audit organisationnel s'inscrit dans une démarche d'audit global entreprise pour une vision à 360°.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/structuration-gouvernance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <div><strong>Structuration &amp; gouvernance</strong><p>Après le diagnostic, restructurez votre gouvernance avec notre accompagnement dédié.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conseil-strategique" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Conseil stratégique</strong><p>Intégrez les résultats de l'audit dans votre stratégie d'entreprise pour une transformation cohérente.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-9001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 9001</strong><p>L'audit organisationnel est un excellent point de départ pour une démarche de certification ISO 9001.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit organisationnel</h2>
+                <p>Nos consultants en organisation répondent sous 24h à toute question sur votre diagnostic.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit organisationnel ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit organisationnel</strong> est une analyse structurée de la façon dont une entreprise est organisée&nbsp;: sa structure hiérarchique, ses processus, les rôles et responsabilités, ses flux de communication et sa gouvernance. Il identifie les inefficacités et aboutit à des <strong>recommandations concrètes</strong> pour améliorer la performance.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quand faut-il réaliser un audit organisationnel ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un audit organisationnel est pertinent lors d'une <strong>croissance rapide</strong>, d'une fusion-acquisition, d'une réorganisation interne, d'une baisse de performance, d'un fort turnover ou lors de la préparation d'une transformation stratégique. Il permet de partir d'une base solide pour toute décision d'organisation.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien dure un audit organisationnel ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Pour une PME&nbsp;: <strong>3 à 6 semaines</strong> (collecte, entretiens, analyse, rapport). Pour une ETI&nbsp;: <strong>6 à 12 semaines</strong> selon la complexité. La phase d'entretiens représente généralement 1 à 2 semaines de travail sur site, peu intrusive pour vos équipes.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre audit organisationnel et audit des processus ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>audit des processus</strong> se concentre sur l'efficacité et la conformité des processus opérationnels. L'<strong>audit organisationnel</strong> a un périmètre plus large : il inclut la structure, les rôles, la gouvernance, les flux de communication et la culture d'entreprise. L'un est un focus opérationnel, l'autre est une vision systémique.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à diagnostiquer votre organisation pour mieux la transformer ?</h2>
+                <p>Nos consultants en organisation analysent votre structure et vous remettent un plan de transformation concret. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un diagnostic organisationnel
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dès 2 900€ HT</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport sous 6 semaines</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de transformation inclus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

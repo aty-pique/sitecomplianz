@@ -1,0 +1,221 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Agent IA 24h/24 PME | Automatisation service client | Complianz{% endblock %}
+
+{% block description %}Déployez un agent IA disponible 24h/24 pour répondre à vos clients, qualifier vos leads et traiter les demandes courantes. Idéal pour les PME.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Agent IA disponible 24h/24 pour PME",
+      "url": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-ia-disponible-24h-24-pour-pme",
+      "description": "Déployez un agent IA disponible 24h/24 pour votre PME : réponses clients, qualification de leads, traitement des demandes courantes sans équipe dédiée.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Agents IA", "item": "{{ app_url }}/intelligence-artificielle/agents-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Agent IA 24h/24 pour PME", "item": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-ia-disponible-24h-24-pour-pme" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte un agent IA 24h/24 pour une PME ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le développement et déploiement d'un agent IA 24h/24 pour PME coûte entre 2 000 et 8 000 € selon la complexité des conversations et les intégrations. Les coûts mensuels (LLM APIs, hébergement) sont généralement de 50 à 300 €/mois selon le volume d'interactions. À comparer avec le coût d'un service client humain — le ROI est généralement atteint en 2 à 4 mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Sur quels canaux peut fonctionner l'agent IA 24h/24 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'agent IA peut être déployé sur le chat de votre site web (widget), WhatsApp Business, Facebook Messenger, Instagram DMs, par email (réponse automatique intelligente) et par téléphone (agent vocal). Vous pouvez choisir un seul canal pour démarrer et étendre progressivement selon vos besoins." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'agent IA peut-il capturer et qualifier des leads ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est l'un des cas d'usage les plus rentables pour les PME. L'agent engage les visiteurs du site, pose des questions de qualification (budget, projet, délai, décisionnaire), collecte les coordonnées et crée automatiquement un lead qualifié dans votre CRM — même à 2h du matin. Vos commerciaux reçoivent le matin un pipeline de leads qualifiés prêts à appeler." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il si l'agent ne sait pas répondre ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous configurons toujours un mécanisme d'escalade : l'agent reconnaît quand une demande dépasse son périmètre et propose soit de collecter les coordonnées pour un rappel humain, soit de transférer la conversation en temps réel à un agent humain disponible. Aucun client n'est laissé sans réponse adaptée." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/agents-ia">Agents IA</a><span>›</span>
+                <span>Agent IA 24h/24 pour PME</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Agents IA pour PME</span>
+                Agent IA disponible 24h/24 pour PME
+            </h1>
+            <p class="sp-hero__lead">
+                Plus aucune demande client sans réponse. Déployez un <strong>agent IA disponible 24h/24</strong> pour répondre à vos clients, qualifier vos leads et traiter les demandes courantes — sans équipe dédiée, pour une fraction du coût.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer mon agent IA</a>
+                <a href="/intelligence-artificielle/agents-ia" class="btn btn-outline">Voir tous nos agents IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Service client 24h sans équipe</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>24/7</strong><span>disponibilité</span></div>
+                    <div class="sp-dc-stat"><strong>–80%</strong><span>tickets traités auto</span></div>
+                    <div class="sp-dc-stat"><strong>+40%</strong><span>leads qualifiés</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi une PME a besoin d'un agent IA 24h/24 ?</h2>
+                <p>70% des clients qui ne reçoivent pas de réponse dans l'heure passent à un concurrent. Les PME ne peuvent pas se permettre une équipe support 24h/24 — mais elles ne peuvent pas non plus se permettre de perdre des clients la nuit et le week-end. L'agent IA 24h/24 comble ce fossé : il répond instantanément, qualifie les besoins et prépare le travail pour vos équipes humaines.</p>
+                <p>Un agent IA bien configuré traite 60 à 80% des demandes courantes sans intervention humaine — libérant vos équipes pour les conversations à valeur ajoutée.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Ce que fait votre agent IA 24h/24</h2>
+                <p><strong>Réponse aux questions fréquentes :</strong> horaires, tarifs, disponibilités, conditions de vente, processus de retour — toutes les FAQ de votre activité répondues instantanément, 24h/24, sur le canal choisi.</p>
+                <p><strong>Qualification et capture de leads :</strong> l'agent engage les prospects, collecte leurs besoins, budget et coordonnées, puis crée un lead qualifié dans votre CRM — vos commerciaux ont un pipeline actif dès le matin.</p>
+                <p><strong>Prise de rendez-vous :</strong> connexion à votre agenda, proposition de créneaux et confirmation automatique — sans aller-retour d'emails.</p>
+                <p><strong>Support de premier niveau :</strong> résolution des problèmes courants (mot de passe oublié, statut de commande, instructions d'utilisation) et escalade vers un humain pour les cas complexes.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Déploiement de l'agent IA sur vos canaux</h2>
+                <p>Nous déployons l'agent sur les canaux les plus pertinents pour votre activité : chat de votre site web, WhatsApp Business, email, ou multi-canal. L'agent est connecté à votre CRM et à vos outils existants pour une expérience cohérente et des données toujours à jour.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur un agent IA 24h/24 pour PME</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><h3>ROI en 2 à 4 mois</h3><p>Le coût d'un agent IA 24h/24 est très inférieur à celui d'un service client humain — le ROI est généralement atteint en 2 à 4 mois</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div><h3>Multi-canal</h3><p>Site web, WhatsApp, email, Facebook — l'agent opère sur tous vos canaux de façon cohérente et centralisée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><h3>CRM connecté en temps réel</h3><p>Chaque interaction enrichit votre CRM — leads créés, historique des conversations, notes de qualification automatiques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>Escalade humaine intelligente</h3><p>L'agent transfère vers un humain quand nécessaire — aucun client n'est laissé sans réponse appropriée</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Complétez votre stratégie IA pour PME</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Déployez d'autres agents IA pour tous vos processus.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia/agent-vocal-ia-pour-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12"/></svg></div>
+                <div><strong>Agent vocal IA</strong><p>Étendez votre présence 24h/24 au téléphone aussi.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Automatisez vos processus internes en complément.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Outils IA pour PME</strong><p>La sélection complète des meilleurs outils IA pour votre PME.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'agent IA 24h/24 pour PME</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Combien coûte un agent IA 24h/24 pour une PME ?</summary>
+                    <div class="sp-faq-item__answer"><p>Développement : <strong>2 000 à 8 000 €</strong> selon la complexité. Coûts mensuels : <strong>50 à 300 €/mois</strong> selon le volume. À comparer avec un service client humain — le ROI est atteint en <strong>2 à 4 mois</strong>.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Sur quels canaux peut fonctionner l'agent IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Chat du site web, <strong>WhatsApp Business</strong>, Facebook Messenger, Instagram DMs, email et téléphone (agent vocal). Vous démarrez sur un canal et étendez progressivement.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'agent IA peut-il capturer et qualifier des leads ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui — l'agent engage les visiteurs, pose des questions de qualification (budget, projet, délai), collecte les coordonnées et crée automatiquement un <strong>lead qualifié dans votre CRM</strong>, même à 2h du matin.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que se passe-t-il si l'agent ne sait pas répondre ?</summary>
+                    <div class="sp-faq-item__answer"><p>L'agent reconnaît ses limites et propose soit de <strong>collecter les coordonnées</strong> pour un rappel humain, soit de transférer en temps réel à un agent disponible. Aucun client n'est laissé sans réponse.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à ne plus jamais rater un client ou un lead parce que votre bureau est fermé ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer mon agent IA 24h/24</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM connecté inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI en 2 à 4 mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

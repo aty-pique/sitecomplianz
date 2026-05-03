@@ -1,0 +1,509 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}ERP sur mesure | Développement ERP entreprise | Complianz{% endblock %}
+
+{% block description %}Développez un ERP sur mesure pour centraliser comptabilité, RH, production et commercial. Adapté à vos processus, évolutif et sécurisé.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "ERP sur mesure — Centralisez vos processus métiers",
+      "url": "{{ app_url }}/solutions-developpement/erp-crm/erp-sur-mesure",
+      "description": "Développement modulaire d'un ERP sur mesure : audit des processus métiers, conception fonctionnelle, modules compta, RH, production, stock, commercial, tests, formation et support.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "ERP sur mesure",
+      "offers": [
+        { "@type": "Offer", "name": "ERP PME (3 modules)",           "price": "14000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "28000" } },
+        { "@type": "Offer", "name": "ERP ETI (5+ modules)",          "price": "28000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "65000" } },
+        { "@type": "Offer", "name": "ERP sur mesure complet",        "price": "65000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "200000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "ERP & CRM",                 "item": "{{ app_url }}/solutions-developpement/erp-crm" },
+        { "@type": "ListItem", "position": 4, "name": "ERP sur mesure",            "item": "{{ app_url }}/solutions-developpement/erp-crm/erp-sur-mesure" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un ERP sur mesure et un ERP standard comme SAP ou Odoo ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un ERP standard comme SAP ou Odoo couvre des besoins génériques et impose souvent de faire évoluer vos processus pour s'adapter à l'outil. Un ERP sur mesure est développé selon vos processus exacts — aucun compromis, aucune fonctionnalité inutile. C'est préférable pour les organisations avec des processus atypiques, des contraintes sectorielles fortes ou des intégrations complexes. Nous proposons également l'intégration Odoo si un ERP semi-standard est adapté." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour déployer un ERP sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 4 à 8 mois pour un ERP PME (3 modules), de 8 à 15 mois pour un ERP ETI (5+ modules), et de 12 à 24 mois pour un ERP complet multi-entités. Nous travaillons en méthodologie itérative pour livrer module par module, ce qui permet une adoption progressive et des ajustements en cours de développement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment migrer nos données existantes vers le nouvel ERP ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La migration de vos données est une étape clé du déploiement ERP. Nous réalisons un audit et un nettoyage de vos données sources (Excel, ancien ERP, fichiers divers), définissons le schéma de migration et réalisons les imports en plusieurs phases avec validation à chaque étape. Aucune donnée n'est perdue lors de la transition." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'ERP sur mesure peut-il évoluer avec notre entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — l'évolutivité est au cœur de notre approche. L'architecture modulaire permet d'ajouter de nouveaux modules (nouveaux marchés, nouvelles entités, nouvelles fonctionnalités) sans remettre en cause l'existant. Un contrat de maintenance et d'évolution mensuel est disponible après la livraison initiale." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/erp-crm">ERP &amp; CRM</a>
+                <span>›</span>
+                <span>ERP sur mesure</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Développement ERP sur mesure</span>
+                ERP sur mesure — Centralisez vos processus métiers
+            </h1>
+            <p class="sp-hero__lead">
+                Nous développons des <strong>ERP sur mesure</strong> pour centraliser comptabilité, RH, production, stock et commercial dans un outil unique adapté à votre organisation. <strong>Évolutif, sécurisé</strong> et pensé pour vos équipes.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis ERP
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit des processus métiers offert</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Architecture modulaire &amp; évolutive</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation équipes &amp; support post-déploiement</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre ERP</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>ERP opérationnel, modulaire et adapté à vos processus</strong> — toutes vos équipes travaillent dans un outil unifié, vos données sont centralisées et vos processus automatisés.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>4–24</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>temps gestion</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients réduisent leur <strong>temps de gestion de 40%</strong> dès le premier mois après déploiement</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos autres solutions ERP, CRM &amp; gestion</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>CRM sur mesure</h2>
+                    <p>Commencez par un CRM commercial avant d'étendre à un ERP complet selon votre croissance.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/gestion-commerciale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Gestion commerciale</h2>
+                    <p>Module gestion commerciale (devis, facturation, stocks) intégré dans votre ERP ou standalone.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/integration-odoo" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Intégration Odoo</h2>
+                    <p>Alternative ERP semi-standard avec Odoo pour des besoins moins spécifiques et un déploiement plus rapide.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>ERP &amp; CRM sur mesure</h2>
+                    <p>Vue d'ensemble de toutes nos solutions de gestion d'entreprise sur mesure.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit des processus métiers offert
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Déploiement progressif module par module
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Migration des données existantes incluse
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <p><strong>+30</strong> ERP sur mesure déployés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>–40%</strong> temps de gestion opérationnel</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend votre projet d'ERP sur mesure</h2>
+            <p class="sp-section-sub">De l'audit des processus à la formation des équipes — un déploiement ERP structuré, progressif et sécurisé.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit des processus métiers</h3><p>Cartographie complète de vos flux actuels — identification des inefficacités, des doublons et des opportunités d'automatisation.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Conception fonctionnelle</h3><p>Spécifications détaillées de chaque module — maquettes fonctionnelles validées par vos équipes avant tout développement.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Développement modulaire</h3><p>Compta, RH, production, stock, commercial — chaque module développé sur mesure et livré progressivement pour une adoption réussie.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div><h3>Migration des données existantes</h3><p>Audit, nettoyage et migration de vos données sources (Excel, ancien ERP) — aucune perte lors de la transition.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests &amp; recette utilisateur</h3><p>Tests de charge, recette fonctionnelle et validation par vos équipes avant toute mise en production — zéro surprise au démarrage.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation des équipes &amp; support</h3><p>Sessions de formation adaptées à chaque profil (utilisateurs, managers, administrateurs) et support dédié post-déploiement.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez en centralisant vos processus dans un ERP sur mesure</h2>
+            <p class="sp-section-sub">Un ERP sur mesure est l'investissement qui permet aux PME et ETI de passer à l'échelle sans perdre en agilité — données centralisées, processus automatisés, décisions éclairées.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Données unifiées</h3>
+                <p>Une source de vérité unique — fini les silos de données entre la compta, le commerce et la production.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <h3>Automatisation des tâches</h3>
+                <p>Relances, alertes stocks, génération de documents — les tâches répétitives s'exécutent automatiquement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Pilotage en temps réel</h3>
+                <p>Tableaux de bord, KPIs et indicateurs métiers en temps réel pour des décisions plus rapides et plus fiables.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Scalabilité &amp; évolutivité</h3>
+                <p>Architecture modulaire pensée pour évoluer avec votre entreprise — ajoutez des modules selon vos besoins.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un ERP sur mesure ?</h2>
+            <p class="sp-section-sub">Le coût dépend du nombre de modules, de la complexité des processus et du volume de données. Un audit et un cadrage gratuits permettent d'établir une estimation précise.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">ERP PME</p>
+                    <p class="sp-plan__price"><span>14 000 – 28 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">3 modules, PME 10-50 personnes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit processus offert</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 modules sur mesure</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Migration des données</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; documentation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">ERP ETI</p>
+                    <p class="sp-plan__price"><span>28 000 – 65 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">5+ modules, ETI 50-500 personnes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet des processus</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5+ modules sur mesure</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations API multiples</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard &amp; reporting avancé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation multi-profils</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 6 mois post-déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">ERP sur mesure complet</p>
+                    <p class="sp-plan__price"><span>Sur devis</span> <em></em></p>
+                    <p class="sp-plan__duration">Multi-entités, architecture scalable</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture ERP full custom</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Modules illimités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-entités &amp; multi-sites</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Infrastructure cloud dédiée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolution mensuelle</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit des processus et le cadrage sont gratuits. Le coût final dépend du nombre de modules et de la complexité des processus à modéliser.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions complémentaires à votre ERP</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/erp-crm" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+                <div><strong>ERP &amp; CRM sur mesure</strong><p>Vue d'ensemble de toutes nos solutions de gestion d'entreprise.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>CRM sur mesure</strong><p>Pilotez votre relation client et votre pipeline commercial en parallèle de votre ERP.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/integration-odoo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg></div>
+                <div><strong>Intégration Odoo</strong><p>Alternative semi-standard si vos processus s'adaptent à Odoo — déploiement plus rapide.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit &amp; cybersécurité</strong><p>Sécurisez votre infrastructure avant et après le déploiement de votre ERP.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'ERP sur mesure</h2>
+                <p>Notre équipe répond sous 24h et propose un audit gratuit de vos processus pour cadrer votre projet ERP.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle différence entre un ERP sur mesure et SAP ou Odoo ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un ERP standard impose souvent de faire évoluer vos processus pour s'adapter à l'outil. Un <strong>ERP sur mesure</strong> est développé selon vos processus exacts — aucun compromis, aucune fonctionnalité inutile. C'est préférable pour les organisations avec des processus atypiques ou des contraintes d'intégration fortes. Nous proposons aussi l'<a href="/solutions-developpement/erp-crm/integration-odoo">intégration Odoo</a> si un ERP semi-standard est adapté.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour déployer un ERP sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>4 à 8 mois</strong> pour un ERP PME (3 modules), de <strong>8 à 15 mois</strong> pour un ERP ETI (5+ modules). Nous travaillons en <strong>méthodologie itérative</strong> pour livrer module par module, ce qui permet une adoption progressive et des ajustements en cours de développement.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment migrer nos données vers le nouvel ERP ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>migration des données</strong> est incluse dans notre périmètre. Nous réalisons un audit et un nettoyage de vos données sources (Excel, ancien ERP), définissons le schéma de migration et réalisons les imports en plusieurs phases avec validation à chaque étape. <strong>Aucune donnée n'est perdue</strong> lors de la transition.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'ERP sur mesure peut-il évoluer avec notre entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — l'<strong>architecture modulaire</strong> permet d'ajouter de nouveaux modules (nouveaux marchés, nouvelles entités, nouvelles fonctionnalités) sans remettre en cause l'existant. Un contrat de <strong>maintenance et d'évolution mensuel</strong> est disponible après la livraison initiale.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à centraliser vos processus métiers dans un ERP adapté à votre organisation ?</h2>
+                <p>Audit gratuit de vos processus pour cadrer le projet, définir les modules nécessaires et établir une estimation précise. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet ERP
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Déploiement progressif</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

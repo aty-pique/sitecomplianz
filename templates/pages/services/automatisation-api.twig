@@ -1,0 +1,608 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (44 chars titre / 144 chars description) ─────────────────── #}
+{% block title %}Automatisation & API sur mesure{% endblock %}
+
+{% block description %}Connectez vos outils et automatisez vos processus métier : no-code, API, logique métier avancée. Réduisez les tâches manuelles et faites fonctionner votre entreprise en fluidité.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Automatisation & interconnexion des systèmes",
+      "url": "{{ app_url }}/solutions-developpement/developpement-logiciel/automatisation-api",
+      "description": "Conception, mise en place et optimisation d'automatisations entre les outils de l'entreprise pour fluidifier les processus, limiter les tâches manuelles et créer un écosystème cohérent entre CRM, ERP, outils marketing et logiciels métiers.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Automatisation processus & intégration API",
+      "offers": [
+        { "@type": "Offer", "name": "Automatisations simples",       "price": "500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2000"  } },
+        { "@type": "Offer", "name": "Automatisations intermédiaires", "price": "2000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8000"  } },
+        { "@type": "Offer", "name": "Automatisations complexes",      "price": "8000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "25000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                          "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement",        "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Développement logiciel sur mesure","item": "{{ app_url }}/solutions-developpement/developpement-logiciel" },
+        { "@type": "ListItem", "position": 4, "name": "Automatisation & API",             "item": "{{ app_url }}/solutions-developpement/developpement-logiciel/automatisation-api" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'automatisation de processus en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'automatisation de processus consiste à configurer des flux de travail qui s'exécutent automatiquement en réponse à des événements ou des conditions. Cela peut aller d'une simple notification automatique à un workflow complexe qui synchronise plusieurs outils (CRM, ERP, marketing, comptabilité) sans intervention humaine." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre no-code (Make, Zapier) et le développement API sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les outils no-code comme Make ou Zapier sont idéaux pour des automatisations simples à intermédiaires entre des outils qui disposent de connecteurs natifs. Le développement API sur mesure est nécessaire pour des cas plus complexes : logique métier avancée, outils sans connecteurs disponibles, transformations de données spécifiques ou volumes élevés. Nous choisissons la technologie la plus adaptée selon vos besoins." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la mise en place d'automatisations ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 500 € à 2 000 € pour des automatisations simples (1 à 2 flux no-code), de 2 000 € à 8 000 € pour des automatisations intermédiaires (plusieurs flux, outils connectés), et de 8 000 € à 25 000 €+ pour des automatisations complexes (API sur mesure, logique métier avancée, multi-systèmes). Un abonnement de maintenance et évolutions est disponible à partir de 100 €/mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils peut-on connecter et automatiser ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous pouvons connecter et automatiser la quasi-totalité des outils du marché : CRM (HubSpot, Salesforce, Pipedrive), ERP (Odoo, SAP), outils marketing (Mailchimp, ActiveCampaign), e-commerce (Shopify, WooCommerce), comptabilité (QuickBooks, Pennylane), outils de gestion de projet (Notion, Asana, Monday), et bien d'autres via leurs API." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il si un automatisme tombe en panne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous documentons systématiquement tous les flux mis en place. Avec notre abonnement de maintenance, nous assurons le monitoring, la correction des erreurs et les évolutions. Sans abonnement, la documentation complète vous permet de faire appel à notre équipe ponctuellement en cas de problème." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/developpement-logiciel">Développement logiciel</a>
+                <span>›</span>
+                <span>Automatisation &amp; API</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Automatisation des processus &amp; interconnexion des systèmes</span>
+                Automatisez vos tâches et connectez vos outils pour faire fonctionner votre entreprise de façon fluide et efficace
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et mettons en place des <strong>automatisations entre vos outils</strong> (CRM, ERP, marketing, logiciels métiers) pour fluidifier vos processus, éliminer les tâches manuelles répétitives et créer un <strong>écosystème cohérent et évolutif</strong>. No-code, API ou développement spécifique — selon vos besoins.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Automatiser mes processus
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit des processus automatisables offert</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>No-code, API ou développement — on choisit avec vous</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Maintenance &amp; évolutions en option</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Après mise en place des automatisations</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous <strong>automatisez vos tâches et connectez vos outils</strong> pour gagner du temps, réduire les erreurs et faire fonctionner votre entreprise de manière fluide et efficace — sans intervention manuelle.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>1 sem.</strong>
+                        <span>à 4 mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–70%</strong>
+                        <span>tâches manuelles</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0 erreur</strong>
+                        <span>de ressaisie</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients éliminent <strong>70% des tâches manuelles répétitives</strong> dans les 2 semaines suivant le déploiement</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit des processus automatisables inclus
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Tous les outils du marché connectables
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Documentation complète de chaque flux livré
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                <p><strong>+200</strong> automatisations déployées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>–70%</strong> tâches manuelles en moyenne</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TECHNOLOGIES & APPROCHES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre approche technologique</p>
+            <h2>No-code, API ou développement sur mesure — nous choisissons la bonne technologie</h2>
+            <p class="sp-section-sub">Il n'existe pas de solution universelle. Nous analysons vos besoins et choisissons l'approche la plus adaptée à votre budget, vos outils et la complexité de vos flux.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>No-code (Make, Zapier, n8n…)</h3>
+                <p>Idéal pour des flux simples à intermédiaires. Rapide à déployer, facile à modifier. Connecte la majorité des outils du marché via des scénarios visuels.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Développement API sur mesure</h3>
+                <p>Pour des logiques métier complexes, des transformations de données spécifiques ou des outils sans connecteurs natifs. Robuste, performant, évolutif.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <h3>Webhooks &amp; événements temps réel</h3>
+                <p>Déclenchements instantanés entre vos systèmes dès qu'un événement se produit — sans latence, sans polling, sans délai.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Middleware &amp; hub d'intégration</h3>
+                <p>Orchestration de nombreux systèmes via un point central. Idéal pour les entreprises avec beaucoup d'outils à synchroniser.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                </div>
+                <h3>ETL &amp; synchronisation de données</h3>
+                <p>Extraction, transformation et chargement de données entre systèmes. Synchronisations programmées ou temps réel selon vos besoins.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Automatisation IA &amp; machine learning</h3>
+                <p>Intégration de modèles d'IA dans vos flux d'automatisation — classification, extraction d'informations, prise de décision automatique.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — notre méthode
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous mettons en place vos automatisations</h2>
+            <p class="sp-section-sub">Un processus structuré qui commence toujours par comprendre vos flux actuels avant de proposer et déployer les automatisations les plus utiles.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">1</div>
+                <div class="sp-step__content">
+                    <h3>Analyse des processus existants &amp; identification des tâches automatisables</h3>
+                    <p>Cartographie de vos flux de travail actuels, identification des tâches manuelles répétitives et des points de friction. Évaluation du potentiel d'automatisation et priorisation selon l'impact et la faisabilité. Livrable&nbsp;: rapport d'opportunités d'automatisation.</p>
+                    <span class="sp-step__duration">1 à 3 jours</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">2</div>
+                <div class="sp-step__content">
+                    <h3>Conception des flux d'automatisation</h3>
+                    <p>Schématisation des flux cibles, choix de la technologie (no-code, API, développement spécifique), définition des conditions, des déclencheurs, des transformations de données et des comportements en cas d'erreur.</p>
+                    <span class="sp-step__duration">2 à 5 jours</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">3</div>
+                <div class="sp-step__content">
+                    <h3>Connexion des outils &amp; mise en place des automatisations</h3>
+                    <p>Configuration des connecteurs (API, no-code, webhooks), développement des logiques métier spécifiques, mise en place des flux d'automatisation et intégration dans votre écosystème existant.</p>
+                    <span class="sp-step__duration">1 semaine à 3 mois selon la complexité</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">4</div>
+                <div class="sp-step__content">
+                    <h3>Tests, documentation, prise en main &amp; optimisation</h3>
+                    <p>Tests complets de chaque flux, validation avec vos équipes, documentation de tous les automatismes mis en place, formation à l'utilisation et au monitoring. Suivi post-déploiement et optimisations selon les premiers retours terrain.</p>
+                    <span class="sp-step__duration">2 à 5 jours + suivi 1 mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change concrètement</p>
+            <h2>Les bénéfices de l'automatisation pour votre entreprise</h2>
+            <p class="sp-section-sub">Automatiser n'est pas un luxe réservé aux grandes entreprises. Dès 500 €, vous pouvez éliminer des heures de travail manuel par semaine — et libérer vos équipes pour ce qui compte vraiment.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps opérationnel</h3>
+                <p>Les tâches qui prenaient des heures s'exécutent en secondes. Vos équipes se concentrent sur la valeur ajoutée.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des erreurs humaines</h3>
+                <p>La ressaisie manuelle de données entre outils est la principale source d'erreurs. L'automatisation l'élimine définitivement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                </div>
+                <h3>Meilleure circulation de l'information</h3>
+                <p>Les données se synchronisent automatiquement entre vos outils. Plus d'information en silo, plus de décalage entre systèmes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Centralisation des données</h3>
+                <p>Toutes vos données convergent vers les bons endroits au bon moment — sans intervention manuelle.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Amélioration de la productivité</h3>
+                <p>Moins de temps passé sur l'administratif = plus de temps sur les activités à forte valeur ajoutée pour votre entreprise.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <h3>Automatisation 24h/24</h3>
+                <p>Vos automatismes fonctionnent en permanence, y compris la nuit et le week-end — indépendamment des heures de bureau.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Scalabilité de l'activité</h3>
+                <p>Gérez 10 fois plus de volume sans 10 fois plus d'équipes. L'automatisation absorbe la croissance sans coût linéaire.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>Meilleure expérience client</h3>
+                <p>Réponses plus rapides, suivi automatisé, relances à temps, communications personnalisées — vos clients perçoivent la différence.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le coût de vos automatisations</h2>
+                    <p class="sp-section-sub">Les automatisations les plus simples peuvent se déployer en quelques jours. L'analyse initiale est toujours gratuite et permet d'établir une estimation précise.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de processus &amp; outils à connecter</span>
+                        <span class="sp-variable-value">Plus il y a de systèmes et de flux, plus la complexité augmente</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité des flux</span>
+                        <span class="sp-variable-value">Simple (trigger → action) / Conditionnel / Avancé (logique métier)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de technologie</span>
+                        <span class="sp-variable-value">No-code (rapide) / API existante / Développement spécifique</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données &amp; criticité</span>
+                        <span class="sp-variable-value">Flux temps réel haute criticité vs synchronisations planifiées</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau d'accompagnement souhaité</span>
+                        <span class="sp-variable-value">Déploiement seul, avec formation, ou avec maintenance mensuelle</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">État du système existant</span>
+                        <span class="sp-variable-value">Structure déjà en place vs construction depuis zéro</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Automatisation processus entreprise" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS — 4 niveaux
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la mise en place d'automatisations ?</h2>
+            <p class="sp-section-sub">Dès 500 € pour une première automatisation. L'analyse initiale est toujours gratuite.</p>
+        </div>
+        <div class="sp-pricing__grid sp-pricing__grid--4col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Simple</p>
+                    <p class="sp-plan__price"><span>500 – 2 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">No-code, 1 à 2 flux</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit besoins offert</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 à 2 flux no-code</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests &amp; validation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation livrée</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Démarrer</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus populaire</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Intermédiaire</p>
+                    <p class="sp-plan__price"><span>2 000 – 8 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Plusieurs flux, outils connectés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet des processus</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plusieurs flux &amp; outils connectés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Logique conditionnelle</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; prise en main</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi 1 mois inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Complexe</p>
+                    <p class="sp-plan__price"><span>8 000 – 25 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">API sur mesure, logique métier, multi-systèmes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Développement API sur mesure</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Logique métier avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Interconnexion multi-systèmes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring &amp; alertes configurés</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Abonnement</p>
+                    <p class="sp-plan__price"><span>100 – 1 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Maintenance, évolutions &amp; monitoring</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring des automatismes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction des erreurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ajout de nouveaux flux</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel d'activité</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Me renseigner</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs. L'analyse des processus automatisables est toujours gratuite — elle permet d'établir une estimation précise avant tout engagement.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services liés
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions complémentaires à l'automatisation</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Quand le no-code ne suffit plus, développez un logiciel sur mesure qui automatise nativement vos processus.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/integration-odoo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg></div>
+                <div><strong>Intégration Odoo &amp; ERP existants</strong><p>Connectez et synchronisez votre ERP avec tous vos autres outils métier.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg></div>
+                <div><strong>Intelligence Artificielle</strong><p>Enrichissez vos automatisations avec des capacités IA : classification, prédiction, NLP.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/application-metier" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+                <div><strong>Application métier sur mesure</strong><p>Pour des besoins très spécifiques, développez l'application qui centralise et automatise tout.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'automatisation &amp; les API</h2>
+                <p>Notre équipe répond sous 24h. L'analyse des processus automatisables est toujours gratuite et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que l'automatisation de processus en entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'automatisation de processus consiste à configurer des flux de travail qui s'exécutent automatiquement en réponse à des événements. Cela peut aller d'une simple notification automatique à un workflow complexe qui synchronise plusieurs outils (CRM, ERP, marketing, comptabilité) sans aucune intervention humaine — libérant vos équipes pour des tâches à plus forte valeur ajoutée.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre no-code (Make, Zapier) et API sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les outils <strong>no-code</strong> comme Make ou Zapier sont idéaux pour des automatisations simples à intermédiaires entre des outils avec connecteurs natifs. Le <strong>développement API sur mesure</strong> est nécessaire pour des logiques métier complexes, des outils sans connecteurs, des transformations de données spécifiques ou des volumes élevés. Nous choisissons la technologie la plus adaptée selon vos besoins et votre budget.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte la mise en place d'automatisations ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>500 € à 2 000 €</strong> pour des automatisations simples (1 à 2 flux no-code), de <strong>2 000 € à 8 000 €</strong> pour des automatisations intermédiaires (plusieurs flux, outils connectés), et de <strong>8 000 € à 25 000 €+</strong> pour des automatisations complexes avec développement API sur mesure. Un <a href="#tarifs">abonnement maintenance</a> est disponible dès 100 €/mois.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils peut-on connecter et automatiser ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous connectons la quasi-totalité des outils du marché&nbsp;: CRM (HubSpot, Salesforce, Pipedrive), ERP (<a href="/solutions-developpement/erp-crm/integration-odoo">Odoo</a>, SAP), outils marketing (Mailchimp, ActiveCampaign), e-commerce (Shopify, WooCommerce), comptabilité (QuickBooks, Pennylane), gestion de projet (Notion, Asana, Monday), et bien d'autres via leur API.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que se passe-t-il si un automatisme tombe en panne ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous documentons systématiquement tous les flux mis en place. Avec notre abonnement maintenance, nous assurons le monitoring, la correction des erreurs et les évolutions. Sans abonnement, la documentation complète livrée vous permet de faire appel à notre équipe ponctuellement. Nous configurons également des alertes automatiques en cas d'erreur sur les flux critiques.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à automatiser vos processus et connecter vos outils ?</h2>
+                <p>Analyse des processus automatisables gratuite et sans engagement. Nous identifions ensemble les flux les plus impactants et vous proposons une solution adaptée à votre budget.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Analyser mes processus gratuitement
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse gratuite</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dès 500 €</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,407 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 143 chars description) ─────────────────── #}
+{% block title %}Politique de confidentialité RGPD | Rédaction conforme | Complianz{% endblock %}
+
+{% block description %}Rédigez une politique de confidentialité RGPD conforme et adaptée à votre activité. Mentions légales, cookies, droits des utilisateurs. Livrée en 5 jours.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Politique de confidentialité RGPD — Rédaction sur mesure",
+      "url": "{{ app_url }}/audit-conformite/conformite-rgpd/politique-confidentialite",
+      "description": "Rédaction sur mesure de votre politique de confidentialité RGPD adaptée à votre activité : politique de confidentialité complète, mentions légales mises à jour, politique cookies conforme au RGPD (CCM), modèle de consentement et page exercer mes droits. Livrée en 5 jours ouvrés.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Rédaction politique de confidentialité RGPD",
+      "offers": [
+        { "@type": "Offer", "name": "Documentation RGPD",            "price": "800",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1500" } },
+        { "@type": "Offer", "name": "Documentation + Cookie Banner", "price": "1200", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2200" } },
+        { "@type": "Offer", "name": "Pack Documentation complet",    "price": "1800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3200" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                          "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",      "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Conformité RGPD",                  "item": "{{ app_url }}/audit-conformite/conformite-rgpd" },
+        { "@type": "ListItem", "position": 4, "name": "Politique de confidentialité",     "item": "{{ app_url }}/audit-conformite/conformite-rgpd/politique-confidentialite" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "La politique de confidentialité est-elle obligatoire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, les articles 13 et 14 du RGPD imposent d'informer les personnes concernées sur les traitements de leurs données. La politique de confidentialité est le principal vecteur de cette information. Son absence ou son caractère incomplet peut faire l'objet d'une mise en demeure de la CNIL." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que doit contenir une politique de confidentialité RGPD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une politique de confidentialité RGPD doit indiquer : l'identité du responsable de traitement, les finalités et bases légales des traitements, les données collectées et leur durée de conservation, les destinataires des données, les éventuels transferts hors UE, les droits des personnes (accès, rectification, effacement…) et les coordonnées du DPO." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre politique de confidentialité et mentions légales ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les mentions légales sont requises par la loi pour l'économie numérique (LCEN) et identifient l'éditeur du site. La politique de confidentialité est requise par le RGPD et informe sur le traitement des données personnelles. Les deux documents sont distincts mais souvent publiés ensemble sur un site web." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour rédiger une politique de confidentialité sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nos politiques de confidentialité personnalisées sont livrées en 5 jours ouvrés après réception de vos informations. Un questionnaire de collecte vous est envoyé au démarrage pour recueillir les informations nécessaires à la personnalisation des documents." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/conformite-rgpd">Conformité RGPD</a>
+                <span>›</span>
+                <span>Politique de confidentialité</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Documentation légale RGPD sur mesure</span>
+                Politique de confidentialité RGPD — Rédaction conforme adaptée à votre activité
+            </h1>
+            <p class="sp-hero__lead">
+                Nous rédigeons votre <strong>politique de confidentialité RGPD</strong> sur mesure&nbsp;: adaptée à votre activité, conforme aux exigences de la CNIL, rédigée en langage clair. Politique de confidentialité, mentions légales, politique cookies et page droits des utilisateurs — le tout livré en <strong>5 jours ouvrés</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Obtenir ma politique de confidentialité
+                </a>
+                <a href="#livrables" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Livrée en 5 jours ouvrés</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>100% personnalisée à votre activité</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conforme CNIL &amp; RGPD</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Documentation légale complète</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>documentation RGPD complète</strong>, rédigée en langage clair, personnalisée à votre activité et prête à être publiée sur votre site — en 5 jours ouvrés.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>5</strong>
+                        <span>jours ouvrés</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur-mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>5</strong>
+                        <span>documents</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Une politique de confidentialité générique est <strong>insuffisante</strong> — la CNIL exige une information précise et personnalisée</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Documentation livrée en 5 jours ouvrés
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Révision illimitée jusqu'à satisfaction
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Conforme aux dernières lignes directrices CNIL
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                <p><strong>+200</strong> politiques rédigées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p><strong>0</strong> mise en demeure CNIL</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LIVRABLES — 5 documents
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="livrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Documents livrés</p>
+            <h2>Votre pack documentation RGPD complet</h2>
+            <p class="sp-section-sub">Cinq documents personnalisés, rédigés en langage clair et prêts à être publiés sur votre site web.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Politique de confidentialité complète</h3><p>Document principal RGPD décrivant tous vos traitements, bases légales, durées de conservation et droits des utilisateurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Mentions légales mises à jour</h3><p>Mentions légales conformes à la LCEN : éditeur, hébergeur, directeur de publication et informations légales</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Politique cookies (CCM RGPD)</h3><p>Politique de gestion des cookies conforme aux recommandations CNIL : catégories, finalités et modalités de consentement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Modèle de consentement</h3><p>Textes et bannières de recueil du consentement pour formulaires, newsletter et cookies — conformes CNIL</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Page "Exercer mes droits"</h3><p>Page dédiée permettant aux utilisateurs d'exercer leurs droits RGPD avec le formulaire de demande et les délais de réponse</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la rédaction d'une politique de confidentialité ?</h2>
+            <p class="sp-section-sub">Des documents personnalisés à votre activité, rédigés par des experts RGPD, prêts à être publiés en 5 jours ouvrés.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Documentation RGPD</p>
+                    <p class="sp-plan__price"><span>800 – 1 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE / site web simple</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Politique de confidentialité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mentions légales</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Page exercice des droits</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livraison en 5 jours ouvrés</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Commander</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Documentation + Cookie Banner</p>
+                    <p class="sp-plan__price"><span>1 200 – 2 200 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME avec formulaires &amp; analytics</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Documentation RGPD complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Politique cookies détaillée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Modèles de consentement</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Textes pour bannière cookies</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Révision illimitée incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Commander</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Documentation complet</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 200 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">E-commerce, collecte de données avancée</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Tous les 5 documents RGPD</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CGV / CGU si besoin</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit documentaire initial</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise à jour 1 an incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement publication</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Commander</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h. Livraison garantie en 5 jours ouvrés.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre documentation RGPD</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité RGPD complète</strong><p>La politique de confidentialité est un élément de votre conformité RGPD — intégrez-la dans une démarche complète.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/registre-traitements" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Registre des traitements</strong><p>Le registre et la politique de confidentialité sont deux documents RGPD complémentaires — créez-les ensemble.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/dpo-externalise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>DPO externalisé</strong><p>Votre DPO externalisé maintient votre documentation RGPD à jour selon les évolutions réglementaires.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/audit-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit RGPD</strong><p>Un audit RGPD préalable garantit que votre politique de confidentialité reflète fidèlement vos traitements réels.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la politique de confidentialité</h2>
+                <p>Nos experts RGPD répondent sous 24h à toute question sur votre documentation légale.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>La politique de confidentialité est-elle obligatoire ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, les <strong>articles 13 et 14 du RGPD</strong> imposent d'informer les personnes concernées sur le traitement de leurs données. La politique de confidentialité est le principal vecteur de cette information. Son absence ou son caractère incomplet peut faire l'objet d'une <strong>mise en demeure de la CNIL</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que doit contenir une politique de confidentialité RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une politique conforme doit indiquer&nbsp;: l'identité du responsable de traitement, les <strong>finalités et bases légales</strong> des traitements, les données collectées et leur durée de conservation, les destinataires, les éventuels transferts hors UE, les <strong>droits des personnes</strong> (accès, rectification, effacement…) et les coordonnées du <a href="/audit-conformite/conformite-rgpd/dpo-externalise">DPO</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre politique de confidentialité et mentions légales ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les <strong>mentions légales</strong> sont requises par la LCEN et identifient l'éditeur du site. La <strong>politique de confidentialité</strong> est requise par le RGPD et informe sur le traitement des données personnelles. Les deux documents sont distincts mais souvent publiés ensemble — nous les rédigeons simultanément.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour rédiger une politique sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nos politiques de confidentialité personnalisées sont livrées en <strong>5 jours ouvrés</strong> après réception de vos informations. Un questionnaire de collecte vous est envoyé au démarrage. Des révisions illimitées sont incluses jusqu'à votre satisfaction complète.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à obtenir une politique de confidentialité conforme en 5 jours ?</h2>
+                <p>Nos experts RGPD rédigent votre documentation légale personnalisée, conforme CNIL, prête à publier. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Obtenir ma documentation RGPD
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livrée en 5 jours ouvrés</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% personnalisée</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Révisions illimitées</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

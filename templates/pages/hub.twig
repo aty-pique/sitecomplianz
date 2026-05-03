@@ -1,0 +1,318 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Laboratoire Complianz System",
+  "description": {{ meta_description|json_encode|raw }},
+  "url": "{{ app_url }}/hub"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ── Hero ── #}
+<section class="lab-hero" aria-labelledby="lab-hero-title">
+    <div class="lab-hero__bg" aria-hidden="true"></div>
+    <div class="container lab-hero__inner">
+        <p class="lab-hero__eyebrow">{{ hub.hero.eyebrow }}</p>
+        <h1 id="lab-hero-title" class="lab-hero__title">
+            {{ hub.hero.title_before }}
+            <span class="lab-hero__gradient">{{ hub.hero.title_highlight }}</span>
+        </h1>
+        <p class="lab-hero__lead">{{ hub.hero.lead }}</p>
+        <div class="lab-hero__actions">
+            <a href="{{ hub.hero.cta.href }}" class="btn btn-primary btn-lg">{{ hub.hero.cta.label }}</a>
+            <div class="lab-hero__search-wrap">
+                <svg class="lab-hero__search-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <label class="visually-hidden" for="lab-hero-search">{{ hub.hero.search_placeholder }}</label>
+                <input type="search" id="lab-hero-search" class="lab-hero__search-input" placeholder="{{ hub.hero.search_placeholder }}" autocomplete="off">
+            </div>
+        </div>
+        <dl class="lab-stats">
+            {% for s in hub.hero.stats %}
+            <div class="lab-stats__item">
+                <dt class="lab-stats__value">{{ s.value }}</dt>
+                <dd class="lab-stats__label">{{ s.label }}</dd>
+            </div>
+            {% endfor %}
+        </dl>
+    </div>
+</section>
+
+{# ── Projets en cours ── #}
+<section class="lab-section lab-section--white" id="{{ hub.ongoing.id }}" aria-labelledby="lab-ongoing-title">
+    <div class="container">
+        <header class="lab-ongoing-header">
+            <div class="lab-ongoing-header__text">
+                <h2 id="lab-ongoing-title" class="lab-section__title">{{ hub.ongoing.title }}</h2>
+                <p class="lab-section__lead">{{ hub.ongoing.lead }}</p>
+            </div>
+            {% if hub.ongoing.legend is defined and hub.ongoing.legend|length %}
+            <ul class="lab-ongoing-legend" aria-label="Légende des statuts">
+                {% for leg in hub.ongoing.legend %}
+                <li class="lab-ongoing-legend__item">
+                    {% if leg.tone == 'purple' %}
+                    <span class="lab-ongoing-legend__icon lab-ongoing-legend__icon--purple" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 3h6l1 3h2v2l-2 7H8L6 8V6h2l1-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 14v7M12 14v7M15 14v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </span>
+                    {% elseif leg.tone == 'orange' %}
+                    <span class="lab-ongoing-legend__icon lab-ongoing-legend__icon--orange" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M5 19h14M5 19l2-8h10l2 8M5 19v2h14v-2M8 11V9a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    {% else %}
+                    <span class="lab-ongoing-legend__icon lab-ongoing-legend__icon--blue" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </span>
+                    {% endif %}
+                    <span>{{ leg.label }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </header>
+        <ul class="lab-grid lab-grid--2">
+            {% for item in hub.ongoing.items %}
+            {% set search_blob = (item.title ~ ' ' ~ item.description ~ ' ' ~ item.tags|join(' '))|lower %}
+            <li class="lab-searchable" data-lab-search="{{ search_blob }}">
+                <article class="lab-card lab-card--ongoing lab-card--accent-{{ item.accent }}">
+                    <div class="lab-card__top">
+                        <span class="lab-card__icon lab-card__icon--{{ item.accent }}" aria-hidden="true"></span>
+                        <span class="lab-badge lab-badge--{{ item.status_tone }}">{{ item.status }}</span>
+                    </div>
+                    <div class="lab-card__main">
+                        <h3 class="lab-card__title">{{ item.title }}</h3>
+                        <p class="lab-card__desc">{{ item.description }}</p>
+                        <ul class="lab-tags" aria-label="Thématiques">
+                            {% for tag in item.tags %}
+                            <li><span class="lab-tag">{{ tag }}</span></li>
+                            {% endfor %}
+                        </ul>
+                        <div class="lab-progress" role="group" aria-label="Progression du projet">
+                            <div class="lab-progress__head">
+                                <span>Progression</span>
+                                <span class="lab-progress__pct">{{ item.progress }}%</span>
+                            </div>
+                            <div class="lab-progress__track">
+                                <div class="lab-progress__fill lab-progress__fill--{{ item.accent }}" style="width: {{ item.progress }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lab-card__foot">
+                        {% if item.cta_beta %}
+                        <div class="lab-card__foot-row lab-card__foot-row--split">
+                            <a href="{{ item.href }}" class="lab-card__btn-outline">{{ item.link_label }} &gt;</a>
+                            <a href="{{ item.beta_href|default('#lab-beta') }}" class="lab-card__btn-beta">
+                                <svg class="lab-card__btn-beta-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                {{ item.beta_cta_label|default('Rejoindre la bêta') }}
+                            </a>
+                        </div>
+                        {% else %}
+                        <a href="{{ item.href }}" class="lab-card__btn-outline lab-card__btn-outline--block">{{ item.link_label }} &gt;</a>
+                        {% endif %}
+                    </div>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{# ── Projets en test (bêta) ── #}
+<section class="lab-section lab-section--white" id="{{ hub.beta.id }}" aria-labelledby="lab-beta-title">
+    <div class="container">
+        <div class="lab-section__head lab-section__head--center">
+            <p class="lab-kicker lab-kicker--beta lab-kicker--beta-access">
+                <span class="lab-kicker__ico" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V8l4-4V2"/><path d="M18 22a2 2 0 0 0 2-2V8l-4-4V2"/><path d="M10 2h4"/><path d="M8 8h8v6a4 4 0 0 1-4 4 4 4 0 0 1-4-4V8z"/></svg>
+                </span>
+                {{ hub.beta.badge }}
+            </p>
+            <h2 id="lab-beta-title" class="lab-section__title">{{ hub.beta.title }}</h2>
+            <p class="lab-section__lead lab-beta-section__lead">{{ hub.beta.lead }}</p>
+        </div>
+        <ul class="lab-beta-list lab-beta-list--grid">
+            {% for item in hub.beta.items %}
+            {% set search_blob = (item.title ~ ' ' ~ item.description)|lower %}
+            <li class="lab-searchable" data-lab-search="{{ search_blob }}">
+                <article class="lab-beta-card">
+                    <div class="lab-beta-card__head">
+                        <span class="lab-beta-card__logo" aria-hidden="true">
+                            {% if item.icon is defined and item.icon == 'database' %}
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="6" ry="2"/><path d="M6 5v4c0 1.1 2.7 2 6 2s6-.9 6-2V5"/><path d="M6 9v4c0 1.1 2.7 2 6 2s6-.9 6-2V9"/><path d="M6 13v4c0 1.1 2.7 2 6 2s6-.9 6-2v-4"/></svg>
+                            {% elseif item.icon is defined and item.icon == 'robot' %}
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V5"/><circle cx="12" cy="12" r="3"/><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 14h.01M16 14h.01"/></svg>
+                            {% else %}
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                            {% endif %}
+                        </span>
+                        <div class="lab-beta-card__metrics" aria-label="Indicateurs de test">
+                            {% for m in item.metrics %}
+                            <div class="lab-beta-card__metric">
+                                <span class="lab-beta-card__metric-val">{{ m.value }}</span>
+                                <span class="lab-beta-card__metric-unit">{{ m.unit }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <h3 class="lab-beta-card__title">{{ item.title }}</h3>
+                    <p class="lab-beta-card__desc">{{ item.description }}</p>
+                    <div class="lab-beta-card__actions">
+                        <a href="{{ item.cta_href|default('/contact') }}" class="lab-beta-card__btn lab-beta-card__btn--access">
+                            <svg class="lab-beta-card__btn-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            {{ item.cta }}
+                        </a>
+                        <a href="{{ item.feedback_href|default('/contact') }}" class="lab-beta-card__btn lab-beta-card__btn--feedback">{{ item.feedback_label|default('Donner son feedback') }}</a>
+                    </div>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{# ── Idées & concepts ── #}
+<section class="lab-section lab-section--white" id="{{ hub.ideas.id }}" aria-labelledby="lab-ideas-title">
+    <div class="container">
+        <div class="lab-section__head lab-section__head--center">
+            <p class="lab-kicker lab-kicker--ideas lab-kicker--ideas-incub">
+                <span class="lab-kicker__ico lab-kicker__ico--ideas" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                </span>
+                {{ hub.ideas.badge }}
+            </p>
+            <h2 id="lab-ideas-title" class="lab-section__title">{{ hub.ideas.title }}</h2>
+            <p class="lab-section__lead lab-ideas-section__lead">{{ hub.ideas.lead }}</p>
+        </div>
+        <ul class="lab-grid lab-grid--3 lab-ideas-grid">
+            {% for item in hub.ideas.items %}
+            {% set search_blob = (item.title ~ ' ' ~ item.description)|lower %}
+            <li class="lab-searchable" data-lab-search="{{ search_blob }}">
+                <article class="lab-card lab-card--idea">
+                    <span class="lab-card__idea-icon-box" aria-hidden="true">
+                        {% if item.icon is defined and item.icon == 'lightning' %}
+                        <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        {% elseif item.icon is defined and item.icon == 'brain' %}
+                        <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v4"/><path d="M8 15h8"/></svg>
+                        {% elseif item.icon is defined and item.icon == 'leaf' %}
+                        <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                        {% else %}
+                        <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>
+                        {% endif %}
+                    </span>
+                    <h3 class="lab-card__title">{{ item.title }}</h3>
+                    <p class="lab-card__desc">{{ item.description }}</p>
+                    <div class="lab-card__idea-foot">
+                        <span class="lab-card__idea-social">
+                            <svg class="lab-card__idea-social-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <span>{{ item.interested|default(0) }} intéressés</span>
+                        </span>
+                        <a href="{{ item.href }}" class="lab-card__vote">{{ hub.ideas.cta_label|default('voter pour ce projet') }} →</a>
+                    </div>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{# ── Participer ── #}
+<section class="lab-section lab-section--white lab-participate" id="lab-participer" aria-labelledby="lab-part-title">
+    <div class="container lab-participate__grid">
+        <div class="lab-participate__intro">
+            <h2 id="lab-part-title" class="lab-participate__title">{{ hub.participate.title }}</h2>
+            <p class="lab-participate__intro-text">{{ hub.participate.intro }}</p>
+            <ul class="lab-participate__bullets">
+                {% for b in hub.participate.bullets %}
+                <li class="lab-participate__bullet">
+                    <span class="lab-participate__bullet-ico" aria-hidden="true">
+                        {% if b.icon == 'flask' %}
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V8l4-4V2"/><path d="M18 22a2 2 0 0 0 2-2V8l-4-4V2"/><path d="M10 2h4"/><path d="M8 8h8v6a4 4 0 0 1-4 4 4 4 0 0 1-4-4V8z"/></svg>
+                        {% elseif b.icon == 'message' %}
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        {% else %}
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        {% endif %}
+                    </span>
+                    <div class="lab-participate__bullet-text">
+                        <strong>{{ b.title }}</strong>
+                        <span>{{ b.text }}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="lab-participate__form-wrap">
+            <form class="lab-participate-form" id="lab-participate-form" action="/contact/message" method="post" novalidate>
+                <input type="hidden" name="full_name" id="lab-full-name" value="">
+                <input type="hidden" name="interest_domain" value="multi">
+                <div class="lab-participate-form__row">
+                    <label class="lab-field">
+                        <span class="lab-field__label">Prénom <abbr title="requis">*</abbr></span>
+                        <input type="text" id="lab-first" required autocomplete="given-name" placeholder="Camille">
+                    </label>
+                    <label class="lab-field">
+                        <span class="lab-field__label">Nom <abbr title="requis">*</abbr></span>
+                        <input type="text" id="lab-last" required autocomplete="family-name" placeholder="Dupont">
+                    </label>
+                </div>
+                <label class="lab-field lab-field--full">
+                    <span class="lab-field__label">Email professionnel <abbr title="requis">*</abbr></span>
+                    <input type="email" name="email" required autocomplete="email" placeholder="vous@entreprise.fr">
+                </label>
+                <div class="lab-participate-form__row">
+                    <label class="lab-field">
+                        <span class="lab-field__label">Entreprise</span>
+                        <input type="text" name="company" autocomplete="organization" placeholder="Société">
+                    </label>
+                    <label class="lab-field">
+                        <span class="lab-field__label">Poste occupé</span>
+                        <input type="text" name="job_title" autocomplete="organization-title" placeholder="DSI, Marketing…">
+                    </label>
+                </div>
+                <label class="lab-field lab-field--full">
+                    <span class="lab-field__label">Message <abbr title="requis">*</abbr></span>
+                    <textarea name="message" required rows="4" placeholder="Votre intérêt pour le laboratoire : bêta, partenariat, idée…"></textarea>
+                </label>
+                <label class="lab-check">
+                    <input type="checkbox" name="privacy_ok" value="1" required>
+                    <span>J’accepte que mes données soient utilisées pour me recontacter, conformément à la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.</span>
+                </label>
+                <button type="submit" class="btn btn-primary btn-lg lab-participate-form__submit">Envoyer ma demande</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{# ── Newsletter band ── #}
+<section class="lab-newsletter" id="lab-newsletter" aria-label="Newsletter laboratoire">
+    <div class="container lab-newsletter__inner">
+        <div class="lab-newsletter__text">
+            <h2 class="lab-newsletter__title">{{ hub.newsletter.title }}</h2>
+            <p class="lab-newsletter__lead">{{ hub.newsletter.lead }}</p>
+        </div>
+        <div class="lab-newsletter__form">
+            <label class="visually-hidden" for="lab-nl-email">Email</label>
+            <input type="email" id="lab-nl-email" placeholder="votre@email.pro" autocomplete="email">
+            <button type="button" class="btn btn-primary" id="lab-nl-btn">S’inscrire</button>
+        </div>
+    </div>
+</section>
+
+<nav class="container sp-breadcrumb lab-breadcrumb" aria-label="Fil d’Ariane">
+    <a href="/">Accueil</a>
+    <span class="sp-breadcrumb__sep">/</span>
+    <span aria-current="page">Laboratoire</span>
+</nav>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/js/hub-lab.js" defer></script>
+{% endblock %}

@@ -1,0 +1,680 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}Chat IA sur site internet — chatbot intelligent personnalisé{% endblock %}
+
+{% block description %}Conception et intégration d'un chatbot IA sur votre site : réponses instantanées 24h/24, qualification automatique des prospects, connexion CRM/emailing et amélioration de la conversion.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Chat IA sur site internet",
+      "url": "{{ app_url }}/intelligence-artificielle/ia-entreprise/plateforme-chatbot-ia-d-entreprise",
+      "description": "Conception et intégration d'un assistant conversationnel intelligent directement sur le site internet de l'entreprise, capable de répondre aux questions des visiteurs, qualifier les prospects, automatiser les interactions et améliorer l'expérience utilisateur.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Création de chatbot IA pour site web",
+      "offers": [
+        { "@type": "Offer", "name": "Chat simple (FAQ automatisée)",          "price": "1000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } },
+        { "@type": "Offer", "name": "Chat avancé (qualification + scénarios)","price": "3000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8000" } },
+        { "@type": "Offer", "name": "Chat intelligent connecté (CRM, BDD…)",  "price": "8000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000" } },
+        { "@type": "Offer", "name": "Solution complète personnalisée",         "price": "20000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "50000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "IA en entreprise",          "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise" },
+        { "@type": "ListItem", "position": 4, "name": "Chat IA sur site internet", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise/plateforme-chatbot-ia-d-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un chatbot classique et un chat IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un chatbot classique suit des règles prédéfinies et répond via des arbres de décision figés. Un chat IA comprend le langage naturel, s'adapte au contexte de la conversation, apprend de vos contenus (site, documents, FAQ) et peut gérer des situations non prévues. Il qualifie les leads, répond à des questions ouvertes et transmet intelligemment au bon interlocuteur humain quand nécessaire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un chat IA sur un site internet ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 000 à 3 000 € pour un chat FAQ automatisé basique, de 3 000 à 8 000 € pour un chat avancé avec qualification de leads et scénarios conversationnels, de 8 000 à 20 000 € pour un chat connecté CRM/base de données, et de 20 000 à 50 000 €+ pour une solution entièrement personnalisée multi-langue et multi-canal. Une maintenance de 100 à 1 000 €/mois est disponible pour l'amélioration continue." }
+        },
+        {
+          "@type": "Question",
+          "name": "Sur quels contenus peut-on entraîner le chatbot IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous pouvons entraîner votre chatbot IA sur vos pages de site web, vos documents (PDF, Word, Excel), votre base de connaissances, votre FAQ, votre catalogue produits/services, vos emails types, vos procédures internes et tout document structuré que vous souhaitez rendre accessible via le chat. Plus la base d'entraînement est riche, plus les réponses sont précises et pertinentes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le chat IA peut-il qualifier des leads et les envoyer dans mon CRM ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est l'une des fonctionnalités les plus puissantes. Nous configurons des scénarios de qualification conversationnels (secteur, budget, besoin, délai) et connectons le chatbot à votre CRM (HubSpot, Salesforce, Pipedrive…) pour créer automatiquement les leads qualifiés avec leurs informations. Résultat : vos équipes commerciales ne reçoivent que des leads pré-qualifiés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour déployer un chat IA sur un site ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un chat FAQ simple peut être déployé en 1 à 2 semaines. Un chat avec qualification de leads et connexion CRM nécessite 3 à 6 semaines. Une solution complète sur mesure prend 2 à 4 mois. Nous démarrons toujours par une analyse des besoins et cas d'usage (quelques jours) avant de commencer le développement et l'entraînement." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle/ia-entreprise">IA en entreprise</a>
+                <span>›</span>
+                <span>Chat IA sur site internet</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Chat IA sur site internet</span>
+                Intégrez un assistant IA sur votre site — disponible 24h/24, il répond, qualifie vos prospects et améliore votre conversion automatiquement
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et intégrons un <strong>chat IA intelligent sur votre site internet</strong> — entraîné sur vos contenus, connecté à vos outils (CRM, emailing, base de données) et capable de répondre aux questions de vos visiteurs, de qualifier vos leads et d'automatiser les interactions clients. <strong>Réponses instantanées, prospects qualifiés, expérience améliorée</strong> — sans intervention humaine.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Décrire mon projet de chat IA
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Entraîné sur vos contenus (site, docs, FAQ)</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Connexion native CRM, emailing, base de données</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation à l'utilisation &amp; suivi inclus</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Un assistant intelligent sur votre site</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre chat IA <strong>répond instantanément à vos visiteurs</strong>, qualifie les prospects entrants et les envoie automatiquement dans votre CRM — 24h/24, même le week-end.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>24/7</strong>
+                        <span>disponibilité</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+35%</strong>
+                        <span>taux de conversion</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–60%</strong>
+                        <span>charge support</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les sites avec un chat IA voient en moyenne <strong>+35% de leads qualifiés</strong> et une <strong>réduction de 60% des questions répétitives</strong> adressées au support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services IA complémentaires</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Agents IA sur mesure</h2>
+                    <p>Des agents IA plus puissants qui agissent de façon autonome sur l'ensemble de vos processus métier.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Automatisation IA des processus</h2>
+                    <p>Automatisez vos workflows internes en connectant le chat à vos systèmes d'information.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/performance-digitale/creation-site-web" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Création de sites web</h2>
+                    <p>Besoin d'un site avant d'y intégrer un chat IA ? Nous créons votre site et y intégrons directement votre assistant.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Entraîné sur vos contenus spécifiques
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Intégration sur tout type de site (WordPress, custom, Shopify…)
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Suivi des performances &amp; amélioration continue
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <p><strong>+80</strong> chatbots IA déployés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+35%</strong> leads qualifiés en moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.7/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Cas d'usage</p>
+            <h2>Pour quels objectifs intégrer un chat IA sur votre site ?</h2>
+            <p class="sp-section-sub">Un chat IA s'adapte à votre secteur, votre audience et vos objectifs business. Voici les cas d'usage les plus courants — avec des résultats mesurables dès la mise en ligne.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Qualification automatique de leads</h3>
+                <p>Le chat identifie le besoin, le budget et le délai du visiteur puis envoie les leads qualifiés directement dans votre CRM — vos commerciaux ne traitent que des prospects chauds.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Support client 24h/24</h3>
+                <p>Réponse instantanée aux questions fréquentes (livraisons, retours, tarifs, disponibilités) — réduction de 60% des tickets support et satisfaction client améliorée.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                </div>
+                <h3>Recommandation de produits</h3>
+                <p>Sur les e-commerces, le chat guide les visiteurs vers les produits correspondant à leurs besoins — augmentation du panier moyen et du taux de conversion.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>Prise de rendez-vous automatique</h3>
+                <p>Le chat collecte les informations nécessaires et propose des créneaux disponibles directement depuis votre calendrier — réduction des allers-retours et plus de RDV décrochés.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <h3>FAQ &amp; base de connaissances</h3>
+                <p>Le chat répond aux questions courantes grâce à votre FAQ et vos documents internes — 80% des questions résolues sans intervention humaine, vos équipes libérées.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+                </div>
+                <h3>Collecte de données &amp; analytics</h3>
+                <p>Chaque conversation est tracée et analysée — identification des questions les plus fréquentes, des points de blocage et des opportunités d'amélioration de l'expérience utilisateur.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — méthode
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous créons et déployons votre chat IA</h2>
+            <p class="sp-section-sub">De l'analyse des besoins à la mise en production — chaque étape est conçue pour garantir un assistant pertinent, bien entraîné et parfaitement intégré à votre site et vos outils.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des besoins et cas d'usage</h3><p>Identification des objectifs prioritaires (leads, support, RDV, ventes), des questions les plus fréquentes et des scénarios conversationnels à couvrir</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Définition des scénarios conversationnels</h3><p>Conception des parcours conversationnels — questions d'orientation, arborescences, conditions de transfert à un humain et messages de fallback</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Création du chatbot IA</h3><p>Développement du chat avec les bons modèles de langage — personnalité, ton, limites de réponse et comportement adapté à votre image de marque</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div><h3>Entraînement sur vos contenus</h3><p>Alimentation du chat avec vos pages, documents (PDF, Word), FAQ, catalogue produits/services — pour des réponses précises et contextualisées à votre activité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                </div>
+                <div><h3>Intégration sur votre site internet</h3><p>Intégration sur tout type de site — WordPress, site custom, Shopify, Webflow — avec personnalisation visuelle aux couleurs de votre marque</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Connexion aux outils (CRM, emailing…)</h3><p>Connexion de votre chat à votre CRM, outil d'emailing, calendrier ou base de données — pour transférer les informations automatiquement sans ressaisie</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div><h3>Paramétrage des réponses et comportements</h3><p>Ajustement fin du ton, des limites de connaissances, des règles de confidentialité, des redirections vers les pages et des déclencheurs d'actions</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests &amp; optimisation</h3><p>Tests complets de l'ensemble des scénarios — validation de la pertinence des réponses, des connexions outils et de la fluidité de l'expérience conversationnelle</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div><h3>Formation à l'utilisation et à la gestion</h3><p>Formation de vos équipes pour administrer le chat, ajouter de nouvelles réponses, consulter les analytics de conversation et gérer les escalades</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Suivi &amp; amélioration continue</h3><p>Monitoring des conversations, identification des questions sans réponse, enrichissement de la base de connaissances et amélioration continue des performances</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Les bénéfices d'un chat IA sur votre site</h2>
+            <p class="sp-section-sub">Un chat IA transforme votre site en véritable outil de conversion et de service client — disponible 24h/24, personnalisé à votre marque et connecté à tous vos outils.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Réponses instantanées 24/7</h3>
+                <p>Aucun visiteur sans réponse — votre chat répond en temps réel à toute heure, week-end et jours fériés compris, en quelques secondes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Amélioration du taux de conversion</h3>
+                <p>+35% de leads qualifiés en moyenne — le chat guide les visiteurs hésitants, répond à leurs objections et les accompagne jusqu'à l'action (formulaire, RDV, achat).</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Qualification automatique des prospects</h3>
+                <p>Budget, besoin, délai, coordonnées — le chat collecte et structure les informations clés avant d'envoyer le lead dans votre CRM, pré-qualifié et actionnable.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3>Réduction de la charge support</h3>
+                <p>–60% de questions répétitives adressées à vos équipes — le chat gère l'ensemble des questions fréquentes et ne transfère à un humain que les cas complexes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Expérience utilisateur améliorée</h3>
+                <p>Le visiteur trouve immédiatement ce qu'il cherche — navigation guidée, réponses contextuelles et expérience personnalisée selon le comportement et la page visitée.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Collecte de données utilisateurs</h3>
+                <p>Chaque conversation génère des données précieuses sur vos visiteurs, leurs besoins et leurs questions — pour optimiser votre offre, votre contenu et votre tunnel de vente.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>Image innovante de l'entreprise</h3>
+                <p>Un chat IA bien conçu envoie un signal fort à vos visiteurs — votre entreprise est moderne, disponible et axée sur l'expérience client. Un avantage concurrentiel différenciant.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le budget de votre chat IA</h2>
+                    <p class="sp-section-sub">Chaque projet de chat IA est unique. Ces variables sont analysées lors de notre première discussion pour dimensionner la solution et établir un devis adapté à vos besoins.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de scénarios conversationnels</span>
+                        <span class="sp-variable-value">1–2 scénarios simples (FAQ, contact) à parcours multi-objectifs complexes (qualification, vente, support)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité du chatbot</span>
+                        <span class="sp-variable-value">FAQ automatisée à assistant avancé avec qualification, mémoire de conversation et décision contextuelle</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données d'entraînement</span>
+                        <span class="sp-variable-value">Quelques pages et une FAQ à base de connaissances complète (documents, catalogue, emails types, procédures)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'intégrations</span>
+                        <span class="sp-variable-value">Aucune connexion à connexion native CRM + emailing + calendrier + base de données + outils internes</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de personnalisation</span>
+                        <span class="sp-variable-value">Widget standard intégré à assistant entièrement personnalisé (UI, ton, comportement, règles métier)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Langues supportées</span>
+                        <span class="sp-variable-value">Monolingue (FR) à multilingue avec réponses adaptées par langue (contenu + ton de communication)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de trafic du site</span>
+                        <span class="sp-variable-value">Quelques centaines de visiteurs/mois à forte volumétrie nécessitant une infrastructure robuste et scalable</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin de maintenance / évolution</span>
+                        <span class="sp-variable-value">Livraison définitive à évolution continue avec ajouts de scénarios, enrichissement de la base et optimisation des performances</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 8.png" alt="Chat IA sur site internet personnalisé" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un chat IA sur un site internet ?</h2>
+            <p class="sp-section-sub">Selon la complexité des scénarios et le nombre d'intégrations. Chaque projet démarre par une analyse des besoins pour chiffrer précisément votre solution.</p>
+        </div>
+        <div class="sp-pricing__grid sp-pricing__grid--2col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Chat simple</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">FAQ automatisée</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Réponses FAQ automatiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entraîné sur vos contenus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration sur votre site</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation à l'utilisation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Chat avancé</p>
+                    <p class="sp-plan__price"><span>3 000 – 8 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Qualification + scénarios</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Qualification de leads intégrée</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Scénarios multi-objectifs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Connexion emailig / agenda</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analytics des conversations</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Chat intelligent connecté</p>
+                    <p class="sp-plan__price"><span>8 000 – 20 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">CRM, base de données, IA avancée</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Connexion CRM + BDD + outils</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> IA contextuelle avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Personnalisation poussée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Base de connaissances complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi &amp; optimisation 3 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Solution complète personnalisée</p>
+                    <p class="sp-plan__price"><span>20 000 – 50 000 €</span> <em>HT+</em></p>
+                    <p class="sp-plan__duration">Sur mesure, multi-langue, multi-canal</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture sur mesure</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-langue &amp; multi-canal</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration SI complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analytics avancées &amp; reporting</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolution continue</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Nous contacter</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Un contrat de <strong>maintenance et amélioration continue</strong> est disponible de 100 à 1 000 €/mois — pour enrichir la base de connaissances, ajouter des scénarios et optimiser les performances de votre chat IA.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE INTERNE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au chat IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Des agents IA plus puissants que les chatbots — autonomes, multi-systèmes et capables d'agir sur vos processus métier.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA des processus</strong><p>Automatisez les processus déclenchés par les interactions du chat — envoi de devis, création de tâches, notifications.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/creation-site-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Nous créons votre site et y intégrons directement votre chat IA pour une solution cohérente et optimisée.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/optimisation-conversion" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><strong>Optimisation du tunnel de conversion</strong><p>Combinez votre chat IA avec une optimisation du parcours client pour maximiser vos taux de conversion.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le chat IA</h2>
+                <p>Notre équipe répond sous 24h pour analyser vos besoins et vous proposer le chat IA adapté à votre site et vos objectifs.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Décrire mon projet</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle différence entre un chatbot classique et un chat IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>chatbot classique</strong> suit des arbres de décision figés. Un <strong>chat IA</strong> comprend le langage naturel, s'adapte au contexte, apprend de vos contenus et gère des situations non prévues. Il qualifie les leads, répond à des questions ouvertes et transfère intelligemment à un humain quand c'est nécessaire — une expérience bien supérieure pour vos visiteurs.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un chat IA sur un site internet ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 000 à 3 000 €</strong> pour un chat FAQ simple, de <strong>3 000 à 8 000 €</strong> pour un chat avancé avec qualification de leads (le plus demandé), de <strong>8 000 à 20 000 €</strong> pour un chat connecté CRM/BDD, et de <strong>20 000 à 50 000 €+</strong> pour une solution entièrement personnalisée. Un contrat de maintenance (100–1 000 €/mois) permet d'améliorer continuellement les performances.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Sur quoi entraîne-t-on le chatbot IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Sur vos <strong>pages de site web</strong>, vos <strong>documents</strong> (PDF, Word, Excel), votre <strong>FAQ</strong>, votre <strong>catalogue produits/services</strong>, vos emails types et vos procédures internes. Plus la base d'entraînement est riche et précise, plus les réponses du chat seront pertinentes et contextualisées à votre activité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Le chat peut-il qualifier des leads et les envoyer dans mon CRM ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, c'est l'une des fonctionnalités les plus puissantes. Le chat est configuré avec des <strong>scénarios de qualification</strong> (secteur, budget, besoin, délai) et connecté à votre <strong>CRM</strong> (HubSpot, Salesforce, Pipedrive…) pour créer automatiquement les leads qualifiés. Vos équipes commerciales ne reçoivent que des prospects pré-qualifiés, prêts à être traités.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour déployer un chat IA sur mon site ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>chat simple</strong> : 1 à 2 semaines. Un <strong>chat avancé</strong> avec qualification et CRM : 3 à 6 semaines. Une <strong>solution complète sur mesure</strong> : 2 à 4 mois. Chaque projet démarre par une analyse des besoins (quelques jours) pour définir précisément les scénarios, l'entraînement et les intégrations nécessaires.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à intégrer un assistant IA sur votre site qui répond, qualifie et convertit vos visiteurs automatiquement ?</h2>
+                <p>Décrivez vos objectifs et votre activité — nous analysons vos besoins et vous proposons le chat IA adapté à votre site, votre audience et votre budget.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Décrire mon projet de chat IA
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse gratuite des besoins</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Démo personnalisée possible</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

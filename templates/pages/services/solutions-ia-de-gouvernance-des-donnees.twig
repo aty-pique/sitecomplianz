@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Solutions IA gouvernance données | Data governance | Complianz{% endblock %}
+
+{% block description %}Déployez des solutions IA pour automatiser et fiabiliser votre gouvernance des données. Catalogues, qualité, traçabilité et conformité en temps réel.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Solutions IA de gouvernance des données",
+      "url": "{{ app_url }}/intelligence-artificielle/solutions-ia/solutions-ia-de-gouvernance-des-donnees",
+      "description": "Solutions IA pour automatiser la gouvernance des données : catalogues automatiques, qualité IA, traçabilité, conformité RGPD et AI Act en temps réel.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Solutions IA", "item": "{{ app_url }}/intelligence-artificielle/solutions-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Solutions IA gouvernance données", "item": "{{ app_url }}/intelligence-artificielle/solutions-ia/solutions-ia-de-gouvernance-des-donnees" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment l'IA automatise-t-elle la gouvernance des données ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA automatise la gouvernance des données de plusieurs manières : découverte automatique et catalogage des actifs de données (plus besoin d'inventorier manuellement), détection automatique de la qualité des données et des anomalies, classification automatique des données sensibles (PII, données financières) pour la conformité RGPD, monitoring en temps réel de la conformité et génération automatique de la documentation réglementaire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les outils IA de gouvernance des données les plus utilisés ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les principales solutions IA de gouvernance des données en 2026 sont : Collibra (catalogue de données et qualité IA), Alation (catalogue et collaboration data), Microsoft Purview (gouvernance complète dans l'écosystème Azure), Databricks Unity Catalog avec IA, Atlan pour les équipes data modernes, et Monte Carlo pour l'observabilité des données. Pour les conformités RGPD spécifiques, des outils comme OneTrust Data Governance intègrent également des capacités IA." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment les solutions IA aident-elles à maintenir la conformité RGPD des données ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les solutions IA de gouvernance maintiennent la conformité RGPD automatiquement : détection et classification des données personnelles dans tous vos systèmes, traçabilité des flux de données (data lineage), gestion automatisée des demandes de droits des personnes (accès, effacement, portabilité), alertes sur les traitements non conformes et génération automatique des registres de traitement. L'IA transforme la conformité RGPD d'un exercice ponctuel en un processus continu et automatisé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il une équipe data dédiée pour mettre en place une solution IA de gouvernance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les solutions IA modernes de gouvernance ont considérablement réduit la complexité d'implémentation. Une petite équipe (1-2 personnes avec un accompagnement externe) peut mettre en place les fondations en quelques mois. L'IA automatise une grande partie du travail fastidieux (inventaire, classification, monitoring). Pour les organisations plus grandes, une équipe data governance dédiée reste nécessaire pour les décisions métiers et la gouvernance organisationnelle." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/solutions-ia">Solutions IA</a><span>›</span>
+                <span>Solutions IA gouvernance données</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Solutions IA — Data governance</span>
+                Solutions IA de gouvernance des données
+            </h1>
+            <p class="sp-hero__lead">
+                Automatisez et fiabilisez votre gouvernance des données avec l'IA — <strong>catalogage automatique, qualité en temps réel, traçabilité et conformité RGPD & AI Act</strong> sans intervention manuelle permanente.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer ma gouvernance données IA</a>
+                <a href="/intelligence-artificielle/solutions-ia" class="btn btn-outline">Solutions IA sur mesure</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Gouvernance données automatisée</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>Catalogue</strong><span>automatique</span></div>
+                    <div class="sp-dc-stat"><strong>Conformité</strong><span>RGPD temps réel</span></div>
+                    <div class="sp-dc-stat"><strong>-70%</strong><span>travail manuel data</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Comment l'IA révolutionne la gouvernance des données</h2>
+                <p>La gouvernance des données traditionnelle est laborieuse : inventorier manuellement les actifs de données, maintenir la documentation à jour, surveiller la qualité en permanence. L'IA automatise précisément ces tâches fastidieuses, transformant la gouvernance d'un exercice ponctuel douloureux en un processus continu et automatisé.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les fonctionnalités clés des solutions IA de gouvernance des données</h2>
+                <p><strong>Catalogage automatique :</strong> découverte et catalogage automatique de tous vos actifs de données (bases de données, fichiers, APIs, streams). L'IA identifie, classifie et documente vos données sans intervention manuelle — et maintient le catalogue à jour en temps réel.</p>
+                <p><strong>Qualité des données par IA :</strong> détection automatique des anomalies, données manquantes, incohérences et doublons. Alertes en temps réel sur les dégradations de qualité et suggestions de corrections. Tableaux de bord de qualité par domaine de données.</p>
+                <p><strong>Classification et conformité IA :</strong> détection automatique des données sensibles (données personnelles, financières, santé) pour la conformité RGPD et AI Act. Gestion des droits d'accès et traçabilité complète des flux de données (data lineage).</p>
+                <p><strong>Data observabilité :</strong> monitoring continu de la santé de vos pipelines de données, alertes sur les incidents data avant qu'ils impactent les projets IA et les décisions métiers.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Quelle solution IA de gouvernance choisir ?</h2>
+                <p>Le choix dépend de votre écosystème technique, de votre taille et de vos priorités. Collibra et Alation sont des leaders pour les grandes organisations. Microsoft Purview s'intègre naturellement dans l'écosystème Azure. Databricks Unity Catalog est optimal pour les équipes data-centric. Atlan cible les équipes modernes avec une approche collaborative. Notre conseil vous aide à choisir la solution adaptée à votre contexte.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur les solutions IA de gouvernance</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg></div>
+                <div><h3>Catalogage IA — plus jamais manuel</h3><p>L'IA découvre et catalogue automatiquement vos actifs de données et maintient l'inventaire à jour en temps réel</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><h3>Qualité en temps réel</h3><p>Détection immédiate des anomalies, doublons et incohérences — avant qu'ils contaminent vos projets IA et décisions métiers</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>RGPD et AI Act automatisés</h3><p>Détection et classification automatique des données sensibles, traçabilité des flux et génération des registres de traitement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Fondation pour l'IA</h3><p>Une gouvernance données solide est le préalable de tout projet IA réussi — commencer par là multiplie les chances de succès</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin dans votre stratégie data IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                <div><strong>Gouvernance données et IA</strong><p>Les fondamentaux de la gouvernance data pour l'IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>La réglementation qui s'applique à vos données et systèmes IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>Solutions IA sur mesure</strong><p>Développez des solutions IA adaptées à vos besoins métiers.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia/conseil-en-solutions-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+                <div><strong>Conseil en solutions IA</strong><p>Définissez votre stratégie data IA avec nos experts.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les solutions IA de gouvernance</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Comment l'IA automatise-t-elle la gouvernance des données ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>Découverte et catalogage automatique</strong>, détection de la qualité, classification des données sensibles pour le RGPD, monitoring en temps réel et génération automatique de la documentation réglementaire.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels sont les outils IA de gouvernance les plus utilisés ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>Collibra, Alation</strong> (grandes organisations), <strong>Microsoft Purview</strong> (écosystème Azure), <strong>Databricks Unity Catalog</strong> (équipes data-centric), <strong>Atlan</strong> (équipes modernes), et <strong>Monte Carlo</strong> pour l'observabilité.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment les solutions IA maintiennent-elles la conformité RGPD ?</summary>
+                    <div class="sp-faq-item__answer"><p>Détection automatique des données personnelles dans tous vos systèmes, <strong>traçabilité des flux (data lineage)</strong>, gestion des droits des personnes, alertes sur les traitements non conformes et génération des registres de traitement.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il une équipe data dédiée pour déployer une solution IA de gouvernance ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les solutions IA modernes ont réduit la complexité. <strong>1-2 personnes avec accompagnement externe</strong> peuvent mettre en place les fondations en quelques mois. L'IA automatise la grande partie du travail fastidieux d'inventaire et de monitoring.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à automatiser votre gouvernance des données avec l'IA et à garantir la conformité en temps réel ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer ma gouvernance données</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit data préalable inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité RGPD &amp; AI Act</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

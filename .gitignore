@@ -1,5 +1,7 @@
 /vendor/
 /.env
+/storage/quote_submissions/
+/storage/contact_messages.jsonl
 /storage/logs/*.log
 /public/assets/images/uploads/
 *.cache

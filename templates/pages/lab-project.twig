@@ -1,0 +1,614 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ title|json_encode|raw }},
+  "description": {{ meta_description|json_encode|raw }},
+  "url": "{{ app_url }}/lab/{{ project_slug }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{% if feedback_ok %}
+<div class="lab-proj-alert lab-proj-alert--ok container" role="status">
+    <p class="lab-proj-alert__text">Merci — votre retour a bien été transmis. L’équipe laboratoire le lit régulièrement.</p>
+</div>
+{% endif %}
+
+{# ── Hero ── #}
+<section class="lab-proj-hero lab-proj-hero--accent-{{ project.hero.status_tone|default('orange') }}" aria-labelledby="lab-proj-hero-title">
+    <div class="container lab-proj-hero__inner">
+        <nav class="lab-proj-breadcrumb" aria-label="Fil d’Ariane">
+            <a href="/hub">Laboratoire</a>
+            <span class="lab-proj-breadcrumb__sep">/</span>
+            <span>{{ project.kind_label|default('Projet') }}</span>
+        </nav>
+        {% if project.hero.eyebrow is defined %}
+        <p class="lab-proj-hero__eyebrow">{{ project.hero.eyebrow }}</p>
+        {% endif %}
+        <h1 id="lab-proj-hero-title" class="lab-proj-hero__title">{{ project.hero.name }}</h1>
+        <p class="lab-proj-hero__meta">
+            <span class="lab-badge lab-badge--{{ project.hero.status_tone|default('orange') }}">{{ project.hero.status }}</span>
+        </p>
+        <p class="lab-proj-hero__value">{{ project.hero.value_line }}</p>
+        {% if project.hero.ctas is defined and project.hero.ctas|length %}
+        <div class="lab-proj-hero__ctas">
+            {% for cta in project.hero.ctas %}
+            {% if cta.style is defined and cta.style == 'secondary' %}
+            <a href="{{ cta.href }}" class="btn btn-outline btn-lg lab-proj-hero__btn">{{ cta.label }}</a>
+            {% else %}
+            <a href="{{ cta.href }}" class="btn btn-primary btn-lg lab-proj-hero__btn">{{ cta.label }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{# ── Bêta : disclaimer version test ── #}
+{% if project.kind == 'beta' and project.beta_disclaimer is defined %}
+<section class="lab-section lab-section--white lab-proj-section lab-proj-beta-disclaimer" aria-labelledby="lab-proj-beta-warn-title">
+    <div class="container container--narrow">
+        <div class="lab-proj-beta-warn">
+            <span class="lab-proj-beta-warn__ico" aria-hidden="true">⚠️</span>
+            <div>
+                <h2 id="lab-proj-beta-warn-title" class="lab-proj-beta-warn__title">{{ project.beta_disclaimer.title|default('Version test') }}</h2>
+                <p class="lab-proj-beta-warn__body">{{ project.beta_disclaimer.body }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ── Bêta : accès direct (outil, sandbox, compte) ── #}
+{% if project.kind == 'beta' and project.beta_access is defined %}
+<section class="lab-section lab-section--muted lab-proj-section" id="lab-beta-access" aria-labelledby="lab-proj-beta-access-title">
+    <div class="container">
+        <h2 id="lab-proj-beta-access-title" class="lab-proj-section-title">{{ project.beta_access.title|default('Accès direct') }}</h2>
+        {% if project.beta_access.intro is defined %}
+        <p class="lab-proj-section-lead">{{ project.beta_access.intro }}</p>
+        {% endif %}
+        <ul class="lab-proj-beta-access-list">
+            {% for link in project.beta_access.items %}
+            <li class="lab-proj-beta-access-card">
+                <a href="{{ link.href }}" class="lab-proj-beta-access-card__link" {% if link.external is defined and link.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                    <span class="lab-proj-beta-access-card__label">{{ link.label }}</span>
+                    {% if link.external is defined and link.external %}
+                    <span class="lab-proj-beta-access-card__ext" aria-hidden="true">↗</span>
+                    {% endif %}
+                </a>
+                {% if link.hint is defined and link.hint %}
+                <p class="lab-proj-beta-access-card__hint">{{ link.hint }}</p>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{# ── Idée / concept : problème, concept, mockup, valeur ── #}
+{% if project.kind == 'idea' and project.idea_problem is defined %}
+<section class="lab-section lab-section--white lab-proj-section" aria-labelledby="lab-idea-problem-title">
+    <div class="container container--narrow">
+        <h2 id="lab-idea-problem-title" class="lab-proj-section-title">{{ project.idea_problem.title|default('Le problème') }}</h2>
+        <p class="lab-idea-prose">{{ project.idea_problem.body }}</p>
+    </div>
+</section>
+{% endif %}
+
+{% if project.kind == 'idea' and project.idea_concept is defined %}
+<section class="lab-section lab-section--muted lab-proj-section" aria-labelledby="lab-idea-concept-title">
+    <div class="container container--narrow">
+        <h2 id="lab-idea-concept-title" class="lab-proj-section-title">{{ project.idea_concept.title|default('Le concept') }}</h2>
+        {% if project.idea_concept.lead is defined %}
+        <p class="lab-proj-section-lead lab-proj-section-lead--left">{{ project.idea_concept.lead }}</p>
+        {% endif %}
+        <div class="lab-idea-concept-grid">
+            <div class="lab-idea-concept-card">
+                <h3 class="lab-idea-concept-card__label">Comment ça fonctionnerait</h3>
+                <p class="lab-idea-prose">{{ project.idea_concept.how_it_works }}</p>
+            </div>
+            <div class="lab-idea-concept-card">
+                <h3 class="lab-idea-concept-card__label">Ce que ça changerait</h3>
+                <p class="lab-idea-prose">{{ project.idea_concept.what_changes }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if project.kind == 'idea' %}
+{% set idea_mock = project.idea_mockup is defined ? project.idea_mockup : (project.demo is defined ? project.demo : null) %}
+{% if idea_mock %}
+<section class="lab-section lab-section--white lab-proj-section lab-idea-mockup" aria-labelledby="lab-idea-mock-title">
+    <div class="container">
+        <h2 id="lab-idea-mock-title" class="lab-proj-section-title">{{ idea_mock.title|default('Mockup & projection') }}</h2>
+        {% if idea_mock.intro is defined %}
+        <p class="lab-proj-section-lead lab-proj-section-lead--left">{{ idea_mock.intro }}</p>
+        {% endif %}
+        <div class="lab-proj-demo-grid">
+            {% for media in idea_mock.items %}
+            {% if media.type == 'video' and media.embed_url is defined %}
+            <figure class="lab-proj-demo__figure">
+                <div class="lab-proj-demo__video-wrap">
+                    <iframe class="lab-proj-demo__iframe" src="{{ media.embed_url }}" title="{{ media.alt|default('Vidéo') }}" allowfullscreen loading="lazy"></iframe>
+                </div>
+                {% if media.caption is defined %}<figcaption class="lab-proj-demo__caption">{{ media.caption }}</figcaption>{% endif %}
+            </figure>
+            {% else %}
+            <figure class="lab-proj-demo__figure">
+                <div class="lab-proj-demo__img-wrap">
+                    <img class="lab-proj-demo__img" src="{{ media.src }}" alt="{{ media.alt|default('') }}" width="960" height="540" loading="lazy">
+                </div>
+                {% if media.caption is defined %}<figcaption class="lab-proj-demo__caption">{{ media.caption }}</figcaption>{% endif %}
+            </figure>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endif %}
+
+{% if project.kind == 'idea' and project.idea_value is defined %}
+<section class="lab-section lab-section--muted lab-proj-section" aria-labelledby="lab-idea-value-title">
+    <div class="container">
+        <h2 id="lab-idea-value-title" class="lab-proj-section-title lab-proj-section-title--center">{{ project.idea_value.title|default('Proposition de valeur') }}</h2>
+        {% if project.idea_value.intro is defined %}
+        <p class="lab-proj-section-lead">{{ project.idea_value.intro }}</p>
+        {% endif %}
+        <ul class="lab-idea-value-grid">
+            {% for v in project.idea_value.items %}
+            <li class="lab-idea-value-card">
+                <span class="lab-idea-value-card__label">{{ v.label }}</span>
+                <p class="lab-idea-value-card__text">{{ v.text }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{# ── Problème → Solution ── #}
+{% if project.problem_solution is defined and project.kind != 'idea' %}
+<section class="lab-section lab-section--white lab-proj-section" aria-labelledby="lab-proj-prosol-title">
+    <div class="container container--narrow">
+        <h2 id="lab-proj-prosol-title" class="lab-proj-section-title">Problème → Solution</h2>
+        <div class="lab-proj-prosol">
+            <div class="lab-proj-prosol__block">
+                <h3 class="lab-proj-prosol__label">Le problème terrain</h3>
+                <p class="lab-proj-prosol__text">{{ project.problem_solution.problem }}</p>
+            </div>
+            <div class="lab-proj-prosol__block">
+                <h3 class="lab-proj-prosol__label">Les limites du marché</h3>
+                <p class="lab-proj-prosol__text">{{ project.problem_solution.market_limits }}</p>
+            </div>
+            <div class="lab-proj-prosol__block lab-proj-prosol__block--solution">
+                <h3 class="lab-proj-prosol__label">Notre réponse Complianz</h3>
+                <p class="lab-proj-prosol__text">{{ project.problem_solution.solution }}</p>
+            </div>
+        </div>
+        {% if project.problem_solution.pillars is defined and project.problem_solution.pillars|length %}
+        <ul class="lab-proj-pillars">
+            {% for p in project.problem_solution.pillars %}
+            <li class="lab-proj-pillars__item">
+                <strong class="lab-proj-pillars__label">{{ p.label }}</strong>
+                <span class="lab-proj-pillars__text">{{ p.text }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{# ── Fonctionnalités ── #}
+{% if project.features is defined and project.kind != 'idea' %}
+<section class="lab-section lab-section--muted lab-proj-section" aria-labelledby="lab-proj-features-title">
+    <div class="container">
+        <h2 id="lab-proj-features-title" class="lab-proj-section-title lab-proj-section-title--center">{{ project.features.title|default('Fonctionnalités') }}</h2>
+        {% if project.features.intro is defined %}
+        <p class="lab-proj-section-lead">{{ project.features.intro }}</p>
+        {% endif %}
+        <ul class="lab-proj-features">
+            {% for f in project.features.items %}
+            <li class="lab-proj-features__item">
+                <div class="lab-proj-features__head">
+                    <h3 class="lab-proj-features__title">{{ f.title }}</h3>
+                    {% set st = f.state|default('live') %}
+                    {% if st == 'live' %}
+                    <span class="lab-proj-features__badge lab-proj-features__badge--live">Disponible</span>
+                    {% elseif st == 'wip' %}
+                    <span class="lab-proj-features__badge lab-proj-features__badge--wip">En développement</span>
+                    {% elseif st == 'planned' %}
+                    <span class="lab-proj-features__badge lab-proj-features__badge--planned">En réflexion</span>
+                    {% endif %}
+                </div>
+                <p class="lab-proj-features__desc">{{ f.text }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if project.features.wip_note is defined and project.features.wip_note %}
+        <p class="lab-proj-features__note">{{ project.features.wip_note }}</p>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{# ── Démo (hors fiches « idée » : celles-ci utilisent mockup ci-dessus) ── #}
+{% if project.demo is defined and project.kind != 'idea' %}
+<section class="lab-section lab-section--white lab-proj-section" aria-labelledby="lab-proj-demo-title">
+    <div class="container">
+        <h2 id="lab-proj-demo-title" class="lab-proj-section-title">{{ project.demo.title|default('Démo & aperçu') }}</h2>
+        {% if project.demo.intro is defined %}
+        <p class="lab-proj-section-lead lab-proj-section-lead--left">{{ project.demo.intro }}</p>
+        {% endif %}
+        <div class="lab-proj-demo-grid">
+            {% for media in project.demo.items %}
+            {% if media.type == 'video' and media.embed_url is defined %}
+            <figure class="lab-proj-demo__figure">
+                <div class="lab-proj-demo__video-wrap">
+                    <iframe class="lab-proj-demo__iframe" src="{{ media.embed_url }}" title="{{ media.alt|default('Vidéo') }}" allowfullscreen loading="lazy"></iframe>
+                </div>
+                {% if media.caption is defined %}<figcaption class="lab-proj-demo__caption">{{ media.caption }}</figcaption>{% endif %}
+            </figure>
+            {% else %}
+            <figure class="lab-proj-demo__figure">
+                <div class="lab-proj-demo__img-wrap">
+                    <img class="lab-proj-demo__img" src="{{ media.src }}" alt="{{ media.alt|default('') }}" width="960" height="540" loading="lazy">
+                </div>
+                {% if media.caption is defined %}<figcaption class="lab-proj-demo__caption">{{ media.caption }}</figcaption>{% endif %}
+            </figure>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ── Cas d’usage (avant incubation / roadmap pour fluidité lecture) ── #}
+{% if project.use_cases is defined %}
+<section class="lab-section lab-section--white lab-proj-section" aria-labelledby="lab-proj-use-title">
+    <div class="container">
+        <h2 id="lab-proj-use-title" class="lab-proj-section-title">{{ project.use_cases.title|default('Cas d’usage') }}</h2>
+        <ul class="lab-proj-usecases">
+            {% for u in project.use_cases.items %}
+            <li class="lab-proj-usecases__item">
+                <span class="lab-proj-usecases__who">{{ u.who }}</span>
+                <p class="lab-proj-usecases__ctx">{{ u.context }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{# ── Idée : validation marché, vote, conversion ── #}
+{% if project.kind == 'idea' and project.idea_validation is defined %}
+<section class="lab-section lab-section--white lab-proj-section lab-idea-validation" id="lab-idea-validation" aria-labelledby="lab-idea-val-title">
+    <div class="container container--narrow">
+        <h2 id="lab-idea-val-title" class="lab-proj-section-title">{{ project.idea_validation.title|default('Validation marché') }}</h2>
+        {% if project.idea_validation.intro is defined %}
+        <p class="lab-proj-section-lead lab-proj-section-lead--left">{{ project.idea_validation.intro }}</p>
+        {% endif %}
+        <form class="lab-idea-form" action="/contact/message" method="post" novalidate>
+            <input type="hidden" name="redirect_ok" value="/lab/{{ project_slug }}">
+            <input type="hidden" name="lab_project" value="{{ project_slug }}">
+            <input type="hidden" name="interest_domain" value="lab_idea_validation">
+
+            <fieldset class="lab-idea-form__fieldset">
+                <legend class="lab-idea-form__legend">Votre position sur ce concept</legend>
+                {% for q in project.idea_validation.questions %}
+                <label class="lab-field lab-field--full">
+                    <span class="lab-field__label">{{ q.label }} <abbr title="requis">*</abbr></span>
+                    <select name="{{ q.name }}" class="lab-idea-form__select" required>
+                        <option value="">— Choisir —</option>
+                        <option value="oui">Oui</option>
+                        <option value="plutot_oui">Plutôt oui</option>
+                        <option value="neutre">Ne sais pas / neutre</option>
+                        <option value="plutot_non">Plutôt non</option>
+                        <option value="non">Non</option>
+                    </select>
+                </label>
+                {% endfor %}
+            </fieldset>
+
+            <fieldset class="lab-idea-form__fieldset lab-idea-form__fieldset--vote">
+                <legend class="lab-idea-form__legend">Vote rapide</legend>
+                <p class="lab-idea-form__vote-hint">{{ project.idea_validation.vote_intro|default('Une impression globale, en plus des réponses ci-dessus.') }}</p>
+                <div class="lab-idea-vote" role="radiogroup" aria-label="Vote">
+                    <label class="lab-idea-vote__opt">
+                        <input type="radio" name="idea_vote" value="up" required class="visually-hidden">
+                        <span class="lab-idea-vote__face" aria-hidden="true">👍</span>
+                        <span class="lab-idea-vote__txt">{{ project.idea_validation.vote_labels.up|default('Intéressant') }}</span>
+                    </label>
+                    <label class="lab-idea-vote__opt">
+                        <input type="radio" name="idea_vote" value="mixed" class="visually-hidden">
+                        <span class="lab-idea-vote__face" aria-hidden="true">🤔</span>
+                        <span class="lab-idea-vote__txt">{{ project.idea_validation.vote_labels.mixed|default('À améliorer') }}</span>
+                    </label>
+                    <label class="lab-idea-vote__opt">
+                        <input type="radio" name="idea_vote" value="down" class="visually-hidden">
+                        <span class="lab-idea-vote__face" aria-hidden="true">❌</span>
+                        <span class="lab-idea-vote__txt">{{ project.idea_validation.vote_labels.down|default('Pas prioritaire') }}</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            {% if project.idea_validation.vote_mode is defined and project.idea_validation.vote_mode == 'advanced' %}
+            <fieldset class="lab-idea-form__fieldset">
+                <legend class="lab-idea-form__legend">Scores (1 = faible, 5 = fort)</legend>
+                <div class="lab-idea-form__row lab-idea-form__row--3">
+                    <label class="lab-field">
+                        <span class="lab-field__label">Intérêt</span>
+                        <select name="score_interest">
+                            <option value="">—</option>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                        </select>
+                    </label>
+                    <label class="lab-field">
+                        <span class="lab-field__label">Urgence</span>
+                        <select name="score_urgency">
+                            <option value="">—</option>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                        </select>
+                    </label>
+                    <label class="lab-field">
+                        <span class="lab-field__label">Budget / volonté de payer</span>
+                        <select name="score_budget">
+                            <option value="">—</option>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                        </select>
+                    </label>
+                </div>
+            </fieldset>
+            {% endif %}
+
+            <fieldset class="lab-idea-form__fieldset">
+                <legend class="lab-idea-form__legend">{{ project.idea_validation.conversion_legend|default('Pour vous recontacter') }}</legend>
+                <div class="lab-idea-form__row lab-idea-form__row--2">
+                    <label class="lab-field">
+                        <span class="lab-field__label">Nom <abbr title="requis">*</abbr></span>
+                        <input type="text" name="full_name" required autocomplete="name" placeholder="Prénom Nom">
+                    </label>
+                    <label class="lab-field">
+                        <span class="lab-field__label">Email professionnel <abbr title="requis">*</abbr></span>
+                        <input type="email" name="email" required autocomplete="email" placeholder="vous@entreprise.fr">
+                    </label>
+                </div>
+                <label class="lab-field lab-field--full">
+                    <span class="lab-field__label">Entreprise</span>
+                    <input type="text" name="company" autocomplete="organization" placeholder="Société">
+                </label>
+                <div class="lab-idea-form__checks">
+                    <label class="lab-check lab-check--inline">
+                        <input type="checkbox" name="want_beta" value="1">
+                        <span>{{ project.idea_validation.chk_beta|default('Je serais intéressé(e) pour être bêta-testeur') }}</span>
+                    </label>
+                    <label class="lab-check lab-check--inline">
+                        <input type="checkbox" name="want_exchange" value="1">
+                        <span>{{ project.idea_validation.chk_exchange|default('Je propose un échange / entretien de 20 min') }}</span>
+                    </label>
+                    <label class="lab-check lab-check--inline">
+                        <input type="checkbox" name="want_newsletter" value="1">
+                        <span>{{ project.idea_validation.chk_news|default('Me tenir informé(e) des nouveautés du laboratoire') }}</span>
+                    </label>
+                </div>
+                <label class="lab-field lab-field--full">
+                    <span class="lab-field__label">Message <span class="lab-field__optional">(facultatif)</span></span>
+                    <textarea name="message" rows="4" placeholder="Précisions, contexte métier, volumétrie…"></textarea>
+                </label>
+            </fieldset>
+
+            <label class="lab-check">
+                <input type="checkbox" name="privacy_ok" value="1" required>
+                <span>J’accepte que mes réponses soient utilisées pour analyser l’intérêt pour ce concept et pour me recontacter, conformément à la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.</span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-lg lab-idea-form__submit">{{ project.idea_validation.submit_label|default('Envoyer ma réponse') }}</button>
+        </form>
+    </div>
+</section>
+{% endif %}
+
+{# ── Avancement ── #}
+{% if project.progress is defined %}
+<section class="lab-section lab-section--muted lab-proj-section" aria-labelledby="lab-proj-progress-title">
+    <div class="container container--narrow">
+        <h2 id="lab-proj-progress-title" class="lab-proj-section-title">{% if project.kind == 'idea' %}Stade d’incubation{% else %}Avancement du projet{% endif %}</h2>
+        <div class="lab-proj-progress-card">
+            <div class="lab-progress lab-proj-progress-bar" role="group" aria-label="Progression globale">
+                <div class="lab-progress__head">
+                    <span>Progression estimée</span>
+                    <span class="lab-progress__pct">{{ project.progress.percent }}%</span>
+                </div>
+                <div class="lab-progress__track">
+                    <div class="lab-progress__fill lab-progress__fill--{{ project.progress.accent|default('orange') }}" style="width: {{ project.progress.percent }}%;"></div>
+                </div>
+            </div>
+            <h3 class="lab-proj-roadmap-title">Feuille de route</h3>
+            <ol class="lab-proj-roadmap">
+                {% for step in project.progress.roadmap %}
+                <li class="lab-proj-roadmap__item lab-proj-roadmap__item--{{ step.state|default('upcoming') }}">
+                    <span class="lab-proj-roadmap__ico" aria-hidden="true">
+                        {% if step.state == 'done' %}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        {% elseif step.state == 'current' %}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg>
+                        {% elseif step.state == 'locked' %}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                        {% else %}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+                        {% endif %}
+                    </span>
+                    <span class="lab-proj-roadmap__label">{{ step.label }}</span>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ── Bêta : feedback structuré ── #}
+{% if project.kind == 'beta' and project.beta_feedback is defined %}
+<section class="lab-section lab-section--white lab-proj-section lab-proj-beta-feedback-wrap" id="{{ project.beta_feedback.id|default('lab-beta-feedback') }}" aria-labelledby="lab-proj-beta-fb-title">
+    <div class="container container--narrow">
+        <h2 id="lab-proj-beta-fb-title" class="lab-proj-section-title">{{ project.beta_feedback.title|default('Votre retour') }}</h2>
+        {% if project.beta_feedback.intro is defined %}
+        <p class="lab-proj-section-lead lab-proj-section-lead--left">{{ project.beta_feedback.intro }}</p>
+        {% endif %}
+        <form class="lab-proj-beta-feedback-form" action="/contact/message" method="post" novalidate>
+            <input type="hidden" name="redirect_ok" value="/lab/{{ project_slug }}">
+            <input type="hidden" name="lab_project" value="{{ project_slug }}">
+            <input type="hidden" name="interest_domain" value="lab_beta_feedback">
+            <div class="lab-proj-beta-feedback-form__row">
+                <label class="lab-field lab-field--full">
+                    <span class="lab-field__label">Type de retour <abbr title="requis">*</abbr></span>
+                    <select name="feedback_type" id="lab-beta-feedback-type" required>
+                        <option value="">— Choisir —</option>
+                        <option value="bug">Bug ou régression</option>
+                        <option value="suggestion">Suggestion de fonctionnalité</option>
+                        <option value="experience">Retour d’expérience</option>
+                    </select>
+                </label>
+            </div>
+            <div class="lab-proj-beta-feedback-form__row lab-proj-beta-feedback-form__row--2">
+                <label class="lab-field">
+                    <span class="lab-field__label">Nom <abbr title="requis">*</abbr></span>
+                    <input type="text" name="full_name" required autocomplete="name" placeholder="Prénom Nom">
+                </label>
+                <label class="lab-field">
+                    <span class="lab-field__label">Email professionnel <abbr title="requis">*</abbr></span>
+                    <input type="email" name="email" required autocomplete="email" placeholder="vous@entreprise.fr">
+                </label>
+            </div>
+            <label class="lab-field lab-field--full">
+                <span class="lab-field__label">Entreprise <span class="lab-field__optional">(facultatif)</span></span>
+                <input type="text" name="company" autocomplete="organization" placeholder="Société">
+            </label>
+            <label class="lab-field lab-field--full">
+                <span class="lab-field__label">Votre message <abbr title="requis">*</abbr></span>
+                <textarea name="message" required rows="6" placeholder="Décrivez le contexte, les étapes, le navigateur ou la capture si besoin…"></textarea>
+            </label>
+            <label class="lab-check">
+                <input type="checkbox" name="privacy_ok" value="1" required>
+                <span>J’accepte que mes données soient utilisées pour traiter ce retour, conformément à la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.</span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-lg lab-proj-beta-feedback-form__submit">Envoyer mon retour</button>
+        </form>
+        {% if project.feedback is defined and project.feedback.items is defined and project.feedback.items|length %}
+        <p class="lab-proj-beta-feedback-more">{{ project.feedback.lead|default('Autres canaux :') }}</p>
+        <ul class="lab-proj-feedback-actions lab-proj-feedback-actions--compact">
+            {% for fb in project.feedback.items %}
+            <li><a href="{{ fb.href }}" class="lab-proj-feedback-link">{{ fb.label }} →</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{# ── Bêta : changelog ── #}
+{% if project.kind == 'beta' and project.beta_changelog is defined %}
+<section class="lab-section lab-section--muted lab-proj-section" id="lab-beta-changelog" aria-labelledby="lab-proj-changelog-title">
+    <div class="container container--narrow">
+        <h2 id="lab-proj-changelog-title" class="lab-proj-section-title">{{ project.beta_changelog.title|default('Changelog') }}</h2>
+        {% if project.beta_changelog.intro is defined %}
+        <p class="lab-proj-section-lead lab-proj-section-lead--left">{{ project.beta_changelog.intro }}</p>
+        {% endif %}
+        <ol class="lab-proj-changelog">
+            {% for rel in project.beta_changelog.items %}
+            <li class="lab-proj-changelog__release">
+                <div class="lab-proj-changelog__head">
+                    <span class="lab-proj-changelog__ver">{{ rel.version }}</span>
+                    {% if rel.date is defined %}
+                    <time class="lab-proj-changelog__date" datetime="{{ rel.date }}">{{ rel.date_label|default(rel.date) }}</time>
+                    {% endif %}
+                </div>
+                <ul class="lab-proj-changelog__list">
+                    {% for line in rel.changes %}
+                    <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+{% endif %}
+
+{# ── Bêta : communauté ── #}
+{% if project.kind == 'beta' and project.beta_community is defined %}
+<section class="lab-section lab-section--white lab-proj-section" aria-labelledby="lab-proj-community-title">
+    <div class="container">
+        <h2 id="lab-proj-community-title" class="lab-proj-section-title">{{ project.beta_community.title|default('Communauté') }}</h2>
+        {% if project.beta_community.intro is defined %}
+        <p class="lab-proj-section-lead">{{ project.beta_community.intro }}</p>
+        {% endif %}
+        <ul class="lab-proj-community-list">
+            {% for c in project.beta_community.items %}
+            <li class="lab-proj-community-item">
+                <a href="{{ c.href }}" class="lab-proj-community-item__link" {% if c.external is defined and c.external %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ c.label }}</a>
+                {% if c.hint is defined and c.hint %}
+                <span class="lab-proj-community-item__hint">{{ c.hint }}</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{# ── Accès / CTA ── #}
+{% if project.access_cta is defined and not (project.kind == 'idea' and project.idea_validation is defined) %}
+<section class="lab-proj-access" aria-labelledby="lab-proj-access-title">
+    <div class="container lab-proj-access__inner">
+        <h2 id="lab-proj-access-title" class="lab-proj-access__title">{{ project.access_cta.title }}</h2>
+        <div class="lab-proj-access__row">
+            {% for a in project.access_cta.items %}
+            {% if a.style is defined and a.style == 'outline' %}
+            <a href="{{ a.href }}" class="btn btn-outline btn-lg lab-proj-access__btn">{{ a.label }}</a>
+            {% else %}
+            <a href="{{ a.href }}" class="btn btn-primary btn-lg lab-proj-access__btn">{{ a.label }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ── Feedback (pages non-bêta ou bêta sans formulaire dédié) ── #}
+{% if project.feedback is defined and not (project.kind == 'beta' and project.beta_feedback is defined) and not (project.kind == 'idea' and project.idea_validation is defined) %}
+<section class="lab-section lab-section--white lab-proj-section lab-proj-feedback-block" aria-labelledby="lab-proj-fb-title">
+    <div class="container container--narrow">
+        <h2 id="lab-proj-fb-title" class="lab-proj-section-title">{{ project.feedback.title }}</h2>
+        {% if project.feedback.lead is defined %}
+        <p class="lab-proj-section-lead">{{ project.feedback.lead }}</p>
+        {% endif %}
+        <ul class="lab-proj-feedback-actions">
+            {% for fb in project.feedback.items %}
+            <li><a href="{{ fb.href }}" class="lab-proj-feedback-link">{{ fb.label }} →</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+<nav class="container sp-breadcrumb lab-breadcrumb lab-proj-page-crumb" aria-label="Fil d’Ariane">
+    <a href="/">Accueil</a>
+    <span class="sp-breadcrumb__sep">/</span>
+    <a href="/hub">Laboratoire</a>
+    <span class="sp-breadcrumb__sep">/</span>
+    <span aria-current="page">{{ project.hero.name }}</span>
+</nav>
+
+{% endblock %}

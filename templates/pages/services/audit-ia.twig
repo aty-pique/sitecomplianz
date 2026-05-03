@@ -1,0 +1,649 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}Audit IA — opportunités, gains et feuille de route pour votre entreprise{% endblock %}
+
+{% block description %}Audit complet de votre SI, processus et outils pour identifier où l'IA peut créer de la valeur : gains de temps, coûts, performance. Feuille de route concrète pour passer à l'action.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit IA et évaluation des systèmes",
+      "url": "{{ app_url }}/intelligence-artificielle/audit-ia",
+      "description": "Analyse complète du système d'information, des processus et des outils de l'entreprise afin d'identifier les opportunités d'intégration de l'intelligence artificielle, déterminer où l'IA peut apporter un gain de performance, d'automatisation et de valeur, avec évaluation des impacts techniques, organisationnels et économiques.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit IA et évaluation des opportunités d'intégration",
+      "offers": [
+        { "@type": "Offer", "name": "Audit rapide (diagnostic initial)", "price": "1000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } },
+        { "@type": "Offer", "name": "Audit complet (process + outils + opportunités)", "price": "3000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8000" } },
+        { "@type": "Offer", "name": "Audit avancé (avec feuille de route stratégique)", "price": "8000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                    "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle",  "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Audit IA et évaluation des systèmes", "item": "{{ app_url }}/intelligence-artificielle/audit-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit IA et à quoi sert-il concrètement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit IA est une analyse approfondie de votre système d'information, de vos processus et de vos outils pour identifier concrètement où et comment l'intelligence artificielle peut créer de la valeur dans votre entreprise. À l'issue de l'audit, vous disposez d'une cartographie des opportunités IA priorisées par ROI, d'une évaluation des impacts techniques et organisationnels, et d'une feuille de route concrète pour passer à l'action — sans investissement à l'aveugle." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un audit IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 000 à 3 000 € pour un audit rapide (diagnostic initial en quelques jours), de 3 000 à 8 000 € pour un audit complet couvrant les processus, outils et opportunités avec rapport détaillé, et de 8 000 à 20 000 € pour un audit avancé incluant une feuille de route stratégique et un plan d'implémentation priorisé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure un audit IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit rapide prend 3 à 5 jours ouvrés. Un audit complet dure 2 à 4 semaines. Un audit avancé avec feuille de route prend 4 à 8 semaines. La durée dépend de la taille de l'entreprise, du nombre de processus analysés et de la complexité du système d'information." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels processus et outils sont analysés lors de l'audit IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous analysons l'ensemble de votre écosystème digital : votre système d'information (CRM, ERP, outils métiers), vos processus opérationnels (ventes, marketing, production, RH, finance), vos flux de données, vos outils de communication et collaboration, et votre infrastructure technique. Chaque processus est évalué selon son potentiel d'automatisation IA, le temps économisable et l'impact sur la qualité et la performance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que contient la feuille de route IA issue de l'audit ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La feuille de route IA comprend : la liste priorisée des cas d'usage IA à fort ROI, l'estimation des gains (temps, coûts, performance) pour chaque cas d'usage, les technologies IA recommandées, le planning d'implémentation par phase, l'estimation budgétaire globale, les prérequis techniques et organisationnels, et les risques à anticiper. Elle vous permet de démarrer immédiatement avec les projets à impact rapide tout en planifiant les chantiers plus complexes." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <span>Audit IA et évaluation des systèmes</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Audit IA &amp; évaluation des systèmes</span>
+                Identifiez concrètement comment l'IA peut améliorer votre activité — gains de temps, coûts réduits, performance accrue — avec une feuille de route claire pour passer à l'action
+            </h1>
+            <p class="sp-hero__lead">
+                Avant d'investir dans l'IA, il faut savoir <strong>où l'IA peut vraiment créer de la valeur</strong> dans votre entreprise. Notre audit analyse votre système d'information, vos processus et vos outils pour identifier et prioriser les <strong>opportunités d'intégration IA à fort ROI</strong> — avec une évaluation des impacts techniques, organisationnels et économiques, et une feuille de route concrète.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Demander un audit IA
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Ce que comprend l'audit
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport détaillé + restitution (document &amp; présentation)</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Opportunités IA priorisées par ROI</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Feuille de route actionnable pour démarrer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Vision claire + plan d'action IA</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un rapport d'audit détaillé avec les <strong>opportunités IA priorisées</strong>, l'estimation des gains pour chaque cas d'usage et une feuille de route IA pour démarrer immédiatement.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3–8</strong>
+                        <span>cas d'usage IA identifiés</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>ROI</strong>
+                        <span>estimé par projet</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>J+1</strong>
+                        <span>plan d'action disponible</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Nos audits identifient en moyenne <strong>3 à 8 opportunités IA</strong> avec un potentiel de <strong>30 à 50% de gains opérationnels</strong> sur les processus ciblés</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Après l'audit — nos services d'implémentation</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Agents IA sur mesure</h2>
+                    <p>L'étape suivante naturelle après l'audit — déployez les agents IA identifiés dans votre feuille de route.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Automatisation IA des processus</h2>
+                    <p>Automatisez les processus identifiés lors de l'audit — mise en œuvre rapide des quick wins IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia/developpement-ia-sur-mesure" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Développement IA sur mesure</h2>
+                    <p>Pour les cas d'usage complexes identifiés lors de l'audit — solutions IA développées spécifiquement.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport + présentation de restitution inclus
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Opportunités classées par ROI &amp; faisabilité
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Accompagnement post-audit disponible
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <p><strong>+100</strong> audits IA réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <p><strong>3 à 8</strong> opportunités IA détectées en moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — pour qui
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Quand réaliser un audit IA pour votre entreprise ?</h2>
+            <p class="sp-section-sub">L'audit IA est le point de départ incontournable avant tout projet d'intelligence artificielle — pour éviter les investissements mal ciblés et maximiser l'impact dès la première implémentation.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Vous entendez parler d'IA mais ne savez pas par où commencer</h3>
+                <p>L'audit IA clarifie exactement où l'IA peut créer de la valeur dans votre activité spécifique — sans vous perdre dans la théorie ou les cas d'usage génériques.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Vous voulez éviter un investissement IA coûteux et inadapté</h3>
+                <p>L'audit valide la faisabilité, estime les gains réels et priorise les projets — vous n'investissez que dans ce qui a un ROI démontré pour votre entreprise.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Vos concurrents intègrent l'IA et vous sentez la pression</h3>
+                <p>L'audit identifie vos avantages concurrentiels potentiels via l'IA — pour vous différencier rapidement avec les projets à fort impact et rattraper ou dépasser vos concurrents.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Vos équipes sont surchargées de tâches répétitives</h3>
+                <p>L'audit identifie précisément quelles tâches répétitives de vos équipes peuvent être automatisées par l'IA — avec l'estimation du temps récupéré et le gain productivité associé.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Vous avez des données mais ne savez pas comment les exploiter</h3>
+                <p>L'audit analyse vos flux de données et identifie les modèles IA pouvant en extraire de la valeur — prévisions, détection d'anomalies, recommandations, insights stratégiques.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Vous préparez votre transformation digitale</h3>
+                <p>L'audit IA s'intègre parfaitement dans une démarche de transformation digitale — il identifie comment l'IA accélère et amplifie l'impact de votre modernisation globale.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que comprend l'audit
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que comprend l'audit</p>
+            <h2>Les 10 dimensions analysées lors de l'audit IA</h2>
+            <p class="sp-section-sub">Un audit IA rigoureux va bien au-delà d'un simple état des lieux technologique — il analyse l'ensemble de votre écosystème pour identifier les leviers d'impact réels, mesurables et actionnables.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Analyse du système d'information existant</h3><p>Cartographie complète de votre SI — CRM, ERP, outils métiers, bases de données, intégrations existantes et architecture technique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Cartographie des outils et processus</h3><p>Documentation de tous vos processus opérationnels — ventes, marketing, production, RH, finance — avec identification des étapes manuelles et répétitives</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div><h3>Identification des tâches automatisables</h3><p>Analyse systématique de chaque processus pour identifier les tâches répétitives, chronophages et à faible valeur ajoutée pouvant être automatisées par l'IA</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Analyse des flux de données</h3><p>Évaluation de la qualité, quantité et accessibilité de vos données — fondement de toute solution IA performante — avec identification des gaps et opportunités d'enrichissement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Détection des cas d'usage IA pertinents</h3><p>Identification des cas d'usage IA les plus adaptés à votre secteur, votre maturité digitale et vos données disponibles — avec benchmarks sectoriels</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Évaluation des impacts (tech, humain, orga)</h3><p>Analyse des impacts techniques (infrastructure, intégrations), humains (conduite du changement, formation) et organisationnels (restructuration des processus) de chaque projet IA</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Identification des gains potentiels</h3><p>Estimation chiffrée des gains pour chaque cas d'usage : temps économisé (heures/semaine), réduction des coûts (€/mois), amélioration des performances (taux d'erreur, délais, conversion)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Priorisation des projets IA</h3><p>Classement des opportunités selon un scoring ROI/effort/risque — pour démarrer avec les projets à impact rapide et planifier les chantiers plus ambitieux à moyen terme</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Recommandations stratégiques</h3><p>Préconisations technologiques (outils, modèles IA), organisationnelles (équipe, compétences) et méthodologiques (approche d'implémentation) adaptées à votre contexte</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Feuille de route IA + restitution</h3><p>Rapport final complet avec feuille de route IA sur 6 à 24 mois, planning d'implémentation, estimation budgétaire et présentation de restitution à votre direction</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que vous gagnez</p>
+            <h2>Ce que l'audit IA apporte concrètement à votre entreprise</h2>
+            <p class="sp-section-sub">L'audit IA est un investissement à fort retour — il vous évite des erreurs coûteuses, clarifie les priorités et vous donne la vision et les outils pour démarrer immédiatement les projets à impact.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Vision claire des opportunités IA</h3>
+                <p>Vous savez exactement où l'IA peut créer de la valeur dans votre entreprise — plus de zones d'ombre, plus d'hésitation, une stratégie IA définie.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Gains potentiels identifiés et chiffrés</h3>
+                <p>Pour chaque opportunité IA : temps économisé, coûts réduits, performances améliorées — des chiffres concrets pour décider et convaincre en interne.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Réduction des risques IA</h3>
+                <p>L'audit anticipe les obstacles techniques, humains et organisationnels avant de démarrer — évitez les pièges classiques des projets IA et sécurisez vos investissements.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Feuille de route concrète</h3>
+                <p>Un plan d'action opérationnel sur 6 à 24 mois — projets priorisés, budget estimé, planning d'implémentation. Vous pouvez démarrer dès le lendemain de la restitution.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Aide à la prise de décision</h3>
+                <p>Des données factuelles pour décider en toute confiance — buy vs build, priorisation des investissements, choix des technologies. Vos dirigeants ont les éléments pour trancher.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>Préparation à la transformation digitale</h3>
+                <p>L'audit IA s'intègre dans votre stratégie de transformation digitale globale — il positionne l'IA là où elle amplifie le mieux votre modernisation organisationnelle.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables de l'audit</p>
+                    <h2>Ce qui détermine le budget et la durée de l'audit IA</h2>
+                    <p class="sp-section-sub">Chaque audit IA est dimensionné selon le contexte spécifique de l'entreprise. Ces variables sont évaluées lors d'un premier échange pour vous proposer la formule d'audit la plus adaptée.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille de l'entreprise</span>
+                        <span class="sp-variable-value">TPE/PME (quelques processus clés) à ETI/grande entreprise (audit multi-départements, multi-sites)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité du système d'information</span>
+                        <span class="sp-variable-value">SI simple (1–3 outils) à SI complexe (ERP + CRM + outils métiers + intégrations multiples + legacy)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de processus analysés</span>
+                        <span class="sp-variable-value">Audit ciblé sur 1–2 départements à audit exhaustif de l'ensemble des processus de l'entreprise</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de maturité digitale</span>
+                        <span class="sp-variable-value">Entreprise peu digitalisée (audit + recommandations fondations) à entreprise avancée (audit IA pure)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données disponibles</span>
+                        <span class="sp-variable-value">Peu de données structurées à bases de données riches et historique long — impact sur les opportunités IA identifiables</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de cas d'usage identifiés</span>
+                        <span class="sp-variable-value">Audit rapide (5–10 cas d'usage prioritaires) à audit approfondi (analyse exhaustive de toutes les opportunités)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de profondeur de l'analyse</span>
+                        <span class="sp-variable-value">Diagnostic initial (vision macro) à analyse détaillée avec POC de faisabilité sur les cas d'usage prioritaires</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin d'accompagnement post-audit</span>
+                        <span class="sp-variable-value">Restitution uniquement à accompagnement dans l'implémentation des premières recommandations IA</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 10.png" alt="Audit IA et feuille de route entreprise" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit IA pour votre entreprise ?</h2>
+            <p class="sp-section-sub">Trois niveaux d'audit selon vos besoins — du diagnostic initial express à l'audit stratégique complet avec feuille de route d'implémentation.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit rapide</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Diagnostic initial — 3 à 5 jours</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des processus clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3–5 opportunités IA identifiées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport synthétique</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recommandations prioritaires</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit complet</p>
+                    <p class="sp-plan__price"><span>3 000 – 8 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Process + outils + opportunités — 2 à 4 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Analyse complète SI + processus</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5–8 cas d'usage détaillés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gains estimés par cas d'usage</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport détaillé + présentation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Priorisation des projets IA</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit avancé</p>
+                    <p class="sp-plan__price"><span>8 000 – 20 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Avec feuille de route stratégique — 4 à 8 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit exhaustif multi-départements</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Feuille de route IA 6–24 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Budget &amp; planning d'implémentation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> POC sur les cas prioritaires</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Présentation direction incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE INTERNE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Passez à l'action après votre audit IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Déployez les agents IA identifiés dans votre feuille de route — l'étape naturelle après l'audit.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA des processus</strong><p>Implémentez les quick wins d'automatisation identifiés lors de l'audit — impact rapide et mesurable.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia/developpement-ia-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement IA sur mesure</strong><p>Pour les cas d'usage complexes identifiés lors de l'audit — solutions développées spécifiquement pour votre entreprise.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia/integration-ia-dans-l-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Intégration IA dans le SI</strong><p>Intégrez les solutions IA dans votre système d'information — conformément aux préconisations de votre feuille de route.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit IA</h2>
+                <p>Notre équipe répond sous 24h pour qualifier votre demande d'audit et vous proposer la formule la mieux adaptée à votre contexte et vos objectifs.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un audit</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit IA et à quoi sert-il concrètement ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un audit IA analyse votre SI, vos processus et vos outils pour identifier <strong>concrètement où l'IA peut créer de la valeur</strong> — gains de temps, réduction des coûts, amélioration des performances. À l'issue, vous disposez d'une cartographie des opportunités IA priorisées par ROI et d'une feuille de route pour passer à l'action sans investissement à l'aveugle.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un audit IA et combien de temps dure-t-il ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 000 à 3 000 €</strong> pour un audit rapide (3–5 jours), de <strong>3 000 à 8 000 €</strong> pour un audit complet (2–4 semaines), et de <strong>8 000 à 20 000 €</strong> pour un audit avancé avec feuille de route stratégique (4–8 semaines). Le budget dépend de la taille de l'entreprise, du nombre de processus analysés et du niveau de profondeur souhaité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils et processus sont analysés lors de l'audit ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous analysons l'ensemble de votre écosystème : votre <strong>SI</strong> (CRM, ERP, outils métiers, BDD), vos <strong>processus opérationnels</strong> (ventes, marketing, production, RH, finance), vos <strong>flux de données</strong> et votre infrastructure technique. Chaque processus est évalué selon son potentiel d'automatisation IA, le temps économisable et l'impact sur la performance.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que contient la feuille de route IA à l'issue de l'audit ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La feuille de route comprend : la liste <strong>priorisée des cas d'usage IA</strong> avec estimation des gains (temps, coûts, performance), les technologies IA recommandées, le <strong>planning d'implémentation</strong> sur 6 à 24 mois, l'estimation budgétaire globale, les prérequis techniques et les risques à anticiper. Vous pouvez démarrer les projets à impact rapide dès le lendemain de la restitution.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on vous mandater pour implémenter les recommandations après l'audit ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, c'est la logique naturelle. Après l'audit, nous pouvons démarrer directement l'implémentation des recommandations — <a href="/intelligence-artificielle/agents-ia">déploiement d'agents IA</a>, <a href="/intelligence-artificielle/automatisation-ia">automatisation des processus</a>, <a href="/intelligence-artificielle/solutions-ia/developpement-ia-sur-mesure">développement de solutions IA sur mesure</a>. Certains clients optent pour un contrat d'accompagnement global qui couvre audit + implémentation + suivi.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à savoir exactement comment l'IA peut améliorer votre activité — avec une feuille de route concrète pour passer à l'action ?</h2>
+                <p>Décrivez votre entreprise, vos processus et vos enjeux — nous vous proposons le niveau d'audit adapté à votre contexte et votre budget.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Demander un audit IA
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport détaillé + présentation inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI estimé par cas d'usage</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement post-audit disponible</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

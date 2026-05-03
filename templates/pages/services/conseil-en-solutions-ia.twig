@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Conseil solutions IA | Stratégie IA pour entreprise | Complianz{% endblock %}
+
+{% block description %}Définissez votre feuille de route IA avec nos experts. Audit des opportunités, sélection des technologies et plan d'intégration sur mesure.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Conseil en solutions IA — Définissez votre stratégie IA",
+      "url": "{{ app_url }}/intelligence-artificielle/solutions-ia/conseil-en-solutions-ia",
+      "description": "Conseil stratégique en solutions IA pour entreprise : audit des opportunités, sélection des technologies IA adaptées, feuille de route et plan d'intégration sur mesure.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Solutions IA", "item": "{{ app_url }}/intelligence-artificielle/solutions-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Conseil en solutions IA", "item": "{{ app_url }}/intelligence-artificielle/solutions-ia/conseil-en-solutions-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "En quoi consiste le conseil en solutions IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le conseil en solutions IA accompagne les organisations pour définir leur stratégie IA de manière éclairée : audit des processus pour identifier les opportunités IA à fort ROI, évaluation des technologies disponibles selon les besoins spécifiques, conception d'une feuille de route réaliste avec priorisation, estimation des investissements et retours attendus, et accompagnement dans la mise en œuvre. L'objectif est d'éviter les investissements dans des solutions inadaptées ou prématurées." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quand faire appel à un consultant IA plutôt que de développer en interne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le conseil IA externe est pertinent quand : vous manquez de la vision pour identifier les bons cas d'usage, vous devez évaluer des technologies que vous ne maîtrisez pas, vous voulez éviter les erreurs coûteuses d'un premier projet IA, vous avez besoin de légitimité et d'une vision externe pour convaincre votre direction, ou vous souhaitez accélérer la mise en œuvre sans recruter une équipe IA complète en interne." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment prioriser les cas d'usage IA dans son entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La priorisation des cas d'usage IA se fait selon 3 critères : l'impact (gains attendus en temps, qualité, revenus), la faisabilité (données disponibles, complexité technique, maturité des solutions), et l'urgence stratégique (pression concurrentielle, opportunité de marché). Les meilleurs candidats sont les processus à la fois impactants, faisables rapidement et stratégiquement importants. La matrice impact/faisabilité est notre outil de référence pour cette priorisation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un projet IA et quel ROI peut-on attendre ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les coûts d'un projet IA varient de 5 000€ (intégration d'un outil SaaS IA existant) à plusieurs centaines de milliers d'euros (développement d'un modèle sur mesure). La règle d'or : commencer par des solutions éprouvées et des cas d'usage bien délimités avant d'investir dans des développements custom. Le ROI moyen constaté sur les projets IA bien exécutés est de 3 à 5× l'investissement initial sur 18 à 24 mois." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/solutions-ia">Solutions IA</a><span>›</span>
+                <span>Conseil en solutions IA</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Conseil stratégique IA</span>
+                Conseil en solutions IA — Définissez votre stratégie IA
+            </h1>
+            <p class="sp-hero__lead">
+                Définissez votre <strong>feuille de route IA avec des experts</strong> — audit des opportunités, sélection des technologies adaptées, plan d'intégration sur mesure et accompagnement jusqu'au ROI. Évitez les investissements dans des solutions inadaptées.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Définir ma stratégie IA</a>
+                <a href="/intelligence-artificielle/solutions-ia" class="btn btn-outline">Solutions IA sur mesure</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Stratégie IA sur mesure</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>Audit</strong><span>opportunités IA</span></div>
+                    <div class="sp-dc-stat"><strong>Feuille</strong><span>de route IA</span></div>
+                    <div class="sp-dc-stat"><strong>ROI</strong><span>3-5× en 18-24 mois</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi un conseil en solutions IA avant d'investir ?</h2>
+                <p>Les projets IA mal conçus ou précipités échouent à 70%. Les erreurs les plus coûteuses : choisir la mauvaise technologie, sous-estimer la préparation des données, surestimer les délais de développement, ou ignorer l'adoption par les équipes. Un conseil IA structuré avant tout investissement économise des mois de travail et des dizaines de milliers d'euros.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Notre démarche de conseil en solutions IA</h2>
+                <p><strong>Audit des opportunités IA :</strong> analyse de vos processus métiers pour identifier les cas d'usage à fort ROI — les tâches répétitives, les décisions basées sur des données, les processus d'analyse manuelle. Nous évaluons l'impact potentiel et la faisabilité de chaque opportunité.</p>
+                <p><strong>Sélection des technologies :</strong> évaluation objective des solutions disponibles — SaaS IA du marché vs développement sur mesure, open source vs propriétaire, cloud vs on-premise. Nous vous aidons à choisir en fonction de vos contraintes (budget, données, équipes, conformité).</p>
+                <p><strong>Feuille de route IA :</strong> plan d'action priorisé avec jalons réalistes, estimations de coûts et de ROI, identification des prérequis (données, compétences, gouvernance) et plan de gestion du changement.</p>
+                <p><strong>Accompagnement jusqu'au ROI :</strong> nous n'abandonnons pas après le conseil — nous pouvons accompagner la mise en œuvre, la formation des équipes et le suivi des résultats.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Ce qu'un conseil IA permet d'éviter</h2>
+                <p>Évitez le syndrome du "proof of concept éternel" (PoC qui ne passe jamais en production), les développements sur mesure coûteux qui auraient pu être remplacés par un SaaS IA existant, les projets IA sans données exploitables, et les déploiements sans adoption par les équipes. Un conseil solide vous donne une vision claire et réaliste avant d'engager des ressources.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur le conseil en solutions IA</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><h3>Audit d'abord, investissement ensuite</h3><p>Identifier les bons cas d'usage avant d'investir est la décision la plus importante dans un projet IA — ne la sous-estimez pas</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>ROI 3-5× en 18-24 mois</h3><p>Les projets IA bien exécutés génèrent un ROI moyen de 3 à 5 fois l'investissement initial sur 18 à 24 mois</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>SaaS IA avant le sur-mesure</h3><p>Dans 80% des cas, une solution SaaS IA existante répond aux besoins à un coût 5 à 10 fois inférieur au développement sur mesure</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>Adoption = facteur clé</h3><p>La meilleure solution IA ne vaut rien si les équipes ne l'utilisent pas — le conseil inclut un plan d'adoption et de formation</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Passer du conseil à la mise en œuvre</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/solutions-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>Solutions IA sur mesure</strong><p>Développement et déploiement de votre solution IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Auditez votre maturité IA avant de définir votre stratégie.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>La vue d'ensemble pour intégrer l'IA dans votre organisation.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-pour-dirigeants-d-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Formation IA dirigeants</strong><p>Comprenez les enjeux stratégiques pour décider en confiance.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le conseil en solutions IA</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Définir ma stratégie IA</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>En quoi consiste le conseil en solutions IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Audit des opportunités IA à fort ROI, évaluation des technologies, <strong>feuille de route réaliste avec priorisation</strong>, estimation des investissements et retours attendus. L'objectif : éviter les investissements dans des solutions inadaptées.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quand faire appel à un consultant IA plutôt que développer en interne ?</summary>
+                    <div class="sp-faq-item__answer"><p>Quand vous manquez de vision pour identifier les bons cas d'usage, devez évaluer des technologies inconnues, voulez <strong>éviter les erreurs coûteuses</strong> d'un premier projet IA, ou devez accélérer sans recruter une équipe IA complète.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment prioriser les cas d'usage IA dans son entreprise ?</summary>
+                    <div class="sp-faq-item__answer"><p>3 critères : <strong>impact</strong> (gains attendus), <strong>faisabilité</strong> (données disponibles, complexité) et <strong>urgence stratégique</strong>. La matrice impact/faisabilité est notre outil de référence pour cette priorisation.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un projet IA et quel ROI peut-on attendre ?</summary>
+                    <div class="sp-faq-item__answer"><p>De 5 000€ (intégration SaaS IA) à des centaines de milliers (développement custom). ROI moyen constaté : <strong>3 à 5× l'investissement en 18-24 mois</strong> pour les projets bien exécutés.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à définir votre feuille de route IA avec des experts et à investir avec confiance dans les bonnes solutions ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Définir ma stratégie IA</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit et feuille de route inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conseil indépendant des éditeurs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

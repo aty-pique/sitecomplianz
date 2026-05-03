@@ -1,0 +1,504 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}Automatisation IA | Automatiser processus métier avec l'IA | Complianz{% endblock %}
+
+{% block description %}Automatisez vos processus répétitifs grâce à l'IA : workflows, n8n, agents autonomes. Gain de temps jusqu'à 70%. Accompagnement et déploiement sur mesure.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Automatisation IA des processus métiers",
+      "url": "{{ app_url }}/intelligence-artificielle/automatisation-ia",
+      "description": "Automatisation des processus métiers grâce à l'intelligence artificielle : workflows intelligents avec n8n, agents autonomes, intégration CRM/ERP. Gain de temps jusqu'à 70% sur les tâches répétitives.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Automatisation IA et workflows intelligents",
+      "offers": [
+        { "@type": "Offer", "name": "Audit automatisation", "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2900" } },
+        { "@type": "Offer", "name": "Pack automatisation PME", "price": "4900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9900" } },
+        { "@type": "Offer", "name": "Programme automatisation avancée", "price": "9900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "25000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Automatisation IA", "item": "{{ app_url }}/intelligence-artificielle/automatisation-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels processus peut-on automatiser avec l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pratiquement tous les processus répétitifs et basés sur des règles peuvent être automatisés : facturation et relances, onboarding clients et collaborateurs, qualification et suivi de leads, traitement de commandes, gestion des congés, reporting périodique, tri et réponse aux emails, extraction de données de documents, synchronisation entre outils (CRM, ERP, comptabilité). L'IA va plus loin que les RPA classiques en comprenant le contenu non structuré (emails, PDFs, images)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps économise-t-on grâce à l'automatisation IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En moyenne, nos clients économisent entre 40% et 70% du temps consacré aux processus automatisés. Concrètement : un processus de facturation traité manuellement en 2h peut être automatisé en quelques minutes, un onboarding client qui prend 4h peut se réduire à 30 minutes de supervision. Le ROI est généralement atteint en 3 à 6 mois selon la complexité des processus automatisés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il des compétences techniques pour utiliser l'automatisation IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, l'objectif est précisément que vos équipes puissent utiliser les automatisations sans compétences techniques. Nous concevons des interfaces simples, documentons chaque workflow et formons vos équipes à la supervision et aux ajustements basiques. Pour les besoins d'évolution, nous proposons des formations à l'automatisation no-code (n8n, Make) pour que votre équipe gagne en autonomie progressivement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre l'automatisation IA et un RPA classique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un RPA (Robotic Process Automation) classique automatise des processus rigides basés sur des clics et des règles fixes — il ne fonctionne que si l'interface ne change pas. L'automatisation IA est beaucoup plus flexible : elle comprend le langage naturel (emails, documents), s'adapte aux variations de contenu, prend des décisions contextuelles et peut traiter des données non structurées. L'IA permet aussi d'automatiser des processus qui nécessitaient auparavant un jugement humain." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <span>Automatisation IA</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Automatisation IA</span>
+                Automatisation IA — Automatisez vos processus avec l'intelligence artificielle
+            </h1>
+            <p class="sp-hero__lead">
+                Libérez vos équipes des tâches répétitives grâce à l'<strong>automatisation IA</strong>. Workflows intelligents avec n8n, agents autonomes, intégration CRM/ERP — nous automatisons vos processus métiers pour vous faire <strong>gagner jusqu'à 70% de temps</strong> sur les opérations à faible valeur ajoutée.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Automatiser mes processus
+                </a>
+                <a href="#tarifs" class="btn btn-outline">
+                    Voir les formules
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit des processus inclus avant tout développement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Compatible avec vos outils existants</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation &amp; documentation incluses</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Processus automatisés, équipes libérées</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos processus répétitifs sont <strong>automatisés avec l'IA</strong> — vos équipes se concentrent sur les tâches à valeur ajoutée et votre activité gagne en efficacité.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>–70%</strong>
+                        <span>temps opérationnel</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>24/7</strong>
+                        <span>exécution automatique</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>ROI</strong>
+                        <span>en 3 à 6 mois</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises qui automatisent leurs processus avec l'IA constatent en moyenne <strong>40 à 70% de gain de temps</strong> et un <strong>ROI positif dès le 4e mois</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services d'automatisation IA</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/intelligence-artificielle/automatisation-ia/automatisation-des-processus-metiers" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Automatisation des processus métiers</h2>
+                    <p>Facturation, onboarding, suivi commandes, RH — automatisation complète de vos processus opérationnels.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/automatisation-ia-avec-n8n" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Automatisation IA avec n8n</h2>
+                    <p>Workflows no-code et low-code avec n8n — connectez vos outils et intégrez l'IA dans vos processus.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation à l'automatisation IA</h2>
+                    <p>Formez vos équipes à n8n, Make, Zapier et aux agents IA pour une autonomie totale.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit des processus inclus avant tout déploiement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Compatible avec vos outils existants
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                ROI mesuré et documenté
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <p><strong>+200</strong> processus automatisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>–60%</strong> de temps opérationnel en moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Cas d'usage</p>
+            <h2>Quels processus automatisons-nous avec l'IA ?</h2>
+            <p class="sp-section-sub">De la facturation au recrutement, en passant par le service client et le reporting — voici les processus les plus fréquemment automatisés avec un impact immédiat sur votre productivité.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Facturation &amp; comptabilité</h3>
+                <p>Création automatique des factures, relances clients, rapprochement bancaire, extraction de données depuis les PDFs — zéro saisie manuelle.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Onboarding clients &amp; collaborateurs</h3>
+                <p>Parcours d'intégration automatisé, envoi des documents, création des comptes, formation initiale — onboarding fluide sans intervention manuelle.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Service client &amp; support</h3>
+                <p>Réponses automatiques aux questions fréquentes, qualification des tickets, escalade intelligente — support 24h/24 sans équipe dédiée.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Reporting &amp; tableaux de bord</h3>
+                <p>Génération automatique des rapports périodiques, consolidation des données multi-sources, alertes intelligentes et KPIs actualisés en temps réel.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Pipeline commercial</h3>
+                <p>Qualification automatique des leads, mise à jour du CRM, relances planifiées, scoring des prospects — votre pipeline toujours à jour sans effort.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>RH &amp; recrutement</h3>
+                <p>Tri des CVs, planification des entretiens, gestion des congés, réponse aux candidats — vos équipes RH concentrées sur l'humain.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="methode">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous automatisons vos processus avec l'IA</h2>
+            <p class="sp-section-sub">Une méthode en 6 étapes pour passer de l'analyse de vos processus au déploiement des automatisations — avec formation et suivi inclus.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit des processus existants</h3><p>Cartographie complète de vos processus actuels — identification des tâches manuelles, répétitives et automatisables avec estimation des gains potentiels</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div><h3>Priorisation par ROI</h3><p>Classement des processus à automatiser selon l'impact attendu, la faisabilité et la rapidité de déploiement — vous démarrez avec les quick wins à fort retour</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Choix des technologies</h3><p>Sélection des outils adaptés — n8n, Make, Zapier, agents IA ou développement custom — selon la complexité, vos outils existants et vos contraintes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                </div>
+                <div><h3>Développement des workflows</h3><p>Construction des automatisations — connexion de vos outils, logique conditionnelle, intégration IA et tests rigoureux avant tout déploiement en production</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div><h3>Formation de vos équipes</h3><p>Formation à l'utilisation et à la supervision des automatisations — pour que vos équipes soient autonomes dans la gestion quotidienne et les ajustements simples</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Suivi &amp; optimisation continue</h3><p>Monitoring des performances post-déploiement, détection des anomalies, ajustements et ajout de nouveaux processus à automatiser selon vos besoins</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'automatisation IA pour votre entreprise ?</h2>
+            <p class="sp-section-sub">Trois formules adaptées à la taille de votre entreprise et à la complexité de vos processus. L'audit initial est toujours inclus pour dimensionner précisément votre projet.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit automatisation</p>
+                    <p class="sp-plan__price"><span>1 500 – 2 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Diagnostic &amp; feuille de route — 1 à 2 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie des processus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Identification des quick wins</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI estimé par processus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Feuille de route priorisée</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack automatisation PME</p>
+                    <p class="sp-plan__price"><span>4 900 – 9 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">3 à 5 processus automatisés — 4 à 8 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>3 à 5 workflows automatisés</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration à vos outils existants</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests &amp; validation complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipes incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation &amp; suivi 1 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Programme automatisation avancée</p>
+                    <p class="sp-plan__price"><span>9 900 – 25 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Automatisation globale — 2 à 6 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Automatisation globale des processus</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agents IA &amp; workflows complexes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Développement sur mesure si nécessaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conduite du changement incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi &amp; maintenance 3 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à l'automatisation IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Dépassez l'automatisation simple — des agents IA autonomes pour les processus complexes.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Identifiez toutes les opportunités IA dans votre entreprise avant de passer à l'action.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Formation IA</strong><p>Formez vos équipes à l'automatisation IA pour gagner en autonomie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>Intégration globale de l'IA dans votre organisation — stratégie et déploiement.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'automatisation IA</h2>
+                <p>Notre équipe répond sous 24h pour identifier les processus à automatiser en priorité dans votre entreprise.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Décrire mon besoin</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels processus peut-on automatiser avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Pratiquement tous les processus répétitifs peuvent être automatisés : <strong>facturation et relances</strong>, onboarding, qualification de leads, traitement de commandes, gestion des congés, reporting, tri des emails, extraction de données de documents. L'IA va plus loin que les RPA classiques en comprenant le contenu non structuré (emails, PDFs, images).</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps économise-t-on grâce à l'automatisation IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>En moyenne, nos clients économisent entre <strong>40% et 70% du temps</strong> consacré aux processus automatisés. Le ROI est généralement atteint en <strong>3 à 6 mois</strong>. Concrètement : une facturation traitée en 2h peut être réduite à quelques minutes de supervision.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il des compétences techniques pour utiliser l'automatisation IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Non. Nous concevons des interfaces simples, documentons chaque workflow et formons vos équipes. Pour aller plus loin, nos <a href="/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia">formations à l'automatisation IA</a> permettent à votre équipe de créer et modifier ses propres workflows de manière autonome.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre l'automatisation IA et un RPA classique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un RPA automatise des processus rigides basés sur des clics fixes. L'<strong>automatisation IA</strong> est beaucoup plus flexible : elle comprend le langage naturel, s'adapte aux variations de contenu, prend des décisions contextuelles et peut traiter des données non structurées — emails, PDFs, images — là où un RPA échouerait.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à automatiser vos processus et à libérer vos équipes des tâches répétitives ?</h2>
+                <p>Décrivez vos processus les plus chronophages — nous identifions les automatisations à fort ROI et vous proposons un plan d'action concret.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Automatiser mes processus
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit des processus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI estimé avant engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

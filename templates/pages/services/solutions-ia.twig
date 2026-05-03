@@ -1,0 +1,429 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}Solutions IA sur mesure | Développement intelligence artificielle | Complianz{% endblock %}
+
+{% block description %}Déployez des solutions IA sur mesure adaptées à vos besoins métiers. Conseil, développement, gouvernance des données et solutions sectorielles.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Solutions IA sur mesure",
+      "url": "{{ app_url }}/intelligence-artificielle/solutions-ia",
+      "description": "Développement de solutions IA sur mesure adaptées à vos besoins métiers : conseil en stratégie IA, développement d'algorithmes, gouvernance des données et solutions sectorielles.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Développement de solutions IA sur mesure",
+      "offers": [
+        { "@type": "Offer", "name": "Conseil IA", "price": "2500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5500" } },
+        { "@type": "Offer", "name": "Solution IA PME", "price": "5900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "14000" } },
+        { "@type": "Offer", "name": "Solution IA avancée", "price": "14000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "35000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Solutions IA", "item": "{{ app_url }}/intelligence-artificielle/solutions-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre une solution IA standard et une solution sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une solution IA standard (SaaS, outil générique) est conçue pour le plus grand nombre — elle couvre 80% des besoins communs mais rarement les spécificités de votre métier, vos données propriétaires ou vos processus différenciants. Une solution IA sur mesure est développée spécifiquement pour votre contexte : elle intègre vos données, respecte vos contraintes métier et crée un avantage concurrentiel que vos concurrents ne peuvent pas répliquer en souscrivant le même outil." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se déroule le développement d'une solution IA sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Notre méthode comprend : 1) Cadrage et définition des besoins (1-2 semaines), 2) Conception de l'architecture IA (1-2 semaines), 3) Développement et entraînement des modèles (4-16 semaines selon complexité), 4) Tests et validation en conditions réelles (2-4 semaines), 5) Déploiement progressif et formation, 6) Suivi et optimisation continue. Chaque phase implique vos équipes pour garantir que la solution correspond exactement à vos besoins." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles technologies utilisez-vous pour développer des solutions IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Selon les besoins, nous utilisons : des LLMs (GPT-4, Claude, Mistral) pour le traitement du langage naturel, des modèles de machine learning classiques pour la prédiction et la classification, des frameworks Python (TensorFlow, PyTorch, scikit-learn) pour le développement custom, des solutions RAG pour les systèmes de questions-réponses sur vos données, et des outils no-code/low-code (n8n, LangChain) pour les solutions à déploiement rapide. La technologie est toujours choisie selon la complexité du problème, pas par convention." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment est gérée la propriété intellectuelle de la solution IA développée ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La solution IA développée sur mesure vous appartient entièrement. Le code source, les modèles entraînés et la documentation sont transférés à la livraison finale. Nous signons un accord de confidentialité dès le démarrage du projet pour protéger vos données et vos informations métier. Vous disposez également d'une documentation complète pour maintenir et faire évoluer la solution en interne si vous le souhaitez." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <span>Solutions IA</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Solutions IA sur mesure</span>
+                Solutions IA sur mesure — Développez votre avantage concurrentiel
+            </h1>
+            <p class="sp-hero__lead">
+                Les outils IA génériques ne suffisent plus à se différencier. Nous développons des <strong>solutions IA sur mesure</strong> adaptées à vos données, vos processus et votre secteur — pour créer un avantage concurrentiel durable que vos concurrents ne peuvent pas reproduire.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Décrire mon besoin IA
+                </a>
+                <a href="#tarifs" class="btn btn-outline">
+                    Voir les formules
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Code source livré, vous êtes propriétaire</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Confidentialité &amp; NDA systématiques</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Documentation &amp; formation incluses</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Une IA propriétaire, différenciante</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>solution IA 100% sur mesure</strong> — développée sur vos données, intégrée à vos systèmes, dont vous êtes l'unique propriétaire.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>propriété intellectuelle</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+50%</strong>
+                        <span>performance vs générique</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>NDA</strong>
+                        <span>confidentialité garantie</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Une solution IA entraînée sur vos données métier est <strong>50 à 80% plus performante</strong> qu'un modèle générique pour vos cas d'usage spécifiques</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos spécialités solutions IA</p>
+        <div class="sp-subservices__grid sp-subservices__grid--2">
+            <a href="/intelligence-artificielle/solutions-ia/conseil-en-solutions-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Conseil en solutions IA</h2>
+                    <p>Définissez votre stratégie IA et votre feuille de route avec nos experts.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia/solutions-ia-de-gouvernance-des-donnees" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Solutions IA de gouvernance des données</h2>
+                    <p>Catalogues, qualité, traçabilité et conformité automatisés par l'IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Propriété intellectuelle 100% client
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                NDA signé dès le démarrage
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Solutions maintenues &amp; évolutives
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <p><strong>+60</strong> solutions IA développées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+60%</strong> de performance vs outils génériques</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Exemples de solutions</p>
+            <h2>Quelles solutions IA développons-nous sur mesure ?</h2>
+            <p class="sp-section-sub">Des solutions IA qui créent une différenciation réelle — développées sur vos données, intégrées à vos systèmes, et que vos concurrents ne peuvent pas simplement acheter.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>IA de recommandation</h3>
+                <p>Système de recommandation entraîné sur votre catalogue et vos données clients — personnalisation produit, content, cross-sell et up-sell sur mesure.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Prédiction &amp; prévision</h3>
+                <p>Modèles prédictifs sur vos données historiques — prévisions de demande, churn prédictif, scoring de leads, détection d'anomalies et alertes préventives.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>IA documentaire (RAG)</h3>
+                <p>Système de questions-réponses sur vos documents internes — base de connaissances IA, recherche intelligente et extraction d'informations automatique.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Classification &amp; traitement IA</h3>
+                <p>Classification automatique de vos données — catégorisation de tickets, analyse de sentiment, extraction d'entités et qualification automatique.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte le développement d'une solution IA sur mesure ?</h2>
+            <p class="sp-section-sub">Le budget dépend de la complexité de la solution, du volume de données et du niveau d'intégration. Un cadrage préalable gratuit nous permet de dimensionner précisément votre projet.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Conseil IA</p>
+                    <p class="sp-plan__price"><span>2 500 – 5 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Stratégie &amp; architecture — 2 à 4 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Définition des besoins IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Architecture de la solution</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Choix technologique</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap et budget détaillés</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Solution IA PME</p>
+                    <p class="sp-plan__price"><span>5 900 – 14 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Développement complet — 6 à 16 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Solution IA complète développée</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entraînée sur vos données</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration à vos systèmes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests &amp; validation complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation &amp; formation</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Solution IA avancée</p>
+                    <p class="sp-plan__price"><span>14 000 – 35 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Système complexe — 3 à 6 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture IA complexe</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Modèles propriétaires</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-systèmes intégrés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Infrastructure scalable</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolution continue</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Nous contacter</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés aux solutions IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Déployez des agents IA autonomes en complément de vos solutions.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Identifiez les solutions IA à plus fort impact avant de développer.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Gouvernance des données</strong><p>Préparez vos données pour alimenter vos solutions IA.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Automatisez les processus alimentés par vos solutions IA.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les solutions IA</h2>
+                <p>Notre équipe répond sous 24h pour évaluer la faisabilité de votre projet et vous proposer une architecture adaptée.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Décrire mon projet IA</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle différence entre une solution IA standard et sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une solution <strong>standard</strong> couvre 80% des besoins communs mais rarement vos spécificités métier. Une solution <strong>sur mesure</strong> est développée sur vos données, respecte vos contraintes et crée un avantage que vos concurrents ne peuvent pas répliquer en souscrivant le même outil.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment se déroule le développement d'une solution IA sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Notre méthode : 1) <strong>Cadrage</strong> des besoins (1-2 semaines), 2) <strong>Architecture</strong> de la solution (1-2 semaines), 3) <strong>Développement</strong> et entraînement (4-16 semaines), 4) <strong>Tests</strong> en conditions réelles (2-4 semaines), 5) <strong>Déploiement</strong> progressif et formation, 6) <strong>Suivi</strong> et optimisation continue.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles technologies utilisez-vous pour développer des solutions IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Selon les besoins : <strong>LLMs</strong> (GPT-4, Claude, Mistral) pour le NLP, <strong>ML classique</strong> pour la prédiction et classification, <strong>frameworks Python</strong> (TensorFlow, PyTorch) pour le custom, <strong>RAG</strong> pour les systèmes Q&amp;R sur vos données. La technologie est choisie selon le problème, pas par convention.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qui est propriétaire de la solution IA développée ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La solution vous appartient <strong>entièrement</strong>. Le code source, les modèles entraînés et la documentation sont transférés à la livraison finale. Un NDA est signé dès le démarrage pour protéger vos données. Vous disposez d'une documentation complète pour maintenir et faire évoluer la solution en interne.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à développer votre avantage concurrentiel avec une solution IA sur mesure ?</h2>
+                <p>Décrivez votre problème métier et vos données disponibles — nous évaluons la faisabilité et vous proposons une architecture adaptée.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Décrire mon besoin IA
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> NDA signé dès le démarrage</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Propriété intellectuelle 100% client</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation complète livrée</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

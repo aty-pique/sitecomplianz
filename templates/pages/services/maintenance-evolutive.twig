@@ -1,0 +1,629 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Maintenance évolutive — amélioration continue de vos outils{% endblock %}
+
+{% block description %}Faites évoluer vos sites, logiciels et applications en continu : ajout de fonctionnalités, optimisation technique et mises à jour pour s'adapter à votre croissance.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Maintenance évolutive",
+      "url": "{{ app_url }}/support-maintenance/maintenance/maintenance-evolutive",
+      "description": "Amélioration continue des outils digitaux afin de les faire évoluer en fonction des besoins de l'entreprise, de ses utilisateurs et de sa croissance. Ajout de fonctionnalités, optimisation technique et mises à jour régulières.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Maintenance évolutive et amélioration continue",
+      "offers": [
+        { "@type": "Offer", "name": "Évolution ponctuelle",     "price": "300",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1500" } },
+        { "@type": "Offer", "name": "Forfait mensuel",          "price": "500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2000" } },
+        { "@type": "Offer", "name": "Accompagnement avancé",   "price": "2000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                         "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",           "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Maintenance, support & évolutions", "item": "{{ app_url }}/support-maintenance/maintenance" },
+        { "@type": "ListItem", "position": 4, "name": "Maintenance évolutive",           "item": "{{ app_url }}/support-maintenance/maintenance/maintenance-evolutive" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la maintenance évolutive ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La maintenance évolutive désigne l'ensemble des interventions visant à améliorer et faire évoluer un outil digital existant — sans qu'il soit défaillant. Contrairement à la maintenance corrective (qui répare des bugs), la maintenance évolutive ajoute de nouvelles fonctionnalités, optimise les performances, met à jour les technologies et adapte l'outil aux nouveaux besoins de l'entreprise et de ses utilisateurs." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre maintenance corrective et évolutive ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La maintenance corrective intervient quand quelque chose ne fonctionne pas (bug, panne, anomalie). La maintenance évolutive intervient proactivement pour améliorer ce qui fonctionne déjà — ajouter des fonctionnalités, optimiser les performances, mettre à jour les dépendances, adapter l'outil aux nouveaux usages. Les deux sont complémentaires dans un contrat de maintenance global." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels types d'évolutions réalisez-vous ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous réalisons tous types d'évolutions : ajout de pages et sections sur un site web, développement de nouvelles fonctionnalités sur une application, optimisation des performances (vitesse, charge), mises à jour des frameworks et dépendances, adaptation à de nouveaux appareils ou navigateurs, intégrations de nouveaux outils (paiement, CRM, analytics), et refonte partielle d'interfaces." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la maintenance évolutive ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 300 € à 1 500 € pour une évolution ponctuelle (ajout d'une fonctionnalité, nouvelle page), de 500 € à 2 000 €/mois pour un forfait mensuel (évolutions régulières, mises à jour, optimisations), et de 2 000 € à 5 000 €/mois pour un accompagnement évolutif avancé (développement continu, roadmap produit, nombreuses évolutions mensuelles)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne un forfait de maintenance évolutive mensuel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un forfait mensuel de maintenance évolutive fonctionne comme un crédit d'heures de développement dédié à votre projet. Chaque mois, vous nous communiquez vos demandes d'évolution (nouvelles fonctionnalités, optimisations, mises à jour) et nous les priorisons et réalisons selon le volume contractualisé. Les heures non utilisées peuvent être reportées ou utilisées pour des interventions correctives." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg, #eef2f8) 0%, #f5f8fc 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/maintenance">Maintenance &amp; Support</a>
+                <span>›</span>
+                <span>Maintenance évolutive</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Maintenance évolutive</span>
+                Vos outils évoluent en permanence pour s'adapter à votre croissance — sans repartir de zéro
+            </h1>
+            <p class="sp-hero__lead">
+                Nous assurons l'<strong>amélioration continue de vos outils digitaux</strong> — sites, applications, logiciels — pour les faire évoluer avec votre entreprise, vos utilisateurs et vos besoins. Nouvelles fonctionnalités, optimisations techniques, mises à jour&nbsp;: votre outil reste <strong>performant, moderne et adapté</strong> sans jamais devenir obsolète.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    Définir ma roadmap d'évolutions
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Évolution ponctuelle ou forfait mensuel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Chaque évolution testée avant déploiement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Suivi de roadmap &amp; reporting mensuel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Des outils qui évoluent avec vous</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos outils digitaux <strong>évoluent en permanence</strong> pour s'adapter à votre croissance — sans jamais devenir obsolètes, sans repartir de zéro.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>piloté & suivi</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0</strong>
+                        <span>réécriture from scratch</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+Valeur</strong>
+                        <span>chaque mois</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Un outil qui n'évolue pas</strong> perd en moyenne <strong>30% de sa valeur</strong> par an face aux évolutions des usages et de la concurrence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES CONNEXES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services complémentaires de maintenance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Maintenance corrective</h2>
+                    <p>Correction rapide des bugs et anomalies pour rétablir le bon fonctionnement de vos outils.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/debug" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Debug &amp; résolution de bugs</h2>
+                    <p>Investigation approfondie pour trouver et corriger les bugs complexes qui résistent aux corrections classiques.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Contrat de maintenance global</h2>
+                    <p>Combinaison maintenance corrective + évolutive + support — pour une prise en charge complète de vos outils.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Roadmap d'évolutions pilotée &amp; documentée
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Chaque évolution testée avant mise en prod
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Reporting mensuel des évolutions réalisées
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+200</strong> projets en maintenance évolutive</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>3 ans</strong> durée moyenne partenariat</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — types d'évolutions
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Types d'évolutions</p>
+            <h2>Quels types d'évolutions réalisons-nous ?</h2>
+            <p class="sp-section-sub">Chaque entreprise a sa propre roadmap d'évolution. Nous intervenons sur tous les aspects de vos outils digitaux pour les maintenir à la pointe de vos besoins.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Ajout de fonctionnalités</h3>
+                <p>Développement de nouvelles fonctionnalités sur vos outils existants : nouveaux modules, nouvelles sections, nouvelles intégrations, formulaires avancés.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Évolutions de site web</h3>
+                <p>Ajout de pages et sections, refonte de l'interface, nouvelles landing pages, blog, espace client, formulaires de devis — votre site évolue avec votre offre.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Optimisation technique</h3>
+                <p>Amélioration des performances (Core Web Vitals, temps de chargement), optimisation de la base de données, refactoring du code, mise à l'échelle de l'infrastructure.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Mises à jour technologiques</h3>
+                <p>Mise à jour des frameworks, dépendances, CMS, plugins — pour maintenir la sécurité, la compatibilité et les performances de vos outils.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Intégrations &amp; connecteurs</h3>
+                <p>Connexion de nouveaux outils (CRM, paiement, analytics, email, ERP) à vos outils existants — votre écosystème digital s'enrichit progressivement.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Amélioration de l'UX &amp; design</h3>
+                <p>Refonte partielle des interfaces pour améliorer l'expérience utilisateur, moderniser le design et adapter l'outil aux nouvelles attentes des utilisateurs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous pilotons les évolutions de vos outils</h2>
+            <p class="sp-section-sub">Un processus structuré de la demande à la mise en production — pour que chaque évolution soit bien spécifiée, testée et documentée avant d'être livrée.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des besoins d'évolution</h3><p>Recueil et analyse de vos besoins, priorisation des évolutions selon leur impact sur votre activité et faisabilité technique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Ajout de fonctionnalités</h3><p>Développement de nouvelles fonctionnalités selon les spécifications définies — nouvelles pages, modules, intégrations, formulaires</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div><h3>Amélioration des outils existants</h3><p>Optimisation des fonctionnalités existantes pour les rendre plus performantes, plus ergonomiques ou plus adaptées aux nouveaux usages</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Optimisation technique</h3><p>Amélioration des performances, refactoring du code, optimisation des requêtes BDD et de l'architecture pour maintenir la qualité technique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Mises à jour régulières</h3><p>Mise à jour des frameworks, CMS, plugins et dépendances pour maintenir la sécurité, la compatibilité et les performances</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests et validation</h3><p>Tests fonctionnels complets en environnement de préproduction avant déploiement — zéro surprise en production</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <div><h3>Déploiement des évolutions</h3><p>Mise en production des évolutions validées — déploiement progressif ou planifié selon l'impact et la criticité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Suivi des améliorations</h3><p>Monitoring post-déploiement, reporting mensuel des évolutions réalisées et recommandations pour la roadmap suivante</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 5 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec une maintenance évolutive continue</h2>
+            <p class="sp-section-sub">Un outil qui n'évolue pas perd en moyenne 30% de sa valeur chaque année face aux évolutions des usages, de la concurrence et des technologies. La maintenance évolutive est l'investissement qui protège et multiplie votre actif digital.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Outils adaptés à l'évolution</h3>
+                <p>Vos outils suivent les évolutions de votre entreprise, de votre offre et de vos utilisateurs — sans jamais devenir un frein à votre croissance.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Amélioration continue</h3>
+                <p>Chaque mois, vos outils s'améliorent — chaque évolution apporte de la valeur, réduit la friction et améliore l'expérience de vos utilisateurs.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Ajout de fonctionnalités</h3>
+                <p>De nouvelles fonctionnalités sont ajoutées au rythme de vos besoins — sans repartir de zéro, en s'appuyant sur l'existant.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Optimisation des performances</h3>
+                <p>Vos outils restent rapides, stables et efficaces dans le temps — performance technique maintenue, dette technique réduite progressivement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Pérennité des systèmes</h3>
+                <p>Les mises à jour régulières maintiennent la sécurité et la compatibilité — vos outils restent fiables et protégés sur le long terme.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le budget de la maintenance évolutive</h2>
+                    <p class="sp-section-sub">Chaque projet a sa propre cadence d'évolution. Ces variables sont discutées lors du cadrage initial pour définir la formule la plus adaptée à vos besoins.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type d'évolution</span>
+                        <span class="sp-variable-value">Ajout de contenu simple à développement de fonctionnalités complexes ou refonte partielle</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Fréquence des demandes</span>
+                        <span class="sp-variable-value">Évolution ponctuelle (1 fois/an) à roadmap évolutive continue (plusieurs évolutions/mois)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'outils concernés</span>
+                        <span class="sp-variable-value">1 site ou application à écosystème complet (site + app + CRM + API + serveurs)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité technique</span>
+                        <span class="sp-variable-value">WordPress simple à application sur mesure avec architecture complexe et intégrations multiples</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de personnalisation</span>
+                        <span class="sp-variable-value">Évolutions standard (plugins, pages) à développements sur mesure spécifiques à vos processus</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Priorité des évolutions</span>
+                        <span class="sp-variable-value">Évolutions planifiées à l'avance ou urgentes nécessitant une intervention rapide</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Maintenance évolutive amélioration continue" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la maintenance évolutive ?</h2>
+            <p class="sp-section-sub">Selon la cadence et le volume d'évolutions souhaitées. Devis transparent avant engagement, sans surprise sur la facturation.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Évolution ponctuelle</p>
+                    <p class="sp-plan__price"><span>300 – 1 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Par évolution, au besoin</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Spécification &amp; chiffrage</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Développement de l'évolution</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests &amp; déploiement</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Forfait mensuel</p>
+                    <p class="sp-plan__price"><span>500 – 2 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Crédit heures mensuel dédié</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Crédit heures mensuel prioritaire</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mises à jour incluses</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap d'évolutions pilotée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting mensuel des livrables</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Heures reportables si non utilisées</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement avancé</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Dev continu, roadmap produit</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Développement continu dédié</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Product Owner &amp; roadmap</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sprints agiles mensuels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests automatisés inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport &amp; démo mensuelle</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Les forfaits peuvent inclure une part de maintenance corrective. Un <a href="/support-maintenance/maintenance">contrat de maintenance global</a> (correctif + évolutif + support) est disponible à tarif préférentiel.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à la maintenance évolutive</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/maintenance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div><strong>Contrat de maintenance global</strong><p>Combinez correctif + évolutif + support dans un contrat mensuel unique à tarif préférentiel.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Pour des évolutions majeures nécessitant de repenser l'architecture ou de développer de nouveaux modules.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/infogerance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div><strong>Infogérance & hébergement</strong><p>Assurez la stabilité de votre infrastructure en parallèle des évolutions de vos applications.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/automatisation-api" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+                <div><strong>Automatisation & interconnexion</strong><p>Connectez de nouveaux outils à vos systèmes existants dans le cadre de votre maintenance évolutive.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la maintenance évolutive</h2>
+                <p>Notre équipe répond sous 24h pour cadrer votre besoin d'évolution et vous proposer la formule adaptée.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que la maintenance évolutive ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>maintenance évolutive</strong> désigne les interventions visant à améliorer et faire évoluer un outil digital existant. Contrairement à la <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive">maintenance corrective</a> (qui répare des bugs), la maintenance évolutive ajoute des fonctionnalités, optimise les performances et adapte l'outil aux nouveaux besoins de votre entreprise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment fonctionne un forfait mensuel évolutif ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un forfait mensuel fonctionne comme un <strong>crédit d'heures de développement dédié</strong>. Chaque mois, vous nous communiquez vos demandes d'évolution et nous les priorisons et réalisons selon le volume contractualisé. Les heures non utilisées sont reportables. Vous recevez un rapport mensuel des évolutions réalisées et livrées.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels types d'évolutions réalisez-vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous réalisons tous types d'évolutions&nbsp;: ajout de pages et fonctionnalités, <strong>optimisation des performances</strong>, mises à jour de frameworks et plugins, intégrations d'outils tiers (CRM, paiement, analytics), adaptation responsive, amélioration UX, refonte partielle d'interfaces et développement de nouveaux modules métier.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre maintenance évolutive et refonte ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>maintenance évolutive</strong> améliore progressivement un outil existant — de façon incrémentale, sans tout remettre à plat. La refonte repart souvent d'une base nouvelle. La maintenance évolutive est plus économique et moins risquée pour les évolutions continues. Quand les évolutions souhaitées deviennent trop importantes pour s'appuyer sur l'existant, nous recommandons un <a href="/solutions-developpement/developpement-logiciel">développement sur mesure</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte la maintenance évolutive ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>300 € à 1 500 €</strong> pour une évolution ponctuelle, de <strong>500 € à 2 000 €/mois</strong> pour un <a href="#tarifs">forfait mensuel</a> (la formule la plus choisie), et de <strong>2 000 € à 5 000 €/mois</strong> pour un accompagnement avancé avec roadmap produit et sprints mensuels.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à faire évoluer vos outils en permanence pour les aligner avec votre croissance ?</h2>
+                <p>Définissons ensemble votre roadmap d'évolutions et la formule adaptée à votre cadence de développement — évolution ponctuelle ou forfait mensuel.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    Définir ma roadmap d'évolutions
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Devis gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reportable si non utilisé</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

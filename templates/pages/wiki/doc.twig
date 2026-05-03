@@ -1,0 +1,159 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}{{ wiki_page.title|default('Wiki') }} — Documentation{% endblock %}
+{% block description %}{{ wiki_page.description|default('') }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/wiki.css">
+{% endblock %}
+
+{% block content %}
+<div class="wiki-doc-shell">
+    <a href="#wiki-doc-main" class="wiki-skip">Aller au contenu de la page</a>
+
+    <div class="wiki-doc-bar">
+        <div class="container wiki-doc-bar__inner">
+            <button type="button" class="wiki-doc-bar__menu" data-wiki-sidebar-toggle aria-expanded="false" aria-controls="wiki-sidebar">
+                <span class="wiki-doc-bar__menu-icon" aria-hidden="true"></span>
+                Menu doc
+            </button>
+            <form class="wiki-doc-bar__search" action="/wiki" method="get" role="search">
+                <label class="visually-hidden" for="wiki-doc-q">Recherche wiki</label>
+                <input type="search" id="wiki-doc-q" name="q" placeholder="Recherche globale…" autocomplete="off">
+                <button type="submit">OK</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="wiki-doc-layout container">
+        <aside class="wiki-sidebar" id="wiki-sidebar" data-wiki-sidebar>
+            {% include 'wiki/partials/sidebar.twig' %}
+        </aside>
+        <div class="wiki-doc-backdrop" data-wiki-sidebar-toggle aria-hidden="true"></div>
+
+        <div class="wiki-doc-center">
+            <article id="wiki-doc-main" class="wiki-article">
+                <header class="wiki-doc-head">
+                    <nav class="wiki-breadcrumb" aria-label="Fil d’Ariane">
+                        <ol>
+                            {% for bc in wiki_page.breadcrumbs %}
+                                <li>
+                                    {% if bc.href %}
+                                        <a href="{{ bc.href }}">{{ bc.label }}</a>
+                                    {% else %}
+                                        <span aria-current="location">{{ bc.label }}</span>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </nav>
+                    <h1 class="wiki-doc-head__title">{{ wiki_page.h1|default(wiki_page.title) }}</h1>
+                    {% if wiki_page.tags is defined and wiki_page.tags|length %}
+                        <ul class="wiki-doc-tags" aria-label="Tags">
+                            {% for tag in wiki_page.tags %}
+                                <li><a href="/wiki?q={{ tag|url_encode }}">{{ tag }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if wiki_page.ctas is defined and wiki_page.ctas|length %}
+                        <div class="wiki-doc-ctas">
+                            {% for cta in wiki_page.ctas %}
+                                <a href="{{ cta.href }}"
+                                   class="wiki-doc-cta wiki-doc-cta--{{ cta.variant|default('primary') }}"
+                                   {% if cta.external is defined and cta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+                                >{{ cta.label }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </header>
+
+                <div class="wiki-doc-grid">
+                    <div class="wiki-doc-body-col">
+                        <section class="wiki-intro" aria-labelledby="wiki-intro-title">
+                            <h2 id="wiki-intro-title" class="wiki-intro__title">En bref</h2>
+                            <dl class="wiki-intro__dl">
+                                <div><dt>Résumé</dt><dd>{{ wiki_page.intro.summary|default('') }}</dd></div>
+                                <div><dt>Objectif</dt><dd>{{ wiki_page.intro.objective|default('') }}</dd></div>
+                                <div><dt>À qui s’adresse cette page</dt><dd>{{ wiki_page.intro.audience|default('') }}</dd></div>
+                                <div><dt>Prérequis</dt><dd>{{ wiki_page.intro.prereq|default('—') }}</dd></div>
+                            </dl>
+                        </section>
+
+                        <div class="wiki-prose">
+                            {% include wiki_page.body %}
+                        </div>
+
+                        <nav class="wiki-doc-pager" aria-label="Pages adjacentes">
+                            {% if wiki_page.prev %}
+                                <a href="/wiki/{{ wiki_page.prev.slug }}" class="wiki-doc-pager__link wiki-doc-pager__link--prev">
+                                    <span>Précédent</span>
+                                    <strong>{{ wiki_page.prev.label }}</strong>
+                                </a>
+                            {% endif %}
+                            {% if wiki_page.next %}
+                                <a href="/wiki/{{ wiki_page.next.slug }}" class="wiki-doc-pager__link wiki-doc-pager__link--next">
+                                    <span>Suivant</span>
+                                    <strong>{{ wiki_page.next.label }}</strong>
+                                </a>
+                            {% endif %}
+                        </nav>
+
+                        {% if wiki_page.related is defined and wiki_page.related|length %}
+                            <section class="wiki-related" aria-labelledby="wiki-related-title">
+                                <h2 id="wiki-related-title" class="wiki-related__title">Lecture associée</h2>
+                                <ul>
+                                    {% for r in wiki_page.related %}
+                                        <li><a href="/wiki/{{ r.slug }}">{{ r.label }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        {% endif %}
+
+                        <footer class="wiki-doc-foot">
+                            <div class="wiki-doc-foot__feedback" role="group" aria-labelledby="wiki-feedback-title">
+                                <p id="wiki-feedback-title" class="wiki-doc-foot__feedback-title">Cette page vous a-t-elle aidé ?</p>
+                                <div class="wiki-doc-foot__chips">
+                                    <button type="button" class="wiki-chip" data-wiki-feedback="yes">Oui</button>
+                                    <button type="button" class="wiki-chip" data-wiki-feedback="no">Pas vraiment</button>
+                                </div>
+                                <p class="wiki-doc-foot__feedback-msg" id="wiki-feedback-msg" hidden role="status"></p>
+                            </div>
+                            <p class="wiki-doc-foot__meta">
+                                Dernière mise à jour : <time datetime="{{ wiki_page.updated|default('') }}">{{ wiki_page.updated|default('') }}</time>
+                                · Version {{ wiki_page.version|default('') }}
+                                · {{ wiki_page.author|default('') }}
+                            </p>
+                            <p class="wiki-doc-foot__edit"><span class="wiki-doc-foot__edit-note">Contribution :</span> proposer une modification via votre canal habituel (partenaire / client).</p>
+                        </footer>
+                    </div>
+
+                    <aside class="wiki-toc-wrap" aria-label="Sommaire de la page">
+                        <nav class="wiki-toc" id="wiki-toc" data-wiki-toc>
+                            <p class="wiki-toc__title">Sur cette page</p>
+                            <ol class="wiki-toc__list">
+                                <li><a href="#wiki-intro-title">Introduction</a></li>
+                                {% for item in wiki_page.toc %}
+                                    <li>
+                                        <a href="#{{ item.id }}">{{ item.label }}</a>
+                                        {% if item.children is defined and item.children|length %}
+                                            <ol>
+                                                {% for ch in item.children %}
+                                                    <li><a href="#{{ ch.id }}">{{ ch.label }}</a></li>
+                                                {% endfor %}
+                                            </ol>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </nav>
+                    </aside>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/assets/js/wiki.js" defer></script>
+{% endblock %}

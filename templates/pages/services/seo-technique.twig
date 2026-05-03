@@ -1,0 +1,507 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}SEO technique | Optimisation technique site web | Complianz{% endblock %}
+
+{% block description %}Corrigez tous les problèmes techniques qui freinent votre référencement. Core Web Vitals, indexation, structure URLs, données structurées. Résultats mesurables.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "SEO technique",
+      "url": "{{ app_url }}/performance-digitale/seo/seo-technique",
+      "description": "Optimisation des fondations techniques d'un site web pour améliorer son référencement naturel : Core Web Vitals, indexation, structure d'URL, données structurées et maillage interne.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "SEO technique",
+      "offers": [
+        { "@type": "Offer", "name": "SEO technique Ponctuel",        "price": "1200", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2500" } },
+        { "@type": "Offer", "name": "SEO technique + Suivi 6 mois", "price": "2900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5500" } },
+        { "@type": "Offer", "name": "SEO technique Premium",         "price": "4900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9500" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Référencement naturel (SEO)",       "item": "{{ app_url }}/performance-digitale/seo" },
+        { "@type": "ListItem", "position": 4, "name": "SEO technique",                     "item": "{{ app_url }}/performance-digitale/seo/seo-technique" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le SEO technique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le SEO technique regroupe toutes les optimisations liées à la structure et aux performances techniques d'un site web qui influencent son référencement naturel : vitesse de chargement, Core Web Vitals, crawlabilité, indexation, structure des URLs, redirection, balises canoniques, sitemap, robots.txt, données structurées et compatibilité mobile. C'est la fondation sur laquelle repose toute stratégie SEO efficace." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi les Core Web Vitals sont-ils importants pour le SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Depuis 2021, les Core Web Vitals (LCP, CLS, FID/INP) font partie des facteurs de classement de Google. Un site lent ou instable visuellement est pénalisé dans les résultats de recherche. En optimisant ces métriques, vous améliorez à la fois votre SEO et l'expérience utilisateur, ce qui réduit votre taux de rebond et améliore vos conversions." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre SEO technique et SEO on-page ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le SEO technique concerne l'infrastructure du site (vitesse, crawl, indexation, structure). Le SEO on-page concerne l'optimisation du contenu de chaque page (balises title, meta description, H1-H6, mots-clés, maillage interne). Les deux sont complémentaires : un bon SEO technique sans contenu optimisé, ou inversement, ne suffit pas pour bien se positionner." }
+        },
+        {
+          "@type": "Question",
+          "name": "Mon site est déjà bien positionné, ai-je besoin d'un audit technique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, même un site bien positionné peut avoir des problèmes techniques qui limitent son potentiel. Un audit technique révèle souvent des opportunités d'amélioration ignorées : pages non indexées, erreurs de crawl sur des pages importantes, ou problèmes de vitesse qui pourraient vous faire passer de la position 3 à la position 1 sur des requêtes clés." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/seo">SEO</a>
+                <span>›</span>
+                <span>SEO technique</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">SEO technique</span>
+                Optimisez les fondations de votre site — et libérez votre potentiel de référencement
+            </h1>
+            <p class="sp-hero__lead">
+                Nous corrigeons tous les <strong>problèmes techniques qui freinent votre référencement naturel</strong> — Core Web Vitals, erreurs d'indexation, structure d'URLs, données structurées. Un site techniquement impeccable est la condition indispensable pour que vos <strong>efforts SEO produisent des résultats mesurables</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Auditer mon SEO technique
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit technique gratuit avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Core Web Vitals optimisés (LCP, CLS, INP)</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Résultats visibles en 1 à 3 mois</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Un site compris et valorisé par Google</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Google <strong>comprend parfaitement votre site</strong>, crawle efficacement toutes vos pages importantes et les récompense dans ses résultats — sans blocages ni erreurs techniques.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100</strong>
+                        <span>score PageSpeed</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0</strong>
+                        <span>erreurs critiques</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+30%</strong>
+                        <span>pages indexées</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Les problèmes techniques</strong> peuvent empêcher jusqu'à <strong>40% de vos pages</strong> d'être correctement indexées par Google — sans que vous le sachiez</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les autres services SEO</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit SEO</h2>
+                    <p>Diagnostic complet incluant l'audit technique pour une vision 360° de votre référencement.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Rédaction SEO</h2>
+                    <p>Créez du contenu optimisé sur des fondations techniques solides pour maximiser vos positions.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Netlinking</h2>
+                    <p>Renforcez l'autorité de domaine après avoir solidifié les bases techniques de votre site.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-local" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO local</h2>
+                    <p>Optimisez également les aspects techniques pour le référencement local et Google Maps.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit technique offert avant engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Core Web Vitals &amp; PageSpeed optimisés
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport mensuel de suivi
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <p><strong>+150</strong> sites optimisés techniquement</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>1-3 mois</strong> pour des résultats mesurables</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — livrables SEO technique
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre d'action</p>
+            <h2>Ce que comprend une mission de SEO technique</h2>
+            <p class="sp-section-sub">De l'audit technique complet à l'implémentation des corrections et au suivi des résultats — nous prenons en charge tous les aspects techniques qui influencent votre référencement.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit technique complet</h3><p>Crawl complet du site avec Screaming Frog, analyse des erreurs 404, redirections 301/302, codes HTTP et problèmes d'indexation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Optimisation vitesse (Core Web Vitals)</h3><p>Optimisation LCP (chargement), CLS (stabilité visuelle) et INP (interactivité) pour atteindre les seuils Google et améliorer le positionnement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Correction des erreurs d'indexation</h3><p>Résolution des pages mal indexées ou non indexées, optimisation du fichier robots.txt et du sitemap XML pour un crawl optimal</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Structure URLs &amp; maillage interne</h3><p>Optimisation de l'architecture des URLs, des breadcrumbs et du maillage interne pour une transmission optimale de l'autorité entre les pages</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+                </div>
+                <div><h3>Implémentation données structurées (JSON-LD)</h3><p>Ajout des schémas JSON-LD adaptés à votre activité (Service, Article, FAQ, BreadcrumbList, LocalBusiness) pour les rich snippets Google</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Rapport mensuel de suivi</h3><p>Monitoring mensuel des Core Web Vitals, des erreurs de crawl, de l'indexation et des positions pour mesurer l'impact des optimisations réalisées</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Quand intervenir ?</p>
+            <h2>Les 4 situations qui nécessitent une intervention technique SEO</h2>
+            <p class="sp-section-sub">Le SEO technique n'est pas réservé aux grands sites. Tout site qui souhaite progresser sur Google doit avoir des fondations techniques solides.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Refonte de site</h3>
+                <p>Avant et après une refonte, le SEO technique protège votre capital SEO existant et assure que le nouveau site est indexé correctement dès son lancement.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Site lent ou mal noté PageSpeed</h3>
+                <p>Un score PageSpeed inférieur à 70 sur mobile pénalise vos positions et augmente votre taux de rebond. L'optimisation des Core Web Vitals génère des gains immédiats.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                </div>
+                <h3>Perte de trafic après une mise à jour</h3>
+                <p>Les mises à jour Google cœur ciblent souvent des problèmes techniques. Un audit post-mise à jour identifie les corrections prioritaires pour récupérer les positions perdues.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>E-commerce ou site large</h3>
+                <p>Les grands sites accumulent plus rapidement des problèmes techniques (budget de crawl, contenu dupliqué, pages orphelines). Le SEO technique est essentiel pour maintenir l'indexation à l'échelle.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'optimisation technique SEO ?</h2>
+            <p class="sp-section-sub">Le budget dépend de la taille du site, du nombre de problèmes à corriger et du niveau d'optimisation souhaité. L'audit technique initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SEO technique Ponctuel</p>
+                    <p class="sp-plan__price"><span>1 200 – 2 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit + corrections essentielles</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit technique complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Correction des erreurs critiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation indexation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + recommandations</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SEO technique + Suivi 6 mois</p>
+                    <p class="sp-plan__price"><span>2 900 – 5 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit + implémentation + suivi 6 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit + corrections complètes</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Core Web Vitals optimisés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Données structurées JSON-LD</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi mensuel 6 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel de positions</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SEO technique Premium</p>
+                    <p class="sp-plan__price"><span>4 900 – 9 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Grand site / e-commerce / JS</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit avancé + JavaScript SEO</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation budget de crawl</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Architecture &amp; maillage interne</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Log files analysis</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi 12 mois inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — l'audit technique initial est toujours gratuit. Devis personnalisé selon la technologie de votre site (WordPress, Shopify, React…) et sa taille.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au SEO technique</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit SEO complet</strong><p>Combinez l'audit technique avec l'analyse des contenus et des backlinks pour une vision 360°.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                <div><strong>Rédaction SEO</strong><p>Produisez du contenu optimisé sur des bases techniques solides pour maximiser l'impact de chaque page.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div><strong>Netlinking</strong><p>Maximisez l'impact de chaque backlink acquis grâce à des fondations techniques irréprochables.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie digitale globale</strong><p>Intégrez le SEO technique dans une stratégie digitale complète et cohérente.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le SEO technique</h2>
+                <p>Notre équipe répond sous 24h. L'audit technique initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le SEO technique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>SEO technique</strong> regroupe toutes les optimisations liées à la structure et aux performances d'un site web&nbsp;: vitesse, Core Web Vitals, crawlabilité, indexation, structure d'URLs, redirections, données structurées et compatibilité mobile. C'est la <strong>fondation sur laquelle repose toute stratégie SEO efficace</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi les Core Web Vitals sont-ils importants ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Depuis 2021, les <strong>Core Web Vitals</strong> (LCP, CLS, INP) font partie des facteurs de classement de Google. Un site lent ou instable visuellement est pénalisé dans les résultats. En optimisant ces métriques, vous améliorez à la fois votre SEO et l'expérience utilisateur — ce qui réduit votre taux de rebond et améliore vos <a href="/performance-digitale/tunnel-de-vente/cro">conversions</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre SEO technique et SEO on-page ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>SEO technique</strong> concerne l'infrastructure du site (vitesse, crawl, indexation). Le <strong>SEO on-page</strong> concerne l'optimisation du contenu de chaque page (balises, mots-clés, <a href="/performance-digitale/seo/redaction-seo">rédaction SEO</a>). Les deux sont complémentaires — un bon technique sans contenu optimisé ne suffit pas pour bien se positionner.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Mon site est bien positionné, ai-je besoin d'un audit technique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — même un site bien positionné peut avoir des problèmes techniques qui limitent son potentiel. Un audit technique révèle souvent des opportunités ignorées&nbsp;: pages non indexées, erreurs de crawl ou problèmes de vitesse qui pourraient vous faire passer de la <strong>position 3 à la position 1</strong> sur vos requêtes cibles.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à corriger les blocages techniques qui freinent votre référencement et à libérer le potentiel SEO de votre site ?</h2>
+                <p>Audit technique gratuit pour identifier tous les problèmes qui limitent votre visibilité Google et vous proposer un plan de correction priorisé.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Auditer mon SEO technique
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Core Web Vitals inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Résultats en 1 à 3 mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

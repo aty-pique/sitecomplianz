@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#e8ecf2"/>
+  <rect x="48" y="48" width="864" height="444" rx="12" fill="#fff" stroke="#d0d8e6" stroke-width="2"/>
+  <text x="480" y="278" text-anchor="middle" fill="#597aaf" font-family="system-ui,sans-serif" font-size="20" font-weight="600">Aper�u produit</text>
+  <text x="480" y="308" text-anchor="middle" fill="#8a96a8" font-family="system-ui,sans-serif" font-size="14">Remplacez par captures, GIF ou vid�o</text>
+</svg>

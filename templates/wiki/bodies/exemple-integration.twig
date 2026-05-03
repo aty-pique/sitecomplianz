@@ -1,0 +1,28 @@
+<h2 id="etapes">Étapes</h2>
+<ol class="wiki-steps">
+    <li><strong>Préparer</strong> un jeton d’appel sandbox.</li>
+    <li><strong>Poster</strong> le formulaire métier vers l’endpoint d’ingestion.</li>
+    <li><strong>Vérifier</strong> le statut <code>202 Accepted</code> puis poller l’export.</li>
+    <li><strong>Journaliser</strong> côté client l’identifiant de corrélation retourné.</li>
+</ol>
+
+<h2 id="checklist">Checklist go-live</h2>
+<ul class="wiki-checklist">
+    <li><label><input type="checkbox" disabled> TLS 1.2+ validé</label></li>
+    <li><label><input type="checkbox" disabled> Quotas &amp; alertes configurés</label></li>
+    <li><label><input type="checkbox" disabled> Plan de rollback documenté</label></li>
+</ul>
+
+<section class="wiki-example" aria-labelledby="wiki-ex-title">
+    <h3 id="wiki-ex-title">Cas d’usage — avant / après</h3>
+    <div class="wiki-example__grid">
+        <div>
+            <p class="wiki-example__label">Avant</p>
+            <p>Envoi CSV par email, ressaisie manuelle, pas de traçabilité.</p>
+        </div>
+        <div>
+            <p class="wiki-example__label">Après</p>
+            <p>Flux API idempotent, corrélation serveur, export horodaté.</p>
+        </div>
+    </div>
+</section>

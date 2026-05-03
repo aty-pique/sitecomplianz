@@ -1,0 +1,620 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (49 chars titre / 153 chars description) ─────────────────── #}
+{% block title %}Mise en place SMQ &amp; démarche qualité{% endblock %}
+
+{% block description %}Structurez vos processus avec un SMQ sur-mesure : cartographie, procédures, KPI, alignement ISO 9001. Entreprise pilotable et performante. Devis gratuit sous 24h.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Mise en place SMQ — Système de Management Qualité",
+      "url": "{{ app_url }}/audit-conformite/certifications-iso/smq",
+      "description": "Conception et mise en place d'un système de management de la qualité (SMQ) adapté à l'entreprise : cartographie des processus, formalisation des procédures, indicateurs KPI, alignement ISO 9001, accompagnement des équipes et préparation à la certification.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Système de Management de la Qualité",
+      "offers": [
+        { "@type": "Offer", "name": "SMQ simple (petite structure)", "price": "5000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "10000" } },
+        { "@type": "Offer", "name": "SMQ structuré (PME)",            "price": "10000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "25000" } },
+        { "@type": "Offer", "name": "SMQ complet + certification",    "price": "25000", "priceCurrency": "EUR" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                        "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",    "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Mise en conformité & ISO",       "item": "{{ app_url }}/audit-conformite/certifications-iso" },
+        { "@type": "ListItem", "position": 4, "name": "Mise en place SMQ",              "item": "{{ app_url }}/audit-conformite/certifications-iso/smq" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un SMQ (Système de Management de la Qualité) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un SMQ est un ensemble structuré de processus, procédures et indicateurs permettant à une entreprise de piloter et améliorer en continu sa qualité. Il répond aux exigences de normes comme ISO 9001 et permet de transformer une organisation floue en entreprise pilotable et mesurable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour mettre en place un SMQ ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La durée varie de 3 mois (structure simple, faible périmètre) à 12 mois et plus pour un SMQ complet avec préparation à la certification ISO. Cela dépend de la taille de l'entreprise, du nombre de processus à structurer et du niveau de maturité initial." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un SMQ est-il obligatoire pour obtenir la certification ISO 9001 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, la certification ISO 9001 exige la mise en place et la documentation d'un Système de Management de la Qualité. Nos consultants vous accompagnent à la fois dans la structuration du SMQ et dans la préparation à l'audit de certification." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles entreprises ont besoin d'un SMQ ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Toute entreprise souhaitant structurer ses processus, réduire ses erreurs opérationnelles, améliorer sa communication interne, préparer une certification ISO, ou simplement passer à un mode de gestion plus professionnel et mesurable peut bénéficier d'un SMQ." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un SMQ et un audit qualité interne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le SMQ est le système à mettre en place (processus, documents, indicateurs). L'audit qualité interne est une évaluation périodique du bon fonctionnement de ce SMQ. L'un construit, l'autre vérifie. Les deux sont complémentaires dans une démarche qualité durable." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/certifications-iso">Mise en conformité &amp; ISO</a>
+                <span>›</span>
+                <span>SMQ</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Démarche qualité &amp; système de management</span>
+                Mise en place SMQ : transformez votre entreprise en organisation pilotable et performante
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et déployons un <strong>Système de Management de la Qualité</strong> (SMQ) adapté à votre réalité&nbsp;: cartographie des processus, procédures documentées, KPI, alignement ISO 9001 et accompagnement des équipes pour une adoption durable.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis gratuit
+                </a>
+                <a href="#delivrables" class="btn btn-outline">
+                    Voir ce qui est mis en place
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Consultants certifiés ISO 9001</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>SMQ opérationnel en 3 mois</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Adoption équipes garantie</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que votre entreprise devient</p>
+                        <p class="sp-deliverables-card__subtitle">À la fin de la mise en place</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre entreprise passe d'un fonctionnement flou à un <strong>système structuré</strong>, maîtrisé et performant&nbsp;: chaque processus est clair, chaque rôle est défini, chaque résultat est mesurable.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3–12</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur-mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–30%</strong>
+                        <span>d'erreurs ops</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients gagnent <strong>5 à 10h/semaine</strong> de temps de pilotage dès les 3 premiers mois</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit de maturité offert au démarrage
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Devis personnalisé sous 48h
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Accompagnement équipes inclus
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <p><strong>+80</strong> SMQ déployés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                <p><strong>95%</strong> taux de certification</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE COMPREND LA MISE EN PLACE — 9 éléments
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="delivrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre de la mission</p>
+            <h2>Ce que nous mettons en place dans votre entreprise</h2>
+            <p class="sp-section-sub">Un SMQ complet, documenté et adopté par vos équipes — pas juste un dossier ISO qui finit dans un tiroir.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Cartographie des processus</h3><p>Identification et modélisation de tous vos processus clés, de bout en bout</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Formalisation des procédures</h3><p>Rédaction des modes opératoires, instructions de travail et procédures documentées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Mise en place d'indicateurs KPI</h3><p>Tableau de bord qualité avec les indicateurs pertinents pour piloter votre activité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Structuration documentaire SMQ</h3><p>Manuel qualité, politique qualité, enregistrements — tout le corpus documentaire requis</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Mise en place d'outils de suivi</h3><p>Sélection et paramétrage des outils adaptés à votre taille et votre budget</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Accompagnement des équipes</h3><p>Sensibilisation, formation et montée en compétence de vos collaborateurs sur le SMQ</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div><h3>Alignement normes ISO</h3><p>Structuration conforme aux exigences ISO 9001, ISO 13485 ou autres normes applicables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Amélioration continue</h3><p>Cycle PDCA, revues de direction, gestion des non-conformités et actions correctives</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Préparation audit de certification</h3><p>Simulation d'audit interne, levée des non-conformités, préparation à l'organisme certificateur</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi mettre en place un SMQ</p>
+            <h2>Ce que vous gagnez avec un système de management qualité</h2>
+            <p class="sp-section-sub">Un SMQ bien mis en place n'est pas une contrainte bureaucratique — c'est le moteur d'une croissance maîtrisée.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Organisation claire et structurée</h3>
+                <p>Chaque équipe sait ce qu'elle doit faire, comment et quand. Fini le flou et les rôles qui se chevauchent.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Processus maîtrisés et documentés</h3>
+                <p>Vos façons de faire sont formalisées, reproductibles et transmissibles — même en cas de turnover.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Réduction des erreurs et des pertes</h3>
+                <p>Moins de retouches, de non-conformités et de temps perdu. Jusqu'à –30% d'erreurs opérationnelles.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Gain de temps et efficacité opérationnelle</h3>
+                <p>Des processus clairs = des décisions rapides et moins de réunions pour se coordonner.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Meilleure communication interne</h3>
+                <p>Interfaces définies entre les services, escalades claires, responsabilités sans ambiguïté.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Base solide pour la croissance</h3>
+                <p>Recrutement, ouverture de nouveaux marchés, levée de fonds — tout devient plus simple avec un SMQ robuste.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h3>Préparation aux certifications ISO</h3>
+                <p>ISO 9001, ISO 13485, ISO 27001&hellip; votre SMQ devient le socle naturel de toute certification future.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <h3>Entreprise pilotable et mesurable</h3>
+                <p>Tableaux de bord, revues de direction, alertes qualité — vous pilotez avec des données, pas des intuitions.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   ÉTAPES DU PROJET — 4 phases
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-process">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous déployons votre SMQ en 4 phases</h2>
+            <p class="sp-section-sub">Une approche structurée, progressive, qui minimise la disruption de votre activité et garantit l'adoption des équipes.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number">01</div>
+                <div class="sp-step__content">
+                    <h3>Diagnostic de maturité qualité</h3>
+                    <p>Audit de votre situation actuelle&nbsp;: processus existants, niveau de formalisation, outils en place, maturité des équipes et écarts par rapport aux exigences cibles (ISO ou internes).</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 2 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">02</div>
+                <div class="sp-step__content">
+                    <h3>Conception du SMQ sur-mesure</h3>
+                    <p>Cartographie des processus, architecture documentaire, définition des KPI et des indicateurs de pilotage, rédaction des procédures clés et du manuel qualité adapté à votre secteur.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 3 mois
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">03</div>
+                <div class="sp-step__content">
+                    <h3>Déploiement et accompagnement équipes</h3>
+                    <p>Mise en place des outils de suivi, formation et sensibilisation des collaborateurs, ateliers de travail par service, suivi de l'adoption et ajustements en temps réel.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        2 à 6 mois
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">04</div>
+                <div class="sp-step__content">
+                    <h3>Audit interne et préparation certification</h3>
+                    <p>Simulation d'audit interne selon les exigences ISO, levée des non-conformités identifiées, revue de direction et accompagnement lors de l'audit de certification par l'organisme tiers.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 3 mois
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES / POUR QUEL PROFIL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Adapté à votre contexte</p>
+                    <h2>Un SMQ calibré selon votre entreprise</h2>
+                    <p class="sp-section-sub">Le périmètre, la durée et le coût de la mission s'adaptent à votre réalité. Voici les variables qui déterminent le niveau de SMQ adapté à votre situation.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille de l'entreprise</span>
+                        <span class="sp-variable-value">TPE, PME, ETI — de 5 à 500 collaborateurs</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de processus</span>
+                        <span class="sp-variable-value">Périmètre partiel ou couverture totale</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de formalisation</span>
+                        <span class="sp-variable-value">Structure interne vs préparation certification</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Secteur d'activité</span>
+                        <span class="sp-variable-value">Santé (ISO 13485), industrie, services, tech</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Maturité initiale</span>
+                        <span class="sp-variable-value">Zéro processus à SMQ existant à restructurer</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Format d'intervention</span>
+                        <span class="sp-variable-value">Présentiel, distanciel ou hybride</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 2.png" alt="Mise en place SMQ sur-mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la mise en place d'un SMQ ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre entreprise, du nombre de processus à structurer et de l'objectif visé (structuration interne vs certification ISO).</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SMQ Simple</p>
+                    <p class="sp-plan__price"><span>5 000 – 10 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Petite structure, périmètre limité</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic qualité initial</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie des processus clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5 à 10 procédures documentées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> KPI de base (5 à 8 indicateurs)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipe (1 journée)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SMQ Structuré PME</p>
+                    <p class="sp-plan__price"><span>10 000 – 25 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME 20 à 200 collaborateurs</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit de maturité complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie complète multi-services</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Corpus documentaire complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tableau de bord KPI + outils de suivi</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement équipes (3 mois)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alignement ISO 9001 inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SMQ Complet + Certification</p>
+                    <p class="sp-plan__price"><span>25 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">+ 1 000 – 3 000 €/mois d'accompagnement</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>SMQ complet toutes phases</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation certification ISO incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit interne simulé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement lors de la certification</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi mensuel post-certification</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre SMQ</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/certifications-iso/iso-9001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 9001</strong><p>Votre SMQ est la porte d'entrée naturelle vers la certification ISO 9001.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/audit-qualite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                <div><strong>Audit qualité interne</strong><p>Évaluez périodiquement votre SMQ pour garantir son efficacité dans le temps.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité globale</strong><p>RGPD, ISO, réglementaire : une vision complète de votre conformité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit organisationnel</strong><p>La mise en place du SMQ peut s'inscrire dans une démarche d'audit organisationnel plus large.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le SMQ</h2>
+                <p>Nos consultants répondent sous 24h à toute question sur votre démarche qualité.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un SMQ (Système de Management de la Qualité) ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>SMQ</strong> est un ensemble structuré de processus, procédures et indicateurs permettant à une entreprise de piloter et améliorer sa qualité en continu. Il répond aux exigences de normes comme <a href="/audit-conformite/certifications-iso/iso-9001">ISO 9001</a> et transforme une organisation floue en entreprise pilotable et mesurable.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour mettre en place un SMQ ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>3 mois</strong> pour une petite structure avec un périmètre limité, à <strong>12 mois et plus</strong> pour un SMQ complet avec préparation à la certification ISO. La durée dépend de la taille de l'entreprise, du nombre de processus et du niveau de maturité initial.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Un SMQ est-il obligatoire pour la certification ISO 9001 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, la <a href="/audit-conformite/certifications-iso/iso-9001">certification ISO 9001</a> exige la mise en place et la documentation d'un Système de Management de la Qualité conforme à la norme. Nos consultants vous accompagnent sur les deux volets simultanément pour optimiser le temps et le coût.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles entreprises ont besoin d'un SMQ ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Toute entreprise souhaitant structurer ses processus, réduire ses erreurs, préparer une <a href="/audit-conformite/certifications-iso">certification ISO</a>, améliorer sa communication interne ou se préparer à la croissance. Le secteur santé (ISO 13485) est particulièrement concerné par des exigences fortes en management qualité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre un SMQ et un audit qualité interne ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le SMQ est le <strong>système à construire</strong> (processus, documents, indicateurs). L'<a href="/audit-conformite/certifications-iso/audit-qualite">audit qualité interne</a> est une <strong>évaluation périodique</strong> du bon fonctionnement de ce SMQ. L'un construit, l'autre vérifie et améliore — les deux sont complémentaires dans une démarche qualité durable.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à structurer votre entreprise avec un SMQ sur-mesure ?</h2>
+                <p>Nos consultants analysent votre situation et vous proposent un plan d'action adapté à votre taille, votre secteur et vos objectifs. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon SMQ
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Consultants certifiés ISO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

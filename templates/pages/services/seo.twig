@@ -1,0 +1,612 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (52 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}SEO & référencement naturel — visibilité durable{% endblock %}
+
+{% block description %}Améliorez votre visibilité sur Google grâce au référencement naturel : audit SEO, optimisation technique, contenu et netlinking. Votre site génère du trafic qualifié.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Référencement naturel (SEO)",
+      "url": "{{ app_url }}/performance-digitale/seo",
+      "description": "Optimisation du site internet afin d'améliorer sa visibilité sur les moteurs de recherche, sa performance et sa capacité à générer du trafic qualifié. L'objectif est de structurer le site pour qu'il soit compréhensible par les moteurs de recherche et efficace pour convertir les visiteurs.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Référencement naturel SEO",
+      "offers": [
+        { "@type": "Offer", "name": "Stratégie SEO",                       "price": "1500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000"  } },
+        { "@type": "Offer", "name": "Stratégie + Optimisation SEO base",   "price": "3000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Suivi SEO mensuel",                    "price": "500",   "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4000"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Référencement naturel (SEO)",       "item": "{{ app_url }}/performance-digitale/seo" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi investir dans le référencement naturel (SEO) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le SEO génère un trafic qualifié de façon pérenne sans payer chaque clic. Contrairement à la publicité qui s'arrête quand le budget est épuisé, le référencement naturel construit une visibilité durable. Les résultats croissent avec le temps, et le coût par lead diminue au fur et à mesure que le site monte en position." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour voir des résultats en SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les premiers résultats visibles apparaissent généralement entre 3 et 6 mois. Le SEO est une stratégie de long terme : les résultats s'accumulent et se renforcent avec le temps. Pour des sites nouveaux ou peu optimisés, il faut souvent 6 à 12 mois pour atteindre un trafic significatif. Le SEO local et longue traîne peuvent générer des résultats plus rapides." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le coût d'une prestation SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 500 € à 5 000 € pour une stratégie SEO (audit + recommandations), de 3 000 € à 12 000 € pour une refonte SEO complète (stratégie + optimisation du site), et de 500 € à 4 000 €/mois pour un suivi SEO mensuel (suivi de positions, optimisation continue, production de contenu, netlinking). Le tarif dépend de la taille du site, du secteur et du niveau de concurrence." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit SEO est une analyse complète de votre site web permettant d'identifier tous les problèmes qui freinent votre référencement : erreurs techniques (temps de chargement, structure, indexation), problèmes de contenu (pages thin content, duplicate content, manque de mots-clés), et manques de notoriété (backlinks insuffisants). L'audit est la première étape indispensable de toute stratégie SEO." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre SEO et SEA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le SEO (Search Engine Optimization) désigne le référencement naturel, c'est-à-dire les actions pour améliorer le positionnement de votre site dans les résultats organiques de Google sans payer chaque clic. Le SEA (Search Engine Advertising) désigne la publicité payante sur les moteurs de recherche (Google Ads). Les deux sont complémentaires : le SEA génère des résultats immédiats, le SEO construit une visibilité durable." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <span>Référencement naturel (SEO)</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">SEO & Référencement naturel</span>
+                Votre site devient visible, attire des prospects qualifiés et soutient votre développement — sans payer chaque clic
+            </h1>
+            <p class="sp-hero__lead">
+                Nous optimisons votre site internet pour améliorer sa <strong>visibilité sur Google</strong>, sa performance technique et sa capacité à <strong>générer du trafic qualifié</strong>. L'objectif&nbsp;: un site compris par les moteurs de recherche, efficace pour convertir vos visiteurs, et qui continue de travailler pour vous dans le temps.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Obtenir mon audit SEO gratuit
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode SEO
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit SEO gratuit avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Résultats mesurables &amp; reporting mensuel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Stratégie 100% white hat, pérenne</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Un site visible, performant et qui convertit</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre site <strong>attire des prospects qualifiés</strong> depuis Google et soutient votre développement commercial — sans dépendre de budgets publicitaires permanents.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>×3</strong>
+                        <span>trafic organique</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–65%</strong>
+                        <span>coût par lead</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Top 3</strong>
+                        <span>mots-clés cibles</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Performance long terme&nbsp;:</strong> contrairement à la pub, votre <strong>visibilité SEO continue de croître</strong> après l'arrêt des investissements</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — 5 leviers SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les 5 leviers de votre référencement naturel</p>
+        <div class="sp-subservices__grid sp-subservices__grid--5">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit SEO</h2>
+                    <p>Diagnostic complet de votre site : technique, contenu, backlinks et opportunités de croissance.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-local" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO local</h2>
+                    <p>Dominez les recherches de proximité sur Google Maps et dans votre zone géographique cible.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-technique" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO technique</h2>
+                    <p>Performance, Core Web Vitals, structure du site, indexation et balisage technique optimisés.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Netlinking</h2>
+                    <p>Stratégie de backlinks pour renforcer votre autorité de domaine et vos positions Google.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Rédaction SEO &amp; contenu</h2>
+                    <p>Production de contenus optimisés qui positionnent votre site et engagent vos visiteurs.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit SEO gratuit — sans engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Reporting mensuel de positions &amp; trafic
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Stratégie white hat uniquement
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <p><strong>+120</strong> sites référencés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>×3</strong> trafic organique moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE COMPREND LA PRESTATION
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une prestation SEO &amp; optimisation de site</h2>
+            <p class="sp-section-sub">Chaque mission SEO couvre l'ensemble des 3 piliers du référencement naturel — technique, contenu, popularité — pour un impact durable et mesurable sur votre visibilité.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit SEO du site</h3><p>Analyse complète technique, contenu et backlinks pour identifier tous les freins au référencement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div><h3>Analyse des mots-clés</h3><p>Recherche et sélection des requêtes stratégiques : volume, intention de recherche, concurrence et opportunités</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Analyse technique</h3><p>Vitesse de chargement, Core Web Vitals, structure URLs, balises, indexation, mobile-first — tout ce que Google mesure</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Optimisation des contenus</h3><p>Mise à jour des pages existantes, création de nouveaux contenus ciblant les requêtes identifiées, cocon sémantique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Optimisation des pages</h3><p>Balises title, meta description, H1-H6, maillage interne, données structurées — chaque page optimisée pour convertir</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div><h3>Amélioration de l'UX</h3><p>Optimisation de l'expérience utilisateur pour réduire le taux de rebond et améliorer le taux de conversion</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div><h3>Netlinking &amp; popularité</h3><p>Stratégie d'acquisition de backlinks qualitatifs pour renforcer l'autorité de domaine et les positions</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Suivi des performances</h3><p>Suivi mensuel des positions, du trafic organique, des conversions et des KPIs définis en début de mission</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Reporting mensuel</h3><p>Rapport détaillé chaque mois avec évolution des positions, trafic, leads et recommandations d'optimisation</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 7 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi le SEO</p>
+            <h2>Ce que le référencement naturel change pour votre business</h2>
+            <p class="sp-section-sub">Les entreprises qui investissent dans le SEO réduisent leur coût par lead de 65% en moyenne par rapport à la publicité payante, tout en construisant une visibilité pérenne.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Meilleure visibilité sur Google</h3>
+                <p>Votre site apparaît en première page sur les requêtes de vos prospects — là où ils cherchent activement vos services.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Augmentation du trafic qualifié</h3>
+                <p>Vous attirez des visiteurs qui cherchent exactement ce que vous proposez — un trafic ciblé qui convertit mieux.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Amélioration du positionnement</h3>
+                <p>Vos pages clés progressent dans les résultats Google, vous positionnant comme référence dans votre secteur.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>Génération de leads</h3>
+                <p>Le trafic organique converti en prospects, prises de contact et demandes — sans payer chaque visite.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Meilleure compréhension du site</h3>
+                <p>Google comprend mieux votre site et le récompense dans ses résultats — meilleure structure, meilleur crawl, meilleure indexation.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Performance long terme</h3>
+                <p>Contrairement à la publicité, le SEO continue de travailler pour vous — vos positions acquises résistent dans le temps.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Réduction de la dépendance aux pubs</h3>
+                <p>Moins vous dépendez de Google Ads, plus votre croissance est saine et prévisible. Le SEO diversifie vos sources de trafic.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine la complexité &amp; le budget SEO</h2>
+                    <p class="sp-section-sub">Chaque projet SEO est unique. Ces variables sont analysées lors de l'audit SEO initial (toujours gratuit) pour définir la stratégie et le budget adaptés.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille du site</span>
+                        <span class="sp-variable-value">Quelques pages à plusieurs centaines — volume d'optimisations à réaliser</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de pages cibles</span>
+                        <span class="sp-variable-value">Pages à créer ou optimiser selon la stratégie de mots-clés</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de concurrence</span>
+                        <span class="sp-variable-value">Secteur peu concurrentiel à marché saturé — impact sur les délais et le budget netlinking</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">État initial du site</span>
+                        <span class="sp-variable-value">Site neuf, site existant avec historique SEO ou site pénalisé</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de contenu</span>
+                        <span class="sp-variable-value">Quantité d'articles, pages de service et contenus à produire ou optimiser</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Zone géographique ciblée</span>
+                        <span class="sp-variable-value">Local, régional, national ou international — périmètre de la stratégie de mots-clés</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Référencement naturel SEO" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une prestation SEO ?</h2>
+            <p class="sp-section-sub">Le budget SEO dépend de la taille de votre site, du niveau de concurrence et de vos objectifs. L'audit SEO initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie SEO</p>
+                    <p class="sp-plan__price"><span>1 500 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit + recommandations priorisées</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit SEO complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des mots-clés cibles</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recommandations priorisées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action SEO 6-12 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session de restitution</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--accent">
+                <div class="sp-plan__badge sp-badge--accent">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie + Optimisation SEO</p>
+                    <p class="sp-plan__price"><span>3 000 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Refonte SEO complète (one-shot)</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit + stratégie complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation technique du site</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation on-page toutes pages cibles</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cocon sémantique + contenus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maillage interne optimisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Données structurées (JSON-LD)</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Suivi SEO mensuel</p>
+                    <p class="sp-plan__price"><span>500 – 4 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Engagement 6 mois minimum</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Suivi positions &amp; trafic mensuel</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation continue des pages</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Production de contenu SEO</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Acquisition de backlinks</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting mensuel détaillé</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit SEO est toujours gratuit. Les offres peuvent être combinées (stratégie + suivi mensuel). Devis personnalisé selon votre secteur et vos objectifs.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au SEO</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit SEO</strong><p>Diagnostic complet de votre site : freins techniques, opportunités de contenu et backlinks à développer.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><strong>Publicité digitale (SEA & Social Ads)</strong><p>Générez du trafic immédiat en complément de votre stratégie SEO long terme.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Un site conçu nativement pour le SEO — structure, performance et contenu optimisés dès le départ.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie digitale globale</strong><p>Intégrez le SEO dans une stratégie digitale complète avec les bons leviers et les bonnes priorités.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le référencement naturel</h2>
+                <p>Notre équipe répond sous 24h. L'audit SEO initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Pourquoi investir dans le référencement naturel ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>SEO génère un trafic qualifié de façon pérenne</strong> sans payer chaque clic. Contrairement à la publicité qui s'arrête quand le budget est épuisé, le référencement naturel construit une visibilité durable. Les résultats croissent avec le temps, et votre coût par lead diminue progressivement — jusqu'à 65% moins cher qu'un lead publicitaire.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour voir des résultats en SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les premiers résultats visibles apparaissent entre <strong>3 et 6 mois</strong>. Pour des sites nouveaux ou peu optimisés, il faut souvent 6 à 12 mois pour atteindre un trafic significatif. Le <a href="/performance-digitale/seo/seo-local">SEO local</a> et les requêtes longue traîne génèrent souvent des résultats plus rapides.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un audit SEO et pourquoi en faire un ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <a href="/performance-digitale/seo/audit-seo">audit SEO</a> est une analyse complète de votre site pour identifier tous les problèmes qui freinent votre référencement&nbsp;: erreurs techniques, problèmes de contenu et manques de notoriété. C'est la <strong>première étape indispensable</strong> de toute stratégie SEO — et nous le réalisons gratuitement.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre SEO et SEA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>SEO</strong> (référencement naturel) améliore votre positionnement dans les résultats organiques de Google sans payer chaque clic — résultats durables mais progressifs. Le <strong>SEA</strong> (publicité sur Google Ads) génère des résultats immédiats mais s'arrête dès que le budget cesse. Les deux sont complémentaires : <a href="/performance-digitale/strategie-digitale/publicite-digitale">la publicité digitale</a> accélère, le SEO pérennise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel est le coût d'une prestation SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 500 € à 5 000 €</strong> pour une stratégie SEO (audit + recommandations), de <strong>3 000 € à 12 000 €</strong> pour une <a href="#tarifs">refonte SEO complète</a>, et de <strong>500 € à 4 000 €/mois</strong> pour un suivi mensuel continu. Le tarif dépend de la taille de votre site, du secteur et du niveau de concurrence. L'audit initial est toujours gratuit.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à rendre votre site visible sur Google et à attirer des prospects qualifiés ?</h2>
+                <p>Audit SEO gratuit pour analyser l'état de votre site, identifier les freins et vous proposer une stratégie adaptée à vos objectifs.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Obtenir mon audit SEO gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie white hat</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

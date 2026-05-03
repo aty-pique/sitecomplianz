@@ -1,0 +1,53 @@
+<h2 id="contexte">Contexte &amp; objectifs</h2>
+<p>Ce wiki n’est pas un simple empilement de PDF : il suit une <strong>architecture de l’information</strong> (IA) où chaque page a un rôle, un public et des liens de sortie clairs.</p>
+
+<div class="wiki-callout wiki-callout--info" role="note">
+    <p class="wiki-callout__title">Info</p>
+    <p>Les pages longues exposent un <strong>sommaire sticky</strong> à droite (desktop) pour garder le fil sans scroller au hasard.</p>
+</div>
+
+<h2 id="organisation">Organisation de l’information</h2>
+<p>Nous séparons <em>parcours</em> (qui êtes-vous ?) et <em>référence</em> (comment ça marche ?). Les cartes du hub vous placent d’abord dans une intention, puis vous menez vers des pages atomiques.</p>
+<ul>
+    <li><strong>Granularité</strong> : une idée principale par page.</li>
+    <li><strong>Profondeur</strong> : H2 = concept, H3 = sous-partie, H4 = détail technique.</li>
+    <li><strong>Sorties</strong> : pager, « lecture associée », CTA contextuels.</li>
+</ul>
+
+<h2 id="principes">Principes d’accessibilité</h2>
+<p>Repères visibles, contrastes vérifiés, navigation clavier sur menus et sommaire, textes de boutons explicites.</p>
+
+<h3 id="principes-structure">Structure &amp; repères</h3>
+<p>Fil d’Ariane systématique, titres hiérarchiques sans saut de niveau, zones <code>main</code> / <code>nav</code> / <code>aside</code> explicites.</p>
+
+<h3 id="principes-recherche">Recherche &amp; filtres</h3>
+<p>La recherche du hub filtre les cartes <strong>et</strong> la liste complète des pages (côté client). Les tags servent de raccourcis sémantiques.</p>
+
+<div class="wiki-callout wiki-callout--warning" role="alert">
+    <p class="wiki-callout__title">Attention</p>
+    <p>Ne dupliquez pas la même procédure sur trois pages : préférez un lien unique et une page « source de vérité ».</p>
+</div>
+
+<h2 id="exemples">Exemples rapides</h2>
+<p>Bloc de configuration type (fictif) :</p>
+<div class="wiki-code-block">
+    <div class="wiki-code-block__head">
+        <span class="wiki-code-block__label">config.json</span>
+        <button type="button" class="wiki-code-block__copy" data-wiki-copy>Copier</button>
+    </div>
+    <pre><code class="language-json">{
+  "environment": "staging",
+  "wiki": {
+    "baseUrl": "https://exemple.fr/wiki",
+    "search": true
+  }
+}</code></pre>
+</div>
+
+<h2 id="faq-intro">FAQ courte</h2>
+<dl class="wiki-faq-mini">
+    <dt>Où poser une question métier ?</dt>
+    <dd>Page <a href="/contact">Contact</a> ou votre interlocuteur habituel — le wiki reste la référence stable.</dd>
+    <dt>Le wiki remplace le blog ?</dt>
+    <dd>Non : le <a href="/blog">blog</a> garde les actualités ; le wiki porte la doc structurée.</dd>
+</dl>

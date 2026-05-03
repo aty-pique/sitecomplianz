@@ -1,0 +1,583 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Infogérance & gestion serveurs — infrastructure sécurisée{% endblock %}
+
+{% block description %}Gestion complète de vos serveurs et infrastructures : monitoring, sécurisation, sauvegardes, mises à jour et optimisation des performances. Votre infra gérée en continu.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Infogérance & gestion serveurs",
+      "url": "{{ app_url }}/support-maintenance/infogerance",
+      "description": "Gestion complète des serveurs et des infrastructures techniques afin d'assurer leur bon fonctionnement, leur sécurité et leur performance dans la durée. Monitoring, sécurisation, sauvegardes, mises à jour et optimisation des performances.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Infogérance serveur et hébergement managé",
+      "offers": [
+        { "@type": "Offer", "name": "Infogérance simple",   "price": "200",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "800" } },
+        { "@type": "Offer", "name": "Infogérance standard", "price": "800",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2000" } },
+        { "@type": "Offer", "name": "Infogérance avancée",  "price": "2000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",  "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Infogérance & Hébergement", "item": "{{ app_url }}/support-maintenance/infogerance" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'infogérance de serveurs ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'infogérance de serveurs est un service de gestion externalisée de votre infrastructure technique. Un prestataire prend en charge la gestion, la surveillance, la sécurisation, les mises à jour et l'optimisation de vos serveurs, hébergements et infrastructures cloud — vous permettant de vous concentrer sur votre activité sans vous préoccuper de la technique." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre infogérance simple et avancée ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'infogérance simple (200–800€/mois) couvre les serveurs mutualisés ou VPS simples avec monitoring basique et sauvegardes régulières. L'infogérance standard (800–2000€/mois) ajoute un monitoring avancé, une sécurisation renforcée et la gestion des incidents. L'infogérance avancée (2000–5000€/mois+) inclut des infrastructures complexes, une haute disponibilité, du clustering et un support 24/7." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels types de serveurs gérez-vous ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous gérons tous types de serveurs et infrastructures : serveurs dédiés (OVH, Hetzner, etc.), VPS, cloud public (AWS, Azure, Google Cloud), cloud privé, infrastructures hybrides, serveurs mutualisés et architectures microservices. Nous intervenons sur Linux (Ubuntu, Debian, CentOS) et Windows Server." }
+        },
+        {
+          "@type": "Question",
+          "name": "Proposez-vous un monitoring 24h/24 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, nous proposons un monitoring continu de vos serveurs selon le niveau d'infogérance contractualisé. Pour les besoins de haute disponibilité (24/7), l'infogérance avancée inclut une surveillance permanente avec alertes en temps réel et intervention prioritaire en cas d'incident critique, même en dehors des heures ouvrées." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qui est inclus dans une prestation d'infogérance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une prestation d'infogérance inclut typiquement : gestion des serveurs, monitoring des performances et de la disponibilité, maintenance technique (mises à jour OS, logiciels), sécurisation (pare-feu, SSL, détection d'intrusion), sauvegardes régulières avec tests de restauration, optimisation des performances et gestion des incidents avec rétablissement du service." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg, #eef2f8) 0%, #f5f8fc 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <span>Infogérance &amp; Hébergement</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Infogérance &amp; gestion serveurs</span>
+                Votre infrastructure gérée, sécurisée et performante en continu — sans que vous ayez à y penser
+            </h1>
+            <p class="sp-hero__lead">
+                Nous prenons en charge la <strong>gestion complète de vos serveurs et infrastructures techniques</strong> : monitoring permanent, sécurisation, sauvegardes, mises à jour, optimisation des performances et gestion des incidents. Votre <strong>infrastructure reste fiable, sécurisée et disponible</strong> — sans mobiliser vos équipes sur des sujets techniques.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    Confier la gestion de mon infrastructure
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Monitoring continu — alertes en temps réel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Sauvegardes testées &amp; restauration garantie</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Disponibilité 99,9% &amp; SLA garanti</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Infrastructure gérée en continu</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre infrastructure est <strong>surveillée, sécurisée et optimisée en permanence</strong> — incidents détectés avant vos utilisateurs, sauvegardes vérifiées, performances maintenues.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>99,9%</strong>
+                        <span>disponibilité SLA</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>24/7</strong>
+                        <span>monitoring actif</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0</strong>
+                        <span>perte de données</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises sans monitoring actif subissent en moyenne <strong>4h de downtime non détecté par mois</strong> — chaque heure coûtant plusieurs milliers d'euros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos offres d'infogérance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/infogerance/infogerance-complete" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Infogérance complète</h2>
+                    <p>Gestion totale de votre infrastructure serveur — monitoring, sécurité, sauvegardes, incidents et optimisation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/infogerance/hebergement-serveur" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Hébergement serveur dédié &amp; VPS</h2>
+                    <p>Hébergement haute performance sur serveur dédié ou VPS — ressources garanties, performance optimale.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/infogerance/cloud-infrastructure" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Cloud &amp; infrastructure managée</h2>
+                    <p>Infrastructure cloud AWS, Azure ou OVH entièrement managée — élasticité, scalabilité et haute disponibilité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Monitoring proactif — incidents détectés avant vos utilisateurs
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Sauvegardes quotidiennes testées &amp; restaurables
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport mensuel des interventions &amp; performances
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                <p><strong>+100</strong> infrastructures gérées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>99,9%</strong> disponibilité moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE COMPREND L'INFOGÉRANCE — 9 caractéristiques
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre complet</p>
+            <h2>Ce que comprend notre service d'infogérance</h2>
+            <p class="sp-section-sub">Un service d'infogérance complet couvre bien plus que l'hébergement. Votre infrastructure est gérée dans sa globalité — de la surveillance en temps réel à l'optimisation continue des performances.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div><h3>Gestion des serveurs</h3><p>Administration complète de vos serveurs : configuration, maintenance, mises à jour système et gestion des ressources (CPU, RAM, stockage)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Monitoring continu</h3><p>Surveillance 24/7 des performances, de la disponibilité et de la santé de vos serveurs — alertes en temps réel en cas d'anomalie</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div><h3>Maintenance technique</h3><p>Maintenance proactive et corrective de votre infrastructure : interventions programmées, correctifs appliqués, pannes diagnostiquées et résolues</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Mises à jour</h3><p>Application régulière des mises à jour OS, middlewares, CMS, frameworks et dépendances — sécurité et compatibilité maintenues en permanence</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Sécurisation</h3><p>Mise en place et maintenance des dispositifs de sécurité : pare-feu, SSL/TLS, détection d'intrusion, durcissement de la configuration et gestion des accès</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div><h3>Sauvegardes</h3><p>Sauvegardes automatiques quotidiennes ou temps réel, stockées hors site, avec tests de restauration réguliers — vos données protégées contre toute perte</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Optimisation des performances</h3><p>Analyse et optimisation en continu : temps de réponse serveur, configuration du cache, gestion des ressources, tuning des bases de données et CDN</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div><h3>Gestion des incidents</h3><p>Détection, qualification et rétablissement rapide en cas d'incident — intervention priorisée selon la criticité, communication transparente</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Suivi continu &amp; reporting</h3><p>Rapport mensuel complet : disponibilité, performances, interventions réalisées, incidents traités et recommandations d'évolution de l'infrastructure</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec une infogérance professionnelle</h2>
+            <p class="sp-section-sub">Les entreprises sans infogérance dédiée subissent en moyenne 4h de downtime non détecté par mois. Une infrastructure bien gérée, c'est une activité qui tourne sans interruption et sans surprise.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <h3>Infrastructure stable</h3>
+                <p>Vos serveurs sont surveillés et maintenus en permanence — pannes prévenues, disponibilité garantie, incidents résolus avant d'impacter vos utilisateurs.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Sécurité renforcée</h3>
+                <p>Pare-feu, SSL, détection d'intrusion, mises à jour de sécurité — votre infrastructure est protégée contre les cybermenaces et les vulnérabilités connues.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Performance optimisée</h3>
+                <p>Vos serveurs, sites et applications restent rapides dans le temps — tuning continu, gestion du cache, optimisation des ressources et des bases de données.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Suivi continu</h3>
+                <p>Visibilité complète sur votre infrastructure grâce au monitoring actif et au reporting mensuel — vous savez toujours dans quel état est votre infrastructure.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Tranquillité d'esprit</h3>
+                <p>Votre infrastructure est entre les mains d'experts — vous vous concentrez sur votre activité sans vous préoccuper des serveurs, pannes et mises à jour.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le tarif de l'infogérance</h2>
+                    <p class="sp-section-sub">Chaque infrastructure est unique. Ces variables permettent de dimensionner la formule et le niveau de service adaptés à vos besoins réels.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de serveurs</span>
+                        <span class="sp-variable-value">1 VPS ou serveur dédié à plusieurs serveurs en cluster ou architecture distribuée</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type d'infrastructure</span>
+                        <span class="sp-variable-value">Mutualisé, VPS, serveur dédié, cloud public (AWS/Azure/GCP), cloud privé ou hybride</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données</span>
+                        <span class="sp-variable-value">Quelques Go (site vitrine) à plusieurs To (application e-commerce, BDD volumineuse)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de sécurité requis</span>
+                        <span class="sp-variable-value">Standard (SSL + firewall) à haute sécurité (compliance RGPD, ISO 27001, données sensibles)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin de disponibilité</span>
+                        <span class="sp-variable-value">Heures ouvrées à haute disponibilité 24/7 avec SLA &lt;1h de rétablissement</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Technologies utilisées</span>
+                        <span class="sp-variable-value">Linux/Nginx/PHP standard à stack spécifique, containerisation Docker/Kubernetes, microservices</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'applications</span>
+                        <span class="sp-variable-value">1 site ou application à écosystème complet (site + app + CRM + API + services tiers)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Fréquence de monitoring</span>
+                        <span class="sp-variable-value">Vérification horaire (standard) à monitoring temps réel toutes les 30 secondes (critique)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Infogérance gestion serveurs infrastructure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'infogérance de serveurs ?</h2>
+            <p class="sp-section-sub">Selon la complexité de votre infrastructure, le nombre de serveurs et le niveau de service souhaité. Devis transparent avant engagement.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Infogérance simple</p>
+                    <p class="sp-plan__price"><span>200 – 800 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">VPS ou serveur dédié simple</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring basique</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mises à jour &amp; sécurité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sauvegardes quotidiennes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Infogérance standard</p>
+                    <p class="sp-plan__price"><span>800 – 2 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Infrastructure multi-serveurs</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Monitoring avancé 24/7</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sécurisation renforcée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gestion des incidents prioritaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation des performances</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support technique inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Infogérance avancée</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT/mois+</em></p>
+                    <p class="sp-plan__duration">Infrastructure complexe, haute dispo.</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>SLA haute disponibilité garanti</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Architectures cloud &amp; clustering</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Équipe dédiée &amp; astreinte</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de continuité d'activité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité &amp; audit sécurité inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            L'infogérance peut être combinée avec un <a href="/support-maintenance/maintenance">contrat de maintenance</a> (corrective + évolutive) et un <a href="/support-maintenance/maintenance/support-technique">support technique utilisateurs</a> dans une formule globale à tarif préférentiel.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à l'infogérance</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/maintenance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div><strong>Maintenance corrective &amp; évolutive</strong><p>Correction de bugs et amélioration continue de vos sites et applications hébergés.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/cybersecurite-ia/audit-cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Audit &amp; sécurisation des systèmes</strong><p>Audit complet de votre infrastructure pour identifier et corriger les vulnérabilités.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-sites-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Votre site créé sur une infrastructure performante, puis pris en charge dans notre infogérance.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Application développée et déployée sur l'infrastructure que nous gérons — une cohérence complète.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'infogérance</h2>
+                <p>Notre équipe répond sous 24h pour analyser votre infrastructure et vous proposer la formule adaptée.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que l'infogérance de serveurs ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>infogérance de serveurs</strong> est un service de gestion externalisée de votre infrastructure technique. Nous prenons en charge la surveillance, la sécurisation, les mises à jour et l'optimisation de vos serveurs — vous permettant de vous concentrer sur votre activité sans vous préoccuper de la technique.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels types de serveurs et infrastructures gérez-vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous gérons tous types d'infrastructures : <strong>serveurs dédiés</strong> (OVH, Hetzner, Scaleway), <strong>VPS</strong>, <strong>cloud public</strong> (AWS, Azure, Google Cloud), cloud privé, architectures hybrides et containers Docker/Kubernetes. Nous intervenons sur Linux (Ubuntu, Debian, CentOS) et Windows Server.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que comprend exactement le monitoring ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Notre <strong>monitoring</strong> surveille en temps réel : disponibilité des services, performances (CPU, RAM, disque, réseau), temps de réponse de vos applications, certificats SSL (expiration), sauvegardes (succès/échec) et anomalies de sécurité. En cas d'alerte, vous êtes notifié et nous intervenons selon votre SLA.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Les sauvegardes sont-elles testées régulièrement ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, nos <strong>sauvegardes</strong> sont automatiques (quotidiennes ou temps réel selon le niveau) et stockées hors site. Nous effectuons des tests de restauration réguliers pour valider leur intégrité — une sauvegarde non testée n'est pas une sauvegarde fiable. En cas de perte de données, la restauration est garantie.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte l'infogérance de serveurs ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>200 € à 800 €/mois</strong> pour une infogérance simple (1 VPS ou serveur dédié), de <strong>800 € à 2 000 €/mois</strong> pour une <a href="#tarifs">infogérance standard</a> (multi-serveurs, monitoring avancé), et de <strong>2 000 € à 5 000 €/mois+</strong> pour une infogérance avancée (haute disponibilité, infrastructure cloud complexe).</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à confier la gestion de votre infrastructure à des experts pour qu'elle soit toujours stable, sécurisée et performante ?</h2>
+                <p>Décrivez votre infrastructure — nous analysons vos besoins et vous proposons la formule d'infogérance adaptée à votre activité.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    Confier la gestion de mon infrastructure
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit initial gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Devis transparent</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLA garanti contractuellement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

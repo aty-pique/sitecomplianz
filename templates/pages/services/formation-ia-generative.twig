@@ -1,0 +1,218 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Formation IA générative | ChatGPT et LLMs en entreprise | Complianz{% endblock %}
+
+{% block description %}Maîtrisez l'IA générative : ChatGPT, Claude, Gemini et prompt engineering. Formation pratique pour créer du contenu, coder et automatiser avec les LLMs.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Formation IA générative — ChatGPT, Claude et les LLMs",
+      "url": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-ia-generative",
+      "description": "Formation pratique à l'IA générative : maîtrise de ChatGPT, Claude, Gemini, prompt engineering avancé et intégration des LLMs dans les processus métiers.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Formation IA", "item": "{{ app_url }}/intelligence-artificielle/formation-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Formation IA générative", "item": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-ia-generative" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'apprend-on dans une formation IA générative ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une formation IA générative couvre : le fonctionnement des LLMs (Large Language Models) et leurs capacités réelles, la maîtrise de ChatGPT, Claude, Gemini et des autres modèles principaux, le prompt engineering (comment formuler des instructions efficaces), les cas d'usage métiers (création de contenu, résumé de documents, génération de code, analyse de données), les limites et risques des LLMs (hallucinations, biais), et les bonnes pratiques d'usage professionnel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il des compétences techniques pour suivre la formation IA générative ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non — la formation IA générative est accessible à tous les profils, y compris sans aucune compétence technique. Les LLMs comme ChatGPT et Claude s'utilisent en langage naturel — la compétence clé à développer est le prompt engineering, qui s'apprend rapidement avec de la pratique. La formation est 100% pratique, sur des cas d'usage concrets de votre métier." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre ChatGPT, Claude et Gemini ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT (OpenAI) est le plus connu, excellent pour la rédaction, le code et les analyses. Claude (Anthropic) se distingue par sa capacité à traiter de longs documents et sa précision dans les instructions complexes. Gemini (Google) s'intègre bien à l'écosystème Google Workspace. En pratique, chaque modèle a des forces spécifiques — notre formation vous apprend à choisir le bon modèle selon la tâche et à maximiser la qualité des résultats." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se protéger des hallucinations des LLMs en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les hallucinations (inventions de faits par l'IA) sont une réalité que toute organisation doit gérer. Notre formation couvre les techniques pour les minimiser : prompts de vérification, demande de sources, RAG (Retrieval-Augmented Generation) pour ancrer l'IA dans vos données, workflows de validation humaine pour les contenus critiques, et calibration de la confiance selon le cas d'usage." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/formation-ia">Formation IA</a><span>›</span>
+                <span>Formation IA générative</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Formation IA générative</span>
+                Formation IA générative — ChatGPT, Claude et les LLMs
+            </h1>
+            <p class="sp-hero__lead">
+                Maîtrisez <strong>ChatGPT, Claude, Gemini et le prompt engineering</strong> — la formation pratique pour utiliser l'IA générative comme un expert dans votre métier. Créez du contenu, automatisez des tâches et <strong>multipliez votre productivité par 3 dès la première semaine</strong>.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Me former à l'IA générative</a>
+                <a href="/intelligence-artificielle/formation-ia" class="btn btn-outline">Toutes nos formations IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Expert IA générative opérationnel</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>×3</strong><span>productivité constatée</span></div>
+                    <div class="sp-dc-stat"><strong>100%</strong><span>pratique</span></div>
+                    <div class="sp-dc-stat"><strong>CPF</strong><span>financement possible</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi se former à l'IA générative en 2026 ?</h2>
+                <p>L'IA générative (LLMs, modèles texte-to-image, text-to-video) est devenue un outil incontournable dans tous les métiers. Les professionnels qui maîtrisent le prompt engineering et les bonnes pratiques d'usage des LLMs sont aujourd'hui 3 à 5 fois plus productifs sur les tâches de création, d'analyse et de communication.</p>
+                <p>Notre formation IA générative vous donne les compétences pour passer de l'usage basique (poser une question à ChatGPT) à l'usage expert (prompts structurés, chaînes de tâches, intégration dans vos workflows) — avec un impact immédiat sur votre productivité.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Ce que vous apprenez dans la formation IA générative</h2>
+                <p><strong>Les fondamentaux des LLMs :</strong> comment fonctionnent ChatGPT, Claude, Gemini et les autres modèles, leurs capacités réelles, leurs limites (hallucinations, coupure de connaissance) et comment les utiliser en connaissance de cause.</p>
+                <p><strong>Prompt engineering :</strong> techniques pour obtenir des résultats précis et de qualité — structuration des prompts, instructions de rôle, exemples few-shot, chaînes de réflexion (chain-of-thought), gestion du contexte et itération.</p>
+                <p><strong>Cas d'usage métiers pratiques :</strong> création de contenu (articles, emails, posts réseaux sociaux), résumé et analyse de documents, génération et debug de code, analyse de données avec interprétation IA, et aide à la décision.</p>
+                <p><strong>Limites et bonnes pratiques :</strong> hallucinations, biais, confidentialité des données, vérification des outputs, usage responsable en entreprise et conformité AI Act.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>ChatGPT, Claude ou Gemini — lequel choisir ?</h2>
+                <p>En 2026, il n'y a pas un seul bon modèle — chaque LLM a ses forces. ChatGPT (GPT-4o) excelle en polyvalence et code. Claude 3.5 se distingue pour les documents longs et les instructions précises. Gemini s'intègre nativement à Google Workspace. Mistral et Llama sont pertinents pour les usages on-premise avec confidentialité des données. Notre formation vous apprend à choisir le bon outil selon la tâche.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur la formation IA générative</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Aucune compétence technique requise</h3><p>Les LLMs s'utilisent en langage naturel — la formation est accessible à tous les profils, y compris non-techniques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>Impact immédiat sur la productivité</h3><p>Les apprenants constatent en moyenne une multiplication par 3 de leur productivité sur les tâches de création et d'analyse dès la première semaine</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Hallucinations et risques traités</h3><p>La formation couvre les limites des LLMs et les pratiques de vérification pour un usage professionnel fiable</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><h3>Contenus mis à jour en continu</h3><p>Le domaine évolue vite — nos formations intègrent les derniers modèles et fonctionnalités mis à jour chaque trimestre</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Prolongez votre apprentissage IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Toutes nos formations IA</strong><p>Le catalogue complet — tous les programmes et tarifs.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-pour-le-marketing" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><strong>Formation IA marketing</strong><p>Appliquez l'IA générative à vos cas d'usage marketing.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/></svg></div>
+                <div><strong>Formation automatisation IA</strong><p>Connectez vos LLMs à des workflows pour aller plus loin.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/ia-generative-en-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>IA générative en entreprise</strong><p>Déployez l'IA générative à l'échelle de votre organisation.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la formation IA générative</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'apprend-on dans une formation IA générative ?</summary>
+                    <div class="sp-faq-item__answer"><p>Fonctionnement des LLMs, maîtrise de <strong>ChatGPT, Claude, Gemini</strong>, prompt engineering, cas d'usage métiers (contenu, analyse, code), limites et risques, et bonnes pratiques d'usage professionnel.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il des compétences techniques pour cette formation ?</summary>
+                    <div class="sp-faq-item__answer"><p>Non — accessible à <strong>tous les profils</strong>, y compris sans compétence technique. Les LLMs s'utilisent en langage naturel. La formation est 100% pratique sur des cas concrets de votre métier.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre ChatGPT, Claude et Gemini ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>ChatGPT</strong> : excellent en polyvalence et code. <strong>Claude</strong> : précis sur les documents longs et instructions complexes. <strong>Gemini</strong> : intégré à Google Workspace. Notre formation vous apprend à choisir le bon modèle selon la tâche.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment se protéger des hallucinations des LLMs ?</summary>
+                    <div class="sp-faq-item__answer"><p>La formation couvre les techniques : <strong>prompts de vérification, demande de sources, RAG</strong> pour ancrer l'IA dans vos données, et workflows de validation humaine pour les contenus critiques.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à maîtriser l'IA générative et à multiplier votre productivité dès la première semaine ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Me former à l'IA générative</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% pratique</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CPF possible</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

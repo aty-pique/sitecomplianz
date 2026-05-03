@@ -1,0 +1,223 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Automatisation processus métiers IA | RPA & workflows | Complianz{% endblock %}
+
+{% block description %}Automatisez vos processus métiers avec l'IA : facturation, onboarding, suivi commandes, RH. Réduction des tâches manuelles de 60 à 80%. Déploiement rapide.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Automatisation des processus métiers avec l'IA",
+      "url": "{{ app_url }}/intelligence-artificielle/automatisation-ia/automatisation-des-processus-metiers",
+      "description": "Guide complet sur l'automatisation des processus métiers avec l'IA : facturation, onboarding, suivi de commandes, RH. Réduction des tâches manuelles de 60 à 80%.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Automatisation IA", "item": "{{ app_url }}/intelligence-artificielle/automatisation-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Automatisation des processus métiers", "item": "{{ app_url }}/intelligence-artificielle/automatisation-ia/automatisation-des-processus-metiers" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels processus métiers peut-on automatiser avec l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La quasi-totalité des processus répétitifs et basés sur des données peuvent être automatisés : facturation et relances (création, envoi, suivi), onboarding clients et collaborateurs, gestion des commandes et du SAV, traitement des demandes RH (congés, notes de frais), reporting et tableaux de bord, qualification des leads, extraction de données depuis des documents (OCR IA), et synchronisation entre systèmes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour automatiser un processus métier ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Selon la complexité, entre 1 semaine (processus simple, outil unique) et 6 à 8 semaines (processus complexe multi-systèmes). La phase d'analyse préalable (2 à 5 jours) est toujours incluse pour cartographier le processus exact et identifier les exceptions à traiter. La plupart des processus courants (facturation, onboarding, reporting) sont automatisés en 2 à 4 semaines." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre automatisation IA et RPA classique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le RPA classique automatise des clics et des règles fixes dans une interface — il casse si l'interface change. L'automatisation IA comprend le contenu non structuré (texte d'un email, données d'un PDF, variations dans les formats), s'adapte aux exceptions et peut prendre des décisions contextuelles. L'IA automatise des processus qui nécessitaient auparavant un jugement humain — tri d'emails, classification de documents, réponses personnalisées." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il changer ses outils pour automatiser ses processus ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, nous connectons l'automatisation IA à vos outils existants — CRM, ERP, comptabilité, email. L'objectif est d'automatiser sans remplacer votre stack. Nous utilisons des connecteurs natifs, des APIs et des outils comme n8n ou Make pour créer le lien entre vos systèmes. Dans de rares cas, nous pouvons suggérer un remplacement d'outil si celui-ci constitue un vrai frein à l'automatisation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/automatisation-ia">Automatisation IA</a><span>›</span>
+                <span>Automatisation des processus métiers</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Automatisation IA</span>
+                Automatisation des processus métiers avec l'IA
+            </h1>
+            <p class="sp-hero__lead">
+                Réduisez les tâches manuelles de <strong>60 à 80%</strong> en automatisant vos processus métiers avec l'IA — facturation, onboarding, suivi de commandes, RH. Des workflows intelligents connectés à vos outils existants, déployés rapidement.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Automatiser mes processus</a>
+                <a href="/intelligence-artificielle/automatisation-ia" class="btn btn-outline">Voir tous nos services</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous gagnez</p><p class="sp-deliverables-card__subtitle">Temps libéré, erreurs éliminées</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>–70%</strong><span>tâches manuelles</span></div>
+                    <div class="sp-dc-stat"><strong>0</strong><span>erreur de saisie</span></div>
+                    <div class="sp-dc-stat"><strong>24/7</strong><span>exécution</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Qu'est-ce que l'automatisation des processus métiers avec l'IA ?</h2>
+                <p>L'automatisation des processus métiers avec l'IA (aussi appelée Intelligent Process Automation ou IPA) consiste à utiliser l'intelligence artificielle pour prendre en charge les tâches répétitives, chronophages et à faible valeur ajoutée de votre entreprise. Contrairement au RPA classique qui automatise des clics d'interface, l'IA peut comprendre des données non structurées — emails, PDFs, images, textes libres — et prendre des décisions contextuelles.</p>
+                <p>Cette approche permet d'automatiser des processus qui résistaient jusqu'ici à l'automatisation : traitement des demandes clients en langage naturel, extraction intelligente d'informations depuis des documents variés, ou prise de décision selon des règles métier complexes.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les processus métiers les plus souvent automatisés</h2>
+                <p><strong>Facturation et comptabilité :</strong> création automatique des factures depuis les devis validés, envoi par email, relances programmées selon le statut de paiement, extraction des données de factures fournisseurs (OCR IA) et intégration en comptabilité.</p>
+                <p><strong>Onboarding clients et collaborateurs :</strong> envoi automatique des documents de bienvenue, création des accès aux outils, planification des formations initiales, suivi des étapes d'intégration et alertes en cas de blocage.</p>
+                <p><strong>Suivi des commandes et SAV :</strong> mise à jour automatique du statut des commandes, notifications clients, traitement des demandes de SAV simples, escalade intelligente vers un agent humain pour les cas complexes.</p>
+                <p><strong>Processus RH :</strong> gestion des demandes de congés et notes de frais, collecte des absences, rappels d'entretiens annuels, onboarding administratif des nouveaux collaborateurs.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Comment se déroule un projet d'automatisation de processus ?</h2>
+                <p>Chaque projet commence par une <strong>phase de cartographie</strong> du processus : nous documentons chaque étape, identifions les données manipulées, les systèmes impliqués et les exceptions possibles. Cette phase, souvent négligée, est la clé du succès de l'automatisation.</p>
+                <p>Nous passons ensuite à la <strong>conception du workflow automatisé</strong> — en choisissant les outils adaptés (n8n, Make, développement custom) et en traitant tous les cas d'usage, y compris les exceptions. Les tests sont réalisés en conditions réelles avant tout déploiement en production.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes" id="points-cles">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur l'automatisation des processus métiers</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><h3>ROI rapide</h3><p>La plupart des automatisations de processus ont un ROI positif en 3 à 6 mois — le gain de temps libéré dépasse rapidement l'investissement initial</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><h3>Compatible avec vos outils</h3><p>Nous connectons l'IA à vos outils existants (CRM, ERP, comptabilité) — pas besoin de changer votre stack pour automatiser</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Supervision humaine maintenue</h3><p>Les automatisations incluent des mécanismes de supervision — logs, alertes, validation humaine pour les cas critiques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><h3>Formation incluse</h3><p>Vos équipes sont formées à la supervision et aux ajustements basiques des automatisations déployées</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Explorer l'automatisation IA plus loin</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Notre service complet d'automatisation IA — tarifs et formules.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/automatisation-ia-avec-n8n" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Automatisation avec n8n</strong><p>L'outil no-code pour créer vos workflows d'automatisation.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Pour les processus complexes — des agents autonomes qui décident et agissent.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Formation à l'automatisation IA</strong><p>Apprenez à créer vos propres automatisations.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'automatisation des processus</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels processus métiers peut-on automatiser avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>La quasi-totalité des processus répétitifs peuvent être automatisés : <strong>facturation et relances</strong>, onboarding clients et collaborateurs, gestion des commandes et SAV, traitement des demandes RH, reporting, qualification des leads et extraction de données depuis des documents.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour automatiser un processus ?</summary>
+                    <div class="sp-faq-item__answer"><p>Entre <strong>1 semaine</strong> (processus simple) et <strong>6 à 8 semaines</strong> (processus complexe multi-systèmes). La phase d'analyse préalable (2 à 5 jours) est toujours incluse. La plupart des processus courants sont automatisés en 2 à 4 semaines.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre automatisation IA et RPA classique ?</summary>
+                    <div class="sp-faq-item__answer"><p>Le RPA automatise des clics et règles fixes. L'<strong>automatisation IA</strong> comprend le contenu non structuré (emails, PDFs), s'adapte aux exceptions et prend des décisions contextuelles — elle automatise des processus qui nécessitaient auparavant un jugement humain.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il changer ses outils pour automatiser ses processus ?</summary>
+                    <div class="sp-faq-item__answer"><p>Non. Nous connectons l'automatisation IA à vos <strong>outils existants</strong> (CRM, ERP, comptabilité) via des connecteurs natifs et APIs. L'objectif est d'automatiser sans remplacer votre stack.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à automatiser vos processus métiers et à libérer vos équipes des tâches répétitives ?</h2>
+                <p>Décrivez vos processus les plus chronophages — nous identifions les automatisations à fort ROI.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Automatiser mes processus</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit des processus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI estimé avant engagement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

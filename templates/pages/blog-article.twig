@@ -1,0 +1,109 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}{{ title }} — Blog{% endblock %}
+{% block description %}{{ meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ article.title|json_encode|raw }},
+  "description": {{ article.excerpt|json_encode|raw }},
+  "datePublished": {{ article.date|json_encode|raw }},
+  "author": { "@type": "Person", "name": {{ article.author.name|json_encode|raw }} },
+  "publisher": { "@type": "Organization", "name": {{ app_name|json_encode|raw }} }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{% set ph = pole_info.hero ?? 'blue' %}
+<section class="blog-article-hero sp-hero sp-hero--{{ ph }}">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container blog-article-hero__inner">
+        <nav class="sp-breadcrumb" aria-label="Fil d’Ariane">
+            <a href="/">Accueil</a>
+            <span class="sp-breadcrumb__sep">/</span>
+            <a href="/blog">Blog</a>
+            <span class="sp-breadcrumb__sep">/</span>
+            <span aria-current="page">Article</span>
+        </nav>
+        {% if pole_info %}
+        <p class="blog-article-hero__cat"><span class="blog-cat blog-cat--pole-{{ article.pole }}">{{ pole_info.name }}</span></p>
+        {% endif %}
+        <h1 class="blog-article-hero__title">{{ article.title }}</h1>
+        <p class="blog-article-hero__meta">
+            <span class="blog-author blog-author--inline">
+                <span class="blog-author__avatar">{{ article.author.initials }}</span>
+                <span class="blog-author__name">{{ article.author.name }}</span>
+            </span>
+            <span class="blog-article-hero__sep">·</span>
+            <time datetime="{{ article.date }}">{{ article.date_label }}</time>
+            <span class="blog-article-hero__sep">·</span>
+            <span>{{ article.read_min }} min de lecture</span>
+        </p>
+    </div>
+</section>
+
+{% if article.image %}
+<figure class="blog-article-cover container">
+    <img src="{{ article.image }}" alt="{{ article.image_alt|e }}" width="1120" height="560" loading="eager" class="blog-article-cover__img">
+</figure>
+{% endif %}
+
+<article class="container blog-article-body">
+    <div class="blog-article-prose">
+        {{ article.body|raw }}
+    </div>
+    <footer class="blog-article-footer">
+        <a href="/blog" class="btn btn-outline">← Tous les articles</a>
+        {% if pole_info %}
+        <a href="{{ pole_info.path }}" class="btn btn-outline">Pôle {{ pole_info.name }}</a>
+        {% endif %}
+        <button type="button" class="btn btn-primary" data-open-quote-modal>Parler de votre projet</button>
+    </footer>
+</article>
+
+{% if related|length > 0 %}
+<section class="blog-related sp-section">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Sur le même thème</p>
+            <h2>Articles à lire ensuite</h2>
+        </div>
+        <ul class="blog-grid blog-grid--related">
+            {% for r in related %}
+            <li>
+                <article class="blog-card blog-card--pole-{{ r.pole }}">
+                    <a href="/blog/{{ r.slug }}" class="blog-card__link">
+                        <div class="blog-card__visual">
+                            {% include 'partials/blog-pole-icon.twig' with { pole_id: r.pole } only %}
+                        </div>
+                        <div class="blog-card__body">
+                            <p class="blog-card__meta">{{ r.date_label }} · {{ r.read_min }} min</p>
+                            <h3 class="blog-card__title">{{ r.title }}</h3>
+                            <div class="blog-card__foot">
+                                <span class="blog-author blog-author--compact">
+                                    <span class="blog-author__avatar">{{ r.author.initials }}</span>
+                                    <span class="blog-author__name">{{ r.author.name }}</span>
+                                </span>
+                                <span class="blog-card__chev" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

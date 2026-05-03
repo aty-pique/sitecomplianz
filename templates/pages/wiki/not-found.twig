@@ -1,0 +1,15 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Wiki — page introuvable{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/wiki.css">
+{% endblock %}
+
+{% block content %}
+<div class="wiki-notfound container">
+    <h1>Page wiki introuvable</h1>
+    <p>Le slug demandé n’existe pas (encore). Revenez au hub ou utilisez la recherche.</p>
+    <p><a class="btn btn-primary" href="/wiki">Retour au wiki</a></p>
+</div>
+{% endblock %}

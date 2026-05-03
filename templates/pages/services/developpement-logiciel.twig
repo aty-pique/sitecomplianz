@@ -1,0 +1,617 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (46 chars titre / 145 chars description) ─────────────────── #}
+{% block title %}Développement logiciel sur mesure{% endblock %}
+
+{% block description %}Concevez votre logiciel sur mesure : application métier, SaaS, automatisation et API. Développement adapté à votre organisation et vos enjeux métier. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Développement de logiciel sur mesure",
+      "url": "{{ app_url }}/solutions-developpement/developpement-logiciel",
+      "description": "Conception et développement de logiciels sur mesure entièrement adaptés aux besoins métier de l'entreprise : application métier, SaaS, automatisation, API. Méthodologie itérative, architecture robuste, intégration aux outils existants et maintenance.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Développement logiciel sur mesure",
+      "offers": [
+        { "@type": "Offer", "name": "Projet simple",      "price": "8000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000"  } },
+        { "@type": "Offer", "name": "Projet structuré",   "price": "20000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "50000"  } },
+        { "@type": "Offer", "name": "Projet complexe",    "price": "50000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "150000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Développement logiciel sur mesure", "item": "{{ app_url }}/solutions-developpement/developpement-logiciel" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi développer un logiciel sur mesure plutôt que d'acheter un logiciel standard ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un logiciel sur mesure est conçu pour s'adapter exactement à votre organisation, vos processus et vos enjeux métier — sans les compromis d'un outil générique. Il vous évite d'adapter votre entreprise à un logiciel standard, réduit les coûts de licence sur le long terme et crée un avantage concurrentiel difficile à répliquer." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte le développement d'un logiciel sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 8 000 € à 20 000 € pour un projet simple (peu de fonctionnalités, périmètre limité), de 20 000 € à 50 000 € pour un projet structuré (application métier complète), et de 50 000 € à 150 000 €+ pour un projet complexe (SaaS, multi-modules, intégrations multiples). Une maintenance mensuelle est possible." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour développer un logiciel sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 2 à 4 mois pour un projet simple, de 4 à 9 mois pour un projet structuré, et de 9 à 18 mois pour un projet complexe. Nous utilisons une méthodologie itérative qui permet de livrer des versions fonctionnelles progressivement, avec validation à chaque étape." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles technologies utilisez-vous pour le développement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nos équipes maîtrisent un large éventail de technologies modernes : PHP, Python, JavaScript (React, Vue, Node.js), bases de données SQL et NoSQL, API REST/GraphQL, déploiement cloud (AWS, GCP, Azure). Le choix technologique est toujours guidé par les besoins métier, pas par des préférences d'outils." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il après la mise en production du logiciel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous proposons un accompagnement post-lancement : formation des utilisateurs, support au démarrage, contrat de maintenance et d'évolution. Le logiciel peut évoluer avec votre entreprise — nouvelles fonctionnalités, intégrations supplémentaires, montée en charge." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <span>Développement logiciel sur mesure</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Solutions logicielles &amp; développement sur mesure</span>
+                Développement de logiciel sur mesure&nbsp;: un outil parfaitement adapté à votre activité et vos processus métier
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et développons des <strong>logiciels sur mesure</strong> entièrement adaptés à vos besoins spécifiques — pour structurer votre activité, automatiser vos tâches et améliorer votre performance. L'objectif&nbsp;: créer <strong>l'outil dont vous avez vraiment besoin</strong>, plutôt que d'adapter votre entreprise à une solution standard.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis projet
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre processus de développement
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Cadrage gratuit avant tout engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Livraisons itératives avec validation client</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Maintenance &amp; évolutions possibles</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre logiciel</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous disposez d'un <strong>logiciel parfaitement adapté à votre activité</strong>, qui structure votre entreprise, automatise vos tâches et améliore votre performance — sans les contraintes d'un outil générique.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>2–18</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–60%</strong>
+                        <span>tâches manuelles</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients automatisent <strong>60% de leurs tâches répétitives</strong> dès la mise en production</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos solutions de développement logiciel</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/solutions-developpement/developpement-logiciel/application-metier" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Application métier sur mesure</h2>
+                    <p>Développez l'application qui répond exactement à vos processus métier, sans les compromis d'un outil standard.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/saas" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Développement SaaS</h2>
+                    <p>Créez votre propre produit SaaS : architecture multi-tenant, abonnements, facturation et scalabilité dès le départ.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/automatisation-api" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Automatisation &amp; API</h2>
+                    <p>Automatisez vos flux de travail et connectez vos outils entre eux grâce à des API et des intégrations sur mesure.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Cadrage gratuit avant tout développement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Livraisons itératives, zéro mauvaise surprise
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Code source livré &amp; documenté
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <p><strong>+80</strong> logiciels livrés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>–60%</strong> tâches manuelles en moyenne</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PROCESSUS DE DÉVELOPPEMENT — 14 étapes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre processus</p>
+            <h2>Ce que comprend votre projet de développement logiciel</h2>
+            <p class="sp-section-sub">Un processus éprouvé, de la phase de cadrage jusqu'à la mise en production — avec vous à chaque étape.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Phase de cadrage approfondie</h3><p>Définition des objectifs, des contraintes, du périmètre fonctionnel et des critères de succès</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des besoins métier</h3><p>Ateliers de travail avec vos équipes pour comprendre vos processus et les traduire en fonctionnalités</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Conception de l'architecture logicielle</h3><p>Architecture technique robuste, scalable et sécurisée, adaptée à votre niveau de charge</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Développement sur mesure</h3><p>Code propre, documenté, testé et maintenable — livré avec tous les droits de propriété</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Méthodologie itérative</h3><p>Livraisons par sprints avec démonstrations et validation à chaque étape — zéro mauvaise surprise</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Points réguliers avec le client</h3><p>Revues hebdomadaires, démos, retours intégrés en temps réel dans la roadmap du projet</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Environnement de test</h3><p>Tests unitaires, tests d'intégration, recette client — qualité assurée avant chaque mise en production</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Déploiement progressif possible</h3><p>Feature flags, déploiement canary, rollout progressif pour minimiser le risque</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41"/></svg>
+                </div>
+                <div><h3>Intégration avec les outils existants</h3><p>API, webhooks, connecteurs — votre nouveau logiciel s'intègre dans votre écosystème actuel</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Mise en production</h3><p>Déploiement sécurisé, configuration serveur/cloud, monitoring et supervision post-lancement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Formation des utilisateurs</h3><p>Onboarding, documentation utilisateur et formation des équipes pour une adoption rapide</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation complète</h3><p>Documentation technique, fonctionnelle et d'API — votre équipe maîtrise le logiciel de A à Z</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi développer sur mesure</p>
+            <h2>Les bénéfices d'un logiciel développé pour votre entreprise</h2>
+            <p class="sp-section-sub">Un logiciel sur mesure n'est pas plus cher qu'un logiciel standard — il est plus adapté, plus rentable sur le long terme et crée un avantage concurrentiel durable.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Outil parfaitement adapté au métier</h3>
+                <p>Chaque fonctionnalité correspond à un besoin réel — plus de compromis, plus de contournements.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps opérationnel</h3>
+                <p>Les tâches répétitives sont automatisées. Vos équipes se concentrent sur la valeur ajoutée.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <h3>Automatisation des tâches complexes</h3>
+                <p>Flux de travail automatisés, règles métier encapsulées, traitements en masse — ce qui prenait des heures ne prend plus que quelques secondes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des erreurs humaines</h3>
+                <p>Les processus manuels sont sources d'erreurs. Le logiciel les élimine en appliquant les règles systématiquement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <h3>Centralisation des données</h3>
+                <p>Une source de vérité unique. Fini les exports Excel, les emails de données et les informations dispersées.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Meilleure maîtrise de l'activité</h3>
+                <p>Tableaux de bord, indicateurs temps réel, historiques — vous pilotez avec les bonnes données.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Support à la croissance</h3>
+                <p>Le logiciel évolue avec vous — nouvelles fonctionnalités, montée en charge, nouveaux marchés.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Avantage concurrentiel</h3>
+                <p>Un logiciel sur mesure que vos concurrents ne peuvent pas copier — c'est votre organisation qui devient une barrière à l'entrée.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES / PROFIL SUR-MESURE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le coût et la durée de votre projet</h2>
+                    <p class="sp-section-sub">Chaque projet est unique. Voici les principales variables qui influencent l'estimation — nous les analysons ensemble lors du cadrage gratuit.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité fonctionnelle</span>
+                        <span class="sp-variable-value">Nombre de fonctionnalités, règles métier, modules</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de personnalisation</span>
+                        <span class="sp-variable-value">Du MVP au logiciel full custom multi-modules</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Interconnexions (API)</span>
+                        <span class="sp-variable-value">Nombre et complexité des intégrations à réaliser</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données &amp; utilisateurs</span>
+                        <span class="sp-variable-value">Architecture à dimensionner pour votre charge cible</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Contraintes de sécurité</span>
+                        <span class="sp-variable-value">RGPD, ISO 27001, données sensibles, chiffrement</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Délais &amp; urgence</span>
+                        <span class="sp-variable-value">Planning standard ou accéléré (sprint intensif)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Développement logiciel sur mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un développement logiciel sur mesure ?</h2>
+            <p class="sp-section-sub">Le coût varie selon la complexité, le nombre de fonctionnalités et les contraintes d'intégration. Un cadrage gratuit permet d'établir une estimation précise avant tout engagement.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Projet simple</p>
+                    <p class="sp-plan__price"><span>8 000 – 20 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">MVP, outil interne, 1 module</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage &amp; analyse besoins</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 à 8 fonctionnalités principales</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Interface utilisateur simple</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests &amp; mise en production</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Projet structuré</p>
+                    <p class="sp-plan__price"><span>20 000 – 50 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Application métier complète, multi-modules</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture technique complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-modules &amp; rôles utilisateurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations API (2 à 5 connecteurs)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisations métier avancées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard &amp; reporting</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Projet complexe</p>
+                    <p class="sp-plan__price"><span>50 000 – 150 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">SaaS, ERP custom, plateforme multi-tenant</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture scalable &amp; haute dispo</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Périmètre fonctionnel étendu</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations multiples (API/webhooks)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> IA / ML embarqué possible</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolutions mensuelles</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un cadrage gratuit permet d'établir une estimation précise avant tout engagement. Un abonnement de maintenance / évolution est possible après livraison.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions complémentaires à votre logiciel sur mesure</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/creation-site-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Un site vitrine ou e-commerce en complément de votre application métier.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg></div>
+                <div><strong>Intelligence Artificielle</strong><p>Intégrez des fonctionnalités IA dans votre logiciel : prédiction, NLP, computer vision, automatisation.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit &amp; sécurisation SI</strong><p>Sécurisez votre infrastructure avant et après le déploiement de votre logiciel sur mesure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div><strong>Support &amp; Maintenance</strong><p>Contrat de maintenance évolutive pour faire vivre votre logiciel dans la durée.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le développement sur mesure</h2>
+                <p>Notre équipe répond sous 24h et propose un cadrage gratuit pour estimer votre projet.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Pourquoi développer un logiciel sur mesure plutôt qu'acheter un outil standard ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>logiciel sur mesure</strong> est conçu pour s'adapter exactement à votre organisation, vos processus et vos enjeux métier — sans les compromis d'un outil générique. Il vous évite d'adapter votre entreprise à un logiciel standard, réduit les coûts de licence et crée un avantage concurrentiel difficile à répliquer.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un développement logiciel sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>8 000 € à 20 000 €</strong> pour un projet simple (MVP, outil interne), de <strong>20 000 € à 50 000 €</strong> pour une <a href="/solutions-developpement/developpement-logiciel/application-metier">application métier complète</a>, et de <strong>50 000 € à 150 000 €+</strong> pour un projet complexe (SaaS, multi-modules, intégrations multiples). Un cadrage gratuit établit une estimation précise avant tout engagement.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour développer un logiciel sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 à 4 mois</strong> pour un projet simple, de <strong>4 à 9 mois</strong> pour un projet structuré, et de <strong>9 à 18 mois</strong> pour un projet complexe. Nous utilisons une méthodologie itérative qui permet de livrer des versions fonctionnelles progressivement, avec validation à chaque étape.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles technologies utilisez-vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nos équipes maîtrisent un large éventail de technologies modernes&nbsp;: PHP, Python, JavaScript (React, Vue, Node.js), bases de données SQL et NoSQL, API REST/GraphQL, déploiement cloud (AWS, GCP, Azure). Le choix technologique est toujours guidé par les besoins métier, pas par des préférences d'outils. Nous pouvons également intégrer des <a href="/intelligence-artificielle">fonctionnalités IA</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que se passe-t-il après la mise en production ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous proposons un accompagnement post-lancement complet&nbsp;: formation des utilisateurs, support au démarrage, contrat de <a href="/support-maintenance">maintenance et d'évolution</a>. Le logiciel peut évoluer avec votre entreprise — nouvelles fonctionnalités, intégrations supplémentaires, montée en charge.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à construire le logiciel qui structure votre entreprise ?</h2>
+                <p>Cadrage gratuit pour analyser vos besoins et vous proposer une architecture et une estimation adaptées à votre projet. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet logiciel
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Code source livré &amp; documenté</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,509 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (55 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}Refonte site web | Modernisation & performance | Complianz{% endblock %}
+
+{% block description %}Refondez votre site web pour améliorer votre image, vos conversions et votre SEO. Audit de l'existant, nouveau design, migration sans perte de positionnement.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Refonte de site web — Modernisation & performance",
+      "url": "{{ app_url }}/solutions-developpement/creation-site-web/refonte-site",
+      "description": "Audit de l'existant (UX, performance, SEO), nouveau design responsive, migration du contenu, redirections 301 SEO et tests de performance pour moderniser votre présence en ligne sans perdre votre positionnement.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Refonte de site web",
+      "offers": [
+        { "@type": "Offer", "name": "Refonte Express (5 pages)",  "price": "2500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4500"  } },
+        { "@type": "Offer", "name": "Refonte Complète (15 pages)","price": "4500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9500"  } },
+        { "@type": "Offer", "name": "Refonte + SEO",              "price": "7500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "15000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Création de sites web",     "item": "{{ app_url }}/solutions-developpement/creation-site-web" },
+        { "@type": "ListItem", "position": 4, "name": "Refonte de site web",       "item": "{{ app_url }}/solutions-developpement/creation-site-web/refonte-site" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quand faut-il refondre son site web ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il est temps de refondre votre site si votre taux de rebond est élevé (>70%), si votre site n'est pas responsive mobile, si votre positionnement SEO stagne ou régresse, si votre design date de plus de 3-4 ans, ou si votre site est difficile à mettre à jour. Un audit gratuit permet de faire le diagnostic." }
+        },
+        {
+          "@type": "Question",
+          "name": "Va-t-on perdre notre positionnement SEO lors de la refonte ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non — si la refonte est bien préparée. Nous réalisons un audit SEO complet avant la refonte, cartographions toutes les URLs existantes, configurons les redirections 301, et vérifions le bon transfert du positionnement via Google Search Console après la mise en ligne. Une refonte bien réalisée améliore souvent le SEO." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps prend une refonte de site web ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 4 à 8 semaines pour une refonte Express (5 pages), de 8 à 14 semaines pour une refonte Complète (15 pages), et de 12 à 20 semaines pour une refonte avec stratégie SEO complète. Le délai inclut l'audit initial, le design, le développement et les tests." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le contenu existant est-il migré lors de la refonte ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — la migration du contenu existant (textes, images, médias) est incluse dans notre périmètre. Nous récupérons, optimisons et intégrons votre contenu dans la nouvelle structure. Si certains contenus nécessitent une réécriture pour le SEO, notre équipe peut vous proposer une prestation de rédaction dédiée." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/creation-site-web">Création de sites web</a>
+                <span>›</span>
+                <span>Refonte de site</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Refonte &amp; modernisation de site web</span>
+                Refonte de site web — Modernisez votre présence en ligne
+            </h1>
+            <p class="sp-hero__lead">
+                Votre site est vieillissant, peu performant ou ne convertit plus ? Nous refonçons votre présence en ligne avec un <strong>audit complet de l'existant</strong>, un nouveau design sur mesure et une <strong>migration SEO sans perte de positionnement</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un audit &amp; devis refonte
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Notre méthode de refonte
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit UX, performance &amp; SEO inclus</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Migration SEO sans perte de positionnement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation à la nouvelle interface incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Après votre refonte</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>site modernisé, rapide et mieux positionné</strong> — avec une image professionnelle renforcée, une meilleure expérience utilisateur et un SEO préservé et optimisé.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>4–14</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>SEO</strong>
+                        <span>préservé</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+UX</strong>
+                        <span>conversion</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> une refonte bien réalisée <strong>améliore le taux de conversion de 45%</strong> dans les 3 premiers mois</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos autres solutions de création de sites web</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/creation-site-web/site-vitrine" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Site vitrine professionnel</h2>
+                    <p>Créez un nouveau site vitrine professionnel et performant, pensé pour convertir vos visiteurs.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/site-ecommerce" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Boutique e-commerce</h2>
+                    <p>Refondez votre boutique en ligne ou lancez-vous dans la vente en ligne avec une solution performante.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/wordpress-cms" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>WordPress &amp; CMS</h2>
+                    <p>Migrez vers WordPress ou un nouveau CMS pour gérer votre contenu plus facilement.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/landing-pages" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Landing pages conversion</h2>
+                    <p>Créez ou refondez vos pages d'atterrissage pour maximiser les conversions de vos campagnes.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit complet avant toute refonte
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Redirections 301 &amp; SEO préservé
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Migration du contenu existant incluse
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                <p><strong>+80</strong> sites refondus</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>+45%</strong> conversion après refonte</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend votre projet de refonte</h2>
+            <p class="sp-section-sub">De l'audit de l'existant au suivi post-lancement — une refonte structurée pour améliorer votre image, vos performances et votre SEO sans perdre vos acquis.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit de l'existant (UX, performance, SEO)</h3><p>Analyse complète de votre site actuel : points forts, faiblesses techniques, performances Core Web Vitals et potentiel SEO.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div><h3>Nouveau design responsive</h3><p>Maquettes personnalisées alignées avec votre identité visuelle — design moderne, clair et orienté conversion, responsive sur tous les écrans.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Migration du contenu</h3><p>Récupération, optimisation et intégration de vos textes, images et médias dans la nouvelle structure — zéro perte de contenu.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Redirections 301 SEO</h3><p>Cartographie des URLs existantes et configuration des redirections 301 pour préserver votre positionnement lors du changement de structure.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Tests de performance</h3><p>Tests Core Web Vitals, compatibilité multi-navigateurs, sécurité et accessibilité avant mise en ligne — votre validation avant déploiement.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation à la nouvelle interface</h3><p>Session de formation pour maîtriser le nouveau site et son CMS — vous restez autonomes dans la gestion de votre contenu.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi refondre ?</p>
+            <h2>Ce que vous gagnez en modernisant votre site web</h2>
+            <p class="sp-section-sub">Une refonte est un investissement stratégique. Bien réalisée, elle améliore votre image, votre référencement et vos conversions — souvent avec un ROI visible dès les 3 premiers mois.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Image professionnelle modernisée</h3>
+                <p>Un design daté nuit à votre crédibilité. La refonte renforce la confiance de vos prospects dès la première visite.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>SEO amélioré ou préservé</h3>
+                <p>Avec une refonte bien préparée, vous préservez vos acquis SEO et améliorez vos performances techniques (Core Web Vitals).</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Meilleure conversion</h3>
+                <p>Un parcours utilisateur repensé et des CTA optimisés augmentent significativement votre taux de conversion.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <h3>Site responsive &amp; performant</h3>
+                <p>Un site non-responsive perd jusqu'à 60% de son trafic mobile. La refonte règle ce problème définitivement.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une refonte de site web ?</h2>
+            <p class="sp-section-sub">Le prix dépend du nombre de pages, de la complexité de l'existant et du niveau d'optimisation SEO souhaité. Le cadrage et l'audit initial sont gratuits.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Refonte Express</p>
+                    <p class="sp-plan__price"><span>2 500 – 4 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">5 pages, design modernisé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit de l'existant</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Nouveau design 5 pages</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Migration du contenu</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Redirections 301 &amp; SEO</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; mise en ligne</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Refonte Complète</p>
+                    <p class="sp-plan__price"><span>4 500 – 9 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">15 pages, design sur mesure</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit UX, SEO &amp; performance</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Design 100% personnalisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 15 pages + migration complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Redirections SEO &amp; Core Web Vitals</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CMS &amp; formation incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Refonte + SEO</p>
+                    <p class="sp-plan__price"><span>7 500 – 15 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Refonte complète + stratégie SEO</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Refonte Complète incluse</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie SEO &amp; mots-clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rédaction SEO des contenus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi positionnement 3 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel SEO</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit et le cadrage initial sont gratuits. Le prix final dépend de la complexité de l'existant et du volume de pages à traiter.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Maximisez l'impact de votre refonte</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/creation-site-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Toutes nos solutions de création et refonte de sites web professionnels.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Référencement naturel (SEO)</strong><p>Développez votre visibilité organique après la refonte avec une stratégie SEO dédiée.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/site-vitrine" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg></div>
+                <div><strong>Site vitrine professionnel</strong><p>Créez un nouveau site vitrine plutôt que de refondre l'existant si le projet est entièrement nouveau.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/wordpress-cms" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div><strong>WordPress &amp; CMS</strong><p>Migrez vers un CMS moderne lors de votre refonte pour gérer votre contenu en autonomie.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la refonte de site web</h2>
+                <p>Notre équipe répond sous 24h. L'audit et le cadrage initial sont toujours gratuits.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quand faut-il refondre son site web ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Il est temps de refondre si votre taux de rebond est élevé, si votre site n'est pas <strong>responsive mobile</strong>, si votre positionnement SEO stagne, si votre design date de plus de 3-4 ans, ou si votre site est difficile à mettre à jour. Un <strong>audit gratuit</strong> permet de faire le diagnostic complet.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Va-t-on perdre notre positionnement SEO lors de la refonte ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Non — si la refonte est bien préparée. Nous réalisons un <strong>audit SEO complet</strong> avant la refonte, cartographions toutes les URLs existantes et configurons les <strong>redirections 301</strong>. Nous vérifions le bon transfert du positionnement via Google Search Console après la mise en ligne. Une refonte bien réalisée améliore souvent le SEO.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps prend une refonte de site ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>4 à 8 semaines</strong> pour une refonte Express (5 pages), de <strong>8 à 14 semaines</strong> pour une refonte Complète (15 pages), et de <strong>12 à 20 semaines</strong> pour une refonte avec stratégie SEO complète. Le délai inclut l'audit, le design, le développement et les tests.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Le contenu existant est-il migré lors de la refonte ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — la <strong>migration du contenu</strong> existant (textes, images, médias) est incluse dans notre périmètre. Nous récupérons, optimisons et intégrons votre contenu dans la nouvelle structure. Pour les contenus nécessitant une réécriture SEO, notre équipe peut vous proposer une prestation de <a href="/performance-digitale/seo">rédaction dédiée</a>.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à moderniser votre site web et booster vos performances digitales ?</h2>
+                <p>Audit gratuit de votre site actuel pour identifier les axes d'amélioration et estimer le budget de votre refonte. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander mon audit refonte
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO préservé garanti</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

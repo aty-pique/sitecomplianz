@@ -1,0 +1,596 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (41 chars titre / 141 chars description) ─────────────────── #}
+{% block title %}Application métier sur mesure{% endblock %}
+
+{% block description %}Application métier sur mesure pour automatiser vos processus et booster votre efficacité. Analyse, développement, déploiement itératif et maintenance.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Développement d'application métier sur mesure",
+      "url": "{{ app_url }}/solutions-developpement/developpement-logiciel/application-metier",
+      "description": "Conception et développement d'applications métier sur mesure, adaptées aux processus spécifiques de l'entreprise pour optimiser son fonctionnement, automatiser ses opérations et améliorer sa performance.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Application métier sur mesure",
+      "offers": [
+        { "@type": "Offer", "name": "Application simple",              "price": "8000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000"  } },
+        { "@type": "Offer", "name": "Application métier structurée",   "price": "20000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "50000"  } },
+        { "@type": "Offer", "name": "Application complexe métier spécifique", "price": "50000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "120000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                          "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement",        "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Développement logiciel sur mesure","item": "{{ app_url }}/solutions-developpement/developpement-logiciel" },
+        { "@type": "ListItem", "position": 4, "name": "Application métier sur mesure",    "item": "{{ app_url }}/solutions-developpement/developpement-logiciel/application-metier" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une application métier sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une application métier sur mesure est un logiciel conçu spécifiquement pour répondre aux processus et contraintes propres à une entreprise ou un secteur d'activité. Contrairement aux outils génériques, elle est développée pour s'adapter exactement à votre organisation, vos flux de travail et vos besoins terrain." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte le développement d'une application métier ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 8 000 € à 20 000 € pour une application simple (workflow ciblé, quelques fonctionnalités), de 20 000 € à 50 000 € pour une application structurée (multi-modules, automatisations), et de 50 000 € à 120 000 €+ pour une application complexe avec des processus métier spécifiques et des intégrations multiples." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels types d'applications métier peut-on développer ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Toute application répondant à un besoin spécifique non couvert par les outils standard : outil de gestion d'interventions terrain, application de suivi de production, plateforme de gestion documentaire, outil de planification et de ressources, application de reporting personnalisé, interface de gestion de stocks adaptée, tableau de bord opérationnel, etc." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on développer une application mobile métier ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — nous développons des applications métier pour tous les environnements : web (accessible depuis un navigateur), mobile (iOS et Android, native ou PWA) et desktop. Beaucoup de nos clients combinent une interface web pour les managers et une application mobile pour les équipes terrain." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se déroule un projet d'application métier chez Complianz ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le projet se déroule en 4 phases : 1) Cadrage et analyse des besoins (ateliers terrain, cartographie des processus), 2) Conception de l'architecture et des fonctionnalités, 3) Développement itératif avec validations régulières, 4) Tests, déploiement, formation et support post-lancement." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/developpement-logiciel">Développement logiciel</a>
+                <span>›</span>
+                <span>Application métier sur mesure</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Développement d'applications métier</span>
+                Application métier sur mesure&nbsp;: un outil conçu pour vos processus terrain, là où les logiciels standards ne suffisent pas
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et développons des <strong>applications métier sur mesure</strong> entièrement adaptées aux processus spécifiques de votre entreprise — pour optimiser votre fonctionnement, <strong>automatiser vos opérations</strong> et améliorer votre performance là où les outils génériques atteignent leurs limites.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet d'application
+                </a>
+                <a href="#processus" class="btn btn-outline">
+                    Voir notre méthode de développement
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Cadrage terrain gratuit avant développement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Web, mobile ou desktop — selon vos besoins</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Maintenance &amp; évolutions possibles</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre application</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous disposez d'une <strong>application parfaitement adaptée à votre activité</strong>, qui optimise vos processus, réduit les erreurs et améliore l'efficacité de vos équipes au quotidien.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>2–12</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+35%</strong>
+                        <span>productivité</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients gagnent <strong>35% de productivité opérationnelle</strong> dans les 3 mois suivant la mise en production</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Analyse terrain incluse avant tout développement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Validations régulières avec vos équipes
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Code source documenté livré avec droits complets
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                <p><strong>+50</strong> applications livrées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>+35%</strong> productivité opérationnelle moyenne</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — exemples concrets
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Exemples concrets</p>
+            <h2>Quels types d'applications métier peut-on développer ?</h2>
+            <p class="sp-section-sub">Toute situation où les outils standards (Excel, logiciels génériques) montrent leurs limites est une opportunité pour une application métier sur mesure.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Gestion d'interventions terrain</h3>
+                <p>Planification, dispatch, suivi temps réel des techniciens, rapports d'intervention — tout sur mobile et synchronisé en temps réel.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Suivi de production</h3>
+                <p>Traçabilité des lots, suivi des étapes de fabrication, alertes qualité, tableaux de bord opérateurs — adapté à votre process industriel.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Gestion documentaire métier</h3>
+                <p>Workflows de validation, versioning, droits d'accès par profil, archivage automatisé — un GED adapté à vos contraintes réglementaires.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>Planification &amp; ressources</h3>
+                <p>Gestion des plannings, affectation des ressources humaines et matérielles, gestion des congés, visibilité temps réel pour les managers.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Tableau de bord &amp; reporting</h3>
+                <p>Indicateurs métier en temps réel, rapports automatisés, exports personnalisés — votre direction décide avec les bonnes données.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Gestion de stocks &amp; inventaires</h3>
+                <p>Entrées / sorties, alertes de réapprovisionnement, traçabilité des mouvements, intégration avec votre système de commandes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PROCESSUS DE DÉVELOPPEMENT — étapes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="processus">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>De l'analyse terrain au déploiement — comment nous développons votre application métier</h2>
+            <p class="sp-section-sub">Une méthodologie centrée utilisateur&nbsp;: nous immergeons dans vos processus avant d'écrire la première ligne de code.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">1</div>
+                <div class="sp-step__content">
+                    <h3>Analyse des besoins métier &amp; étude des processus</h3>
+                    <p>Ateliers avec vos équipes terrain et managers pour cartographier vos processus actuels, identifier les points de friction et définir les fonctionnalités prioritaires. Livrable&nbsp;: cahier des charges fonctionnel validé.</p>
+                    <span class="sp-step__duration">1 à 3 semaines</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">2</div>
+                <div class="sp-step__content">
+                    <h3>Conception de l'architecture applicative</h3>
+                    <p>Définition de l'architecture technique, des interfaces utilisateur (wireframes, maquettes), du modèle de données et du plan d'intégration avec vos systèmes existants. Choix de l'environnement&nbsp;: web, mobile ou desktop.</p>
+                    <span class="sp-step__duration">1 à 2 semaines</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">3</div>
+                <div class="sp-step__content">
+                    <h3>Développement itératif avec validations régulières</h3>
+                    <p>Développement par sprints de 2 semaines. À chaque sprint, une version fonctionnelle est présentée et validée par vos équipes. Les retours sont intégrés immédiatement — aucune mauvaise surprise en fin de projet.</p>
+                    <span class="sp-step__duration">2 à 10 mois selon la complexité</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-1);">4</div>
+                <div class="sp-step__content">
+                    <h3>Tests, déploiement, formation &amp; support</h3>
+                    <p>Tests complets (fonctionnels, charge, sécurité), recette par vos utilisateurs, déploiement en production, formation des équipes, documentation et support dédié pendant les premières semaines. Maintenance et évolutions disponibles en option.</p>
+                    <span class="sp-step__duration">2 à 4 semaines</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi développer sur mesure</p>
+            <h2>Ce que vous gagnez avec une application métier adaptée à vos processus</h2>
+            <p class="sp-section-sub">Un outil générique vous contraint à adapter vos processus au logiciel. Une application métier sur mesure fait l'inverse&nbsp;: le logiciel s'adapte à vous.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Outil adapté aux processus métier</h3>
+                <p>Chaque fonctionnalité correspond à un besoin réel identifié sur le terrain — plus de contournement, plus de tableurs Excel en parallèle.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <h3>Automatisation des tâches spécifiques</h3>
+                <p>Les tâches répétitives propres à votre activité sont automatisées — même celles qu'aucun outil standard ne sait gérer.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps opérationnel</h3>
+                <p>Moins de saisies manuelles, moins de va-et-vient entre outils, moins de réunions de coordination — vos équipes sont plus efficaces.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des erreurs</h3>
+                <p>Les règles métier sont encapsulées dans l'application. Les erreurs de saisie, d'oubli ou de calcul disparaissent.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Amélioration de la productivité</h3>
+                <p>En moyenne +35% de productivité opérationnelle dans les 3 premiers mois — les équipes font plus avec moins d'effort.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Meilleure gestion des opérations</h3>
+                <p>Vision temps réel sur toutes vos opérations, alertes automatiques, traçabilité complète — vous pilotez avec précision.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>Besoins spécifiques couverts</h3>
+                <p>Là où les outils standards s'arrêtent, votre application métier prend le relais — elle couvre exactement vos cas d'usage particuliers.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Support à la croissance</h3>
+                <p>L'application évolue avec vous — nouvelles fonctionnalités, nouveaux utilisateurs, nouveaux processus métier à mesure que vous grandissez.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le coût et la durée de votre application</h2>
+                    <p class="sp-section-sub">Chaque projet est unique. Voici les principales variables que nous analysons ensemble lors du cadrage gratuit pour établir une estimation précise.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Environnement cible</span>
+                        <span class="sp-variable-value">Web, mobile (iOS/Android), desktop ou multi-plateforme</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité des processus</span>
+                        <span class="sp-variable-value">Nombre de règles métier, cas limites, workflows à modéliser</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de fonctionnalités &amp; modules</span>
+                        <span class="sp-variable-value">Du MVP ciblé à l'application complète multi-modules</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Interconnexions requises (API)</span>
+                        <span class="sp-variable-value">Intégration avec ERP, CRM, outils métier ou SI existants</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Contraintes de sécurité &amp; réglementaires</span>
+                        <span class="sp-variable-value">RGPD, ISO 27001, données sensibles, secteur réglementé</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Délais &amp; mode de collaboration</span>
+                        <span class="sp-variable-value">Planning standard ou accéléré, présentiel ou distanciel</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Application métier sur mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une application métier sur mesure ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la complexité des processus, de l'environnement (web / mobile) et du nombre de fonctionnalités. Le cadrage gratuit permet d'établir une estimation précise.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Application simple</p>
+                    <p class="sp-plan__price"><span>8 000 – 20 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">MVP, workflow ciblé, 1 environnement</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse &amp; cadrage terrain</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 à 8 fonctionnalités ciblées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Interface adaptée aux utilisateurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests &amp; mise en production</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Application structurée</p>
+                    <p class="sp-plan__price"><span>20 000 – 50 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Application métier complète, multi-fonctions</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet des processus terrain</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-modules &amp; rôles utilisateurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisations métier avancées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations API (2 à 4 connecteurs)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard &amp; reporting intégré</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Application complexe</p>
+                    <p class="sp-plan__price"><span>50 000 – 120 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Processus métier spécifiques, haute complexité</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture scalable &amp; sécurisée</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Processus métier très spécifiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations multiples (ERP, SI…)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-environnements (web + mobile)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolutions mensuelles</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un cadrage gratuit permet d'établir une estimation précise. Un abonnement maintenance / hébergement / évolution est possible après livraison.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services liés
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions liées au développement d'application métier</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Besoin d'un logiciel plus complet&nbsp;? Découvrez notre offre de développement logiciel sur mesure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/automatisation-api" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg></div>
+                <div><strong>Automatisation &amp; API</strong><p>Connectez votre application métier à vos autres outils via des API et des automatisations.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <div><strong>ERP &amp; CRM sur mesure</strong><p>Centralisez votre gestion avec un ERP ou CRM sur mesure en complément de votre application métier.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/saas" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+                <div><strong>Développement SaaS</strong><p>Transformez votre application métier en produit SaaS commercialisable.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le développement d'application métier</h2>
+                <p>Notre équipe répond sous 24h. Le cadrage terrain est gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'une application métier sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une <strong>application métier sur mesure</strong> est un logiciel conçu spécifiquement pour répondre aux processus et contraintes propres à votre entreprise ou secteur d'activité. Contrairement aux outils génériques, elle est développée pour s'adapter exactement à votre organisation, vos flux de travail et vos besoins terrain — là où les solutions standard atteignent leurs limites.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte une application métier sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>8 000 € à 20 000 €</strong> pour une application simple (workflow ciblé, MVP), de <strong>20 000 € à 50 000 €</strong> pour une application structurée (multi-fonctions, automatisations), et de <strong>50 000 € à 120 000 €+</strong> pour une application avec des processus métier très spécifiques et des intégrations multiples. Un <a href="/solutions-developpement/developpement-logiciel">cadrage gratuit</a> établit une estimation précise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on développer une application mobile pour les équipes terrain ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — nous développons des applications métier pour tous les environnements&nbsp;: web, mobile (iOS et Android, native ou PWA) et desktop. Beaucoup de nos clients combinent une interface web pour les managers et une application mobile pour les équipes terrain, synchronisées en temps réel.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment se déroule un projet d'application métier ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>En 4 phases&nbsp;: <strong>1) Cadrage &amp; analyse terrain</strong> (ateliers avec vos équipes), <strong>2) Conception</strong> (architecture, maquettes, plan d'intégration), <strong>3) Développement itératif</strong> (sprints de 2 semaines avec validation à chaque étape), <strong>4) Tests, déploiement, formation &amp; support</strong>. Tout au long du projet, vous validez et vous êtes impliqué.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on connecter l'application à nos outils existants ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — l'intégration avec vos outils existants (ERP, CRM, comptabilité, gestion documentaire…) est planifiée dès la conception. Nous développons les connecteurs API nécessaires. Pour des besoins plus avancés, notre service <a href="/solutions-developpement/developpement-logiciel/automatisation-api">Automatisation &amp; API</a> peut orchestrer des workflows entre plusieurs systèmes.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à développer l'application qui correspond exactement à vos processus métier ?</h2>
+                <p>Cadrage terrain gratuit pour analyser vos processus, identifier les fonctionnalités prioritaires et vous proposer une estimation adaptée. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet d'application
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage terrain gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Code source livré avec droits complets</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

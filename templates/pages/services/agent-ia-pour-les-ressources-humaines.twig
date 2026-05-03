@@ -1,0 +1,220 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Agent IA RH | Automatisation ressources humaines | Complianz{% endblock %}
+
+{% block description %}Automatisez vos processus RH avec un agent IA : recrutement, onboarding, gestion des congés et FAQ collaborateurs. Réduction du temps administratif RH.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Agent IA pour les ressources humaines",
+      "url": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-ia-pour-les-ressources-humaines",
+      "description": "Comment déployer un agent IA pour automatiser les processus RH : recrutement, onboarding, gestion des congés et FAQ collaborateurs.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Agents IA", "item": "{{ app_url }}/intelligence-artificielle/agents-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Agent IA pour les RH", "item": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-ia-pour-les-ressources-humaines" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels processus RH peut-on automatiser avec un agent IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les processus RH automatisables incluent : pré-sélection et tri des candidatures, réponse aux candidats, planification des entretiens, onboarding administratif des nouveaux collaborateurs, gestion des demandes de congés et notes de frais, réponse aux questions RH fréquentes (FAQ collaborateurs), rappels pour les entretiens annuels et collecte des évaluations." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un agent IA RH respecte-t-il la confidentialité des données collaborateurs ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La protection des données RH est une priorité absolue. Nous configurons les agents IA RH en conformité avec le RGPD : hébergement des données en Europe, accès restreint selon les rôles, logs complets des interactions, et respect des règles de conservation. Les agents RH ne stockent que les données strictement nécessaires et leur usage fait l'objet d'une documentation conforme aux obligations RGPD." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'agent IA RH peut-il remplacer une équipe RH ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non et ce n'est pas l'objectif. Un agent IA RH automatise les tâches administratives répétitives (qui représentent souvent 40 à 60% du temps RH) pour libérer vos équipes sur les missions à valeur ajoutée : développement des talents, relations humaines, stratégie RH et accompagnement des managers. L'IA augmente vos RH, elle ne les remplace pas." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment un agent IA peut-il améliorer le recrutement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'agent IA améliore le recrutement en automatisant le tri initial des CVs selon les critères définis, en répondant automatiquement aux candidats (accusé de réception, avancement du processus), en planifiant les entretiens sans allers-retours d'emails, en collectant les disponibilités des candidats et en alimentant votre ATS (Applicant Tracking System) automatiquement. Vos recruteurs se concentrent sur les entretiens et la sélection finale." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/agents-ia">Agents IA</a><span>›</span>
+                <span>Agent IA pour les RH</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Agents IA — RH</span>
+                Agent IA pour les ressources humaines
+            </h1>
+            <p class="sp-hero__lead">
+                Réduisez le temps administratif RH de <strong>40 à 60%</strong> en automatisant recrutement, onboarding, gestion des congés et FAQ collaborateurs. Vos équipes RH se concentrent sur ce qui compte vraiment : <strong>les relations humaines</strong>.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Automatiser mes RH</a>
+                <a href="/intelligence-artificielle/agents-ia" class="btn btn-outline">Voir tous nos agents IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous gagnez</p><p class="sp-deliverables-card__subtitle">RH centrés sur l'humain</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>–50%</strong><span>tâches admin RH</span></div>
+                    <div class="sp-dc-stat"><strong>24/7</strong><span>FAQ collaborateurs</span></div>
+                    <div class="sp-dc-stat"><strong>RGPD</strong><span>conforme</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Comment un agent IA transforme vos ressources humaines</h2>
+                <p>Les équipes RH passent en moyenne 40 à 60% de leur temps sur des tâches administratives répétitives — répondre aux mêmes questions des collaborateurs, traiter des demandes de congés, programmer des entretiens, envoyer des documents d'onboarding. Un agent IA RH prend en charge ces tâches pour libérer vos équipes sur les missions à valeur ajoutée.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les processus RH automatisés par l'agent IA</h2>
+                <p><strong>Recrutement :</strong> tri des CVs selon vos critères, réponse automatique aux candidats, planification des entretiens, mise à jour de l'ATS et suivi du processus. Vos recruteurs se concentrent sur les entretiens finaux et la décision.</p>
+                <p><strong>Onboarding :</strong> envoi automatique des documents d'accueil, création des accès aux outils, checklist d'intégration, assignation des formations initiales et suivi de la progression du nouveau collaborateur.</p>
+                <p><strong>Administration courante :</strong> traitement des demandes de congés et validation automatique selon les règles définies, gestion des notes de frais simples, réponse aux questions fréquentes (solde RTT, mutuelle, procédures).</p>
+                <p><strong>Entretiens annuels :</strong> rappels automatiques, collecte des auto-évaluations, scheduling avec les managers et compilation des données pour le service RH.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Conformité RGPD de l'agent IA RH</h2>
+                <p>Les données RH sont parmi les plus sensibles. Nos agents IA RH sont configurés en pleine conformité RGPD : hébergement en Europe, accès restreint selon les rôles, logs complets, durées de conservation respectées et documentation fournie pour votre registre de traitements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur l'agent IA RH</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>L'IA augmente, elle ne remplace pas</h3><p>L'objectif est de libérer vos RH des tâches administratives — pas de supprimer des postes. L'agent gère le routinier, vos équipes gèrent l'humain</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>RGPD by design</h3><p>Hébergement en Europe, accès restreint, logs et documentation RGPD inclus dans chaque déploiement d'agent IA RH</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><h3>Intégration SIRH</h3><p>Connexion à votre SIRH (Lucca, Payfit, Workday, SAP SuccessFactors) pour des données toujours synchronisées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><h3>Expérience collaborateur améliorée</h3><p>Les collaborateurs obtiennent des réponses instantanées 24h/24 — satisfaction et engagement améliorés</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin avec l'IA pour les RH</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/ia-entreprise/ia-pour-les-solutions-rh" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>IA pour les solutions RH</strong><p>Guide complet sur l'IA dans les RH — outils et stratégie.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Tous nos agents IA pour votre entreprise.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA des processus</strong><p>Automatisez au-delà des RH — tous vos processus métiers.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>Les obligations légales pour les IA RH en 2026.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'agent IA RH</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels processus RH peut-on automatiser avec un agent IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Pré-sélection de candidatures, réponse aux candidats, <strong>planification d'entretiens</strong>, onboarding administratif, gestion des demandes de congés, FAQ collaborateurs, rappels entretiens annuels et collecte d'évaluations.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Un agent IA RH respecte-t-il la confidentialité des données ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui — nos agents RH sont configurés en <strong>conformité RGPD complète</strong> : hébergement en Europe, accès restreint, logs, durées de conservation et documentation pour votre registre de traitements.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'agent IA RH peut-il remplacer une équipe RH ?</summary>
+                    <div class="sp-faq-item__answer"><p>Non — il automatise les tâches administratives (40-60% du temps RH) pour <strong>libérer vos équipes</strong> sur le développement des talents, les relations humaines et la stratégie RH. L'IA augmente vos RH, elle ne les remplace pas.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment l'agent IA améliore-t-il le recrutement ?</summary>
+                    <div class="sp-faq-item__answer"><p>Tri automatique des CVs, réponse aux candidats, planification des entretiens sans allers-retours d'emails et mise à jour de l'ATS. Vos recruteurs se concentrent sur <strong>les entretiens et la décision</strong>.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à libérer vos équipes RH des tâches administratives pour qu'elles se concentrent sur l'humain ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Automatiser mes RH</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RGPD by design</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration SIRH incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

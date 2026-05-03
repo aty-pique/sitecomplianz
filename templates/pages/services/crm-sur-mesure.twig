@@ -1,0 +1,509 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (55 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}CRM sur mesure | Développement CRM entreprise | Complianz{% endblock %}
+
+{% block description %}Développez un CRM 100% adapté à votre process commercial. Gestion contacts, pipeline, devis, relances automatisées et tableaux de bord. Intégration sur mesure.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "CRM sur mesure — Gérez vos clients et votre pipeline commercial",
+      "url": "{{ app_url }}/solutions-developpement/erp-crm/crm-sur-mesure",
+      "description": "Développement d'un CRM 100% adapté à votre processus commercial : gestion contacts, pipeline, opportunités, devis, facturation, automatisation des relances, tableaux de bord et intégration email/agenda.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "CRM sur mesure",
+      "offers": [
+        { "@type": "Offer", "name": "CRM Starter",   "price": "4900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8900"  } },
+        { "@type": "Offer", "name": "CRM Standard",  "price": "8900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "18000" } },
+        { "@type": "Offer", "name": "CRM Enterprise","price": "18000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "35000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "ERP & CRM",                 "item": "{{ app_url }}/solutions-developpement/erp-crm" },
+        { "@type": "ListItem", "position": 4, "name": "CRM sur mesure",            "item": "{{ app_url }}/solutions-developpement/erp-crm/crm-sur-mesure" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "CRM sur mesure vs solution standard (HubSpot, Salesforce) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un CRM standard est adapté pour des processus commerciaux classiques et offre une mise en œuvre rapide. Un CRM sur mesure est préférable si votre cycle de vente est spécifique, si vous avez des processus atypiques, si vous souhaitez des intégrations poussées avec vos autres outils (ERP, e-commerce, logistique) ou si les licences mensuelles d'un CRM standard deviennent coûteuses à long terme." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour développer un CRM sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 6 à 10 semaines pour un CRM Starter (pipeline commercial, gestion contacts), de 3 à 5 mois pour un CRM Standard (multi-modules, automatisations avancées), et de 5 à 9 mois pour un CRM Enterprise (multi-équipes, intégrations complexes). Nous travaillons en méthodologie itérative pour livrer des fonctionnalités progressivement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on intégrer un CRM existant avec nos autres outils ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — l'intégration avec vos outils existants est au cœur de notre approche. Nous développons les connecteurs API nécessaires pour connecter votre CRM à votre messagerie (Gmail, Outlook), votre agenda, votre comptabilité, votre site web, votre ERP ou vos outils marketing (Mailchimp, HubSpot Marketing…)." }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation est-elle incluse dans le développement CRM ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — une formation complète des utilisateurs (commerciaux, managers, administrateurs) est incluse dans tous nos forfaits CRM. Nous livrons également une documentation utilisateur personnalisée et assurons un support dédié pendant les premières semaines de production." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <a href="/solutions-developpement/erp-crm">ERP &amp; CRM</a>
+                <span>›</span>
+                <span>CRM sur mesure</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Développement CRM sur mesure</span>
+                CRM sur mesure — Gérez vos clients et votre pipeline commercial
+            </h1>
+            <p class="sp-hero__lead">
+                Nous développons des <strong>CRM 100% adaptés à votre processus commercial</strong> — gestion des contacts, pipeline d'opportunités, devis, relances automatisées et tableaux de bord. Un outil qui <strong>parle votre langue</strong>, pas l'inverse.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis CRM
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Analyse du processus commercial incluse</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Intégration email, agenda et outils existants</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation équipes &amp; support post-lancement</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre CRM</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>CRM opérationnel et parfaitement adapté à votre cycle de vente</strong> — vos commerciaux gagnent du temps, vos managers pilotent en temps réel et vos relances s'automatisent.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>6 sem.</strong>
+                        <span>à 9 mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>adapté métier</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>temps admin</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos CRM réduisent le <strong>temps administratif de 40%</strong> dès le premier mois d'utilisation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos autres solutions ERP, CRM &amp; gestion</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/erp-crm/erp-sur-mesure" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>ERP sur mesure</h2>
+                    <p>Centralisez l'ensemble de vos processus métiers dans un ERP conçu sur mesure pour votre organisation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/gestion-commerciale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Logiciel de gestion commerciale</h2>
+                    <p>Devis, commandes, factures et stocks — un logiciel adapté à votre activité commerciale.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/integration-odoo" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Intégration Odoo</h2>
+                    <p>Déployez Odoo CRM personnalisé pour combiner puissance d'une solution établie et flexibilité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>ERP &amp; CRM sur mesure</h2>
+                    <p>Découvrez toutes nos solutions ERP, CRM et logiciels de gestion d'entreprise sur mesure.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Analyse du processus commercial offerte
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                100% adapté à votre cycle de vente
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation équipes &amp; support post-lancement
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                <p><strong>+45</strong> CRM sur mesure déployés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>–40%</strong> temps de gestion moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend votre projet de CRM sur mesure</h2>
+            <p class="sp-section-sub">De l'analyse de votre processus commercial à la formation des équipes — un accompagnement complet pour un CRM que vos commerciaux adopteront vraiment.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse du processus commercial</h3><p>Ateliers de travail pour cartographier votre cycle de vente, identifier les étapes clés et les informations à gérer à chaque stade.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Développement CRM personnalisé</h3><p>Développement des modules selon vos processus exacts — aucun compromis imposé par une solution générique.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Modules contacts, opportunités, devis, facturation</h3><p>Gestion complète du cycle client — de la prospection à la facturation — dans un outil unifié et adapté.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Automatisation des relances</h3><p>Relances automatiques configurées selon vos règles métier — plus aucune opportunité ne tombe dans les oubliettes.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Tableaux de bord commerciaux</h3><p>KPIs commerciaux en temps réel, pipeline visuel, prévisions de ventes et reporting managérial — tout dans un seul écran.</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg>
+                </div>
+                <div><h3>Intégration email &amp; agenda</h3><p>Synchronisation avec Gmail, Outlook, Google Calendar — chaque interaction client est tracée automatiquement sans double saisie.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un CRM adapté à votre activité</h2>
+            <p class="sp-section-sub">Un CRM sur mesure n'est pas réservé aux grandes entreprises. C'est l'outil qui permet aux PME et ETI de structurer leur commerce, d'accélérer les ventes et de fidéliser leurs clients.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <h3>Aucune opportunité perdue</h3>
+                <p>Pipeline visuel, relances automatiques et alertes — chaque prospect est suivi jusqu'à la conclusion.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Pilotage commercial en temps réel</h3>
+                <p>Tableaux de bord, KPIs et prévisions de ventes — décisions éclairées, management efficace.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps commercial</h3>
+                <p>Fini les saisies manuelles et les tableaux Excel. Vos commerciaux se concentrent sur la vente.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Données clients centralisées</h3>
+                <p>Toutes les interactions, devis et historiques dans un seul endroit — accessible à toute l'équipe.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un CRM sur mesure ?</h2>
+            <p class="sp-section-sub">Le coût dépend du nombre de modules, de la complexité du processus commercial et des intégrations. Un cadrage gratuit permet d'établir une estimation précise.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRM Starter</p>
+                    <p class="sp-plan__price"><span>4 900 – 8 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Pipeline commercial, contacts, devis</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse processus commercial</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gestion contacts &amp; prospects</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pipeline visuel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Relances automatiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRM Standard</p>
+                    <p class="sp-plan__price"><span>8 900 – 18 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-modules, intégrations, tableaux de bord</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Tous modules CRM Starter</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Devis &amp; facturation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tableaux de bord commerciaux</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations email &amp; agenda</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> API (2 à 4 connecteurs)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--green">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRM Enterprise</p>
+                    <p class="sp-plan__price"><span>18 000 – 35 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-équipes, intégrations complexes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture CRM complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-équipes &amp; rôles</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations multiples (ERP, logistique…)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisations avancées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance mensuelle possible</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un cadrage gratuit permet d'établir une estimation précise avant tout engagement. Un abonnement SaaS / maintenance est disponible après livraison.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions complémentaires à votre CRM</h2>
+        <div class="sp-related__grid">
+            <a href="/solutions-developpement/erp-crm" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+                <div><strong>ERP &amp; CRM sur mesure</strong><p>Découvrez toutes nos solutions de gestion d'entreprise sur mesure.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/erp-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <div><strong>ERP sur mesure</strong><p>Étendez votre CRM à l'ensemble de vos processus métiers avec un ERP complet.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/pilotage-commercial" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Pilotage commercial</strong><p>Structurez votre stratégie commerciale et pilotez votre activité avec les bons indicateurs.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/application-metier" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Application métier</strong><p>Développez des applications métier complémentaires à votre CRM pour automatiser vos processus.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le CRM sur mesure</h2>
+                <p>Notre équipe répond sous 24h et propose un cadrage gratuit pour analyser votre processus commercial et vous orienter vers la meilleure solution.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>CRM sur mesure vs solution standard (HubSpot, Salesforce) ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un CRM standard est adapté pour des processus commerciaux classiques. Un <strong>CRM sur mesure</strong> est préférable si votre cycle de vente est spécifique, si vous avez des processus atypiques, si vous souhaitez des intégrations poussées avec vos autres outils, ou si les licences mensuelles d'un CRM standard deviennent coûteuses à long terme.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour développer un CRM sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>6 à 10 semaines</strong> pour un CRM Starter, de <strong>3 à 5 mois</strong> pour un CRM Standard, et de <strong>5 à 9 mois</strong> pour un CRM Enterprise. Nous travaillons en <strong>méthodologie itérative</strong> pour livrer des fonctionnalités progressivement et permettre des ajustements en cours de projet.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on intégrer notre CRM avec nos outils existants ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — nous développons les <strong>connecteurs API</strong> nécessaires pour connecter votre CRM à votre messagerie (Gmail, Outlook), votre agenda, votre comptabilité, votre site web ou vos outils marketing. Si vous avez un <a href="/solutions-developpement/erp-crm/erp-sur-mesure">ERP existant</a>, nous pouvons également les synchroniser.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La formation est-elle incluse ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — une <strong>formation complète</strong> des utilisateurs (commerciaux, managers, administrateurs) est incluse dans tous nos forfaits CRM. Nous livrons également une <strong>documentation utilisateur personnalisée</strong> et assurons un support dédié pendant les premières semaines de production.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à structurer votre gestion commerciale avec un CRM adapté à votre activité ?</h2>
+                <p>Cadrage gratuit pour analyser votre processus commercial, identifier les modules nécessaires et établir une estimation précise. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer mon projet CRM
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse processus offerte</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

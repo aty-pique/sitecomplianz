@@ -1,0 +1,643 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Hébergement serveur dédié & VPS — fiable & sécurisé{% endblock %}
+
+{% block description %}Hébergement web sur serveur dédié ou VPS managé : configuration technique, sécurisation, sauvegardes, monitoring et optimisation des performances. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Hébergement serveur dédié & VPS",
+      "url": "{{ app_url }}/support-maintenance/infogerance/hebergement-serveur",
+      "description": "Mise à disposition et gestion d'un hébergement adapté aux besoins des outils digitaux, garantissant performance, sécurité et disponibilité. Configuration technique, sécurisation, sauvegardes, monitoring et optimisation inclus.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Hébergement web et gestion de serveurs",
+      "offers": [
+        { "@type": "Offer", "name": "Hébergement simple",   "price": "50",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "200" } },
+        { "@type": "Offer", "name": "Hébergement standard", "price": "200", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "800" } },
+        { "@type": "Offer", "name": "Hébergement avancé",   "price": "800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                         "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",           "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Infogérance & Hébergement",       "item": "{{ app_url }}/support-maintenance/infogerance" },
+        { "@type": "ListItem", "position": 4, "name": "Hébergement serveur dédié & VPS", "item": "{{ app_url }}/support-maintenance/infogerance/hebergement-serveur" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre hébergement mutualisé, VPS et serveur dédié ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'hébergement mutualisé partage les ressources d'un serveur entre de nombreux clients — économique mais limité en performance et sécurité. Le VPS (Virtual Private Server) offre des ressources garanties sur une machine virtuelle dédiée — meilleur rapport performance/prix. Le serveur dédié vous réserve un serveur physique entier — performances maximales, isolation totale, idéal pour les applications critiques." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel hébergement choisir pour mon site ou application ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour un site vitrine ou blog (faible trafic), un VPS simple suffit. Pour un site e-commerce ou une application avec trafic modéré, un VPS performant ou un serveur semi-dédié est recommandé. Pour une application critique, à fort trafic ou avec des exigences de sécurité élevées, un serveur dédié ou une infrastructure cloud managée s'impose. Nous vous aidons à dimensionner l'hébergement adapté à vos besoins réels." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les sauvegardes sont-elles incluses dans l'hébergement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, nos hébergements incluent des sauvegardes automatiques quotidiennes stockées hors site. Selon le niveau d'hébergement, la fréquence peut aller jusqu'à des sauvegardes en temps réel (PITR). Nous réalisons des tests de restauration réguliers pour garantir l'intégrité des sauvegardes — une sauvegarde non testée n'est pas fiable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Mon hébergement est-il sécurisé ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, tous nos hébergements incluent une sécurisation de base : certificat SSL/TLS, pare-feu configuré, mises à jour de sécurité appliquées régulièrement et accès SSH sécurisé. Pour les niveaux avancés, nous ajoutons la détection d'intrusion, le filtrage WAF, l'isolation des applications et une conformité RGPD pour les données personnelles hébergées." }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je faire évoluer mon hébergement si mon activité grandit ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, nos hébergements sont conçus pour évoluer. Un VPS peut être redimensionné (plus de RAM, CPU, stockage) sans migration complexe. Si vos besoins dépassent les capacités d'un VPS, nous planifions avec vous la migration vers un serveur dédié ou une infrastructure cloud élastique. L'évolutivité est discutée dès le dimensionnement initial." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg, #eef2f8) 0%, #f5f8fc 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/infogerance">Infogérance &amp; Hébergement</a>
+                <span>›</span>
+                <span>Hébergement serveur dédié &amp; VPS</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Hébergement serveur dédié &amp; VPS</span>
+                Vos outils hébergés sur une infrastructure fiable, sécurisée et performante — gérée pour vous
+            </h1>
+            <p class="sp-hero__lead">
+                Nous mettons à disposition et gérons un <strong>hébergement adapté à chaque outil digital</strong> — site web, application, e-commerce, logiciel — sur VPS ou serveur dédié. Configuration technique, sécurisation, sauvegardes, monitoring et optimisation : votre infrastructure est <strong>performante, disponible et sécurisée</strong> sans que vous ayez à vous en préoccuper.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                    Choisir mon hébergement
+                </a>
+                <a href="#formules" class="btn btn-outline">
+                    Voir les formules
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>99,9% de disponibilité — SLA garanti</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Sauvegardes quotidiennes hors site</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Évolutif — VPS vers dédié sans friction</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Infrastructure fiable, sécurisée, performante</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre site, application ou logiciel est <strong>hébergé sur une infrastructure de qualité</strong>, gérée en continu — disponibilité garantie, performances maintenues, données protégées.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>99,9%</strong>
+                        <span>uptime garanti</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>SSL</strong>
+                        <span>inclus &amp; géré</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>24/7</strong>
+                        <span>monitoring actif</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Un mauvais hébergement peut coûter <strong>jusqu'à 7 secondes de temps de chargement</strong> supplémentaires — et <strong>–40% de conversions</strong> selon Google</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES CONNEXES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos offres d'hébergement &amp; infogérance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/infogerance" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Infogérance complète</h2>
+                    <p>Hébergement + gestion totale de votre infrastructure : monitoring, sécurité, incidents, optimisation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/infogerance/cloud-infrastructure" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Cloud &amp; infrastructure managée</h2>
+                    <p>Infrastructure cloud AWS, Azure ou OVH entièrement managée — scalabilité et haute disponibilité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Maintenance &amp; support</h2>
+                    <p>Maintenance corrective et évolutive de vos outils hébergés — en complément de l'hébergement.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Configuration initiale optimisée &amp; documentée
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Sauvegardes testées — restauration garantie
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Montée en charge possible sans migration complexe
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                <p><strong>+200</strong> serveurs hébergés &amp; gérés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>99,9%</strong> disponibilité moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TYPES D'HÉBERGEMENT
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Quel hébergement pour quel besoin ?</p>
+            <h2>VPS ou serveur dédié — nous dimensionnons l'hébergement adapté</h2>
+            <p class="sp-section-sub">Chaque projet a des besoins différents en termes de performance, sécurité et disponibilité. Nous sélectionnons le type d'hébergement le plus adapté et l'optimisons pour vos outils spécifiques.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Sites web &amp; vitrine</h3>
+                <p>VPS optimisé pour WordPress, Drupal, Joomla ou sites custom — temps de chargement &lt;1s, SSL inclus, sauvegardes quotidiennes.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                </div>
+                <h3>Sites e-commerce</h3>
+                <p>Hébergement performant pour WooCommerce, PrestaShop, Shopify — pics de trafic gérés, transactions sécurisées, disponibilité maximale.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Applications métier &amp; SaaS</h3>
+                <p>Serveur dédié pour applications critiques — ressources garanties, isolation totale, haute disponibilité et support prioritaire.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>Bases de données volumineuses</h3>
+                <p>Serveur dédié haute mémoire pour bases de données volumineuses — MySQL, PostgreSQL, MongoDB optimisés, sauvegardes temps réel.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Données sensibles &amp; conformité</h3>
+                <p>Hébergement RGPD-compliant pour données personnelles — données localisées en France, isolation garantie, accès contrôlés et traçables.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Sites à fort trafic</h3>
+                <p>Infrastructure scalable pour les sites à fort volume — load balancing, CDN, cache optimisé pour absorber les pics de trafic sans dégradation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — 9 caractéristiques
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce qui est inclus</p>
+            <h2>Ce que comprend notre offre d'hébergement managé</h2>
+            <p class="sp-section-sub">Notre hébergement va bien au-delà de la simple mise à disposition d'un serveur. Nous gérons l'intégralité de la configuration, de la sécurité et de la maintenance pour vous offrir une expérience sereine.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div><h3>Mise en place de l'hébergement</h3><p>Installation et configuration complète du serveur — OS, serveur web (Nginx/Apache), PHP, base de données, DNS, déploiement de votre application</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div><h3>Configuration technique</h3><p>Paramétrage fin du serveur pour vos besoins spécifiques : configuration PHP, MySQL, cache (Redis, Memcached), CDN, gzip et compression</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Sécurisation</h3><p>Certificat SSL/TLS géré, pare-feu configuré, accès SSH sécurisé, protection anti-DDoS, fail2ban, désactivation des services inutiles</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div><h3>Sauvegardes</h3><p>Sauvegardes automatiques quotidiennes (fichiers + BDD) stockées hors site avec tests de restauration réguliers — vos données protégées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Monitoring</h3><p>Surveillance en temps réel de la disponibilité, des performances et de la santé du serveur — alertes immédiates en cas d'anomalie</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Maintenance</h3><p>Mises à jour régulières de l'OS, des logiciels serveur et des dépendances — sécurité et compatibilité maintenues dans le temps</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Optimisation des performances</h3><p>Tuning continu du serveur — configuration cache, compression, CDN, optimisation des temps de réponse et des requêtes base de données</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div><h3>Support technique</h3><p>Assistance technique disponible pour tout problème lié à l'hébergement — interventions rapides en cas d'incident selon votre SLA</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Possibilité d'évolution</h3><p>Montée en puissance planifiée sans friction — augmentation des ressources VPS ou migration vers serveur dédié ou cloud selon vos besoins</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un hébergement managé de qualité</h2>
+            <p class="sp-section-sub">Un bon hébergement est invisible quand tout va bien — et catastrophique quand il est mal géré. Chaque milliseconde de temps de chargement supplémentaire coûte des conversions. Chaque heure de downtime coûte du chiffre d'affaires.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <h3>Hébergement fiable</h3>
+                <p>Votre site ou application est disponible en permanence — 99,9% d'uptime garanti, incidents détectés et résolus rapidement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Performance optimale</h3>
+                <p>Temps de chargement rapides grâce à une configuration serveur optimisée pour vos outils spécifiques — moins d'attente, plus de conversions.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Sécurité des données</h3>
+                <p>Vos données sont protégées par une sécurisation multi-niveaux : SSL, pare-feu, sauvegardes hors site, mises à jour de sécurité régulières.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Disponibilité continue</h3>
+                <p>Votre infrastructure est surveillée en permanence — pannes détectées avant vos utilisateurs, interventions proactives pour éviter les interruptions.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Simplicité de gestion</h3>
+                <p>Nous gérons tout — vous n'avez pas à vous préoccuper des mises à jour, configurations ou incidents serveur. Concentrez-vous sur votre activité.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le tarif de votre hébergement</h2>
+                    <p class="sp-section-sub">Chaque hébergement est dimensionné sur mesure selon vos outils, votre trafic et vos exigences de performance. Ces variables sont analysées lors du cadrage pour vous proposer la formule la plus adaptée.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type d'hébergement</span>
+                        <span class="sp-variable-value">VPS (ressources partagées garanties) à serveur dédié (ressources physiques exclusives)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de trafic</span>
+                        <span class="sp-variable-value">Quelques centaines de visites/mois à plusieurs millions — dimensionnement des ressources en conséquence</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données</span>
+                        <span class="sp-variable-value">Quelques Go (site vitrine) à plusieurs To (e-commerce, application avec médias volumineux)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de performance</span>
+                        <span class="sp-variable-value">Temps de réponse standard (&lt;2s) à haute performance (&lt;500ms) pour e-commerce ou application SaaS</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de sécurité</span>
+                        <span class="sp-variable-value">Standard (SSL + firewall) à haute sécurité (compliance RGPD, ISO, données médicales ou financières)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin de scalabilité</span>
+                        <span class="sp-variable-value">Trafic stable à forte saisonnalité ou croissance rapide nécessitant une infrastructure élastique</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'applications</span>
+                        <span class="sp-variable-value">1 site ou application à écosystème complet (site + CRM + API + app mobile) sur la même infrastructure</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de support</span>
+                        <span class="sp-variable-value">Support standard (délai 24h) à support prioritaire avec SLA &lt;1h et astreinte étendue</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Hébergement serveur dédié VPS managé" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="formules">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un hébergement managé ?</h2>
+            <p class="sp-section-sub">Selon le type de serveur, les ressources requises et le niveau de gestion inclus. Tous nos hébergements incluent la configuration, la sécurisation, les sauvegardes et le monitoring.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Hébergement simple</p>
+                    <p class="sp-plan__price"><span>50 – 200 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">VPS — site vitrine ou blog</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VPS configuré &amp; sécurisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SSL inclus &amp; géré</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sauvegardes quotidiennes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring basique</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Hébergement standard</p>
+                    <p class="sp-plan__price"><span>200 – 800 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">VPS performant ou semi-dédié</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>VPS haute performance optimisé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring avancé 24/7</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation performances incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sauvegardes + tests de restauration</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support technique réactif</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Hébergement avancé</p>
+                    <p class="sp-plan__price"><span>800 – 3 000 €</span> <em>HT/mois+</em></p>
+                    <p class="sp-plan__duration">Serveur dédié — app critique</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Serveur dédié — ressources exclusives</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Haute disponibilité &amp; SLA prioritaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sécurité renforcée (WAF, IDS)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Architecture multi-serveurs possible</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de reprise d'activité (PRA)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Pour un besoin de scalabilité ou de haute disponibilité cloud, consultez notre <a href="/support-maintenance/infogerance/cloud-infrastructure">offre cloud &amp; infrastructure managée</a>. Un <a href="/support-maintenance/infogerance">contrat d'infogérance complète</a> peut combiner hébergement + maintenance + support.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à l'hébergement</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/infogerance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div><strong>Infogérance complète</strong><p>Ajoutez la gestion totale de votre infrastructure à votre hébergement : incidents, sécurité, optimisation continue.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div><strong>Maintenance corrective &amp; évolutive</strong><p>Maintenance des applications hébergées sur vos serveurs — corrective et évolutive.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/cybersecurite-ia/audit-cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Audit &amp; sécurisation des systèmes</strong><p>Audit complet de la sécurité de votre infrastructure hébergée et recommandations de durcissement.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-sites-web" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                <div><strong>Création de sites web</strong><p>Site créé et déployé directement sur notre infrastructure hébergée — cohérence technique garantie.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'hébergement</h2>
+                <p>Notre équipe analyse votre infrastructure actuelle et vous propose la formule d'hébergement adaptée à vos besoins et votre budget.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle différence entre hébergement mutualisé, VPS et serveur dédié ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>hébergement mutualisé</strong> partage les ressources entre de nombreux clients — économique mais limité. Le <strong>VPS</strong> offre des ressources garanties sur une machine virtuelle — meilleur rapport performance/prix. Le <strong>serveur dédié</strong> réserve un serveur physique entier — performances maximales, idéal pour les applications critiques.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel hébergement choisir pour mon site ou application ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Pour un <strong>site vitrine</strong> (faible trafic), un VPS simple suffit (50–200€/mois). Pour un <strong>e-commerce ou application</strong> avec trafic modéré, un VPS performant est recommandé (200–800€/mois). Pour une <strong>application critique</strong>, à fort trafic ou avec des exigences de sécurité élevées, un serveur dédié s'impose (800€+/mois).</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Puis-je migrer mon hébergement actuel chez vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, nous réalisons des <strong>migrations d'hébergement</strong> complètes — de votre prestataire actuel vers notre infrastructure. La migration est planifiée pour minimiser les interruptions (généralement réalisée en nuit ou week-end). Nous gérons toute la procédure : sauvegarde, transfert, reconfiguration DNS et validation post-migration.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Mon hébergement est-il conforme RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, nos hébergements sont conformes au RGPD : <strong>données hébergées en France</strong> ou en Europe (selon votre choix), pas de transfert vers des pays tiers sans encadrement, isolation des données entre clients, accès traçables et contrat de sous-traitance de données disponible. Pour les données sensibles (santé, financement), nous proposons des niveaux de sécurité renforcés.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un hébergement managé ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>50 à 200€/mois</strong> pour un hébergement simple (VPS, site vitrine), de <strong>200 à 800€/mois</strong> pour un <a href="#formules">hébergement standard</a> (VPS performant, e-commerce, application), et de <strong>800 à 3 000€/mois+</strong> pour un hébergement avancé sur serveur dédié avec haute disponibilité. Ces tarifs incluent la gestion, les sauvegardes et le monitoring.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à héberger vos outils sur une infrastructure fiable, sécurisée et gérée par des experts ?</h2>
+                <p>Décrivez vos outils et votre trafic — nous analysons vos besoins et vous proposons la formule d'hébergement adaptée à votre activité et votre budget.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                    Choisir mon hébergement
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit de l'existant gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Migration assistée</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLA garanti contractuellement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

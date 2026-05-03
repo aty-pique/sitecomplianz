@@ -1,0 +1,620 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 154 chars description) ─────────────────── #}
+{% block title %}Structuration organisationnelle d'entreprise{% endblock %}
+
+{% block description %}Clarifiez vos rôles, structurez vos processus et organisez votre gouvernance avec nos experts. Passez d'un fonctionnement subi à une organisation pilotable.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Structuration organisationnelle d'entreprise",
+      "url": "{{ app_url }}/audit-conformite/audit-conseil/structuration-gouvernance",
+      "description": "Accompagnement dans la structuration globale de l'organisation de l'entreprise : cartographie des rôles, clarification des processus, circuits de décision, alignement organisation-outils-stratégie. Transformer une organisation floue en un système clair, structuré et pilotable.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Structuration organisationnelle et gouvernance d'entreprise",
+      "offers": [
+        { "@type": "Offer", "name": "Structuration simple",   "price": "5000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Structuration complète", "price": "12000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "30000" } },
+        { "@type": "Offer", "name": "Transformation globale", "price": "30000", "priceCurrency": "EUR" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Audit & Conseil stratégique", "item": "{{ app_url }}/audit-conformite/audit-conseil" },
+        { "@type": "ListItem", "position": 4, "name": "Structuration organisationnelle", "item": "{{ app_url }}/audit-conformite/audit-conseil/structuration-gouvernance" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la structuration organisationnelle d'une entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La structuration organisationnelle consiste à clarifier et formaliser le fonctionnement interne d'une entreprise : rôles et responsabilités, processus, circuits de décision, flux de travail et outils. L'objectif est de passer d'une organisation floue à un système clair, pilotable et aligné avec les objectifs de performance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quand faut-il structurer son organisation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un accompagnement en structuration s'impose quand l'entreprise grandit rapidement (recrutements, nouveaux marchés), quand les rôles ne sont plus clairs, quand les décisions sont lentes ou mal prises, ou quand le dirigeant est épuisé à gérer le quotidien au lieu de piloter la stratégie." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure une mission de structuration organisationnelle ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 2 à 3 mois pour une structuration ciblée (quelques services, périmètre limité), à 6 à 12 mois pour une transformation globale incluant la gouvernance, les outils et l'accompagnement des managers. La durée dépend de la taille et du niveau de désorganisation initial." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un audit organisationnel et une structuration ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit organisationnel diagnostique l'organisation existante (forces, faiblesses, risques). La structuration organisationnelle est la mise en œuvre des recommandations : on construit, on clarifie, on déploie. L'audit précède généralement la structuration pour prioriser les chantiers." }
+        },
+        {
+          "@type": "Question",
+          "name": "La structuration organisationnelle est-elle réservée aux grandes entreprises ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non — c'est même souvent plus urgent pour les PME et ETI en croissance, où l'organisation informelle \"qui marchait bien jusqu'à 15 personnes\" devient un frein dès que l'entreprise dépasse 30 à 50 collaborateurs. Une structure claire est la condition de toute croissance maîtrisée." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/audit-conseil">Audit &amp; Conseil</a>
+                <span>›</span>
+                <span>Structuration organisationnelle</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Organisation &amp; gouvernance d'entreprise</span>
+                Structuration organisationnelle&nbsp;: transformez votre fonctionnement interne en système clair et pilotable
+            </h1>
+            <p class="sp-hero__lead">
+                Nous intervenons dans <strong>la structuration globale de votre organisation</strong>&nbsp;: rôles, responsabilités, processus, circuits de décision et outils. L'objectif&nbsp;: passer d'un fonctionnement subi et désorganisé à un système clair, maîtrisé et aligné avec vos objectifs de performance et de croissance.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un diagnostic gratuit
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir ce que nous structurons
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Résultats visibles en 4 semaines</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Accompagnement dirigeant inclus</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Méthode éprouvée +100 entreprises</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que votre entreprise devient</p>
+                        <p class="sp-deliverables-card__subtitle">À la fin de la structuration</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre entreprise passe d'un fonctionnement <strong>subi et désorganisé</strong> à un <strong>système clair</strong>, structuré et maîtrisé — où chaque rôle est défini, chaque décision est fluide et chaque équipe sait exactement où elle va.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>2–12</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>de temps perdu</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>×2</strong>
+                        <span>rapidité décisions</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients récupèrent <strong>10h/semaine</strong> de temps de pilotage dès le premier mois</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Diagnostic organisationnel offert
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Devis personnalisé sous 48h
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Implication du dirigeant garantie
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <p><strong>+100</strong> entreprises structurées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>–40%</strong> de temps de gestion</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — 9 axes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre intervention</p>
+            <h2>Ce que nous structurons dans votre organisation</h2>
+            <p class="sp-section-sub">Une approche globale qui couvre tous les leviers d'une organisation performante — pas juste un organigramme.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse de l'organisation existante</h3><p>État des lieux complet du fonctionnement réel vs fonctionnement théorique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Cartographie des rôles et responsabilités</h3><p>Qui fait quoi, à quelle fréquence, avec quelles marges d'autonomie</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Structuration des fonctions clés</h3><p>Direction, RH, commercial, opérations, finance&nbsp;: chaque fonction est définie et positionnée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg>
+                </div>
+                <div><h3>Clarification des circuits de décision</h3><p>Niveaux d'approbation, instances de pilotage, règles d'escalade</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                </div>
+                <div><h3>Définition des processus internes</h3><p>Formalisation des façons de faire pour chaque activité critique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Alignement organisation / outils / stratégie</h3><p>Votre structure soutient votre stratégie et vos outils s'y adaptent</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Optimisation des flux de travail</h3><p>Suppression des redondances, des goulots d'étranglement et des tâches sans valeur</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Mise en place de méthodes de pilotage</h3><p>Rituels managériaux, comités, tableaux de bord et indicateurs de performance</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Accompagnement du dirigeant</h3><p>Coaching, posture managériale, délégation et passage en mode stratégique</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que vous gagnez</p>
+            <h2>Les bénéfices concrets d'une organisation structurée</h2>
+            <p class="sp-section-sub">Une organisation claire n'est pas un luxe — c'est la condition de base pour croître sans subir.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+                <h3>Vision claire de l'organisation</h3>
+                <p>Vous savez enfin comment votre entreprise fonctionne réellement — et comment elle devrait fonctionner.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Rôles et responsabilités définis</h3>
+                <p>Chaque collaborateur sait ce qui lui appartient. Fini les zones grises, les conflits de périmètre et les tâches qui tombent entre les chaises.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </div>
+                <h3>Fin du "flou" et des incompréhensions</h3>
+                <p>Les frictions, les malentendus et les réunions improductives disparaissent quand les règles du jeu sont claires.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Réduction du chaos et des pertes de temps</h3>
+                <p>Moins de doublons, de relances et de gestion de l'urgence. Jusqu'à –40% de temps opérationnel inutile.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <h3>Meilleure coordination des équipes</h3>
+                <p>Les interfaces entre services sont définies. Chaque équipe sait avec qui interagir, comment et à quelle fréquence.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3>Prise de décision facilitée</h3>
+                <p>Circuits d'approbation clairs, niveaux de délégation définis — les décisions sont prises au bon niveau, rapidement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Entreprise pilotable</h3>
+                <p>Indicateurs, comités, rituels managériaux — vous pilotez votre entreprise avec des données réelles, pas des impressions.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Base solide pour la croissance</h3>
+                <p>Recrutement, scalabilité, levée de fonds, ouverture de sites — tout devient possible quand l'organisation tient la charge.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   NOTRE MÉTHODE — 4 phases
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-process">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous structurons votre organisation en 4 phases</h2>
+            <p class="sp-section-sub">Une méthode progressive qui produit des résultats visibles dès les premières semaines, sans perturber votre activité.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number">01</div>
+                <div class="sp-step__content">
+                    <h3>Diagnostic organisationnel</h3>
+                    <p>Entretiens avec la direction et les managers clés, observation du fonctionnement réel, cartographie de l'existant. Identification des dysfonctionnements prioritaires : zones de friction, rôles flous, décisions bloquées, surcharge du dirigeant.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        2 à 4 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">02</div>
+                <div class="sp-step__content">
+                    <h3>Conception de la nouvelle organisation</h3>
+                    <p>Co-construction avec la direction de la structure cible&nbsp;: organigramme, fiches de rôles, matrice RACI, circuits de décision, processus formalisés et outils de pilotage. Présentation et validation des livrables par les parties prenantes.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        3 à 6 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">03</div>
+                <div class="sp-step__content">
+                    <h3>Déploiement et accompagnement des équipes</h3>
+                    <p>Communication interne, ateliers de mise en place par service, formation aux nouveaux processus, mise en place des rituels managériaux (comités, points hebdo, revues mensuelles) et des outils de suivi adaptés.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 4 mois
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">04</div>
+                <div class="sp-step__content">
+                    <h3>Stabilisation et passage en mode autonome</h3>
+                    <p>Vérification de l'adoption, ajustements en temps réel, coaching du dirigeant sur la posture de pilotage et de délégation. Remise du "kit de pilotage" pour que l'organisation fonctionne de manière autonome et durable.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 3 mois
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES / PROFIL SUR-MESURE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Adapté à votre situation</p>
+                    <h2>Une structuration calibrée selon votre contexte</h2>
+                    <p class="sp-section-sub">Le périmètre et l'intensité de la mission s'adaptent à votre entreprise. Voici les variables qui déterminent l'approche.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille de l'entreprise</span>
+                        <span class="sp-variable-value">De 5 à 500 collaborateurs</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'équipes / services</span>
+                        <span class="sp-variable-value">Périmètre partiel ou organisation complète</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de désorganisation</span>
+                        <span class="sp-variable-value">Ajustement mineur à transformation complète</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Objectifs visés</span>
+                        <span class="sp-variable-value">Croissance, structuration, sortie de crise…</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Implication du dirigeant</span>
+                        <span class="sp-variable-value">Co-construction ou prise en charge totale</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Format d'intervention</span>
+                        <span class="sp-variable-value">Présentiel, distanciel ou hybride</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 3.png" alt="Structuration organisationnelle sur-mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une mission de structuration organisationnelle ?</h2>
+            <p class="sp-section-sub">Le coût s'adapte à la taille de votre entreprise, au nombre de services concernés et à la profondeur de la transformation attendue.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Structuration simple</p>
+                    <p class="sp-plan__price"><span>5 000 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Petite structure ou périmètre ciblé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic organisationnel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie rôles (1 à 3 services)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Fiches de poste et RACI</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action prioritaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution et kit de pilotage</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Structuration complète</p>
+                    <p class="sp-plan__price"><span>12 000 – 30 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME 20 à 150 collaborateurs</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Diagnostic + conception organisation cible</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Organigramme, RACI, processus clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Circuits de décision formalisés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ateliers équipes (déploiement 3 mois)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tableau de bord pilotage + rituels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Coaching dirigeant inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Transformation globale</p>
+                    <p class="sp-plan__price"><span>30 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">+ 1 500 – 4 000 €/mois d'accompagnement</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Transformation organisation complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restructuration gouvernance et direction</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement managers (6 mois)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alignement stratégie / org / outils</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi mensuel post-déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à la structuration</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/audit-conseil/audit-organisationnel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit organisationnel</strong><p>Le diagnostic qui précède et oriente toute mission de structuration.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit global &amp; Conseil stratégique</strong><p>Vision 360° de votre entreprise pour cadrer la structuration dans la stratégie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/smq" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Mise en place SMQ</strong><p>Formalisez vos processus dans un système de management qualité structuré et certifiable.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil/creation-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                <div><strong>Accompagnement à la création d'entreprise</strong><p>Structurez votre organisation dès le départ pour éviter les problèmes de croissance.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la structuration organisationnelle</h2>
+                <p>Nos consultants répondent sous 24h à toute question sur votre organisation.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que la structuration organisationnelle d'une entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>structuration organisationnelle</strong> consiste à clarifier et formaliser le fonctionnement interne d'une entreprise&nbsp;: rôles, processus, circuits de décision, flux de travail et outils. L'objectif est de passer d'une organisation floue à un système clair, pilotable et aligné avec les objectifs de performance.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quand faut-il structurer son organisation ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un accompagnement en <strong>structuration organisationnelle</strong> s'impose quand l'entreprise grandit rapidement (recrutements, nouveaux marchés), quand les rôles ne sont plus clairs, quand les décisions sont lentes ou bloquées, ou quand le dirigeant est épuisé à gérer le quotidien au lieu de <strong>piloter la stratégie</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps dure une mission de structuration ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 à 3 mois</strong> pour une structuration ciblée (quelques services, périmètre limité) à <strong>6 à 12 mois</strong> pour une transformation globale incluant la gouvernance, les outils et l'accompagnement des managers. Les premiers résultats sont visibles dès les 4 premières semaines.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre audit organisationnel et structuration ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<a href="/audit-conformite/audit-conseil/audit-organisationnel">audit organisationnel</a> <strong>diagnostique</strong> l'organisation existante (forces, faiblesses, risques). La <strong>structuration</strong> est la mise en œuvre des recommandations&nbsp;: on construit, on clarifie, on déploie. L'audit précède généralement la structuration pour prioriser les chantiers.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La structuration organisationnelle est-elle réservée aux grandes entreprises ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Non — c'est souvent plus urgent pour les <strong>PME et ETI en croissance</strong>, où l'organisation informelle "qui marchait bien à 15 personnes" devient un frein dès 30 à 50 collaborateurs. Une structure claire est la condition de toute croissance maîtrisée et d'un <strong>accompagnement dirigeant</strong> efficace.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à passer d'une organisation subie à un système maîtrisé ?</h2>
+                <p>Nos consultants analysent votre organisation et vous proposent un plan de structuration adapté à votre taille, votre secteur et vos ambitions. Diagnostic offert, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Structurer mon organisation
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Résultats en 4 semaines</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

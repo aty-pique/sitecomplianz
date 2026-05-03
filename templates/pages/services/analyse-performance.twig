@@ -1,0 +1,596 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 153 chars description) ─────────────────── #}
+{% block title %}Analyse de performance data & KPI | Web analytics{% endblock %}
+
+{% block description %}Transformez vos données en décisions : analyse approfondie de vos KPI, performances par canal, comportement utilisateur et axes d'amélioration. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Analyse de performance & data",
+      "url": "{{ app_url }}/performance-digitale/pilotage-commercial/analyse-performance",
+      "description": "Analyse approfondie des données de l'entreprise pour comprendre sa performance, identifier les leviers d'amélioration et optimiser les résultats. Transformer les données en informations utiles pour piloter efficacement l'activité.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Web analytics et analyse de performance data",
+      "offers": [
+        { "@type": "Offer", "name": "Analyse simple",                     "price": "1500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4000"  } },
+        { "@type": "Offer", "name": "Analyse structurée",                 "price": "4000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "10000" } },
+        { "@type": "Offer", "name": "Analyse avancée / data complète",    "price": "10000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "25000" } },
+        { "@type": "Offer", "name": "Accompagnement mensuel",             "price": "800",   "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2500"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Pilotage commercial & KPI",        "item": "{{ app_url }}/performance-digitale/pilotage-commercial" },
+        { "@type": "ListItem", "position": 4, "name": "Analyse de performance & data",    "item": "{{ app_url }}/performance-digitale/pilotage-commercial/analyse-performance" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'analyse de performance data ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'analyse de performance data consiste à collecter, traiter et interpréter les données de votre entreprise (analytics, CRM, ads, email, ventes…) pour comprendre ce qui génère de la performance et ce qui freine votre croissance. L'objectif est de transformer des données brutes en informations actionnables pour prendre des décisions éclairées." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi faire appel à un consultant en web analytics ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un consultant en web analytics vous aide à configurer correctement vos outils de tracking (GA4, CRM, pixels publicitaires…), à extraire les données pertinentes et à les interpréter. Sans expertise analytics, les données peuvent être mal collectées, mal interprétées ou simplement non exploitées — ce qui conduit à des décisions basées sur des intuitions plutôt que sur des faits." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils utilisez-vous pour l'analyse de performance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous utilisons les outils adaptés à votre contexte : Google Analytics 4 (GA4), Google Search Console, Looker Studio, SEMrush, Ahrefs, HubSpot, Salesforce, Meta Business Suite, Google Ads, ActiveCampaign, Hotjar, Microsoft Clarity, Power BI, etc. Nous travaillons avec vos outils existants." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une analyse de performance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 500 € à 4 000 € pour une analyse simple (audit analytics + rapport de performance sur 1-2 canaux), de 4 000 € à 10 000 € pour une analyse structurée multi-canaux, de 10 000 € à 25 000 €+ pour une analyse data complète (tous canaux, segmentation avancée, analyse prédictive), et de 800 € à 2 500 €/mois pour un accompagnement mensuel continu." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre web analytics et analyse de performance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le web analytics désigne spécifiquement l'analyse du comportement des visiteurs sur votre site web (trafic, pages vues, parcours, taux de rebond…). L'analyse de performance est plus large : elle couvre l'ensemble de vos canaux digitaux (SEO, publicité, email, réseaux sociaux, CRM, ventes…) et mesure votre performance commerciale globale en croisant toutes ces sources de données." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/pilotage-commercial">Pilotage commercial &amp; KPI</a>
+                <span>›</span>
+                <span>Analyse de performance &amp; data</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Web analytics & data</span>
+                Comprenez vos performances en profondeur — et sachez exactement où agir pour améliorer vos résultats
+            </h1>
+            <p class="sp-hero__lead">
+                Nous analysons en profondeur les données de votre entreprise pour <strong>comprendre votre performance</strong>, identifier les leviers d'amélioration et optimiser vos résultats. L'objectif&nbsp;: <strong>transformer vos données en informations actionnables</strong> — savoir ce qui fonctionne, ce qui freine votre croissance et exactement où concentrer vos efforts.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Analyser mes performances gratuitement
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit analytics offert avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport clair &amp; actionnable — pas du jargon</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Compatible avec vos outils existants</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">La data transformée en décisions</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous <strong>comprenez vos performances en profondeur</strong> et savez exactement où agir pour améliorer vos résultats — sans vous noyer dans des données incompréhensibles.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>data exploitée</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>actions inutiles</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>3×</strong>
+                        <span>décisions plus rapides</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>80% des données</strong> collectées par les entreprises ne sont <strong>jamais analysées</strong> — et donc jamais exploitées pour piloter la croissance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — types d'analyses
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Types d'analyses</p>
+            <h2>Quels types d'analyses de performance réalisons-nous ?</h2>
+            <p class="sp-section-sub">Chaque entreprise a des données différentes et des objectifs différents. Nous adaptons notre analyse à votre contexte — canal par canal, ou vision 360° multi-sources.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Analyse web analytics (GA4)</h3>
+                <p>Audit et analyse de votre Google Analytics 4 : trafic, comportement des visiteurs, entonnoirs de conversion, pages clés et opportunités d'amélioration.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Analyse des performances marketing</h3>
+                <p>Analyse cross-canal de vos actions SEO, publicité (Google Ads, Meta Ads), email marketing et réseaux sociaux — ROI par canal et recommandations.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>Analyse CRM & performance commerciale</h3>
+                <p>Analyse du pipeline commercial, taux de transformation, durée du cycle de vente, performance par commercial et identification des freins à la conversion.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3>Analyse comportement utilisateur</h3>
+                <p>Heatmaps, enregistrements de sessions, scroll maps et parcours utilisateurs pour comprendre comment vos visiteurs interagissent réellement avec votre site.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <h3>Analyse e-commerce & ventes</h3>
+                <p>Analyse des ventes, du panier moyen, des produits les plus performants, des taux d'abandon et de la valeur vie client — pour optimiser votre boutique.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Audit tracking & qualité des données</h3>
+                <p>Vérification de la fiabilité de votre tracking : GA4, pixels publicitaires, événements, conversions — s'assurer que vos données sont fiables avant de les analyser.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend une analyse de performance &amp; data</h2>
+            <p class="sp-section-sub">Une approche structurée de la collecte à la restitution — pour que vous repartiez avec des insights clairs et des actions concrètes, pas un tableur incompréhensible.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div><h3>Collecte &amp; analyse des données existantes</h3><p>Extraction et validation des données de vos outils (GA4, CRM, ads, email, CMS…) et évaluation de leur fiabilité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Analyse des indicateurs clés</h3><p>Identification et analyse des KPI pertinents pour votre activité — trafic, conversion, CA, ROI par canal, LTV, CAC</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Identification des tendances</h3><p>Analyse des évolutions dans le temps pour détecter les tendances positives à amplifier et les signaux négatifs à corriger</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Analyse des performances par canal</h3><p>Évaluation du ROI et de l'efficacité de chaque canal digital (SEO, SEA, social, email, direct, referral) avec comparatif</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <div><h3>Analyse du comportement utilisateur</h3><p>Parcours de navigation, pages clés, entonnoirs de conversion et points de fuite — ce que font réellement vos visiteurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Identification des axes d'amélioration</h3><p>Localisation précise des opportunités de croissance — pages à optimiser, canaux à développer, segments à cibler</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div><h3>Recommandations stratégiques</h3><p>Plan d'actions priorisé par impact estimé — recommandations concrètes, pas des généralités, avec un ordre de priorité clair</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                </div>
+                <div><h3>Visualisation des données</h3><p>Dashboards visuels et rapports clairs pour que chaque décideur accède facilement aux données qui le concernent</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Restitution claire &amp; structurée</h3><p>Présentation des résultats en atelier ou à distance : insights, conclusions et plan d'actions présentés de manière accessible</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec une analyse de performance approfondie</h2>
+            <p class="sp-section-sub">80% des données collectées par les entreprises ne sont jamais analysées. Une analyse structurée vous donne un avantage décisif sur vos concurrents qui décident encore à l'intuition.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <h3>Compréhension claire des performances</h3>
+                <p>Vous savez exactement ce qui fonctionne et ce qui ne fonctionne pas — fin des suppositions, place aux faits.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3>Identification des points forts &amp; faibles</h3>
+                <p>Vos leviers de performance sont identifiés — vous amplifiez ce qui marche et corrigez ce qui freine votre croissance.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Meilleure prise de décision</h3>
+                <p>Vos décisions marketing, commerciales et budgétaires sont étayées par des données fiables — votre ROI s'améliore mécaniquement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Optimisation des actions</h3>
+                <p>Vous concentrez vos ressources sur les actions à fort impact et stoppez celles qui ne génèrent pas de retour mesurable.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Gain de rentabilité</h3>
+                <p>Moins d'investissements gaspillés sur des canaux ou actions inefficaces — votre budget marketing et commercial est mieux alloué.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Vision basée sur des données concrètes</h3>
+                <p>Vous avez enfin une vision objective de votre activité — partageable avec vos équipes, vos investisseurs ou votre banque.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des décisions "à l'instinct"</h3>
+                <p>Chaque décision importante est testée et validée par la data — vous réduisez les risques d'erreur et de gaspillage de ressources.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>Meilleure anticipation</h3>
+                <p>L'analyse des tendances vous permet d'anticiper les évolutions du marché et d'adapter votre stratégie avant vos concurrents.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine la complexité &amp; le budget d'une analyse data</h2>
+                    <p class="sp-section-sub">Chaque analyse est unique. Ces variables sont discutées lors de l'audit analytics initial (toujours gratuit) pour calibrer la mission et définir le périmètre optimal.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données disponibles</span>
+                        <span class="sp-variable-value">Peu de données historiques à plusieurs années de données multi-sources à analyser</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Qualité &amp; fiabilité des données</span>
+                        <span class="sp-variable-value">Tracking bien configuré à données manquantes, incohérentes ou partiellement trackées</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de sources de données</span>
+                        <span class="sp-variable-value">1 outil (GA4) à analyse multi-sources (analytics, CRM, ads, email, e-commerce, ERP)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité des analyses</span>
+                        <span class="sp-variable-value">Rapport de performance simple à segmentation avancée, cohortes, attribution multi-touch</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin de visualisation</span>
+                        <span class="sp-variable-value">Rapport PDF à dashboard interactif en temps réel avec accès multi-utilisateurs</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Fréquence d'analyse</span>
+                        <span class="sp-variable-value">Analyse one-shot à accompagnement mensuel continu avec suivi des indicateurs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Analyse de performance data KPI" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS — 4 paliers
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une analyse de performance &amp; data ?</h2>
+            <p class="sp-section-sub">Le budget dépend du périmètre analysé, du nombre de sources de données et du niveau de profondeur souhaité. L'audit analytics initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid sp-pricing__grid--4col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Analyse simple</p>
+                    <p class="sp-plan__price"><span>1 500 – 4 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit analytics + rapport, 1-2 canaux</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit GA4 ou CRM</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des KPI essentiels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport structuré &amp; actionnable</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recommandations prioritaires</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--accent">
+                <div class="sp-plan__badge sp-badge--accent">Recommandé</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Analyse structurée</p>
+                    <p class="sp-plan__price"><span>4 000 – 10 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-canaux, dashboard + restitution</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Analyse cross-canal complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> GA4 + CRM + ads + email</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard Looker Studio inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse comportement utilisateur</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution atelier + plan d'actions</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Analyse avancée</p>
+                    <p class="sp-plan__price"><span>10 000 – 25 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Data complète, segmentation, prédictif</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Analyse data complète multi-sources</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Segmentation &amp; cohortes avancées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Attribution multi-touch</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse prédictive &amp; modélisation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gouvernance &amp; formation équipes data</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement mensuel</p>
+                    <p class="sp-plan__price"><span>800 – 2 500 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Analyse continue, alertes &amp; rapports</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Rapport mensuel automatisé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi des KPI &amp; alertes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse &amp; interprétation continue</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recommandations mensuelles</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit analytics initial est toujours gratuit. Les offres peuvent être combinées (analyse structurée + accompagnement mensuel). Devis personnalisé selon vos sources de données et objectifs.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à l'analyse de performance</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/pilotage-commercial" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Pilotage commercial & KPI</strong><p>Intégrez vos analyses dans un système de pilotage continu avec tableaux de bord en temps réel.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/tunnel-de-vente/cro" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><strong>CRO — Optimisation taux de conversion</strong><p>Utilisez les insights de vos analyses pour améliorer votre tunnel de conversion.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+                <div><strong>Stratégie digitale globale</strong><p>Alimentez votre stratégie digitale avec des données réelles plutôt que des suppositions.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/automatisation-api" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Automatisation & interconnexion des systèmes</strong><p>Automatisez la collecte et le traitement de vos données pour des analyses toujours à jour.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'analyse de performance &amp; data</h2>
+                <p>Notre équipe répond sous 24h. L'audit analytics initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que l'analyse de performance data ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>analyse de performance data</strong> consiste à collecter, traiter et interpréter vos données (analytics, CRM, ads, email, ventes…) pour comprendre ce qui génère de la performance et ce qui freine votre croissance. L'objectif est de <strong>transformer des données brutes en informations actionnables</strong> pour piloter efficacement votre activité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi faire appel à un consultant en web analytics ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un consultant analytics vous aide à configurer correctement votre tracking (GA4, pixels…), à extraire les données pertinentes et à les interpréter correctement. Sans expertise, les données peuvent être mal collectées, mal interprétées ou non exploitées — conduisant à des décisions basées sur des intuitions. Une <a href="/performance-digitale/pilotage-commercial">analyse structurée</a> vaut souvent 10× son coût en décisions mieux orientées.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils utilisez-vous pour l'analyse ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous utilisons les outils adaptés à votre contexte&nbsp;: <strong>Google Analytics 4</strong> (GA4), Google Search Console, Looker Studio, SEMrush, HubSpot, Salesforce, Meta Business Suite, Google Ads, Hotjar, Microsoft Clarity, Power BI… Nous travaillons avec vos outils existants et les <a href="/solutions-developpement/developpement-logiciel/automatisation-api">interconnectons si nécessaire</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre web analytics et analyse de performance ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>web analytics</strong> analyse le comportement des visiteurs sur votre site (trafic, parcours, taux de rebond…). L'<strong>analyse de performance</strong> est plus large : elle couvre l'ensemble de vos canaux digitaux et mesure votre performance commerciale globale en croisant toutes les sources de données — pour une vision complète de votre activité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte une analyse de performance ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 500 € à 4 000 €</strong> pour une analyse simple (1-2 canaux), de <strong>4 000 € à 10 000 €</strong> pour une <a href="#tarifs">analyse structurée multi-canaux</a>, de <strong>10 000 € à 25 000 €+</strong> pour une analyse data avancée, et de <strong>800 € à 2 500 €/mois</strong> pour un accompagnement mensuel. L'audit analytics initial est toujours gratuit.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à comprendre vos performances en profondeur et savoir exactement où agir ?</h2>
+                <p>Audit analytics gratuit pour évaluer la qualité de vos données actuelles, identifier les angles morts et vous proposer une analyse ciblée sur vos enjeux.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Obtenir mon audit analytics gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport actionnable</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

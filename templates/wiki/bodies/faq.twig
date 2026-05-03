@@ -1,0 +1,17 @@
+<h2 id="auth">Authentification</h2>
+<dl class="wiki-faq">
+    <dt>Je reçois 401 alors que mon jeton semble bon</dt>
+    <dd>Vérifiez l’horloge (dérive &gt; 60s) et le préfixe <code>Bearer</code>. Regénérez le jeton sandbox.</dd>
+    <dt>Puis-je utiliser la même clé en prod et préprod ?</dt>
+    <dd>Non — cloisonnez toujours les secrets.</dd>
+</dl>
+
+<h2 id="quota">Quotas &amp; limites</h2>
+<dl class="wiki-faq">
+    <dt>429 Too Many Requests</dt>
+    <dd>Backoff exponentiel ; respectez l’en-tête <code>Retry-After</code> s’il est présent.</dd>
+</dl>
+<div class="wiki-callout wiki-callout--warning" role="alert">
+    <p class="wiki-callout__title">Symptôme fréquent</p>
+    <p>Boucle de retry sans jitter → amplifie la panne. Ajoutez du jitter et un plafond d’essais.</p>
+</div>

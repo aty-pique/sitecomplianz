@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Conformité IA & AI Act Europe | Réglementation IA | Complianz{% endblock %}
+
+{% block description %}Mettez-vous en conformité avec l'AI Act européen. Classement des risques IA, obligations légales et mise en conformité des systèmes IA.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Conformité IA & AI Act — Respectez la réglementation européenne",
+      "url": "{{ app_url }}/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises",
+      "description": "Guide pratique de la conformité IA et de l'AI Act pour les entreprises : classification des risques, obligations, calendrier d'application et démarche de mise en conformité.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "IA en entreprise", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise" },
+        { "@type": "ListItem", "position": 4, "name": "Conformité IA & AI Act", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'AI Act et qui est concerné ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'AI Act est le règlement européen sur l'intelligence artificielle, entré en vigueur en août 2024, avec une application progressive jusqu'en 2027. Il s'applique à toute organisation qui développe, déploie ou utilise des systèmes IA sur le marché européen — quelle que soit leur localisation géographique. Les PME ne sont pas exemptées, bien que certaines obligations allégées s'appliquent selon la taille et le type de système IA." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment l'AI Act classe-t-il les systèmes IA par niveau de risque ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'AI Act distingue 4 niveaux de risque : Risque inacceptable (systèmes interdits : notation sociale, manipulation subliminale), Haut risque (IA dans la santé, justice, éducation, emploi, infrastructures critiques — obligations strictes : évaluation de conformité, documentation, supervision humaine), Risque limité (chatbots, IA générative — obligations de transparence), Risque minimal (jeux vidéo, spam — pas d'obligations spécifiques). La grande majorité des IA professionnelles tombent dans les catégories risque limité à haut risque." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les sanctions pour non-conformité à l'AI Act ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les sanctions de l'AI Act sont sévères : jusqu'à 35 millions d'euros ou 7% du chiffre d'affaires mondial annuel pour les violations les plus graves (systèmes IA interdits), jusqu'à 15 millions d'euros ou 3% du CA pour les non-conformités aux obligations des systèmes à haut risque, et jusqu'à 7,5 millions ou 1,5% du CA pour la fourniture d'informations incorrectes aux autorités." }
+        },
+        {
+          "@type": "Question",
+          "name": "Par où commencer pour se mettre en conformité avec l'AI Act ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La démarche de conformité AI Act se déroule en 4 étapes : 1) Inventaire de tous vos systèmes IA (utilisés ou développés), 2) Classification des risques selon la grille AI Act, 3) Identification des obligations applicables à chaque système, 4) Plan d'action de mise en conformité (documentation, supervision, registre des systèmes IA). Un accompagnement spécialisé est recommandé car l'interprétation de certaines catégories reste complexe." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/ia-entreprise">IA en entreprise</a><span>›</span>
+                <span>Conformité IA &amp; AI Act</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Réglementation IA</span>
+                Conformité IA &amp; AI Act — Respectez la réglementation européenne
+            </h1>
+            <p class="sp-hero__lead">
+                L'AI Act est en vigueur — <strong>êtes-vous en conformité ?</strong> Inventaire de vos systèmes IA, classification des risques, obligations légales et plan de mise en conformité. Jusqu'à <strong>35M€ de sanctions</strong> pour les manquements les plus graves.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Évaluer ma conformité IA</a>
+                <a href="/intelligence-artificielle/ia-entreprise" class="btn btn-outline">IA en entreprise</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Conformité AI Act maîtrisée</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>Inventaire</strong><span>systèmes IA</span></div>
+                    <div class="sp-dc-stat"><strong>Classification</strong><span>risques AI Act</span></div>
+                    <div class="sp-dc-stat"><strong>Plan</strong><span>de mise en conformité</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>L'AI Act — ce que toute entreprise doit savoir</h2>
+                <p>Le règlement européen sur l'IA (AI Act) est entré en vigueur en août 2024, avec une application progressive jusqu'en 2027. Il s'applique à toute organisation qui développe, déploie ou utilise des systèmes IA sur le marché européen — y compris les PME et les entreprises hors de l'UE qui servent des clients européens. L'ignorance de la réglementation n'est pas une protection.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Classification des risques — comment l'AI Act catégorise vos systèmes IA</h2>
+                <p><strong>Risque inacceptable — systèmes interdits :</strong> notation sociale par les pouvoirs publics, manipulation comportementale subliminale, identification biométrique en temps réel dans les espaces publics (sauf exceptions). Ces systèmes sont tout simplement interdits.</p>
+                <p><strong>Haut risque — obligations strictes :</strong> IA dans la santé, la justice, l'éducation, le recrutement et la gestion du personnel, les infrastructures critiques, les services d'urgence. Ces systèmes sont soumis à évaluation de conformité, documentation technique, supervision humaine obligatoire et enregistrement dans la base EU.</p>
+                <p><strong>Risque limité — obligations de transparence :</strong> chatbots, IA générative, systèmes de reconnaissance d'émotion. Les utilisateurs doivent être informés qu'ils interagissent avec une IA. Les modèles à usage général (GPAI) comme GPT-4 ont leurs propres obligations.</p>
+                <p><strong>Risque minimal — pas d'obligations spécifiques :</strong> jeux vidéo, filtres anti-spam. La grande majorité des IA grand public appartient à cette catégorie.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Calendrier de l'AI Act — les dates à retenir</h2>
+                <p>Août 2024 : entrée en vigueur. Février 2025 : interdiction des systèmes à risque inacceptable. Août 2025 : obligations pour les GPAI et les modèles à usage général. Août 2026 : obligations pour les systèmes à haut risque. Août 2027 : application complète à tous les systèmes. Commencer dès maintenant est indispensable pour les entreprises concernées.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur la conformité AI Act</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>PME concernées</h3><p>Les PME ne sont pas exemptes de l'AI Act — seules certaines obligations allégées s'appliquent. La taille de l'entreprise ne constitue pas une protection</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+                <div><h3>Sanctions jusqu'à 35M€</h3><p>7% du CA mondial pour les violations les plus graves — des sanctions comparables au RGPD mais avec un champ d'application plus large</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div><h3>Agir maintenant</h3><p>La conformité ne se fait pas en quelques jours. Les entreprises qui commencent dès maintenant anticipent sereinement les échéances 2026-2027</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><h3>Documentation obligatoire</h3><p>Les systèmes à haut risque nécessitent une documentation technique complète — commencer l'inventaire et la documentation de vos IA dès maintenant</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin dans votre conformité IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>Intégrez l'IA dans votre organisation de manière responsable.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Gouvernance données &amp; IA</strong><p>Mettez en place une gouvernance solide pour vos projets IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/ia-responsable-et-ethique-en-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <div><strong>IA responsable et éthique</strong><p>Au-delà de la conformité — une approche éthique de l'IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Auditez vos systèmes IA pour identifier les risques et obligations.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'AI Act</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Évaluer ma conformité</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que l'AI Act et qui est concerné ?</summary>
+                    <div class="sp-faq-item__answer"><p>Le règlement européen sur l'IA entré en vigueur en août 2024. Il s'applique à <strong>toute organisation qui développe, déploie ou utilise des IA en Europe</strong> — y compris les PME et les entreprises hors UE servant des clients européens.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment l'AI Act classe-t-il les systèmes IA par risque ?</summary>
+                    <div class="sp-faq-item__answer"><p>4 niveaux : <strong>Risque inacceptable</strong> (interdit), <strong>Haut risque</strong> (santé, justice, RH — obligations strictes), <strong>Risque limité</strong> (chatbots, IA générative — transparence obligatoire), <strong>Risque minimal</strong> (jeux, spam — pas d'obligations).</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles sont les sanctions pour non-conformité à l'AI Act ?</summary>
+                    <div class="sp-faq-item__answer"><p>Jusqu'à <strong>35M€ ou 7% du CA mondial</strong> pour les violations graves. 15M€ ou 3% du CA pour les non-conformités aux systèmes haut risque. Des sanctions comparables — voire supérieures — au RGPD.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Par où commencer pour se mettre en conformité ?</summary>
+                    <div class="sp-faq-item__answer"><p>4 étapes : <strong>Inventaire de tous vos systèmes IA</strong>, classification des risques, identification des obligations, plan de mise en conformité. Un accompagnement spécialisé est recommandé — l'interprétation des catégories est complexe.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à évaluer votre conformité AI Act et à anticiper sereinement les échéances réglementaires 2026-2027 ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Évaluer ma conformité IA</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Inventaire et classification inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de mise en conformité sur mesure</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

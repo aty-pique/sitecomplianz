@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Formation IA marketing | IA pour le marketing digital | Complianz{% endblock %}
+
+{% block description %}Formez votre équipe marketing à l'IA : création de contenu, SEO IA, social media et automatisation marketing. Pratico-pratique.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Formation IA pour le marketing digital",
+      "url": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-ia-pour-le-marketing",
+      "description": "Formation pratique à l'IA pour les équipes marketing : génération de contenu, SEO IA, social media, automatisation et analyse des performances.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Formation IA", "item": "{{ app_url }}/intelligence-artificielle/formation-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Formation IA marketing", "item": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-ia-pour-le-marketing" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels outils IA marketing apprend-on dans la formation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La formation couvre les outils IA marketing les plus utiles : ChatGPT et Claude pour la création de contenu et le copywriting, Midjourney et DALL-E pour la création visuelle, Surfer SEO et Frase pour le SEO IA, Hootsuite AI et Buffer pour le social media, Zapier et Make pour l'automatisation des campagnes, et des outils d'analyse IA pour optimiser les performances." }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation IA marketing est-elle adaptée à tous les niveaux ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, nous proposons des programmes pour les débutants (aucune expérience IA requise) et pour les marketeurs intermédiaires souhaitant approfondir leurs usages. Un questionnaire préalable évalue le niveau du groupe pour adapter le contenu et le rythme." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on vraiment générer du contenu de qualité avec l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, avec la bonne approche. L'IA ne remplace pas la stratégie et le positionnement — elle accélère l'exécution. Un marketeur formé au prompt engineering peut produire en 1h ce qui lui prenait une journée. La clé est d'utiliser l'IA comme co-pilote : elle génère la structure, le premier jet et les variantes — vous apportez le positionnement, les insights et la touche différenciante." }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation couvre-t-elle le SEO avec l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — le SEO IA est un module central de la formation. Nous couvrons la recherche de mots clés assistée par IA, la rédaction de contenus optimisés, l'utilisation de Surfer SEO et Frase pour l'optimisation on-page, et l'impact du GEO (Generative Engine Optimization) pour apparaître dans les réponses des IA génératives comme ChatGPT et Perplexity." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/formation-ia">Formation IA</a><span>›</span>
+                <span>Formation IA marketing</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Formation IA — Marketing</span>
+                Formation IA pour le marketing digital
+            </h1>
+            <p class="sp-hero__lead">
+                Formez votre équipe marketing à l'IA — <strong>création de contenu 10× plus rapide</strong>, SEO boosté par l'IA, social media automatisé et campagnes optimisées. Une formation pratico-pratique sur vos cas réels, avec un impact mesurable dès J+1.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Former mon équipe marketing</a>
+                <a href="/intelligence-artificielle/formation-ia" class="btn btn-outline">Toutes nos formations IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous gagnez</p><p class="sp-deliverables-card__subtitle">Marketing IA-powered opérationnel</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>×10</strong><span>vitesse contenu</span></div>
+                    <div class="sp-dc-stat"><strong>+60%</strong><span>engagement social</span></div>
+                    <div class="sp-dc-stat"><strong>J+1</strong><span>opérationnel</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi former son équipe marketing à l'IA en 2026 ?</h2>
+                <p>L'IA a transformé le marketing digital de fond en comble. Les équipes qui maîtrisent les outils IA produisent plus de contenu, de meilleure qualité, en moins de temps — tout en optimisant leurs campagnes avec des données que l'approche humaine seule ne permettrait pas d'exploiter. Se former à l'IA marketing n'est plus un avantage concurrentiel, c'est une nécessité pour rester compétitif.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les modules de la formation IA pour le marketing</h2>
+                <p><strong>Création de contenu IA :</strong> rédaction d'articles SEO, copywriting publicitaire, emails marketing, scripts vidéo, posts réseaux sociaux — avec prompt engineering avancé pour des résultats de qualité. Vous produisez en 1h ce qui prenait une journée.</p>
+                <p><strong>SEO et GEO IA :</strong> recherche de mots clés assistée par IA, optimisation on-page avec Surfer SEO, rédaction de contenu optimisé et stratégie GEO pour apparaître dans les réponses de ChatGPT et Perplexity.</p>
+                <p><strong>Social media IA :</strong> génération de posts adaptés à chaque plateforme, calendrier éditorial IA, analyse des tendances, A/B testing de contenus et réponse automatique aux commentaires.</p>
+                <p><strong>Automatisation marketing IA :</strong> séquences email automatisées, segmentation intelligente, personnalisation des campagnes à grande échelle et analyse des performances.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Outils IA marketing couverts dans la formation</h2>
+                <p>ChatGPT et Claude pour la création de contenu, Midjourney pour les visuels, Surfer SEO et Frase pour le SEO, Hootsuite AI pour le social media, et Zapier/Make pour l'automatisation. La sélection est adaptée selon votre stack marketing existant.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur la formation IA marketing</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>Contenu ×10 plus rapide</h3><p>Avec les bonnes techniques de prompt engineering, une équipe marketing produit 10 fois plus de contenus à qualité équivalente ou supérieure</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><h3>SEO et GEO intégrés</h3><p>La formation couvre le SEO IA traditionnel ET le GEO (Generative Engine Optimization) — pour être visible dans les IA génératives</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div><h3>Social media automatisé</h3><p>Génération de posts, planification et analyse des performances — votre présence social media toujours active sans surcharge de travail</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Sur vos outils existants</h3><p>La formation s'adapte à votre stack marketing — nous travaillons avec les outils que vous utilisez déjà</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Complétez votre marketing IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/outils-ia/outils-ia-pour-le-marketing-digital" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><strong>Outils IA marketing digital</strong><p>La sélection complète des meilleurs outils IA marketing.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia/outils-ia-pour-le-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Outils IA pour le SEO</strong><p>Les meilleurs outils IA pour booster votre référencement.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-generative" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Formation IA générative</strong><p>Maîtrisez ChatGPT et Claude pour aller encore plus loin.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Toutes nos formations IA</strong><p>Le catalogue complet — programmes pour tous les métiers.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la formation IA marketing</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels outils IA marketing apprend-on dans la formation ?</summary>
+                    <div class="sp-faq-item__answer"><p>ChatGPT/Claude pour le contenu, <strong>Midjourney</strong> pour les visuels, <strong>Surfer SEO et Frase</strong> pour le SEO, <strong>Hootsuite AI</strong> pour le social media, et Zapier/Make pour l'automatisation. La sélection est adaptée à votre stack existant.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La formation est-elle adaptée à tous les niveaux ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui — programmes pour <strong>débutants et intermédiaires</strong>. Un questionnaire préalable adapte le contenu et le rythme au niveau réel du groupe.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on vraiment générer du contenu de qualité avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui, avec la bonne approche. L'IA accélère l'exécution — vous produisez en 1h ce qui prenait une journée. La clé est le <strong>prompt engineering</strong> : l'IA génère, vous apportez le positionnement et la touche différenciante.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La formation couvre-t-elle le SEO avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui — module central avec <strong>SEO IA traditionnel et GEO</strong> (Generative Engine Optimization) pour apparaître dans les réponses de ChatGPT et Perplexity. Un enjeu crucial en 2026.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à transformer votre équipe marketing avec l'IA et à produire 10× plus de contenus à qualité égale ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Former mon équipe marketing</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% pratique sur vos cas réels</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Opérationnel dès J+1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

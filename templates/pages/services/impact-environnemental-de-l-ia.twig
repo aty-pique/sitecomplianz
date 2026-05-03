@@ -1,0 +1,216 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Impact environnemental IA | Empreinte carbone intelligence artificielle | Complianz{% endblock %}
+
+{% block description %}L'IA a un impact environnemental réel : data centers, consommation énergétique et eau. Comment mesurer et réduire l'empreinte carbone de vos usages IA.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Impact environnemental de l'IA",
+      "url": "{{ app_url }}/intelligence-artificielle/impact-ia/impact-environnemental-de-l-ia",
+      "description": "Analyse complète de l'impact environnemental de l'intelligence artificielle : consommation énergétique des data centers, empreinte eau, CO2, et stratégies de réduction.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Impact IA", "item": "{{ app_url }}/intelligence-artificielle/impact-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Impact environnemental de l'IA", "item": "{{ app_url }}/intelligence-artificielle/impact-ia/impact-environnemental-de-l-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la consommation énergétique d'une requête ChatGPT ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une requête ChatGPT consomme environ 10 fois plus d'énergie qu'une recherche Google classique, soit environ 0,001 à 0,01 kWh par échange selon la complexité. À l'échelle, OpenAI consomme plusieurs centaines de gigawattheures par an pour faire fonctionner ses modèles. L'entraînement des grands modèles est encore plus énergivore : GPT-4 a nécessité l'équivalent de plusieurs centaines de tonnes de CO2 pour son entraînement initial." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA est-elle vraiment mauvaise pour l'environnement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La réalité est nuancée. L'IA a bien un impact environnemental réel et croissant (énergie, eau, matériaux pour les puces). Mais l'IA est aussi utilisée pour optimiser des processus qui réduisent la consommation d'énergie (logistique, bâtiments intelligents, réseaux électriques), accélérer la recherche sur le changement climatique et optimiser les énergies renouvelables. Le bilan net dépend de la façon dont on déploie l'IA et de la source d'énergie des data centers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment réduire l'empreinte carbone de ses usages IA en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour réduire l'empreinte carbone de vos usages IA : choisissez des fournisseurs IA avec des engagements énergie renouvelable (Google Cloud, Microsoft Azure avec leurs certifications carbone), privilégiez des modèles plus petits et efficaces quand la qualité le permet (pas toujours besoin de GPT-4 pour des tâches simples), optimisez vos prompts pour réduire le nombre d'échanges nécessaires, hébergez vos solutions IA dans des régions à énergie verte, et mesurez votre empreinte IA avec des outils comme CodeCarbon ou MLflow." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est l'empreinte eau de l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les data centers qui hébergent les modèles IA utilisent d'importantes quantités d'eau pour le refroidissement. Microsoft a indiqué que ses data centers consomment des millions de litres d'eau par jour. L'entraînement de GPT-4 aurait nécessité l'équivalent de plusieurs millions de litres d'eau. L'empreinte eau est moins médiatisée que l'empreinte carbone mais représente un enjeu environnemental significatif, notamment dans les régions soumises au stress hydrique." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/impact-ia">Impact IA</a><span>›</span>
+                <span>Impact environnemental de l'IA</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Impact IA — Environnement</span>
+                Impact environnemental de l'IA
+            </h1>
+            <p class="sp-hero__lead">
+                L'IA a un impact environnemental réel et croissant — énergie, eau, matériaux. Comprenez les chiffres, nuancez les discours et découvrez comment <strong>réduire l'empreinte carbone de vos usages IA en entreprise</strong>.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Adopter une IA responsable</a>
+                <a href="/intelligence-artificielle/impact-ia" class="btn btn-outline">Impact de l'IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2z"/><path d="M12 8v4l3 3"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Comprendre pour agir</p><p class="sp-deliverables-card__subtitle">IA et impact environnemental</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>×10</strong><span>énergie vs Google</span></div>
+                    <div class="sp-dc-stat"><strong>Eau</strong><span>millions L/jour</span></div>
+                    <div class="sp-dc-stat"><strong>Solutions</strong><span>pour réduire</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Chiffres clés : l'impact environnemental réel de l'IA</h2>
+                <p>Une requête ChatGPT consomme environ 10 fois plus d'énergie qu'une recherche Google classique. L'entraînement de GPT-4 a nécessité l'équivalent de plusieurs centaines de tonnes de CO2. Les data centers qui hébergent les grands modèles IA consomment des quantités d'eau colossales pour le refroidissement. Ces chiffres sont réels et méritent d'être pris en compte — sans pour autant conclure que l'IA est nécessairement néfaste pour l'environnement.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Une réalité nuancée — l'IA peut aussi aider l'environnement</h2>
+                <p><strong>L'impact direct :</strong> consommation énergétique des data centers (en forte croissance), empreinte eau pour le refroidissement, fabrication des puces GPU (matériaux rares, eau, énergie) et empreinte carbone de l'entraînement des grands modèles.</p>
+                <p><strong>L'impact indirect positif :</strong> l'IA est aussi utilisée pour optimiser les réseaux électriques et réduire les pertes, optimiser la logistique et les transports (-15 à 30% d'émissions), accélérer la recherche en énergie renouvelable et matériaux de batteries, et optimiser la consommation énergétique des bâtiments intelligents. Le bilan net dépend fondamentalement de l'application et de la source d'énergie.</p>
+                <p><strong>L'efficacité s'améliore :</strong> les nouveaux modèles sont de plus en plus efficaces par rapport à leurs prédécesseurs — GPT-4o est plus performant et moins énergivore que GPT-4. La tendance est à l'amélioration de l'efficacité énergétique par unité de computation.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Comment réduire l'empreinte environnementale de ses usages IA</h2>
+                <p>Pratiques pour les entreprises : choisir des fournisseurs IA avec engagements énergie renouvelable, privilégier les petits modèles efficaces pour les tâches simples, optimiser les prompts pour réduire le nombre d'échanges, héberger dans des régions à énergie verte et mesurer son empreinte IA avec des outils dédiés.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur l'impact environnemental de l'IA</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>×10 vs une recherche Google</h3><p>Une requête LLM consomme environ 10 fois plus d'énergie qu'une recherche classique — à multiplier par des milliards de requêtes quotidiennes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>L'IA aide aussi l'environnement</h3><p>Optimisation des réseaux électriques, logistique, bâtiments intelligents, recherche en énergie renouvelable — le bilan est nuancé</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2z"/></svg></div>
+                <div><h3>L'efficacité s'améliore</h3><p>Les nouveaux modèles sont de plus en plus efficaces par unité de computation — la tendance est positive mais insuffisante face à la croissance des usages</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>Des pratiques concrètes existent</h3><p>Fournisseurs verts, petits modèles efficaces, prompts optimisés, hébergement énergie verte — réduire son empreinte IA est possible et mesurable</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Explorer l'impact complet de l'IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/impact-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2z"/></svg></div>
+                <div><strong>Impact de l'IA</strong><p>Vue d'ensemble des enjeux environnementaux, sociaux et éthiques.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/impact-de-l-ia-sur-l-emploi" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>Impact de l'IA sur l'emploi</strong><p>Analyse équilibrée de la transformation des métiers par l'IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/ia-responsable-et-ethique-en-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <div><strong>IA responsable et éthique</strong><p>Comment adopter une IA éthique dans votre entreprise.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>La réglementation européenne inclut des exigences environnementales.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'impact environnemental de l'IA</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Adopter une IA responsable</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle est la consommation énergétique d'une requête ChatGPT ?</summary>
+                    <div class="sp-faq-item__answer"><p>Environ <strong>10 fois plus qu'une recherche Google</strong>, soit 0,001 à 0,01 kWh par échange. L'entraînement de GPT-4 a nécessité plusieurs centaines de tonnes de CO2 — à ne faire qu'une fois, mais significatif.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'IA est-elle vraiment mauvaise pour l'environnement ?</summary>
+                    <div class="sp-faq-item__answer"><p>La réalité est nuancée. Impact réel et croissant (énergie, eau, matériaux). Mais aussi <strong>optimisation des réseaux électriques, logistique, bâtiments intelligents</strong>. Le bilan dépend de l'application et de la source d'énergie.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment réduire l'empreinte carbone de ses usages IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Choisir des <strong>fournisseurs IA avec énergie renouvelable</strong>, privilégier les petits modèles efficaces, optimiser ses prompts, héberger dans des régions à énergie verte, et mesurer avec des outils comme CodeCarbon.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est l'empreinte eau de l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les data centers consomment des <strong>millions de litres d'eau par jour</strong> pour le refroidissement. L'entraînement de GPT-4 aurait nécessité l'équivalent de plusieurs millions de litres. Un enjeu environnemental sous-médiatisé mais significatif.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Vous souhaitez adopter l'IA dans votre entreprise de manière responsable, en maîtrisant votre empreinte environnementale ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Adopter une IA responsable</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse équilibrée et objective</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action IA durable</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

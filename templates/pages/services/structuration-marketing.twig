@@ -1,0 +1,625 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Structuration marketing — positionnement & messages clés{% endblock %}
+
+{% block description %}Structurez votre approche marketing : positionnement clair, messages cohérents, offres définies et plan d'action aligné avec vos objectifs de développement.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Structuration marketing",
+      "url": "{{ app_url }}/performance-digitale/structuration-marketing",
+      "description": "Structuration de l'approche marketing de l'entreprise afin de clarifier son positionnement, ses messages, ses offres et ses actions dans une logique cohérente et performante. Passer d'actions dispersées à un système structuré, aligné avec la stratégie globale.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Conseil en structuration marketing",
+      "offers": [
+        { "@type": "Offer", "name": "Structuration simple",                    "price": "2000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000"  } },
+        { "@type": "Offer", "name": "Structuration complète",                  "price": "5000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Structuration avancée / refonte globale", "price": "12000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "25000" } },
+        { "@type": "Offer", "name": "Accompagnement mensuel",                  "price": "800",   "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2500"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Structuration marketing",           "item": "{{ app_url }}/performance-digitale/structuration-marketing" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la structuration marketing ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La structuration marketing consiste à organiser et clarifier l'approche marketing d'une entreprise : définir son positionnement, ses cibles, ses messages clés, structurer ses offres et ses actions dans une logique cohérente. L'objectif est de passer d'actions marketing dispersées et réactives à un système structuré, aligné avec la stratégie globale et orienté vers les résultats." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi structurer son marketing avant de lancer des actions ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sans structuration marketing, les actions sont souvent dispersées, incohérentes et peu efficaces. Un positionnement flou, des messages contradictoires ou des offres mal structurées génèrent de la confusion chez les prospects et réduisent les taux de conversion. La structuration marketing pose les fondations qui rendent chaque action marketing — SEO, publicité, email, réseaux sociaux — plus efficace et plus cohérente." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une mission de structuration marketing ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 2 000 € à 5 000 € pour une structuration simple (positionnement, messages clés, 1-2 cibles), de 5 000 € à 12 000 € pour une structuration complète (audit, positionnement, offres, plan d'action), de 12 000 € à 25 000 €+ pour une refonte globale du marketing, et de 800 € à 2 500 €/mois pour un accompagnement mensuel continu." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que contient un livrable de structuration marketing ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Notre livrable de structuration marketing comprend : audit du marketing existant, clarification du positionnement, définition des cibles et personas, structuration des offres, définition des messages clés, alignement marketing/business, identification des canaux prioritaires, plan d'action structuré et recommandations opérationnelles. Le tout est présenté lors d'une session de restitution." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre structuration marketing et stratégie digitale ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La structuration marketing définit le 'quoi' et le 'pour qui' — positionnement, offres, messages, cibles. La stratégie digitale définit le 'comment et où' — canaux numériques, leviers, roadmap. Les deux sont complémentaires : la structuration marketing est le prérequis qui rend la stratégie digitale efficace. Sans positionnement clair, aucune action digitale ne peut être vraiment optimisée." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <span>Structuration marketing</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Conseil en marketing</span>
+                Votre marketing devient clair, structuré et efficace — aligné avec vos objectifs de développement
+            </h1>
+            <p class="sp-hero__lead">
+                Nous structurons votre <strong>approche marketing</strong> pour clarifier votre positionnement, vos messages, vos offres et vos actions dans une logique cohérente et performante. L'objectif&nbsp;: passer d'<strong>actions dispersées et réactives</strong> à un système marketing structuré, aligné avec votre stratégie globale et orienté résultats.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Structurer mon marketing
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit marketing offert avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Livrable opérationnel — pas un document théorique</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Session de restitution incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Un marketing structuré et cohérent</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre marketing est <strong>clair, structuré et efficace</strong> — chaque action est cohérente avec votre positionnement et vos objectifs de développement commercial.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>aligné business</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+Conv.</strong>
+                        <span>messages qui convertissent</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>1 plan</strong>
+                        <span>opérationnel livré</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Un positionnement flou</strong> coûte souvent <strong>2× plus cher</strong> en marketing pour des résultats 3× inférieurs à un positionnement structuré</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES CONNEXES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Vos prochaines étapes après la structuration</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/performance-digitale/strategie-digitale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Stratégie digitale globale</h2>
+                    <p>Une fois votre marketing structuré, définissez votre stratégie digitale pour déployer vos actions sur les bons canaux.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/marketing-digital" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Marketing digital &amp; réseaux sociaux</h2>
+                    <p>Déployez vos messages structurés sur les réseaux sociaux et les canaux digitaux adaptés à vos cibles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/tunnel-de-vente" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Optimisation tunnel de conversion</h2>
+                    <p>Améliorez la transformation de vos visiteurs en clients grâce à des messages et offres bien positionnés.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit marketing offert avant engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Livrable opérationnel avec plan d'action
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Session de restitution incluse
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <p><strong>+70</strong> structures marketing réalisées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+55%</strong> performance marketing moyenne</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Ce que comprend une mission de structuration marketing</h2>
+            <p class="sp-section-sub">De l'audit de votre marketing existant à la session de restitution — un processus complet pour poser des fondations marketing solides et actionnables.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse du marketing existant</h3><p>Audit de votre positionnement actuel, de vos messages, de vos supports de communication et de vos actions marketing en cours</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Clarification du positionnement</h3><p>Définition claire de qui vous êtes, ce que vous faites, pour qui et pourquoi vous — votre proposition de valeur unique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Définition des cibles</h3><p>Identification et hiérarchisation de vos cibles clients — personas détaillés avec besoins, freins et canaux de contact adaptés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Structuration des offres</h3><p>Organisation et clarification de votre catalogue d'offres — architecture claire, nommage cohérent et hiérarchisation par valeur</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Définition des messages clés</h3><p>Messages principaux adaptés à chaque cible et chaque offre — proposition de valeur, bénéfices, preuves et appels à l'action</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Alignement marketing / business</h3><p>Mise en cohérence de votre approche marketing avec vos objectifs commerciaux, vos ressources et votre développement stratégique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div><h3>Définition des canaux prioritaires</h3><p>Sélection des canaux digitaux et physiques les plus pertinents pour toucher vos cibles — selon leur comportement et vos ressources</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Structuration des actions marketing</h3><p>Organisation des actions marketing par canal, par cible et par objectif — dans un système cohérent et sans dispersion</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Construction du plan d'action</h3><p>Plan d'action priorisé avec actions, responsables, calendrier et indicateurs de suivi — opérationnel dès la fin de la mission</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Recommandations opérationnelles</h3><p>Recommandations concrètes pour chaque levier — ce qu'il faut faire, comment le faire et avec quels outils</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Session de restitution stratégique</h3><p>Présentation complète des livrables avec votre équipe — questions, ajustements et validation du plan d'action</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un marketing structuré</h2>
+            <p class="sp-section-sub">Un positionnement flou coûte souvent 2× plus cher en marketing pour des résultats 3× inférieurs. La structuration est l'investissement qui multiplie l'efficacité de toutes vos actions.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Positionnement clair</h3>
+                <p>Vos prospects comprennent immédiatement ce que vous proposez, pour qui, et pourquoi vous plutôt qu'un concurrent.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Messages cohérents</h3>
+                <p>Chaque support de communication (site, réseaux, pub, email…) porte les mêmes messages cohérents — une voix unique qui renforce la confiance.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <h3>Meilleure compréhension clients</h3>
+                <p>Vos clients comprennent rapidement ce que vous proposez et comment vous pouvez les aider — moins de friction dans le parcours d'achat.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Actions marketing structurées</h3>
+                <p>Chaque action marketing est cohérente avec votre positionnement — fini les publications sans direction ou les campagnes hors-sujet.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain d'efficacité</h3>
+                <p>Vos équipes savent quoi produire, quoi dire, et pour qui — moins de temps perdu à réinventer la roue ou corriger des incohérences.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Meilleure conversion</h3>
+                <p>Un positionnement clair et des messages adaptés à chaque cible améliorent mécaniquement vos taux de conversion à chaque étape.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Cohérence offre &amp; communication</h3>
+                <p>Votre communication reflète fidèlement votre offre — les attentes créées sont celles que vous pouvez tenir, renforçant la satisfaction client.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Base solide pour le développement</h3>
+                <p>Chaque nouvelle action marketing (SEO, pub, social, email) repose sur une base structurée — amplifier vos efforts devient plus simple et rentable.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine la complexité &amp; le budget de la structuration</h2>
+                    <p class="sp-section-sub">Chaque entreprise a un contexte marketing unique. Ces variables sont analysées lors de l'audit marketing initial (toujours gratuit) pour calibrer la mission et définir le périmètre.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de maturité marketing</span>
+                        <span class="sp-variable-value">Débutant (aucune structure) à intermédiaire (actions existantes mais incohérentes)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Clarté du positionnement actuel</span>
+                        <span class="sp-variable-value">Positionnement inexistant ou flou à positionnement partiel à reformuler et consolider</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'offres &amp; complexité</span>
+                        <span class="sp-variable-value">1 à 2 offres simples à catalogue complexe multi-segments avec des offres imbriquées</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de cibles &amp; canaux</span>
+                        <span class="sp-variable-value">1 cible homogène à plusieurs segments distincts nécessitant des messages et canaux différents</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Objectifs de la structuration</span>
+                        <span class="sp-variable-value">Clarifier le positionnement / Relancer une marque / Préparer une levée de fonds / Scaler</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de structuration existant</span>
+                        <span class="sp-variable-value">Partiel ou absent à existant mais à mettre à jour — impacte la durée et la profondeur de l'audit initial</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Structuration marketing positionnement" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS — 4 paliers
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une mission de structuration marketing ?</h2>
+            <p class="sp-section-sub">Le budget dépend de la complexité de votre activité, du nombre d'offres et de cibles, et du niveau de structuration déjà en place. L'audit marketing initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid sp-pricing__grid--4col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Structuration simple</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE, 1 offre, 1-2 cibles</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit marketing existant</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Positionnement &amp; proposition de valeur</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Messages clés définis</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session de restitution incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--accent">
+                <div class="sp-plan__badge sp-badge--accent">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Structuration complète</p>
+                    <p class="sp-plan__price"><span>5 000 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME, multi-offres, plan d'action complet</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit marketing approfondi</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Positionnement + personas complets</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Structuration offres + messages clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Canaux prioritaires + plan d'action</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2 sessions de travail + restitution</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Refonte globale</p>
+                    <p class="sp-plan__price"><span>12 000 – 25 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, refonte complète, multi-segments</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Refonte marketing complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Repositionnement stratégique</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-segments, multi-offres</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gouvernance marketing &amp; formation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement mensuel</p>
+                    <p class="sp-plan__price"><span>800 – 2 500 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Pilotage marketing continu</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Suivi &amp; ajustement mensuel</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des résultats marketing</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Évolution des messages &amp; offres</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conseil continu &amp; recommandations</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit marketing initial est toujours gratuit. Les offres peuvent être combinées (structuration one-shot + suivi mensuel). Devis personnalisé selon votre contexte.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Passez de la structuration à l'exécution</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/strategie-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie digitale globale</strong><p>Déployez votre marketing structuré sur les canaux numériques avec une stratégie cohérente.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Référencement naturel (SEO)</strong><p>Vos messages et offres structurés améliorent la pertinence de vos pages et votre positionnement Google.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/tunnel-de-vente" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><strong>Optimisation tunnel de conversion</strong><p>Un positionnement clair et des messages adaptés améliorent directement vos taux de conversion.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil/conseil-strategique" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div><strong>Conseil stratégique global</strong><p>Alignez votre structuration marketing avec votre stratégie d'entreprise et vos objectifs de développement.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la structuration marketing</h2>
+                <p>Notre équipe répond sous 24h. L'audit marketing initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que la structuration marketing ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>structuration marketing</strong> consiste à organiser et clarifier l'approche marketing de votre entreprise : définir votre positionnement, vos cibles, vos messages clés, structurer vos offres et vos actions dans une logique cohérente. L'objectif est de <strong>passer d'actions dispersées</strong> à un système marketing structuré, aligné avec votre stratégie globale et orienté résultats.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi structurer son marketing avant de lancer des actions ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Sans structuration, les actions marketing sont souvent incohérentes et peu efficaces. Un <strong>positionnement flou</strong> ou des messages contradictoires génèrent de la confusion et réduisent vos taux de conversion. La structuration pose les fondations qui rendent chaque action — <a href="/performance-digitale/seo">SEO</a>, <a href="/performance-digitale/strategie-digitale/publicite-digitale">publicité</a>, email, réseaux — plus efficace et plus cohérente.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre structuration marketing et stratégie digitale ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>structuration marketing</strong> définit le "quoi" et le "pour qui" — positionnement, offres, messages, cibles. La <a href="/performance-digitale/strategie-digitale">stratégie digitale</a> définit le "comment et où" — canaux numériques, leviers, roadmap. Les deux sont complémentaires : la structuration est le prérequis qui rend la stratégie digitale efficace.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que contient le livrable de structuration marketing ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Notre livrable comprend&nbsp;: audit du marketing existant, positionnement clair, personas, structuration des offres, messages clés par cible, canaux prioritaires, plan d'action structuré et recommandations opérationnelles. Le tout est présenté lors d'une <strong>session de restitution stratégique</strong> avec votre équipe.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte une mission de structuration marketing ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 000 € à 5 000 €</strong> pour une structuration simple (1 offre, 1-2 cibles), de <strong>5 000 € à 12 000 €</strong> pour une <a href="#tarifs">structuration complète</a> (multi-offres, plan d'action), de <strong>12 000 € à 25 000 €+</strong> pour une refonte globale, et de <strong>800 € à 2 500 €/mois</strong> pour un suivi mensuel. L'audit initial est toujours gratuit.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à rendre votre marketing clair, structuré et aligné avec vos objectifs de développement ?</h2>
+                <p>Audit marketing gratuit pour analyser votre positionnement actuel, identifier les incohérences et vous proposer une structure adaptée à votre activité et vos ambitions.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Obtenir mon audit marketing gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livrable opérationnel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

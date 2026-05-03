@@ -1,0 +1,92 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Wiki — Documentation Complianz{% endblock %}
+{% block description %}Documentation vivante : architecture, intégration, API et FAQ — pensée pour devs, métiers et partenaires.{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/wiki.css">
+{% endblock %}
+
+{% block content %}
+<div class="wiki-hub">
+    <a href="#wiki-hub-main" class="wiki-skip">Aller au contenu principal</a>
+
+    <header class="wiki-hub-hero" aria-labelledby="wiki-hub-title">
+        <div class="wiki-hub-hero__bg" aria-hidden="true"></div>
+        <div class="container wiki-hub-hero__inner">
+            <p class="wiki-hub-hero__eyebrow">
+                <span class="wiki-hub-hero__dot" aria-hidden="true"></span>
+                Documentation · architecture · intégration
+            </p>
+            <h1 id="wiki-hub-title" class="wiki-hub-hero__title">Le wiki Complianz — clair, navigable, évolutif</h1>
+            <p class="wiki-hub-hero__lead">
+                Une base unique pour comprendre le produit, brancher vos systèmes et débloquer les cas limites.
+                Pensée <strong>accessibilité</strong>, <strong>recherche</strong> et <strong>profils multiples</strong> (dev, métier, partenaire).
+            </p>
+
+            <form class="wiki-hub-search" action="/wiki" method="get" role="search" aria-label="Rechercher dans le wiki">
+                <label class="visually-hidden" for="wiki-hub-q">Recherche</label>
+                <input type="search" id="wiki-hub-q" name="q" value="{{ wiki_search|e('html_attr') }}" placeholder="Ex. API, flux, authentification…" autocomplete="off">
+                <button type="submit" class="wiki-hub-search__btn">Rechercher</button>
+            </form>
+
+            <div class="wiki-hub-tags" role="list" aria-label="Filtres rapides par tag">
+                <span class="wiki-hub-tags__label">Explorer</span>
+                <a href="/wiki?q=api" class="wiki-hub-tag" role="listitem">API</a>
+                <a href="/wiki?q=architecture" class="wiki-hub-tag" role="listitem">Architecture</a>
+                <a href="/wiki?q=données" class="wiki-hub-tag" role="listitem">Données</a>
+                <a href="/wiki?q=faq" class="wiki-hub-tag" role="listitem">FAQ</a>
+            </div>
+
+            <div class="wiki-hub-cta-row" aria-label="Actions rapides">
+                <a href="/contact" class="wiki-hub-cta wiki-hub-cta--primary">Tester une demande</a>
+                <a href="/hub" class="wiki-hub-cta wiki-hub-cta--outline">Voir le Hub</a>
+                <a href="https://github.com/" class="wiki-hub-cta wiki-hub-cta--ghost" target="_blank" rel="noopener noreferrer">Exemple de repo</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="wiki-hub-main" class="wiki-hub-main container">
+        {% if wiki_search %}
+            <p class="wiki-hub-results-hint" role="status">Résultats pour « <strong>{{ wiki_search|e }}</strong> » — cartes filtrées ci-dessous.</p>
+        {% endif %}
+
+        <section class="wiki-hub-section" aria-labelledby="wiki-hub-cat-title">
+            <h2 id="wiki-hub-cat-title" class="wiki-hub-section__title">Ressources par grande catégorie</h2>
+            <p class="wiki-hub-section__intro">Chaque bloc regroupe des pages liées : commencez par celui qui correspond à votre intention.</p>
+
+            <div class="wiki-hub-grid" id="wiki-hub-cards" data-wiki-cards>
+                {% for cat in wiki_cards %}
+                    <article class="wiki-hub-card wiki-hub-card--{{ cat.accent|default('blue') }}" data-wiki-card>
+                        <h3 class="wiki-hub-card__title">{{ cat.title }}</h3>
+                        <p class="wiki-hub-card__desc">{{ cat.description }}</p>
+                        <ul class="wiki-hub-card__links">
+                            {% for link in cat.links %}
+                                <li><a href="/wiki/{{ link.slug }}">{{ link.label }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </article>
+                {% else %}
+                    <p class="wiki-hub-empty">Aucune catégorie ne correspond à votre recherche. <a href="/wiki">Réinitialiser</a>.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="wiki-hub-section wiki-hub-section--muted" aria-labelledby="wiki-hub-all-title">
+            <h2 id="wiki-hub-all-title" class="wiki-hub-section__title">Toutes les pages</h2>
+            <ul class="wiki-hub-all-list" id="wiki-hub-all-pages" data-wiki-all-pages>
+                {% for item in wiki_flat %}
+                    <li data-wiki-search-text="{{ (item.label ~ ' ' ~ item.section ~ ' ' ~ item.tags)|lower|e('html_attr') }}">
+                        <a href="/wiki/{{ item.slug }}">{{ item.label }}</a>
+                        <span class="wiki-hub-all-list__meta">{{ item.section }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/assets/js/wiki.js" defer></script>
+{% endblock %}

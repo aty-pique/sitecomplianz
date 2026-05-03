@@ -1,0 +1,473 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (55 chars titre / 149 chars description) ─────────────────── #}
+{% block title %}Certification ISO 9001 | Accompagnement SMQ &amp; audit | Complianz{% endblock %}
+
+{% block description %}Obtenez la certification ISO 9001 avec un accompagnement expert de A à Z. Diagnostic, mise en place du SMQ, audit blanc et préparation à l'audit de certification.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Certification ISO 9001 — Système de Management de la Qualité",
+      "url": "{{ app_url }}/audit-conformite/certifications-iso/iso-9001",
+      "description": "Accompagnement complet à la certification ISO 9001 : diagnostic de l'existant (gap analysis), rédaction du Manuel Qualité, mise en place des procédures, formation du personnel, audit interne blanc et accompagnement à l'audit de certification par l'organisme certificateur.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Certification ISO 9001",
+      "offers": [
+        { "@type": "Offer", "name": "Pack ISO 9001 PME",              "price": "4900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8900"  } },
+        { "@type": "Offer", "name": "Pack ISO 9001 ETI",              "price": "9900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "18000" } },
+        { "@type": "Offer", "name": "Maintenance post-certification", "price": "1800",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3600"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Certifications ISO",          "item": "{{ app_url }}/audit-conformite/certifications-iso" },
+        { "@type": "ListItem", "position": 4, "name": "Certification ISO 9001",      "item": "{{ app_url }}/audit-conformite/certifications-iso/iso-9001" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour obtenir la certification ISO 9001 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'obtention de la certification ISO 9001 prend généralement entre 6 et 18 mois selon la taille de l'entreprise, le nombre de processus à structurer et la maturité initiale du système qualité. Une PME avec une organisation déjà structurée peut viser 6 à 9 mois, tandis qu'une ETI partant de zéro nécessitera 12 à 18 mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le coût total d'une certification ISO 9001 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le coût total comprend nos honoraires d'accompagnement (4 900 à 18 000€ HT selon la taille) et les frais d'audit de certification facturés par l'organisme certificateur (généralement 2 000 à 8 000€ HT selon la taille). Le coût global varie donc de 7 000€ pour une TPE à 26 000€+ pour une ETI." }
+        },
+        {
+          "@type": "Question",
+          "name": "ISO 9001 est-elle obligatoire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La certification ISO 9001 n'est pas légalement obligatoire pour la plupart des entreprises. Cependant, elle peut être imposée contractuellement par vos clients (grands comptes, secteur public, industrie automobile, aéronautique…) ou recommandée pour accéder à certains marchés. Elle constitue un avantage concurrentiel significatif." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment maintenir la certification ISO 9001 après l'obtention ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La certification ISO 9001 est valable 3 ans avec des audits de surveillance annuels et un audit de renouvellement au bout de 3 ans. Pour la maintenir : tenue des audits internes, gestion des non-conformités, revues de direction régulières et mise à jour de la documentation. Notre service de maintenance annuelle vous accompagne sur l'ensemble de ces exigences." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/certifications-iso">Certifications ISO</a>
+                <span>›</span>
+                <span>Certification ISO 9001</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Système de Management de la Qualité</span>
+                Certification ISO 9001 — accompagnement complet de A à Z
+            </h1>
+            <p class="sp-hero__lead">
+                Nous accompagnons votre entreprise vers la <strong>certification ISO 9001</strong>&nbsp;: diagnostic de l'existant, rédaction du Manuel Qualité, mise en place des procédures, formation du personnel, audit interne blanc et accompagnement à l'audit de certification. Un taux de succès de <strong>95% à la première tentative</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer ma certification ISO 9001
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>95% de succès à la 1ère tentative</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Consultants certifiés auditeurs ISO</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>SMQ opérationnel dès 6 mois</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Au bout du processus de certification</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre entreprise est <strong>certifiée ISO 9001</strong>, votre SMQ est opérationnel, vos équipes sont formées et vous disposez d'un avantage concurrentiel durable sur vos marchés.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>6–18</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>95%</strong>
+                        <span>succès certif.</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>3</strong>
+                        <span>ans validité</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>+30%</strong> de croissance en moyenne pour les entreprises certifiées ISO 9001 dans les 3 ans</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Diagnostic de maturité offert au démarrage
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                95% de réussite à la première tentative
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Accompagnement équipes inclus
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                <p><strong>+80</strong> certifications obtenues</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>95%</strong> taux de certification</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — Ce que comprend l'accompagnement
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre de l'accompagnement</p>
+            <h2>Ce que comprend notre accompagnement ISO 9001</h2>
+            <p class="sp-section-sub">Un accompagnement complet de A à Z — du diagnostic initial à la remise du certificat, sans rien laisser au hasard.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Diagnostic de l'existant (gap analysis)</h3><p>Évaluation de votre maturité qualité actuelle et identification des écarts par rapport aux exigences ISO 9001</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+                </div>
+                <div><h3>Rédaction du Manuel Qualité</h3><p>Manuel Qualité complet décrivant votre politique qualité, le contexte de l'organisation et vos processus clés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Mise en place des procédures</h3><p>Rédaction des procédures documentées requises par ISO 9001 et des modes opératoires spécifiques à votre activité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Formation du personnel</h3><p>Sensibilisation et formation des collaborateurs aux exigences ISO 9001 et aux nouvelles procédures qualité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Audit interne blanc</h3><p>Simulation d'audit interne pour identifier et corriger les dernières non-conformités avant l'audit de certification</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div><h3>Accompagnement à l'audit de certification</h3><p>Préparation à l'audit de l'organisme certificateur et assistance pendant les journées d'audit</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MÉTHODE — 4 phases
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-process">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous vous accompagnons vers ISO 9001 en 4 phases</h2>
+            <p class="sp-section-sub">Une approche éprouvée, progressive et participative, qui implique vos équipes et garantit une adoption durable du système qualité.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number">01</div>
+                <div class="sp-step__content">
+                    <h3>Diagnostic &amp; gap analysis ISO 9001</h3>
+                    <p>Évaluation de votre maturité qualité actuelle (processus, documentation, indicateurs), identification des écarts par rapport aux exigences ISO 9001 et établissement du plan de travail personnalisé.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        2 à 4 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">02</div>
+                <div class="sp-step__content">
+                    <h3>Construction du SMQ</h3>
+                    <p>Cartographie des processus, rédaction du Manuel Qualité, des procédures documentées et des enregistrements requis. Mise en place des indicateurs KPI et des outils de suivi qualité.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        2 à 6 mois
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">03</div>
+                <div class="sp-step__content">
+                    <h3>Déploiement &amp; rodage</h3>
+                    <p>Formation des équipes, mise en œuvre opérationnelle du SMQ, cycle PDCA, premières revues de direction, gestion des premières non-conformités et amélioration continue initiale.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        2 à 4 mois
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">04</div>
+                <div class="sp-step__content">
+                    <h3>Audit interne &amp; certification</h3>
+                    <p>Audit interne blanc selon les exigences ISO 9001, levée des non-conformités identifiées, revue de direction finale et accompagnement lors de l'audit de certification par l'organisme tiers accrédité.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 2 mois
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'accompagnement à la certification ISO 9001 ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre organisation, du périmètre de certification et de votre niveau de maturité qualité initial. Devis remis sous 48h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack ISO 9001 PME</p>
+                    <p class="sp-plan__price"><span>4 900 – 8 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME jusqu'à 100 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gap analysis ISO 9001</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Manuel Qualité complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Procédures documentées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit interne blanc</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement audit certification</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack ISO 9001 ETI</p>
+                    <p class="sp-plan__price"><span>9 900 – 18 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI 100 à 500 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Accompagnement multi-sites possible</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SMQ complet avec KPI et tableaux de bord</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation auditeurs internes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Programme d'audits internes sur 1 an</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Assistance pendant audit certification</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Maintenance post-certification</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 600 €</span> <em>HT / an</em></p>
+                    <p class="sp-plan__duration">Maintien de la certification sur 3 ans</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Programme d'audits internes annuels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Revue de direction assistée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation aux audits de surveillance</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise à jour de la documentation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement audit de renouvellement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT hors frais d'audit de certification de l'organisme certificateur (2 000 à 8 000€ HT selon la taille). Devis personnalisé sous 48h.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre certification ISO 9001</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/certifications-iso/smq" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                <div><strong>Mise en place SMQ</strong><p>Le SMQ est le socle de la certification ISO 9001 — construisez-le avec nos consultants qualité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/audit-qualite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                <div><strong>Audit qualité interne</strong><p>Maintenez votre certification avec des audits qualité internes réguliers selon les exigences ISO 9001.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-27001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 27001</strong><p>Combinez ISO 9001 et ISO 27001 pour une certification globale qualité et sécurité de l'information.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Toutes nos certifications ISO</strong><p>ISO 9001, ISO 27001, ISO 14001, ISO 13485 — découvrez notre offre complète de certifications.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la certification ISO 9001</h2>
+                <p>Nos consultants certifiés auditeurs ISO répondent sous 24h à toute question sur votre projet de certification.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Combien de temps pour obtenir la certification ISO 9001 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Entre <strong>6 et 18 mois</strong> selon la taille et la maturité de votre organisation. Une PME avec une organisation déjà structurée peut viser 6 à 9 mois. Une ETI partant de zéro nécessitera 12 à 18 mois. Notre gap analysis initiale vous donne une estimation précise dès le départ.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel est le coût total d'une certification ISO 9001 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le coût total comprend nos honoraires d'accompagnement (<strong>4 900 à 18 000€ HT</strong>) et les frais d'audit de certification facturés par l'organisme certificateur (<strong>2 000 à 8 000€ HT</strong> selon la taille). Le coût global varie de 7 000€ pour une TPE à 26 000€+ pour une ETI.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>ISO 9001 est-elle obligatoire ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La certification ISO 9001 n'est <strong>pas légalement obligatoire</strong> pour la plupart des entreprises. Cependant, elle peut être imposée contractuellement par vos clients (grands comptes, secteur public, industrie automobile, aéronautique…) et constitue un <strong>avantage concurrentiel significatif</strong> pour accéder à certains marchés.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment maintenir la certification ISO 9001 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La certification est valable <strong>3 ans</strong> avec des audits de surveillance annuels. Pour la maintenir : audits internes réguliers, gestion des non-conformités, revues de direction et mise à jour de la documentation. Notre <a href="/audit-conformite/certifications-iso/audit-qualite">service de maintenance annuelle</a> vous accompagne sur l'ensemble de ces exigences.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à lancer votre projet de certification ISO 9001 ?</h2>
+                <p>Nos consultants certifiés vous accompagnent de A à Z. Diagnostic de maturité offert au démarrage. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer ma certification ISO 9001
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 95% de succès certif.</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Consultants certifiés auditeurs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

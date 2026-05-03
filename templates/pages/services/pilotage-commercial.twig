@@ -1,0 +1,670 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 151 chars description) ─────────────────── #}
+{% block title %}Pilotage commercial & KPI — tableaux de bord data{% endblock %}
+
+{% block description %}Pilotez votre activité avec des données fiables : KPI marketing, tableaux de bord commerciaux et analyse de performance pour des décisions efficaces. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Pilotage commercial & KPI",
+      "url": "{{ app_url }}/performance-digitale/pilotage-commercial",
+      "description": "Mise en place et accompagnement dans le pilotage de la performance commerciale digitale : suivi des KPI, tableaux de bord, analyse des résultats marketing et commerciaux. Permettre au dirigeant de piloter son activité avec des données fiables et une vision structurée.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Pilotage commercial et tableaux de bord KPI",
+      "offers": [
+        { "@type": "Offer", "name": "Mise en place simple",           "price": "2000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000"  } },
+        { "@type": "Offer", "name": "Pilotage structuré",             "price": "5000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Pilotage avancé",                "price": "12000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "30000" } },
+        { "@type": "Offer", "name": "Accompagnement mensuel",         "price": "1000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Pilotage commercial & KPI",        "item": "{{ app_url }}/performance-digitale/pilotage-commercial" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le pilotage commercial digital ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le pilotage commercial digital consiste à suivre, analyser et optimiser les résultats de vos actions marketing et commerciales à l'aide de données fiables. Il comprend la définition des KPI pertinents, la mise en place de tableaux de bord, la centralisation des données et un suivi régulier pour prendre des décisions éclairées et identifier les leviers de croissance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un KPI commercial ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un KPI (Key Performance Indicator) commercial est un indicateur clé de performance qui mesure l'efficacité d'une action commerciale ou marketing. Exemples : taux de conversion, coût d'acquisition client (CAC), valeur vie client (LTV), taux de transformation des leads, ROAS (retour sur dépenses publicitaires), trafic organique, taux d'ouverture email, etc." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi mettre en place un tableau de bord commercial ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un tableau de bord commercial centralise toutes vos données business en temps réel. Il vous permet de : suivre vos performances sans passer des heures sur les données brutes, identifier rapidement ce qui fonctionne ou ce qui pose problème, prendre des décisions basées sur des données fiables plutôt que sur l'intuition, et détecter les opportunités de croissance avant vos concurrents." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la mise en place d'un système de pilotage commercial ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 2 000 € à 5 000 € pour une mise en place simple (1 dashboard, KPI essentiels, CRM de base), de 5 000 € à 12 000 € pour un pilotage structuré (multi-canaux, GA4, marketing automation), de 12 000 € à 30 000 €+ pour un pilotage avancé complet, et de 1 000 € à 3 000 €/mois pour un accompagnement mensuel continu." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils utilisez-vous pour le pilotage commercial ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous travaillons avec les outils adaptés à votre contexte : Google Analytics 4 (GA4), Looker Studio (anciennement Data Studio), HubSpot, Salesforce, Notion, Airtable, Power BI, Pipedrive, ActiveCampaign, etc. Nous pouvons interconnecter vos outils existants pour centraliser vos données dans un tableau de bord unique." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <span>Pilotage commercial &amp; KPI</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Pilotage commercial & data</span>
+                Pilotez votre activité avec des données claires — et prenez des décisions efficaces
+            </h1>
+            <p class="sp-hero__lead">
+                Nous mettons en place votre système de <strong>pilotage commercial digital</strong> : définition des KPI pertinents, tableaux de bord centralisés, structuration du suivi commercial et analyse des résultats. L'objectif&nbsp;: vous donner une <strong>vision claire et en temps réel</strong> de vos performances pour identifier les leviers de croissance et réduire les actions inutiles.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Structurer mon pilotage commercial
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit de vos données &amp; KPI offert</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Compatible avec vos outils existants</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Tableau de bord livré, documenté et formé</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Un pilotage data fiable, en temps réel</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous <strong>pilotez votre activité avec des données claires</strong> et prenez des décisions efficaces — sans passer des heures à chercher l'information dans des silos.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>data centralisée</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–70%</strong>
+                        <span>temps de reporting</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Live</strong>
+                        <span>suivi en temps réel</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Les entreprises qui pilotent par la data</strong> prennent de meilleures décisions <strong>3× plus vite</strong> et réduisent leurs actions inutiles de 40%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — 2 leviers
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les 2 axes de notre accompagnement pilotage</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/performance-digitale/pilotage-commercial/tableau-de-bord" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Tableau de bord commercial</h2>
+                    <p>Création de dashboards sur mesure pour centraliser et visualiser vos données commerciales, marketing et financières en temps réel.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/pilotage-commercial/analyse-performance" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Analyse de performance &amp; data</h2>
+                    <p>Analyse approfondie de vos données analytics et commerciales pour identifier les leviers de performance et les axes d'optimisation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Stratégie digitale globale</h2>
+                    <p>Intégrez le pilotage dans votre stratégie digitale complète pour aligner vos KPI avec vos objectifs commerciaux.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit data &amp; KPI offert avant engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Tableau de bord livré avec formation
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Compatible avec vos outils existants
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                <p><strong>+60</strong> tableaux de bord déployés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>–70%</strong> temps de reporting</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — types de tableaux de bord
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Types de dashboards</p>
+            <h2>Quels tableaux de bord mettons-nous en place ?</h2>
+            <p class="sp-section-sub">Chaque entreprise a ses propres KPI à suivre. Nous créons des tableaux de bord sur mesure adaptés à votre activité, vos outils et vos objectifs de pilotage.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Dashboard commercial</h3>
+                <p>Suivi du pipeline de vente, taux de transformation, CA par commercial, objectifs vs réalisé — tout en un coup d'œil pour le manager et l'équipe commerciale.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Dashboard marketing & acquisition</h3>
+                <p>Suivi du trafic (SEO, SEA, social), des leads générés, du coût par acquisition (CPA), du ROAS par canal — pour piloter vos dépenses marketing avec précision.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Dashboard direction & KPI globaux</h3>
+                <p>Vision 360° pour le dirigeant : CA, marges, satisfaction client, performance par pôle — une seule page pour piloter l'ensemble de l'activité.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h3>Dashboard email & automation</h3>
+                <p>Taux d'ouverture, de clic, de désabonnement, conversions par séquence — pilotage de vos actions email et automation en temps réel.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <h3>Dashboard e-commerce</h3>
+                <p>Suivi des ventes, panier moyen, taux de conversion, taux d'abandon de panier, LTV client — pilotage complet de votre performance e-commerce.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>Reporting automatisé mensuel</h3>
+                <p>Automatisation de vos rapports mensuels : génération automatique avec vos KPI, envoi planifié aux parties prenantes — 0 heure perdue en reporting manuel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE D'ACTION
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une mission de pilotage commercial &amp; KPI</h2>
+            <p class="sp-section-sub">De l'audit de vos données existantes à la mise en place des outils de pilotage et à la formation de vos équipes — un accompagnement complet pour piloter par la data.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des performances existantes</h3><p>Audit de votre situation actuelle : quelles données vous avez, comment elles sont collectées et leur fiabilité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Définition des indicateurs clés (KPI)</h3><p>Sélection des KPI pertinents selon vos objectifs : commerciaux, marketing, financiers, satisfaction client</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Mise en place des tableaux de bord</h3><p>Création des dashboards sur mesure avec Looker Studio, Power BI ou votre outil existant — visuels clairs et actionnables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+                </div>
+                <div><h3>Structuration du suivi commercial</h3><p>Organisation du suivi des leads, du pipeline et des performances commerciales avec votre CRM et vos processus</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div><h3>Centralisation des données</h3><p>Interconnexion de vos sources de données (CRM, analytics, ads, email) dans un hub centralisé et fiable</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Mise en place des outils de pilotage</h3><p>Configuration et paramétrage des outils (GA4, Looker Studio, HubSpot, CRM…) pour un tracking fiable et complet</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </div>
+                <div><h3>Analyse des résultats</h3><p>Interprétation des données pour identifier ce qui génère de la performance et ce qui freine votre croissance</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Recommandations d'optimisation</h3><p>Actions concrètes priorisées pour améliorer vos performances selon les insights extraits de vos données</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Suivi régulier &amp; ajustement des actions</h3><p>Accompagnement mensuel pour analyser les données, ajuster les actions et faire évoluer les tableaux de bord selon vos besoins</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi piloter par la data</p>
+            <h2>Ce que le pilotage commercial change pour votre activité</h2>
+            <p class="sp-section-sub">Les entreprises qui pilotent par la data prennent de meilleures décisions 3× plus vite et réduisent leurs investissements inutiles de 40% en moyenne.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <h3>Vision claire des performances</h3>
+                <p>Vous savez en permanence où en est votre activité — plus de surprises en fin de mois, plus de décisions prises à l'aveugle.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Suivi des résultats en temps réel</h3>
+                <p>Vos données sont à jour en permanence — vous réagissez immédiatement aux tendances, aux opportunités et aux problèmes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Meilleure prise de décision</h3>
+                <p>Chaque décision est étayée par des données fiables — vos investissements marketing, commerciaux et opérationnels sont plus justes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3>Identification des leviers de croissance</h3>
+                <p>Vous identifiez précisément ce qui génère de la performance et ce qui ne sert à rien — pour réorienter vos ressources vers l'impact.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Optimisation des actions commerciales</h3>
+                <p>Vos équipes commerciales savent quoi prioriser, quels leads cibler et quels arguments fonctionnent — des performances en hausse.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps dans le pilotage</h3>
+                <p>Fini les heures passées à compiler des données manuellement — votre reporting est automatisé et disponible en un clic.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des actions inutiles</h3>
+                <p>Vous stoppez les actions qui ne génèrent pas de retour et concentrez votre énergie sur les leviers à fort impact mesurable.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Amélioration de la rentabilité</h3>
+                <p>Vos investissements sont mieux orientés, votre CAC diminue, votre LTV augmente — votre rentabilité globale s'améliore.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine la complexité &amp; le budget du pilotage</h2>
+                    <p class="sp-section-sub">Chaque organisation a une situation unique. Ces variables sont analysées lors de l'audit data initial (toujours gratuit) pour définir le périmètre et les outils adaptés.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de structuration actuel</span>
+                        <span class="sp-variable-value">Aucun suivi existant à système partiel avec données éparses dans plusieurs outils</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume d'activité &amp; canaux</span>
+                        <span class="sp-variable-value">TPE mono-canal à ETI multi-canaux commerciaux (SEO, SEA, email, CRM, revendeurs…)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Outils utilisés</span>
+                        <span class="sp-variable-value">CRM, analytics, email, ERP, e-commerce — complexité d'interconnexion des sources de données</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Qualité des données disponibles</span>
+                        <span class="sp-variable-value">Données fiables et bien structurées à données fragmentées, incohérentes ou partiellement trackées</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'indicateurs à suivre</span>
+                        <span class="sp-variable-value">3-5 KPI essentiels à tableau de bord complet multi-niveaux (direction, opérationnel, équipes)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau d'automatisation souhaité</span>
+                        <span class="sp-variable-value">Rapport manuel mensuel à reporting 100% automatisé en temps réel avec alertes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Pilotage commercial KPI tableaux de bord" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS — 4 paliers
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la mise en place d'un pilotage commercial ?</h2>
+            <p class="sp-section-sub">Le budget dépend du nombre d'outils à connecter, du nombre de KPI à suivre et du niveau d'automatisation souhaité. L'audit data initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid sp-pricing__grid--4col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Mise en place simple</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">KPI essentiels, 1 dashboard, 1-2 outils</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit data existante</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sélection des KPI essentiels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 tableau de bord Looker Studio</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation à l'utilisation</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--accent">
+                <div class="sp-plan__badge sp-badge--accent">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pilotage structuré</p>
+                    <p class="sp-plan__price"><span>5 000 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-canaux, KPI complets, automatisation</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit &amp; structuration complète des données</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Interconnexion CRM + analytics + ads</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2-3 dashboards multi-niveaux</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting automatisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipe + documentation</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pilotage avancé</p>
+                    <p class="sp-plan__price"><span>12 000 – 30 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, BI complète, transformation data</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Stratégie data complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Data warehouse &amp; centralisation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboards avancés + alertes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Segmentation &amp; analyse prédictive</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gouvernance data &amp; formation équipes</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement mensuel</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Suivi continu, analyse &amp; ajustements</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Suivi mensuel des KPI</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse et interprétation des résultats</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recommandations d'optimisation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ajustement des tableaux de bord</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit data initial est toujours gratuit. Les offres peuvent être combinées (mise en place + accompagnement mensuel). Devis personnalisé selon vos outils et vos objectifs.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au pilotage</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/tunnel-de-vente" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><strong>Optimisation tunnel de conversion</strong><p>Utilisez les données de votre pilotage pour améliorer votre taux de transformation.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie digitale globale</strong><p>Intégrez votre pilotage dans une stratégie digitale cohérente avec les bons KPI à chaque étape.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+                <div><strong>Création ERP & CRM sur mesure</strong><p>Centralisez vos données dans un CRM ou ERP sur mesure pour un pilotage encore plus précis.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/automatisation-api" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Automatisation & interconnexion des systèmes</strong><p>Interconnectez vos outils pour centraliser automatiquement vos données dans votre dashboard.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le pilotage commercial &amp; les KPI</h2>
+                <p>Notre équipe répond sous 24h. L'audit data initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le pilotage commercial digital ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>pilotage commercial digital</strong> consiste à suivre, analyser et optimiser vos performances marketing et commerciales avec des données fiables. Il comprend la définition des <strong>KPI pertinents</strong>, la mise en place de tableaux de bord, la centralisation des données et un suivi régulier pour prendre des décisions éclairées — plutôt que d'agir à l'intuition.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi mettre en place un tableau de bord commercial ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <a href="/performance-digitale/pilotage-commercial/tableau-de-bord">tableau de bord commercial</a> centralise toutes vos données en temps réel. Il vous permet de suivre vos performances sans perdre des heures sur les données brutes, d'identifier rapidement ce qui fonctionne ou ce qui pose problème, et de <strong>prendre des décisions basées sur des faits</strong> plutôt que sur l'intuition.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels KPI commerciaux devez-vous suivre ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les KPI essentiels à suivre dépendent de votre activité. En général&nbsp;: <strong>CA réalisé vs objectif</strong>, taux de conversion des leads, coût d'acquisition client (CAC), valeur vie client (LTV), ROAS (retour sur dépenses pub), taux de closing commercial, trafic organique et nombre de leads générés. Nous définissons les KPI adaptés à votre contexte lors de l'audit initial.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils utilisez-vous pour le pilotage ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous travaillons avec les outils adaptés à votre contexte&nbsp;: <strong>Google Analytics 4</strong> (GA4), <strong>Looker Studio</strong>, HubSpot, Salesforce, Notion, Airtable, Power BI, Pipedrive, ActiveCampaign… Nous pouvons interconnecter vos outils existants pour <a href="/solutions-developpement/developpement-logiciel/automatisation-api">centraliser vos données</a> dans un hub unique.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte la mise en place d'un système de pilotage ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 000 € à 5 000 €</strong> pour une mise en place simple (KPI essentiels, 1 dashboard), de <strong>5 000 € à 12 000 €</strong> pour un <a href="#tarifs">pilotage structuré</a> (multi-canaux, interconnexion), de <strong>12 000 € à 30 000 €+</strong> pour un pilotage avancé, et de <strong>1 000 € à 3 000 €/mois</strong> pour un accompagnement continu. L'audit data initial est toujours gratuit.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à piloter votre activité avec des données claires et prendre des décisions efficaces ?</h2>
+                <p>Audit data gratuit pour analyser vos données existantes, vos KPI actuels et vous proposer un système de pilotage adapté à vos outils et vos objectifs.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Obtenir mon audit data gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

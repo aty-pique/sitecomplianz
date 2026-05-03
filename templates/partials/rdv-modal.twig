@@ -1,0 +1,91 @@
+<div id="rdv-modal" class="rdv-modal" role="dialog" aria-modal="true" aria-labelledby="rdv-modal-title" hidden>
+    <div class="rdv-modal__backdrop" data-rdv-modal-close tabindex="-1"></div>
+    <div class="rdv-modal__panel" role="document">
+        <header class="rdv-modal__head">
+            <div class="rdv-modal__head-text">
+                <h2 id="rdv-modal-title" class="rdv-modal__title">Prendre rendez-vous</h2>
+                <p class="rdv-modal__sub">Choisissez un jour puis un créneau. Nous vous confirmerons le rendez-vous par email ou téléphone.</p>
+            </div>
+            <button type="button" class="rdv-modal__close" aria-label="Fermer la fenêtre" data-rdv-modal-close>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </header>
+        <div class="rdv-modal__body">
+            <div id="rdv-modal-main" class="rdv-modal-main">
+                <div class="rdv-modal-main__col rdv-modal-main__col--planning">
+                    <div class="rdv-cal" aria-labelledby="rdv-cal-title">
+                        <div class="rdv-cal__toolbar">
+                            <button type="button" class="rdv-cal__nav" data-rdv-prev-month aria-label="Mois précédent">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                            </button>
+                            <h3 id="rdv-cal-title" class="rdv-cal__title"></h3>
+                            <button type="button" class="rdv-cal__nav" data-rdv-next-month aria-label="Mois suivant">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                            </button>
+                        </div>
+                        <div class="rdv-cal__weekdays" aria-hidden="true">
+                            <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+                        </div>
+                        <div class="rdv-cal__grid" id="rdv-cal-grid"></div>
+                    </div>
+
+                    <div class="rdv-slots" id="rdv-slots" hidden>
+                        <p class="rdv-slots__hint" id="rdv-slots-hint"></p>
+                        <p class="rdv-slots__label">Créneau souhaité</p>
+                        <div class="rdv-slots__row" role="group" aria-label="Créneaux horaires">
+                            <button type="button" class="rdv-slot-btn" data-rdv-slot="Matin (9h–12h)">Matin · 9h–12h</button>
+                            <button type="button" class="rdv-slot-btn" data-rdv-slot="Après-midi (14h–17h)">Après-midi · 14h–17h</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="rdv-form" class="rdv-form rdv-modal-main__col rdv-modal-main__col--form" action="/contact/message" method="post" novalidate>
+                    <input type="hidden" name="ajax" value="1">
+                    <input type="hidden" name="interest_domain" value="unknown">
+                    <input type="hidden" name="message" id="rdv-message-field" value="">
+
+                    <div class="rdv-form__grid">
+                        <label class="rdv-field">
+                            <span class="rdv-field__label">Nom complet <abbr title="requis">*</abbr></span>
+                            <input type="text" name="full_name" required autocomplete="name" placeholder="Jean Dupont">
+                        </label>
+                        <label class="rdv-field">
+                            <span class="rdv-field__label">Email <abbr title="requis">*</abbr></span>
+                            <input type="email" name="email" required autocomplete="email" placeholder="vous@entreprise.fr">
+                        </label>
+                        <label class="rdv-field rdv-field--full">
+                            <span class="rdv-field__label">Téléphone</span>
+                            <input type="tel" name="phone" autocomplete="tel" placeholder="Pour vous joindre rapidement">
+                        </label>
+                        <label class="rdv-field rdv-field--full">
+                            <span class="rdv-field__label">Entreprise</span>
+                            <input type="text" name="company" autocomplete="organization">
+                        </label>
+                    </div>
+
+                    <label class="rdv-check">
+                        <input type="checkbox" name="privacy_ok" value="1" required>
+                        <span>J’accepte que mes données soient utilisées pour traiter ma demande de rendez-vous, conformément à la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.</span>
+                    </label>
+
+                    <p class="rdv-form__error" id="rdv-form-error" hidden role="alert"></p>
+
+                    <button type="submit" class="rdv-form__submit" id="rdv-form-submit" disabled>
+                        Envoyer la demande de rendez-vous
+                    </button>
+                </form>
+            </div>{# .rdv-modal-main #}
+
+            <div id="rdv-modal-success" class="rdv-success" hidden>
+                <p class="rdv-success__icon" aria-hidden="true">✓</p>
+                <p class="rdv-success__title">Demande bien envoyée</p>
+                <p class="rdv-success__text">Nous revenons vers vous très vite pour confirmer votre créneau.</p>
+                <button type="button" class="rdv-success__btn" data-rdv-modal-close>Fermer</button>
+            </div>
+
+            <p class="rdv-modal__legal">
+                Les disponibilités affichées sont indicatives ; la confirmation définitive vous est communiquée par l’équipe.
+            </p>
+        </div>
+    </div>
+</div>

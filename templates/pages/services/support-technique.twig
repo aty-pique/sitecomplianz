@@ -1,0 +1,637 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 153 chars description) ─────────────────── #}
+{% block title %}Support technique externalisé — assistance utilisateurs{% endblock %}
+
+{% block description %}Assistance technique quotidienne pour vos équipes : réponse aux questions, résolution de problèmes, aide à l'utilisation de vos outils digitaux. Support ponctuel ou mensuel.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Support technique externalisé",
+      "url": "{{ app_url }}/support-maintenance/maintenance/support-technique",
+      "description": "Assistance technique permettant de répondre aux problématiques du quotidien, accompagner les utilisateurs et résoudre les difficultés liées à l'utilisation des outils digitaux. Support ponctuel, pack mensuel ou support avancé.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Support informatique entreprise externalisé",
+      "offers": [
+        { "@type": "Offer", "name": "Support ponctuel",  "price": "100",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "300" } },
+        { "@type": "Offer", "name": "Pack support",      "price": "300",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1000" } },
+        { "@type": "Offer", "name": "Support avancé",    "price": "1000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                         "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",           "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Maintenance, support & évolutions", "item": "{{ app_url }}/support-maintenance/maintenance" },
+        { "@type": "ListItem", "position": 4, "name": "Support technique externalisé",   "item": "{{ app_url }}/support-maintenance/maintenance/support-technique" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le support technique externalisé ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le support technique externalisé est un service d'assistance informatique fourni par une équipe externe à votre entreprise. Il permet à vos collaborateurs de joindre un expert technique pour répondre à leurs questions, débloquer des problèmes d'utilisation d'outils digitaux et résoudre des incidents courants — sans mobiliser vos ressources internes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels types de demandes le support technique peut-il traiter ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le support technique traite les questions d'utilisation d'outils (CRM, ERP, site web, applications métier), les problèmes de connexion et d'accès, les erreurs logicielles courantes, l'aide à la prise en main de nouveaux outils, les incidents simples comme la perte de données ou les problèmes d'envoi d'email, et tout problème qui bloque un utilisateur dans son quotidien." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre support technique et maintenance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le support technique s'adresse aux utilisateurs pour les aider à utiliser les outils au quotidien (questions, blocages, incidents simples). La maintenance s'adresse aux outils eux-mêmes pour corriger des bugs, assurer leur stabilité et les faire évoluer. Les deux sont complémentaires : le support détecte souvent des problèmes qui nécessitent ensuite une intervention de maintenance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Sous quel délai intervenez-vous en support ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le délai d'intervention dépend du niveau de support contractualisé. En support avancé, la réponse est garantie sous 1h pour les urgences. En pack mensuel, le délai standard est de 4h ouvrées. Le support ponctuel est traité selon notre disponibilité, généralement sous 24h." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le support technique se fait-il à distance ou sur site ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le support technique est principalement réalisé à distance — par téléphone, email, chat ou prise en main à distance via des outils sécurisés. Pour les situations qui le nécessitent, une intervention sur site peut être organisée. Le mode de support (mail, visio, téléphone, ticketing) est défini avec vous lors du paramétrage du service." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg, #eef2f8) 0%, #f5f8fc 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/maintenance">Maintenance &amp; Support</a>
+                <span>›</span>
+                <span>Support technique externalisé</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Support technique externalisé</span>
+                Vos équipes accompagnées au quotidien — réponses rapides, blocages résolus, outils maîtrisés
+            </h1>
+            <p class="sp-hero__lead">
+                Nous assurons le <strong>support technique de vos collaborateurs</strong> : réponse aux questions d'utilisation, résolution d'incidents courants, aide à la prise en main de vos outils digitaux. Vos équipes restent <strong>efficaces et autonomes</strong>, sans mobiliser vos ressources internes pour chaque petit problème technique.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Mettre en place mon support technique
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Réponse garantie sous 4h (pack mensuel)</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Support à distance par mail, téléphone ou visio</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Suivi &amp; historique de toutes les demandes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Vos équipes sans blocage au quotidien</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos collaborateurs sont <strong>accompagnés en temps réel</strong> pour utiliser leurs outils sans friction — chaque blocage traité rapidement, chaque question résolue.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>&lt;4h</strong>
+                        <span>délai réponse</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>demandes suivies</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>4.9/5</strong>
+                        <span>satisfaction</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Chaque heure de blocage</strong> d'un collaborateur coûte en moyenne <strong>3× le tarif</strong> d'une heure de support externalisé</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES CONNEXES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services complémentaires de maintenance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Maintenance corrective &amp; évolutive</h2>
+                    <p>Correction de bugs et amélioration continue de vos outils — pour aller plus loin que le simple support.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/debug" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Debug &amp; résolution de bugs</h2>
+                    <p>Investigation approfondie pour trouver et corriger les bugs complexes qui bloquent vos outils.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/infogerance" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Infogérance &amp; hébergement</h2>
+                    <p>Gestion complète de votre infrastructure serveur — en complément de votre support utilisateurs.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Réponse rapide &amp; traçabilité de chaque demande
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Support à distance — mail, téléphone, visio, téléprise en main
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Accompagnement ponctuel ou continu selon vos besoins
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p><strong>+150</strong> entreprises accompagnées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction utilisateurs</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>&lt;4h</strong> délai de réponse moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — types de demandes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre du support</p>
+            <h2>Quels types de demandes traitons-nous ?</h2>
+            <p class="sp-section-sub">Du simple blocage d'utilisation à l'incident complexe — notre équipe de support prend en charge toutes les demandes de vos collaborateurs liées à leurs outils digitaux.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Assistance utilisateurs</h3>
+                <p>Aide à l'utilisation des outils digitaux (CRM, ERP, site web, application métier) — blocages courants, questions d'utilisation, prise en main de nouveaux outils.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <h3>Réponse aux questions techniques</h3>
+                <p>Réponse rapide à toutes les questions techniques : configuration d'un outil, compréhension d'une fonctionnalité, paramétrage, intégration — par email, téléphone ou visio.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Résolution de problèmes simples</h3>
+                <p>Corrections de petits dysfonctionnements : erreur d'affichage, problème de connexion, formulaire qui ne soumet pas, email bloqué — résolution rapide à distance.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Support à distance</h3>
+                <p>Intervention via prise en main à distance sécurisée pour diagnostiquer et résoudre les problèmes directement sur le poste de l'utilisateur, sans déplacement.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Prise en main de nouveaux outils</h3>
+                <p>Formation express et accompagnement à la prise en main de nouveaux logiciels, CRM, applications métier — pour que vos équipes soient autonomes rapidement.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Suivi &amp; reporting des demandes</h3>
+                <p>Toutes les demandes sont tracées dans un système de ticketing : historique, statut, résolution documentée — visibilité complète sur votre volume de support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE D'INTERVENTION
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment fonctionne notre support technique ?</h2>
+            <p class="sp-section-sub">Un support structuré, réactif et traçable — du premier contact à la résolution, chaque demande est prise en charge selon un processus clair.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div><h3>Réception de la demande</h3><p>Votre équipe soumet sa demande par email, téléphone, chat ou formulaire de ticketing — dans le mode de contact défini avec vous</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Réactivité garantie</h3><p>Accusé de réception immédiat et prise en charge selon le SLA contractualisé (de &lt;1h en urgence à 24h en support standard)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Aide à l'utilisation des outils</h3><p>Accompagnement des utilisateurs pour comprendre et utiliser correctement leurs outils — pas besoin d'être expert pour obtenir de l'aide</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Support à distance sécurisé</h3><p>Prise en main à distance sécurisée si nécessaire pour résoudre le problème directement — accès temporaire et révocable, confidentiel</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Résolution &amp; validation</h3><p>Résolution du problème avec vérification que l'utilisateur peut reprendre son travail normalement — clôture de ticket avec sa validation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation de la résolution</h3><p>Chaque résolution est documentée — pour capitaliser les solutions et éviter que le même problème ne revienne</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Suivi des demandes</h3><p>Accès au tableau de bord de suivi de toutes vos demandes — statut en temps réel, historique complet, reporting mensuel</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Accompagnement ponctuel ou continu</h3><p>Support à la demande pour des interventions ponctuelles, ou pack mensuel pour un accompagnement régulier de vos équipes</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un support technique externalisé</h2>
+            <p class="sp-section-sub">Chaque heure de blocage d'un collaborateur coûte en moyenne 3× le tarif d'une heure de support externalisé. Le support technique est l'un des retours sur investissement les plus rapides de l'entreprise.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <h3>Assistance rapide</h3>
+                <p>Vos collaborateurs ne restent plus bloqués — chaque demande est prise en charge rapidement, sans attendre qu'un collègue soit disponible.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps</h3>
+                <p>Moins de temps perdu sur des problèmes techniques, plus de temps productif pour chaque collaborateur — et pour vous.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Moins de blocages</h3>
+                <p>Avec un support réactif à disposition, les blocages sont traités avant de devenir des problèmes majeurs qui paralysent l'activité.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Meilleure utilisation des outils</h3>
+                <p>Vos équipes utilisent vos outils à leur plein potentiel — plus de fonctionnalités utilisées, meilleure adoption des solutions digitales.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg, #eef2f8); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Sérénité</h3>
+                <p>Vous savez qu'une équipe compétente est disponible si un problème survient — vous gérez votre activité sans craindre les pannes et blocages.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le budget du support technique</h2>
+                    <p class="sp-section-sub">Chaque entreprise a un usage différent du support. Ces variables permettent de dimensionner la formule adaptée à vos équipes et à votre volume de demandes.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'utilisateurs</span>
+                        <span class="sp-variable-value">De 1–5 utilisateurs (TPE) à plusieurs dizaines de collaborateurs (PME) nécessitant un support régulier</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de demandes</span>
+                        <span class="sp-variable-value">Quelques demandes ponctuelles par mois à plusieurs dizaines de tickets hebdomadaires</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de support</span>
+                        <span class="sp-variable-value">Support de niveau 1 (questions d'usage) à niveau 2 (problèmes complexes, configuration avancée)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Outils &amp; technologies</span>
+                        <span class="sp-variable-value">Nombre et complexité des outils à supporter (site web, CRM, ERP, application métier, serveurs)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Temps de réponse attendu</span>
+                        <span class="sp-variable-value">De 24h (standard) à &lt;1h (urgences) — le SLA détermine fortement le tarif du support</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Mode de support</span>
+                        <span class="sp-variable-value">Email, téléphone, chat, visio, ticketing, prise en main à distance — chaque canal a son coût</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Disponibilité</span>
+                        <span class="sp-variable-value">Support en heures ouvrées (9h–18h) à astreinte étendue — selon votre activité et vos contraintes</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité des demandes</span>
+                        <span class="sp-variable-value">Questions simples d'utilisation à diagnostics avancés nécessitant une expertise technique poussée</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Support technique externalisé assistance utilisateurs" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte le support technique externalisé ?</h2>
+            <p class="sp-section-sub">Selon votre volume de demandes et le niveau de réactivité souhaité. Devis transparent avant engagement.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Support ponctuel</p>
+                    <p class="sp-plan__price"><span>100 – 300 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Par intervention, au besoin</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intervention unitaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Résolution d'un problème ciblé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support à distance</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Délai selon disponibilité</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack support</p>
+                    <p class="sp-plan__price"><span>300 – 1 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Crédit heures mensuel dédié</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Crédit heures mensuel prioritaire</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Réponse garantie &lt;4h</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ticketing &amp; suivi des demandes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting mensuel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Heures reportables si non utilisées</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Support avancé</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Équipe dédiée, SLA prioritaire</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Réponse garantie &lt;1h urgences</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Chef de projet dédié</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Disponibilité étendue</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support multi-outils &amp; multi-utilisateurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tableaux de bord &amp; KPI support</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Le support technique peut être combiné avec une <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive">maintenance corrective</a> dans un contrat de <a href="/support-maintenance/maintenance">maintenance globale</a> à tarif préférentiel.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au support technique</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/maintenance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div><strong>Contrat de maintenance global</strong><p>Combinez support utilisateurs + maintenance corrective + maintenance évolutive dans un contrat unique.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div><strong>Maintenance corrective &amp; évolutive</strong><p>Correction de bugs et amélioration continue de vos outils digitaux au-delà du support utilisateurs.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/infogerance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div><strong>Infogérance &amp; hébergement</strong><p>Gestion de votre infrastructure serveur, en complément du support technique de vos utilisateurs.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Quand les problèmes récurrents révèlent un besoin de faire évoluer ou remplacer un outil existant.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le support technique</h2>
+                <p>Notre équipe répond sous 24h pour cadrer votre besoin de support et vous proposer la formule adaptée.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le support technique externalisé ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>support technique externalisé</strong> est un service d'assistance informatique fourni par une équipe externe. Il permet à vos collaborateurs de joindre un expert pour répondre à leurs questions, débloquer des problèmes d'utilisation d'outils digitaux et résoudre des incidents courants — sans mobiliser vos ressources internes sur des problèmes techniques récurrents.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils votre support peut-il prendre en charge ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous pouvons prendre en charge le support de tous types d'outils digitaux : <strong>sites web</strong>, <strong>applications métier</strong>, CRM (HubSpot, Salesforce, etc.), ERP, outils de gestion, plateformes e-commerce, outils de collaboration (Google Workspace, Microsoft 365) et tout logiciel utilisé par vos équipes au quotidien.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Sous quel délai intervenez-vous ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le délai d'intervention dépend du <a href="#tarifs">niveau de support contractualisé</a>. En support avancé, la réponse est garantie sous 1h pour les urgences. En pack mensuel, le délai standard est de 4h ouvrées. Le support ponctuel est traité selon notre disponibilité, généralement sous 24h. Les plages horaires sont définies dans votre contrat de support.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre support technique et maintenance ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>support technique</strong> s'adresse aux utilisateurs pour les aider à utiliser leurs outils au quotidien. La <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive">maintenance</a> s'adresse aux outils eux-mêmes pour corriger des bugs et les faire évoluer. Les deux sont complémentaires et peuvent être combinés dans un <a href="/support-maintenance/maintenance">contrat de maintenance global</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte le support technique externalisé ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>100 € à 300 €</strong> pour une intervention ponctuelle, de <strong>300 € à 1 000 €/mois</strong> pour un pack mensuel (la formule la plus choisie, avec SLA &lt;4h), et de <strong>1 000 € à 3 000 €/mois</strong> pour un support avancé avec SLA prioritaire et équipe dédiée.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à offrir à vos équipes un support technique réactif pour qu'elles travaillent sans blocage ?</h2>
+                <p>Définissons ensemble le niveau de support adapté à votre activité, vos outils et votre volume de demandes — ponctuel ou mensuel.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Mettre en place mon support technique
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Devis gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Réponse sous 24h</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ title ?? 'Page' }}{% endblock %} — {{ app_name }}</title>
     <meta name="description" content="{% block description %}Complianz — Solution de conformité RGPD{% endblock %}">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    {# Filet de sécurité : si main.css est introuvable ou tronqué, le méga-menu ne doit pas occuper tout le flux #}
+    <style id="critical-layout-megamenu">
+#megamenu-panels:not(.open){display:none!important}
+.mgm-panel:not(.active){display:none!important}
+.mgm-sub:not(.active){display:none!important}
+.mgm-packs-default.hidden{display:none!important}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+#main-content{min-width:0}
+.site-header{position:sticky;top:0;z-index:300;background:var(--color-white,#fff)}
+    </style>
+    <link rel="stylesheet" href="{{ asset_base }}/assets/css/main.css">
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -17,7 +27,17 @@
 
     {% include 'partials/footer.twig' %}
 
-    <script src="/assets/js/main.js"></script>
+    {% include 'partials/quote-modal.twig' %}
+    {% include 'partials/rdv-modal.twig' %}
+    {% include 'partials/quick-actions.twig' %}
+
+    <script src="{{ asset_base }}/assets/js/main.js"></script>
+    <script src="{{ asset_base }}/assets/js/quote-modal.js" defer></script>
+    <script src="{{ asset_base }}/assets/js/rdv-modal.js" defer></script>
+    <script src="{{ asset_base }}/assets/js/quick-actions.js" defer></script>
+    {% if dev_client_feedback_enabled %}
+    <script src="{{ asset_base }}/assets/js/dev-client-feedback.js" defer></script>
+    {% endif %}
     {% block scripts %}{% endblock %}
 </body>
 </html>

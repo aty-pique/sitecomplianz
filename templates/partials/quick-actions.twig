@@ -1,0 +1,29 @@
+{# Actions rapides fixes : rail droit (Hub + devis) + retour en haut #}
+<div class="qa-rail" aria-label="Actions rapides">
+    <a href="/hub" class="qa-rail__btn qa-rail__btn--hub">
+        <span class="qa-rail__label">Hub d’innovation</span>
+        <span class="qa-rail__ico-wrap" aria-hidden="true">
+            <svg class="qa-rail__ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 22a2 2 0 0 1-2-2V8l4-4V2"/>
+                <path d="M18 22a2 2 0 0 0 2-2V8l-4-4V2"/>
+                <path d="M10 2h4"/>
+                <path d="M8 8h8v6a4 4 0 0 1-4 4 4 4 0 0 1-4-4V8z"/>
+            </svg>
+        </span>
+    </a>
+    <button type="button" class="qa-rail__btn qa-rail__btn--quote" data-open-quote-modal>
+        <span class="qa-rail__label">Demander un devis</span>
+        <span class="qa-rail__ico-wrap" aria-hidden="true">
+            <svg class="qa-rail__ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="8" y1="13" x2="16" y2="13"/>
+                <line x1="8" y1="17" x2="14" y2="17"/>
+            </svg>
+        </span>
+    </button>
+</div>
+
+<button type="button" class="qa-back-top" id="qa-back-top" aria-label="Retour en haut de page" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+</button>

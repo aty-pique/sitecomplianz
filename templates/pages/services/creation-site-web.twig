@@ -1,0 +1,637 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (49 chars titre / 147 chars description) ─────────────────── #}
+{% block title %}Création de sites web professionnels{% endblock %}
+
+{% block description %}Créez un site internet professionnel aligné avec votre image : vitrine, e-commerce, refonte, WordPress. Design, SEO et performance. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Création de sites web professionnels",
+      "url": "{{ app_url }}/solutions-developpement/creation-site-web",
+      "description": "Conception et développement de sites internet professionnels (vitrine ou sur mesure) structurés, cohérents avec l'image de l'entreprise et orientés performance : visibilité, conversion et crédibilité.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Création de sites web",
+      "offers": [
+        { "@type": "Offer", "name": "Site vitrine simple",        "price": "2000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000"  } },
+        { "@type": "Offer", "name": "Site professionnel structuré","price": "5000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Site avancé sur mesure",     "price": "12000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "30000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                   "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Solutions & Développement", "item": "{{ app_url }}/solutions-developpement" },
+        { "@type": "ListItem", "position": 3, "name": "Création de sites web",     "item": "{{ app_url }}/solutions-developpement/creation-site-web" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte la création d'un site internet professionnel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 2 000 € à 5 000 € pour un site vitrine simple, de 5 000 € à 12 000 € pour un site professionnel structuré (plusieurs pages, fonctionnalités, SEO), et de 12 000 € à 30 000 €+ pour un site avancé ou sur mesure. Un abonnement maintenance et hébergement est possible après livraison." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour créer un site internet ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 3 à 6 semaines pour un site vitrine simple, de 6 à 12 semaines pour un site professionnel structuré, et de 3 à 6 mois pour un site avancé ou sur mesure avec des fonctionnalités spécifiques. Le délai dépend principalement de la disponibilité des contenus et de la complexité du design." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle technologie utilisez-vous : WordPress, Webflow ou développement sur mesure ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le choix dépend de vos besoins. WordPress est idéal pour les sites avec beaucoup de contenu et une autonomie de gestion souhaitée. Webflow convient aux sites orientés design avec une bonne performance. Le développement sur mesure est recommandé pour des fonctionnalités très spécifiques ou une intégration poussée avec vos systèmes. Nous vous conseillons la technologie la plus adaptée lors du cadrage." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le site sera-t-il optimisé pour le référencement naturel (SEO) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — l'optimisation SEO de base est incluse dans tous nos projets : structure des pages (Hn), balises meta, vitesse de chargement, responsive mobile, sitemap et robots.txt. Pour une stratégie SEO complète (rédaction de contenus, netlinking, suivi de positionnement), notre équipe Performance Digitale propose un accompagnement dédié." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourrez-vous gérer le site vous-mêmes après la livraison ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — nous formons vos équipes à la gestion du site et livrons la documentation complète. Si vous optez pour WordPress ou un CMS, vous pourrez ajouter des pages, modifier les contenus et publier des articles sans connaissances techniques. Un contrat de maintenance est également disponible si vous souhaitez déléguer les mises à jour." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--green">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/solutions-developpement">Solutions &amp; Développement</a>
+                <span>›</span>
+                <span>Création de sites web</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Agence création de sites web professionnels</span>
+                Création de sites internet professionnels&nbsp;: un site structuré, performant et aligné avec votre image de marque
+            </h1>
+            <p class="sp-hero__lead">
+                Nous concevons et développons des <strong>sites internet professionnels</strong> orientés performance — pas de simple support esthétique. Chaque projet est conçu pour <strong>valoriser votre activité, générer des contacts</strong> et soutenir votre stratégie de développement : site vitrine, e-commerce, refonte ou sur mesure.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis site web
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Notre processus de création
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Design personnalisé, pas de template générique</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>SEO de base inclus dans chaque projet</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation &amp; prise en main incluses</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-1);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre site</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous disposez d'un <strong>site professionnel, clair et performant</strong> qui valorise votre entreprise, génère des contacts qualifiés et soutient activement votre développement commercial.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3 sem.</strong>
+                        <span>à 6 mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>responsive</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>SEO</strong>
+                        <span>intégré</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients voient leur <strong>taux de conversion augmenter de 45%</strong> dans les 3 mois suivant la mise en ligne</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — 5 solutions
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos solutions de création de sites web</p>
+        <div class="sp-subservices__grid">
+            <a href="/solutions-developpement/creation-site-web/site-vitrine" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Site vitrine professionnel</h2>
+                    <p>Présentez votre entreprise avec un site vitrine clair, professionnel et optimisé pour convertir les visiteurs en contacts.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/site-ecommerce" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Site e-commerce</h2>
+                    <p>Vendez en ligne avec une boutique e-commerce performante : catalogue, paiement, gestion des commandes et logistique.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/refonte-site" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Refonte de site web</h2>
+                    <p>Votre site est vieillissant ou peu performant ? Refondez-le pour améliorer l'image, le SEO et la conversion.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/landing-pages" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Landing pages &amp; pages de conversion</h2>
+                    <p>Maximisez vos taux de conversion avec des pages d'atterrissage optimisées pour vos campagnes marketing.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/wordpress-cms" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Intégration WordPress &amp; CMS</h2>
+                    <p>Gérez votre contenu en totale autonomie avec WordPress ou un autre CMS adapté à votre organisation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Design personnalisé — pas de template
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                SEO de base intégré à chaque projet
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                100% responsive mobile / tablette / desktop
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                <p><strong>+120</strong> sites créés ou refondus</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>+45%</strong> conversion moyenne après livraison</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que comprend le projet
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre processus</p>
+            <h2>Ce que comprend votre projet de création de site web</h2>
+            <p class="sp-section-sub">De l'analyse de vos objectifs à la mise en ligne et à la formation — un accompagnement complet pour un site qui performe vraiment.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des besoins et des objectifs</h3><p>Comprendre votre cible, vos objectifs (visibilité, leads, ventes), votre secteur et vos concurrents pour définir la stratégie du site</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Structure &amp; architecture des pages</h3><p>Arborescence, parcours utilisateur, maillage interne — chaque page a un rôle précis dans l'entonnoir de conversion</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div><h3>Design cohérent avec votre identité visuelle</h3><p>Maquettes personnalisées, charte graphique respectée, expérience utilisateur soignée — pas de template générique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Développement du site</h3><p>WordPress, Webflow, ou développement sur mesure — la technologie choisie selon vos besoins, votre budget et votre autonomie souhaitée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Optimisation contenus &amp; UX</h3><p>Rédaction ou optimisation des textes, structuration des pages pour la lisibilité et la conversion, appels à l'action efficaces</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div><h3>Intégration des fonctionnalités</h3><p>Formulaires de contact, chat, tracking, réservation, espace client, carte interactive — selon vos besoins spécifiques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+                </div>
+                <div><h3>Optimisation SEO de base</h3><p>Structure Hn, balises meta, vitesse de chargement, images optimisées, sitemap, robots.txt — inclus dans chaque projet</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <div><h3>Version responsive</h3><p>Votre site s'affiche parfaitement sur mobile, tablette et desktop — testé sur tous les principaux navigateurs et appareils</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests &amp; validation</h3><p>Tests de navigation, de performance, de compatibilité et de sécurité — votre validation avant mise en ligne</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Mise en ligne &amp; hébergement</h3><p>Déploiement sur votre hébergeur ou sur notre infrastructure — configuration DNS, SSL, sauvegardes automatiques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation à l'utilisation</h3><p>Session de formation pour que vous puissiez gérer votre site en toute autonomie — ajouter du contenu, modifier les pages</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation &amp; support au lancement</h3><p>Guide d'utilisation complet et support dédié pendant les premières semaines après la mise en ligne</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un site web professionnel et performant</h2>
+            <p class="sp-section-sub">Un site web n'est pas une dépense — c'est un investissement commercial. Un site bien conçu travaille pour vous 24h/24, génère des contacts et renforce votre crédibilité auprès de chaque prospect.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Image professionnelle renforcée</h3>
+                <p>Un site soigné est votre carte de visite en ligne. 75% des prospects jugent la crédibilité d'une entreprise par son site web.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <h3>Meilleure visibilité en ligne</h3>
+                <p>Avec une optimisation SEO de base intégrée, votre site commence à ranker sur les bons mots-clés dès la mise en ligne.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81"/></svg>
+                </div>
+                <h3>Génération de contacts &amp; leads</h3>
+                <p>Des parcours de conversion bien pensés transforment vos visiteurs en prospects contactables — formulaires, CTA, téléphone cliquable.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>Crédibilité auprès des prospects</h3>
+                <p>Un site professionnel rassure et légitime votre expertise. Il convertit le doute en confiance avant même le premier contact.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Support commercial 24h/24</h3>
+                <p>Votre site présente vos offres, répond aux questions fréquentes et génère des demandes — même quand vous n'êtes pas disponible.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Site aligné avec votre stratégie</h3>
+                <p>Chaque page, chaque message, chaque CTA est pensé pour servir vos objectifs commerciaux — pas juste pour être beau.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Meilleure conversion des visiteurs</h3>
+                <p>+45% de taux de conversion en moyenne après refonte ou création d'un site optimisé UX et orienté performance.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-1-bg); color: var(--pole-1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Base solide pour votre stratégie digitale</h3>
+                <p>Votre site est le socle de votre présence en ligne — il amplifie l'impact de vos actions SEO, réseaux sociaux et publicité.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui influence le budget de votre site web</h2>
+                    <p class="sp-section-sub">Chaque projet est unique. Ces variables sont analysées ensemble lors du cadrage gratuit pour établir une estimation précise avant tout engagement.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de site &amp; nombre de pages</span>
+                        <span class="sp-variable-value">Vitrine, institutionnel, e-commerce ou sur mesure</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité du design &amp; UX</span>
+                        <span class="sp-variable-value">Du design sobre au site très personnalisé avec animations</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Fonctionnalités spécifiques</span>
+                        <span class="sp-variable-value">Formulaire, espace client, réservation, catalogue produits</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Intégrations externes</span>
+                        <span class="sp-variable-value">CRM, tracking, analytics, outils marketing, ERP</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau d'optimisation SEO souhaité</span>
+                        <span class="sp-variable-value">SEO de base inclus — stratégie avancée en option</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Contenus fournis ou à créer</span>
+                        <span class="sp-variable-value">Textes, photos, vidéos — à fournir ou à produire avec nous</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Création site web professionnel" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la création d'un site internet professionnel ?</h2>
+            <p class="sp-section-sub">Le prix dépend du type de site, du nombre de pages, de la complexité du design et des fonctionnalités souhaitées. Le cadrage est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Site vitrine simple</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">5 à 8 pages, design sobre</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse &amp; cadrage offert</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5 à 8 pages personnalisées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formulaire de contact</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO de base &amp; responsive</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; mise en ligne</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--green">
+                <div class="sp-plan__badge sp-badge--green">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Site professionnel structuré</p>
+                    <p class="sp-plan__price"><span>5 000 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Design sur mesure, fonctionnalités métier</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Design 100% personnalisé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 8 à 20 pages optimisées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Fonctionnalités spécifiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO avancé &amp; performances</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations CRM &amp; tracking</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support 3 mois post-lancement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Site avancé &amp; sur mesure</p>
+                    <p class="sp-plan__price"><span>12 000 – 30 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Plateforme, e-commerce, espace client</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture sur mesure</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Fonctionnalités complexes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> E-commerce &amp; espace client</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégrations multiples API</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance mensuelle possible</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un cadrage gratuit permet d'établir une estimation précise. Abonnement maintenance / hébergement / évolution disponible après livraison.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Maximisez l'impact de votre site avec ces services</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Référencement naturel (SEO)</strong><p>Développez votre visibilité organique et générez plus de trafic qualifié sur votre site.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Performance digitale</strong><p>Publicité, réseaux sociaux, emailing — amplifiez la visibilité de votre site sur tous les canaux.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel/automatisation-api" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg></div>
+                <div><strong>Automatisation &amp; API</strong><p>Connectez votre site à votre CRM, ERP ou outils marketing pour automatiser vos processus.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>CRM sur mesure</strong><p>Gérez les contacts générés par votre site dans un CRM adapté à votre cycle commercial.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la création de sites web</h2>
+                <p>Notre équipe répond sous 24h. Le cadrage de votre projet est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Combien coûte la création d'un site internet professionnel ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 000 € à 5 000 €</strong> pour un <a href="/solutions-developpement/creation-site-web/site-vitrine">site vitrine simple</a>, de <strong>5 000 € à 12 000 €</strong> pour un site professionnel structuré (plusieurs pages, fonctionnalités, SEO), et de <strong>12 000 € à 30 000 €+</strong> pour un site avancé ou sur mesure. Un abonnement maintenance est disponible après livraison.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour créer un site internet ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>3 à 6 semaines</strong> pour un site vitrine simple, de <strong>6 à 12 semaines</strong> pour un site professionnel structuré, et de <strong>3 à 6 mois</strong> pour un site avancé. Le délai dépend principalement de la disponibilité des contenus et de la complexité du design. La <a href="/solutions-developpement/creation-site-web/refonte-site">refonte d'un site existant</a> est souvent plus rapide.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle technologie utilisez-vous : WordPress, Webflow ou développement sur mesure ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le choix dépend de vos besoins. <strong>WordPress</strong> est idéal pour les sites avec beaucoup de contenu et une autonomie de gestion souhaitée. <strong>Webflow</strong> convient aux sites orientés design avec haute performance. Le <strong>développement sur mesure</strong> est recommandé pour des fonctionnalités très spécifiques. Nous vous conseillons la technologie la plus adaptée lors du cadrage.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Le site sera-t-il optimisé pour le SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — l'optimisation SEO de base est incluse dans tous nos projets&nbsp;: structure des pages (Hn), balises meta, vitesse de chargement, responsive mobile, sitemap et robots.txt. Pour une stratégie SEO complète (rédaction de contenus, netlinking, suivi), notre équipe <a href="/performance-digitale/seo">Performance Digitale</a> propose un accompagnement dédié.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourrez-vous gérer le site vous-mêmes après la livraison ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — nous formons vos équipes à la gestion du site et livrons une documentation complète. Si vous optez pour WordPress ou un CMS, vous pourrez ajouter des pages et modifier les contenus sans connaissances techniques. Un contrat de <strong>maintenance mensuelle</strong> est également disponible si vous souhaitez déléguer les mises à jour.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à créer un site web qui valorise votre entreprise et génère des contacts ?</h2>
+                <p>Cadrage gratuit pour définir vos objectifs, choisir la bonne technologie et établir une estimation précise. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer mon site internet
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cadrage gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Design personnalisé inclus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

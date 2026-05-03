@@ -1,0 +1,522 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 149 chars description) ─────────────────── #}
+{% block title %}Audit SEO | Analyse complète référencement naturel | Complianz{% endblock %}
+
+{% block description %}Réalisez un audit SEO complet pour identifier les blocages de votre site. Technique, contenu, autorité. Rapport et plan d'actions priorisé. Dès 890€.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit SEO",
+      "url": "{{ app_url }}/performance-digitale/seo/audit-seo",
+      "description": "Analyse complète de votre site web pour identifier tous les freins au référencement naturel : technique, contenu, backlinks et opportunités de croissance. Rapport détaillé et plan d'actions priorisé.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit SEO",
+      "offers": [
+        { "@type": "Offer", "name": "Audit SEO Starter",  "price": "890",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1800" } },
+        { "@type": "Offer", "name": "Audit SEO Standard", "price": "1800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3500" } },
+        { "@type": "Offer", "name": "Audit SEO Avancé",   "price": "3500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Référencement naturel (SEO)",       "item": "{{ app_url }}/performance-digitale/seo" },
+        { "@type": "ListItem", "position": 4, "name": "Audit SEO",                         "item": "{{ app_url }}/performance-digitale/seo/audit-seo" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit SEO est une analyse complète de votre site web permettant d'identifier tous les problèmes qui freinent votre référencement naturel : erreurs techniques (vitesse, structure, indexation), problèmes de contenu (pages peu optimisées, manque de mots-clés ciblés), et manques de notoriété (backlinks insuffisants). Il constitue la première étape indispensable de toute stratégie SEO efficace." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps prend un audit SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit SEO Starter prend 1 à 2 semaines. Un audit Standard 2 à 3 semaines. Un audit Avancé sur un grand site peut nécessiter 3 à 5 semaines. Le délai dépend de la taille du site, du nombre de pages à analyser et de la complexité technique. Nous vous communiquons un calendrier précis dès le démarrage." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un audit SEO et un audit technique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit technique se concentre uniquement sur les aspects techniques du site (vitesse, crawl, indexation, structure URL, données structurées). Un audit SEO complet englobe l'audit technique ET l'analyse des contenus, des mots-clés, du profil de backlinks et de la concurrence. L'audit SEO offre donc une vision 360° de votre référencement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que faire après un audit SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Après l'audit, vous recevez un rapport détaillé et un plan d'actions priorisé. Vous pouvez alors soit mettre en œuvre les recommandations en interne, soit nous confier l'implémentation dans le cadre d'une mission SEO. Nous proposons également un suivi mensuel pour mesurer les progrès et ajuster la stratégie en continu." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/seo">SEO</a>
+                <span>›</span>
+                <span>Audit SEO</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Audit SEO</span>
+                Analysez et optimisez votre référencement — identifiez tous les freins à votre visibilité Google
+            </h1>
+            <p class="sp-hero__lead">
+                Un <strong>audit SEO complet</strong> analyse votre site sous tous les angles — technique, contenu et autorité — pour identifier précisément ce qui freine votre référencement naturel. Vous obtenez un <strong>rapport détaillé et un plan d'actions priorisé</strong> pour progresser efficacement sur Google.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Demander mon audit SEO
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport livré en 2 à 4 semaines</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Plan d'actions priorisé — quick wins inclus</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Session de restitution avec nos experts</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Rapport complet + plan d'actions</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>diagnostic exhaustif de votre site</strong> avec tous les problèmes identifiés, classés par impact, et un plan d'actions clair pour les corriger dans le bon ordre.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>des freins identifiés</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Dès 890€</strong>
+                        <span>audit Starter</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+3×</strong>
+                        <span>trafic potentiel</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Sans audit, sans cap&nbsp;:</strong> les entreprises qui démarrent le SEO sans audit perdent en moyenne <strong>40% de leur budget</strong> sur des actions peu efficaces</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les autres services SEO</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/performance-digitale/seo/seo-technique" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO technique</h2>
+                    <p>Correction des problèmes techniques identifiés dans l'audit pour optimiser les fondations de votre site.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Rédaction SEO</h2>
+                    <p>Production de contenus optimisés pour les mots-clés identifiés lors de l'audit.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Netlinking</h2>
+                    <p>Stratégie de backlinks pour renforcer l'autorité de domaine révélée par l'audit.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Stratégie digitale</h2>
+                    <p>Intégrez les résultats de l'audit dans une stratégie digitale globale et cohérente.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit livré avec plan d'actions priorisé
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Session de restitution avec nos experts SEO
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Méthode white hat &amp; résultats durables
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <p><strong>+200</strong> audits réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>+3×</strong> trafic moyen après implémentation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — livrables de l'audit
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre de l'audit</p>
+            <h2>Ce que comprend un audit SEO complet</h2>
+            <p class="sp-section-sub">Notre audit SEO couvre l'ensemble des 3 piliers du référencement naturel — technique, contenu et popularité — pour une vision exhaustive de votre situation et des actions prioritaires à mener.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Audit technique (crawl &amp; indexation)</h3><p>Analyse complète des erreurs de crawl, des problèmes d'indexation, des redirections, des balises canoniques et de la structure du site</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Analyse de la vitesse (Core Web Vitals)</h3><p>Mesure des indicateurs LCP, CLS et FID, audit de la performance technique et des recommandations pour atteindre les seuils Google</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Analyse des contenus &amp; mots-clés</h3><p>Audit des pages existantes, détection du thin/duplicate content, opportunités de mots-clés et cocon sémantique à développer</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div><h3>Profil de liens entrants (netlinking)</h3><p>Analyse qualitative et quantitative de vos backlinks : autorité des sources, ancres, liens toxiques à désavouer et opportunités</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse de la concurrence</h3><p>Benchmark des positions de vos concurrents sur vos mots-clés cibles, identification de leurs avantages et des opportunités à saisir</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Rapport SEO complet</h3><p>Document structuré avec toutes les problématiques identifiées, classées par criticité, et les recommandations associées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Plan d'actions priorisé</h3><p>Roadmap claire avec les quick wins à implémenter immédiatement et les actions moyen terme à planifier, triées par impact vs effort</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Session de restitution</h3><p>Présentation des résultats avec votre équipe, réponses à vos questions et définition des priorités d'action pour les semaines suivantes</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — quand réaliser un audit SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Quand réaliser un audit SEO ?</p>
+            <h2>Les 4 situations qui rendent l'audit indispensable</h2>
+            <p class="sp-section-sub">Un audit SEO n'est pas réservé aux sites en difficulté. Il est utile à toutes les étapes du développement d'un site — en prévention comme en correction.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                </div>
+                <h3>Perte de trafic inexpliquée</h3>
+                <p>Votre trafic organique chute sans raison apparente. L'audit identifie les causes : mise à jour Google, pénalité, problème technique ou perte de backlinks.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Refonte ou migration de site</h3>
+                <p>Avant ou après une refonte, l'audit protège votre capital SEO existant et identifie les redirections critiques à mettre en place pour ne pas perdre vos positions.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Stagnation des positions</h3>
+                <p>Vos positions plafonnent malgré vos efforts. L'audit révèle les points de blocage qui empêchent votre site de progresser sur ses mots-clés cibles.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Lancement d'une stratégie SEO</h3>
+                <p>Démarrer le SEO sans audit, c'est agir à l'aveugle. L'audit dresse l'état des lieux et établit les bases d'une stratégie efficace dès le premier mois.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit SEO ?</h2>
+            <p class="sp-section-sub">Le coût de l'audit dépend de la taille de votre site et du niveau de profondeur souhaité. Nous commençons toujours par un échange gratuit pour définir le périmètre adapté.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit SEO Starter</p>
+                    <p class="sp-plan__price"><span>890 – 1 800 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Site vitrine — jusqu'à 50 pages</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit technique de base</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des 10 pages clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Profil de liens existants</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + plan d'actions</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session de restitution 1h</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit SEO Standard</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Site PME — jusqu'à 200 pages</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit technique complet (crawl)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Core Web Vitals &amp; performance</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse contenus &amp; mots-clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse concurrentielle</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Profil netlinking complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + plan d'actions priorisé</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit SEO Avancé</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Grand site / e-commerce — 200+ pages</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet multi-domaines</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit JavaScript &amp; rendu côté serveur</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse du budget de crawl</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maillage interne &amp; architecture</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Données structurées (JSON-LD)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'implémentation détaillé</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — devis personnalisé selon la taille de votre site et vos objectifs. L'audit peut être suivi d'une mission SEO pour l'implémentation des recommandations.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Après l'audit : les prochaines étapes</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Stratégie SEO globale</strong><p>Mettez en œuvre les recommandations de l'audit dans une stratégie SEO complète et durable.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-technique" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>SEO technique</strong><p>Corrigez tous les problèmes techniques identifiés dans l'audit pour libérer le potentiel de votre site.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                <div><strong>Rédaction SEO &amp; contenu</strong><p>Créez les contenus manquants identifiés dans l'audit pour couvrir vos mots-clés stratégiques.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie digitale globale</strong><p>Intégrez le SEO dans une stratégie marketing digitale complète pour maximiser l'impact.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit SEO</h2>
+                <p>Notre équipe répond sous 24h. Échangez d'abord gratuitement avec nos experts SEO pour définir le périmètre adapté à votre site.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit SEO</strong> est une analyse complète de votre site web pour identifier tous les problèmes qui freinent votre référencement naturel&nbsp;: erreurs techniques, contenus insuffisants, backlinks manquants. Il constitue la <strong>première étape indispensable</strong> de toute stratégie SEO et vous évite d'investir à l'aveugle.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps prend un audit SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un audit Starter prend <strong>1 à 2 semaines</strong>, un audit Standard 2 à 3 semaines, un audit Avancé sur un grand site 3 à 5 semaines. Le délai dépend de la taille du site et de la profondeur d'analyse. Nous livrons toujours un <a href="#tarifs">rapport complet</a> accompagné d'une session de restitution.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre audit SEO et audit technique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <a href="/performance-digitale/seo/seo-technique">audit technique SEO</a> se concentre uniquement sur les aspects techniques du site (vitesse, crawl, indexation). Un <strong>audit SEO complet</strong> englobe le technique ET l'analyse des contenus, des mots-clés, des backlinks et de la concurrence — une vision 360° indispensable pour une stratégie efficace.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que faire après un audit SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Vous recevez un <strong>plan d'actions priorisé</strong> que vous pouvez implémenter en interne ou nous confier. Nous proposons un <a href="/performance-digitale/seo">suivi SEO mensuel</a> pour mettre en œuvre les recommandations, mesurer les progrès et ajuster la stratégie — avec des résultats mesurables dès le 3e mois.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à identifier tous les freins SEO de votre site et à construire un plan d'actions efficace ?</h2>
+                <p>Échangez gratuitement avec nos experts SEO pour définir le périmètre de l'audit adapté à votre site et vos objectifs de visibilité.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Demander mon audit SEO
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dès 890€ HT</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + plan d'actions</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session de restitution incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

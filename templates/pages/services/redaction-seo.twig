@@ -1,0 +1,507 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 146 chars description) ─────────────────── #}
+{% block title %}Rédaction SEO | Contenu optimisé référencement naturel | Complianz{% endblock %}
+
+{% block description %}Créez du contenu SEO qui classe et convertit. Articles de blog, pages services, cocon sémantique. Rédacteurs spécialisés et optimisation éditoriale.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Rédaction SEO & stratégie de contenu",
+      "url": "{{ app_url }}/performance-digitale/seo/redaction-seo",
+      "description": "Création de contenus optimisés pour le référencement naturel : articles de blog, pages de services, cocon sémantique. Des rédacteurs spécialisés qui écrivent pour Google et pour vos lecteurs.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Rédaction SEO et stratégie de contenu",
+      "offers": [
+        { "@type": "Offer", "name": "Rédaction SEO 4 articles/mois", "price": "890",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1600" } },
+        { "@type": "Offer", "name": "Pack contenu 8 articles/mois",  "price": "1600", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2900" } },
+        { "@type": "Offer", "name": "Stratégie contenu complète",     "price": "3500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Référencement naturel (SEO)",       "item": "{{ app_url }}/performance-digitale/seo" },
+        { "@type": "ListItem", "position": 4, "name": "Rédaction SEO",                     "item": "{{ app_url }}/performance-digitale/seo/redaction-seo" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la rédaction SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La rédaction SEO consiste à créer du contenu web optimisé pour les moteurs de recherche ET pour les lecteurs humains. Un contenu SEO efficace cible des mots-clés stratégiques, répond aux intentions de recherche de vos prospects, est structuré pour faciliter la lecture (H1-H6, listes, paragraphes courts) et inclut des appels à l'action. Il doit à la fois attirer du trafic organique et convertir les visiteurs." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un cocon sémantique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un cocon sémantique est une architecture de contenu organisée en silos thématiques : une page pilier (hub) traite le sujet principal, entourée de pages satellites qui traitent les sous-thèmes en profondeur, toutes liées entre elles. Cette structure aide Google à comprendre votre expertise thématique et améliore le positionnement de l'ensemble des pages du cocon." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien d'articles SEO faut-il publier par mois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il n'y a pas de nombre idéal universel — la qualité prime sur la quantité. En général, 4 à 8 articles de qualité par mois suffisent pour progresser sur la plupart des secteurs. Pour des secteurs très concurrentiels ou pour accélérer la croissance, 8 à 16 articles peuvent être nécessaires. Nous définissons le rythme adapté lors de l'audit éditorial initial." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour voir des résultats avec le contenu SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un article SEO de qualité commence généralement à apparaître dans les résultats de Google en 3 à 6 mois. Les contenus longue traîne (requêtes moins concurrentielles) peuvent se positionner en 4 à 8 semaines. Le contenu SEO est un investissement sur le long terme : chaque article publié continue de générer du trafic pendant des mois, voire des années." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/seo">SEO</a>
+                <span>›</span>
+                <span>Rédaction SEO &amp; stratégie de contenu</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Rédaction SEO & stratégie de contenu</span>
+                Créez du contenu qui se positionne sur Google et convertit vos visiteurs en clients
+            </h1>
+            <p class="sp-hero__lead">
+                Nos rédacteurs spécialisés créent du <strong>contenu SEO de qualité</strong> qui cible vos mots-clés stratégiques, répond aux intentions de recherche de vos prospects et génère du trafic qualifié. Cocon sémantique, articles de blog, pages de services — un <strong>calendrier éditorial cohérent</strong> pour une visibilité croissante.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    Lancer ma stratégie de contenu
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit éditorial gratuit avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rédacteurs spécialisés dans votre secteur</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Suivi mensuel des positions</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Trafic organique + leads qualifiés</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Chaque article publié <strong>continue de générer du trafic</strong> pendant des mois — un investissement qui s'accumule et dont la valeur croît dans le temps, sans dépenser sur chaque visite.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>+3×</strong>
+                        <span>trafic organique</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–60%</strong>
+                        <span>coût par lead</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>12 mois</strong>
+                        <span>durée de vie/article</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises qui publient <strong>16 articles/mois</strong> obtiennent <strong>3,5× plus de trafic</strong> que celles qui publient 4 articles ou moins</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les autres services SEO</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit SEO</h2>
+                    <p>Identifiez les lacunes de contenu de votre site et les opportunités éditoriales à saisir.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-technique" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO technique</h2>
+                    <p>Assurez-vous que Google indexe correctement tout le contenu que nous créons pour vous.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Netlinking</h2>
+                    <p>Construisez des backlinks vers votre contenu pour accélérer sa montée en position.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-local" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO local</h2>
+                    <p>Créez des pages locales optimisées pour chaque ville de votre zone géographique.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit éditorial offert avant engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rédacteurs spécialisés dans votre secteur
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Suivi de positions mensuel inclus
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <p><strong>+1 500</strong> articles produits</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <p><strong>+3×</strong> trafic organique moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une stratégie de rédaction SEO</h2>
+            <p class="sp-section-sub">De la stratégie éditoriale à la publication, en passant par la recherche de mots-clés et l'optimisation — un service complet pour faire de votre blog et de vos pages un moteur de trafic organique.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <div><h3>Stratégie éditoriale &amp; cocon sémantique</h3><p>Définition du plan éditorial, identification des thématiques prioritaires, construction du cocon sémantique et calendrier de publication</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Rédaction d'articles de blog optimisés</h3><p>Articles longs format (1 500 à 3 000 mots) ciblant vos mots-clés stratégiques, structurés pour le SEO et écrits pour vos lecteurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Optimisation des pages existantes</h3><p>Audit et réécriture des pages existantes peu performantes pour améliorer leur positionnement et leur taux de conversion</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div><h3>Fiches produits/services SEO</h3><p>Rédaction de descriptions produits et pages de services optimisées pour les mots-clés transactionnels et la conversion</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+                </div>
+                <div><h3>Meta-données &amp; balises</h3><p>Rédaction des balises title, meta description et H1 pour toutes les pages du site, optimisées pour le SEO et le taux de clic</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Calendrier éditorial</h3><p>Planning mensuel structuré des publications avec les sujets, mots-clés cibles, dates de publication et suivi des performances</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Types de contenus</p>
+            <h2>Les 4 types de contenus SEO que nous créons</h2>
+            <p class="sp-section-sub">Chaque type de contenu sert un objectif SEO différent. Nous créons une stratégie équilibrée qui couvre toutes les étapes du parcours de vos prospects.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3>Articles de blog informationnels</h3>
+                <p>Contenus longs formats qui répondent aux questions de vos prospects en haut de funnel — génèrent du trafic froid et construisent votre autorité thématique.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Pages de services transactionnelles</h3>
+                <p>Pages qui ciblent les requêtes à intention commerciale — les visiteurs cherchent activement à acheter ou à demander un devis. Taux de conversion élevé.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3>Pages locales géolocalisées</h3>
+                <p>Landing pages optimisées pour chaque ville ou région ciblée — indispensables pour apparaître dans les recherches locales et le pack Google Maps.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                </div>
+                <h3>Contenus piliers &amp; cocon sémantique</h3>
+                <p>Pages piliers exhaustives sur vos thématiques clés, entourées d'articles satellites — structure qui maximise votre autorité thématique et vos positions globales.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la rédaction SEO ?</h2>
+            <p class="sp-section-sub">Le budget dépend du volume de contenus à produire, de la complexité thématique et du niveau d'optimisation souhaité. L'audit éditorial initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Rédaction SEO</p>
+                    <p class="sp-plan__price"><span>890 – 1 600 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">4 articles/mois — 1 500 à 2 000 mots</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 4 articles optimisés/mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recherche de mots-clés incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Meta-données optimisées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Calendrier éditorial mensuel</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack contenu</p>
+                    <p class="sp-plan__price"><span>1 600 – 2 900 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">8 articles/mois + optimisation pages existantes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>8 articles optimisés/mois</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation des pages existantes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cocon sémantique structuré</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maillage interne optimisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting mensuel de positions</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie contenu complète</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Cocon sémantique + production initiale</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Stratégie éditoriale 12 mois</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cocon sémantique complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 15-20 contenus initiaux</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation toutes les pages clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Brief rédactionnel &amp; guide de style</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — engagement 6 mois minimum pour des résultats mesurables. L'audit éditorial initial est toujours gratuit. Devis personnalisé selon votre secteur et vos objectifs.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à la rédaction SEO</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit SEO</strong><p>Identifiez les lacunes de contenu et les opportunités de mots-clés avant de lancer la production.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div><strong>Netlinking</strong><p>Construisez des backlinks vers vos meilleurs contenus pour accélérer leur montée en position.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/email-marketing" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div><strong>Email marketing</strong><p>Distribuez vos contenus à votre liste email pour maximiser leur audience et leur impact SEO.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/marketing-digital" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/></svg></div>
+                <div><strong>Marketing digital &amp; réseaux sociaux</strong><p>Amplifiez la portée de vos contenus sur les réseaux sociaux pour générer plus de trafic et de backlinks.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la rédaction SEO</h2>
+                <p>Notre équipe répond sous 24h. L'audit éditorial initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que la rédaction SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>rédaction SEO</strong> consiste à créer du contenu web optimisé pour les moteurs de recherche ET pour les lecteurs humains. Un contenu SEO efficace cible des mots-clés stratégiques, répond aux intentions de recherche de vos prospects et est structuré pour <strong>attirer du trafic organique et convertir les visiteurs</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un cocon sémantique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>cocon sémantique</strong> est une architecture de contenu organisée en silos&nbsp;: une page pilier traite le sujet principal, entourée de pages satellites qui traitent les sous-thèmes, toutes liées entre elles. Cette structure aide Google à comprendre votre expertise thématique et <strong>améliore le positionnement de l'ensemble des pages</strong> du cocon.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien d'articles SEO faut-il publier par mois ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La qualité prime sur la quantité. En général, <strong>4 à 8 articles de qualité par mois</strong> suffisent pour progresser sur la plupart des secteurs. Pour des marchés concurrentiels, 8 à 16 articles peuvent accélérer la croissance. Nous définissons le rythme adapté lors de l'<a href="/performance-digitale/seo/audit-seo">audit éditorial</a> initial gratuit.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour voir des résultats ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un article SEO de qualité apparaît dans Google en <strong>3 à 6 mois</strong>. Les contenus longue traîne (requêtes peu concurrentielles) peuvent se positionner en 4 à 8 semaines. Le contenu SEO est un investissement long terme&nbsp;: chaque article continue de générer du trafic <strong>pendant des mois, voire des années</strong>.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à construire une machine à trafic organique avec du contenu SEO qui classe et convertit ?</h2>
+                <p>Audit éditorial gratuit pour analyser vos contenus existants, identifier vos opportunités de mots-clés et vous proposer une stratégie de contenu adaptée à vos objectifs.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    Lancer ma stratégie de contenu
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit éditorial offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rédacteurs spécialisés</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Résultats mesurables</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,221 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Formation IA éligible CPF | Se former à l'IA avec CPF | Complianz{% endblock %}
+
+{% block description %}Suivez une formation IA éligible CPF pour maîtriser l'intelligence artificielle sans avancer de frais. Certifications reconnues et contenus pratiques.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Formation IA éligible CPF — Utilisez votre compte formation",
+      "url": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-ia-eligible-cpf",
+      "description": "Guide complet sur les formations IA éligibles CPF : certifications reconnues, financement, modalités et comment choisir la bonne formation IA avec son CPF.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Formation IA", "item": "{{ app_url }}/intelligence-artificielle/formation-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Formation IA éligible CPF", "item": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-ia-eligible-cpf" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelles formations IA sont éligibles CPF ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les formations IA éligibles CPF sont celles préparant à des certifications inscrites au RNCP (Répertoire National des Certifications Professionnelles) ou au RS (Répertoire Spécifique). Les certifications en intelligence artificielle, data science, machine learning et transformation digitale peuvent ouvrir droit au CPF. Il est conseillé de vérifier sur Mon Compte Formation (moncompteformation.gouv.fr) la liste exacte des formations disponibles." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment utiliser son CPF pour une formation IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour utiliser votre CPF pour une formation IA : 1) Vérifiez votre solde sur moncompteformation.gouv.fr, 2) Recherchez les formations IA disponibles sur la plateforme, 3) Sélectionnez la formation selon votre niveau et vos objectifs, 4) Faites votre demande en ligne (délai de 11 jours ouvrés), 5) Démarrez votre formation. Si votre solde CPF est insuffisant, vous pouvez financer le reste sur fonds propres ou via votre employeur (co-financement)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de crédit CPF faut-il pour une formation IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les formations IA éligibles CPF varient généralement de 500 à 3 000 € selon le niveau et la durée. Votre CPF est alimenté à hauteur de 500 €/an (800 € pour les non-qualifiés), plafonné à 5 000 € (8 000 € pour les non-qualifiés). Si votre solde couvre la totalité de la formation, vous ne payez rien. Sinon, un co-financement employeur ou personnel complète le montant." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on faire une formation IA CPF en dehors du temps de travail ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, le CPF peut être utilisé sur le temps personnel sans autorisation de l'employeur. Si la formation se déroule sur le temps de travail, l'accord de l'employeur est nécessaire. De nombreuses formations IA CPF sont disponibles en distanciel, permettant de se former à son propre rythme en dehors des heures de bureau." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/formation-ia">Formation IA</a><span>›</span>
+                <span>Formation IA éligible CPF</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Formation IA — CPF</span>
+                Formation IA éligible CPF — Utilisez votre compte formation
+            </h1>
+            <p class="sp-hero__lead">
+                Formez-vous à l'intelligence artificielle en utilisant votre <strong>Compte Personnel de Formation</strong> — sans avancer de frais. Certifications reconnues, contenus pratiques et opérationnels. <strong>Maîtrisez l'IA sans attendre.</strong>
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Me former à l'IA avec CPF</a>
+                <a href="/intelligence-artificielle/formation-ia" class="btn btn-outline">Toutes nos formations IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">CPF en chiffres</p><p class="sp-deliverables-card__subtitle">Votre droit à la formation IA</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>500€</strong><span>crédités/an</span></div>
+                    <div class="sp-dc-stat"><strong>5 000€</strong><span>plafond CPF</span></div>
+                    <div class="sp-dc-stat"><strong>0€</strong><span>avancé si CPF suffit</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Qu'est-ce qu'une formation IA éligible CPF ?</h2>
+                <p>Le Compte Personnel de Formation (CPF) est un dispositif qui permet à chaque salarié et travailleur indépendant de financer ses formations professionnelles tout au long de sa vie active. Les formations éligibles CPF dans le domaine de l'IA sont celles préparant à des certifications inscrites au RNCP ou au RS — garantissant la valeur et la reconnaissance de la formation sur le marché du travail.</p>
+                <p>Une formation IA éligible CPF vous permet de vous former à l'intelligence artificielle sans toucher à votre salaire ni à vos économies — pour peu que votre solde CPF soit suffisant.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Comment utiliser son CPF pour se former à l'IA ?</h2>
+                <p><strong>1. Vérifiez votre solde :</strong> connectez-vous sur moncompteformation.gouv.fr avec France Connect pour voir votre solde disponible. Le CPF est alimenté à hauteur de 500 €/an (800 € pour les non-qualifiés), plafonné à 5 000 € (8 000 € pour les non-qualifiés).</p>
+                <p><strong>2. Choisissez votre formation IA :</strong> recherchez les formations IA sur la plateforme Mon Compte Formation en filtrant par domaine (intelligence artificielle, data science, numérique). Comparez les certifications, les contenus, les durées et les avis.</p>
+                <p><strong>3. Faites votre demande :</strong> sélectionnez la formation et déposez votre demande sur la plateforme. Un délai de 11 jours ouvrés s'écoule avant le démarrage (délai légal de réflexion).</p>
+                <p><strong>4. Commencez votre formation :</strong> si votre solde couvre la totalité, vous ne payez rien. Sinon, un co-financement complète le montant — votre employeur peut contribuer, ou vous complétez sur fonds propres.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Quelles certifications IA viser avec son CPF ?</h2>
+                <p>Les certifications les plus pertinentes pour maîtriser l'IA en entreprise incluent des certifications en intelligence artificielle et machine learning, transformation digitale et data, et des certifications spécifiques à des outils IA reconnus. Contactez-nous pour des recommandations personnalisées selon votre profil et vos objectifs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur le CPF et les formations IA</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Sans avancer de frais</h3><p>Si votre solde CPF couvre la formation, vous ne payez rien — la formation est 100% financée par votre droit à la formation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                <div><h3>Certification reconnue</h3><p>Les formations éligibles CPF préparent à des certifications RNCP ou RS — valorisables sur votre CV et reconnues par les employeurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><h3>Distanciel possible</h3><p>De nombreuses formations IA CPF sont disponibles en distanciel — formez-vous à votre rythme, depuis chez vous, en dehors des heures de bureau</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><h3>Co-financement possible</h3><p>Si votre solde est insuffisant, votre employeur peut compléter (plan de développement des compétences) ou vous complétez sur fonds propres</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Explorez nos formations IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Formations IA pour entreprises</strong><p>Toutes nos formations IA — tarifs et programmes.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-generative" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Formation IA générative</strong><p>Maîtrisez ChatGPT, Claude et les LLMs.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-pour-le-marketing" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><strong>Formation IA marketing</strong><p>Formez votre équipe marketing à l'IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-pour-dirigeants-d-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Formation IA pour dirigeants</strong><p>Les enjeux stratégiques de l'IA pour les décideurs.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la formation IA CPF</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelles formations IA sont éligibles CPF ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les formations préparant à des certifications inscrites au <strong>RNCP ou au RS</strong> sont éligibles CPF. Cela inclut les certifications en intelligence artificielle, data science, machine learning et transformation digitale. Vérifiez sur <strong>moncompteformation.gouv.fr</strong> les formations disponibles.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment utiliser son CPF pour une formation IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>1) Vérifiez votre solde sur moncompteformation.gouv.fr, 2) Recherchez les formations IA disponibles, 3) Déposez votre demande en ligne, 4) Respectez le <strong>délai légal de 11 jours ouvrés</strong>, 5) Démarrez votre formation. Si votre solde couvre tout, vous ne payez rien.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de crédit CPF faut-il pour une formation IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les formations IA éligibles CPF varient de <strong>500 à 3 000 €</strong>. Votre CPF est alimenté à <strong>500 €/an</strong>, plafonné à 5 000 €. Si votre solde est insuffisant, un co-financement employeur ou personnel complète le montant.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on faire une formation IA CPF hors temps de travail ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui — le CPF peut être utilisé sur le <strong>temps personnel sans autorisation de l'employeur</strong>. Si la formation se déroule sur le temps de travail, l'accord de l'employeur est nécessaire. De nombreuses formations IA CPF sont disponibles en distanciel à votre propre rythme.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à utiliser votre CPF pour vous former à l'IA et booster votre carrière ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Me former à l'IA avec CPF</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans avancer de frais</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Certification reconnue</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

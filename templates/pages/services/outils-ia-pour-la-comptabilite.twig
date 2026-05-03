@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Outils IA comptabilité | Automatisation comptable IA | Complianz{% endblock %}
+
+{% block description %}Optimisez votre comptabilité avec l'IA : OCR de factures, rapprochement bancaire automatique, prévisions de trésorerie et reporting financier automatisé.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Outils IA pour la comptabilité",
+      "url": "{{ app_url }}/intelligence-artificielle/outils-ia/outils-ia-pour-la-comptabilite",
+      "description": "Guide des meilleurs outils IA pour la comptabilité : OCR de factures, rapprochement bancaire automatique, prévisions de trésorerie et reporting financier.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Outils IA", "item": "{{ app_url }}/intelligence-artificielle/outils-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Outils IA comptabilité", "item": "{{ app_url }}/intelligence-artificielle/outils-ia/outils-ia-pour-la-comptabilite" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels outils IA sont recommandés pour la comptabilité en France ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les outils IA comptabilité les plus recommandés en France sont : Pennylane AI (solution française tout-en-un pour PME), QuickBooks AI et FreshBooks pour les petites structures, Dext (anciennement Receipt Bank) pour l'OCR de factures et notes de frais, Cegid pour les moyennes et grandes entreprises, et Finary pour la gestion de trésorerie. Pour l'analyse financière avancée, des outils comme Planful ou Pigment ajoutent des capacités IA aux processus FP&A." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA peut-elle vraiment automatiser la comptabilité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA automatise la grande partie des tâches répétitives : extraction et saisie des données de factures (OCR IA avec 95%+ de précision), rapprochement bancaire automatique, catégorisation des dépenses, génération de rapports périodiques et alertes sur les anomalies. Les tâches nécessitant un jugement professionnel (clôtures complexes, optimisation fiscale, conseils stratégiques) restent humaines. Un comptable IA-assisté peut gérer 3 à 4 fois plus de dossiers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment l'IA aide-t-elle à prévoir la trésorerie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les outils IA de prévision de trésorerie analysent vos données historiques (encaissements, décaissements, saisonnalité), les croisent avec vos données actuelles (factures en attente, contrats récurrents) et projettent plusieurs scénarios (optimiste, pessimiste, probable) sur 3 à 12 mois. Certains outils comme Agicap intègrent aussi des alertes sur les risques de rupture de trésorerie plusieurs semaines à l'avance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les données comptables sont-elles sécurisées dans les outils IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les solutions professionnelles comme Pennylane, Cegid et Dext respectent les standards de sécurité (ISO 27001, hébergement en Europe, chiffrement des données) et sont conformes au RGPD. Il est important de vérifier que les données ne sont pas utilisées pour entraîner les modèles IA du fournisseur sans consentement. Pour les données très sensibles, des solutions on-premise ou avec traitement local peuvent être préférées." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/outils-ia">Outils IA</a><span>›</span>
+                <span>Outils IA comptabilité</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Outils IA — Comptabilité</span>
+                Outils IA pour la comptabilité
+            </h1>
+            <p class="sp-hero__lead">
+                Automatisez vos tâches comptables répétitives avec l'IA — <strong>OCR de factures, rapprochement bancaire, prévisions de trésorerie et reporting automatisé</strong>. Jusqu'à 70% de temps économisé sur la comptabilité courante.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Automatiser ma comptabilité</a>
+                <a href="/intelligence-artificielle/outils-ia" class="btn btn-outline">Tous nos outils IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous économisez</p><p class="sp-deliverables-card__subtitle">Comptabilité optimisée</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>-70%</strong><span>saisie manuelle</span></div>
+                    <div class="sp-dc-stat"><strong>95%+</strong><span>précision OCR</span></div>
+                    <div class="sp-dc-stat"><strong>Temps réel</strong><span>trésorerie visible</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>L'IA transforme la comptabilité — voici comment en profiter</h2>
+                <p>La comptabilité est l'un des domaines où l'IA crée le plus de valeur immédiate. Les tâches manuelles répétitives (saisie de factures, rapprochement bancaire, préparation de reports) représentent jusqu'à 70% du temps comptable — et sont précisément celles que l'IA automatise avec la plus grande fiabilité.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les outils IA comptables essentiels en 2026</h2>
+                <p><strong>OCR et capture de factures IA :</strong> Dext, Klippa et Pennylane extraient automatiquement les données des factures (fournisseur, montant, TVA, date) avec 95%+ de précision — et alimentent directement votre comptabilité sans saisie manuelle.</p>
+                <p><strong>Rapprochement bancaire automatique :</strong> les outils IA croisent automatiquement vos relevés bancaires et vos factures, suggèrent les affectations comptables et signalent les anomalies. Ce qui prenait des heures se fait en minutes.</p>
+                <p><strong>Prévision de trésorerie IA :</strong> Agicap, Float et Finary analysent vos flux passés et actuels pour projeter votre trésorerie sur 3 à 12 mois avec alertes automatiques sur les risques de rupture.</p>
+                <p><strong>Reporting financier automatisé :</strong> génération automatique des bilans, comptes de résultat et tableaux de bord financiers — mis à jour en temps réel et accessibles pour les dirigeants comme pour l'expert-comptable.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Choisir le bon outil IA comptable pour son entreprise</h2>
+                <p>Pour une TPE/PME française, Pennylane AI est souvent la solution la plus complète (facturation + comptabilité + trésorerie). Pour des besoins spécialisés (OCR seul, prévision de trésorerie seule), des outils spécifiques comme Dext ou Agicap sont plus adaptés. Notre accompagnement vous aide à choisir et intégrer les bons outils dans votre écosystème existant.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur les outils IA comptables</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><h3>OCR avec 95%+ de précision</h3><p>Les meilleurs outils IA extraient les données de vos factures avec une précision supérieure à la saisie manuelle — et s'améliorent à l'usage</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>Rapprochement bancaire en minutes</h3><p>Ce qui prenait des heures chaque mois est entièrement automatisé — vérification humaine des exceptions seulement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div><h3>Trésorerie prévisible</h3><p>Projections sur 3 à 12 mois et alertes automatiques sur les risques de rupture — vous anticipez plutôt que de subir</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Données sécurisées</h3><p>Les solutions professionnelles sont conformes RGPD et hébergées en Europe — vérifiez toujours que vos données ne servent pas à entraîner les modèles</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Automatisation plus loin</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Automatisez vos processus au-delà de la comptabilité.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>Tous nos outils IA</strong><p>Outils IA pour tous les métiers de votre entreprise.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Gouvernance données &amp; IA</strong><p>Sécurisez vos données financières dans vos projets IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div><strong>Agents IA</strong><p>Déployez un agent IA qui gère vos workflows financiers.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les outils IA comptables</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels outils IA sont recommandés pour la comptabilité en France ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>Pennylane AI</strong> (tout-en-un PME), <strong>Dext</strong> (OCR factures), <strong>Agicap</strong> (trésorerie), <strong>Cegid</strong> (moyennes et grandes entreprises). Pour l'analyse financière avancée : Planful ou Pigment.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'IA peut-elle vraiment automatiser la comptabilité ?</summary>
+                    <div class="sp-faq-item__answer"><p>L'IA automatise les <strong>tâches répétitives</strong> (saisie, rapprochement, reporting). Les tâches à jugement (clôtures complexes, optimisation fiscale) restent humaines. Un comptable IA-assisté peut gérer <strong>3 à 4 fois plus de dossiers</strong>.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment l'IA aide-t-elle à prévoir la trésorerie ?</summary>
+                    <div class="sp-faq-item__answer"><p>Analyse des données historiques, croisement avec les factures en attente et projections sur <strong>3 à 12 mois avec alertes automatiques</strong> sur les risques de rupture — plusieurs semaines à l'avance.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Les données comptables sont-elles sécurisées dans les outils IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les solutions professionnelles sont <strong>conformes RGPD, hébergées en Europe</strong> et chiffrées. Vérifiez que vos données ne sont pas utilisées pour entraîner les modèles — privilégiez les options on-premise pour les données très sensibles.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à automatiser vos tâches comptables répétitives et à gagner jusqu'à 70% du temps de saisie ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Automatiser ma comptabilité</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration à vos outils existants</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Solutions conformes RGPD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

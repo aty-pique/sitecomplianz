@@ -1,0 +1,21 @@
+<h2 id="couches">Couches applicatives</h2>
+<p>Présentation, orchestration, persistance, observabilité — chaque couche a des contrats d’entrée/sortie documentés dans les pages « Flux » et « API ».</p>
+
+<h2 id="diagramme">Diagramme simplifié</h2>
+<div class="wiki-diagram" aria-label="Schéma textuel client serveur tiers">
+    <pre class="wiki-diagram__ascii">[ Navigateur / App ]
+        │
+        ▼ HTTPS
+[ Passerelle API ]
+        │
+   ┌────┴────┐
+   ▼         ▼
+[ Services ]   [ Files / logs ]
+        │
+        ▼
+[ Stockage ]</pre>
+</div>
+<div class="wiki-callout wiki-callout--info" role="note">
+    <p class="wiki-callout__title">Info</p>
+    <p>Les schémas détaillés seront versionnés (v1, v2) lorsque plusieurs générations coexisteront.</p>
+</div>

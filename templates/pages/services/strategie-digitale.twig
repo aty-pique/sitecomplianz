@@ -1,0 +1,633 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (38 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Stratégie digitale globale{% endblock %}
+
+{% block description %}Définissez votre stratégie digitale complète : analyse de marché, leviers prioritaires, roadmap et plan d'action orientés résultats. Consultant expert.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Stratégie digitale globale",
+      "url": "{{ app_url }}/performance-digitale/strategie-digitale",
+      "description": "Définition d'une stratégie digitale complète alignée avec les objectifs de l'entreprise : analyse de marché, positionnement, leviers prioritaires, roadmap et plan d'action orientés résultats.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Conseil en stratégie digitale",
+      "offers": [
+        { "@type": "Offer", "name": "Stratégie simple",     "price": "1500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4000"  } },
+        { "@type": "Offer", "name": "Stratégie structurée", "price": "4000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "10000" } },
+        { "@type": "Offer", "name": "Stratégie complète",   "price": "10000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                            "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie",  "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Stratégie digitale globale",         "item": "{{ app_url }}/performance-digitale/strategie-digitale" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une stratégie digitale ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une stratégie digitale est un plan structuré qui définit comment une entreprise utilise les canaux numériques (SEO, réseaux sociaux, publicité en ligne, email, contenu…) pour atteindre ses objectifs commerciaux. Elle aligne la présence en ligne avec la stratégie globale de l'entreprise et priorise les actions selon leur impact attendu." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi faut-il une stratégie digitale avant de lancer des actions marketing ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sans stratégie, les actions digitales (posts sur les réseaux sociaux, campagnes publicitaires, newsletters…) sont souvent décorrélées des objectifs business et peu efficaces. Une stratégie digitale structure les priorités, définit les cibles, choisit les bons canaux et établit des KPIs clairs — transformant des actions isolées en un système cohérent." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la définition d'une stratégie digitale ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 1 500 € à 4 000 € pour une stratégie simple (1 à 2 canaux, TPE/artisan), de 4 000 € à 10 000 € pour une stratégie structurée (PME, multi-canaux, persona + roadmap), et de 10 000 € à 20 000 €+ pour une stratégie complète (ETI, concurrence forte, transformation digitale)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que contient un livrable de stratégie digitale ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Notre livrable de stratégie digitale comprend : audit de la situation actuelle, analyse de marché et des concurrents, définition des personas, identification des leviers prioritaires, plan d'action par canal, roadmap à 6-12 mois, KPIs à suivre et recommandations opérationnelles. Le tout est présenté lors d'une session de restitution stratégique." }
+        },
+        {
+          "@type": "Question",
+          "name": "Accompagnez-vous l'exécution de la stratégie après sa définition ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — après la phase stratégique, nous pouvons accompagner l'exécution via nos services de marketing digital, SEO, publicité digitale et email marketing. Nous pouvons également former vos équipes pour qu'elles exécutent la stratégie en interne, ou la piloter entièrement pour vous." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <span>Stratégie digitale globale</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Conseil en stratégie digitale</span>
+                Stratégie digitale globale&nbsp;: une vision claire, priorisée et orientée résultats — pas une accumulation d'actions isolées
+            </h1>
+            <p class="sp-hero__lead">
+                Nous définissons votre <strong>stratégie digitale complète</strong> alignée avec vos objectifs commerciaux — pour structurer votre présence en ligne, prioriser vos actions marketing et accélérer votre développement. L'objectif&nbsp;: une stratégie <strong>cohérente et opérationnelle</strong>, pas un document qui restera dans un tiroir.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Définir ma stratégie digitale
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit digital offert avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Livrable opérationnel — pas un PowerPoint théorique</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Accompagnement à l'exécution possible</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À la livraison de votre stratégie</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous disposez d'une <strong>stratégie digitale claire, structurée et orientée résultats</strong> — avec une roadmap concrète pour prioriser vos actions et mesurer votre progression.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3–8</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>opérationnel</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+2,5x</strong>
+                        <span>ROI marketing</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients multiplient leur <strong>ROI marketing par 2,5</strong> dans les 6 mois suivant la mise en œuvre de leur stratégie</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — 3 leviers d'exécution
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les leviers d'exécution de votre stratégie</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/performance-digitale/strategie-digitale/marketing-digital" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Marketing digital &amp; réseaux sociaux</h2>
+                    <p>Développez votre présence sur les réseaux sociaux et pilotez vos actions marketing digitales pour atteindre vos cibles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/email-marketing" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Email marketing &amp; automation</h2>
+                    <p>Nurturez vos prospects et fidélisez vos clients avec des campagnes email et des séquences d'automation personnalisées.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Publicité digitale (SEA &amp; Social Ads)</h2>
+                    <p>Générez des leads qualifiés rapidement avec Google Ads, Meta Ads et LinkedIn Ads — campagnes gérées et optimisées.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit digital offert avant engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Livrable 100% opérationnel avec roadmap
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Session de restitution stratégique incluse
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <p><strong>+80</strong> stratégies digitales livrées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>×2,5</strong> ROI marketing moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MÉTHODE — processus en 4 phases
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous construisons votre stratégie digitale</h2>
+            <p class="sp-section-sub">Un processus structuré en 4 phases — de l'analyse de votre situation actuelle à la roadmap opérationnelle et à la session de restitution.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-2);">1</div>
+                <div class="sp-step__content">
+                    <h3>Audit &amp; analyse de la situation actuelle</h3>
+                    <p>Analyse de votre présence digitale actuelle (site, SEO, réseaux sociaux, publicité, email), audit de vos concurrents, analyse du marché et du positionnement. Identification des forces, faiblesses et opportunités. Analyse de vos données disponibles (analytics, CRM, campagnes passées).</p>
+                    <span class="sp-step__duration">1 à 2 semaines</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-2);">2</div>
+                <div class="sp-step__content">
+                    <h3>Définition des objectifs &amp; identification des leviers prioritaires</h3>
+                    <p>Clarification des objectifs business (acquisition, notoriété, conversion, fidélisation), construction des personas acheteurs, identification des canaux et leviers les plus pertinents selon vos cibles et votre secteur, définition des KPIs à suivre.</p>
+                    <span class="sp-step__duration">3 à 5 jours</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-2);">3</div>
+                <div class="sp-step__content">
+                    <h3>Construction de la stratégie &amp; plan d'action</h3>
+                    <p>Définition de la stratégie globale par canal (SEO, réseaux sociaux, publicité, email, contenu), recommandations opérationnelles priorisées, plan d'action détaillé avec actions, ressources et budget estimé, roadmap à 6-12 mois.</p>
+                    <span class="sp-step__duration">1 à 2 semaines</span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number" style="background: var(--pole-2);">4</div>
+                <div class="sp-step__content">
+                    <h3>Session de restitution &amp; accompagnement à l'exécution</h3>
+                    <p>Présentation complète de la stratégie, des recommandations et de la roadmap lors d'un atelier de restitution. Questions / réponses, ajustements finaux. Possibilité d'un accompagnement à l'exécution via nos équipes ou formation de vos équipes internes.</p>
+                    <span class="sp-step__duration">1 journée + suivi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE CONTIENT LE LIVRABLE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" style="background: var(--color-bg);">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Le livrable</p>
+            <h2>Ce que vous recevez à la livraison de votre stratégie digitale</h2>
+            <p class="sp-section-sub">Un document complet et immédiatement actionnable — pas une présentation générique mais une stratégie construite pour votre entreprise.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit de la situation actuelle</h3><p>État des lieux complet de votre présence digitale actuelle et de vos concurrents</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Personas acheteurs</h3><p>Profils détaillés de vos cibles clients : besoins, freins, canaux de contact, messages adaptés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Leviers prioritaires identifiés</h3><p>Canaux et actions classés par priorité selon leur impact attendu et vos ressources disponibles</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Roadmap 6 à 12 mois</h3><p>Planning des actions avec jalons, responsables et budgets estimés pour piloter l'exécution</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>KPIs &amp; tableau de bord</h3><p>Indicateurs de performance par canal et modèle de tableau de bord pour mesurer vos résultats</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Recommandations opérationnelles</h3><p>Actions concrètes détaillées pour chaque levier — ce qu'il faut faire, comment et avec quels outils</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Session de restitution stratégique</h3><p>Présentation complète en atelier avec votre équipe, questions-réponses et ajustements finaux</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div><h3>Plan budgétaire indicatif</h3><p>Estimation des investissements par levier pour planifier vos ressources et prioriser selon votre budget</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 7 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec une stratégie digitale structurée</h2>
+            <p class="sp-section-sub">Les entreprises qui disposent d'une stratégie digitale claire obtiennent en moyenne 2,5× plus de résultats avec le même budget que celles qui agissent sans cadre.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <h3>Vision claire de la stratégie</h3>
+                <p>Vous savez exactement où vous allez, pourquoi, et quelles actions prioriser — fini les décisions au feeling.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Priorisation des actions</h3>
+                <p>Vous concentrez vos ressources sur les leviers qui ont le plus d'impact — pas sur tout à la fois sans résultats.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Meilleure cohérence globale</h3>
+                <p>Tous vos canaux (SEO, social, email, pub) parlent d'une seule voix et se renforcent mutuellement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps</h3>
+                <p>Vos équipes savent quoi faire, dans quel ordre, avec quels outils. Moins de réunions, plus d'exécution.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des erreurs</h3>
+                <p>Moins d'investissements gaspillés sur des canaux inadaptés, moins de campagnes mal ciblées, moins de contenu hors-sujet.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Meilleure performance marketing</h3>
+                <p>Chaque action est mesurée, optimisée et reliée à des objectifs business — votre marketing génère enfin des résultats tangibles.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-2-bg); color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Alignement avec les objectifs business</h3>
+                <p>Votre stratégie digitale sert votre stratégie commerciale — pas l'inverse. Chaque levier est choisi pour son impact sur la croissance.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine la complexité &amp; le coût de votre stratégie</h2>
+                    <p class="sp-section-sub">Chaque stratégie est unique. Ces variables sont analysées ensemble lors de l'audit digital initial (toujours gratuit) pour calibrer la mission.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de maturité digitale</span>
+                        <span class="sp-variable-value">Débutant (peu de présence) à avancé (déjà actif sur plusieurs canaux)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille &amp; complexité de l'activité</span>
+                        <span class="sp-variable-value">TPE/artisan à ETI multi-marchés, B2B, B2C ou mixte</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de canaux à analyser</span>
+                        <span class="sp-variable-value">1 canal ciblé à stratégie omnicanale complète</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Objectifs visés</span>
+                        <span class="sp-variable-value">Acquisition, notoriété, conversion, fidélisation — ou combinaison</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Données disponibles</span>
+                        <span class="sp-variable-value">Analytics, CRM, historique campagnes — richesse de la data existante</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de concurrence</span>
+                        <span class="sp-variable-value">Secteur peu compétitif à marché très concurrentiel nécessitant une analyse approfondie</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Stratégie digitale globale" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la définition d'une stratégie digitale ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre entreprise, du nombre de canaux à analyser et du niveau de profondeur souhaité. L'audit initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie simple</p>
+                    <p class="sp-plan__price"><span>1 500 – 4 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE, 1 à 2 canaux, périmètre ciblé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit digital &amp; concurrentiel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 à 2 personas acheteurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Leviers prioritaires identifiés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action &amp; roadmap 6 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session de restitution incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--accent">
+                <div class="sp-plan__badge sp-badge--accent">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie structurée</p>
+                    <p class="sp-plan__price"><span>4 000 – 10 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME, multi-canaux, roadmap complète</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit approfondi multi-canaux</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 à 5 personas acheteurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie SEO + social + ads + email</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap 12 mois + KPIs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan budgétaire détaillé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2 sessions de travail + restitution</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie complète</p>
+                    <p class="sp-plan__price"><span>10 000 – 20 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, transformation digitale, omnicanal</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Stratégie de transformation digitale</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse concurrentielle approfondie</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie omnicanale complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pilotage &amp; gouvernance digitale</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement à l'exécution inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — l'audit digital initial est toujours gratuit. Un accompagnement à l'exécution est disponible en complément (SEO, publicité, marketing digital, email…).
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Passez de la stratégie à l'exécution</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Référencement naturel (SEO)</strong><p>Développez votre visibilité organique selon les priorités définies dans votre stratégie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><strong>Publicité digitale (SEA &amp; Social Ads)</strong><p>Générez des résultats rapides en parallèle de votre stratégie de long terme.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/marketing-digital" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><strong>Marketing digital &amp; réseaux sociaux</strong><p>Activez vos réseaux sociaux et vos actions marketing selon votre stratégie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil/conseil-strategique" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div><strong>Conseil stratégique global</strong><p>Alignez votre stratégie digitale avec votre stratégie d'entreprise globale.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la stratégie digitale</h2>
+                <p>Notre équipe répond sous 24h. L'audit digital initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'une stratégie digitale ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une <strong>stratégie digitale</strong> est un plan structuré qui définit comment votre entreprise utilise les canaux numériques (SEO, réseaux sociaux, publicité, email, contenu…) pour atteindre ses objectifs commerciaux. Elle aligne votre présence en ligne avec votre stratégie d'entreprise et priorise les actions selon leur impact attendu — transformant des actions isolées en un système cohérent.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi définir une stratégie avant de lancer des actions ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Sans stratégie, les actions digitales sont souvent décorrélées des objectifs business et peu efficaces. Une stratégie structure les priorités, définit les cibles, choisit les bons canaux et établit des KPIs. Les entreprises avec une stratégie digitale claire obtiennent en moyenne <strong>2,5× plus de résultats</strong> avec le même budget.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte la définition d'une stratégie digitale ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 500 € à 4 000 €</strong> pour une stratégie simple (TPE, 1-2 canaux), de <strong>4 000 € à 10 000 €</strong> pour une <a href="#tarifs">stratégie structurée</a> (PME, multi-canaux, roadmap complète), et de <strong>10 000 € à 20 000 €+</strong> pour une stratégie de transformation digitale complète. L'audit initial est toujours gratuit.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que contient le livrable de stratégie digitale ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Notre livrable comprend&nbsp;: audit de la situation actuelle, analyse du marché et des concurrents, personas acheteurs, leviers prioritaires identifiés, <strong>roadmap 6-12 mois</strong>, plan d'action par canal, KPIs et recommandations opérationnelles. Le tout est présenté lors d'une session de restitution stratégique.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Accompagnez-vous l'exécution après la définition de la stratégie ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — après la phase stratégique, nous pouvons accompagner l'exécution via nos services de <a href="/performance-digitale/seo">SEO</a>, <a href="/performance-digitale/strategie-digitale/marketing-digital">marketing digital</a>, <a href="/performance-digitale/strategie-digitale/publicite-digitale">publicité</a> et <a href="/performance-digitale/strategie-digitale/email-marketing">email marketing</a>. Nous pouvons également former vos équipes pour exécuter la stratégie en interne.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à définir une stratégie digitale claire et orientée résultats ?</h2>
+                <p>Audit digital gratuit pour analyser votre situation actuelle et identifier les leviers les plus impactants pour votre développement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Obtenir mon audit digital gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Livrable opérationnel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

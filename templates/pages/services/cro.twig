@@ -1,0 +1,497 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 147 chars description) ─────────────────── #}
+{% block title %}CRO | Optimisation taux de conversion site web | Complianz{% endblock %}
+
+{% block description %}Augmentez votre taux de conversion avec le CRO. Analyse comportementale, A/B testing, heatmaps et optimisation des parcours. +20% de conversions en moyenne.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "CRO — Optimisation du taux de conversion",
+      "url": "{{ app_url }}/performance-digitale/tunnel-de-vente/cro",
+      "description": "Augmentation du taux de conversion par l'analyse comportementale, les tests A/B, les heatmaps et l'optimisation des parcours utilisateurs. Résultats mesurables sur le chiffre d'affaires sans augmenter le trafic.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "CRO — Optimisation du taux de conversion",
+      "offers": [
+        { "@type": "Offer", "name": "CRO Audit",              "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2900" } },
+        { "@type": "Offer", "name": "CRO Accompagnement 3 mois", "price": "2900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5500" } },
+        { "@type": "Offer", "name": "CRO Programme annuel",   "price": "5500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "11000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Tunnel de vente",                   "item": "{{ app_url }}/performance-digitale/tunnel-de-vente" },
+        { "@type": "ListItem", "position": 4, "name": "CRO",                               "item": "{{ app_url }}/performance-digitale/tunnel-de-vente/cro" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le CRO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le CRO (Conversion Rate Optimization) désigne l'ensemble des méthodes visant à augmenter le taux de conversion d'un site ou d'un tunnel de vente — le pourcentage de visiteurs qui réalisent l'action souhaitée (achat, demande de devis, inscription). Le CRO s'appuie sur l'analyse comportementale, les tests A/B, l'optimisation UX, l'amélioration des CTA et des formulaires. C'est une discipline basée sur la data, pas sur l'intuition." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour voir des résultats en CRO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les premières optimisations rapides (amélioration des CTA, formulaires, pages de destination) peuvent générer des résultats mesurables en 2 à 4 semaines. Les tests A/B nécessitent généralement 4 à 8 semaines pour être statistiquement significatifs (selon le volume de trafic). Un programme CRO structuré génère un impact mesurable sur le CA en 3 à 6 mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel taux de conversion peut-on espérer atteindre ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le taux de conversion moyen varie fortement selon le secteur : 1 à 3% pour l'e-commerce, 3 à 8% pour la génération de leads B2B, 10 à 25% pour les formulaires de prise de contact simples. Notre objectif est d'améliorer votre taux actuel de 20 à 50% — ce qui peut représenter un doublement du CA sans augmenter le budget publicitaire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre CRO et UX design ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'UX design crée des interfaces intuitives et agréables — c'est une discipline de conception. Le CRO optimise la performance commerciale en mesurant et en améliorant les taux de conversion. Le CRO utilise l'UX comme un levier, mais s'appuie systématiquement sur des données réelles (analytics, heatmaps, tests A/B) pour valider chaque changement avant déploiement, plutôt que de se baser sur des hypothèses de design." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/tunnel-de-vente">Tunnel de vente</a>
+                <span>›</span>
+                <span>CRO — Optimisation du taux de conversion</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">CRO — Taux de conversion</span>
+                Augmentez vos conversions grâce à l'analyse data — sans augmenter votre trafic
+            </h1>
+            <p class="sp-hero__lead">
+                Nous identifions les <strong>points de friction qui empêchent vos visiteurs de convertir</strong> et nous les corrigeons avec des tests A/B, des heatmaps et une analyse comportementale approfondie. L'objectif : <strong>+20% de conversions en moyenne</strong> — ce qui revient à doubler votre ROI sans dépenser un euro de plus en acquisition.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Auditer mon taux de conversion
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit CRO gratuit avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Décisions basées sur la data, pas l'intuition</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>+20% de conversions en moyenne</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Plus de clients, même budget</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre <strong>trafic existant génère davantage de revenus</strong> — sans augmenter vos dépenses d'acquisition. Chaque amélioration du taux de conversion se traduit directement en CA supplémentaire.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>+20%</strong>
+                        <span>conversions moy.</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–30%</strong>
+                        <span>coût par lead</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>×2</strong>
+                        <span>ROI trafic existant</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Passer de 2% à 4% de conversion</strong> sur un site avec 10 000 visiteurs/mois représente <strong>200 leads supplémentaires</strong> — sans un euro de plus en pub</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services liés à la conversion</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/performance-digitale/tunnel-de-vente" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Optimisation tunnel de conversion</h2>
+                    <p>Analyse et optimisation complète de votre tunnel de vente de l'entrée jusqu'à la conversion finale.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/tunnel-de-vente/creation-tunnel" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Création de tunnels de vente</h2>
+                    <p>Créez un nouveau tunnel optimisé dès sa conception pour maximiser les conversions dès le lancement.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/pilotage-commercial" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Pilotage commercial &amp; KPI</h2>
+                    <p>Suivez vos taux de conversion et vos KPIs commerciaux avec des tableaux de bord en temps réel.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit CRO offert avant engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Tests A/B basés sur la data
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Impact direct sur le CA mesuré
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+20%</strong> conversions en moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <p><strong>×2</strong> ROI sans augmenter le trafic</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend un programme CRO</h2>
+            <p class="sp-section-sub">De l'audit comportemental à l'implémentation des tests et au suivi des gains — une approche rigoureuse basée sur la data pour améliorer vos taux de conversion.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <div><h3>Audit UX &amp; comportemental (Hotjar, GA4)</h3><p>Analyse des sessions enregistrées, heatmaps de clics et de scroll, entonnoirs GA4 pour comprendre le comportement réel de vos visiteurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Identification des points de friction</h3><p>Localisation précise des étapes où vos visiteurs abandonnent — formulaires, pages, CTA — et qualification de leur impact sur les conversions</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Plan d'A/B tests priorisé</h3><p>Roadmap des tests classés par impact estimé vs complexité — vous savez exactement quelle optimisation tester en premier pour le meilleur retour</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Implémentation &amp; suivi des tests</h3><p>Mise en place technique des A/B tests avec les outils adaptés (VWO, AB Tasty, Google Optimize) et suivi statistique rigoureux</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div><h3>Optimisation des CTAs &amp; formulaires</h3><p>Amélioration des boutons d'action, formulaires de contact, pages de checkout et éléments de réassurance pour réduire les frictions</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Rapport de performance mensuel</h3><p>Bilan mensuel des tests en cours, des résultats obtenus, des gains de CA générés et des prochaines actions prioritaires</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos interventions</p>
+            <h2>Les 4 domaines où le CRO génère le plus d'impact</h2>
+            <p class="sp-section-sub">Le CRO s'applique à toutes les pages où un visiteur doit passer à l'action. Voici les zones à fort levier que nous optimisons en priorité.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                </div>
+                <h3>Landing pages &amp; pages de service</h3>
+                <p>Optimisation du copywriting, de la hiérarchie visuelle, des preuves sociales et des CTA pour maximiser les demandes de contact et les prises de rendez-vous.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+                <h3>Checkout &amp; panier e-commerce</h3>
+                <p>Réduction des abandons de panier, simplification du checkout, optimisation des pages de paiement et relances d'abandon automatisées.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Formulaires de contact &amp; devis</h3>
+                <p>Simplification des formulaires, réduction des champs, amélioration des messages de validation et des garanties pour augmenter les soumissions.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <h3>Pages d'accueil &amp; navigation</h3>
+                <p>Optimisation du message principal, de la navigation et des CTA de la home page pour orienter efficacement les visiteurs vers les pages de conversion.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un programme CRO ?</h2>
+            <p class="sp-section-sub">Le budget dépend du niveau d'analyse souhaité, du volume de trafic et du nombre de tests à mener. L'audit CRO initial est toujours gratuit.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRO Audit</p>
+                    <p class="sp-plan__price"><span>1 500 – 2 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Diagnostic + plan d'actions priorisé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit comportemental (Hotjar)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse GA4 des entonnoirs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + plan A/B tests</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Quick wins identifiés</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Recommandé</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRO Accompagnement 3 mois</p>
+                    <p class="sp-plan__price"><span>2 900 – 5 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit + tests A/B + implémentation</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit comportemental complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3-5 A/B tests sur 3 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Implémentation des gagnants</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel de gains</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation CTAs &amp; formulaires</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">CRO Programme annuel</p>
+                    <p class="sp-plan__price"><span>5 500 – 11 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Optimisation continue 12 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Tests A/B en continu</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation multi-pages</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Personnalisation &amp; segmentation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation email &amp; landing pages</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard CA additionnel live</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — l'audit CRO initial est toujours gratuit. Devis personnalisé selon votre volume de trafic, le type de site et vos objectifs de conversion.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au CRO</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/tunnel-de-vente/creation-tunnel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <div><strong>Création de tunnels de vente</strong><p>Construisez un tunnel optimisé dès sa conception pour maximiser les conversions dès le lancement.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Référencement naturel (SEO)</strong><p>Attirez plus de trafic qualifié que votre tunnel CRO optimisé pourra convertir efficacement.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><strong>Publicité digitale (SEA & Ads)</strong><p>Rentabilisez vos campagnes publicitaires en améliorant le taux de conversion des pages de destination.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/pilotage-commercial/tableau-de-bord" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div>
+                <div><strong>Tableau de bord commercial</strong><p>Suivez vos taux de conversion et vos KPIs en temps réel avec un dashboard personnalisé.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le CRO</h2>
+                <p>Notre équipe répond sous 24h. L'audit CRO initial est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le CRO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>CRO (Conversion Rate Optimization)</strong> désigne l'ensemble des méthodes visant à augmenter le pourcentage de visiteurs qui réalisent l'action souhaitée (achat, contact, inscription). Il s'appuie sur l'analyse comportementale, les <strong>tests A/B</strong>, l'optimisation UX et des données réelles — pas sur l'intuition.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour voir des résultats en CRO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les premières optimisations rapides (CTA, formulaires) génèrent des résultats en <strong>2 à 4 semaines</strong>. Les tests A/B nécessitent 4 à 8 semaines pour être statistiquement significatifs. Un <a href="#tarifs">programme CRO structuré</a> génère un impact mesurable sur le CA en 3 à 6 mois — avec des gains qui s'accumulent test après test.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel taux de conversion peut-on espérer ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le taux moyen varie selon le secteur&nbsp;: 1 à 3% pour l'e-commerce, 3 à 8% pour la génération de leads B2B. Notre objectif est d'améliorer votre taux actuel de <strong>20 à 50%</strong> — ce qui peut représenter un doublement du CA sans augmenter le budget publicitaire. Passer de 2% à 3% de conversion sur 10 000 visiteurs/mois représente <strong>100 leads supplémentaires</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre CRO et UX design ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>UX design</strong> crée des interfaces intuitives et agréables. Le <strong>CRO</strong> optimise la performance commerciale en mesurant et en améliorant les taux de conversion avec des tests A/B et des données réelles. Le CRO utilise l'UX comme levier, mais <strong>valide chaque changement par des données</strong> plutôt que des hypothèses de design.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à faire travailler votre trafic existant et à augmenter vos conversions grâce à la data ?</h2>
+                <p>Audit CRO gratuit pour analyser votre taux de conversion actuel, identifier les points de friction et vous proposer un plan d'A/B tests priorisé à fort impact.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Auditer mon taux de conversion
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit CRO offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> +20% de conv. moy.</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Basé sur la data</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

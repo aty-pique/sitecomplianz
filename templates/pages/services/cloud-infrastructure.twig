@@ -1,0 +1,497 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 150 chars description) ─────────────────── #}
+{% block title %}Cloud managé & infrastructure | Migration et gestion cloud | Complianz{% endblock %}
+
+{% block description %}Migrez et gérez votre infrastructure cloud (AWS, Azure, OVH). Architecture scalable, sécurisée et performante. Infogérance cloud complète avec support dédié.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Cloud & infrastructure managée",
+      "url": "{{ app_url }}/support-maintenance/infogerance/cloud-infrastructure",
+      "description": "Migration et gestion d'infrastructure cloud complète : audit de l'infrastructure existante, migration vers AWS/Azure/GCP/OVH, architecture scalable, sécurisation et monitoring 24/7, optimisation des coûts et support technique dédié.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Infrastructure cloud managée et migration cloud",
+      "offers": [
+        { "@type": "Offer", "name": "Cloud Starter",   "price": "790",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1400" } },
+        { "@type": "Offer", "name": "Cloud Standard",  "price": "1400", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2800" } },
+        { "@type": "Offer", "name": "Cloud Enterprise", "price": "2800", "priceCurrency": "EUR" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",               "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance", "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Infogérance",           "item": "{{ app_url }}/support-maintenance/infogerance" },
+        { "@type": "ListItem", "position": 4, "name": "Cloud & infrastructure","item": "{{ app_url }}/support-maintenance/infogerance/cloud-infrastructure" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel cloud choisir entre AWS, Azure, GCP et OVH ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le choix dépend de votre contexte. AWS est le leader mondial avec le catalogue de services le plus large — idéal pour les applications complexes et les startups en croissance. Azure s'impose naturellement dans les environnements Microsoft (Office 365, Active Directory). GCP excelle pour le machine learning et le big data. OVH est la solution souveraine européenne, RGPD-native et très compétitive pour les PME françaises. Nous vous guidons vers le choix optimal lors de l'audit d'infrastructure." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps prend une migration vers le cloud ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une migration simple (un serveur, une application) peut prendre 2 à 4 semaines. Une migration complexe (multi-serveurs, bases de données, applications critiques) prend 2 à 6 mois. Nous utilisons une approche par phases : audit, architecture cible, migration par blocs, tests et bascule. La durée dépend surtout de la qualité de la documentation existante et de la tolérance aux interruptions." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment maîtriser les coûts du cloud ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les coûts cloud peuvent vite dériver sans pilotage. Nous mettons en place plusieurs leviers : rightsizing des instances (taille adéquate aux besoins réels), instances réservées pour les charges stables, auto-scaling pour les pics temporaires, alertes de budget, et audit mensuel des ressources non utilisées. Une infrastructure cloud bien pilotée coûte en général 20 à 40% moins cher qu'une infrastructure physique équivalente." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le monitoring 24/7 d'une infrastructure cloud ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le monitoring 24/7 désigne la surveillance continue de l'ensemble de votre infrastructure cloud : disponibilité des serveurs, performances (CPU, mémoire, disque, réseau), logs d'erreurs, alertes de sécurité et coûts. En cas d'anomalie, nos équipes sont alertées automatiquement et interviennent en moins de 15 minutes. Des tableaux de bord temps réel vous permettent aussi de suivre l'état de votre infrastructure à tout moment." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--soft" style="background: linear-gradient(135deg, var(--pole-3-bg) 0%, #f0f4fa 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <a href="/support-maintenance/infogerance">Infogérance</a>
+                <span>›</span>
+                <span>Cloud &amp; infrastructure managée</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Cloud & infrastructure managée</span>
+                Migrez vers le cloud et déléguez la gestion de votre infrastructure à des experts
+            </h1>
+            <p class="sp-hero__lead">
+                Nous migrons et gérons votre infrastructure cloud (AWS, Azure, GCP, OVH) de A à Z — <strong>architecture scalable et sécurisée</strong>, monitoring 24/7, optimisation des coûts et support technique dédié. Vous bénéficiez d'une infrastructure de qualité enterprise <strong>sans la complexité de la gérer en interne</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg>
+                    Migrer vers le cloud
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre approche
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit infrastructure gratuit avant migration</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Monitoring 24/7 inclus dès le Starter</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Migration sans interruption de service</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Cloud scalable, sécurisé, optimisé</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>infrastructure cloud managée clé en main</strong> — scalable selon vos besoins, sécurisée et monitorée 24/7, avec des coûts optimisés et un support dédié.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>99.99%</strong>
+                        <span>disponibilité SLA</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Dès 790€</strong>
+                        <span>par mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>-30%</strong>
+                        <span>coûts infra en moyenne</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises qui migrent vers le cloud réduisent leurs coûts d'infrastructure de <strong>20 à 40%</strong> tout en améliorant leur disponibilité et leur scalabilité</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services Support &amp; Maintenance</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/infogerance/infogerance-complete" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Infogérance complète</h2>
+                    <p>Externalisez l'intégralité de votre DSI au-delà du cloud : réseau, postes, helpdesk et sécurité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/hebergement-serveur" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Hébergement serveur</h2>
+                    <p>Hébergement physique ou virtuel avec supervision et garanties de disponibilité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Cybersécurité</h2>
+                    <p>Sécurisez votre infrastructure cloud avec des audits de sécurité et une protection proactive.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit infrastructure gratuit
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Migration sans interruption
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Monitoring 24/7 inclus
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/></svg>
+                <p><strong>+150</strong> migrations réalisées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>99.99%</strong> uptime moyen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une mission cloud &amp; infrastructure managée</h2>
+            <p class="sp-section-sub">De l'audit de votre infrastructure existante à la gestion continue de votre cloud — une couverture complète pour une infrastructure sans souci.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit infrastructure existante</h3><p>Inventaire complet de votre infrastructure actuelle (serveurs, réseau, applications, données), évaluation des coûts et identification des opportunités de migration</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg>
+                </div>
+                <div><h3>Migration vers le cloud (AWS/Azure/GCP/OVH)</h3><p>Exécution de la migration par phases — lift-and-shift ou rearchitecture — avec tests de validation et bascule progressive pour minimiser les risques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+                </div>
+                <div><h3>Architecture cloud scalable</h3><p>Conception d'une architecture cloud qui s'adapte à vos besoins — auto-scaling, load balancing, réplication multi-zones pour la haute disponibilité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Sécurisation et monitoring 24/7</h3><p>Configuration des firewalls cloud, WAF, chiffrement, gestion des identités (IAM) et monitoring continu avec alertes et intervention immédiate</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div><h3>Optimisation des coûts cloud</h3><p>Audit mensuel des ressources, rightsizing, instances réservées, auto-scaling et suppressions des ressources orphelines — objectif : -20 à -40% sur la facture cloud</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Support et astreinte technique</h3><p>Support technique dédié avec astreinte selon le niveau de SLA choisi — intervention garantie sous 15 minutes pour les incidents critiques</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Cas d'usage</p>
+            <h2>4 situations qui accélèrent la migration vers le cloud</h2>
+            <p class="sp-section-sub">Le cloud n'est plus réservé aux grandes entreprises. Les PME et ETI trouvent dans le cloud une flexibilité et une résilience impossibles avec l'infrastructure physique.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+                </div>
+                <h3>Serveurs physiques vieillissants</h3>
+                <p>Vos serveurs on-premise arrivent en fin de vie et la maintenance devient coûteuse. La migration cloud élimine les coûts matériels tout en améliorant la disponibilité et la sécurité.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                </div>
+                <h3>Croissance rapide et besoins variables</h3>
+                <p>Votre activité connaît des pics de charge difficiles à anticiper. L'auto-scaling cloud s'adapte automatiquement — vous ne payez que ce que vous consommez.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Télétravail et équipes distribuées</h3>
+                <p>Vos équipes travaillent à distance et ont besoin d'accéder aux ressources depuis partout. Le cloud facilite l'accès sécurisé aux applications et données depuis n'importe quel endroit.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-3)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Amélioration du plan de continuité (PRA)</h3>
+                <p>Votre PRA actuel est inexistant ou insuffisant. Le cloud permet une réplication géographique des données et une reprise d'activité en quelques minutes en cas d'incident majeur.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la gestion d'une infrastructure cloud ?</h2>
+            <p class="sp-section-sub">Nos tarifs couvrent la gestion, la supervision et le support. Les coûts cloud (AWS, Azure, OVH) s'y ajoutent selon votre consommation et sont directement optimisés par nos équipes.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--soft">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Cloud Starter</p>
+                    <p class="sp-plan__price"><span>790 – 1 400 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Jusqu'à 5 instances / petite infrastructure</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring 24/7 inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sauvegardes quotidiennes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support heures ouvrées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel coûts</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Cloud Standard</p>
+                    <p class="sp-plan__price"><span>1 400 – 2 800 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">5 à 20 instances / infrastructure PME</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Monitoring 24/7 + astreinte</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Auto-scaling configuré</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation coûts mensuelle</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> WAF &amp; sécurité avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLA 99.99% garanti</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--soft">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Cloud Enterprise</p>
+                    <p class="sp-plan__price"><span>Sur devis</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Infrastructure complexe / multi-cloud</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Architecture multi-cloud</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> FinOps et optimisation avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RSSI cloud à temps partagé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Infrastructure as Code (Terraform)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLAs personnalisés contractuels</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs de gestion HT — les coûts de consommation cloud (AWS, Azure, GCP, OVH) s'ajoutent et sont facturés directement au client. Audit d'infrastructure offert avant tout engagement.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au cloud</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/infogerance/infogerance-complete" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></div>
+                <div><strong>Infogérance complète</strong><p>Étendez la gestion de votre cloud à l'ensemble de votre SI — réseau, postes et support utilisateurs.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Cybersécurité &amp; conformité</strong><p>Auditez la sécurité de votre infrastructure cloud et mettez en œuvre les bonnes pratiques de sécurité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/support-maintenance/hebergement-serveur" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/></svg></div>
+                <div><strong>Hébergement serveur dédié</strong><p>Hébergement physique pour les applications qui ne peuvent pas migrer vers le cloud public.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/pilotage-commercial/tableau-de-bord" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Tableau de bord &amp; analytics</strong><p>Suivez vos coûts cloud et vos métriques de performance dans un dashboard de pilotage centralisé.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le cloud &amp; l'infrastructure managée</h2>
+                <p>Notre équipe répond sous 24h. Audit d'infrastructure offert avant toute décision de migration.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quel cloud choisir entre AWS, Azure, GCP et OVH ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p><strong>AWS</strong> est le leader mondial avec le catalogue le plus large. <strong>Azure</strong> s'impose dans les environnements Microsoft. <strong>GCP</strong> excelle pour le machine learning et le big data. <strong>OVH</strong> est la solution souveraine française RGPD-native, très compétitive pour les PME. Nous vous guidons vers le choix optimal lors de l'audit d'infrastructure.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps prend une migration vers le cloud ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une migration simple (1 serveur) peut prendre <strong>2 à 4 semaines</strong>. Une migration complexe (multi-serveurs, bases de données) prend 2 à 6 mois. Nous utilisons une approche par phases : audit, architecture cible, migration par blocs, tests et bascule. La durée dépend de la qualité de la documentation existante et de la tolérance aux interruptions.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment maîtriser les coûts du cloud ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les coûts cloud peuvent dériver sans pilotage. Nous mettons en place plusieurs leviers&nbsp;: <strong>rightsizing des instances</strong>, instances réservées, auto-scaling, alertes de budget et audit mensuel des ressources non utilisées. Une infrastructure cloud bien pilotée coûte en général <strong>20 à 40% moins cher</strong> qu'une infrastructure physique équivalente.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce que le monitoring 24/7 d'une infrastructure cloud ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le monitoring 24/7 désigne la surveillance continue de votre infrastructure cloud&nbsp;: disponibilité, performances (CPU, mémoire, réseau), logs d'erreurs, alertes de sécurité et coûts. En cas d'anomalie, nos équipes interviennent en moins de <strong>15 minutes</strong>. Vous disposez aussi d'un <a href="/performance-digitale/pilotage-commercial/tableau-de-bord">dashboard temps réel</a> pour suivre l'état de votre infrastructure.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à migrer vers le cloud et à déléguer la gestion de votre infrastructure à des experts certifiés ?</h2>
+                <p>Audit d'infrastructure gratuit pour analyser votre parc existant, évaluer les gains de la migration cloud et vous proposer une architecture optimisée pour vos besoins.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 17 21 12 16 7"/><path d="M21 12H9"/><path d="M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3"/></svg>
+                    Migrer vers le cloud
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Migration sans interruption</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> -30% coûts infra en moyenne</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

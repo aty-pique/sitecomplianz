@@ -1,0 +1,221 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Agent vocal IA entreprise | Assistant vocal IA | Complianz{% endblock %}
+
+{% block description %}Déployez un agent vocal IA pour automatiser vos appels entrants, qualifier vos leads et assister vos clients 24h/24. Intégration téléphonie et CRM.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Agent vocal IA pour entreprise",
+      "url": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-vocal-ia-pour-entreprise",
+      "description": "Déploiement d'agents vocaux IA pour entreprises : automatisation des appels entrants, qualification de leads, service client 24h/24 et intégration CRM/téléphonie.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Agents IA", "item": "{{ app_url }}/intelligence-artificielle/agents-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Agent vocal IA pour entreprise", "item": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-vocal-ia-pour-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un agent vocal IA et comment fonctionne-t-il ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un agent vocal IA est un système capable de mener des conversations téléphoniques de façon autonome — comprendre la parole en langage naturel (STT), traiter la demande avec un LLM et répondre de façon naturelle (TTS). Contrairement aux SVI traditionnels à menus rigides, l'agent vocal IA comprend les demandes formulées librement, pose des questions de clarification et gère des conversations complexes multi-tours. Il peut qualifier des leads, prendre des rendez-vous, répondre aux FAQ ou rediriger vers un humain." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment l'agent vocal IA s'intègre-t-il à notre téléphonie existante ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'intégration se fait via l'API de votre opérateur téléphonique ou via des plateformes intermédiaires (Twilio, Vonage, Vapi). L'agent vocal est connecté à votre numéro existant — il répond aux appels entrants, les traite et met à jour votre CRM en temps réel. L'installation ne nécessite pas de changer votre infrastructure téléphonique existante." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'agent vocal IA peut-il gérer des accents ou des demandes complexes ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les modèles de reconnaissance vocale modernes (Whisper d'OpenAI, Deepgram) gèrent bien les accents régionaux et les variations de prononciation. Pour les demandes complexes, l'agent peut demander des clarifications ou rediriger vers un agent humain selon des règles définies. Nous configurons toujours un mécanisme d'escalade humaine pour les situations hors périmètre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte le déploiement d'un agent vocal IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le développement et déploiement d'un agent vocal IA coûte entre 3 000 et 15 000 € selon la complexité des conversations et le nombre d'intégrations. Les coûts récurrents incluent les APIs téléphonie (Twilio/Vonage), les modèles IA (STT/TTS/LLM) et la maintenance — généralement de 200 à 1 000 €/mois selon le volume d'appels." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/agents-ia">Agents IA</a><span>›</span>
+                <span>Agent vocal IA</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Agents IA vocaux</span>
+                Agent vocal IA pour entreprise
+            </h1>
+            <p class="sp-hero__lead">
+                Automatisez vos <strong>appels téléphoniques entrants</strong> avec un agent vocal IA — qualification de leads, réponses aux FAQ, prise de rendez-vous, service client <strong>24h/24 et 7j/7</strong>. Une voix IA naturelle, intégrée à votre CRM et votre téléphonie.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer mon agent vocal</a>
+                <a href="/intelligence-artificielle/agents-ia" class="btn btn-outline">Voir tous nos agents IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87A16 16 0 0 0 14 15l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Téléphone intelligent 24h/24</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>24/7</strong><span>disponibilité</span></div>
+                    <div class="sp-dc-stat"><strong>0</strong><span>appel manqué</span></div>
+                    <div class="sp-dc-stat"><strong>CRM</strong><span>mis à jour auto</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Qu'est-ce qu'un agent vocal IA pour entreprise ?</h2>
+                <p>Un agent vocal IA est un système qui gère les appels téléphoniques de façon autonome — il écoute, comprend en langage naturel, répond de façon naturelle et réalise des actions (mise à jour CRM, prise de rendez-vous, envoi d'email). Contrairement aux SVI (Serveurs Vocaux Interactifs) traditionnels à menus rigides, l'agent vocal IA comprend des demandes formulées librement et mène de vraies conversations.</p>
+                <p>Les technologies utilisées combinent la reconnaissance vocale (STT : Speech-to-Text), les modèles de langage (LLM) pour le traitement et la décision, et la synthèse vocale (TTS : Text-to-Speech) pour une réponse naturelle.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Cas d'usage d'un agent vocal IA en entreprise</h2>
+                <p><strong>Qualification des appels entrants :</strong> l'agent identifie le motif de l'appel, collecte les informations clés (nom, société, besoin) et crée automatiquement un lead qualifié dans le CRM — avant de transférer au bon interlocuteur ou de planifier un rappel.</p>
+                <p><strong>Service client 24h/24 :</strong> réponse aux questions fréquentes (horaires, tarifs, statut de commande, prise de rendez-vous), traitement des demandes simples sans intervention humaine, escalade intelligente pour les cas complexes.</p>
+                <p><strong>Prise de rendez-vous automatisée :</strong> l'agent consulte les disponibilités en temps réel, propose des créneaux, confirme le rendez-vous et envoie une invitation — sans aucune intervention humaine.</p>
+                <p><strong>Relances commerciales :</strong> campagnes d'appels sortants automatisées pour qualifier des prospects, confirmer des présences ou recueillir des avis clients à grande échelle.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Intégration technique de l'agent vocal IA</h2>
+                <p>Nous connectons l'agent vocal à votre téléphonie existante via Twilio, Vonage ou d'autres opérateurs compatibles — sans changer votre numéro de téléphone ni votre infrastructure. L'agent est intégré à votre CRM (HubSpot, Salesforce, Pipedrive) pour mettre à jour les contacts et créer des activités en temps réel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur les agents vocaux IA</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72"/></svg></div>
+                <div><h3>Voix naturelle et fluide</h3><p>Les technologies TTS modernes (ElevenLabs, OpenAI TTS) produisent une voix quasi-humaine — vos clients ne perçoivent souvent pas la différence</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><h3>CRM mis à jour en temps réel</h3><p>Chaque appel génère automatiquement une activité CRM avec transcript, qualification et action de suivi planifiée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>Escalade humaine intelligente</h3><p>L'agent transfère automatiquement vers un humain quand la situation dépasse son périmètre — aucun client n'est laissé sans réponse adaptée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><h3>Obligation de transparence</h3><p>L'AI Act impose de mentionner l'usage d'un agent IA dans les interactions — nous intégrons toujours cette mention dans la configuration de l'agent</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Compléter votre stratégie agents IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Déployez d'autres types d'agents IA pour votre entreprise.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia/agent-ia-disponible-24h-24-pour-pme" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div><strong>Agent IA 24h/24 pour PME</strong><p>Automatisez aussi votre service client en ligne.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Automatisez aussi vos processus au-delà du téléphone.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia/agent-ia-pour-la-performance-commerciale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><strong>Agent IA commercial</strong><p>Boostez vos ventes avec un agent IA dédié à la performance commerciale.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les agents vocaux IA</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un agent vocal IA et comment fonctionne-t-il ?</summary>
+                    <div class="sp-faq-item__answer"><p>Un agent vocal IA combine <strong>reconnaissance vocale (STT)</strong>, traitement par LLM et synthèse vocale (TTS). Il comprend les demandes en langage naturel, mène de vraies conversations et réalise des actions (CRM, rendez-vous) — contrairement aux SVI rigides à menus.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment s'intègre-t-il à notre téléphonie existante ?</summary>
+                    <div class="sp-faq-item__answer"><p>Via l'API de votre opérateur ou des plateformes comme <strong>Twilio ou Vonage</strong> — sans changer votre numéro ni votre infrastructure. L'agent est connecté à votre CRM pour des mises à jour en temps réel.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'agent vocal gère-t-il les accents et les demandes complexes ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les modèles STT modernes (<strong>Whisper, Deepgram</strong>) gèrent bien les accents régionaux. Pour les demandes complexes, l'agent demande des clarifications ou redirige vers un agent humain selon des règles prédéfinies. Un mécanisme d'escalade est toujours configuré.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte le déploiement d'un agent vocal IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Développement : <strong>3 000 à 15 000 €</strong> selon la complexité. Coûts récurrents : <strong>200 à 1 000 €/mois</strong> selon le volume d'appels (APIs téléphonie + IA). ROI généralement atteint en 6 mois pour les entreprises avec fort volume d'appels.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à déployer un agent vocal IA et ne plus jamais manquer un appel important ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer mon agent vocal</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration téléphonie existante</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM connecté</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

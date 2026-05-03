@@ -1,0 +1,613 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (55 chars titre / 154 chars description) ─────────────────── #}
+{% block title %}Audit &amp; sécurisation systèmes informatiques{% endblock %}
+
+{% block description %}Identifiez vos vulnérabilités et sécurisez vos systèmes informatiques : audit SI, pentest, politique de sécurité, RSSI externalisé. Devis gratuit sous 24h.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit & sécurisation des systèmes informatiques",
+      "url": "{{ app_url }}/audit-conformite/cybersecurite",
+      "description": "Analyse et sécurisation des systèmes informatiques de l'entreprise : audit des infrastructures, analyse des accès, tests d'intrusion (pentest), identification des vulnérabilités, recommandations de sécurisation et mise en place de mesures correctives. RSSI externalisé possible.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit de cybersécurité et sécurisation des systèmes informatiques",
+      "offers": [
+        { "@type": "Offer", "name": "Audit sécurité simple",                  "price": "2000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000"  } },
+        { "@type": "Offer", "name": "Audit avancé / tests techniques (pentest)", "price": "5000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "15000" } },
+        { "@type": "Offer", "name": "Audit complet + sécurisation",            "price": "15000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "40000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Audit & cybersécurité",       "item": "{{ app_url }}/audit-conformite/cybersecurite" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit de sécurité informatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit de sécurité informatique est une analyse approfondie des systèmes, réseaux, applications et accès d'une entreprise pour identifier les vulnérabilités, les failles de configuration et les risques de cyberattaque. Il aboutit à un rapport détaillé et à un plan de sécurisation priorisé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un audit de sécurité et un pentest ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit de sécurité informatique est une analyse globale des risques (configuration, politiques, accès, documentation). Le pentest (test d'intrusion) va plus loin : des experts tentent activement de pénétrer vos systèmes pour découvrir des vulnérabilités réelles exploitables. Les deux sont complémentaires." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles entreprises ont besoin d'un audit de cybersécurité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Toute entreprise qui stocke des données clients, utilise des outils en ligne, a des accès à distance ou traite des informations sensibles. Les secteurs santé, finance, industrie et collectivités sont particulièrement exposés. Une cyberattaque coûte en moyenne 27 000 € à une PME française." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un audit de sécurité informatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 2 000 € à 5 000 € pour un audit sécurité simple (TPE, périmètre limité), de 5 000 € à 15 000 € pour un audit avancé avec tests techniques et pentest, et de 15 000 € à 40 000 €+ pour un audit complet avec déploiement des mesures de sécurisation. Un devis personnalisé est remis sous 24h." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un RSSI externalisé ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le RSSI externalisé (Responsable de la Sécurité des Systèmes d'Information) est un expert en cybersécurité qui pilote votre sécurité informatique à temps partiel, sans les coûts d'un CDI. Il définit et fait appliquer votre politique de sécurité, gère les incidents et assure une veille permanente." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <span>Audit &amp; cybersécurité</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Cybersécurité &amp; sécurité des systèmes informatiques</span>
+                Audit &amp; sécurisation SI&nbsp;: identifiez vos failles, protégez vos données, maîtrisez vos risques
+            </h1>
+            <p class="sp-hero__lead">
+                Nous analysons et sécurisons <strong>vos systèmes informatiques</strong>&nbsp;: audit des infrastructures, des accès, des outils et des données. L'objectif&nbsp;: <strong>identifier vos vulnérabilités</strong>, réduire vos risques de cyberattaque et garantir un niveau de sécurité adapté à vos enjeux — sans complexité inutile.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un audit sécurité gratuit
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre d'audit
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport de vulnérabilités sous 5 jours</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Experts certifiés ISO 27001 &amp; CISA</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Confidentialité totale garantie</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">En sortie d'audit de sécurité</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre entreprise est <strong>sécurisée</strong>, vos données <strong>protégées</strong> et vos risques <strong>maîtrisés</strong> — vous savez exactement où vous êtes vulnérable et quoi corriger en priorité.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>5–15</strong>
+                        <span>jours</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>confidentiel</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0</strong>
+                        <span>faille ignorée</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>1 PME sur 2</strong> a subi une cyberattaque en 2024 — un audit préventif coûte 20x moins qu'une compromission</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services de cybersécurité</p>
+        <div class="sp-subservices__grid">
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit de cybersécurité</h2>
+                    <p>Diagnostic complet de votre SI : systèmes, réseaux, accès, applications et données sensibles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/pentest" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Test d'intrusion (pentest)</h2>
+                    <p>Simulation d'attaque réelle pour identifier les vulnérabilités exploitables avant les hackers.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/politique-securite" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Politique de sécurité informatique</h2>
+                    <p>Définissez et formalisez vos règles de sécurité, accès, gestion des incidents et conformité SI.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/protection-cyberattaques" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Protection contre les cyberattaques</h2>
+                    <p>Mettez en place les dispositifs techniques et organisationnels pour bloquer et détecter les attaques.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Confidentialité totale des données
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport de vulnérabilités sous 5 jours
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Zéro jargon, 100% opérationnel
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <p><strong>+120</strong> audits réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p><strong>0</strong> incident post-audit</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE D'AUDIT — 11 axes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre d'intervention</p>
+            <h2>Ce que nous auditons et sécurisons dans votre SI</h2>
+            <p class="sp-section-sub">Un audit complet couvre l'ensemble de votre surface d'attaque — pas seulement votre pare-feu.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Audit des systèmes et infrastructures</h3><p>Serveurs, réseaux, cloud, postes de travail, VPN et configurations</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Analyse des accès et des droits</h3><p>Gestion des identités, privilèges, MFA, comptes dormants et politiques de mot de passe</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <div><h3>Audit des outils et applications</h3><p>SaaS, applications métier, CRM, ERP — surface d'attaque applicative</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Analyse des risques</h3><p>Cartographie des risques SI selon leur probabilité, impact et niveau de criticité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div><h3>Tests de sécurité (pentest possible)</h3><p>Simulation d'attaques réelles pour identifier les failles exploitables par un attaquant</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Identification des vulnérabilités</h3><p>Rapport exhaustif des failles classées par niveau de criticité (critique / élevé / moyen / faible)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Recommandations de sécurisation</h3><p>Plan d'actions priorisé par criticité avec délais et responsables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Mise en place des mesures correctives</h3><p>Implémentation des correctifs, durcissement des configurations et renforcement des accès</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Renforcement des systèmes</h3><p>Hardening OS, chiffrement, segmentation réseau, sauvegardes et plan de reprise</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation de sécurité</h3><p>Politique de sécurité, chartes, procédures de gestion des incidents et registre</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>RSSI externalisé (option)</h3><p>Pilotage continu de votre sécurité informatique par un expert dédié à temps partiel</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 7 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi auditer votre sécurité</p>
+            <h2>Ce que vous gagnez avec un audit de sécurité informatique</h2>
+            <p class="sp-section-sub">La cybersécurité n'est plus une option — 1 PME sur 2 a subi une cyberattaque en 2024. Un audit préventif coûte 20x moins qu'une compromission.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Identification des failles de sécurité</h3>
+                <p>Vous connaissez exactement vos vulnérabilités — avant qu'un attaquant ne les exploite à votre place.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Réduction des risques de cyberattaque</h3>
+                <p>Ransomware, phishing, intrusion — les failles comblées sont des attaques évitées. Chaque correctif compte.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>Protection des données</h3>
+                <p>Données clients, financières, RH — vos informations sensibles sont identifiées, classifiées et protégées.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Mise en conformité sécurité</h3>
+                <p>RGPD, ISO 27001, NIS2, LPM — un SI sécurisé est aussi un SI conforme aux exigences réglementaires.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Renforcement de la fiabilité</h3>
+                <p>Systèmes plus stables, moins de pannes, continuité d'activité assurée — la sécurité améliore aussi la performance.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Sérénité du dirigeant</h3>
+                <p>Vous savez que votre SI est sous contrôle — plus besoin de redouter chaque email suspect ou chaque accès externe.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                </div>
+                <h3>Crédibilité renforcée</h3>
+                <p>Clients, partenaires, assureurs, investisseurs — une posture sécurité solide renforce votre crédibilité et votre assurabilité.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES / POUR QUEL PROFIL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Adapté à votre situation</p>
+                    <h2>Un audit de sécurité calibré selon votre contexte</h2>
+                    <p class="sp-section-sub">La profondeur et le coût de l'audit s'adaptent à votre taille, votre secteur et votre niveau d'exposition. Voici les variables qui déterminent le bon périmètre.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille du SI</span>
+                        <span class="sp-variable-value">Nombre de postes, serveurs, applications</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type d'infrastructure</span>
+                        <span class="sp-variable-value">On-premise, cloud, hybride, SaaS</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Secteur d'activité</span>
+                        <span class="sp-variable-value">Santé (très sensible), finance, industrie, services</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de criticité</span>
+                        <span class="sp-variable-value">Données sensibles, accès distants, e-commerce</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin de pentest</span>
+                        <span class="sp-variable-value">Oui / Non / Niveau (boîte noire, blanche, grise)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Contraintes réglementaires</span>
+                        <span class="sp-variable-value">RGPD, ISO 27001, NIS2, LPM, secteur réglementé</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 6.png" alt="Audit cybersécurité sur-mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit de sécurité informatique ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre SI, du périmètre et du besoin de tests techniques. Plus le système est complexe et sensible, plus l'audit est approfondi.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit sécurité simple</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE, SI limité (&lt; 20 postes)</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit des accès et des droits</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des outils et applications</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de vulnérabilités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'actions priorisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution orale (1h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit avancé + pentest</p>
+                    <p class="sp-plan__price"><span>5 000 – 15 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME, SI structuré avec accès distants</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet (SI + accès + outils)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tests d'intrusion (pentest)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des risques complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + plan de remédiation</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution COMEX + suivi 1 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit complet + sécurisation</p>
+                    <p class="sp-plan__price"><span>15 000 – 40 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, secteurs sensibles, RSSI externalisé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit 360° + pentest avancé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Déploiement des mesures correctives</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Politique de sécurité SI complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RSSI externalisé (option mensuelle)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation ISO 27001 incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre sécurité informatique</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité RGPD</strong><p>La sécurité informatique est le socle technique de votre conformité RGPD.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-27001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 27001</strong><p>L'audit sécurité est le point de départ naturel vers la certification ISO 27001.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit global d'entreprise</strong><p>Intégrez la sécurité SI dans un diagnostic stratégique global de l'entreprise.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><strong>Mise en conformité &amp; ISO</strong><p>La conformité réglementaire (RGPD, ISO 27001, NIS2) s'appuie sur un SI sécurisé.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit de sécurité informatique</h2>
+                <p>Nos experts cybersécurité répondent sous 24h à toute question sur votre SI.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit de sécurité informatique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit de sécurité informatique</strong> est une analyse approfondie des systèmes, réseaux, applications et accès d'une entreprise pour identifier les vulnérabilités, les failles de configuration et les risques de cyberattaque. Il aboutit à un rapport détaillé et à un plan de sécurisation priorisé.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre un audit de sécurité et un pentest ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'audit de sécurité est une analyse globale des risques (configuration, politiques, accès, documentation). Le <a href="/audit-conformite/cybersecurite/pentest">pentest (test d'intrusion)</a> va plus loin&nbsp;: des experts tentent activement de pénétrer vos systèmes pour découvrir des vulnérabilités réelles exploitables. Les deux sont complémentaires et souvent combinés.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles entreprises ont besoin d'un audit de cybersécurité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Toute entreprise qui stocke des données clients, utilise des outils en ligne, a des accès à distance ou traite des informations sensibles. Les secteurs santé, finance, industrie et collectivités sont particulièrement exposés. <strong>1 PME sur 2</strong> a subi une cyberattaque en 2024 — une cyberattaque coûte en moyenne 27 000 € à une PME française.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un audit de sécurité informatique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 000 € à 5 000 €</strong> pour un audit simple (TPE), de <strong>5 000 € à 15 000 €</strong> pour un audit avancé avec tests techniques et pentest, et de <strong>15 000 € à 40 000 €+</strong> pour un audit complet avec déploiement des mesures de sécurisation. Un devis personnalisé est remis sous 24h.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un RSSI externalisé ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>RSSI externalisé</strong> (Responsable de la Sécurité des Systèmes d'Information) est un expert en cybersécurité qui pilote votre sécurité informatique à temps partiel. Il définit votre <a href="/audit-conformite/cybersecurite/politique-securite">politique de sécurité</a>, gère les incidents et assure une veille permanente — sans les coûts d'un poste à temps plein.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à sécuriser votre entreprise avant qu'il ne soit trop tard ?</h2>
+                <p>Nos experts analysent votre SI et vous remettent un rapport de vulnérabilités sous 5 jours. Premier échange gratuit, confidentiel, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Sécuriser mon entreprise
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Confidentialité totale</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport sous 5 jours</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

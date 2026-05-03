@@ -1,0 +1,497 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (59 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}Tableau de bord commercial | Dashboard KPI & analytics | Complianz{% endblock %}
+
+{% block description %}Créez votre tableau de bord commercial sur mesure pour suivre vos KPIs en temps réel. Looker Studio, Power BI, intégration CRM et alertes automatiques.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Tableau de bord commercial — Pilotage de la performance",
+      "url": "{{ app_url }}/performance-digitale/pilotage-commercial/tableau-de-bord",
+      "description": "Création de tableaux de bord commerciaux sur mesure pour le suivi des KPIs en temps réel : conception du dashboard (Looker Studio / Power BI), intégration des sources de données CRM et ads, alertes automatiques et formation des équipes.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Tableau de bord commercial et analytics",
+      "offers": [
+        { "@type": "Offer", "name": "Dashboard Simple",      "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2900" } },
+        { "@type": "Offer", "name": "Dashboard Standard",    "price": "2900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5500" } },
+        { "@type": "Offer", "name": "Dashboard Enterprise",  "price": "5500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "11000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Pilotage commercial",               "item": "{{ app_url }}/performance-digitale/pilotage-commercial" },
+        { "@type": "ListItem", "position": 4, "name": "Tableau de bord",                   "item": "{{ app_url }}/performance-digitale/pilotage-commercial/tableau-de-bord" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre Looker Studio et Power BI ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Looker Studio (ex-Google Data Studio) est gratuit, très accessible et s'intègre nativement avec les outils Google (GA4, Google Ads, Sheets). Power BI est un outil Microsoft plus puissant pour des analyses complexes et des volumes de données importants, avec un coût de licence. Pour la plupart des PME, Looker Studio est suffisant et plus rapide à déployer. Nous vous conseillons l'outil adapté à votre contexte technique lors du cadrage." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels KPIs inclure dans un tableau de bord commercial ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les KPIs essentiels dépendent de votre activité. En général : nombre de leads, taux de conversion, chiffre d'affaires, panier moyen, CAC (coût d'acquisition client), LTV (valeur vie client), taux de rétention, et pipeline commercial. Pour le digital : trafic, taux de rebond, ROAS des campagnes, taux d'ouverture emails. Nous définissons avec vous les 8 à 12 KPIs vraiment décisionnels pour votre activité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour créer un tableau de bord ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un tableau de bord simple (Looker Studio avec 2-3 sources) peut être livré en 2 à 3 semaines. Un dashboard standard avec intégrations CRM prend 4 à 6 semaines. Un dashboard enterprise multi-sources complexe peut nécessiter 6 à 12 semaines selon les APIs disponibles. Le délai dépend surtout de la disponibilité des données et de la qualité des sources à connecter." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on connecter un CRM comme Salesforce ou HubSpot ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, nous intégrons les principaux CRM du marché : HubSpot, Salesforce, Pipedrive, Zoho CRM, et bien d'autres via connecteurs natifs ou API. Nous connectons également Google Ads, Meta Ads, LinkedIn Ads, GA4, ainsi que vos outils métiers spécifiques. Si un connecteur natif n'existe pas, nous développons une intégration sur mesure via API." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/pilotage-commercial">Pilotage commercial</a>
+                <span>›</span>
+                <span>Tableau de bord commercial</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Tableau de bord commercial</span>
+                Pilotez votre performance en temps réel — avec un dashboard KPI sur mesure
+            </h1>
+            <p class="sp-hero__lead">
+                Centralisez tous vos indicateurs de performance dans un <strong>tableau de bord commercial unique</strong> — CRM, GA4, Google Ads, Meta Ads, emails. Décidez sur la base de données fiables et en temps réel, avec des <strong>alertes automatiques</strong> quand un KPI sort des objectifs.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Créer mon dashboard
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Looker Studio, Power BI ou outil sur mesure</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Données actualisées en temps réel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation des équipes incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Vision complète et pilotage en temps réel</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>dashboard unique qui agrège toutes vos données</strong> — commercial, marketing, digital — pour prendre des décisions éclairées en quelques secondes.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>Dès 1 500€</strong>
+                        <span>dashboard Simple</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Temps réel</strong>
+                        <span>données actualisées</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur mesure</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises dotées d'un dashboard de pilotage prennent des décisions <strong>2× plus vite</strong> et réduisent leurs dépenses inefficaces de <strong>25%</strong> en moyenne</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Services de pilotage commercial</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Publicité digitale</h2>
+                    <p>Connectez vos campagnes Google Ads et Social Ads directement dans votre dashboard de performance.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/email-marketing" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Email marketing &amp; CRM</h2>
+                    <p>Intégrez vos métriques email (taux d'ouverture, clics, conversions) et CRM dans votre tableau de bord.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/audit-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit SEO &amp; analytics</h2>
+                    <p>Analysez vos performances organiques et intégrez les données SEO dans votre reporting global.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Dashboard livré en 2 à 6 semaines
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation équipes incluse
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Connecteurs multi-sources
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <p><strong>+150</strong> dashboards créés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>-25%</strong> de dépenses inutiles</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une mission tableau de bord commercial</h2>
+            <p class="sp-section-sub">De l'audit de vos indicateurs existants à la formation de vos équipes — un dashboard opérationnel, utile et adopté en quelques semaines.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit des indicateurs existants</h3><p>Inventaire de vos sources de données actuelles, des KPIs déjà suivis et des lacunes de pilotage qui limitent votre capacité de décision</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Définition des KPIs clés</h3><p>Sélection des 8 à 12 indicateurs vraiment décisionnels pour votre activité — abandon des métriques de vanité, focus sur ce qui pilote réellement vos résultats</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+                </div>
+                <div><h3>Conception du dashboard (Looker Studio / Power BI)</h3><p>Design et développement du tableau de bord sur l'outil adapté — visualisations claires, navigation intuitive et mise en page responsive pour desktop et mobile</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                </div>
+                <div><h3>Intégration des sources de données</h3><p>Connexion de vos outils : CRM (HubSpot, Salesforce, Pipedrive), analytics (GA4), ads (Google Ads, Meta Ads, LinkedIn Ads), emails et outils métiers via connecteurs natifs ou API</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <div><h3>Alertes et rapports automatiques</h3><p>Configuration d'alertes email ou Slack quand un KPI sort de ses objectifs, et envoi automatique de rapports de synthèse hebdomadaires ou mensuels</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation des équipes</h3><p>Atelier de prise en main pour vos managers et équipes — lecture des indicateurs, analyse des tendances et actions correctives à mettre en place selon les données</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Cas d'usage</p>
+            <h2>4 situations qui rendent le tableau de bord indispensable</h2>
+            <p class="sp-section-sub">Le dashboard commercial n'est pas un luxe réservé aux grandes entreprises. Dès 10 collaborateurs ou 3 canaux d'acquisition, il change les prises de décision.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                </div>
+                <h3>Données éparpillées dans plusieurs outils</h3>
+                <p>Vos commerciaux, marketeurs et dirigeants consultent des outils différents et n'ont jamais la même vision des résultats. Un dashboard unique met tout le monde sur la même longueur d'onde.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Reporting mensuel chronophage</h3>
+                <p>Compiler les données de plusieurs sources prend plusieurs heures chaque mois. Un dashboard automatique réduit ce temps à quelques minutes et évite les erreurs de saisie manuelle.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                </div>
+                <h3>Décisions prises sans données fiables</h3>
+                <p>Les décisions marketing et commerciales sont prises à l'intuition plutôt qu'à partir de données. Un dashboard KPI rend les décisions objectives, traçables et mesurables.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Préparation de comités ou de levées de fonds</h3>
+                <p>Disposer de métriques commerciales claires et actualisées est indispensable pour les comités de direction, les investisseurs ou les revues de performance trimestrielles.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un tableau de bord commercial sur mesure ?</h2>
+            <p class="sp-section-sub">Le coût dépend du nombre de sources de données à connecter, de la complexité des visualisations et du niveau d'automatisation souhaité.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Dashboard Simple</p>
+                    <p class="sp-plan__price"><span>1 500 – 2 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Livré en 2 à 3 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Jusqu'à 3 sources (GA4, Ads, Sheets)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 8-10 KPIs essentiels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Looker Studio responsive</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation 2h incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Dashboard Standard</p>
+                    <p class="sp-plan__price"><span>2 900 – 5 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Livré en 4 à 6 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>5-7 sources (CRM + Ads + Analytics)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration CRM (HubSpot, Pipedrive…)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alertes automatiques configurées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapports envoyés automatiquement</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipe complète</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Dashboard Enterprise</p>
+                    <p class="sp-plan__price"><span>5 500 – 11 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-sources et multi-vues</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Sources illimitées + APIs custom</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Power BI ou outil sur mesure</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Vues par profil (direction, commercial…)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entrepôt de données (BigQuery…)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintenance &amp; évolutions incluses</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT pour la création du dashboard. Un forfait de maintenance mensuel (250 à 700€ HT) peut être ajouté pour les mises à jour, évolutions et support.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Alimentez votre dashboard avec ces services</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><strong>Publicité digitale</strong><p>Intégrez vos ROAS Google Ads et Meta Ads directement dans votre tableau de bord de pilotage.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/audit-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit SEO &amp; analytics</strong><p>Analysez vos données SEO (positions, trafic organique, conversions) pour les intégrer dans votre dashboard.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/email-marketing" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div><strong>Email marketing &amp; CRM</strong><p>Centralisez vos métriques email et CRM pour une vue complète de votre pipeline de leads.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/tunnel-de-vente/cro" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><strong>Optimisation conversion (CRO)</strong><p>Suivez l'évolution de vos taux de conversion dans le temps pour mesurer l'impact de vos optimisations.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les tableaux de bord &amp; dashboards KPI</h2>
+                <p>Notre équipe répond sous 24h. Premier échange de cadrage gratuit pour définir vos KPIs prioritaires.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle différence entre Looker Studio et Power BI ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p><strong>Looker Studio</strong> (ex-Google Data Studio) est gratuit, accessible et s'intègre nativement avec GA4, Google Ads et Sheets. <strong>Power BI</strong> est plus puissant pour les analyses complexes et les gros volumes de données (licence Microsoft). Pour la plupart des PME, Looker Studio est suffisant et plus rapide à déployer — nous conseillons l'outil adapté lors du cadrage.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels KPIs inclure dans un tableau de bord commercial ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les KPIs essentiels&nbsp;: nombre de leads, taux de conversion, CA, panier moyen, CAC, LTV, taux de rétention, pipeline commercial. En digital&nbsp;: trafic, ROAS, taux d'ouverture emails. Nous définissons avec vous les <strong>8 à 12 KPIs vraiment décisionnels</strong> pour votre activité — en évitant les métriques de vanité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour créer un tableau de bord ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>dashboard simple</strong> (Looker Studio, 2-3 sources) est livré en 2 à 3 semaines. Un dashboard Standard avec intégrations CRM prend 4 à 6 semaines. Un dashboard Enterprise multi-sources peut nécessiter 6 à 12 semaines selon la disponibilité des données et la complexité des APIs à connecter.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on connecter un CRM comme Salesforce ou HubSpot ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — nous intégrons les principaux CRM&nbsp;: <strong>HubSpot, Salesforce, Pipedrive, Zoho CRM</strong> et bien d'autres via connecteurs natifs ou API. Nous connectons également <a href="/performance-digitale/strategie-digitale/publicite-digitale">Google Ads, Meta Ads, LinkedIn Ads</a>, GA4 et vos outils métiers. Si un connecteur natif n'existe pas, nous développons une intégration sur mesure.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à centraliser vos données et à piloter votre performance avec un dashboard KPI sur mesure ?</h2>
+                <p>Premier échange gratuit pour inventorier vos sources de données, définir vos KPIs prioritaires et vous proposer la solution de tableau de bord la plus adaptée.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Créer mon dashboard
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dès 1 500€ HT</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation incluse</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Données en temps réel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

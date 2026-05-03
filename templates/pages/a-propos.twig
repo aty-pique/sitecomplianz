@@ -1,0 +1,345 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}À propos — Complianz System, architecte des entreprises performantes{% endblock %}
+
+{% block description %}
+Complianz System structure, sécurise et optimise votre entreprise : conformité, technologie, stratégie digitale et IA. Découvrez notre mission, nos pôles d'expertise et nos engagements.
+{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "name": "À propos — Complianz System",
+      "url": "{{ app_url }}/a-propos",
+      "description": "Architecte des entreprises performantes : structuration, conformité, technologie, performance et intelligence artificielle.",
+      "isPartOf": { "@type": "WebSite", "name": "{{ app_name }}", "url": "{{ app_url }}" }
+    },
+    {
+      "@type": "Organization",
+      "name": "Complianz System",
+      "url": "{{ app_url }}",
+      "slogan": "Architecte des entreprises performantes",
+      "description": "Accompagnement des entreprises dans la structuration, la mise en conformité et l'optimisation de leur écosystème."
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ── Hero ─────────────────────────────────────────────────────── #}
+<section class="about-hero" aria-labelledby="about-hero-title">
+    <div class="about-hero__bg" aria-hidden="true">
+        <span class="about-hero__blob about-hero__blob--1"></span>
+        <span class="about-hero__blob about-hero__blob--2"></span>
+    </div>
+    <div class="container about-hero__inner">
+        <p class="about-hero__brand">Complianz System</p>
+        <h1 id="about-hero-title" class="about-hero__title">
+            Architecte des entreprises performantes
+        </h1>
+        <p class="about-hero__lead">
+            Nous transformons des organisations fragiles ou désorganisées en <strong>systèmes cohérents, maîtrisés et durables</strong> — en réunissant structuration, technologie, conformité, pilotage de la performance et <strong>intelligence artificielle</strong>.
+        </p>
+        <div class="about-hero__actions">
+            <a href="/contact" class="btn btn-lg about-hero__btn-primary">Parlons de votre projet</a>
+            <a href="#nos-poles" class="btn btn-lg about-hero__btn-outline">Les 5 pôles d'expertise</a>
+        </div>
+    </div>
+</section>
+
+{# ── Promesse synthétique ─────────────────────────────────────── #}
+<section class="about-band about-band--light">
+    <div class="container about-band__inner">
+        <p class="about-band__promise">
+            Structurer, sécuriser et optimiser votre entreprise pour en faire un <strong>système performant, maîtrisé et durable</strong>.
+        </p>
+        <p class="about-band__sub">
+            Plus qu'un prestataire, Complianz System se positionne comme un <strong>architecte</strong>, capable de concevoir, structurer et optimiser l'ensemble des fondations de votre entreprise — avec une approche globale qui relie vos enjeux métier, réglementaires et technologiques.
+        </p>
+    </div>
+</section>
+
+{# ── Messages clés + citation ─────────────────────────────────── #}
+<section class="about-split">
+    <div class="container about-split__grid">
+        <div class="about-split__col">
+            <h2 class="about-h2">Ce en quoi nous croyons</h2>
+            <ul class="about-checklist">
+                <li>Une entreprise performante est avant tout une entreprise <strong>structurée</strong> et <strong>maîtrisée</strong>.</li>
+                <li>La <strong>conformité</strong> n'est pas une contrainte : c'est un levier de performance lorsqu'elle est bien exploitée.</li>
+                <li>Les outils (ERP, CRM, logiciels) sont inopérants sans une <strong>organisation cohérente</strong> derrière.</li>
+                <li>Le vrai frein n'est pas la complexité : c'est le <strong>manque de maîtrise</strong>.</li>
+                <li>Empiler les prestataires ne crée pas la performance : c'est un <strong>système global</strong> qui la construit.</li>
+            </ul>
+        </div>
+        <aside class="about-quote">
+            <blockquote class="about-quote__body">
+                <p>Nous ne vendons pas des prestations isolées.</p>
+                <p class="about-quote__accent">Nous bâtissons des systèmes d'entreprise.</p>
+            </blockquote>
+            <p class="about-quote__footer">Message différenciant — la performance vient de la structure globale.</p>
+        </aside>
+    </div>
+</section>
+
+{# ── Histoire + fondateurs ─────────────────────────────────────── #}
+<section class="about-story">
+    <div class="container about-story__grid">
+        <div class="about-story__text">
+            <h2 class="about-h2">Notre histoire</h2>
+            <p>
+                Complianz System est née d'un constat : les entreprises évoluent dans un environnement exigeant où les enjeux techniques, réglementaires et organisationnels sont <strong>incontournables</strong>, mais souvent mal compris ou mal exploités.
+            </p>
+            <p>
+                Sur le terrain : organisations désorganisées, outils mal choisis, obligations réglementaires <strong>subies</strong> plutôt que maîtrisées, et une performance freinée par l'absence de vision système.
+            </p>
+            <p>
+                Notre ambition : accompagner une transformation <strong>concrète et mesurable</strong> — passer d'un fonctionnement subi à un modèle structuré, sécurisé et orienté performance.
+            </p>
+            <p class="about-story__principle">
+                La performance ne résulte pas d'actions isolées, mais d'un <strong>système global cohérent, structuré et maîtrisé</strong> — intégrant technologie, conformité, structuration, pilotage et IA.
+            </p>
+        </div>
+        <div class="about-founders">
+            <h3 class="about-founders__title">Les fondateurs</h3>
+            <ul class="about-founders__list">
+                <li class="about-founder">
+                    <span class="about-founder__avatar" style="--avatar-bg: var(--pole-0);">PM</span>
+                    <div>
+                        <strong class="about-founder__name">Pierre Matifas</strong>
+                        <p class="about-founder__role">Plus de 20 ans d'expérience entrepreneuriale, création de nombreuses entreprises — expertise terrain et vision système.</p>
+                    </div>
+                </li>
+                <li class="about-founder">
+                    <span class="about-founder__avatar" style="--avatar-bg: var(--pole-1);">EG</span>
+                    <div>
+                        <strong class="about-founder__name">Elisa Guyon</strong>
+                        <p class="about-founder__role">Expertise transverse en communication, marketing digital et structuration stratégique.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{# ── 5 pôles (site + IA) ─────────────────────────────────────── #}
+<section class="about-poles" id="nos-poles">
+    <div class="container">
+        <header class="about-section-head">
+            <h2 class="about-h2">Cinq pôles, une même logique système</h2>
+            <p class="about-section-head__sub">
+                Une réponse complète à vos enjeux : <strong>Conseil &amp; conformité</strong>, <strong>solutions &amp; développement</strong>, <strong>performance digitale</strong>, <strong>support &amp; maintenance</strong> et <strong>intelligence artificielle</strong> — le tout orchestré pour une entreprise pilotée, et non subie.
+            </p>
+        </header>
+        <div class="about-poles__grid">
+            <a href="/audit-conformite" class="about-pole-card about-pole-card--0">
+                <span class="about-pole-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <h3 class="about-pole-card__title">Conseil, Audit &amp; Conformité</h3>
+                <p class="about-pole-card__text">Structuration organisationnelle, maîtrise réglementaire (RGPD, ISO, qualité) : transformer les obligations en leviers de clarté et de performance.</p>
+                <span class="about-pole-card__link">Découvrir le pôle</span>
+            </a>
+            <a href="/solutions-developpement" class="about-pole-card about-pole-card--1">
+                <span class="about-pole-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </span>
+                <h3 class="about-pole-card__title">Solutions &amp; Développement</h3>
+                <p class="about-pole-card__text">Intégration technologique : logiciels métiers, ERP, CRM et outils digitaux alignés sur votre organisation réelle.</p>
+                <span class="about-pole-card__link">Découvrir le pôle</span>
+            </a>
+            <a href="/performance-digitale" class="about-pole-card about-pole-card--2">
+                <span class="about-pole-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg>
+                </span>
+                <h3 class="about-pole-card__title">Performance Digitale &amp; Stratégie</h3>
+                <p class="about-pole-card__text">Pilotage de la performance : stratégie digitale, indicateurs et décisions fondées sur des données fiables.</p>
+                <span class="about-pole-card__link">Découvrir le pôle</span>
+            </a>
+            <a href="/support-maintenance" class="about-pole-card about-pole-card--3">
+                <span class="about-pole-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </span>
+                <h3 class="about-pole-card__title">Support &amp; Maintenance</h3>
+                <p class="about-pole-card__text">Fiabilité et accompagnement dans la durée : sécuriser vos systèmes et pérenniser les gains.</p>
+                <span class="about-pole-card__link">Découvrir le pôle</span>
+            </a>
+            <a href="/intelligence-artificielle" class="about-pole-card about-pole-card--4">
+                <span class="about-pole-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14v4a4 4 0 0 1-8 0v-4"/><path d="M8 10h8"/></svg>
+                </span>
+                <h3 class="about-pole-card__title">Intelligence artificielle</h3>
+                <p class="about-pole-card__text">IA comme levier maîtrisé : automatisation, agents, formation et gouvernance — au service d'une organisation déjà structurée, pas de gadgets.</p>
+                <span class="about-pole-card__link">Découvrir le pôle</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ── Bénéfices ─────────────────────────────────────────────────── #}
+<section class="about-benefits" aria-labelledby="benefits-title">
+    <div class="container">
+        <h2 id="benefits-title" class="about-h2 about-h2--on-dark">Ce que vous gagnez</h2>
+        <ul class="about-benefits__grid">
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Clarté</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Gain de temps</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Sécurité</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Performance</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Sérénité</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Croissance structurée</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Conformité</li>
+            <li><span class="about-benefits__icon" aria-hidden="true">✓</span> Autonomie</li>
+        </ul>
+    </div>
+</section>
+
+{# ── Mission / Vision + angles ───────────────────────────────── #}
+<section class="about-mvv">
+    <div class="container">
+        <div class="about-mvv__triple">
+            <article class="about-mvv-card about-mvv-card--mission">
+                <h3 class="about-mvv-card__title">Mission</h3>
+                <p>Accompagner les entreprises dans la structuration, la mise en conformité et l'optimisation de leur écosystème, pour gagner en <strong>performance</strong>, en <strong>maîtrise</strong> et en <strong>sérénité</strong>.</p>
+            </article>
+            <article class="about-mvv-card about-mvv-card--vision">
+                <h3 class="about-mvv-card__title">Vision</h3>
+                <p>Devenir une référence dans la structuration et la performance des entreprises, avec une approche globale alliant <strong>technologie</strong>, <strong>conformité</strong>, <strong>stratégie</strong> et <strong>IA</strong>.</p>
+            </article>
+            <article class="about-mvv-card about-mvv-card--why">
+                <h3 class="about-mvv-card__title">Golden Circle — Pourquoi</h3>
+                <p>Permettre aux entreprises de <strong>reprendre le contrôle</strong> : ne plus subir, comprendre, maîtriser et performer sereinement.</p>
+            </article>
+        </div>
+
+        <h2 class="about-h2 about-mvv__angles-title">Angles qui nous ressemblent</h2>
+        <div class="about-angles">
+            <div class="about-angle">
+                <span class="about-angle__tag">Performance</span>
+                <p>Passez d'une entreprise inefficace à un <strong>système performant</strong>.</p>
+            </div>
+            <div class="about-angle">
+                <span class="about-angle__tag">Contrôle</span>
+                <p><strong>Reprenez le contrôle</strong> de votre entreprise.</p>
+            </div>
+            <div class="about-angle">
+                <span class="about-angle__tag">Clarté</span>
+                <p>Arrêtez la complexité inutile. <strong>Construisez un système clair.</strong></p>
+            </div>
+            <div class="about-angle">
+                <span class="about-angle__tag">Différenciation</span>
+                <p>Nous ne sommes pas un simple prestataire : nous <strong>structurons votre entreprise</strong>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ── Comment / Quoi (Golden Circle suite) ─────────────────────── #}
+<section class="about-golden">
+    <div class="container about-golden__grid">
+        <div class="about-golden-block">
+            <h3 class="about-golden-block__label">Comment</h3>
+            <p>En structurant votre écosystème global — technologie, conformité, stratégie et IA — dans une approche <strong>cohérente</strong>, <strong>claire</strong> et <strong>opérationnelle</strong>.</p>
+        </div>
+        <div class="about-golden-block">
+            <h3 class="about-golden-block__label">Quoi</h3>
+            <p>Nous concevons, déployons et optimisons des outils, des systèmes et des stratégies pour des entreprises <strong>structurées</strong>, <strong>conformes</strong> et <strong>performantes</strong>.</p>
+        </div>
+    </div>
+</section>
+
+{# ── Valeurs ──────────────────────────────────────────────────── #}
+<section class="about-values">
+    <div class="container">
+        <h2 class="about-h2">Nos valeurs</h2>
+        <ul class="about-values__list">
+            <li>Exigence</li>
+            <li>Accessibilité</li>
+            <li>Efficacité</li>
+            <li>Humanité</li>
+            <li>Structuration</li>
+            <li>Pédagogie</li>
+            <li>Performance</li>
+        </ul>
+    </div>
+</section>
+
+{# ── Engagements & éthique ─────────────────────────────────────── #}
+<section class="about-ethics">
+    <div class="container about-ethics__grid">
+        <div>
+            <h2 class="about-h2">Engagements</h2>
+            <ul class="about-ethics-list">
+                <li><span class="about-ethics-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Clarté &amp; transparence</li>
+                <li><span class="about-ethics-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Solutions concrètes et opérationnelles</li>
+                <li><span class="about-ethics-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Approche sur mesure</li>
+                <li><span class="about-ethics-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Fiabilité &amp; sécurité</li>
+                <li><span class="about-ethics-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Accompagnement dans la durée</li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="about-h2">Éthique</h2>
+            <ul class="about-ethics-list about-ethics-list--stack">
+                <li>Ne jamais complexifier pour vendre plus.</li>
+                <li>Toujours privilégier l'intérêt réel du client.</li>
+                <li>Refuser les solutions « gadgets » ou inutiles.</li>
+                <li>Être honnête sur ce qui est nécessaire… et ce qui ne l'est pas.</li>
+                <li>Construire des systèmes durables plutôt que rapides mais fragiles.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{# ── Croyances / contre-positionnement ───────────────────────── #}
+<section class="about-beliefs">
+    <div class="container">
+        <h2 class="about-h2">Notre posture</h2>
+        <p class="about-beliefs__intro">
+            Nous ne sommes pas une agence, un cabinet classique ou un prestataire technique isolé : nous sommes des <strong>structurateurs de systèmes d'entreprise</strong>.
+        </p>
+        <ul class="about-beliefs__list">
+            <li>La technologie doit être un <strong>levier</strong>, pas une contrainte.</li>
+            <li>La conformité est un outil de performance, pas une obligation subie.</li>
+            <li>La performance ne vient pas d'actions isolées, mais d'un <strong>système global cohérent</strong>.</li>
+            <li>Un dirigeant doit comprendre et maîtriser son activité — pas la subir.</li>
+            <li>La plupart des entreprises n'ont pas un problème d'outils : elles ont un problème de <strong>structure</strong>.</li>
+        </ul>
+    </div>
+</section>
+
+{# ── Partenaires ───────────────────────────────────────────────── #}
+<section class="about-partners">
+    <div class="container">
+        <h2 class="about-h2">Écosystème &amp; partenaires</h2>
+        <p class="about-partners__sub">Nous travaillons avec des spécialistes de confiance selon vos besoins :</p>
+        <ul class="about-partners__pills">
+            <li>Hébergeurs &amp; infrastructures</li>
+            <li>Consultants ISO</li>
+            <li>Juristes &amp; avocats spécialisés</li>
+            <li>Experts RGPD &amp; santé</li>
+            <li>Experts-comptables</li>
+        </ul>
+    </div>
+</section>
+
+{# ── CTA ─────────────────────────────────────────────────────── #}
+<section class="sp-cta-final">
+    <div class="container sp-cta-final__inner">
+        <div class="sp-cta-final__text">
+            <h2>Donnons une structure durable à votre entreprise</h2>
+            <p>Expliquez-nous votre contexte : nous vous proposons une feuille de route claire, sans jargon inutile.</p>
+            <div class="sp-cta-final__reassurance">
+                <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Réponse personnalisée</span>
+                <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Approche système 360°</span>
+            </div>
+        </div>
+        <a href="/contact" class="btn btn-primary btn-lg">Contact</a>
+    </div>
+</section>
+
+{% endblock %}

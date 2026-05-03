@@ -1,0 +1,197 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Contact — pré-devis & message{% endblock %}
+{% block description %}Contactez Complianz System : configurateur de pré-devis en ligne, formulaire et coordonnées. Réponse sous 24h ouvrées.{% endblock %}
+
+{% block head %}
+    <meta name="robots" content="index,follow">
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-page">
+
+    {% if quote_sent %}
+        <div class="contact-alert contact-alert--success" role="status">
+            <strong>Demande de pré-devis bien reçue.</strong> Notre équipe revient vers vous très rapidement (sous 24h ouvrées en général).
+        </div>
+    {% endif %}
+    {% if message_sent %}
+        <div class="contact-alert contact-alert--success" role="status">
+            <strong>Message envoyé.</strong> Merci — nous vous répondons dans les meilleurs délais.
+        </div>
+    {% endif %}
+    {% if message_privacy_error %}
+        <div class="contact-alert contact-alert--error" role="alert">
+            <strong>Politique de confidentialité.</strong> Veuillez accepter le traitement de vos données pour envoyer votre message.
+        </div>
+    {% endif %}
+    {% if quote_privacy_error %}
+        <div class="contact-alert contact-alert--error" role="alert">
+            <strong>Politique de confidentialité.</strong> Veuillez accepter le traitement de vos données pour transmettre votre demande de pré-devis. Rouvrez le configurateur et cochez la case à l’étape finale.
+        </div>
+    {% endif %}
+
+    <div class="contact-page__intro container">
+        <p class="contact-page__eyebrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Parlons de votre projet
+        </p>
+        <h1 class="contact-page__title">Comment pouvons-nous vous aider ?</h1>
+        <p class="contact-page__subtitle">
+            Que vous ayez une question, un projet en tête ou besoin d’un devis personnalisé, notre équipe est là pour vous accompagner.
+        </p>
+    </div>
+
+    {# —— Devis + RDV (deux colonnes) —— #}
+    <div class="container contact-hero-dual">
+        <div class="contact-devis-cta">
+            <div class="contact-devis-cta__content">
+                <p class="contact-devis-cta__badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>
+                    Estimation rapide &amp; gratuite
+                </p>
+                <h2 class="contact-devis-cta__title">Demandez votre pré-devis personnalisé</h2>
+                <p class="contact-devis-cta__lead">
+                    Répondez à notre questionnaire en ligne (contexte, pôles concernés, précisions). Vous obtenez une première estimation — nous vous rappelons pour affiner le périmètre.
+                </p>
+                <ul class="contact-devis-cta__bullets">
+                    <li><span class="contact-devis-cta__check" aria-hidden="true">✓</span> Sans engagement</li>
+                    <li><span class="contact-devis-cta__check" aria-hidden="true">✓</span> Réponse sous 24h</li>
+                    <li><span class="contact-devis-cta__check" aria-hidden="true">✓</span> Données structurées pour votre équipe commerciale</li>
+                </ul>
+            </div>
+            <div class="contact-devis-cta__action">
+                <button type="button" class="btn btn-primary btn-lg contact-devis-cta__btn" data-open-quote-modal>
+                    Ouvrir le configurateur de devis
+                </button>
+                <p class="contact-devis-cta__hint">Le formulaire détaillé s’ouvre dans une fenêtre — vous gardez cette page pour nous écrire ou consulter nos coordonnées.</p>
+            </div>
+        </div>
+
+        <aside class="contact-rdv-cta" aria-labelledby="contact-rdv-heading">
+            <div class="contact-rdv-cta__inner">
+                <p class="contact-rdv-cta__badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Calendrier
+                </p>
+                <h2 id="contact-rdv-heading" class="contact-rdv-cta__title">Prendre rendez-vous</h2>
+                <p class="contact-rdv-cta__lead">
+                    Choisissez un jour et un créneau indicatif : nous vous confirmons l’échange par email ou téléphone (visio ou appel).
+                </p>
+                <ul class="contact-rdv-cta__bullets">
+                    <li><span class="contact-rdv-cta__check" aria-hidden="true">✓</span> Créneaux matin &amp; après-midi</li>
+                    <li><span class="contact-rdv-cta__check" aria-hidden="true">✓</span> Quelques clics pour proposer vos disponibilités</li>
+                    <li><span class="contact-rdv-cta__check" aria-hidden="true">✓</span> Sans engagement</li>
+                </ul>
+                <div class="contact-rdv-cta__action">
+                    <button type="button" class="btn btn-primary btn-lg contact-rdv-cta__btn" data-open-rdv-modal>
+                        Ouvrir le calendrier
+                    </button>
+                    <p class="contact-rdv-cta__hint">Une fenêtre s’ouvre sur cette page : vous pourrez compléter vos coordonnées et envoyer la demande.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    {# —— Formulaire contact + coordonnées —— #}
+    <div class="container contact-bottom">
+        <div class="contact-bottom__grid">
+            <article class="contact-card" id="prendre-rdv">
+                <header class="contact-card__head">
+                    <span class="contact-card__icon contact-card__icon--green" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="contact-card__title">Envoyez-nous un message</h2>
+                        <p class="contact-card__sub">Une question ? Un projet à discuter ?</p>
+                    </div>
+                </header>
+                <form class="contact-simple-form" action="/contact/message" method="post">
+                    <div class="contact-form__grid contact-form__grid--2">
+                        <label class="contact-field">
+                            <span class="contact-field__label">Nom complet <abbr title="requis">*</abbr></span>
+                            <input type="text" name="full_name" required autocomplete="name" placeholder="Jean Dupont">
+                        </label>
+                        <label class="contact-field">
+                            <span class="contact-field__label">Email professionnel <abbr title="requis">*</abbr></span>
+                            <input type="email" name="email" required autocomplete="email" placeholder="jean@entreprise.fr" value="{{ prefill_email|default('')|e('html_attr') }}">
+                        </label>
+                        <label class="contact-field">
+                            <span class="contact-field__label">Téléphone</span>
+                            <input type="tel" name="phone" autocomplete="tel" placeholder="06 12 34 56 78">
+                        </label>
+                        <label class="contact-field">
+                            <span class="contact-field__label">Entreprise</span>
+                            <input type="text" name="company" autocomplete="organization" placeholder="Nom de votre entreprise">
+                        </label>
+                    </div>
+                    <label class="contact-field contact-field--full">
+                        <span class="contact-field__label">Quel domaine vous intéresse ? <abbr title="requis">*</abbr></span>
+                        <select name="interest_domain" required>
+                            <option value="">Sélectionnez un domaine</option>
+                            <option value="audit-conformite">Conseil, Audit &amp; Conformité</option>
+                            <option value="solutions-developpement">Solutions &amp; Développement</option>
+                            <option value="performance-digitale">Performance digitale</option>
+                            <option value="support-maintenance">Support &amp; Maintenance</option>
+                            <option value="intelligence-artificielle">Intelligence artificielle</option>
+                            <option value="multi">Plusieurs domaines</option>
+                            <option value="unknown">Je ne sais pas encore / à définir</option>
+                        </select>
+                    </label>
+                    <label class="contact-field contact-field--full">
+                        <span class="contact-field__label">Votre message <abbr title="requis">*</abbr></span>
+                        <textarea name="message" required rows="5" placeholder="Décrivez votre projet ou posez-nous vos questions"></textarea>
+                    </label>
+                    <label class="contact-check contact-check--legal">
+                        <input type="checkbox" name="privacy_ok" value="1" required>
+                        J’accepte que mes données soient utilisées pour me recontacter au sujet de ma demande, conformément à la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+                    </label>
+                    <button type="submit" class="btn btn-primary contact-simple-form__submit">Envoyer le message</button>
+                </form>
+            </article>
+
+            <aside class="contact-card contact-card--coords" id="coordonnees">
+                <h2 class="contact-card__title contact-card__title--plain">Nos coordonnées</h2>
+                <ul class="contact-coords">
+                    <li class="contact-coords__item">
+                        <span class="contact-coords__icon contact-coords__icon--blue" aria-hidden="true"></span>
+                        <div>
+                            <strong>Complianz System</strong><br>
+                            SARL au capital de 10&nbsp;000&nbsp;€<br>
+                            <span class="contact-coords__meta">SIRET : 123 456 789 00012</span>
+                        </div>
+                    </li>
+                    <li class="contact-coords__item">
+                        <span class="contact-coords__icon contact-coords__icon--green" aria-hidden="true"></span>
+                        <div>
+                            123 Avenue de l’Innovation<br>
+                            75008 Paris, France
+                        </div>
+                    </li>
+                    <li class="contact-coords__item">
+                        <span class="contact-coords__icon contact-coords__icon--amber" aria-hidden="true"></span>
+                        <div>
+                            <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                        </div>
+                    </li>
+                    <li class="contact-coords__item">
+                        <span class="contact-coords__icon contact-coords__icon--rose" aria-hidden="true"></span>
+                        <div>
+                            <a href="mailto:contact@complianz.fr">contact@complianz.fr</a>
+                        </div>
+                    </li>
+                    <li class="contact-coords__item">
+                        <span class="contact-coords__icon contact-coords__icon--purple" aria-hidden="true"></span>
+                        <div>
+                            Lun – Ven : 9h00 – 18h00<br>
+                            Sam – Dim : Fermé
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

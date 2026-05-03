@@ -1,0 +1,7 @@
+﻿# Fichiers copiés dans review-export/ (miroir des chemins projet)
+
+Structure reproduite : templates/, config/, src/, public/assets/
+
+À transmettre : zipper le dossier eview-export ou le dépôt Git entier.
+
+Navigateur : vérifier la console (F12) et l’onglet Réseau pour main.css / home-chaos-system.js (404 ou bloqué).

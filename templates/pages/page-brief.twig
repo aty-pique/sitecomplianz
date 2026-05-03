@@ -1,0 +1,224 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<div class="brief-page">
+<div class="container brief-container">
+
+    {# ── En-tête de page ─────────────────────── #}
+    <div class="brief-header">
+        <div class="brief-header__top">
+            <span class="brief-badge">Brief SEO</span>
+            {% if brief.pole is defined %}
+                <span class="brief-pole">{{ brief.pole }}</span>
+            {% endif %}
+        </div>
+        <h1 class="brief-title">{{ brief.title }}</h1>
+        <code class="brief-slug">{{ brief.slug }}</code>
+    </div>
+
+    {# ── Grille principale ────────────────────── #}
+    <div class="brief-grid">
+
+        {# Colonne gauche : mots-clés #}
+        <div class="brief-col brief-col--keywords">
+
+            {# Mot clé principal #}
+            <section class="brief-card">
+                <h2 class="brief-card__title">
+                    <span class="brief-card__icon">🎯</span>
+                    Mot clé principal
+                </h2>
+                <div class="kw-main">
+                    <p class="kw-main__word">{{ brief.kw_main.keyword }}</p>
+                    <div class="kw-metrics">
+                        <span class="kw-metric kw-metric--vol">
+                            <span class="kw-metric__label">Vol</span>
+                            <span class="kw-metric__value">{{ brief.kw_main.volume }}</span>
+                        </span>
+                        <span class="kw-metric kw-metric--kd">
+                            <span class="kw-metric__label">KD</span>
+                            <span class="kw-metric__value">{{ brief.kw_main.kd }}</span>
+                        </span>
+                        <span class="kw-metric kw-metric--ratio">
+                            <span class="kw-metric__label">Ratio</span>
+                            <span class="kw-metric__value">{{ brief.kw_main.ratio }}</span>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            {# Mots-clés secondaires #}
+            {% if brief.kw_secondary is defined and brief.kw_secondary|length > 0 %}
+            <section class="brief-card">
+                <h2 class="brief-card__title">
+                    <span class="brief-card__icon">🔑</span>
+                    Mots clés secondaires
+                    <span class="brief-count">{{ brief.kw_secondary|length }}</span>
+                </h2>
+                <ul class="kw-list">
+                    {% for kw in brief.kw_secondary %}
+                    <li class="kw-row">
+                        <span class="kw-row__word">{{ kw.keyword }}</span>
+                        <div class="kw-row__metrics">
+                            <span class="kw-tag kw-tag--vol">Vol:{{ kw.volume }}</span>
+                            <span class="kw-tag kw-tag--kd">KD:{{ kw.kd }}</span>
+                            <span class="kw-tag kw-tag--ratio">R:{{ kw.ratio }}</span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+        </div>
+
+        {# Colonne droite : cocon + maillage #}
+        <div class="brief-col brief-col--maillage">
+
+            {# Cocon thématique #}
+            {% if brief.cocon is defined %}
+            <section class="brief-card brief-card--cocon">
+                <h2 class="brief-card__title">
+                    <span class="brief-card__icon">🌐</span>
+                    Cocon thématique — {{ brief.cocon.name }}
+                </h2>
+
+                {% if brief.cocon.piliers is defined and brief.cocon.piliers|length > 0 %}
+                <div class="cocon-group">
+                    <p class="cocon-group__label">
+                        Piliers
+                        <span class="brief-count">{{ brief.cocon.piliers|length }}</span>
+                    </p>
+                    <ul class="cocon-list cocon-list--pilier">
+                        {% for item in brief.cocon.piliers %}
+                        <li>
+                            <span class="cocon-dot cocon-dot--pilier"></span>
+                            {{ item }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if brief.cocon.soutiens is defined and brief.cocon.soutiens|length > 0 %}
+                <div class="cocon-group">
+                    <p class="cocon-group__label">
+                        Soutiens
+                        <span class="brief-count">{{ brief.cocon.soutiens|length }}</span>
+                    </p>
+                    <ul class="cocon-list cocon-list--soutien">
+                        {% for item in brief.cocon.soutiens %}
+                        <li>
+                            <span class="cocon-dot cocon-dot--soutien"></span>
+                            {{ item }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if brief.cocon.categories_blog is defined and brief.cocon.categories_blog|length > 0 %}
+                <div class="cocon-group">
+                    <p class="cocon-group__label">
+                        Catégories blog
+                        <span class="brief-count">{{ brief.cocon.categories_blog|length }}</span>
+                    </p>
+                    <ul class="cocon-list cocon-list--blog">
+                        {% for item in brief.cocon.categories_blog %}
+                        <li>
+                            <span class="cocon-dot cocon-dot--blog"></span>
+                            {{ item }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </section>
+            {% endif %}
+
+            {# Maillage interne #}
+            {% if brief.maillage_interne is defined and brief.maillage_interne|length > 0 %}
+            <section class="brief-card">
+                <h2 class="brief-card__title">
+                    <span class="brief-card__icon">🔗</span>
+                    Maillage interne
+                    <span class="brief-count">{{ brief.maillage_interne|length }}</span>
+                </h2>
+                <ul class="link-list">
+                    {% for link in brief.maillage_interne %}
+                    <li class="link-row">
+                        {% if page_urls[link.from] is defined %}
+                            <a href="{{ page_urls[link.from] }}" class="link-row__from link-row__from--linked">{{ link.from }}</a>
+                        {% else %}
+                            <span class="link-row__from">{{ link.from }}</span>
+                        {% endif %}
+                        <span class="link-row__arrow">→</span>
+                        {% if page_urls[link.to] is defined %}
+                            <a href="{{ page_urls[link.to] }}" class="link-row__to link-row__to--linked">{{ link.to }}</a>
+                        {% else %}
+                            <span class="link-row__to">{{ link.to }}</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {# Maillage inter-cocons #}
+            {% if brief.maillage_inter_cocons is defined and brief.maillage_inter_cocons|length > 0 %}
+            <section class="brief-card brief-card--intercocon">
+                <h2 class="brief-card__title">
+                    <span class="brief-card__icon">🕸️</span>
+                    Maillage inter-cocons
+                    <span class="brief-count">{{ brief.maillage_inter_cocons|length }}</span>
+                </h2>
+                <ul class="link-list">
+                    {% for link in brief.maillage_inter_cocons %}
+                    <li class="link-row">
+                        {% if page_urls[link.from] is defined %}
+                            <a href="{{ page_urls[link.from] }}" class="link-row__from link-row__from--accent link-row__from--linked">{{ link.from }}</a>
+                        {% else %}
+                            <span class="link-row__from link-row__from--accent">{{ link.from }}</span>
+                        {% endif %}
+                        <span class="link-row__arrow">→</span>
+                        {% if page_urls[link.to] is defined %}
+                            <a href="{{ page_urls[link.to] }}" class="link-row__to link-row__to--linked">{{ link.to }}</a>
+                        {% else %}
+                            <span class="link-row__to">{{ link.to }}</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {# Liens blog #}
+            {% if brief.liens_blog is defined and brief.liens_blog|length > 0 %}
+            <section class="brief-card brief-card--blog">
+                <h2 class="brief-card__title">
+                    <span class="brief-card__icon">✍️</span>
+                    Liens blog
+                    <span class="brief-count">{{ brief.liens_blog|length }}</span>
+                </h2>
+                <ul class="link-list">
+                    {% for link in brief.liens_blog %}
+                    <li class="link-row">
+                        <span class="link-row__from link-row__from--blog">{{ link.from }}</span>
+                        <span class="link-row__arrow">→</span>
+                        {% if page_urls[link.to] is defined %}
+                            <a href="{{ page_urls[link.to] }}" class="link-row__to link-row__to--linked">{{ link.to }}</a>
+                        {% else %}
+                            <span class="link-row__to">{{ link.to }}</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+        </div>
+    </div>{# /brief-grid #}
+
+</div>{# /container #}
+</div>{# /brief-page #}
+{% endblock %}

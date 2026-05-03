@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Audit IA & SEO | Optimisation SEO par l'intelligence artificielle | Complianz{% endblock %}
+
+{% block description %}Réalisez un audit SEO augmenté par l'IA pour identifier les opportunités de contenu, optimiser votre structure et booster votre référencement.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Audit IA et SEO — Optimisez votre visibilité avec l'IA",
+      "url": "{{ app_url }}/intelligence-artificielle/audit-ia/audit-ia-et-seo",
+      "description": "Audit SEO augmenté par l'IA : analyse sémantique, opportunités de contenu, audit technique, stratégie GEO et plan d'action priorisé pour booster votre référencement.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Audit IA", "item": "{{ app_url }}/intelligence-artificielle/audit-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Audit IA et SEO", "item": "{{ app_url }}/intelligence-artificielle/audit-ia/audit-ia-et-seo" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit SEO augmenté par l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit SEO augmenté par l'IA va plus loin qu'un audit SEO traditionnel. En plus des analyses techniques habituelles (balises, vitesse, maillage), l'IA analyse la sémantique de votre contenu, identifie les opportunités de mots clés manquées, compare votre positionnement thématique aux leaders de votre niche, analyse les intentions de recherche et identifie les cannibalisations. L'IA traite en quelques heures ce qui prendrait des semaines manuellement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour voir des résultats après un audit SEO IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les premiers résultats apparaissent généralement en 2 à 4 mois pour les corrections techniques (indexation, vitesse, balises). Pour les actions de contenu (nouvelles pages, optimisation des existantes), les gains de trafic sont visibles en 3 à 6 mois. Les actions sur la sémantique et l'autorité thématique portent leurs fruits sur 6 à 12 mois. Un audit SEO IA donne une vision claire des quick wins (résultats rapides) vs les actions de fond." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un audit SEO classique et un audit avec l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit SEO classique analyse la technique et les mots clés. L'audit SEO IA ajoute : analyse sémantique complète (topics, entités, couverture thématique), identification des opportunités cachées dans les longues traînes, analyse comparative des intentions de recherche, audit de la qualité du contenu existant, et stratégie GEO pour les moteurs IA. L'IA traite l'intégralité du site en quelques heures avec une profondeur d'analyse impossible manuellement." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'audit SEO IA couvre-t-il aussi le GEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — notre audit SEO IA intègre un module GEO (Generative Engine Optimization) pour analyser votre visibilité dans ChatGPT, Perplexity et Google AI Overview. Il identifie les requêtes sur lesquelles vous êtes cité (ou absent), compare votre positionnement GEO à vos concurrents, et propose un plan d'action pour améliorer votre présence dans les réponses des IA génératives." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/audit-ia">Audit IA</a><span>›</span>
+                <span>Audit IA et SEO</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Audit IA — SEO</span>
+                Audit IA et SEO — Optimisez votre visibilité avec l'IA
+            </h1>
+            <p class="sp-hero__lead">
+                Un <strong>audit SEO augmenté par l'IA</strong> — analyse sémantique complète, opportunités de contenu cachées, audit technique et stratégie GEO pour les IA génératives. <strong>Un plan d'action priorisé</strong> pour multiplier votre trafic organique.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Demander mon audit SEO IA</a>
+                <a href="/intelligence-artificielle/audit-ia" class="btn btn-outline">Nos audits IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Visibilité boostée SEO &amp; GEO</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>+30-100%</strong><span>trafic organique potentiel</span></div>
+                    <div class="sp-dc-stat"><strong>SEO</strong><span>+ GEO couvert</span></div>
+                    <div class="sp-dc-stat"><strong>Plan</strong><span>d'action priorisé</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi un audit SEO augmenté par l'IA est différent</h2>
+                <p>Un audit SEO classique analyse la technique et les mots clés. Notre audit SEO IA va beaucoup plus loin : analyse sémantique complète de votre positionnement thématique, identification des opportunités de contenu manquées, comparaison avec les leaders de votre niche, analyse des intentions de recherche et stratégie GEO pour les IA génératives. L'IA traite l'intégralité de votre site en quelques heures avec une profondeur d'analyse impossible manuellement.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Ce que notre audit SEO IA analyse</h2>
+                <p><strong>Audit technique IA :</strong> vitesse de chargement, Core Web Vitals, crawlabilité, indexation, balises, données structurées, maillage interne. L'IA priorise automatiquement les corrections par impact estimé.</p>
+                <p><strong>Analyse sémantique et contenu :</strong> couverture thématique, lacunes de contenu, cannibalisation de mots clés, opportunités de longue traîne, qualité et profondeur des contenus existants par rapport aux concurrents positionnés.</p>
+                <p><strong>Stratégie de mots clés IA :</strong> identification des mots clés à fort potentiel non couverts, clustering sémantique, analyse des featured snippets et positions zéro, et intention de recherche par type de page.</p>
+                <p><strong>Module GEO :</strong> analyse de votre visibilité dans ChatGPT, Perplexity et Google AI Overview, comparaison avec vos concurrents, et plan d'action pour améliorer votre présence dans les réponses des IA génératives.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Livrable — ce que vous recevez</h2>
+                <p>L'audit SEO IA se conclut par un rapport structuré : tableau de bord de performance actuelle, liste priorisée des quick wins (impact rapide, effort faible), plan éditorial sur 6 mois avec les sujets à couvrir, recommandations techniques priorisées par impact, et analyse GEO avec plan de visibilité dans les IA génératives.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur l'audit SEO IA</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><h3>Analyse sémantique complète</h3><p>L'IA analyse votre positionnement thématique en profondeur — impossible manuellement à cette échelle</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>SEO + GEO dans un seul audit</h3><p>Optimisez pour Google et pour les IA génératives (ChatGPT, Perplexity) dans un seul audit complet</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>Plan d'action priorisé</h3><p>Quick wins pour des résultats rapides + actions de fond pour une croissance durable — hiérarchisés par impact/effort</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div><h3>Résultats en 2-6 mois</h3><p>Les quick wins techniques portent leurs fruits en 2-4 mois, le contenu en 3-6 mois, l'autorité thématique en 6-12 mois</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin dans votre visibilité</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/audit-ia/audit-geo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Audit GEO</strong><p>Audit approfondi de votre visibilité dans les IA génératives.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia/outils-ia-pour-le-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Outils IA pour le SEO</strong><p>Les meilleurs outils IA pour continuer à booster votre SEO.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/></svg></div>
+                <div><strong>Nos audits IA</strong><p>Découvrez toute notre gamme d'audits IA pour votre activité.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia/conseil-en-solutions-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+                <div><strong>Conseil en solutions IA</strong><p>Définissez votre stratégie IA globale au-delà du SEO.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit SEO IA</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander mon audit</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit SEO augmenté par l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>En plus des analyses techniques habituelles, l'IA analyse la <strong>sémantique complète</strong> de votre contenu, identifie les opportunités de mots clés manquées, compare votre positionnement thématique aux leaders, et analyse les intentions de recherche — en quelques heures.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour voir des résultats après un audit SEO IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Corrections techniques : <strong>2-4 mois</strong>. Gain de trafic contenu : <strong>3-6 mois</strong>. Autorité thématique : 6-12 mois. L'audit identifie clairement les quick wins vs les actions de fond.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre un audit SEO classique et un audit avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>L'audit SEO IA ajoute : <strong>analyse sémantique complète, opportunités cachées dans les longues traînes, analyse des intentions de recherche et module GEO</strong> pour les moteurs IA. Une profondeur impossible manuellement.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'audit SEO IA couvre-t-il aussi le GEO ?</summary>
+                    <div class="sp-faq-item__answer"><p>Oui — module GEO intégré pour analyser votre visibilité dans <strong>ChatGPT, Perplexity et Google AI Overview</strong>, comparaison avec vos concurrents et plan d'action pour améliorer votre présence dans les IA génératives.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à découvrir vos opportunités SEO cachées et à construire votre plan d'action pour multiplier votre trafic organique ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Demander mon audit SEO IA</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO + GEO inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action priorisé livré</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

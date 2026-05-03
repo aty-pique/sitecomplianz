@@ -1,0 +1,431 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}Impact IA | Enjeux éthiques, environnementaux et emploi | Complianz{% endblock %}
+
+{% block description %}Comprenez l'impact réel de l'IA sur l'environnement, l'emploi et l'éthique. Conseils pour une adoption responsable de l'IA en entreprise.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Impact de l'IA — Enjeux environnementaux, sociaux et éthiques",
+      "url": "{{ app_url }}/intelligence-artificielle/impact-ia",
+      "description": "Analyse complète de l'impact de l'intelligence artificielle : empreinte carbone, impact sur l'emploi, enjeux éthiques et conseils pour une adoption responsable en entreprise.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Impact de l'IA", "item": "{{ app_url }}/intelligence-artificielle/impact-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'IA consomme-t-elle beaucoup d'énergie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, l'IA a une empreinte énergétique significative. L'entraînement d'un grand modèle de langage (LLM) peut consommer autant d'énergie que plusieurs centaines de vols transatlantiques. L'inférence (utilisation quotidienne) représente 80 à 90% de la consommation totale. Une requête à ChatGPT consomme environ 10 fois plus qu'une recherche Google. Cela dit, l'efficacité énergétique des modèles IA s'améliore rapidement et des modèles plus légers (edge AI, modèles distillés) réduisent drastiquement cette empreinte." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA va-t-elle remplacer les emplois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA transforme les emplois plus qu'elle ne les supprime dans la majorité des cas. Les études montrent que l'IA automatise des tâches spécifiques plutôt que des métiers entiers — en moyenne 30 à 40% des tâches d'un poste sont automatisables. Certains métiers disparaissent (saisie de données, traitement simple de documents) mais d'autres émergent (prompt engineers, responsables IA, data analysts). L'enjeu majeur est la reconversion et la montée en compétences des travailleurs." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'IA éthique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA éthique désigne le développement et l'usage de l'intelligence artificielle selon des principes de fairness, de transparence, de responsabilité et de respect des droits humains. Concrètement, cela implique : des algorithmes non discriminatoires, une explicabilité des décisions automatisées, le respect de la vie privée (RGPD), la transparence envers les utilisateurs concernant l'usage de l'IA, et des mécanismes de supervision humaine pour les décisions à enjeux élevés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment adopter l'IA de manière responsable en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une adoption responsable de l'IA en entreprise passe par : 1) Évaluer les risques éthiques et réglementaires avant tout déploiement, 2) Former et informer les équipes sur les usages et limites de l'IA, 3) Rédiger une charte d'utilisation de l'IA interne, 4) Privilégier des modèles IA économes en énergie pour les usages courants, 5) Maintenir une supervision humaine sur les décisions critiques, 6) Vérifier la conformité avec l'AI Act et le RGPD, 7) Mesurer régulièrement l'impact réel de l'IA sur les équipes." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <span>Impact de l'IA</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Impact de l'IA</span>
+                Impact de l'IA — Enjeux environnementaux, sociaux et éthiques
+            </h1>
+            <p class="sp-hero__lead">
+                L'intelligence artificielle transforme nos organisations et notre société — avec des bénéfices réels et des impacts à ne pas ignorer. Nous vous aidons à comprendre les <strong>enjeux environnementaux, sociaux et éthiques</strong> de l'IA pour une <strong>adoption éclairée et responsable</strong> dans votre entreprise.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Adopter l'IA de façon responsable
+                </a>
+                <a href="#engagements" class="btn btn-outline">
+                    Nos engagements
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Analyse objective et équilibrée</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conseils pratiques et actionnables</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conformité AI Act &amp; RGPD intégrée</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Notre approche</p>
+                        <p class="sp-deliverables-card__subtitle">Une IA responsable et durable</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Nous accompagnons les entreprises vers une <strong>adoption de l'IA qui respecte</strong> l'environnement, les équipes et les réglementations.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>conformité AI Act</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>empreinte IA optimisée</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Éthique</strong>
+                        <span>par conception</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises qui adoptent l'IA de façon responsable <strong>réduisent leurs risques légaux et réputationnels</strong> tout en améliorant la confiance de leurs équipes et clients</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Explorer les enjeux de l'impact IA</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/intelligence-artificielle/impact-ia/impact-environnemental-de-l-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Impact environnemental de l'IA</h2>
+                    <p>Consommation énergétique, data centers et empreinte carbone.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/impact-de-l-ia-sur-l-emploi" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Impact de l'IA sur l'emploi</h2>
+                    <p>Métiers transformés, compétences émergentes et stratégies d'adaptation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/ia-responsable-et-ethique-en-entreprise" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>IA responsable &amp; éthique</h2>
+                    <p>Biais algorithmiques, transparence et charte d'utilisation de l'IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/empreinte-ecologique-de-l-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Empreinte écologique de l'IA</h2>
+                    <p>Mesurer et réduire l'empreinte carbone de vos usages IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CHIFFRES CLÉS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Analyse basée sur des données vérifiées
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Vision équilibrée — ni alarmiste ni naïve
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Conseils pratiques pour les entreprises
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>30–40%</strong> des tâches automatisables par l'IA</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <p><strong>10×</strong> plus d'énergie qu'une recherche Google</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>2026</strong> AI Act pleinement applicable</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   ENJEUX — CAS D'USAGE FORMAT INFORMATIF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Les 4 grands enjeux</p>
+            <h2>Comprendre l'impact de l'IA sur notre société et nos entreprises</h2>
+            <p class="sp-section-sub">L'IA n'est pas une technologie neutre. Elle transforme notre rapport au travail, notre environnement et nos valeurs. Voici les enjeux essentiels à comprendre avant d'adopter l'IA.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <h3>Impact environnemental</h3>
+                <p>Entraînement des modèles, data centers, consommation d'eau et d'électricité — l'IA a une empreinte réelle. Des solutions existent pour la mesurer et la réduire.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Impact sur l'emploi</h3>
+                <p>L'IA transforme les métiers plus qu'elle ne les supprime — mais certains profils sont plus exposés. Comprendre ces dynamiques pour préparer ses équipes.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Éthique et biais</h3>
+                <p>Discriminations algorithmiques, opacité des décisions, manipulation de l'information — les risques éthiques de l'IA et comment les prévenir dans son entreprise.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Réglementation IA</h3>
+                <p>L'AI Act européen impose des obligations selon le niveau de risque des systèmes IA. Comprendre le cadre réglementaire pour rester conforme et éviter les sanctions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   NOS ENGAGEMENTS IA RESPONSABLE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="engagements">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos engagements</p>
+            <h2>Nos engagements pour une IA responsable</h2>
+            <p class="sp-section-sub">Chez Complianz System, nous croyons que l'IA doit être un outil au service de l'humain — pas l'inverse. Ces engagements guident chacun de nos accompagnements.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Conformité AI Act &amp; RGPD systématique</h3><p>Chaque solution IA que nous déployons est évaluée au regard de l'AI Act et du RGPD — les obligations légales sont intégrées dès la conception, pas ajoutées après</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <div><h3>Transparence sur les usages IA</h3><p>Nous conseillons toujours de communiquer clairement sur l'usage de l'IA — envers les collaborateurs, les clients et les partenaires. La transparence est un gage de confiance</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>L'IA augmente, elle ne remplace pas</h3><p>Nous concevons des systèmes IA qui assistent et augmentent les humains — avec un contrôle humain maintenu sur les décisions importantes et les processus critiques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <div><h3>Optimisation de l'empreinte environnementale</h3><p>Nous recommandons des modèles IA adaptés à la complexité du problème — pas toujours les plus puissants (donc les plus énergivores) — pour limiter l'impact environnemental</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Vérification des biais algorithmiques</h3><p>Avant tout déploiement de systèmes IA décisionnels, nous analysons les risques de discrimination et mettons en place des garde-fous pour garantir l'équité des décisions</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+                </div>
+                <div><h3>Formation aux enjeux de l'IA</h3><p>Chaque déploiement inclut une sensibilisation des équipes aux limites, risques et bonnes pratiques — pour une adoption responsable et des usages éthiques au quotidien</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Adoptez l'IA de façon responsable</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>Mettez-vous en conformité avec la réglementation européenne sur l'IA.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Gouvernance des données et IA</strong><p>Mettez en place une gouvernance solide pour vos projets IA.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Formation IA</strong><p>Sensibilisez vos équipes aux enjeux de l'IA responsable.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Évaluez les risques IA de votre organisation avant de déployer.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'impact de l'IA</h2>
+                <p>Notre équipe répond sous 24h pour vous accompagner vers une adoption responsable de l'IA dans votre entreprise.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>L'IA consomme-t-elle beaucoup d'énergie ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, l'IA a une <strong>empreinte énergétique significative</strong>. Une requête à ChatGPT consomme environ 10 fois plus qu'une recherche Google. L'entraînement des grands modèles peut consommer autant qu'un vol transatlantique. Cela dit, l'efficacité des modèles s'améliore rapidement et des modèles légers réduisent drastiquement cette empreinte pour les usages courants.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'IA va-t-elle remplacer les emplois ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'IA <strong>transforme les emplois plus qu'elle ne les supprime</strong> dans la majorité des cas. Elle automatise des tâches spécifiques plutôt que des métiers entiers. L'enjeu majeur est la reconversion et la montée en compétences. Certains profils sont plus exposés (saisie de données, traitement simple) mais de nouveaux métiers émergent (prompt engineers, responsables IA).</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce que l'IA éthique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'IA éthique désigne des systèmes IA développés selon des principes de <strong>fairness, transparence, responsabilité</strong> et respect des droits. Concrètement : algorithmes non discriminatoires, explicabilité des décisions, respect de la vie privée, transparence envers les utilisateurs et supervision humaine sur les décisions critiques.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment adopter l'IA de manière responsable en entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une adoption responsable passe par : évaluer les risques éthiques et réglementaires, former vos équipes, rédiger une <strong>charte d'utilisation IA</strong>, privilégier des modèles économes en énergie, maintenir la supervision humaine sur les décisions critiques et vérifier la conformité <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises">AI Act</a> et RGPD.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Adoptez l'IA de façon responsable — pour votre entreprise, vos équipes et votre environnement.</h2>
+                <p>Nous vous accompagnons vers une intégration de l'IA éthique, conforme et durable — qui crée de la valeur sans sacrifier vos responsabilités.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Nous parler de votre projet IA
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité AI Act intégrée</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> IA responsable par conception</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Approche humaine et durable</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

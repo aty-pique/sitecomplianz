@@ -1,0 +1,508 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 147 chars description) ─────────────────── #}
+{% block title %}Audit cybersécurité | Évaluation vulnérabilités SI | Complianz{% endblock %}
+
+{% block description %}Identifiez toutes vos vulnérabilités informatiques avec un audit cybersécurité complet. Rapport + plan de remédiation. Tests techniques et organisationnels.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit de cybersécurité — Évaluation de vos vulnérabilités",
+      "url": "{{ app_url }}/audit-conformite/cybersecurite/audit-cybersecurite",
+      "description": "Identification complète des vulnérabilités informatiques de l'entreprise : audit technique des systèmes, test d'intrusion (pentest), analyse des politiques de sécurité, revue des accès et droits. Rapport de vulnérabilités et plan de remédiation priorisé.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit de cybersécurité",
+      "offers": [
+        { "@type": "Offer", "name": "Audit cybersécurité PME",         "price": "2500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4900"  } },
+        { "@type": "Offer", "name": "Audit cybersécurité complet",     "price": "5500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9900"  } },
+        { "@type": "Offer", "name": "Audit + Plan de remédiation",     "price": "7500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "14000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Cybersécurité",               "item": "{{ app_url }}/audit-conformite/cybersecurite" },
+        { "@type": "ListItem", "position": 4, "name": "Audit de cybersécurité",      "item": "{{ app_url }}/audit-conformite/cybersecurite/audit-cybersecurite" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit de cybersécurité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit de cybersécurité est une analyse approfondie et méthodique de vos systèmes informatiques, réseaux, applications et droits d'accès pour identifier toutes les vulnérabilités exploitables. Il aboutit à un rapport de vulnérabilités classées par criticité et à un plan de remédiation priorisé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure un audit de cybersécurité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit cybersécurité dure généralement de 5 à 15 jours selon la taille du SI et le périmètre. Pour une PME avec un SI standard, comptez 5 à 8 jours d'audit + 2 jours de restitution. Pour un SI complexe ou un périmètre étendu, l'audit peut durer 3 à 4 semaines." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un audit de cybersécurité et un pentest ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit de cybersécurité est une analyse globale des risques (configuration, politiques, accès, documentation, organisation). Le pentest (test d'intrusion) va plus loin en simulant activement une attaque réelle pour identifier les vulnérabilités exploitables. Les deux sont complémentaires et souvent combinés dans un audit complet." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il après l'audit de cybersécurité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Après l'audit, vous recevez un rapport détaillé avec toutes les vulnérabilités identifiées classées par criticité (critique, élevée, moyenne, faible) et un plan de remédiation priorisé. Une séance de restitution est organisée avec la direction. Nous pouvons ensuite vous accompagner dans la mise en œuvre des correctifs et le suivi de remédiation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/cybersecurite">Cybersécurité</a>
+                <span>›</span>
+                <span>Audit de cybersécurité</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Audit &amp; évaluation des systèmes informatiques</span>
+                Audit de cybersécurité&nbsp;: évaluez vos vulnérabilités avant qu'un attaquant ne le fasse
+            </h1>
+            <p class="sp-hero__lead">
+                Nous analysons l'ensemble de votre <strong>surface d'attaque</strong>&nbsp;: systèmes, réseaux, applications, accès et politiques de sécurité. Résultat&nbsp;: un <strong>rapport de vulnérabilités complet</strong> et un plan de remédiation priorisé pour corriger ce qui compte vraiment.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un audit cybersécurité
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre d'audit
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport de vulnérabilités sous 5 jours</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Experts certifiés ISO 27001 &amp; CISA</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Confidentialité totale garantie</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">En sortie d'audit cybersécurité</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>rapport complet</strong> de toutes vos vulnérabilités classées par criticité, et un <strong>plan de remédiation priorisé</strong> — vous savez exactement quoi corriger en premier.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>5–15</strong>
+                        <span>jours</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>confidentiel</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0</strong>
+                        <span>faille ignorée</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>1 PME sur 2</strong> a subi une cyberattaque en 2024 — un audit préventif coûte 20x moins qu'une compromission</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services de cybersécurité</p>
+        <div class="sp-subservices__grid">
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-subsvc-card sp-subsvc-card--blue sp-subsvc-card--active">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit de cybersécurité</h2>
+                    <p>Diagnostic complet de votre SI : systèmes, réseaux, accès, applications et données sensibles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/pentest" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Test d'intrusion (pentest)</h2>
+                    <p>Simulation d'attaque réelle pour identifier les vulnérabilités exploitables avant les hackers.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/politique-securite" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Politique de sécurité (PSSI)</h2>
+                    <p>Définissez et formalisez vos règles de sécurité, accès, gestion des incidents et conformité SI.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/protection-cyberattaques" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Protection contre les cyberattaques</h2>
+                    <p>Mettez en place les dispositifs techniques et organisationnels pour bloquer et détecter les attaques.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Confidentialité totale des données
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport de vulnérabilités sous 5 jours
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Plan de remédiation 100% actionnable
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <p><strong>+120</strong> audits réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p><strong>0</strong> incident post-audit</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE D'AUDIT
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre d'intervention</p>
+            <h2>Ce que comprend un audit de cybersécurité complet</h2>
+            <p class="sp-section-sub">Un audit structuré qui couvre tous les vecteurs d'attaque — technique, organisationnel et humain.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Audit technique des systèmes</h3><p>Serveurs, postes, réseau, cloud — analyse complète de l'infrastructure informatique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div><h3>Test d'intrusion (pentest)</h3><p>Simulation d'attaque réelle pour découvrir les failles exploitables de l'extérieur</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Analyse des politiques de sécurité</h3><p>Revue de votre PSSI, chartes, procédures et documentation sécurité en vigueur</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div><h3>Revue des accès et des droits</h3><p>Gestion des identités, privilèges, MFA, comptes dormants et politiques de mots de passe</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Rapport de vulnérabilités</h3><p>Rapport exhaustif classifiant chaque faille par criticité (critique / élevé / moyen / faible)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Plan de remédiation priorisé</h3><p>Actions correctives classées par urgence, avec responsables et délais recommandés</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — 4 profils clients
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Qui a besoin d'un audit de cybersécurité ?</h2>
+            <p class="sp-section-sub">Toute entreprise qui stocke des données, utilise des outils connectés ou a des accès distants est exposée. Un audit permet de mesurer précisément votre niveau de risque réel.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>PME &amp; ETI sans RSSI</h3>
+                <p>Vous n'avez pas de responsable sécurité dédié et ne savez pas si votre SI résisterait à une attaque — l'audit est le premier diagnostic indispensable.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"/><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/></svg>
+                </div>
+                <h3>Entreprises post-incident</h3>
+                <p>Vous avez subi une cyberattaque, un phishing ou une fuite de données — l'audit post-incident identifie comment l'attaque s'est produite et comment l'éviter.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h3>Entreprises en démarche ISO 27001</h3>
+                <p>L'audit de cybersécurité est l'étape préalable indispensable à la certification ISO 27001 — il établit votre niveau de maturité actuel et identifie les écarts.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h3>Secteurs réglementés</h3>
+                <p>Santé, finance, énergie, collectivités — l'audit répond aux exigences NIS2, RGPD et sectorielles en prouvant la maîtrise de votre surface d'attaque.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit de cybersécurité ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre SI, du périmètre et de la profondeur des tests. Un audit préventif coûte en moyenne 20 fois moins qu'une cyberattaque.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit cybersécurité PME</p>
+                    <p class="sp-plan__price"><span>2 500 – 4 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE/PME, SI &lt; 50 postes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit technique des systèmes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Revue des accès et des droits</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de vulnérabilités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'actions priorisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution orale (1h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit cybersécurité complet</p>
+                    <p class="sp-plan__price"><span>5 500 – 9 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME structurée, accès distants, cloud</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit complet SI (systèmes + accès + outils)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Test d'intrusion (pentest) inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des politiques de sécurité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de vulnérabilités détaillé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution COMEX + suivi 1 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit + Plan de remédiation</p>
+                    <p class="sp-plan__price"><span>7 500 – 14 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, SI complexe, secteur sensible</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit cybersécurité 360°</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pentest approfondi multi-vecteurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de remédiation complet + suivi</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise en œuvre des correctifs critiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation ISO 27001 incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés à l'audit de cybersécurité</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Cybersécurité globale</strong><p>Vue d'ensemble de tous nos services de sécurité informatique pour votre entreprise.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/pentest" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                <div><strong>Test d'intrusion (pentest)</strong><p>Allez plus loin avec un pentest professionnel : simulation d'attaque réelle sur vos systèmes.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/politique-securite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Politique de sécurité (PSSI)</strong><p>Formalisez votre politique de sécurité SI suite aux recommandations de l'audit.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-27001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 27001</strong><p>L'audit cybersécurité est le point de départ naturel vers la certification ISO 27001.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit de cybersécurité</h2>
+                <p>Nos experts répondent sous 24h à toute question sur votre sécurité informatique.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit de cybersécurité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit de cybersécurité</strong> est une analyse méthodique et exhaustive de vos systèmes informatiques, réseaux, applications et droits d'accès pour identifier toutes les vulnérabilités exploitables. Il couvre à la fois les aspects techniques (configuration, infrastructure) et organisationnels (politiques, procédures). Il aboutit à un rapport classifié et à un plan de remédiation priorisé.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps dure un audit de cybersécurité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La durée dépend de la taille de votre SI et du périmètre. Pour une <strong>PME standard</strong>, comptez 5 à 8 jours d'audit + 2 jours de rapport et restitution. Pour un SI plus complexe ou un périmètre étendu (plusieurs sites, cloud + on-premise), l'audit peut durer 3 à 4 semaines. Le rapport vous est remis sous 5 jours ouvrés après la phase terrain.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre un audit de cybersécurité et un pentest ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>audit de cybersécurité</strong> est une analyse globale qui couvre configuration, politiques, accès, documentation et organisation. Le <a href="/audit-conformite/cybersecurite/pentest">pentest (test d'intrusion)</a> est une simulation active d'attaque réelle — nos experts tentent concrètement de pénétrer vos systèmes pour découvrir les failles réellement exploitables. Les deux sont complémentaires : l'audit dresse le tableau d'ensemble, le pentest valide les hypothèses d'attaque.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que se passe-t-il après l'audit de cybersécurité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Vous recevez un <strong>rapport de vulnérabilités complet</strong> classé par criticité et un plan de remédiation priorisé avec délais et responsables. Une séance de restitution est organisée avec la direction et les équipes IT. Nous pouvons ensuite vous accompagner dans la mise en œuvre des correctifs, le déploiement d'une <a href="/audit-conformite/cybersecurite/politique-securite">politique de sécurité PSSI</a>, et le suivi de remédiation sur 1 à 3 mois.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à connaître vos vulnérabilités avant qu'un attaquant ne les trouve ?</h2>
+                <p>Nos experts analysent votre SI et vous remettent un rapport de vulnérabilités complet sous 5 jours. Premier échange gratuit, confidentiel, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Lancer mon audit cybersécurité
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Confidentialité totale</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport sous 5 jours</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

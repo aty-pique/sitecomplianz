@@ -1,0 +1,414 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (55 chars titre / 149 chars description) ─────────────────── #}
+{% block title %}Certification ISO 27001 | SMSI &amp; sécurité SI | Complianz{% endblock %}
+
+{% block description %}Déployez un Système de Management de la Sécurité de l'Information conforme ISO 27001. Audit, SMSI, déclaration d'applicabilité et préparation à la certification.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Certification ISO 27001 — Sécurité des Systèmes d'Information",
+      "url": "{{ app_url }}/audit-conformite/certifications-iso/iso-27001",
+      "description": "Accompagnement complet à la certification ISO 27001 : analyse des risques SI (méthode EBIOS/ISO 27005), déclaration d'applicabilité (SOA), politique de sécurité SI, gestion des incidents, plan de continuité et accompagnement à l'audit de certification.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Certification ISO 27001",
+      "offers": [
+        { "@type": "Offer", "name": "Pack ISO 27001 PME",     "price": "7900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "14000" } },
+        { "@type": "Offer", "name": "Pack ISO 27001 ETI",     "price": "14000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "28000" } },
+        { "@type": "Offer", "name": "Surveillance continue", "price": "2400",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4800"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Certifications ISO",          "item": "{{ app_url }}/audit-conformite/certifications-iso" },
+        { "@type": "ListItem", "position": 4, "name": "Certification ISO 27001",     "item": "{{ app_url }}/audit-conformite/certifications-iso/iso-27001" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour obtenir la certification ISO 27001 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'obtention de la certification ISO 27001 prend généralement entre 9 et 24 mois selon la taille de l'organisation, la complexité du SI et le niveau de maturité sécurité initial. Une PME avec un SI structuré peut viser 9 à 12 mois. Une ETI ou une organisation avec un SI complexe nécessitera 18 à 24 mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la déclaration d'applicabilité (SOA) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La Déclaration d'Applicabilité (Statement of Applicability - SOA) est un document central de la certification ISO 27001. Elle liste les 93 mesures de sécurité de l'annexe A de la norme et justifie, pour chacune, si elle est applicable ou non à votre organisation, et si elle est mise en œuvre. C'est un document obligatoire pour la certification." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre ISO 27001 et RGPD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le RGPD est une réglementation légale obligatoire portant sur la protection des données personnelles. ISO 27001 est une norme volontaire de management de la sécurité des systèmes d'information. Les deux sont complémentaires : ISO 27001 fournit le cadre technique et organisationnel pour répondre aux exigences de sécurité du RGPD." }
+        },
+        {
+          "@type": "Question",
+          "name": "ISO 27001 est-elle compatible avec NIS2 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, la certification ISO 27001 est reconnue comme un cadre de référence solide pour répondre aux exigences de la directive NIS2 (Network and Information Security). Les organisations soumises à NIS2 qui disposent d'une certification ISO 27001 ont un avantage significatif pour démontrer leur conformité aux autorités compétentes." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/certifications-iso">Certifications ISO</a>
+                <span>›</span>
+                <span>Certification ISO 27001</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Système de Management de la Sécurité de l'Information</span>
+                Certification ISO 27001 — déployez votre SMSI et obtenez la certification
+            </h1>
+            <p class="sp-hero__lead">
+                Nous accompagnons votre organisation vers la <strong>certification ISO 27001</strong>&nbsp;: analyse des risques SI (méthode EBIOS/ISO 27005), déclaration d'applicabilité (SOA), politique de sécurité SI, gestion des incidents et plan de continuité. Un SMSI opérationnel et une certification obtenue avec un taux de succès de <strong>95%</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer ma certification ISO 27001
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Experts certifiés ISO 27001 Lead Auditor</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Méthode EBIOS Risk Manager</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Compatible NIS2 &amp; RGPD</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Au bout du processus de certification</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>SMSI certifié ISO 27001</strong>, votre sécurité SI maîtrisée, vos risques documentés et gérés — une reconnaissance internationale de votre niveau de sécurité.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>9–24</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>93</strong>
+                        <span>mesures de sécu.</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>3</strong>
+                        <span>ans validité</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>ISO 27001 est le seul standard de certification reconnu mondialement pour la sécurité de l'information</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Analyse des risques méthode EBIOS
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Compatible NIS2 et RGPD
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                95% de succès à la première tentative
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                <p><strong>+40</strong> certifications ISO 27001</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <p><strong>95%</strong> taux de certification</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — Ce que comprend l'accompagnement
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre de l'accompagnement</p>
+            <h2>Ce que comprend notre accompagnement ISO 27001</h2>
+            <p class="sp-section-sub">Un SMSI complet couvrant l'ensemble des exigences de la norme ISO 27001:2022 — de l'analyse des risques à la surveillance continue.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Analyse des risques SI (EBIOS / ISO 27005)</h3><p>Identification, évaluation et traitement des risques liés à la sécurité de vos systèmes d'information</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Déclaration d'applicabilité (SOA)</h3><p>Sélection et justification des 93 mesures de l'annexe A applicables à votre organisation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Politique de sécurité SI (PSSI)</h3><p>Rédaction de la politique de sécurité des systèmes d'information et de l'ensemble des procédures associées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Gestion des incidents de sécurité</h3><p>Procédures de détection, notification, réponse et apprentissage des incidents de sécurité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Plan de continuité d'activité (PCA)</h3><p>Plan de continuité et de reprise d'activité en cas d'incident majeur ou de cyberattaque</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div><h3>Audit interne &amp; préparation certification</h3><p>Audit interne blanc selon ISO 27001, levée des non-conformités et accompagnement pendant l'audit de certification</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'accompagnement à la certification ISO 27001 ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre SI, du périmètre de certification et de votre niveau de maturité sécurité. Devis personnalisé remis sous 48h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack ISO 27001 PME</p>
+                    <p class="sp-plan__price"><span>7 900 – 14 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME jusqu'à 100 personnes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gap analysis ISO 27001</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des risques SI</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> PSSI et documentation SMSI</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Déclaration d'applicabilité (SOA)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit interne + accompagnement certif.</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack ISO 27001 ETI</p>
+                    <p class="sp-plan__price"><span>14 000 – 28 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, SI complexe ou multi-sites</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>SMSI complet toutes exigences ISO 27001</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des risques EBIOS complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> PCA / PRA inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation auditeurs internes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Assistance pendant audit certification</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Surveillance continue</p>
+                    <p class="sp-plan__price"><span>2 400 – 4 800 €</span> <em>HT / an</em></p>
+                    <p class="sp-plan__duration">Maintien de la certification ISO 27001</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Revue annuelle des risques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Programme d'audits internes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation aux audits de surveillance</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise à jour documentation SMSI</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Veille réglementaire (NIS2, RGPD)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT hors frais d'audit de certification de l'organisme certificateur. Devis personnalisé sous 48h.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre certification ISO 27001</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit de cybersécurité</strong><p>L'audit sécurité SI est le point de départ naturel de tout projet de certification ISO 27001.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certifications ISO</strong><p>Combinez ISO 27001 avec ISO 9001 pour une certification intégrée qualité et sécurité SI.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité RGPD</strong><p>ISO 27001 et RGPD sont complémentaires — construisez un système de management unifié.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-9001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                <div><strong>Certification ISO 9001</strong><p>Associez ISO 27001 et ISO 9001 dans un système de management intégré (SMI) pour une certification globale.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la certification ISO 27001</h2>
+                <p>Nos experts certifiés ISO 27001 Lead Auditor répondent sous 24h à toute question sur votre projet SMSI.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Combien de temps pour obtenir la certification ISO 27001 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Entre <strong>9 et 24 mois</strong> selon la taille de l'organisation et la complexité du SI. Une PME avec un SI structuré peut viser 9 à 12 mois. Une ETI avec un SI complexe nécessitera 18 à 24 mois. Notre gap analysis initiale vous donne une estimation précise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce que la déclaration d'applicabilité (SOA) ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>Déclaration d'Applicabilité (SOA)</strong> est un document central de l'ISO 27001. Elle liste les 93 mesures de sécurité de l'annexe A et justifie, pour chacune, si elle est applicable ou non à votre organisation, et si elle est mise en œuvre. C'est un document obligatoire pour la certification.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre ISO 27001 et RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>RGPD</strong> est une réglementation légale obligatoire portant sur la protection des données personnelles. <strong>ISO 27001</strong> est une norme volontaire de management de la sécurité SI. Les deux sont complémentaires&nbsp;: ISO 27001 fournit le cadre technique pour répondre aux exigences de sécurité du <a href="/audit-conformite/conformite-rgpd">RGPD</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>ISO 27001 est-elle compatible avec NIS2 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, la certification <strong>ISO 27001 est reconnue comme référence pour répondre aux exigences NIS2</strong>. Les organisations soumises à NIS2 qui disposent d'une certification ISO 27001 ont un avantage significatif pour démontrer leur conformité aux autorités compétentes (ANSSI en France).</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à certifier votre sécurité SI avec ISO 27001 ?</h2>
+                <p>Nos experts ISO 27001 Lead Auditor vous accompagnent de A à Z. Diagnostic de maturité sécurité offert au démarrage. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer ma certification ISO 27001
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Experts Lead Auditor</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Compatible NIS2 &amp; RGPD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

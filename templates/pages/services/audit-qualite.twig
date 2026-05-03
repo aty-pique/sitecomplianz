@@ -1,0 +1,406 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 149 chars description) ─────────────────── #}
+{% block title %}Audit qualité interne | Évaluation SMQ et conformité | Complianz{% endblock %}
+
+{% block description %}Réalisez vos audits qualité internes selon les exigences ISO 9001. Rapport d'audit, plan d'actions correctives et préparation à l'audit de renouvellement.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit qualité interne — Évaluation et amélioration continue",
+      "url": "{{ app_url }}/audit-conformite/certifications-iso/audit-qualite",
+      "description": "Réalisation d'audits qualité internes selon les exigences ISO 9001 : plan d'audit, questionnaires d'audit, rapport d'audit complet avec non-conformités et actions correctives, suivi des actions et préparation à l'audit de renouvellement de certification.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit qualité interne ISO 9001",
+      "offers": [
+        { "@type": "Offer", "name": "Audit qualité ponctuel",          "price": "1200", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2400" } },
+        { "@type": "Offer", "name": "Programme annuel d'audits",       "price": "2800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5500" } },
+        { "@type": "Offer", "name": "Audit + formation auditeurs",     "price": "3500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Certifications ISO",          "item": "{{ app_url }}/audit-conformite/certifications-iso" },
+        { "@type": "ListItem", "position": 4, "name": "Audit qualité interne",       "item": "{{ app_url }}/audit-conformite/certifications-iso/audit-qualite" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi réaliser un audit qualité interne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit qualité interne est obligatoire selon la norme ISO 9001 (clause 9.2). Il permet d'évaluer la conformité de votre SMQ, d'identifier les non-conformités et opportunités d'amélioration, de préparer les audits de surveillance et de renouvellement, et de démontrer l'engagement de l'organisation dans l'amélioration continue." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la fréquence recommandée des audits qualité internes ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La norme ISO 9001 n'impose pas de fréquence précise mais exige que les audits internes soient programmés à intervalles planifiés. En pratique, un programme annuel couvrant l'ensemble du SMQ est recommandé. Les processus à risque ou ayant présenté des non-conformités peuvent être audités plus fréquemment." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qui peut réaliser un audit qualité interne ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'auditeur interne doit être compétent (connaissance des exigences ISO 9001, techniques d'audit) et impartial (il ne peut pas auditer son propre travail). Il peut s'agir d'un employé formé à l'audit interne ou d'un consultant externe. Faire appel à un consultant externe garantit l'objectivité et apporte une expertise spécialisée." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre audit interne et audit de certification ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit interne est réalisé par (ou pour) l'organisation elle-même, à des fins d'amélioration continue. L'audit de certification est réalisé par un organisme certificateur accrédité externe. L'audit interne prépare à l'audit de certification et permet de s'assurer que le SMQ est conforme avant de passer devant le certificateur." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/certifications-iso">Certifications ISO</a>
+                <span>›</span>
+                <span>Audit qualité interne</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Amélioration continue &amp; conformité ISO 9001</span>
+                Audit qualité interne — évaluation de votre SMQ et préparation à la certification
+            </h1>
+            <p class="sp-hero__lead">
+                Nous réalisons vos <strong>audits qualité internes</strong> selon les exigences ISO 9001&nbsp;: plan d'audit, entretiens avec les équipes, rapport de non-conformités et plan d'actions correctives. Un regard externe expert pour renforcer votre <strong>amélioration continue</strong> et sécuriser votre certification.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Planifier mon audit qualité interne
+                </a>
+                <a href="#livrables" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport livré sous 5 jours ouvrés</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Auditeurs certifiés ISO 9001 Lead Auditor</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Impartialité totale garantie</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À l'issue de l'audit qualité interne</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>rapport d'audit complet</strong>, vos non-conformités identifiées et classées, un <strong>plan d'actions correctives</strong> priorisé — et la sérénité pour votre prochain audit de certification.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>1–3</strong>
+                        <span>jours d'audit</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>5</strong>
+                        <span>livrables</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>ISO 9001</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>L'audit interne est <strong>obligatoire</strong> selon la clause 9.2 d'ISO 9001 — sans lui, votre certification est en péril</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport d'audit sous 5 jours ouvrés
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Auditeurs impartiaux et certifiés
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Plan d'actions correctives inclus
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <p><strong>+200</strong> audits qualité réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                <p><strong>100%</strong> certifications maintenues</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LIVRABLES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="livrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Livrables de l'audit qualité interne</p>
+            <h2>Ce que vous recevez à l'issue de chaque audit</h2>
+            <p class="sp-section-sub">Des livrables opérationnels, directement exploitables par votre responsable qualité et votre direction — pas un rapport théorique.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div><h3>Plan d'audit</h3><p>Programme détaillé des audits internes : processus audités, auditeurs, calendrier et objectifs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Questionnaires d'audit</h3><p>Grilles d'audit personnalisées selon les processus et les exigences ISO 9001 applicables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Rapport d'audit complet</h3><p>Rapport détaillé avec constats, preuves objectives, points forts et axes d'amélioration identifiés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Non-conformités et actions correctives</h3><p>Liste des non-conformités (mineures et majeures) avec analyses des causes et actions correctives associées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Suivi des actions correctives</h3><p>Tableau de bord de suivi de l'avancement des actions correctives et vérification de leur efficacité</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit qualité interne ?</h2>
+            <p class="sp-section-sub">Le coût dépend du périmètre audité, du nombre de processus et de la taille de votre organisation. Devis remis sous 24h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit qualité ponctuel</p>
+                    <p class="sp-plan__price"><span>1 200 – 2 400 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit d'un périmètre défini</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan et questionnaires d'audit</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Journée(s) d'audit sur site</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport d'audit complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Liste des non-conformités</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Programme annuel d'audits</p>
+                    <p class="sp-plan__price"><span>2 800 – 5 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Couverture complète du SMQ sur 1 an</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Programme d'audits annuel complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tous les processus du SMQ audités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi des actions correctives</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Synthèse pour revue de direction</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation audit de surveillance incluse</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit + formation auditeurs</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Audit + montée en compétence équipe</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit qualité complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation auditeurs internes (1 journée)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Outils et grilles d'audit livrés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Autonomie totale de votre équipe ensuite</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon le périmètre et le nombre de processus à auditer.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre audit qualité interne</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/certifications-iso/iso-9001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 9001</strong><p>L'audit interne est un prérequis à la certification ISO 9001 — obtenez votre certification avec notre accompagnement.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/smq" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                <div><strong>Mise en place SMQ</strong><p>Structurez votre SMQ avant de l'auditer — nos consultants vous accompagnent de la conception à l'amélioration continue.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Certifications ISO</strong><p>Étendez votre démarche qualité vers d'autres certifications : ISO 27001, ISO 14001, ISO 13485…</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit organisationnel</strong><p>Intégrez l'audit qualité dans une démarche d'audit organisationnel plus large pour une vision à 360°.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit qualité interne</h2>
+                <p>Nos auditeurs certifiés ISO 9001 répondent sous 24h à toute question sur votre programme d'audits internes.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Pourquoi réaliser un audit qualité interne ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'audit qualité interne est <strong>obligatoire selon la clause 9.2 d'ISO 9001</strong>. Il permet d'évaluer la conformité de votre SMQ, d'identifier les non-conformités et opportunités d'amélioration, de préparer les audits de surveillance et de démontrer l'engagement dans l'<strong>amélioration continue</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la fréquence recommandée ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>ISO 9001 n'impose pas de fréquence précise mais exige des audits <strong>à intervalles planifiés</strong>. En pratique, un programme annuel couvrant l'ensemble du SMQ est recommandé. Les processus à risque ou ayant présenté des non-conformités peuvent être audités plus fréquemment.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qui peut réaliser un audit qualité interne ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'auditeur doit être <strong>compétent</strong> (connaissance ISO 9001, techniques d'audit) et <strong>impartial</strong> (ne peut pas auditer son propre travail). Faire appel à un <strong>consultant externe</strong> garantit l'objectivité et apporte une expertise spécialisée sans les biais internes.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre audit interne et audit de certification ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>audit interne</strong> est réalisé par (ou pour) l'organisation pour l'amélioration continue. L'<strong>audit de certification</strong> est réalisé par un organisme accrédité externe. L'audit interne <strong>prépare</strong> à l'audit de certification et permet de s'assurer que le <a href="/audit-conformite/certifications-iso/smq">SMQ</a> est conforme avant de passer devant le certificateur.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à planifier votre audit qualité interne ISO 9001 ?</h2>
+                <p>Nos auditeurs certifiés réalisent votre audit et vous remettent un rapport complet sous 5 jours. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Planifier mon audit qualité interne
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport sous 5 jours</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Auditeurs certifiés ISO 9001</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Impartialité garantie</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,615 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 154 chars description) ─────────────────── #}
+{% block title %}Maintenance & support technique externalisé{% endblock %}
+
+{% block description %}Maintenance corrective et évolutive de vos sites, logiciels et applications : correction de bugs, mises à jour, support technique réactif. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Maintenance & Support technique externalisé",
+      "url": "{{ app_url }}/support-maintenance/maintenance",
+      "description": "Accompagnement technique continu pour assurer le bon fonctionnement, la correction des anomalies et l'évolution des outils digitaux de l'entreprise : sites, logiciels, applications, serveurs.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Maintenance informatique et support technique",
+      "offers": [
+        { "@type": "Offer", "name": "Support ponctuel",          "price": "300",  "priceCurrency": "EUR", "description": "300 à 800 € / intervention" },
+        { "@type": "Offer", "name": "Maintenance mensuelle",     "price": "200",  "priceCurrency": "EUR", "description": "200 à 1 000 € / mois" },
+        { "@type": "Offer", "name": "Maintenance avancée",       "price": "1000", "priceCurrency": "EUR", "description": "1 000 à 3 000 € / mois +" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Support & Maintenance",  "item": "{{ app_url }}/support-maintenance" },
+        { "@type": "ListItem", "position": 3, "name": "Maintenance & Support technique", "item": "{{ app_url }}/support-maintenance/maintenance" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un contrat de maintenance informatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un contrat de maintenance informatique est un accord par lequel vous déléguez la gestion technique de vos outils digitaux (sites, logiciels, applications) à un prestataire spécialisé. Il couvre la correction des bugs, les mises à jour, la surveillance du fonctionnement et l'évolution des outils selon vos besoins." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre maintenance corrective et évolutive ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La maintenance corrective consiste à identifier et corriger les anomalies, bugs et dysfonctionnements — elle réagit aux problèmes. La maintenance évolutive consiste à améliorer, moderniser et faire évoluer vos outils pour qu'ils s'adaptent à vos nouveaux besoins — elle anticipe. Les deux sont complémentaires et idéalement combinées dans un contrat de maintenance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un contrat de maintenance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "De 300 € à 800 € par intervention pour un support ponctuel, de 200 € à 1 000 € par mois pour une maintenance mensuelle standard, et de 1 000 € à 3 000 €+ par mois pour des systèmes critiques ou des périmètres étendus. Des forfaits d'heures mensuels sont également disponibles." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pouvez-vous reprendre la maintenance d'un outil que vous n'avez pas développé ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui — nous intervenons sur des sites, logiciels et applications que nous n'avons pas développés. Une phase d'audit technique initiale nous permet de comprendre l'architecture, documenter le code et évaluer l'état du projet avant de prendre en charge la maintenance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est votre délai d'intervention en cas de bug critique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le délai d'intervention dépend du niveau de SLA défini dans votre contrat. Pour les systèmes critiques, nous proposons une réactivité sous 2 à 4 heures en heures ouvrées, voire une astreinte 24/7 pour les cas les plus sensibles. Pour un support standard, le délai est de 24 à 48h ouvrées." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-3-bg) 0%, #f0f4f8 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/support-maintenance">Support &amp; Maintenance</a>
+                <span>›</span>
+                <span>Maintenance &amp; Support technique</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-3);">Maintenance &amp; support technique externalisé</span>
+                Vos outils restent fiables, performants et évolutifs dans le temps&nbsp;— sans que vous ayez à gérer les aspects techniques
+            </h1>
+            <p class="sp-hero__lead">
+                Nous assurons l'<strong>accompagnement technique continu</strong> de vos outils digitaux (sites, logiciels, applications, serveurs) — correction des anomalies, mises à jour, évolutions et support réactif. L'objectif&nbsp;: des <strong>systèmes stables et à jour</strong>, qui s'améliorent en continu.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un contrat de maintenance
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre périmètre d'intervention
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Intervention sur tout outil, même non développé par nous</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>SLAs définis contractuellement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport mensuel des interventions</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Avec notre contrat de maintenance</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos outils restent <strong>fiables, performants et évolutifs dans le temps</strong> — sans que vous ayez à gérer les aspects techniques au quotidien. Vous vous concentrez sur votre activité.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>&lt;4h</strong>
+                        <span>délai critique</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–85%</strong>
+                        <span>interruptions</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>documenté</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients réduisent leurs <strong>interruptions de service de 85%</strong> dès le premier mois de contrat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — 3 offres
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services de maintenance &amp; support</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Maintenance corrective &amp; évolutive</h2>
+                    <p>Correction des bugs et des anomalies + évolution continue de vos outils pour qu'ils s'adaptent à vos nouveaux besoins.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/debug" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Debug &amp; résolution de bugs</h2>
+                    <p>Diagnostic et résolution rapide de bugs bloquants, comportements anormaux ou erreurs techniques urgentes.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/support-maintenance/maintenance/support-technique" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/><path d="M14.05 6a9 9 0 0 1 0 11.95"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Support technique externalisé</h2>
+                    <p>Votre équipe technique à la demande — réponse aux questions, guidance, formation et support utilisateurs.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Intervention sur tout outil, même non développé chez nous
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                SLAs de réactivité définis &amp; garantis
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport mensuel des interventions inclus
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <p><strong>+300</strong> outils en maintenance active</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>–85%</strong> interruptions dès le 1er mois</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE D'INTERVENTION
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre</p>
+            <h2>Ce que comprend notre contrat de maintenance &amp; support</h2>
+            <p class="sp-section-sub">Un accompagnement technique complet — de la correction des bugs à l'évolution proactive de vos outils en passant par le support quotidien de vos équipes.</p>
+        </div>
+        <div class="sp-audit-grid sp-audit-grid--wide">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Prise en charge des anomalies &amp; bugs</h3><p>Diagnostic et résolution de tous les dysfonctionnements — pages en erreur, comportements anormaux, fonctionnalités cassées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Maintenance corrective</h3><p>Correction de bugs, restauration des fonctionnalités défaillantes, résolution des conflits entre composants</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Maintenance évolutive</h3><p>Amélioration des fonctionnalités existantes, ajout de nouvelles fonctions, adaptation aux nouveaux besoins métier</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Mises à jour techniques</h3><p>CMS, plugins, dépendances, frameworks, librairies — votre stack technique maintenu à jour et sécurisé</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Optimisation des performances</h3><p>Vitesse de chargement, requêtes base de données, cache, compression — vos outils plus rapides et plus fluides</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Surveillance du bon fonctionnement</h3><p>Monitoring de vos applications, alertes automatiques, détection proactive des problèmes avant qu'ils impactent vos utilisateurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div><h3>Interventions rapides en cas de problème</h3><p>Réactivité selon le SLA défini — de 2h pour les urgences critiques à 24-48h ouvrées pour les demandes standard</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div><h3>Améliorations continues</h3><p>Proposition régulière d'améliorations selon les évolutions technologiques et les retours utilisateurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Support technique (mail, ticket…)</h3><p>Canal de support dédié pour vos questions techniques — réponses claires, sans jargon inutile</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Suivi &amp; priorisation des demandes</h3><p>Système de tickets, suivi de l'état d'avancement, priorisation selon la criticité et votre niveau de contrat</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Documentation &amp; rapport mensuel</h3><p>Documentation mise à jour à chaque intervention et rapport mensuel synthétique de toutes les actions réalisées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div><h3>Accompagnement dans les évolutions futures</h3><p>Conseil proactif sur les évolutions technologiques, recommandations, planification des prochaines améliorations</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez avec un contrat de maintenance technique</h2>
+            <p class="sp-section-sub">Sans maintenance, chaque bug ou panne vous coûte du temps et de la crédibilité. Avec un contrat, vos outils fonctionnent, évoluent et vous n'avez plus à gérer l'urgence technique.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Outils fiables et fonctionnels</h3>
+                <p>Vos sites, logiciels et applications fonctionnent correctement en permanence — sans bugs récurrents ni pannes non anticipées.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Réduction des bugs &amp; interruptions</h3>
+                <p>–85% d'interruptions non planifiées dès le premier mois. La maintenance préventive détecte les problèmes avant qu'ils impactent.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Réactivité en cas de problème</h3>
+                <p>Intervention sous 2 à 4h pour les urgences critiques. Vous n'êtes plus seul face à un bug bloquant.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3>Amélioration continue des outils</h3>
+                <p>Vos outils ne stagnent pas — ils évoluent avec vos besoins, les nouvelles technologies et les retours de vos utilisateurs.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>Sécurité renforcée</h3>
+                <p>Mises à jour de sécurité appliquées sans délai, vulnérabilités corrigées proactivement — votre SI protégé en continu.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                </div>
+                <h3>Gain de temps pour vos équipes</h3>
+                <p>Vos collaborateurs ne perdent plus de temps avec des problèmes techniques. Ils se concentrent sur leur travail.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Tranquillité d'esprit</h3>
+                <p>Vous savez que la technique est gérée par des experts. Plus de nuits blanches à chercher pourquoi le site est tombé.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-3-bg); color: var(--pole-3);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Pérennité des systèmes</h3>
+                <p>Vos outils ne vieillissent pas mal. Stack à jour, architecture saine, dette technique maîtrisée — durabilité garantie.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU CONTRAT
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du contrat</p>
+                    <h2>Ce qui détermine le coût de votre maintenance</h2>
+                    <p class="sp-section-sub">Chaque contexte est différent. Un état des lieux gratuit permet d'analyser votre parc technique et d'établir un devis adapté à vos besoins réels.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type &amp; nombre d'outils à maintenir</span>
+                        <span class="sp-variable-value">Site web, logiciel, application, serveur — périmètre à définir</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau de réactivité attendu (SLA)</span>
+                        <span class="sp-variable-value">2h critique / 24h standard / 48h non urgent</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Criticité des systèmes</span>
+                        <span class="sp-variable-value">Outil interne vs système de production en contact clients</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de maintenance souhaité</span>
+                        <span class="sp-variable-value">Corrective seule / corrective + évolutive / TMA complète</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Disponibilité &amp; plages horaires</span>
+                        <span class="sp-variable-value">Heures ouvrées ou astreinte 24/7 selon les enjeux</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Mode de gestion</span>
+                        <span class="sp-variable-value">Ponctuel / forfait d'heures mensuel / abonnement complet</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Maintenance et support technique" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un contrat de maintenance &amp; support ?</h2>
+            <p class="sp-section-sub">Du support ponctuel au contrat de maintenance complet — nous adaptons la formule à votre périmètre et votre budget.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Support ponctuel</p>
+                    <p class="sp-plan__price"><span>300 – 800 €</span> <em>HT / intervention</em></p>
+                    <p class="sp-plan__duration">Bug urgent, besoin ponctuel</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic &amp; résolution</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport d'intervention</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intervention sous 48h ouvrées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Contacter l'équipe</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--soft">
+                <div class="sp-plan__badge sp-badge--soft">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Maintenance mensuelle</p>
+                    <p class="sp-plan__price"><span>200 – 1 000 €</span> <em>HT / mois</em></p>
+                    <p class="sp-plan__duration">PME, 1 à 5 outils à maintenir</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Forfait d'heures mensuel</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Corrections &amp; MàJ incluses</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLA 24h ouvrées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Évolutions mineures possibles</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-3); border-color: var(--pole-3);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Maintenance avancée</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €+</span> <em>HT / mois</em></p>
+                    <p class="sp-plan__duration">Systèmes critiques, TMA complète</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>TMA évolutive complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SLA 2-4h urgences critiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monitoring &amp; alertes 24h/24</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Évolutions &amp; nouvelles fonctions</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap technique trimestrielle</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs selon le périmètre et le niveau de SLA. Un contrat de maintenance évolutive (TMA) et des forfaits d'heures mensuels sont disponibles. État des lieux offert.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à la maintenance</h2>
+        <div class="sp-related__grid">
+            <a href="/support-maintenance/infogerance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></div>
+                <div><strong>Infogérance &amp; hébergement</strong><p>Déléguez également la gestion de votre infrastructure serveur en complément de la maintenance applicative.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit &amp; cybersécurité</strong><p>Identifiez les failles de sécurité de vos outils avant qu'elles soient exploitées.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/developpement-logiciel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Développement logiciel sur mesure</strong><p>Quand la maintenance atteint ses limites, il est parfois temps de reconstruire ou d'enrichir votre outil.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement/creation-site-web/refonte-site" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg></div>
+                <div><strong>Refonte de site web</strong><p>Votre site est trop vieux pour être maintenu efficacement ? Une refonte peut être la meilleure décision.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la maintenance &amp; le support</h2>
+                <p>Notre équipe répond sous 24h. L'état des lieux de vos outils est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-3); border-color: var(--pole-3);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un contrat de maintenance informatique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un contrat de maintenance informatique est un accord par lequel vous déléguez la gestion technique de vos outils digitaux (sites, logiciels, applications) à un prestataire. Il couvre la correction des bugs, les mises à jour, la surveillance et l'évolution continue de vos outils — sans que vous ayez à gérer les aspects techniques au quotidien.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre maintenance corrective et évolutive ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>maintenance corrective</strong> réagit aux problèmes&nbsp;: bugs, anomalies, dysfonctionnements. La <a href="/support-maintenance/maintenance/maintenance-corrective-evolutive">maintenance évolutive</a> améliore proactivement vos outils&nbsp;: nouvelles fonctionnalités, modernisation, adaptation à vos nouveaux besoins. Les deux sont idéalement combinées dans un contrat de maintenance complet.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un contrat de maintenance ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>300 € à 800 €</strong> par intervention pour du support ponctuel, de <strong>200 € à 1 000 € par mois</strong> pour une maintenance mensuelle standard, et de <strong>1 000 € à 3 000 €+ par mois</strong> pour des systèmes critiques avec TMA complète. Des forfaits d'heures mensuels sont disponibles selon vos besoins.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pouvez-vous reprendre la maintenance d'un outil que vous n'avez pas développé ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui — nous intervenons sur des sites, logiciels et applications que nous n'avons pas développés. Une phase d'<strong>audit technique initiale</strong> nous permet de comprendre l'architecture, documenter le code et évaluer l'état du projet avant de prendre en charge la maintenance. Cet audit est inclus dans le démarrage du contrat.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel est votre délai d'intervention en cas de bug critique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le délai d'intervention dépend du SLA défini dans votre contrat. Pour les systèmes critiques, nous proposons une réactivité <strong>sous 2 à 4 heures</strong> en heures ouvrées. Pour les urgences les plus sensibles, une <strong>astreinte 24/7</strong> est disponible. Le SLA standard est de 24 à 48h ouvrées pour les demandes non urgentes. Notre <a href="/support-maintenance/maintenance/debug">service de debug urgent</a> est disponible pour les bugs bloquants.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à ne plus gérer les aspects techniques de vos outils digitaux ?</h2>
+                <p>État des lieux gratuit de votre parc technique pour identifier les priorités et vous proposer un contrat de maintenance adapté à votre périmètre et votre budget.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-3); border-color: var(--pole-3);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un état des lieux gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> État des lieux gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intervention possible dès J+1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

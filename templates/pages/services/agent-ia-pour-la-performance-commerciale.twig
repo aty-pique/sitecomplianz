@@ -1,0 +1,221 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Agent IA commercial | IA pour la performance des ventes | Complianz{% endblock %}
+
+{% block description %}Boostez vos ventes avec un agent IA commercial : qualification de leads, relances automatisées, analyse de pipeline et coaching commercial IA.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Agent IA pour la performance commerciale",
+      "url": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-ia-pour-la-performance-commerciale",
+      "description": "Comment un agent IA commercial améliore la performance des ventes : qualification de leads, relances automatisées, analyse de pipeline et coaching.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Agents IA", "item": "{{ app_url }}/intelligence-artificielle/agents-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Agent IA commercial", "item": "{{ app_url }}/intelligence-artificielle/agents-ia/agent-ia-pour-la-performance-commerciale" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment un agent IA peut-il améliorer la performance commerciale ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un agent IA commercial améliore la performance sur plusieurs leviers : qualification automatique des leads entrants (scoring + enrichissement), relances programmées et personnalisées selon le comportement du prospect, mise à jour automatique du CRM après chaque interaction, analyse du pipeline pour identifier les opportunités à risque, et recommandations de prochaines actions pour les commerciaux. L'objectif est de réduire les tâches administratives des commerciaux et de concentrer leur énergie sur les conversations à forte probabilité de conversion." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'agent IA peut-il remplacer les commerciaux ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non — l'agent IA commercial est conçu pour augmenter les commerciaux, pas les remplacer. Il automatise les tâches à faible valeur (mise à jour CRM, relances standards, réponses aux questions simples) pour que les commerciaux se concentrent sur les négociations, la relation client et les deals complexes qui nécessitent de l'empathie et du jugement humain." }
+        },
+        {
+          "@type": "Question",
+          "name": "Avec quels CRM l'agent IA commercial est-il compatible ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous connectons l'agent IA commercial aux principaux CRM du marché : HubSpot, Salesforce, Pipedrive, Monday CRM, Zoho CRM, Copper. La connexion est bidirectionnelle — l'agent lit les données du CRM pour personnaliser ses actions et met à jour le CRM en temps réel après chaque interaction." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment l'agent IA qualifie-t-il les leads ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'agent utilise les données disponibles (comportement sur le site, informations de contact, source) et peut mener des conversations de qualification (via chat, email ou formulaire dynamique) pour collecter les informations manquantes : budget, timing, décisionnaire, besoin précis. Il calcule ensuite un score de qualification et crée le lead qualifié dans le CRM avec toutes les informations collectées." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/agents-ia">Agents IA</a><span>›</span>
+                <span>Agent IA commercial</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Agents IA — Commercial</span>
+                Agent IA pour la performance commerciale
+            </h1>
+            <p class="sp-hero__lead">
+                Boostez la performance de vos équipes commerciales avec un <strong>agent IA commercial</strong> — qualification automatique des leads, relances personnalisées, pipeline toujours à jour et coaching intelligent. Vos commerciaux se concentrent sur <strong>les deals à gagner</strong>.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Booster mes ventes avec l'IA</a>
+                <a href="/intelligence-artificielle/agents-ia" class="btn btn-outline">Voir tous nos agents IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous gagnez</p><p class="sp-deliverables-card__subtitle">Pipeline actif, commerciaux libérés</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>+35%</strong><span>leads qualifiés</span></div>
+                    <div class="sp-dc-stat"><strong>–60%</strong><span>admin commerciale</span></div>
+                    <div class="sp-dc-stat"><strong>+25%</strong><span>taux de conversion</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Comment un agent IA booste la performance commerciale</h2>
+                <p>Les commerciaux passent en moyenne 40% de leur temps sur des tâches non-commerciales : mise à jour du CRM, rédaction d'emails de relance, préparation de devis, reporting. Un agent IA commercial prend en charge ces tâches pour que vos commerciaux vendent plus et mieux.</p>
+                <p>L'agent IA commercial opère sur plusieurs dimensions : en amont (qualification des leads avant qu'ils n'arrivent aux commerciaux), en parallèle (mise à jour automatique du CRM) et en aval (relances automatisées, suivi des propositions en attente).</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les fonctionnalités clés de l'agent IA commercial</h2>
+                <p><strong>Qualification intelligente des leads :</strong> l'agent analyse les leads entrants, les enrichit (technographies, données firmographiques), score leur potentiel selon vos critères et les distribue aux bons commerciaux avec un brief de contexte.</p>
+                <p><strong>Relances automatisées et personnalisées :</strong> campagnes de relance déclenchées selon le comportement (ouverture d'email, visite de la page tarifs, téléchargement d'un document) avec messages personnalisés selon le contexte du prospect.</p>
+                <p><strong>CRM toujours à jour :</strong> capture automatique des interactions (emails, appels, réunions), mise à jour des statuts d'opportunités, création des activités de suivi et alertes pour les deals en danger.</p>
+                <p><strong>Analyse du pipeline et coaching :</strong> identification des deals à risque, recommandations de prochaines actions, analyse des patterns de succès et suggestions d'amélioration pour chaque commercial.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Intégration avec votre CRM et vos outils commerciaux</h2>
+                <p>L'agent IA commercial se connecte à HubSpot, Salesforce, Pipedrive ou votre CRM existant — sans remplacer vos outils, en les enrichissant. La connexion est bidirectionnelle pour une synchronisation en temps réel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Points clés</p>
+            <h2>Ce que vous devez savoir sur l'agent IA commercial</h2>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><h3>Commerciaux augmentés, pas remplacés</h3><p>L'agent automatise l'administratif pour que vos commerciaux consacrent 100% de leur énergie aux conversations et négociations</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><h3>CRM synchronisé en temps réel</h3><p>Votre CRM est toujours à jour — plus d'informations manquantes, pipeline fiable pour les prévisions de vente</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Relances au bon moment</h3><p>Les relances sont déclenchées selon le comportement réel du prospect — ni trop tôt, ni trop tard, avec le bon message</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><h3>Analyse du pipeline</h3><p>Détection automatique des deals à risque et recommandations d'actions correctives pour maximiser les conversions</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Complétez votre stratégie commerciale IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Tous nos agents IA pour votre entreprise.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia/agent-ia-disponible-24h-24-pour-pme" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div><strong>Agent IA 24h/24</strong><p>Qualifiez les leads la nuit aussi.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia/outils-ia-pour-le-marketing-digital" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><strong>Outils IA marketing</strong><p>Les outils IA pour générer plus de leads qualifiés.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Automatisez aussi vos processus commerciaux internes.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'agent IA commercial</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Comment un agent IA améliore-t-il la performance commerciale ?</summary>
+                    <div class="sp-faq-item__answer"><p>Qualification automatique des leads, <strong>relances personnalisées selon le comportement</strong>, mise à jour du CRM, analyse du pipeline et recommandations d'actions. Les commerciaux passent plus de temps à vendre, moins à administrer.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'agent IA peut-il remplacer les commerciaux ?</summary>
+                    <div class="sp-faq-item__answer"><p>Non — il automatise les tâches administratives (40% du temps commercial) pour que les commerciaux se concentrent sur les <strong>négociations et la relation client</strong>. L'IA augmente les commerciaux, elle ne les remplace pas.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Avec quels CRM l'agent IA est-il compatible ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>HubSpot, Salesforce, Pipedrive, Monday CRM, Zoho CRM</strong> et les principaux CRM du marché. La connexion est bidirectionnelle — lecture et mise à jour en temps réel.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment l'agent IA qualifie-t-il les leads ?</summary>
+                    <div class="sp-faq-item__answer"><p>L'agent analyse les données disponibles, peut mener des <strong>conversations de qualification</strong> (budget, timing, décisionnaire, besoin), calcule un score de qualification et crée le lead qualifié dans le CRM avec toutes les informations collectées.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à booster la performance de vos équipes commerciales avec un agent IA dédié ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Booster mes ventes</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM connecté inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> +25% taux de conversion moyen</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

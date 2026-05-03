@@ -1,0 +1,507 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}SEO local | Référencement Google Maps & local | Complianz{% endblock %}
+
+{% block description %}Boostez votre visibilité locale sur Google Maps et les recherches géolocalisées. Google Business Profile optimisé, citations locales et avis clients.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "SEO local",
+      "url": "{{ app_url }}/performance-digitale/seo/seo-local",
+      "description": "Optimisation de la visibilité locale sur Google Maps et les recherches géolocalisées. Google Business Profile, citations locales, avis clients et pages locales pour dominer les recherches de proximité.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Référencement local SEO",
+      "offers": [
+        { "@type": "Offer", "name": "SEO Local Starter",  "price": "690",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1400" } },
+        { "@type": "Offer", "name": "SEO Local Standard", "price": "1400", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2500" } },
+        { "@type": "Offer", "name": "SEO Local Premium",  "price": "2500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4500" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Référencement naturel (SEO)",       "item": "{{ app_url }}/performance-digitale/seo" },
+        { "@type": "ListItem", "position": 4, "name": "SEO local",                         "item": "{{ app_url }}/performance-digitale/seo/seo-local" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le SEO local ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le SEO local est l'ensemble des techniques visant à améliorer la visibilité d'une entreprise dans les résultats de recherche géolocalisés : Google Maps, le pack local (les 3 résultats avec carte) et les recherches avec mention de ville ou département. Il est indispensable pour toute entreprise ayant une présence physique ou ciblant une zone géographique précise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi optimiser Google Business Profile ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile (anciennement Google My Business) est le principal levier du SEO local. Une fiche bien optimisée améliore votre visibilité dans le pack local et sur Google Maps, affiche vos horaires, avis et photos, et génère des appels et demandes d'itinéraire directement depuis la recherche. Plus de 80% des consommateurs consultent une fiche GBP avant de se rendre en magasin." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour voir des résultats en SEO local ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les premières améliorations visibles (meilleure position dans le pack local, plus d'appels et de clics depuis la fiche GBP) apparaissent généralement en 1 à 3 mois. Le SEO local est plus rapide que le SEO national car la concurrence est plus localisée. Une stratégie complète avec landing pages et citations produit des résultats durables en 3 à 6 mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la cohérence NAP en SEO local ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le NAP (Name, Address, Phone) désigne la cohérence de vos informations d'entreprise (nom, adresse, téléphone) à travers tous les annuaires et mentions en ligne. Une incohérence NAP — une adresse différente entre votre fiche GBP et Pages Jaunes, par exemple — nuit à votre référencement local. L'audit NAP identifie et corrige toutes ces incohérences." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/seo">SEO</a>
+                <span>›</span>
+                <span>SEO local</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">SEO local</span>
+                Dominez les recherches locales Google — et attirez des clients dans votre zone géographique
+            </h1>
+            <p class="sp-hero__lead">
+                Nous optimisons votre <strong>visibilité locale sur Google Maps</strong> et dans les résultats géolocalisés. Google Business Profile optimisé, cohérence des citations, stratégie d'avis clients et pages locales — vous apparaissez en premier quand vos prospects cherchent vos services <strong>près de chez eux</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Booster ma visibilité locale
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit GBP gratuit avant engagement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Résultats visibles dès le 1er mois</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Suivi mensuel des positions locales</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Visibilité locale dominante</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre entreprise <strong>apparaît en tête des recherches locales</strong> — dans le pack Google Maps et les résultats géolocalisés — pour capter les clients prêts à acheter dans votre zone.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>Top 3</strong>
+                        <span>pack local Google</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+80%</strong>
+                        <span>appels &amp; itinéraires</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>×2</strong>
+                        <span>leads locaux</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>46% des recherches Google</strong> ont une intention locale — et <strong>76% des internautes</strong> qui effectuent une recherche locale visitent un commerce dans les 24h</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — pages sœurs SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les autres services SEO</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit SEO</h2>
+                    <p>Diagnostic complet de votre site pour identifier tous les freins à votre référencement local et national.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-technique" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO technique</h2>
+                    <p>Optimisation des fondations techniques pour un référencement local solide et durable.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Netlinking</h2>
+                    <p>Acquisition de backlinks locaux pour renforcer votre autorité sur votre zone géographique.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Rédaction SEO</h2>
+                    <p>Pages locales et contenus géolocalisés pour cibler toutes vos villes et zones de chalandise.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit Google Business Profile offert
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Résultats visibles dès 1 à 3 mois
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Suivi mensuel des positions locales
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p><strong>+80</strong> établissements optimisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>×2</strong> leads locaux en moyenne</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que comprend le SEO local
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une mission de SEO local</h2>
+            <p class="sp-section-sub">Du Google Business Profile aux citations locales et aux pages géolocalisées — une stratégie complète pour dominer les recherches locales dans votre zone de chalandise.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div><h3>Optimisation Google Business Profile</h3><p>Configuration complète, photos optimisées, description, catégories, horaires et attributs pour maximiser votre visibilité dans le pack local</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Cohérence NAP (nom, adresse, téléphone)</h3><p>Audit et correction de toutes les incohérences de vos informations dans les annuaires locaux, répertoires et mentions en ligne</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Création de citations locales</h3><p>Inscription et optimisation de votre fiche sur les annuaires pertinents : Pages Jaunes, Yelp, Tripadvisor, annuaires sectoriels</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div><h3>Stratégie de collecte d'avis</h3><p>Mise en place d'un processus automatisé pour générer des avis Google positifs et gérer les avis négatifs de manière professionnelle</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Pages locales SEO (landing pages par ville)</h3><p>Création de pages de destination géolocalisées pour chaque ville ou zone ciblée, optimisées pour les recherches avec mention de localité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Suivi des positions locales</h3><p>Monitoring mensuel de vos positions dans le pack local et les résultats organiques géolocalisés, avec rapport d'évolution</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — qui bénéficie du SEO local
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Les 4 profils qui bénéficient le plus du SEO local</h2>
+            <p class="sp-section-sub">Toute entreprise ayant une présence physique ou ciblant une zone géographique précise doit travailler son référencement local. Voici les cas d'usage les plus fréquents.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Commerce &amp; point de vente</h3>
+                <p>Boutiques, restaurants, hôtels et commerces de proximité : le SEO local génère du trafic en magasin directement depuis Google Maps et les recherches « [service] près de moi ».</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <h3>Professions libérales</h3>
+                <p>Médecins, avocats, notaires, thérapeutes : vos patients et clients cherchent des praticiens à proximité. Le SEO local vous positionne en tête pour les recherches dans votre ville.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Artisans &amp; services à domicile</h3>
+                <p>Plombiers, électriciens, menuisiers, jardiniers : les recherches locales avec urgence génèrent des leads à fort taux de conversion. Soyez là quand vos clients ont besoin de vous.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>PME multi-établissements</h3>
+                <p>Franchises, réseaux d'agences et multi-sites : une stratégie de SEO local à l'échelle, avec une fiche GBP et des pages locales optimisées pour chaque établissement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte le SEO local ?</h2>
+            <p class="sp-section-sub">Le budget dépend du nombre d'établissements, de la zone géographique ciblée et du niveau de concurrence local. L'audit GBP initial est toujours offert.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SEO Local Starter</p>
+                    <p class="sp-plan__price"><span>690 – 1 400 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">1 établissement — ville unique</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation GBP complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cohérence NAP (20 annuaires)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie d'avis Google</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel de positions</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SEO Local Standard</p>
+                    <p class="sp-plan__price"><span>1 400 – 2 500 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">1-3 établissements — zone départementale</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>GBP + citations locales complètes</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pages locales par ville (3-5)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie d'avis &amp; management</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Backlinks locaux ciblés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting mensuel détaillé</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">SEO Local Premium</p>
+                    <p class="sp-plan__price"><span>2 500 – 4 500 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Multi-établissements — zone régionale</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Stratégie multi-établissements</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pages locales illimitées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisation des avis</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Netlinking local intensif</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard de positions local</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — engagement 6 mois minimum. L'audit GBP initial est offert. Devis personnalisé selon votre secteur, votre zone géographique et le nombre d'établissements.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au SEO local</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit SEO</strong><p>Identifiez tous les freins au référencement local de votre site avant de démarrer la stratégie.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                <div><strong>Rédaction SEO &amp; pages locales</strong><p>Créez des pages locales optimisées pour chaque ville de votre zone de chalandise.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/netlinking" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div><strong>Netlinking local</strong><p>Renforcez votre autorité locale avec des backlinks issus de médias et annuaires de votre région.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/strategie-digitale/publicite-digitale" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><strong>Publicité locale (Google Ads)</strong><p>Complétez votre SEO local avec des campagnes Google Ads géolocalisées pour un impact immédiat.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le référencement local</h2>
+                <p>Notre équipe répond sous 24h. L'audit Google Business Profile est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le SEO local ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>SEO local</strong> regroupe toutes les techniques visant à améliorer la visibilité d'une entreprise dans les résultats géolocalisés&nbsp;: Google Maps, le pack local (les 3 résultats avec carte) et les recherches « [service] + ville ». Il est indispensable pour toute entreprise ayant une <strong>présence physique ou ciblant une zone géographique précise</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi optimiser Google Business Profile ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Google Business Profile est le <strong>principal levier du SEO local</strong>. Une fiche bien optimisée améliore votre position dans le pack local, affiche vos horaires, avis et photos, et génère des appels directement depuis la recherche. Plus de <strong>80% des consommateurs</strong> consultent une fiche GBP avant de se rendre en magasin.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour voir des résultats en SEO local ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les premières améliorations visibles apparaissent généralement en <strong>1 à 3 mois</strong>. Le SEO local est plus rapide que le SEO national car la concurrence est plus localisée. Une stratégie complète avec <a href="/performance-digitale/seo/redaction-seo">pages locales</a> et citations produit des résultats durables en 3 à 6 mois.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce que la cohérence NAP en SEO local ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>NAP (Name, Address, Phone)</strong> désigne la cohérence de vos informations d'entreprise (nom, adresse, téléphone) à travers tous les annuaires en ligne. Une incohérence — une adresse différente entre votre fiche GBP et Pages Jaunes — nuit à votre référencement local. Notre <a href="/performance-digitale/seo/audit-seo">audit SEO</a> identifie et corrige toutes ces incohérences.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à dominer les recherches locales et attirer plus de clients dans votre zone géographique ?</h2>
+                <p>Audit Google Business Profile gratuit pour analyser votre visibilité locale actuelle et vous proposer une stratégie adaptée à votre secteur et votre zone de chalandise.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Booster ma visibilité locale
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit GBP offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Résultats en 1 à 3 mois</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi mensuel inclus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

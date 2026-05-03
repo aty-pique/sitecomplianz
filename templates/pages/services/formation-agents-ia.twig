@@ -1,0 +1,595 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 151 chars description) ─────────────────── #}
+{% block title %}Formation agents IA — créer & déployer des agents intelligents{% endblock %}
+
+{% block description %}Formation pratique pour concevoir et déployer des agents IA dans votre entreprise : cas concrets, no-code & API, automatisation des tâches et optimisation des processus métier.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "name": "Formation sur la composition d'agents IA",
+      "url": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-agents-ia",
+      "description": "Formation pratique permettant de comprendre, concevoir et déployer des agents intelligents capables d'automatiser des tâches, d'assister les équipes et d'optimiser les processus métier. L'objectif est de rendre les équipes autonomes dans l'utilisation et la création d'agents IA adaptés à leurs besoins.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "educationalLevel": "Débutant à avancé",
+      "teaches": "Concevoir et déployer des agents IA pour automatiser les processus d'entreprise",
+      "availableLanguage": "fr",
+      "offers": [
+        { "@type": "Offer", "name": "Formation courte (initiation/découverte)", "price": "500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1500" } },
+        { "@type": "Offer", "name": "Formation complète (1 à 3 jours)",         "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000" } },
+        { "@type": "Offer", "name": "Formation avancée + cas pratiques",         "price": "5000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "15000" } },
+        { "@type": "Offer", "name": "Formation + accompagnement",                "price": "5000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "20000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle",         "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Formation IA",                      "item": "{{ app_url }}/intelligence-artificielle/formation-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Formation composition d'agents IA", "item": "{{ app_url }}/intelligence-artificielle/formation-ia/formation-agents-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À qui s'adresse la formation sur les agents IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La formation s'adresse à tous les profils d'entreprise : dirigeants et managers souhaitant comprendre les enjeux et le potentiel des agents IA, équipes opérationnelles (marketing, commercial, RH, support) voulant créer leurs propres automatisations, et profils techniques (développeurs, chefs de projet) souhaitant aller plus loin avec les API et le développement d'agents avancés. Des parcours adaptés à chaque niveau sont disponibles." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il savoir coder pour créer des agents IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, pas nécessairement. Nous proposons des formations orientées no-code (n8n, Make, outils IA visuels) accessibles sans compétences techniques, ainsi que des formations avancées avec API pour les profils techniques. L'approche no-code permet déjà de créer des agents puissants capables d'automatiser de nombreux processus métier sans une seule ligne de code." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un agent IA et comment peut-il aider mon entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un agent IA est un programme autonome capable de percevoir son environnement, de prendre des décisions et d'effectuer des actions pour atteindre un objectif défini. En entreprise, les agents IA peuvent : répondre automatiquement aux emails et demandes clients, qualifier des leads et mettre à jour le CRM, générer des rapports, automatiser des workflows complexes, et assister les équipes dans leurs tâches quotidiennes 24h/24." }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation peut-elle être adaptée à mon secteur d'activité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est l'un de nos points forts. Chaque formation est personnalisée selon votre secteur d'activité et vos cas d'usage réels. Les exercices pratiques utilisent des exemples tirés de votre métier — vente, marketing, RH, support, comptabilité, etc. — pour que les participants puissent immédiatement appliquer ce qu'ils ont appris dans leur quotidien professionnel." }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation est-elle éligible CPF ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Certaines de nos formations IA sont éligibles au financement CPF (Compte Personnel de Formation). Consultez notre page de formations IA éligibles CPF pour vérifier les conditions d'éligibilité ou contactez-nous pour un accompagnement dans la démarche de financement. D'autres financements sont également possibles (OPCO, Pôle Emploi, plan de formation entreprise)." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle/formation-ia">Formation IA</a>
+                <span>›</span>
+                <span>Formation agents IA</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Formation composition d'agents IA</span>
+                Apprenez à créer et déployer des agents IA adaptés à votre activité pour automatiser vos tâches et gagner en efficacité
+            </h1>
+            <p class="sp-hero__lead">
+                Formation pratique pour <strong>comprendre, concevoir et déployer des agents intelligents</strong> dans votre entreprise. Cas concrets issus de votre métier, approche no-code et API, exercices sur des cas réels — vos équipes repartent <strong>autonomes et capables d'agir</strong> dès le lendemain de la formation.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Demander un programme de formation
+                </a>
+                <a href="#programme" class="btn btn-outline">
+                    Voir le programme
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>100% pratique — cas réels de votre activité</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>No-code &amp; API — tous niveaux acceptés</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Présentiel ou visio — intra ou inter-entreprise</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Équipes autonomes sur les agents IA</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos équipes <strong>créent et déploient leurs propres agents IA</strong> adaptés à leur activité — sans attendre un prestataire, sans budget supplémentaire.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>pratique &amp; cas réels</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>J+1</strong>
+                        <span>applicable dès demain</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>tâches répétitives</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les équipes formées aux agents IA <strong>automatisent en moyenne 3 à 5 tâches</strong> dans le mois suivant la formation — gain de temps immédiat et mesurable</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FORMATIONS CONNEXES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos formations IA</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/intelligence-artificielle/formation-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg, #ebf5f1); background: var(--pole-4-bg, #ebf5f1);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation IA générale</h2>
+                    <p>Toutes nos formations IA — de l'initiation à la maîtrise avancée des outils IA pour les entreprises.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia/formation-a-l-automatisation-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg, #ebf5f1); background: var(--pole-4-bg, #ebf5f1);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation automatisation IA</h2>
+                    <p>Automatiser vos workflows avec n8n, Make et les outils IA — formation pratique no-code.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg, #ebf5f1); background: var(--pole-4-bg, #ebf5f1);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Agents IA sur mesure</h2>
+                    <p>Préférez-vous qu'on crée vos agents IA pour vous ? Nos équipes développent et déploient vos agents.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Cas pratiques tirés de votre secteur d'activité
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation personnalisée selon niveau &amp; objectifs
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Accompagnement post-formation disponible
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p><strong>+300</strong> participants formés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction participants</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <p><strong>3–5</strong> agents créés par équipe en moyenne</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PROGRAMME — 9 thèmes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="programme">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Programme de la formation</p>
+            <h2>Ce que vous apprenez dans la formation agents IA</h2>
+            <p class="sp-section-sub">Un programme progressif — des concepts fondamentaux aux cas d'usage avancés — avec une mise en pratique sur des situations réelles issues de votre activité à chaque étape.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div><h3>Introduction aux concepts d'IA et d'agents</h3><p>Comprendre ce qu'est l'IA, les LLM, les agents autonomes — démystifier la technologie et identifier le potentiel réel pour votre entreprise</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Présentation des outils</h3><p>Tour d'horizon des outils disponibles : no-code (n8n, Make, Zapier), IA générative (GPT, Claude, Gemini), APIs — sélection selon votre usage et niveau</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Méthodologie de conception d'un agent IA</h3><p>Comment structurer un agent efficace : définir son objectif, ses entrées/sorties, ses outils, ses limites — la méthodologie qui garantit des résultats fiables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Identification des cas d'usage dans votre entreprise</h3><p>Exercice pratique pour cartographier vos tâches répétitives et identifier les 3 à 5 cas d'usage IA à forte valeur ajoutée dans votre activité spécifique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Création d'agents simples et avancés</h3><p>Ateliers pratiques de création d'agents — de l'agent simple (répondre à des emails) à l'agent avancé (qualifier des leads et mettre à jour le CRM automatiquement)</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Mise en pratique sur des cas réels</h3><p>Création d'au moins un agent IA fonctionnel adapté à votre activité pendant la formation — vous repartez avec un agent opérationnel déployable immédiatement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Formation personnalisée selon l'activité</h3><p>Tous les exemples et exercices sont adaptés à votre secteur (vente, marketing, RH, support, comptabilité) — pas de cas génériques déconnectés de votre réalité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Sessions de questions / réponses</h3><p>Temps dédié pour répondre à toutes les questions, débloquer les participants et s'assurer que chacun maîtrise les concepts et outils abordés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Possibilité d'accompagnement post-formation</h3><p>Suivi post-formation optionnel — sessions de coaching pour affiner les agents créés, identifier de nouveaux cas d'usage et accompagner l'adoption dans vos équipes</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que vous gagnez</p>
+            <h2>Ce que vos équipes gagnent après la formation agents IA</h2>
+            <p class="sp-section-sub">Une formation sur les agents IA ne se limite pas à apprendre une technologie — elle transforme la façon de travailler de vos équipes et réduit durablement leur charge sur les tâches sans valeur ajoutée.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <h3>Montée en compétence rapide</h3>
+                <p>Vos équipes maîtrisent les agents IA en 1 à 3 jours — pas d'années de formation nécessaires pour obtenir des résultats concrets.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Autonomie dans l'utilisation de l'IA</h3>
+                <p>Vos équipes n'ont plus besoin d'un prestataire pour chaque nouvel agent — elles créent et ajustent leurs automatisations elles-mêmes.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps significatif</h3>
+                <p>3 à 5 tâches automatisées dès le mois suivant la formation en moyenne — gain de temps immédiat sur les tâches répétitives à faible valeur ajoutée.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>Réduction des tâches répétitives</h3>
+                <p>Les agents IA prennent en charge les tâches sans valeur ajoutée — vos collaborateurs se concentrent sur ce qui compte vraiment.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Meilleure productivité individuelle et collective</h3>
+                <p>Chaque collaborateur devient plus efficace avec son assistant IA personnel — l'effet se cumule sur toute l'équipe.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                </div>
+                <h3>Capacité à identifier de nouveaux cas d'usage</h3>
+                <p>Après la formation, vos équipes voient de nouvelles opportunités d'automatisation — l'effet boule de neige s'enclenche naturellement.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables de la formation</p>
+                    <h2>Ce qui détermine le format et le tarif de la formation</h2>
+                    <p class="sp-section-sub">Chaque formation est dimensionnée et personnalisée selon votre contexte, votre niveau et vos objectifs. Ces variables permettent de définir le programme et la durée les plus adaptés.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau des participants</span>
+                        <span class="sp-variable-value">Débutant (aucune expérience IA) à avancé (déjà utilisateur d'outils IA)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de participants</span>
+                        <span class="sp-variable-value">Formation individuelle (1 personne) à formation groupe (jusqu'à 12 participants)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Durée de la formation</span>
+                        <span class="sp-variable-value">Demi-journée (initiation) à 3 jours (formation complète + mise en pratique sur cas réels)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Format</span>
+                        <span class="sp-variable-value">Présentiel (sur site ou dans nos locaux) ou visio — intra-entreprise ou inter-entreprise</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Outils utilisés</span>
+                        <span class="sp-variable-value">No-code (n8n, Make, Zapier) pour profils non-tech, API (OpenAI, Anthropic) pour profils techniques</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Complexité des cas pratiques</span>
+                        <span class="sp-variable-value">Agents simples (email, génération de contenu) à agents complexes (multi-outils, décision autonome)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Secteur d'activité</span>
+                        <span class="sp-variable-value">Tous secteurs — les cas pratiques sont personnalisés selon votre métier (vente, RH, marketing, support)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin de suivi post-formation</span>
+                        <span class="sp-variable-value">Formation seule ou avec accompagnement post-formation (coaching, mise en place, suivi des résultats)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Formation agents IA entreprise" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la formation agents IA ?</h2>
+            <p class="sp-section-sub">Selon la durée, le format et le niveau de personnalisation. Chaque programme est adapté à vos besoins et budget — financement possible via CPF ou OPCO.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Formation courte</p>
+                    <p class="sp-plan__price"><span>500 – 1 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Initiation / découverte — demi-journée</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Concepts IA &amp; agents</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Présentation des outils no-code</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 démo sur cas réel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support pédagogique</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Formation complète</p>
+                    <p class="sp-plan__price"><span>1 500 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">1 à 3 jours — groupe jusqu'à 12 pers.</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Programme complet de A à Z</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Création d'un agent opérationnel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cas pratiques personnalisés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Questions / réponses &amp; support</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support pédagogique inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Formation avancée</p>
+                    <p class="sp-plan__price"><span>5 000 – 20 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Avancé + cas pratiques + coaching</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Cas pratiques entreprise approfondis</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agents avancés (API, multi-outils)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation sur plusieurs sessions</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Coaching post-formation inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement mise en production</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Financement possible via <strong>CPF</strong>, <strong>OPCO</strong> ou plan de formation entreprise. Contactez-nous pour vérifier l'éligibilité et vous accompagner dans les démarches de financement.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à la formation</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Préférez-vous qu'on crée vos agents IA pour vous ? Nos équipes les développent et les déploient.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA des processus</strong><p>Automatisation de vos workflows métier — en complément de la formation pour passer à la pratique.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia/integration-ia-dans-l-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Intégration IA dans le SI</strong><p>Après la formation, intégrez l'IA dans vos outils existants avec l'accompagnement de nos experts.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Toutes nos formations IA</strong><p>IA générative, IA pour le marketing, IA pour dirigeants — toutes nos formations IA disponibles.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la formation agents IA</h2>
+                <p>Notre équipe répond sous 24h pour vous proposer le programme de formation le plus adapté à votre niveau et vos objectifs.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>À qui s'adresse la formation sur les agents IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La formation s'adresse à <strong>tous les profils</strong> : dirigeants et managers souhaitant comprendre les enjeux, équipes opérationnelles (marketing, commercial, RH, support) voulant créer leurs propres automatisations, et profils techniques souhaitant aller plus loin avec les API. Des parcours adaptés à chaque niveau sont disponibles — aucune expérience IA préalable requise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il savoir coder pour créer des agents IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Non. Nos formations <strong>no-code</strong> (n8n, Make, Zapier avec IA) permettent de créer des agents puissants sans une seule ligne de code. Les profils techniques peuvent aller plus loin avec nos formations API (OpenAI, Anthropic). L'approche est choisie selon votre niveau et vos objectifs.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La formation peut-elle être adaptée à mon secteur ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, c'est l'un de nos points forts. <strong>Tous les cas pratiques sont personnalisés</strong> selon votre secteur d'activité — vente, marketing, RH, support, comptabilité, santé, etc. Vous repartez avec des agents créés spécifiquement pour votre métier, déployables immédiatement dans votre activité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La formation est-elle éligible CPF ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Certaines de nos formations IA sont éligibles au <strong>financement CPF</strong>. D'autres financements sont également possibles : OPCO, plan de formation entreprise, aide Pôle Emploi. Contactez-nous pour vérifier l'éligibilité et vous accompagner dans les démarches de <a href="/intelligence-artificielle/formation-ia/formation-ia-eligible-cpf">financement de formation IA</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Peut-on faire créer ses agents IA directement par votre équipe ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, si vous préférez déléguer la création et le déploiement de vos agents IA plutôt que de former vos équipes, notre service d'<a href="/intelligence-artificielle/agents-ia">agents IA sur mesure</a> prend en charge tout le développement. Les deux approches sont complémentaires — formation pour l'autonomie, développement sur mesure pour les agents complexes.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à former vos équipes pour qu'elles créent leurs propres agents IA et automatisent leurs tâches dès demain ?</h2>
+                <p>Décrivez vos besoins et le niveau de vos équipes — nous concevons un programme de formation sur mesure adapté à votre activité et vos objectifs.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Demander un programme de formation
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Programme personnalisé</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Financement CPF possible</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Applicable J+1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

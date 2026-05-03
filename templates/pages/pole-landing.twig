@@ -1,0 +1,129 @@
+{% extends 'layouts/base.twig' %}
+
+{% set pole_heroes = ['blue', 'green', 'beige', 'soft', 'ia'] %}
+{% set ph = pole_heroes[pole.pole] ?? 'blue' %}
+
+{% block title %}{{ pole.meta_title }}{% endblock %}
+{% block description %}{{ pole.meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": {{ pole.name|json_encode|raw }},
+      "description": {{ pole.meta_description|json_encode|raw }},
+      "url": "{{ app_url }}{{ pole.path }}"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": {{ pole.name|json_encode|raw }}, "item": "{{ app_url }}{{ pole.path }}" }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero sp-hero--{{ ph }} pole-lp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container pole-lp-hero__inner">
+        <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+            <a href="/">Accueil</a>
+            <span class="sp-breadcrumb__sep">/</span>
+            <span aria-current="page">{{ pole.name }}</span>
+        </nav>
+        <p class="sp-hero__eyebrow">{{ pole.hero_eyebrow }}</p>
+        <h1 class="sp-hero__title">{{ pole.name }}</h1>
+        <p class="sp-hero__lead">{{ pole.hero_lead }}</p>
+        <div class="sp-hero__actions">
+            <button type="button" class="btn btn-primary btn-lg" data-open-quote-modal>Demander un devis</button>
+            <a href="/nos-packs#pole-{{ pole.pole }}" class="btn btn-outline">Voir les packs de ce pôle</a>
+            <a href="/contact" class="btn btn-outline">Contact</a>
+        </div>
+    </div>
+</section>
+
+<section class="pole-lp-band">
+    <div class="container pole-lp-intro">
+        <p>{{ pole.intro }}</p>
+        <ul class="pole-lp-highlights">
+            {% for line in pole.highlights %}
+                <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="pole-lp-section sp-section">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Expertises</p>
+            <h2>Nos domaines sur ce pôle</h2>
+            <p class="sp-section-sub">Accédez aux familles de services et à toutes les fiches détaillées.</p>
+        </div>
+        <div class="pole-lp-cat-grid">
+            {% for cat in pole.categories %}
+                <a href="{{ cat.href }}" class="pole-lp-cat-card">
+                    <span class="pole-lp-cat-card__title">{{ cat.title }}</span>
+                    <span class="pole-lp-cat-card__text">{{ cat.text }}</span>
+                    <span class="pole-lp-cat-card__cta">Découvrir →</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="pole-lp-packs sp-section">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos packs</p>
+            <h2>Parcours packagés — {{ pole.name }}</h2>
+            <p class="sp-section-sub">Tarifs indicatifs ; votre chargé d’affaires adapte le périmètre à votre contexte.</p>
+        </div>
+        {% if pole_packs|length > 0 %}
+            <ul class="pack-index__grid pole-lp-packs__grid">
+                {% for slug, p in pole_packs %}
+                    <li>
+                        <a href="/nos-packs/{{ slug }}" class="pack-index__card{% if p.signature %} pack-index__card--sig{% endif %}">
+                            <span class="pack-index__card-title">{{ p.title }}</span>
+                            <span class="pack-index__card-tag">{{ p.tagline }}</span>
+                            <span class="pack-index__card-price">{{ p.price }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="pole-lp-empty">Les offres pack pour ce pôle sont en cours d’alignement. <a href="/contact">Écrivez-nous</a> pour un devis sur mesure.</p>
+        {% endif %}
+        <p class="pole-lp-packs-foot">
+            <a href="/nos-packs">Voir tous les packs Complianz →</a>
+        </p>
+    </div>
+</section>
+
+<section class="sp-cta-final sp-cta-final--{{ ph }}">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Un projet {{ pole.name }} ?</h2>
+                <p>Décrivez votre contexte : nous vous orientons vers la bonne famille de services ou un pack adapté.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <button type="button" class="btn btn-primary btn-lg" data-open-quote-modal>Demander un devis</button>
+                <a href="/contact" class="btn btn-outline sp-cta-final__outline">Échanger avec un expert</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

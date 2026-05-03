@@ -1,0 +1,22 @@
+{# Navigation latérale wiki — accordéons <details> #}
+<div class="wiki-sidebar__head">
+    <a href="/wiki" class="wiki-sidebar__brand">Wiki Complianz</a>
+    <button type="button" class="wiki-sidebar__close" data-wiki-sidebar-toggle aria-label="Fermer le menu documentation"></button>
+</div>
+<nav class="wiki-sidebar__nav" aria-label="Documentation — navigation principale">
+    {% for group in wiki_config.nav %}
+        <details class="wiki-nav-group"{% if wiki_page.nav_section is defined and group.id == wiki_page.nav_section %} open{% endif %}>
+            <summary class="wiki-nav-group__summary">
+                <span class="wiki-nav-group__label">{{ group.label }}</span>
+            </summary>
+            <ul class="wiki-nav-group__list">
+                {% for p in group.pages %}
+                    <li>
+                        <a href="/wiki/{{ p.slug }}"{% if wiki_slug is defined and p.slug == wiki_slug %} class="is-active" aria-current="page"{% endif %}>{{ p.label }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </details>
+    {% endfor %}
+</nav>
+<p class="wiki-sidebar__hint">Astuce : un seul groupe ouvert à la fois sur mobile — utilisez la recherche du hub pour sauter directement à une page.</p>

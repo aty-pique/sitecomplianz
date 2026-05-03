@@ -1,68 +1,600 @@
 {% extends 'layouts/base.twig' %}
 
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ app_name|json_encode|raw }},
+  "url": "{{ app_url }}/"
+}
+</script>
+{% endblock %}
+
 {% block content %}
-<!-- Hero -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Conformité RGPD<br><span class="highlight">sans prise de tête</span></h1>
-            <p class="hero-subtitle">{{ subtitle }}</p>
-            <div class="hero-actions">
-                <a href="/demo" class="btn btn-primary btn-lg">Commencer gratuitement</a>
-                <a href="/fonctionnalites" class="btn btn-outline btn-lg">Voir les fonctionnalités</a>
+<div class="page-home">
+
+{# ── Hero (inchangé structurellement) ── #}
+<section class="hero-search">
+    <div class="hero-search__bg">
+        <span class="hero-blob hero-blob--1"></span>
+        <span class="hero-blob hero-blob--2"></span>
+        <span class="hero-blob hero-blob--3"></span>
+    </div>
+
+    <div class="container hero-search__inner">
+
+        <div class="hero-search__text">
+            <div class="hero-search__h1-glass">
+                <h1 class="hero-search__h1">Conseil en structuration, conformité, performance et transformation des entreprises</h1>
             </div>
-            <p class="hero-note">Aucune carte de crédit requise · Annulez à tout moment</p>
+            <p class="hero-search__title">Reprenez le contrôle de votre entreprise</p>
+            <p class="hero-search__subtitle">
+                Organisation, outils, conformité, performance : nous structurons votre système global
+            </p>
         </div>
-        <div class="hero-visual">
-            <div class="hero-card">
-                <div class="card-badge">RGPD Conforme</div>
-                <div class="card-checks">
-                    <span class="check">✓ Bandeau cookies automatique</span>
-                    <span class="check">✓ Politique de confidentialité</span>
-                    <span class="check">✓ Registre des traitements</span>
-                    <span class="check">✓ Mises à jour légales incluses</span>
+
+        <div class="hero-search__box">
+            <form class="search-form" action="#" method="get" role="search">
+                <div class="search-field">
+                    <span class="search-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </span>
+                    <label class="visually-hidden" for="home-search-q">Rechercher un besoin</label>
+                    <input
+                        type="search"
+                        id="home-search-q"
+                        name="q"
+                        class="search-input"
+                        placeholder="Ex : auditer ma conformité RGPD, créer un site vitrine, automatiser mes processus…"
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="search-btn">
+                        Rechercher
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+
+            <div class="search-suggestions">
+                <span class="suggestions-label">Suggestions&nbsp;:</span>
+                <div class="suggestions-pills">
+                    <a href="/audit-conformite/conformite-rgpd/audit-rgpd" class="pill">Audit RGPD</a>
+                    <a href="/solutions-developpement/creation-site-web" class="pill">Créer un site web</a>
+                    <a href="/intelligence-artificielle/agents-ia" class="pill">Agents IA sur mesure</a>
+                    <a href="/performance-digitale/seo" class="pill">Améliorer mon SEO</a>
+                    <a href="/audit-conformite/cybersecurite" class="pill">Cybersécurité</a>
+                    <a href="/solutions-developpement/erp-crm/crm-sur-mesure" class="pill">CRM sur mesure</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-search__stats">
+            <div class="stat-card">
+                <span class="stat-number">+200</span>
+                <span class="stat-label">Clients accompagnés</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+                <span class="stat-number">360°</span>
+                <span class="stat-label">Domaines d’expertise</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Taux de satisfaction</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+                <span class="stat-number">10 ans</span>
+                <span class="stat-label">D’expertise métier</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="home-problem" aria-labelledby="home-problem-title">
+    <div class="container">
+        <header class="home-problem__head">
+            <p class="home-problem__badge">{{ home.client_problem.tag }}</p>
+            <h2 id="home-problem-title" class="home-problem__title">{{ home.client_problem.title }}</h2>
+            <p class="home-problem__subtitle">{{ home.client_problem.subtitle }}</p>
+        </header>
+
+        <ul class="home-problem__cards" role="list">
+            {% for card in home.client_problem.cards %}
+            <li class="home-problem__card home-problem__card--{{ card.theme }}">
+                <div class="home-problem__card-head">
+                    <span class="home-problem__num">{{ card.num }}</span>
+                    {% include 'partials/home-problem-icon.twig' with { theme: card.theme } only %}
+                </div>
+                <h3 class="home-problem__card-title">{{ card.title }}</h3>
+                <p class="home-problem__card-text">{{ card.text }}</p>
+                <p class="home-problem__impact"><span class="home-problem__impact-inner">{{ card.impact }}</span></p>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="home-problem__funnel" aria-hidden="true">
+            <svg class="home-problem__funnel-svg" viewBox="0 0 960 100" preserveAspectRatio="xMidYMid meet">
+                <path d="M120 4 L480 78 M360 4 L480 78 M600 4 L480 78 M840 4 L480 78" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-opacity="0.85"/>
+                <circle cx="480" cy="88" r="20" fill="#597AAF"/>
+                <path d="M480 79v12M474 88l6 6 6-6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="home-problem__resolution">
+            <div class="home-problem__resolution-visual" aria-hidden="true">
+                <img
+                    class="home-problem__resolution-img"
+                    src="/assets/images/illustrations/WebP/Plan%20de%20travail%202.webp"
+                    width="200"
+                    height="200"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+            <div class="home-problem__resolution-copy">
+                <h3 class="home-problem__resolution-headline">
+                    <span class="home-problem__resolution-line">{{ home.client_problem.resolution.headline.line1 }}</span>
+                    <span class="home-problem__resolution-accent">{{ home.client_problem.resolution.headline.line2 }}</span>
+                </h3>
+                <p class="home-problem__resolution-body">{{ home.client_problem.resolution.body }}</p>
+            </div>
+            <ul class="home-problem__benefits">
+                {% for line in home.client_problem.resolution.benefits %}
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{{ line }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% set ss = home.positioning.scroll_story %}
+<section class="home-cs" id="differentiation" aria-labelledby="home-cs-heading">
+    <h2 class="visually-hidden" id="home-cs-heading">{{ home.positioning.title }}</h2>
+
+    <div class="home-cs__track" data-home-cs>
+        <div class="home-cs__sticky">
+            <div class="home-cs__bg home-cs__bg--chaos" aria-hidden="true"></div>
+            <div class="home-cs__bg home-cs__bg--system" aria-hidden="true"></div>
+
+            <div class="container home-cs__shell">
+                <div class="home-cs__card">
+                    <div class="home-cs__card-bar">
+                        <h3 class="home-cs__bar-title home-cs__bar-title--chaos">{{ ss.chaos_title }}</h3>
+                        <div class="home-cs__bridge" data-home-cs-bridge>
+                            <span class="home-cs__bridge-circle" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="11" fill="#fff" stroke="rgba(40,153,81,0.35)" stroke-width="1.5"/>
+                                    <path d="M10 8l4 4-4 4" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                </svg>
+                            </span>
+                            <p class="home-cs__bridge-text">{{ ss.bridge }}</p>
+                        </div>
+                        <h3 class="home-cs__bar-title home-cs__bar-title--system">{{ ss.system_title }}</h3>
+                    </div>
+
+                    <div class="home-cs__viz" data-home-cs-viz>
+                        <svg class="home-cs__svg home-cs__svg--system home-cs__svg--flow" data-home-cs-sys-svg aria-hidden="true"></svg>
+                        <div class="home-cs__chaos-zone">
+                            <ul class="home-cs__corners home-cs__corners--chaos" role="list">
+                                {% for L in ss.chaos_labels %}
+                                <li class="home-cs__corner home-cs__corner--bad home-cs__corner--chaos-{{ loop.index }}">{{ L.text }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="home-cs__stage" data-home-cs-stage>
+                            <svg class="home-cs__svg home-cs__svg--chaos" data-home-cs-chaos-svg aria-hidden="true"></svg>
+
+                            <div class="home-cs__toolstrip" data-home-cs-toolstrip>
+                                {% for icon in ss.icons %}
+                                <div class="home-cs__icon{% if icon.img is defined and icon.img %} home-cs__icon--photo{% endif %}" role="img" aria-label="{{ icon.title }}" title="{{ icon.title }}" data-cs-i="{{ loop.index0 }}">
+                                    {% if icon.img is defined and icon.img %}
+                                    <img class="home-cs__icon-img" src="{{ icon.img }}" alt="" width="32" height="32" loading="lazy" decoding="async" />
+                                    {% else %}
+                                    <span class="home-cs__icon-abbr">{{ icon.abbr }}</span>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="home-cs__system-stack" data-home-cs-stack>
+                                {% for item in ss.stack %}
+                                {% set ico = item.icon|default(loop.index) %}
+                                <div class="home-cs__stack-row">
+                                    <span class="home-cs__stack-ico" aria-hidden="true">
+                                        {% include 'partials/home-cs-stack-icon.twig' with { step: ico } only %}
+                                    </span>
+                                    <div class="home-cs__stack-copy">
+                                        <span class="home-cs__stack-kicker">{{ item.kicker }}</span>
+                                        <span class="home-cs__stack-line">{{ item.line }}</span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <div class="home-cs__stack-outcome">
+                                    <span class="home-cs__stack-ico home-cs__stack-ico--light" aria-hidden="true">
+                                        {% include 'partials/home-cs-stack-icon.twig' with { step: 4 } only %}
+                                    </span>
+                                    <div class="home-cs__stack-outcome-text">
+                                        <span class="home-cs__stack-outcome-title">{{ ss.outcome_box }}</span>
+                                        {% if ss.outcome_subline is defined and ss.outcome_subline %}
+                                        <span class="home-cs__stack-outcome-sub">{{ ss.outcome_subline }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <ul class="home-cs__corners home-cs__corners--system" role="list">
+                            {% for L in ss.system_labels %}
+                            <li class="home-cs__corner home-cs__corner--good home-cs__benefit-card">
+                                <span class="home-cs__benefit-ico" aria-hidden="true">
+                                    {% include 'partials/home-cs-benefit-icon.twig' with { i: loop.index } only %}
+                                </span>
+                                <span class="home-cs__benefit-text">{{ L.text }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="home-cs__cta-wrap">
+                    <a href="/contact" class="btn btn-lg home-cs__cta" data-home-cs-cta>{{ ss.cta }}</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Fonctionnalités -->
-<section class="features">
+{# ── Sous le hero : bandeau + sections suivantes ── #}
+<div class="home-below">
+
+{% set _pos = home.positioning|default({}) %}
+{% set ab = _pos.approach_banner|default({}) %}
+<section class="home-approach-strip" aria-labelledby="home-approach-strip-title">
     <div class="container">
-        <h2 class="section-title">Tout ce dont vous avez besoin</h2>
-        <p class="section-subtitle">Un outil complet pour gérer votre conformité RGPD</p>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🍪</div>
-                <h3>Gestion des cookies</h3>
-                <p>Bandeau de consentement personnalisable et conforme à la réglementation en vigueur.</p>
+        <div class="home-approach-strip__card">
+            <div class="home-approach-strip__icon-wrap" aria-hidden="true">
+                <svg class="home-approach-strip__hex" viewBox="0 0 88 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44 4l36 20.8v41.6L44 87 8 66.4V24.8L44 4z" fill="url(#home-approach-hex)" stroke="rgba(89, 122, 175, 0.18)" stroke-width="1.2"/>
+                    <defs>
+                        <linearGradient id="home-approach-hex" x1="8" y1="12" x2="76" y2="84" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#eef2f7"/>
+                            <stop offset="1" stop-color="#e2e8f0"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <svg class="home-approach-strip__cubes" width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 10l8-4.5 8 4.5v10l-8 4.5-8-4.5V10Z" stroke="#15803d" stroke-width="1.35" stroke-linejoin="round"/>
+                    <path d="M14 5.5L22 10v10l-8 4.5" stroke="#15803d" stroke-width="1.35" stroke-linejoin="round" opacity="0.88"/>
+                    <path d="M10 12l8 4.5 8-4.5M10 12v10l8 4.5M18 16.5v10" stroke="#15803d" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+                </svg>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📄</div>
-                <h3>Documents légaux</h3>
-                <p>Générez automatiquement vos politiques de confidentialité et mentions légales.</p>
+            <div class="home-approach-strip__hook">
+                <h2 id="home-approach-strip-title" class="home-approach-strip__title">
+                    <span class="home-approach-strip__title-dark">{{ ab.headline_line1|default('Nous ne sommes pas une agence.') }}</span>
+                    <span class="home-approach-strip__title-accent">{{ ab.headline_line2|default('Nous concevons des systèmes.') }}</span>
+                </h2>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Registre des traitements</h3>
-                <p>Tenez à jour votre registre de traitement des données personnelles facilement.</p>
+            <span class="home-approach-strip__rule" aria-hidden="true"></span>
+            <p class="home-approach-strip__body">{{ ab.body|default("Complianz System est l'architecte de votre performance. Nous structurons, sécurisons et optimisons votre entreprise pour en faire un système cohérent, durable et évolutif.") }}</p>
+            <a href="{{ ab.cta_href|default('/a-propos') }}" class="btn btn-primary home-approach-strip__btn">
+                {{ ab.cta_label|default('Découvrir notre approche') }}
+                <svg class="home-approach-strip__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="home-value sp-section">
+    <div class="container">
+        <div class="home-value__grid">
+            <div class="home-value__copy">
+                <p class="sp-section-tag">{{ home.value.tag }}</p>
+                <h2 class="home-value__title">{{ home.value.title }}</h2>
+                <button type="button" class="btn btn-primary home-value__cta" data-open-quote-modal>Demander un devis</button>
+                <p class="home-value__lead">{{ home.value.lead }}</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔔</div>
-                <h3>Alertes réglementaires</h3>
-                <p>Soyez informé en temps réel des évolutions légales qui impactent votre activité.</p>
+            <ul class="home-value__pillars">
+                {% for pillar in home.value.pillars %}
+                <li class="home-pillar">
+                    <span class="home-pillar__num">{{ loop.index }}</span>
+                    <div class="home-pillar__body">
+                        <strong class="home-pillar__title">{{ pillar.title }}</strong>
+                        <p class="home-pillar__text">{{ pillar.text }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% set pole_heroes = ['blue', 'green', 'beige', 'soft', 'ia'] %}
+{% set ps = home.poles_section %}
+<section class="home-poles" aria-labelledby="home-poles-title">
+    <div class="container">
+        <header class="home-poles__page-head">
+            <p class="home-poles__eyebrow">{{ ps.tag }}</p>
+            <h2 id="home-poles-title" class="home-poles__h2">{{ ps.title }}</h2>
+            <p class="home-poles__intro">{{ ps.lead }}</p>
+            {% if ps.quote is defined %}
+            <p class="home-poles__pull">{{ ps.quote }}</p>
+            {% endif %}
+        </header>
+
+        <div class="home-poles__dark">
+            <div class="home-poles__dark-glow" aria-hidden="true"></div>
+            <div class="home-poles__dark-inner">
+                <div class="home-poles__process-copy">
+                    <p class="home-poles__process-lead">
+                        <span class="home-poles__process-before">{{ ps.process_intro.before }}</span>
+                        <span class="home-poles__process-accent">{{ ps.process_intro.accent }}</span>
+                    </p>
+                </div>
+                <ol class="home-poles__process-list" role="list">
+                    {% for step in ps.steps %}
+                    <li class="home-poles__process-item">
+                        <div class="home-poles__process-ico" aria-hidden="true">
+                            {% include 'partials/home-poles-step-icon.twig' with { step: loop.index } only %}
+                        </div>
+                        <div class="home-poles__process-body">
+                            <h3 class="home-poles__process-title">{{ step.title }}</h3>
+                            <p class="home-poles__process-desc">{{ step.text }}</p>
+                            <a class="home-poles__process-link" href="{{ step.href }}">Explorer →</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+
+        <div class="home-poles__eco">
+            <p class="home-poles__eco-tag">{{ ps.eco_heading }}</p>
+            <div class="home-poles__eco-stage">
+                <div class="home-poles__hub">
+                    <div class="home-poles__hub-ring" aria-hidden="true"></div>
+                    <img
+                        class="home-poles__hub-img"
+                        src="{{ ps.hub.img }}"
+                        width="96"
+                        height="96"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <p class="home-poles__hub-label">
+                        <span class="home-poles__hub-line">{{ ps.hub.line1 }}</span>
+                        <span class="home-poles__hub-line home-poles__hub-line--small">{{ ps.hub.line2 }}</span>
+                    </p>
+                </div>
+                <svg class="home-poles__eco-svg" viewBox="0 0 1000 52" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+                    <path d="M500 0v16" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+                    <path d="M500 16 L140 52" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                    <path d="M500 16 L320 52" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                    <path d="M500 16 L500 52" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                    <path d="M500 16 L680 52" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                    <path d="M500 16 L860 52" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                </svg>
+                <ul class="home-poles__eco-grid" role="list">
+                    {% for p in home_poles %}
+                    {% set ph = pole_heroes[p.pole] ?? 'blue' %}
+                    <li>
+                        <a href="{{ p.path }}" class="home-poles__card home-poles__card--{{ ph }}">
+                            <span class="home-poles__card-icon" aria-hidden="true">
+                                {% include 'partials/blog-pole-icon.twig' with { pole_id: p.pole } only %}
+                            </span>
+                            <span class="home-poles__card-name">{{ p.name }}</span>
+                            <ul class="home-poles__card-bullets" role="list">
+                                {% for line in p.highlights %}
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <span>{{ line }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <span class="home-poles__card-cta">Découvrir →</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+{% set proc = home.process %}
+<section class="home-method" aria-labelledby="home-method-title">
     <div class="container">
-        <h2>Prêt à être conforme ?</h2>
-        <p>Rejoignez des milliers de sites web déjà conformes au RGPD avec Complianz.</p>
-        <a href="/demo" class="btn btn-primary btn-lg">Démarrer l'essai gratuit</a>
+        <header class="home-method__header">
+            <p class="home-method__eyebrow">{{ proc.tag }}</p>
+            <h2 id="home-method-title" class="home-method__title">
+                {% if proc.title_parts is defined %}
+                {{ proc.title_parts[0] }}<span class="home-method__title-accent">{{ proc.title_parts[1] }}</span>{{ proc.title_parts[2] }}
+                {% else %}
+                {{ proc.title }}
+                {% endif %}
+            </h2>
+            <p class="home-method__lead">{{ proc.lead }}</p>
+            {% if proc.macro_flow is defined %}
+            <div class="home-method__macro" role="group" aria-label="Progression logique">
+                {% for label in proc.macro_flow %}
+                <span class="home-method__macro-item">{{ label }}</span>
+                {% if not loop.last %}<span class="home-method__macro-arrow" aria-hidden="true">→</span>{% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </header>
+
+        <div class="home-method__diagram">
+            <div class="home-method__timeline" aria-hidden="true">
+                <div class="home-method__timeline-lines">
+                    <span class="home-method__line-dash"></span>
+                    <span class="home-method__line-solid"></span>
+                </div>
+                <ol class="home-method__nodes" role="list">
+                    {% for step in proc.steps %}
+                    <li class="home-method__node">
+                        <span class="home-method__node-circle">{{ step.num }}</span>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+            <ol class="home-method__cards">
+                {% for step in proc.steps %}
+                <li class="home-method__card home-method__card--{{ step.accent }}">
+                    <span class="home-method__mob-num" aria-hidden="true">{{ step.num }}</span>
+                    <div class="home-method__card-icon" aria-hidden="true">
+                        {% include 'partials/home-method-step-icon.twig' with { step: loop.index } only %}
+                    </div>
+                    {% if step.phase is defined %}<span class="home-method__phase">{{ step.phase }}</span>{% endif %}
+                    <h3 class="home-method__step-kicker">{{ step.title }}</h3>
+                    <p class="home-method__step-text">{{ step.text }}</p>
+                    {% if step.livrable is defined %}
+                    <div class="home-method__deliver">
+                        <svg class="home-method__deliver-check" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span class="home-method__deliver-text"><span class="home-method__deliver-label">Livrable :</span> {{ step.livrable }}</span>
+                    </div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ol>
+
+            {% if proc.value_bar is defined %}
+            <div class="home-method__value-bar" role="group" aria-label="Engagements méthode">
+                {% for item in proc.value_bar %}
+                <div class="home-method__value-item">
+                    <span class="home-method__value-ico-wrap" aria-hidden="true">
+                        {% include 'partials/home-method-value-icon.twig' with { name: item.icon } only %}
+                    </span>
+                    <p class="home-method__value-text">{{ item.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
     </div>
 </section>
+
+<section class="home-offers" aria-labelledby="home-offers-title">
+    <div class="container">
+        <header class="home-offers__intro">
+            <p class="home-offers__tag">{{ home.offers_section.tag }}</p>
+            <h2 id="home-offers-title" class="home-offers__title">{{ home.offers_section.title }}</h2>
+            <p class="home-offers__lead">{{ home.offers_section.lead }}</p>
+        </header>
+        {% if home_packs|length > 0 %}
+        <ul class="home-offers__grid">
+            {% for slug in home.featured_pack_slugs %}
+            {% if home_packs[slug] is defined %}
+            {% set pack = home_packs[slug] %}
+            <li>
+                <a href="/nos-packs/{{ slug }}" class="home-offers__card{% if pack.signature %} home-offers__card--sig{% endif %}">
+                    {% if pack.signature %}<span class="home-offers__ribbon">Offre signature</span>{% endif %}
+                    <h3 class="home-offers__name">{{ home.offers_section.labels[slug] }}</h3>
+                    <p class="home-offers__pitch">{{ home.offers_section.pitches[slug] }}</p>
+                    <span class="home-offers__cta">Découvrir ce parcours →</span>
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <p class="home-offers__more"><a href="/nos-packs">Voir l’ensemble des offres</a></p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="home-journey" aria-labelledby="home-journey-title">
+    <div class="container">
+        <header class="home-journey__header">
+            <p class="home-journey__tag">{{ home.client_journey.tag }}</p>
+            <h2 id="home-journey-title" class="home-journey__title">{{ home.client_journey.title }}</h2>
+            <p class="home-journey__lead">{{ home.client_journey.lead }}</p>
+        </header>
+        <div class="home-journey__visual">
+            <ol class="home-journey__steps">
+                {% for step in home.client_journey.steps %}
+                <li class="home-journey__step home-journey__step--{{ loop.index }}">
+                    <span class="home-journey__orb" aria-hidden="true"><span class="home-journey__orb-inner">{{ loop.index }}</span></span>
+                    <div class="home-journey__card">
+                        <span class="home-journey__label">{{ step.label }}</span>
+                        <span class="home-journey__hint">{{ step.hint }}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="home-split sp-section">
+    <div class="container home-split__grid">
+        <article class="home-split__panel home-split__panel--lab">
+            <p class="home-split__tag">{{ home.lab_teaser.tag }}</p>
+            <h2 class="home-split__title">{{ home.lab_teaser.title }}</h2>
+            <p class="home-split__text">{{ home.lab_teaser.text }}</p>
+            <a href="{{ home.lab_teaser.href }}" class="btn btn-outline home-split__btn">{{ home.lab_teaser.cta }}</a>
+        </article>
+        <article class="home-split__panel home-split__panel--blog">
+            <div class="home-split__blog-head">
+                <div>
+                    <p class="home-split__tag">{{ home.blog_teaser.tag }}</p>
+                    <h2 class="home-split__title home-split__title--sm">{{ home.blog_teaser.title }}</h2>
+                </div>
+                <a href="{{ home.blog_teaser.href_all }}" class="home-split__all">{{ home.blog_teaser.cta_all }} →</a>
+            </div>
+            {% if home_blog|length > 0 %}
+            <ul class="home-blog-list">
+                {% for post in home_blog %}
+                <li>
+                    <a href="/blog/{{ post.slug }}" class="home-blog-list__link">
+                        <span class="home-blog-list__title">{{ post.title }}</span>
+                        <span class="home-blog-list__meta">{{ post.date_label }} · {{ post.read_min }} min</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="home-blog-list__empty">Les derniers articles seront affichés ici.</p>
+            {% endif %}
+        </article>
+    </div>
+</section>
+
+<section class="sp-cta-final sp-cta-final--blue home-final-cta">
+    <div class="container sp-cta-final__inner">
+        <div class="sp-cta-final__text">
+            <h2>{{ home.cta.title }}</h2>
+            <p>{{ home.cta.lead }}</p>
+        </div>
+        <div class="sp-cta-final__actions">
+            <button type="button" class="btn btn-lg sp-cta-final__outline" data-open-quote-modal>Demander un devis</button>
+            <a href="/contact" class="btn btn-lg sp-cta-final__outline">Nous contacter</a>
+        </div>
+    </div>
+</section>
+
+</div>{# /.home-below #}
+</div>{# /.page-home #}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ asset_base }}/assets/js/home-chaos-system.js" defer></script>
 {% endblock %}

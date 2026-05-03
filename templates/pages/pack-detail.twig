@@ -1,0 +1,277 @@
+{% extends 'layouts/base.twig' %}
+
+{% set pole_heroes = ['blue', 'green', 'beige', 'soft', 'ia'] %}
+{% set ph = pole_heroes[pack.pole] ?? 'blue' %}
+{% set pole_css = ['var(--pole-0)', 'var(--pole-1)', 'var(--pole-2)', 'var(--pole-3)', 'var(--pole-4)'] %}
+{% set pc = pole_css[pack.pole] ?? 'var(--pole-0)' %}
+
+{% block title %}{{ pack.meta_title }}{% endblock %}
+{% block description %}{{ pack.meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": {{ pack.title|json_encode|raw }},
+      "description": {{ pack.meta_description|json_encode|raw }},
+      "url": "{{ app_url }}/nos-packs/{{ slug }}",
+      "provider": { "@type": "Organization", "name": {{ app_name|json_encode|raw }}, "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "offers": {
+        "@type": "Offer",
+        "name": {{ pack.title|json_encode|raw }},
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "description": {{ pack.price|json_encode|raw }}
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Nos packs", "item": "{{ app_url }}/nos-packs" },
+        { "@type": "ListItem", "position": 3, "name": {{ pack.title|json_encode|raw }}, "item": "{{ app_url }}/nos-packs/{{ slug }}" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for item in pack.faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.q|json_encode|raw }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.a|json_encode|raw }} }
+        }{{ loop.last ? '' : ',' }}
+        {% endfor %}
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ── Hero landing pack ─────────────────────────────────────────── #}
+<section class="pack-lp-hero pack-lp-hero--pole-{{ pack.pole }}" aria-labelledby="pack-lp-title">
+    <div class="pack-lp-hero__bg" aria-hidden="true"></div>
+    <div class="container pack-lp-hero__grid">
+        <div class="pack-lp-hero__main">
+            <nav class="pack-lp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>/</span>
+                <a href="/nos-packs">Nos packs</a>
+                <span>/</span>
+                <a href="{{ pack.pole_url }}">{{ pack.pole_name }}</a>
+            </nav>
+            {% if pack.signature %}
+                <p class="pack-lp-hero__sig">Offre signature Complianz</p>
+            {% endif %}
+            {% if pack.category is defined and pack.category %}
+                <p class="pack-lp-hero__cat">{{ pack.category }}</p>
+            {% endif %}
+            <h1 id="pack-lp-title" class="pack-lp-hero__title">{{ pack.title }}</h1>
+            <p class="pack-lp-hero__objective">{{ pack.objective }}</p>
+            <p class="pack-lp-hero__intro">{{ pack.intro }}</p>
+            <div class="pack-lp-hero__price" aria-label="Tarif indicatif">{{ pack.price }}</div>
+            <div class="pack-lp-hero__actions">
+                <button type="button" class="btn btn-lg pack-lp-btn-primary" data-open-quote-modal>Démarrer — demande de devis</button>
+                <a href="#pack-contenu" class="btn btn-lg pack-lp-btn-ghost">Voir le contenu détaillé</a>
+            </div>
+        </div>
+        <div class="pack-lp-hero__aside">
+            <div class="pack-lp-checklist">
+                <p class="pack-lp-checklist__title">Inclus dans ce pack</p>
+                <ul class="pack-lp-checklist__list">
+                    {% for line in pack.hero_checklist %}
+                        <li>
+                            <span class="pack-lp-checklist__icon" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            {{ line }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ── Proposition de valeur ─────────────────────────────────────── #}
+<section class="pack-lp-section pack-lp-value">
+    <div class="container pack-lp-value__inner">
+        <h2 class="pack-lp-section-title pack-lp-section-title--center">{{ pack.value_headline }}</h2>
+    </div>
+</section>
+
+{# ── Bénéfices ───────────────────────────────────────────────────── #}
+<section class="pack-lp-section pack-lp-benefits">
+    <div class="container">
+        <h2 class="pack-lp-section-title">Ce que vous obtenez concrètement</h2>
+        <div class="pack-lp-benefits__grid">
+            {% for b in pack.benefits %}
+                <article class="pack-lp-benefit-card pack-lp-benefit-card--pole-{{ pack.pole }}">
+                    <span class="pack-lp-benefit-card__icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <p class="pack-lp-benefit-card__text">{{ b }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ── Cible ──────────────────────────────────────────────────────── #}
+<section class="pack-lp-section pack-lp-audience">
+    <div class="container">
+        <h2 class="pack-lp-section-title">Ce pack est fait pour vous si…</h2>
+        <div class="pack-lp-audience__grid">
+            {% for line in pack.ideal_for %}
+                <article class="pack-lp-audience-card">
+                    <span class="pack-lp-audience-card__num" style="background: {{ pc }};">{{ loop.index }}</span>
+                    <p class="pack-lp-audience-card__text">{{ line }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ── Déroulé (timeline sombre) ─────────────────────────────────── #}
+<section class="pack-lp-process" aria-labelledby="pack-process-title">
+    <div class="container">
+        <h2 id="pack-process-title" class="pack-lp-section-title pack-lp-section-title--light">Déroulé du pack</h2>
+        <ol class="pack-lp-timeline">
+            {% for p in pack.phases %}
+                <li class="pack-lp-timeline__item">
+                    <span class="pack-lp-timeline__num" style="--accent: {{ pc }};">{{ loop.index }}</span>
+                    <div class="pack-lp-timeline__card">
+                        <h3 class="pack-lp-timeline__title">{{ p.title }}</h3>
+                        <p class="pack-lp-timeline__text">{{ p.text }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+
+{# ── Contenu détaillé + liens services ─────────────────────────── #}
+<section class="pack-lp-section pack-lp-includes" id="pack-contenu">
+    <div class="container">
+        <h2 class="pack-lp-section-title">Ce qui est inclus dans le pack</h2>
+        <p class="pack-lp-includes__lead">Chaque volet est relié à une fiche service pour vous montrer comment nous travaillons le sujet en profondeur.</p>
+        <div class="pack-lp-blocks">
+            {% for block in pack.content_blocks %}
+                <article class="pack-lp-block">
+                    <h3 class="pack-lp-block__title">{{ block.title }}</h3>
+                    <ul class="pack-lp-block__list">
+                        {% for bullet in block.bullets %}
+                            <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ block.url }}" class="pack-lp-block__cta">{{ block.link_label ?? 'Voir le service' }}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ── Caractéristiques + résumé client ──────────────────────────── #}
+<section class="pack-lp-section pack-lp-meta">
+    <div class="container pack-lp-meta__grid">
+        <div>
+            <h2 class="pack-lp-section-title">Caractéristiques</h2>
+            <ul class="pack-lp-meta__list">
+                {% for line in pack.characteristics %}
+                    <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <aside class="pack-lp-summary">
+            <h3 class="pack-lp-summary__title">Résumé client</h3>
+            <p class="pack-lp-summary__text">{{ pack.client_summary }}</p>
+        </aside>
+    </div>
+</section>
+
+{# ── Livrables synthétiques (rappel) ───────────────────────────── #}
+<section class="pack-lp-section pack-lp-deliverables pack-lp-section--muted">
+    <div class="container">
+        <h2 class="pack-lp-section-title">Livrables associés au parcours</h2>
+        <ul class="pack-lp-deliverables__list">
+            {% for d in pack.deliverables %}
+                <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    {{ d }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{# ── FAQ ────────────────────────────────────────────────────────── #}
+<section class="sp-faq pack-lp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Questions fréquentes</h2>
+                <p>Réponses indicatives — votre chargé d’affaires adapte le périmètre à votre contexte.</p>
+                <button type="button" class="btn btn-primary" style="background: {{ pc }}; border-color: {{ pc }};" data-open-quote-modal>Parler à un expert</button>
+            </div>
+            <div class="sp-faq__list">
+                {% for item in pack.faq %}
+                    <details class="sp-faq-item">
+                        <summary>{{ item.q }}</summary>
+                        <div class="sp-faq-item__answer">
+                            <p>{{ item.a }}</p>
+                        </div>
+                    </details>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ── Autres packs ──────────────────────────────────────────────── #}
+{% if other_packs is defined and other_packs|length > 0 %}
+<section class="pack-lp-section pack-lp-other">
+    <div class="container">
+        <h2 class="pack-lp-section-title">Autres packs qui pourraient vous intéresser</h2>
+        <div class="pack-lp-other__grid">
+            {% for op in other_packs %}
+                <a href="/nos-packs/{{ op.slug }}" class="pack-lp-other-card{% if op.signature %} pack-lp-other-card--sig{% endif %}">
+                    {% if op.signature %}<span class="pack-lp-other-card__badge">Signature</span>{% endif %}
+                    <span class="pack-lp-other-card__pole">{{ op.pole_name }}</span>
+                    <span class="pack-lp-other-card__title">{{ op.title }}</span>
+                    <span class="pack-lp-other-card__tag">{{ op.tagline }}</span>
+                    <span class="pack-lp-other-card__price">{{ op.price }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ── CTA final ───────────────────────────────────────────────────── #}
+<section class="pack-lp-final sp-cta-final sp-cta-final--{{ ph }}">
+    <div class="container pack-lp-final__inner">
+        <div class="pack-lp-final__text">
+            <h2 class="pack-lp-final__heading">Prêt à passer à l’action&nbsp;?</h2>
+            <p class="pack-lp-final__price">{{ pack.price }}</p>
+            <p class="pack-lp-final__sub">Tarif indicatif — devis personnalisé sous 24&nbsp;h ouvrées en moyenne après qualification.</p>
+        </div>
+        <div class="pack-lp-final__actions">
+            <button type="button" class="btn btn-primary btn-lg pack-lp-final__btn-solid" data-open-quote-modal>Commander ce pack</button>
+            <a href="/contact" class="btn btn-outline btn-lg pack-lp-final__btn-outline">Prendre rendez-vous</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

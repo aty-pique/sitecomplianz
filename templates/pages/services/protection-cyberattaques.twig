@@ -1,0 +1,508 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}Protection cyberattaques | Sécurisation SI entreprise | Complianz{% endblock %}
+
+{% block description %}Protégez votre entreprise des cyberattaques : ransomware, phishing, intrusions. Mise en place de solutions de cybersécurité et sensibilisation des équipes.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Protection contre les cyberattaques — Sécurisation du SI",
+      "url": "{{ app_url }}/audit-conformite/cybersecurite/protection-cyberattaques",
+      "description": "Mise en place d'une protection complète contre les cyberattaques : audit des vulnérabilités, déploiement de solutions techniques (firewall, EDR, MFA), sensibilisation des équipes, procédures de réponse aux incidents et plan de reprise après sinistre.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Protection contre les cyberattaques",
+      "offers": [
+        { "@type": "Offer", "name": "Pack Protection Essentiel",       "price": "2500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4900"  } },
+        { "@type": "Offer", "name": "Pack Protection Avancé",          "price": "5500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9900"  } },
+        { "@type": "Offer", "name": "Pack Protection Complet + SOC",   "price": "9900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "18000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                             "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",         "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Cybersécurité",                       "item": "{{ app_url }}/audit-conformite/cybersecurite" },
+        { "@type": "ListItem", "position": 4, "name": "Protection contre les cyberattaques", "item": "{{ app_url }}/audit-conformite/cybersecurite/protection-cyberattaques" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelles sont les principales cyberattaques qui menacent les PME ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les principales menaces pour les PME sont : le ransomware (chiffrement des données contre rançon), le phishing (emails frauduleux pour voler des identifiants), les attaques par force brute (tentatives massives de connexion), les compromissions de comptes cloud, et les attaques via des sous-traitants ou partenaires (supply chain). En 2024, 1 PME sur 2 a subi au moins un incident de sécurité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment protéger efficacement son entreprise des cyberattaques ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une protection efficace repose sur 3 piliers : technique (firewall, EDR, MFA, mises à jour, sauvegardes chiffrées), organisationnel (politique de sécurité PSSI, gestion des accès, procédures d'incident) et humain (sensibilisation et formation des collaborateurs). Aucun de ces piliers n'est suffisant seul — les 3 doivent être mis en place ensemble." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un EDR et en ai-je besoin ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un EDR (Endpoint Detection and Response) est une solution de sécurité avancée qui surveille en temps réel les comportements sur vos postes et serveurs pour détecter et bloquer les attaques, même inconnues (zero-day). Contrairement à un antivirus classique, l'EDR analyse les comportements suspects, pas seulement les signatures connues. Il est recommandé pour toute entreprise avec des données sensibles ou des accès distants." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que faire si on est victime d'un ransomware ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En cas de ransomware : 1) Isolez immédiatement les machines touchées du réseau, 2) Ne payez pas la rançon (sans garantie de récupération et cela encourage les attaquants), 3) Contactez un expert cybersécurité, 4) Signalez l'incident à l'ANSSI et à la CNIL si des données personnelles sont compromises, 5) Activez votre Plan de Reprise d'Activité (PRA). La préparation préalable (sauvegardes hors ligne, PRA) est la meilleure protection." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/cybersecurite">Cybersécurité</a>
+                <span>›</span>
+                <span>Protection contre les cyberattaques</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Protection &amp; sécurisation du SI</span>
+                Protection contre les cyberattaques&nbsp;: sécurisez votre SI avant d'en payer le prix
+            </h1>
+            <p class="sp-hero__lead">
+                Ransomware, phishing, intrusions, compromissions de comptes — nous déployons les <strong>solutions techniques et organisationnelles</strong> pour bloquer les attaques, détecter les menaces en temps réel et assurer la reprise rapide de votre activité en cas d'incident.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Protéger mon entreprise
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre approche
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Approche technique + organisationnelle</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Solutions déployées en 4 à 8 semaines</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Sensibilisation des équipes incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Après déploiement de la protection</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>SI protégé sur 3 niveaux</strong> — technique, organisationnel et humain — avec des équipes sensibilisées et des procédures prêtes pour répondre à tout incident.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>4–8</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>3</strong>
+                        <span>niveaux</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>-80%</strong>
+                        <span>risques</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>27 000 €</strong> : coût moyen d'une cyberattaque pour une PME française (CESIN 2024)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services de cybersécurité</p>
+        <div class="sp-subservices__grid">
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit de cybersécurité</h2>
+                    <p>Diagnostic complet de votre SI : systèmes, réseaux, accès, applications et données sensibles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/pentest" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Test d'intrusion (pentest)</h2>
+                    <p>Simulation d'attaque réelle pour identifier les vulnérabilités exploitables avant les hackers.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/politique-securite" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Politique de sécurité (PSSI)</h2>
+                    <p>Définissez et formalisez vos règles de sécurité, accès, gestion des incidents et conformité SI.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/protection-cyberattaques" class="sp-subsvc-card sp-subsvc-card--blue sp-subsvc-card--active">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Protection contre les cyberattaques</h2>
+                    <p>Mettez en place les dispositifs techniques et organisationnels pour bloquer et détecter les attaques.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Solutions déployées en 4 à 8 semaines
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Approche technique + humaine + organisationnelle
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Réponse à incident 24h/7j (option)
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <p><strong>+100</strong> entreprises protégées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>-80%</strong> de surface d'attaque</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que nous déployons
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre approche</p>
+            <h2>Les 6 axes de protection contre les cyberattaques</h2>
+            <p class="sp-section-sub">Une protection efficace repose sur 3 piliers indissociables : technique, organisationnel et humain. Nous déployons les 3 simultanément.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit des vulnérabilités existantes</h3><p>Cartographie complète de votre surface d'attaque actuelle avant tout déploiement de solution</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Solutions techniques (Firewall, EDR, MFA)</h3><p>Déploiement des outils adaptés à votre infrastructure : pare-feu, détection comportementale, authentification forte</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Sensibilisation et formation des équipes</h3><p>Formation aux bonnes pratiques, simulation de phishing, sensibilisation aux risques cyber pour tous les collaborateurs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Procédures de réponse aux incidents</h3><p>Processus clairs de détection, isolation, notification et remédiation en cas de cyberattaque ou de compromission</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Surveillance et monitoring</h3><p>Tableau de bord sécurité, alertes en temps réel, analyse des logs et détection des comportements anormaux</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Plan de reprise après sinistre</h3><p>Sauvegardes chiffrées hors ligne, procédures de restauration testées et délais de reprise (RTO/RPO) définis</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — 4 profils clients
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Qui doit sécuriser son SI contre les cyberattaques ?</h2>
+            <p class="sp-section-sub">Toute entreprise connectée est exposée. La question n'est plus "si" vous serez attaqué, mais "quand" — et si vous serez prêt.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>PME sans responsable sécurité</h3>
+                <p>Vous n'avez pas de RSSI ni d'équipe IT dédiée — nous devenons votre partenaire cybersécurité et déployons une protection adaptée à votre taille et votre budget.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h3>Entreprises victimes de phishing</h3>
+                <p>Un collaborateur a cliqué sur un lien malveillant — nous sécurisons la messagerie, déployons le MFA et formons vos équipes à reconnaître les tentatives d'hameçonnage.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"/><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/></svg>
+                </div>
+                <h3>Entreprises après un ransomware</h3>
+                <p>Vous avez subi un chiffrement de données — nous sécurisons les failles exploitées, déployons les solutions de protection et mettons en place les sauvegardes hors ligne.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>E-commerce &amp; services en ligne</h3>
+                <p>Votre activité repose sur des systèmes connectés 24h/24 — la protection contre les attaques DDoS, les injections et les compromissions de comptes est critique.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la mise en place d'une protection contre les cyberattaques ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre SI, du niveau de protection souhaité et du périmètre à couvrir. Une protection bien déployée coûte en moyenne 10x moins qu'un incident.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Protection Essentiel</p>
+                    <p class="sp-plan__price"><span>2 500 – 4 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE/PME, SI &lt; 30 postes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit de vulnérabilités initial</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Déploiement MFA &amp; gestion des accès</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Configuration pare-feu &amp; mises à jour</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation sensibilisation équipes (2h)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de sauvegarde sécurisé</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Protection Avancé</p>
+                    <p class="sp-plan__price"><span>5 500 – 9 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME avec accès distants et cloud</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Déploiement EDR sur postes et serveurs</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Segmentation réseau et VPN sécurisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Simulation phishing + formation avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Procédures de réponse aux incidents</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tableau de bord sécurité</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Protection Complet + SOC</p>
+                    <p class="sp-plan__price"><span>9 900 – 18 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, secteur sensible, NIS2</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Protection complète multi-vecteurs</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SOC managé (surveillance 24h/7j)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SIEM et corrélation d'événements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de reprise d'activité testé (PRA)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RSSI externalisé option mensuelle</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés à la protection contre les cyberattaques</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit de cybersécurité</strong><p>Identifiez toutes vos vulnérabilités avant de déployer les solutions de protection adaptées.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/pentest" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                <div><strong>Test d'intrusion (pentest)</strong><p>Validez l'efficacité de vos protections avec un pentest après déploiement des solutions.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/politique-securite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Politique de sécurité (PSSI)</strong><p>Formalisez les règles organisationnelles qui encadrent l'usage de vos outils de protection.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><strong>Mise en conformité RGPD</strong><p>La protection des données personnelles exige une sécurisation technique adaptée — les deux vont de pair.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la protection contre les cyberattaques</h2>
+                <p>Nos experts répondent sous 24h à toutes vos questions sur la sécurisation de votre SI.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelles sont les principales cyberattaques qui menacent les PME ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les principales menaces pour les PME sont : le <strong>ransomware</strong> (chiffrement des données contre rançon), le <strong>phishing</strong> (emails frauduleux pour voler des identifiants), les attaques par force brute, les compromissions de comptes cloud et les attaques via sous-traitants. En 2024, <strong>1 PME sur 2</strong> a subi au moins un incident de sécurité — et le coût moyen s'élève à 27 000 €.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment protéger efficacement son entreprise des cyberattaques ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une protection efficace repose sur <strong>3 piliers indissociables</strong> : technique (firewall, EDR, MFA, mises à jour, sauvegardes chiffrées), organisationnel (<a href="/audit-conformite/cybersecurite/politique-securite">politique de sécurité PSSI</a>, gestion des accès, procédures d'incident) et humain (sensibilisation et formation des collaborateurs). Aucun de ces piliers n'est suffisant seul — les 3 doivent être mis en place ensemble.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un EDR et en ai-je besoin ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>EDR (Endpoint Detection and Response)</strong> est une solution de sécurité avancée qui surveille en temps réel les comportements sur vos postes et serveurs pour détecter et bloquer les attaques, même inconnues (zero-day). Contrairement à un antivirus classique, l'EDR analyse les comportements suspects. Il est recommandé pour toute entreprise avec des données sensibles ou des accès distants.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Que faire si on est victime d'un ransomware ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>En cas de ransomware : 1) <strong>Isolez immédiatement</strong> les machines touchées du réseau, 2) Ne payez pas la rançon, 3) Contactez un expert cybersécurité, 4) Signalez l'incident à l'ANSSI et à la CNIL si des données personnelles sont compromises, 5) Activez votre Plan de Reprise d'Activité (PRA). La préparation préalable — sauvegardes hors ligne testées et PRA — est la meilleure protection contre le ransomware.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à sécuriser votre entreprise avant la prochaine attaque ?</h2>
+                <p>Nos experts déploient une protection adaptée à votre SI en 4 à 8 semaines. Premier échange gratuit, confidentiel, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Sécuriser mon entreprise
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Déploiement en 4 à 8 semaines</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

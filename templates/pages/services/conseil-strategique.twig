@@ -1,0 +1,571 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Conseil stratégique dirigeant (tech, digital, orga){% endblock %}
+
+{% block description %}Accompagnement stratégique du dirigeant : prise de décision, roadmap, alignement tech-digital-organisation. Vision claire, décisions structurantes. Devis gratuit.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Conseil stratégique dirigeant — Tech, Digital & Organisation",
+      "url": "{{ app_url }}/audit-conformite/audit-conseil/conseil-strategique",
+      "description": "Accompagnement stratégique du dirigeant dans la définition, la structuration et l'optimisation de son entreprise sur les dimensions technologiques, organisationnelles et digitales. Sessions de conseil, aide à la prise de décision, définition de roadmap et accompagnement continu.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Conseil stratégique d'entreprise",
+      "offers": [
+        { "@type": "Offer", "name": "Session ponctuelle",         "price": "300",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "800",   "unitCode": "HUR" } },
+        { "@type": "Offer", "name": "Accompagnement court",       "price": "2000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000"  } },
+        { "@type": "Offer", "name": "Accompagnement stratégique", "price": "5000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "15000" } },
+        { "@type": "Offer", "name": "Suivi mensuel dirigeant",    "price": "1000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000",  "unitCode": "MON" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Audit & Conseil stratégique", "item": "{{ app_url }}/audit-conformite/audit-conseil" },
+        { "@type": "ListItem", "position": 4, "name": "Conseil stratégique",         "item": "{{ app_url }}/audit-conformite/audit-conseil/conseil-strategique" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le conseil stratégique pour dirigeant ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le conseil stratégique dirigeant est un accompagnement sur-mesure qui aide le chef d'entreprise à prendre de meilleures décisions sur les dimensions technologiques, organisationnelles et digitales. Le consultant apporte une vision externe, des arbitrages structurants et une aide à la priorisation des actions stratégiques." }
+        },
+        {
+          "@type": "Question",
+          "name": "En quoi le conseil stratégique diffère-t-il du coaching de dirigeant ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le coaching de dirigeant travaille sur la posture, les comportements et le développement personnel. Le conseil stratégique apporte une expertise externe sur des sujets business concrets : choix technologiques, feuille de route digitale, structuration organisationnelle, arbitrages d'investissement. Les deux sont complémentaires." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se déroule une session de conseil stratégique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une session dure entre 1h30 et 3h. Le dirigeant présente son contexte et ses enjeux. Le consultant analyse, questionne et propose des orientations concrètes. Un compte-rendu structuré avec les décisions, les options et les prochaines étapes est remis dans les 48h suivant chaque session." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sujets peut-on traiter en conseil stratégique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Choix d'outils ou de stack technique, feuille de route digitale, organisation interne, recrutements clés, arbitrages entre croissance et rentabilité, choix d'associés ou de partenaires, stratégie de financement, positionnement marché... Tout sujet structurant pour l'entreprise peut être traité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un contrat long terme pour bénéficier du conseil stratégique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non — nous proposons des sessions ponctuelles à partir de 300 € la séance, sans engagement. Un accompagnement court ou mensuel se met en place seulement si le dirigeant souhaite un suivi régulier. Chaque format est adapté à vos besoins du moment." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/audit-conseil">Audit &amp; Conseil</a>
+                <span>›</span>
+                <span>Conseil stratégique</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Accompagnement dirigeant — Tech, Digital &amp; Organisation</span>
+                Conseil stratégique&nbsp;: prenez de meilleures décisions avec une vision claire et structurée
+            </h1>
+            <p class="sp-hero__lead">
+                Nous accompagnons les dirigeants dans la <strong>définition, la structuration et l'optimisation</strong> de leur entreprise sur les dimensions technologiques, organisationnelles et digitales — pour apporter une vision externe, des décisions structurantes et des orientations concrètes qui améliorent la performance globale.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Réserver une session stratégique
+                </a>
+                <a href="#intervention" class="btn btn-outline">
+                    Voir nos domaines d'intervention
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Session ponctuelle dès 300 €</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Sans engagement, en visio ou présentiel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Compte-rendu structuré sous 48h</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="12" r="3"/><circle cx="6" cy="18" r="3"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous gagnez</p>
+                        <p class="sp-deliverables-card__subtitle">À chaque session de conseil</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous ne prenez plus vos décisions <strong>seul et à l'aveugle</strong>&nbsp;: vous êtes guidé avec une <strong>vision claire et structurée</strong> sur les sujets qui comptent vraiment pour votre entreprise.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>300€</strong>
+                        <span>/ séance</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>48h</strong>
+                        <span>compte-rendu</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>0</strong>
+                        <span>engagement</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients évitent <strong>2 à 3 erreurs coûteuses</strong> dès les premières sessions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Session sans engagement dès 300 €
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                En visio ou présentiel selon vos préférences
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Compte-rendu structuré sous 48h
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <p><strong>+150</strong> dirigeants accompagnés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p><strong>92%</strong> de renouvellement</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   DOMAINES D'INTERVENTION — 8 axes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="intervention">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que nous traitons</p>
+            <h2>Nos domaines d'intervention en conseil stratégique</h2>
+            <p class="sp-section-sub">Tous les sujets structurants pour votre entreprise — du choix d'un outil à la refonte complète de votre organisation.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Analyse des enjeux de l'entreprise</h3><p>Diagnostic rapide des priorités, des risques et des opportunités stratégiques du moment</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Sessions de conseil stratégique</h3><p>Séances de travail structurées pour challenger vos décisions et clarifier vos options</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div><h3>Aide à la prise de décision</h3><p>Arbitrages sur les choix techniques, organisationnels, RH ou commerciaux à fort impact</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </div>
+                <div><h3>Définition de roadmap</h3><p>Feuille de route priorisée : quoi faire, dans quel ordre, avec quelles ressources et quelle séquence</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Alignement stratégie / organisation / outils</h3><p>Vérification que votre organisation, vos outils et vos processus servent vraiment votre stratégie</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Arbitrage sur choix techniques ou business</h3><p>Quel outil, quelle technologie, quel modèle — évaluation neutre et orientée résultat</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Accompagnement du dirigeant</h3><p>Soutien continu au CEO/fondateur : challenger les décisions, valider les orientations, éviter les angles morts</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Suivi et ajustement des décisions</h3><p>Revue régulière des décisions prises, ajustements selon les résultats et replanification</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que vous gagnez</p>
+            <h2>Les bénéfices du conseil stratégique dirigeant</h2>
+            <p class="sp-section-sub">Un bon conseiller stratégique ne vous dit pas quoi faire — il vous aide à prendre de meilleures décisions, plus vite et avec moins de risques.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>Vision claire de la direction</h3>
+                <p>Sortir de la confusion opérationnelle pour voir vos enjeux avec recul et prioriser ce qui compte vraiment.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3>Aide à la prise de décision</h3>
+                <p>Un regard externe neutre pour challenger vos hypothèses et valider vos choix avant de les déployer.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Éviter les erreurs coûteuses</h3>
+                <p>Les mauvais choix technologiques, organisationnels ou stratégiques coûtent en moyenne 10x leur prévention.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+                </div>
+                <h3>Meilleure priorisation des actions</h3>
+                <p>Arrêter de tout faire en même temps. Construire une roadmap réaliste et priorisée selon l'impact réel.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps pour le dirigeant</h3>
+                <p>Moins de temps à douter, à tourner en rond ou à recommencer — des décisions prises rapidement et assumées.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41"/></svg>
+                </div>
+                <h3>Alignement stratégie, outils, organisation</h3>
+                <p>Votre stack, votre équipe et vos processus tirent dans la même direction que votre vision stratégique.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Accélération de la croissance</h3>
+                <p>Des décisions plus rapides, mieux informées et mieux exécutées = une entreprise qui avance plus vite.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Meilleure maîtrise globale</h3>
+                <p>Vous passez du mode "subi" au mode "piloté" — une entreprise maîtrisée sur tous ses leviers stratégiques.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES / POUR QUEL PROFIL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Adapté à votre situation</p>
+                    <h2>Un accompagnement calibré selon votre contexte</h2>
+                    <p class="sp-section-sub">Le format, la fréquence et la profondeur du conseil s'adaptent à votre entreprise, votre secteur et vos enjeux du moment.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Fréquence</span>
+                        <span class="sp-variable-value">Ponctuel (1 session) ou régulier (mensuel)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Durée</span>
+                        <span class="sp-variable-value">Session unique à accompagnement 12 mois</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau d'implication</span>
+                        <span class="sp-variable-value">Conseil ponctuel à co-pilotage stratégique</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Sujets traités</span>
+                        <span class="sp-variable-value">Tech, digital, organisation, business, RH</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille de l'entreprise</span>
+                        <span class="sp-variable-value">Startup, PME, ETI — de 1 à 500 personnes</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Mode</span>
+                        <span class="sp-variable-value">Visio ou présentiel selon vos préférences</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 5.png" alt="Conseil stratégique dirigeant" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Des formats de conseil pour chaque besoin</h2>
+            <p class="sp-section-sub">Du rendez-vous ponctuel au partenariat stratégique mensuel — choisissez le format qui correspond à votre situation.</p>
+        </div>
+
+        {# Grille 4 colonnes pour les tarifs #}
+        <div class="sp-pricing__grid sp-pricing__grid--4col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Session ponctuelle</p>
+                    <p class="sp-plan__price"><span>300 – 800 €</span> <em>HT / séance</em></p>
+                    <p class="sp-plan__duration">1h30 à 3h selon sujet</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse du sujet en amont</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session de travail structurée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Compte-rendu sous 48h</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement de suite</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Réserver</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement court</p>
+                    <p class="sp-plan__price"><span>2 000 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">3 à 5 sessions sur 1 à 2 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic stratégique initial</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 à 5 sessions thématiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action priorisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi par email entre sessions</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement stratégique</p>
+                    <p class="sp-plan__price"><span>5 000 – 15 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Mission de 3 à 6 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Diagnostic complet + roadmap</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sessions bi-mensuelles</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Arbitrages tech, orga, digital</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement équipe direction</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Compte-rendu structuré à chaque session</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Suivi mensuel dirigeant</p>
+                    <p class="sp-plan__price"><span>1 000 – 3 000 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">Partenariat stratégique continu</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>2 à 4 sessions/mois</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accès consultant entre sessions</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Revue stratégique mensuelle</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tableau de bord décisionnel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Résiliable à tout moment</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — première session d'échange offerte pour cerner vos besoins avant tout engagement.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin avec nos services associés</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit global d'entreprise</strong><p>Pour un diagnostic complet avant de définir votre stratégie et vos priorités.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil/structuration-gouvernance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <div><strong>Structuration organisationnelle</strong><p>Passer du conseil à la mise en place concrète d'une organisation performante.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil/audit-organisationnel" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit organisationnel</strong><p>Diagnostic objectif de votre organisation pour appuyer vos décisions stratégiques sur des données réelles.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/solutions-developpement" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Solutions &amp; Développement</strong><p>Vos décisions stratégiques tech se concrétisent avec nos équipes de développement et d'intégration.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le conseil stratégique</h2>
+                <p>Nos consultants répondent sous 24h et proposent une première session d'échange gratuite.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le conseil stratégique pour dirigeant ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>conseil stratégique dirigeant</strong> est un accompagnement sur-mesure qui aide le chef d'entreprise à prendre de meilleures décisions sur les dimensions technologiques, organisationnelles et digitales. Le consultant apporte une vision externe, des arbitrages structurants et une aide à la priorisation des actions à fort impact.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>En quoi le conseil stratégique diffère-t-il du coaching de dirigeant ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le coaching travaille sur la posture et le développement personnel. Le <strong>conseil stratégique</strong> apporte une expertise externe sur des sujets business concrets&nbsp;: choix technologiques, feuille de route digitale, <a href="/audit-conformite/audit-conseil/structuration-gouvernance">structuration organisationnelle</a>, arbitrages d'investissement. Les deux sont complémentaires.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment se déroule une session de conseil stratégique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une session dure entre 1h30 et 3h. Le dirigeant présente son contexte et ses enjeux. Le consultant analyse, questionne et propose des orientations concrètes. Un <strong>compte-rendu structuré</strong> avec les décisions, les options et les prochaines étapes est remis dans les 48h suivant chaque session.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels sujets peut-on traiter en conseil stratégique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Tous les sujets structurants&nbsp;: choix d'outils ou de stack technique, feuille de route digitale, <a href="/audit-conformite/audit-conseil/structuration-gouvernance">organisation interne</a>, recrutements clés, arbitrages entre croissance et rentabilité, choix de partenaires, stratégie de financement, positionnement marché… Tout ce qui compte vraiment pour l'avenir de votre entreprise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il un contrat long terme pour bénéficier du conseil stratégique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Non — nous proposons des <strong>sessions ponctuelles à partir de 300 €</strong> la séance, sans engagement. Un accompagnement court ou mensuel se met en place seulement si vous souhaitez un suivi régulier. Chaque format est adapté à vos besoins du moment, avec résiliation possible à tout moment.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à prendre de meilleures décisions stratégiques ?</h2>
+                <p>Première session d'échange offerte pour cerner vos enjeux et définir le format d'accompagnement le plus adapté à votre situation. Sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Réserver ma session stratégique
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Première session offerte</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Visio ou présentiel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,499 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 150 chars description) ─────────────────── #}
+{% block title %}Bilan carbone & reporting ESG | Mesure empreinte carbone | Complianz{% endblock %}
+
+{% block description %}Réalisez votre bilan carbone réglementaire et votre reporting ESG. Scopes 1, 2 et 3, plan de réduction et communication transparente auprès de vos parties prenantes.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Bilan carbone & reporting ESG — Mesure de l'empreinte carbone",
+      "url": "{{ app_url }}/audit-conformite/rse/bilan-carbone-reporting",
+      "description": "Réalisation du bilan carbone réglementaire (Scopes 1, 2 et 3), analyse des postes d'émissions, plan de réduction, rapport RSE et rapport de durabilité (CSRD). Accompagnement complet pour la déclaration de performance extra-financière (DPEF) et la préparation à la CSRD.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Bilan carbone et reporting ESG",
+      "offers": [
+        { "@type": "Offer", "name": "Bilan carbone PME",               "price": "2500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4900"  } },
+        { "@type": "Offer", "name": "Bilan carbone + Reporting ESG",   "price": "4900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9500"  } },
+        { "@type": "Offer", "name": "Accompagnement CSRD",             "price": "7500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "14000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                         "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",     "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Accompagnement RSE",              "item": "{{ app_url }}/audit-conformite/rse" },
+        { "@type": "ListItem", "position": 4, "name": "Bilan carbone & reporting ESG",   "item": "{{ app_url }}/audit-conformite/rse/bilan-carbone-reporting" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un bilan carbone et comment est-il calculé ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un bilan carbone est l'inventaire de toutes les émissions de gaz à effet de serre (GES) générées par l'activité d'une entreprise, exprimées en équivalent CO2. Il couvre 3 périmètres (Scopes) : Scope 1 (émissions directes : combustion, véhicules), Scope 2 (émissions indirectes liées à l'énergie achetée) et Scope 3 (émissions indirectes de la chaîne de valeur : achats, déplacements, déchets, produits vendus). Le Scope 3 représente souvent 70 à 90% des émissions totales." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le bilan carbone est-il obligatoire pour mon entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le Bilan de Gaz à Effet de Serre (BEGES) réglementaire est obligatoire en France pour les entreprises de plus de 500 salariés (250 en Outre-mer), ainsi que pour les collectivités et administrations publiques. Même si vous n'êtes pas soumis à cette obligation, votre bilan carbone peut être requis par vos donneurs d'ordre, vos partenaires financiers ou dans le cadre de la CSRD si vous faites partie d'une chaîne de valeur de grande entreprise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le reporting ESG et quelle est la différence avec la CSRD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le reporting ESG (Environmental, Social, Governance) est la communication standardisée sur les performances environnementales, sociales et de gouvernance d'une entreprise. La CSRD (Corporate Sustainability Reporting Directive) est la directive européenne qui impose aux grandes entreprises de publier ce reporting selon les normes ESRS. La CSRD s'applique progressivement : aux grandes entreprises cotées depuis 2024, aux grandes entreprises non cotées depuis 2025, et aux PME cotées à partir de 2026." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment réduire efficacement son empreinte carbone ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La réduction de l'empreinte carbone passe par 3 étapes : 1) Mesurer précisément (bilan carbone Scopes 1, 2, 3), 2) Prioriser les actions sur les postes les plus émetteurs (souvent mobilité, énergie, achats), 3) Déployer un plan de réduction avec des objectifs chiffrés sur 3 à 5 ans. La compensation carbone (achat de crédits) ne doit intervenir qu'en dernier recours, après avoir maximisé la réduction des émissions à la source." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/rse">RSE</a>
+                <span>›</span>
+                <span>Bilan carbone &amp; reporting ESG</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Bilan carbone &amp; reporting extra-financier</span>
+                Bilan carbone &amp; reporting ESG&nbsp;: mesurez votre empreinte et communiquez en toute transparence
+            </h1>
+            <p class="sp-hero__lead">
+                Nous réalisons votre <strong>bilan carbone réglementaire</strong> (Scopes 1, 2 et 3), votre <strong>reporting ESG</strong> et vous préparons aux exigences CSRD. Vous savez exactement où vous émettez, combien — et quoi faire pour réduire votre impact de façon crédible et mesurable.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Réaliser mon bilan carbone
+                </a>
+                <a href="#livrables" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conforme méthode ADEME &amp; GHG Protocol</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Scopes 1, 2 et 3 couverts</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Préparation CSRD incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2.63 8.5A10 10 0 0 1 12 4c3.27 0 6.17 1.57 8 4"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Livrables bilan carbone &amp; reporting</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre <strong>empreinte carbone mesurée</strong> sur les 3 Scopes, un plan de réduction actionnable, et un <strong>rapport de durabilité</strong> communicable auprès de toutes vos parties prenantes.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>6–12</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>3</strong>
+                        <span>Scopes</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>6</strong>
+                        <span>livrables</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>CSRD obligatoire</strong> pour les grandes entreprises depuis 2024 — les PME doivent anticiper dès maintenant</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services RSE</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/audit-conformite/rse/strategie-rse" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Stratégie RSE</h2>
+                    <p>Définissez vos engagements prioritaires, votre feuille de route RSE et vos indicateurs de performance responsable.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/rse/bilan-carbone-reporting" class="sp-subsvc-card sp-subsvc-card--blue sp-subsvc-card--active">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2.63 8.5A10 10 0 0 1 12 4c3.27 0 6.17 1.57 8 4"/><path d="M2 12h5"/><path d="M17 12h5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Bilan carbone &amp; reporting ESG</h2>
+                    <p>Mesurez votre empreinte carbone, construisez votre reporting ESG et préparez-vous aux exigences CSRD.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/rse/label-certification-rse" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Label &amp; certification RSE</h2>
+                    <p>Obtenez une reconnaissance officielle de votre démarche RSE (Lucie 26000, B-Corp, Ecovadis…).</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Méthode ADEME &amp; GHG Protocol
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Scopes 1, 2 et 3 intégralement couverts
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport communicable et anti-greenwashing
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg>
+                <p><strong>+50</strong> bilans carbone réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>-30%</strong> d'émissions en moyenne an 2</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LIVRABLES — 6 documents
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="livrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Livrables</p>
+            <h2>Les 6 livrables de votre bilan carbone &amp; reporting ESG</h2>
+            <p class="sp-section-sub">Des documents conformes aux exigences réglementaires, exploitables pour votre communication et votre reporting CSRD.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2.63 8.5A10 10 0 0 1 12 4c3.27 0 6.17 1.57 8 4"/><path d="M2 12h5"/><path d="M17 12h5"/></svg>
+                </div>
+                <div><h3>Bilan carbone Scopes 1, 2 et 3</h3><p>Inventaire complet de vos émissions GES couvrant l'ensemble de votre périmètre — conforme méthode ADEME et GHG Protocol</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Analyse des postes d'émissions</h3><p>Décomposition détaillée des sources d'émissions par poste — pour identifier les leviers de réduction prioritaires</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Plan de réduction des émissions</h3><p>Actions prioritaires de réduction par poste, objectifs chiffrés sur 3 ans et feuille de route de décarbonation</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Rapport RSE / rapport de durabilité</h3><p>Document structuré présentant vos engagements, performances et résultats ESG — communicable aux parties prenantes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Déclaration de performance extra-financière (DPEF)</h3><p>Déclaration réglementaire annuelle pour les entreprises concernées — conforme aux exigences légales françaises</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Préparation à la CSRD</h3><p>Gap analysis CSRD, identification des indicateurs ESRS à collecter et feuille de route de mise en conformité reporting</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — 4 profils clients
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Qui a besoin d'un bilan carbone &amp; d'un reporting ESG ?</h2>
+            <p class="sp-section-sub">Que vous soyez soumis à une obligation réglementaire ou que vous souhaitiez anticiper les attentes de vos partenaires, le bilan carbone est désormais incontournable.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Grandes entreprises soumises à la CSRD</h3>
+                <p>La CSRD impose un reporting de durabilité standardisé — nous vous accompagnons dans la collecte des données ESRS et la rédaction du rapport de durabilité.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>PME sous-traitantes de grands groupes</h3>
+                <p>Vos donneurs d'ordre vous demandent votre bilan carbone dans le cadre de leur Scope 3 — nous le réalisons en conformité avec leurs exigences de reporting.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg>
+                </div>
+                <h3>Entreprises en démarche RSE</h3>
+                <p>Le bilan carbone est le pilier environnemental de toute stratégie RSE sérieuse — il vous donne les données concrètes pour fixer des objectifs crédibles de réduction.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h3>Candidats à la certification ESG</h3>
+                <p>EcoVadis, B Corp, LUCIE 26000 — les plateformes d'évaluation ESG exigent un bilan carbone rigoureux et un reporting structuré sur vos émissions.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un bilan carbone &amp; un reporting ESG ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de l'entreprise, de la complexité du Scope 3 et du niveau de reporting souhaité — du bilan simple à la préparation CSRD complète.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Bilan carbone PME</p>
+                    <p class="sp-plan__price"><span>2 500 – 4 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE/PME, Scopes 1, 2 et Scope 3 simplifié</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bilan carbone Scopes 1, 2 et 3</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des postes d'émissions</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de réduction simplifié</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de synthèse communicable</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Bilan carbone + Reporting ESG</p>
+                    <p class="sp-plan__price"><span>4 900 – 9 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME avec obligations de reporting</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Bilan carbone complet (Scopes 1, 2, 3)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting ESG structuré (E, S, G)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de réduction détaillé sur 3 ans</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport RSE / rapport de durabilité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> DPEF si applicable</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement CSRD</p>
+                    <p class="sp-plan__price"><span>7 500 – 14 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Grandes entreprises, préparation CSRD</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Bilan carbone + reporting ESG complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gap analysis CSRD + collecte ESRS</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Double matérialité (financière + impact)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de durabilité CSRD-conforme</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation à l'audit du rapport</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés au bilan carbone &amp; reporting ESG</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/rse/strategie-rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie RSE</strong><p>Le bilan carbone est le pilier environnemental d'une stratégie RSE complète — combinez les deux pour plus d'impact.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse/label-certification-rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Label &amp; certification RSE</strong><p>EcoVadis et B Corp exigent un bilan carbone rigoureux — un prérequis à votre démarche de certification.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><strong>Accompagnement RSE global</strong><p>Découvrez l'ensemble de notre offre RSE pour une démarche complète, sincère et valorisable.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit global &amp; conseil stratégique</strong><p>Intégrez le bilan carbone dans une réflexion stratégique globale sur la performance et la durabilité.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le bilan carbone &amp; le reporting ESG</h2>
+                <p>Nos experts RSE répondent sous 48h à toute question sur votre empreinte carbone et votre reporting.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un bilan carbone et comment est-il calculé ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>bilan carbone</strong> est l'inventaire de toutes les émissions de gaz à effet de serre (GES) générées par l'activité d'une entreprise, exprimées en équivalent CO2. Il couvre 3 périmètres : <strong>Scope 1</strong> (émissions directes : combustion, véhicules), <strong>Scope 2</strong> (émissions indirectes liées à l'énergie achetée) et <strong>Scope 3</strong> (émissions indirectes de la chaîne de valeur : achats, déplacements, déchets, produits vendus). Le Scope 3 représente souvent 70 à 90% des émissions totales.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Le bilan carbone est-il obligatoire pour mon entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>BEGES réglementaire</strong> est obligatoire en France pour les entreprises de plus de 500 salariés (250 en Outre-mer), ainsi que pour les collectivités. Même si vous n'êtes pas soumis à cette obligation, votre bilan carbone peut être requis par vos donneurs d'ordre, vos partenaires financiers ou dans le cadre de la <strong>CSRD</strong> si vous faites partie d'une chaîne de valeur d'une grande entreprise.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce que le reporting ESG et quelle est la différence avec la CSRD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>reporting ESG</strong> (Environmental, Social, Governance) est la communication standardisée sur les performances responsables d'une entreprise. La <strong>CSRD</strong> (Corporate Sustainability Reporting Directive) est la directive européenne qui impose aux grandes entreprises de publier ce reporting selon les normes ESRS. La CSRD s'applique progressivement aux grandes entreprises depuis 2024, puis aux PME cotées à partir de 2026.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment réduire efficacement son empreinte carbone ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La réduction de l'empreinte carbone passe par 3 étapes : 1) <strong>Mesurer précisément</strong> (bilan carbone Scopes 1, 2, 3), 2) <strong>Prioriser les actions</strong> sur les postes les plus émetteurs (souvent mobilité, énergie, achats), 3) <strong>Déployer un plan de réduction</strong> avec des objectifs chiffrés sur 3 à 5 ans. La compensation carbone ne doit intervenir qu'en dernier recours, après avoir maximisé la réduction à la source.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à mesurer votre empreinte carbone et construire votre reporting ESG ?</h2>
+                <p>Nos experts réalisent votre bilan carbone en 6 à 10 semaines et vous livrent un rapport communicable. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Réaliser mon bilan carbone
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Scopes 1, 2 &amp; 3</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conforme ADEME &amp; CSRD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

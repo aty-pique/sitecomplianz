@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}IA solutions RH | Intelligence artificielle ressources humaines | Complianz{% endblock %}
+
+{% block description %}Transformez vos RH avec l'IA : recrutement prédictif, analyse des compétences, chatbot RH et automatisation administrative. Guide complet.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "IA pour les ressources humaines — Solutions et outils",
+      "url": "{{ app_url }}/intelligence-artificielle/ia-entreprise/ia-pour-les-solutions-rh",
+      "description": "Guide complet des solutions IA pour les RH : recrutement prédictif, gestion des talents, chatbot RH, automatisation administrative et conformité.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "IA en entreprise", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise" },
+        { "@type": "ListItem", "position": 4, "name": "IA pour les RH", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise/ia-pour-les-solutions-rh" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment l'IA transforme-t-elle le recrutement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA transforme le recrutement de bout en bout : rédaction d'offres d'emploi optimisées, tri automatique des CV selon des critères objectifs, scoring prédictif des candidats selon les profils à succès, planification automatique des entretiens, et analyse des entretiens vidéo pour identifier les candidats les plus adaptés. Les RH passent moins de temps sur la sélection administrative et plus sur les entretiens à forte valeur ajoutée." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA dans le recrutement génère-t-elle des biais discriminatoires ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "C'est un risque réel que toute organisation doit prendre en compte. Les algorithmes de tri de CV peuvent reproduire et amplifier des biais existants (genre, origine, âge) si les données d'entraînement sont biaisées. Les bonnes pratiques : audits réguliers des algorithmes pour détecter les biais, exclusion des données personnelles non pertinentes (photo, âge, nom) du scoring, supervision humaine systématique des décisions finales, et conformité avec l'AI Act et le RGPD." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un chatbot RH et quelles questions peut-il traiter ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un chatbot RH est un assistant IA qui répond automatiquement aux questions courantes des collaborateurs disponible 24h/24 : demandes de congés et soldes, règles de remboursement de frais, procédures d'onboarding, avantages sociaux, contacts internes, accès aux documents RH. Il traite environ 70 à 80% des questions RH courantes sans intervention humaine, libérant les RH pour les sujets complexes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles tâches RH peut-on automatiser avec l'IA en priorité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les tâches RH à automatiser en priorité pour le meilleur ROI : tri et scoring des CV (économie de 70% du temps de présélection), onboarding automatisé (checklist, envoi de documents, accès aux outils), gestion des demandes de congés, reporting RH périodique (tableaux de bord absentéisme, turnover), FAQ collaborateurs via chatbot, et relances de processus (entretiens annuels, formations obligatoires)." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/ia-entreprise">IA en entreprise</a><span>›</span>
+                <span>IA pour les RH</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">IA — Ressources humaines</span>
+                IA pour les ressources humaines — Solutions et outils
+            </h1>
+            <p class="sp-hero__lead">
+                Transformez vos RH avec l'IA — <strong>recrutement prédictif, chatbot RH 24h/24, onboarding automatisé et analyse des compétences</strong>. Réduisez jusqu'à 70% le temps consacré aux tâches RH répétitives.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Transformer mes RH avec l'IA</a>
+                <a href="/intelligence-artificielle/ia-entreprise" class="btn btn-outline">IA en entreprise</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous gagnez</p><p class="sp-deliverables-card__subtitle">RH augmentées par l'IA</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>-70%</strong><span>temps présélection CV</span></div>
+                    <div class="sp-dc-stat"><strong>80%</strong><span>FAQ RH automatisées</span></div>
+                    <div class="sp-dc-stat"><strong>24/7</strong><span>disponibilité chatbot RH</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>L'IA révolutionne les ressources humaines — comment en profiter ?</h2>
+                <p>Les RH sont l'un des métiers où l'IA crée le plus de valeur immédiate : les tâches administratives représentent 60 à 70% du temps des équipes RH — et ce sont précisément celles que l'IA automatise le mieux. L'IA libère les RH pour ce qui compte vraiment : l'humain, la stratégie et le développement des collaborateurs.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les solutions IA RH les plus impactantes</h2>
+                <p><strong>Recrutement IA :</strong> tri et scoring automatique des CV, rédaction d'offres optimisées, planification des entretiens, analyse prédictive de l'adéquation candidat/poste. Gain de temps : 70% sur la présélection. Outils phares : Eightfold, Workday AI, Lever, Greenhouse.</p>
+                <p><strong>Onboarding automatisé :</strong> checklist d'intégration automatique, envoi des documents, création des accès, formation e-learning personnalisée, mentor IA pour répondre aux questions du nouveau collaborateur. L'expérience d'intégration est normalisée et enrichie sans surcharge RH.</p>
+                <p><strong>Chatbot RH :</strong> FAQ automatique disponible 24h/24 — congés, remboursements, avantages, contacts, documents. Traite 70 à 80% des questions courantes. Les équipes RH ne traitent plus que les demandes complexes à valeur ajoutée.</p>
+                <p><strong>Analytics et gestion des talents :</strong> analyse prédictive des risques de départ (turnover prédictif), cartographie des compétences, identification des besoins de formation et tableaux de bord RH en temps réel.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Biais IA dans les RH — comment les prévenir</h2>
+                <p>Les algorithmes IA peuvent reproduire et amplifier des biais existants dans le recrutement. Les bonnes pratiques : audits réguliers des modèles, exclusion des données personnelles non pertinentes du scoring, supervision humaine des décisions finales, et conformité AI Act (le recrutement IA est une application à haut risque). La transparence et la traçabilité des décisions IA en RH sont des obligations légales.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur l'IA RH</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>Recrutement ×3 plus efficace</h3><p>Le tri IA des CV réduit de 70% le temps de présélection et améliore la qualité des candidats sélectionnés grâce au scoring prédictif</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div><h3>Chatbot RH 24/7</h3><p>80% des questions RH courantes traitées automatiquement — les équipes RH se concentrent sur les sujets complexes à haute valeur ajoutée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Recrutement IA = haut risque AI Act</h3><p>Le recrutement assisté par IA est classé haut risque par l'AI Act — obligations de transparence, documentation et supervision humaine</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><h3>Turnover prédictif</h3><p>L'IA identifie les signaux précurseurs de départ des collaborateurs — agissez avant que le talent ne soit perdu</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Solutions RH complémentaires</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/agents-ia/agent-ia-pour-les-ressources-humaines" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div><strong>Agent IA pour les RH</strong><p>Un agent IA dédié à l'automatisation de vos processus RH.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Automatisez vos workflows RH au-delà du recrutement.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>Le recrutement IA est classé haut risque — maîtrisez vos obligations.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>La vue d'ensemble pour intégrer l'IA dans toute votre organisation.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'IA RH</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Transformer mes RH</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Comment l'IA transforme-t-elle le recrutement ?</summary>
+                    <div class="sp-faq-item__answer"><p>Rédaction d'offres optimisées, <strong>tri automatique des CV (-70% de temps)</strong>, scoring prédictif, planification des entretiens et analyse de l'adéquation candidat/poste. Les RH se concentrent sur les entretiens à forte valeur ajoutée.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'IA dans le recrutement génère-t-elle des biais discriminatoires ?</summary>
+                    <div class="sp-faq-item__answer"><p>C'est un risque réel. Les bonnes pratiques : <strong>audits réguliers des algorithmes</strong>, exclusion des données personnelles non pertinentes, supervision humaine des décisions finales, et conformité AI Act (recrutement IA = haut risque).</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un chatbot RH et quelles questions peut-il traiter ?</summary>
+                    <div class="sp-faq-item__answer"><p>Assistant IA disponible <strong>24h/24 pour 70-80% des questions courantes</strong> : congés, remboursements, avantages, contacts, documents. Les RH ne traitent plus que les demandes complexes à valeur ajoutée.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles tâches RH automatiser en priorité avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>En priorité pour le meilleur ROI : <strong>tri des CV, onboarding automatisé, gestion des congés, reporting RH et FAQ collaborateurs</strong> via chatbot. Ce sont les tâches les plus volumineuses et les plus standardisables.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à transformer vos RH avec l'IA et à libérer vos équipes des tâches répétitives pour se concentrer sur l'humain ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Transformer mes RH avec l'IA</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité AI Act incluse</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI en 3-6 mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

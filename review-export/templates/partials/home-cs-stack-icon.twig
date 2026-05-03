@@ -1,0 +1,24 @@
+{# Icônes flux « système » : 1 processus / 2 données / 3 pilotage / 4 résultat #}
+{% if step == 1 %}
+<svg class="home-cs__stack-ico-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.65"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+{% elseif step == 2 %}
+<svg class="home-cs__stack-ico-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" stroke-width="1.65"/>
+    <path d="M3 5v6c0 1.66 4.02 3 9 3s9-1.34 9-3V5" stroke="currentColor" stroke-width="1.65"/>
+    <path d="M3 11v6c0 1.66 4.02 3 9 3s9-1.34 9-3v-6" stroke="currentColor" stroke-width="1.65"/>
+</svg>
+{% elseif step == 3 %}
+<svg class="home-cs__stack-ico-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M3 17h18M3 12h12M3 7h8" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"/>
+    <path d="M14 7l3 3 4-6" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+{% else %}
+<svg class="home-cs__stack-ico-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 19V5M8 19v-6M12 19V9M16 19v-4M20 19v-9" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"/>
+    <path d="M16 5l3 3-3 3" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+{% endif %}

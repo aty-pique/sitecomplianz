@@ -1,0 +1,507 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (58 chars titre / 147 chars description) ─────────────────── #}
+{% block title %}Politique sécurité informatique PSSI | Rédaction sur mesure | Complianz{% endblock %}
+
+{% block description %}Rédigez votre Politique de Sécurité des Systèmes d'Information (PSSI) adaptée à votre contexte. Charte informatique, procédures et plan de continuité.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Politique de sécurité informatique — PSSI sur mesure",
+      "url": "{{ app_url }}/audit-conformite/cybersecurite/politique-securite",
+      "description": "Rédaction sur mesure de votre Politique de Sécurité des Systèmes d'Information (PSSI), charte informatique, procédures de gestion des incidents, plan de continuité d'activité (PCA) et plan de reprise d'activité (PRA). Accompagnement et formation des équipes.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Politique de sécurité informatique (PSSI)",
+      "offers": [
+        { "@type": "Offer", "name": "PSSI PME",                   "price": "1800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3500" } },
+        { "@type": "Offer", "name": "PSSI + PCA/PRA",             "price": "3500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500" } },
+        { "@type": "Offer", "name": "PSSI complète + formation",  "price": "5000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "9000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                         "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",     "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Cybersécurité",                   "item": "{{ app_url }}/audit-conformite/cybersecurite" },
+        { "@type": "ListItem", "position": 4, "name": "Politique de sécurité (PSSI)",    "item": "{{ app_url }}/audit-conformite/cybersecurite/politique-securite" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une PSSI (Politique de Sécurité des Systèmes d'Information) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La PSSI est le document cadre qui définit les règles, les responsabilités et les procédures de sécurité informatique de votre entreprise. Elle couvre la gestion des accès, les politiques de mot de passe, les règles d'utilisation des outils, la gestion des incidents, les sauvegardes et la continuité d'activité. C'est le fondement organisationnel de votre cybersécurité." }
+        },
+        {
+          "@type": "Question",
+          "name": "La PSSI est-elle obligatoire ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La PSSI n'est pas obligatoire pour toutes les entreprises, mais elle est exigée ou fortement recommandée dans plusieurs contextes : certification ISO 27001, conformité NIS2 (opérateurs essentiels), marchés publics, contrats avec grandes entreprises, et secteurs réglementés (santé, finance, défense). Elle est en tout cas indispensable dès lors que vous avez des données sensibles à protéger." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre une PSSI et une charte informatique ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La PSSI est le document cadre stratégique destiné à la direction et aux responsables IT — elle définit les objectifs, les périmètres et les principes généraux de sécurité. La charte informatique est le document opérationnel destiné à tous les collaborateurs — elle définit les règles d'usage des outils informatiques, les droits et obligations de chacun. Les deux sont complémentaires et font partie d'une politique de sécurité complète." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un PCA et un PRA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le Plan de Continuité d'Activité (PCA) définit comment votre entreprise continue à fonctionner en mode dégradé pendant un incident (cyberattaque, sinistre). Le Plan de Reprise d'Activité (PRA) définit comment vous revenez à un fonctionnement normal après un incident. Ces deux plans sont essentiels pour limiter les pertes financières lors d'une crise et sont exigés dans de nombreux secteurs réglementés." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/cybersecurite">Cybersécurité</a>
+                <span>›</span>
+                <span>Politique de sécurité (PSSI)</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">PSSI &amp; documentation sécurité</span>
+                Politique de sécurité informatique&nbsp;: une PSSI sur mesure adaptée à votre entreprise
+            </h1>
+            <p class="sp-hero__lead">
+                Nous rédigeons votre <strong>Politique de Sécurité des Systèmes d'Information (PSSI)</strong> sur mesure — charte informatique, procédures de gestion des incidents, plan de continuité (PCA) et plan de reprise (PRA). Un corpus documentaire complet, opérationnel et adapté à votre réalité.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander ma PSSI sur mesure
+                </a>
+                <a href="#livrables" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>PSSI conforme ISO 27001 &amp; NIS2</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Documents opérationnels, pas des modèles</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation des équipes incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Livrables de la PSSI sur mesure</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>corpus documentaire complet</strong> adapté à votre contexte — PSSI, charte, procédures et plans de continuité — que vos équipes peuvent appliquer immédiatement.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>4–8</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>6</strong>
+                        <span>livrables</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>80% des incidents</strong> de sécurité auraient pu être évités avec des procédures et une politique de sécurité formalisées</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services de cybersécurité</p>
+        <div class="sp-subservices__grid">
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit de cybersécurité</h2>
+                    <p>Diagnostic complet de votre SI : systèmes, réseaux, accès, applications et données sensibles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/pentest" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Test d'intrusion (pentest)</h2>
+                    <p>Simulation d'attaque réelle pour identifier les vulnérabilités exploitables avant les hackers.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/politique-securite" class="sp-subsvc-card sp-subsvc-card--blue sp-subsvc-card--active">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Politique de sécurité (PSSI)</h2>
+                    <p>Définissez et formalisez vos règles de sécurité, accès, gestion des incidents et conformité SI.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/protection-cyberattaques" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Protection contre les cyberattaques</h2>
+                    <p>Mettez en place les dispositifs techniques et organisationnels pour bloquer et détecter les attaques.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Documents opérationnels, pas des modèles génériques
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Conformes ISO 27001, NIS2 &amp; RGPD
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation &amp; sensibilisation incluses
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                <p><strong>+90</strong> PSSI rédigées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <p><strong>4–8</strong> semaines de déploiement</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LIVRABLES — 6 documents
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="livrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Livrables</p>
+            <h2>Les 6 documents que vous obtenez</h2>
+            <p class="sp-section-sub">Un corpus documentaire complet, rédigé sur mesure selon votre contexte, votre secteur et vos contraintes réglementaires.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>PSSI complète (document cadre)</h3><p>Document stratégique définissant les objectifs, périmètres, principes et responsabilités en matière de sécurité SI</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Charte informatique utilisateurs</h3><p>Règles d'usage des outils, droits et obligations de chaque collaborateur, sanctions applicables</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Procédures de gestion des incidents</h3><p>Processus de détection, qualification, réponse et communication lors d'un incident de sécurité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Plan de continuité d'activité (PCA)</h3><p>Maintien des fonctions critiques en mode dégradé pendant un incident — seuils RTO et RPO définis</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.07"/></svg>
+                </div>
+                <div><h3>Plan de reprise d'activité (PRA)</h3><p>Procédures de retour à la normale après un incident — restauration des systèmes et des données</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Formation sensibilisation équipes</h3><p>Session de formation pour que vos collaborateurs comprennent et appliquent concrètement la PSSI</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — 4 profils clients
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Qui a besoin d'une politique de sécurité informatique ?</h2>
+            <p class="sp-section-sub">La PSSI est indispensable dès lors que vous avez des données à protéger et des collaborateurs utilisant des outils informatiques — quelle que soit votre taille.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h3>Entreprises en démarche ISO 27001</h3>
+                <p>La PSSI est une exigence fondamentale de la norme ISO 27001 — sans politique de sécurité formalisée, la certification est impossible à obtenir.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>PME &amp; ETI en croissance</h3>
+                <p>Vos équipes grossissent, vos outils se multiplient — sans PSSI, les règles de sécurité restent floues et chaque incident révèle un vide de procédure.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Secteurs réglementés (santé, finance)</h3>
+                <p>NIS2, HDS, DORA, PCI-DSS — les secteurs sensibles imposent une politique de sécurité formalisée et régulièrement mise à jour.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"/><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/></svg>
+                </div>
+                <h3>Entreprises après un incident</h3>
+                <p>Suite à une cyberattaque ou une fuite de données, la mise en place d'une PSSI et de procédures d'incident est la première réponse organisationnelle.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte la rédaction d'une PSSI ?</h2>
+            <p class="sp-section-sub">Le coût dépend du niveau de documentation souhaité, de la taille de votre entreprise et des exigences réglementaires de votre secteur.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">PSSI PME</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE/PME jusqu'à 50 collaborateurs</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> PSSI complète sur mesure</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Charte informatique utilisateurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Procédures de gestion des incidents</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution et accompagnement (1h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">PSSI + PCA/PRA</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME avec contraintes de continuité</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>PSSI + charte + procédures incidents</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de continuité d'activité (PCA)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de reprise d'activité (PRA)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Test de crise (exercice tabletop)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution direction + IT</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">PSSI complète + formation</p>
+                    <p class="sp-plan__price"><span>5 000 – 9 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, secteur réglementé, ISO 27001</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Corpus documentaire complet (6 livrables)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation sensibilisation équipes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Exercice de crise inclus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation ISO 27001 incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi et mise à jour annuelle</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés à la politique de sécurité informatique</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit de cybersécurité</strong><p>L'audit de sécurité identifie les failles — la PSSI formalise les règles pour les corriger et les prévenir.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/protection-cyberattaques" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Protection contre les cyberattaques</strong><p>La PSSI définit les règles, la protection déploie les solutions techniques pour les appliquer.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-27001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 27001</strong><p>La PSSI est le fondement documentaire indispensable à la certification ISO 27001 SMSI.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><strong>Mise en conformité RGPD</strong><p>La politique de sécurité SI est un pilier de la conformité RGPD — protection des données par conception.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la PSSI</h2>
+                <p>Nos experts répondent sous 24h à toutes vos questions sur votre politique de sécurité informatique.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'une PSSI (Politique de Sécurité des Systèmes d'Information) ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>PSSI</strong> est le document cadre qui définit les règles, les responsabilités et les procédures de sécurité informatique de votre entreprise. Elle couvre la gestion des accès, les politiques de mot de passe, les règles d'utilisation des outils, la gestion des incidents, les sauvegardes et la continuité d'activité. C'est le fondement organisationnel de votre cybersécurité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La PSSI est-elle obligatoire ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La PSSI n'est pas légalement obligatoire pour toutes les entreprises, mais elle est <strong>exigée ou fortement recommandée</strong> dans plusieurs contextes : certification <a href="/audit-conformite/certifications-iso/iso-27001">ISO 27001</a>, conformité NIS2 (opérateurs essentiels), marchés publics, et secteurs réglementés (santé, finance, défense). Elle est en tout cas indispensable dès lors que vous traitez des données sensibles.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre une PSSI et une charte informatique ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>PSSI</strong> est le document cadre stratégique destiné à la direction et aux responsables IT — elle définit les objectifs, périmètres et principes généraux de sécurité. La <strong>charte informatique</strong> est le document opérationnel destiné à tous les collaborateurs — elle définit les règles d'usage des outils, les droits et obligations de chacun. Les deux sont complémentaires et font partie d'une politique de sécurité complète.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un PCA et un PRA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>Plan de Continuité d'Activité (PCA)</strong> définit comment votre entreprise continue à fonctionner en mode dégradé pendant un incident (cyberattaque, sinistre). Le <strong>Plan de Reprise d'Activité (PRA)</strong> définit comment vous revenez à un fonctionnement normal après un incident. Ces deux plans sont essentiels pour limiter les pertes lors d'une crise et sont exigés dans de nombreux secteurs réglementés.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à formaliser votre politique de sécurité informatique ?</h2>
+                <p>Nos experts rédigent votre PSSI sur mesure — adaptée à votre contexte, opérationnelle et conforme aux exigences réglementaires. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Rédiger ma PSSI
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% sur mesure</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conforme ISO 27001 &amp; NIS2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

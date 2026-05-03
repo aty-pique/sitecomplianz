@@ -1,0 +1,65 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Nos packs — offres par pôle | {{ app_name }}{% endblock %}
+{% block description %}Découvrez les packs Complianz par famille : conseil & conformité, solutions digitales, performance marketing, infogérance et IA. Tarifs indicatifs et devis sur mesure.{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero pack-index__hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container pack-index__hero-inner">
+        <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+            <a href="/">Accueil</a>
+            <span class="sp-breadcrumb__sep">/</span>
+            <span aria-current="page">Nos packs</span>
+        </nav>
+        <h1 class="sp-hero__title">Nos packs par pôle</h1>
+        <p class="sp-hero__lead">Des parcours packagés pour accélérer vos décisions : périmètre clair, livrables identifiés et tarifs indicatifs. Chaque fiche détaille le déroulé ; votre chargé d’affine le devis selon votre contexte.</p>
+        <div class="sp-hero__actions">
+            <button type="button" class="btn btn-primary btn-lg" data-open-quote-modal>Demander un devis pack</button>
+            <a href="/contact" class="btn btn-outline">Contact commercial</a>
+        </div>
+    </div>
+</section>
+
+<section class="pack-index__content sp-section">
+    <div class="container">
+        {% for pole in poles %}
+            <div class="pack-index__pole" id="pole-{{ pole.id }}">
+                <h2 class="pack-index__pole-title"><a href="{{ pole.url }}">{{ pole.name }}</a></h2>
+                <ul class="pack-index__grid">
+                    {% for slug, p in packs %}
+                        {% if p.pole == pole.id %}
+                            <li>
+                                <a href="/nos-packs/{{ slug }}" class="pack-index__card{% if p.signature %} pack-index__card--sig{% endif %}">
+                                    <span class="pack-index__card-title">{{ p.title }}</span>
+                                    <span class="pack-index__card-tag">{{ p.tagline }}</span>
+                                    <span class="pack-index__card-price">{{ p.price }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Un besoin qui ne correspond pas à une fiche pack ?</h2>
+                <p>Décrivez votre contexte : nous recomposerons une offre sur mesure à partir des mêmes expertises.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">Parler à un chargé d’affaires</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

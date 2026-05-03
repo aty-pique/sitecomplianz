@@ -1,0 +1,218 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Gouvernance données IA | Data governance & IA | Complianz{% endblock %}
+
+{% block description %}Mettez en place une gouvernance des données solide pour vos projets IA. Qualité des données, catalogues, pipelines et conformité RGPD & AI Act.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Gouvernance des données et IA",
+      "url": "{{ app_url }}/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia",
+      "description": "Guide complet sur la gouvernance des données pour l'IA : qualité des données, catalogues, pipelines, conformité RGPD et AI Act, et organisation de la donnée.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "IA en entreprise", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise" },
+        { "@type": "ListItem", "position": 4, "name": "Gouvernance des données et IA", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi la gouvernance des données est-elle essentielle pour l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA est littéralement ce que vous lui donnez — des données de mauvaise qualité produisent des modèles IA défaillants (garbage in, garbage out). Une gouvernance des données solide garantit que vos projets IA s'appuient sur des données fiables, complètes, actualisées et conformes. Sans gouvernance, les projets IA échouent à 70% selon les études — souvent non pas à cause de la technologie, mais à cause des données." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un catalogue de données et pourquoi en avoir un ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un catalogue de données est un inventaire structuré de toutes les données disponibles dans votre organisation : qui produit quoi, où c'est stocké, quelle est la qualité, qui peut y accéder et comment. Pour l'IA, c'est indispensable : avant de développer un modèle, il faut savoir quelles données existent et lesquelles sont utilisables. Un catalogue de données réduit de 30 à 50% le temps de préparation des projets IA." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment concilier gouvernance des données et conformité RGPD pour l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La conciliation RGPD-IA passe par : cartographie des données personnelles utilisées dans vos modèles IA, identification de la base légale pour chaque traitement IA, évaluation d'impact (DPIA) pour les traitements à risque élevé, anonymisation ou pseudonymisation des données d'entraînement, gestion des droits des personnes (accès, rectification, effacement) et documentation des décisions automatisées. L'AI Act ajoute une couche supplémentaire d'obligations à intégrer dans votre gouvernance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Par où commencer pour mettre en place une gouvernance des données IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La démarche de gouvernance des données pour l'IA se déroule en 5 étapes : 1) Audit des données existantes (inventaire, qualité, localisation), 2) Définition des rôles data (data owner, data steward, DPO), 3) Mise en place d'un catalogue de données, 4) Définition des politiques de qualité et d'accès, 5) Création des pipelines de données pour alimenter les projets IA. L'objectif est d'avoir une fondation data solide avant de lancer les projets IA." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/ia-entreprise">IA en entreprise</a><span>›</span>
+                <span>Gouvernance des données et IA</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Data governance — IA</span>
+                Gouvernance des données et IA
+            </h1>
+            <p class="sp-hero__lead">
+                <strong>70% des projets IA échouent à cause des données</strong>, pas de la technologie. Mettez en place une gouvernance des données solide — qualité, catalogues, pipelines et conformité RGPD & AI Act — pour que vos projets IA réussissent.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Structurer ma gouvernance données</a>
+                <a href="/intelligence-artificielle/ia-entreprise" class="btn btn-outline">IA en entreprise</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Fondation data pour l'IA</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>-30-50%</strong><span>temps prépa projets IA</span></div>
+                    <div class="sp-dc-stat"><strong>Conformité</strong><span>RGPD &amp; AI Act</span></div>
+                    <div class="sp-dc-stat"><strong>Données</strong><span>fiables et traçables</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Pourquoi la gouvernance des données est le fondement de tout projet IA réussi</h2>
+                <p>L'IA apprend de vos données. Des données incomplètes, obsolètes ou de mauvaise qualité produisent des modèles IA défaillants — le fameux "garbage in, garbage out". Selon les études, 70% des projets IA échouent non pas à cause de la technologie, mais à cause d'une fondation data insuffisante.</p>
+                <p>Une gouvernance des données solide est le préalable indispensable à tout projet IA sérieux : elle garantit la fiabilité des modèles, la conformité réglementaire et la durabilité des investissements IA.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les piliers d'une gouvernance des données IA</h2>
+                <p><strong>Inventaire et catalogue de données :</strong> cartographier toutes les données disponibles dans l'organisation, leur emplacement, leur qualité, leurs propriétaires et leurs droits d'accès. Le catalogue de données est la base opérationnelle de tout projet IA.</p>
+                <p><strong>Qualité des données :</strong> définir et mesurer des indicateurs de qualité (complétude, exactitude, fraîcheur, cohérence) et mettre en place des processus de nettoyage et de validation continues.</p>
+                <p><strong>Pipelines de données :</strong> automatiser la collecte, la transformation, le stockage et la mise à disposition des données pour les projets IA — en garantissant la traçabilité et la reproductibilité.</p>
+                <p><strong>Conformité RGPD et AI Act :</strong> cartographier les données personnelles dans les projets IA, identifier les bases légales, réaliser les DPIA nécessaires, gérer les droits des personnes et documenter les décisions automatisées.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Rôles et responsabilités dans la gouvernance données IA</h2>
+                <p>Une gouvernance efficace nécessite des rôles clairs : le Data Owner (responsable métier de la donnée), le Data Steward (garant de la qualité), le DPO (conformité RGPD), l'AI Officer (émergent avec l'AI Act) et les data engineers (pipelines techniques). Sans attribution claire des responsabilités, la gouvernance reste théorique.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur la gouvernance données IA</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg></div>
+                <div><h3>Données = carburant de l'IA</h3><p>La qualité de vos modèles IA dépend directement de la qualité de vos données — impossible de contourner ce facteur fondamental</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div>
+                <div><h3>Catalogue de données — priorité</h3><p>Savoir quelles données vous avez et où elles se trouvent est le premier pas — un catalogue réduit de 30-50% le temps de préparation des projets IA</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>RGPD + AI Act — double conformité</h3><p>Les projets IA avec données personnelles doivent être conformes aux deux réglementations — la gouvernance données est le garant de cette conformité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><h3>Rôles clairs = gouvernance effective</h3><p>Data Owner, Data Steward, DPO, AI Officer — sans attribution des responsabilités, la gouvernance reste sur le papier</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin dans votre stratégie data IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>Intégrez l'IA dans toute votre organisation.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>Respectez la réglementation européenne sur l'IA.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia/solutions-ia-de-gouvernance-des-donnees" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                <div><strong>Solutions IA gouvernance données</strong><p>Déployez des solutions IA pour automatiser votre gouvernance.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Auditez votre maturité data et vos capacités IA.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la gouvernance données IA</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Structurer ma data</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Pourquoi la gouvernance des données est-elle essentielle pour l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>70% des projets IA échouent à cause des données</strong>, pas de la technologie. Une gouvernance solide garantit données fiables, conformité et durabilité des investissements IA — c'est le préalable indispensable.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qu'est-ce qu'un catalogue de données et pourquoi en avoir un ?</summary>
+                    <div class="sp-faq-item__answer"><p>Un inventaire structuré de toutes vos données (qui produit quoi, où, quelle qualité, qui peut y accéder). Il <strong>réduit de 30 à 50% le temps de préparation</strong> des projets IA — indispensable avant tout développement.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment concilier gouvernance des données et conformité RGPD pour l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Cartographie des données personnelles dans vos modèles IA, bases légales identifiées, <strong>DPIA pour les traitements à risque</strong>, anonymisation des données d'entraînement et documentation des décisions automatisées.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Par où commencer pour mettre en place une gouvernance données IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>5 étapes : <strong>Audit des données existantes</strong>, définition des rôles data, catalogue de données, politiques de qualité et d'accès, puis création des pipelines. L'objectif : une fondation data solide avant les projets IA.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à structurer votre gouvernance des données pour garantir le succès de vos projets IA ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Structurer ma gouvernance données</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit data inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité RGPD &amp; AI Act</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

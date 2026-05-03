@@ -1,0 +1,40 @@
+CHARTE COULEURS OFFICIELLE - A RESPECTER
+========================================
+
+1) NUANCIER PRINCIPAL
+---------------------
+- Vert principal (Pantone 7739 C): #289951
+- Vert clair (Pantone 559 C): #A3CBBC
+- Bleu principal (Pantone 7456 C): #597AAF
+- Bleu clair (Pantone 650 C): #D0D8E4
+- Beige principal (Pantone 4685 C): #E1C6AB
+- Noir: #000000
+- Blanc: #FFFFFF
+
+2) NUANCIER HOVER
+-----------------
+- Vert hover (Pantone 7723 C): #44AC6B
+- Vert hover secondaire (Pantone 624 C): #72AA95
+- Bleu hover (Pantone 7684 C): #3C6098
+- Bleu hover clair (Pantone 536 C): #A4B2C8
+- Beige hover (Pantone 4655 C): #BF9B79
+
+3) REGLES D'USAGE
+-----------------
+- Respect strict de la charte couleur.
+- Ne pas introduire de couleurs hors nuancier sans validation.
+- Noir 100% et blanc autorises comme couleurs neutres.
+- Les couleurs hover sont reservees aux etats interactifs (survol, focus, actif).
+
+4) TOKENS CSS RECOMMANDES
+-------------------------
+- --color-primary: #597AAF
+- --color-primary-hover: #3C6098
+- --color-secondary: #289951
+- --color-secondary-hover: #44AC6B
+- --color-accent: #E1C6AB
+- --color-accent-hover: #BF9B79
+- --color-soft-blue: #D0D8E4
+- --color-soft-green: #A3CBBC
+- --color-black: #000000
+- --color-white: #FFFFFF

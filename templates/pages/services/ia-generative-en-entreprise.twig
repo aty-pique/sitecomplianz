@@ -1,0 +1,218 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}IA générative entreprise | Déployer l'IA générative | Complianz{% endblock %}
+
+{% block description %}Déployez l'IA générative dans votre entreprise : productivité, création de contenu, service client et automatisation. Guide pratique et accompagnement.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "IA générative en entreprise — Usages et déploiement",
+      "url": "{{ app_url }}/intelligence-artificielle/ia-entreprise/ia-generative-en-entreprise",
+      "description": "Guide pratique pour déployer l'IA générative en entreprise : cas d'usage à fort ROI, modèles disponibles, gouvernance, et retour d'expérience.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "IA en entreprise", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise" },
+        { "@type": "ListItem", "position": 4, "name": "IA générative en entreprise", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise/ia-generative-en-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels sont les cas d'usage les plus rentables de l'IA générative en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les cas d'usage IA générative avec le meilleur ROI en entreprise sont : génération de contenu marketing (articles, emails, posts — économie de 60-80% du temps), assistance au code pour les équipes techniques (Copilot, Cursor — +30-50% de productivité dev), synthèse de documents (contrats, comptes-rendus, rapports), service client (chatbots LLM capables de traiter 80% des questions courantes), et aide à la rédaction pour tous les métiers (commercial, RH, juridique)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment déployer l'IA générative de manière sécurisée en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un déploiement sécurisé d'IA générative en entreprise repose sur : une politique d'usage claire (données confidentielles à ne pas partager, cas d'usage autorisés), le choix de versions API ou d'entreprise des LLMs (OpenAI Enterprise, Claude for Work) où les données ne servent pas à l'entraînement, une infrastructure on-premise ou cloud privé pour les données sensibles, une formation des collaborateurs aux bonnes pratiques, et un suivi de conformité AI Act." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA générative va-t-elle remplacer des postes dans mon entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA générative transforme des postes plutôt qu'elle ne les supprime — à court terme. Les professionnels qui maîtrisent l'IA sont plus productifs et couvrent un périmètre plus large : un rédacteur avec l'IA produit 5 à 10 fois plus de contenus, un développeur avec Copilot code 2 à 3 fois plus vite. À moyen terme, certains postes très répétitifs évoluent. La stratégie gagnante est d'accompagner la montée en compétences des équipes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre ChatGPT et une solution IA générative d'entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT grand public convient pour un usage personnel avec des données non sensibles. Une solution IA générative d'entreprise (OpenAI Enterprise, Azure OpenAI, Claude for Work, solutions on-premise) offre : garantie que les données ne sont pas utilisées pour l'entraînement, SLA et support professionnel, connexion à vos données internes (RAG), personnalisation des modèles selon votre métier, conformité aux politiques de sécurité de votre organisation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/ia-entreprise">IA en entreprise</a><span>›</span>
+                <span>IA générative en entreprise</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">IA générative — Entreprise</span>
+                IA générative en entreprise — Usages et déploiement
+            </h1>
+            <p class="sp-hero__lead">
+                Déployez l'IA générative dans votre entreprise avec un <strong>plan d'action concret</strong> — cas d'usage à fort ROI, sécurisation des données, gouvernance et montée en compétences des équipes. Transformez votre organisation avec l'IA générative en <strong>60 à 90 jours</strong>.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer l'IA générative</a>
+                <a href="/intelligence-artificielle/ia-entreprise" class="btn btn-outline">IA en entreprise</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">Ce que vous obtenez</p><p class="sp-deliverables-card__subtitle">Transformation IA générative</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>+50%</strong><span>productivité équipes</span></div>
+                    <div class="sp-dc-stat"><strong>60-90j</strong><span>premier déploiement</span></div>
+                    <div class="sp-dc-stat"><strong>ROI</strong><span>en 3-6 mois</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>Qu'est-ce que l'IA générative et pourquoi l'adopter en entreprise ?</h2>
+                <p>L'IA générative désigne les modèles capables de créer du contenu nouveau — texte, images, code, audio — à partir d'instructions en langage naturel. ChatGPT, Claude, Gemini et les modèles de code comme Copilot sont les représentants les plus connus. En entreprise, l'IA générative transforme les processus de création, d'analyse, de communication et de service client.</p>
+                <p>Les entreprises qui déploient l'IA générative de manière structurée observent des gains de productivité de 30 à 70% sur les métiers du savoir — rédacteurs, développeurs, consultants, juristes, commerciaux. Le ROI est généralement atteint en 3 à 6 mois.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les cas d'usage IA générative en entreprise — par métier</h2>
+                <p><strong>Marketing et communication :</strong> génération de contenu (articles, emails, posts), scripts vidéo, traductions, personalization à grande échelle. Gain de temps : 60 à 80% sur la production de contenu.</p>
+                <p><strong>Commercial et service client :</strong> rédaction de propositions commerciales, réponses à des appels d'offres, synthèse de réunions clients, chatbots LLM pour le service client 24/7.</p>
+                <p><strong>RH et juridique :</strong> rédaction d'offres d'emploi, résumé de CVs, préparation d'entretiens, synthèse de contrats, veille réglementaire, rédaction de politiques internes.</p>
+                <p><strong>Technique et développement :</strong> GitHub Copilot et Cursor pour accélérer le code, génération de tests, documentation automatique, analyse de logs et debugging assisté.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Déployer l'IA générative de manière sécurisée</h2>
+                <p>Un déploiement responsable passe par : une politique d'usage claire, le choix de versions enterprise (OpenAI Enterprise, Claude for Work) où les données ne servent pas à l'entraînement, une formation des équipes aux bonnes pratiques, et un suivi de conformité AI Act pour les usages concernés.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir avant de déployer</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Commencez petit, puis déployez</h3><p>Les meilleurs déploiements commencent par 1-2 cas d'usage à fort impact, prouvent le ROI, puis s'étendent. Évitez le "big bang" IA</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><h3>Données confidentielles — vigilance</h3><p>Ne jamais entrer de données clients ou stratégiques dans ChatGPT grand public. Utiliser les versions enterprise avec garanties contractuelles</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>Formation = clé du succès</h3><p>Les déploiements qui réussissent combinent la technologie et la formation — sans montée en compétences des équipes, les outils ne sont pas utilisés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><h3>AI Act — conformité à anticiper</h3><p>Certains usages de l'IA générative sont soumis à l'AI Act européen. Anticiper la conformité évite des corrections coûteuses après déploiement</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Aller plus loin dans votre transformation IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>La vue d'ensemble pour intégrer l'IA dans toute votre organisation.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Conformité IA &amp; AI Act</strong><p>Déployez en conformité avec la réglementation européenne.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-generative" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Formation IA générative</strong><p>Formez vos équipes pour maximiser l'adoption et l'impact.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div><strong>Agents IA</strong><p>L'étape suivante — des IA qui agissent de manière autonome.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'IA générative en entreprise</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Démarrer mon déploiement</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels sont les cas d'usage IA générative les plus rentables ?</summary>
+                    <div class="sp-faq-item__answer"><p>Génération de contenu marketing (<strong>-60-80% de temps</strong>), assistance au code (<strong>+30-50% productivité dev</strong>), synthèse de documents, service client LLM et aide à la rédaction pour tous les métiers (commercial, RH, juridique).</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment déployer l'IA générative de manière sécurisée ?</summary>
+                    <div class="sp-faq-item__answer"><p>Politique d'usage claire, <strong>versions enterprise</strong> (OpenAI Enterprise, Claude for Work) avec garanties sur les données, formation des équipes aux bonnes pratiques, infrastructure adaptée pour les données sensibles.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>L'IA générative va-t-elle remplacer des postes ?</summary>
+                    <div class="sp-faq-item__answer"><p>Elle <strong>transforme les postes</strong> plutôt qu'elle ne les supprime à court terme. Les professionnels qui maîtrisent l'IA sont plus productifs et couvrent un périmètre plus large. La stratégie gagnante : <strong>accompagner la montée en compétences</strong> des équipes.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre ChatGPT et une solution IA générative d'entreprise ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les solutions enterprise offrent : <strong>garantie de non-utilisation des données pour l'entraînement</strong>, connexion à vos données internes (RAG), SLA professionnel et conformité aux politiques de sécurité de votre organisation.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à déployer l'IA générative dans votre entreprise et à booster la productivité de vos équipes en 60 jours ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Déployer l'IA générative</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement complet tech + formation</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI en 3-6 mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,449 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}IA en entreprise | Intégration IA dans votre organisation | Complianz{% endblock %}
+
+{% block description %}Intégrez l'IA dans votre entreprise : IA générative, gouvernance des données, conformité AI Act et gestion des RH. Accompagnement stratégique et opérationnel.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "IA en entreprise — Intégration de l'intelligence artificielle",
+      "url": "{{ app_url }}/intelligence-artificielle/ia-entreprise",
+      "description": "Accompagnement complet pour intégrer l'intelligence artificielle dans votre entreprise : IA générative, gouvernance des données, conformité AI Act, IA pour les RH. Stratégie et déploiement opérationnel.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Intégration de l'IA en entreprise",
+      "offers": [
+        { "@type": "Offer", "name": "Diagnostic IA entreprise", "price": "1900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3500" } },
+        { "@type": "Offer", "name": "Accompagnement intégration IA", "price": "4900", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } },
+        { "@type": "Offer", "name": "Programme transformation IA", "price": "12000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "30000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "IA en entreprise", "item": "{{ app_url }}/intelligence-artificielle/ia-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Par où commencer pour intégrer l'IA dans mon entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La meilleure entrée est un diagnostic IA : identifier les processus à fort potentiel d'automatisation, évaluer la maturité digitale de l'entreprise et définir une feuille de route priorisée. Nous recommandons de démarrer par 2 à 3 cas d'usage à ROI rapide pour créer une dynamique positive avant d'aborder les projets plus complexes. L'adhésion des équipes est aussi cruciale que la technologie." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment gérer la résistance au changement lors de l'intégration de l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La conduite du changement est aussi importante que la technologie. Nous recommandons : impliquer les équipes dès le début, communiquer clairement sur les objectifs et ce que l'IA n'est pas (pas un outil de remplacement, mais d'augmentation), identifier des ambassadeurs internes, former avant de déployer, et célébrer les premières victoires. Les entreprises qui réussissent leur intégration IA sont celles qui traitent le volet humain avec autant de sérieux que le volet technique." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il être conforme à l'AI Act pour utiliser l'IA en entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'AI Act européen impose des obligations selon le niveau de risque des systèmes IA utilisés. Les entreprises utilisant des systèmes IA à haut risque (RH, crédit, décisions automatisées sur des individus) ont des obligations légales spécifiques. Pour les usages courants (productivité, génération de contenu, automatisation basique), les obligations sont limitées mais incluent la transparence envers les utilisateurs. Nous vous accompagnons dans l'évaluation et la mise en conformité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel budget prévoir pour l'intégration de l'IA dans une PME ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour une PME, un budget de 5 000 à 15 000 € couvre généralement un diagnostic IA complet, le déploiement de 3 à 5 usages prioritaires et la formation des équipes. Les coûts récurrents (outils IA, maintenance) représentent ensuite 500 à 2 000 € par mois selon l'intensité d'usage. Le ROI est généralement atteint en 6 à 12 mois." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <span>IA en entreprise</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">IA en entreprise</span>
+                IA en entreprise — Intégrez l'IA dans votre organisation
+            </h1>
+            <p class="sp-hero__lead">
+                L'intégration de l'IA en entreprise va bien au-delà des outils. Nous vous accompagnons sur tous les enjeux : <strong>IA générative, gouvernance des données, conformité AI Act</strong> et transformation des ressources humaines. Un accompagnement <strong>stratégique et opérationnel</strong> pour faire de l'IA un vrai avantage concurrentiel.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Diagnostiquer mon organisation IA
+                </a>
+                <a href="#tarifs" class="btn btn-outline">
+                    Voir les formules
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Diagnostic complet avant tout déploiement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conduite du changement incluse</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conformité AI Act vérifiée</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Une organisation IA-ready</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une organisation <strong>prête pour l'IA</strong> — processus optimisés, équipes formées, gouvernance en place et conformité assurée.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>+35%</strong>
+                        <span>efficacité opérationnelle</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>conformité AI Act</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>6–12</strong>
+                        <span>mois ROI positif</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises ayant intégré l'IA de façon structurée constatent <strong>35% d'amélioration de leur efficacité</strong> opérationnelle dans les 12 premiers mois</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos domaines d'expertise IA en entreprise</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/intelligence-artificielle/ia-entreprise/ia-generative-en-entreprise" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>IA générative en entreprise</h2>
+                    <p>Déployez l'IA générative pour la productivité, le contenu et le service client.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Conformité IA &amp; AI Act</h2>
+                    <p>Mettez-vous en conformité avec la réglementation européenne sur l'IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/gouvernance-des-donnees-et-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Gouvernance des données et IA</h2>
+                    <p>Qualité des données, pipelines et conformité RGPD pour vos projets IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise/ia-pour-les-solutions-rh" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>IA pour les RH</h2>
+                    <p>Recrutement prédictif, chatbot RH et automatisation administrative.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Diagnostic initial inclus dans chaque accompagnement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Conformité AI Act vérifiée
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Conduite du changement et formation incluses
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
+                <p><strong>+80</strong> entreprises accompagnées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+35%</strong> d'efficacité opérationnelle</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Domaines d'intégration</p>
+            <h2>Comment intégrons-nous l'IA dans votre entreprise ?</h2>
+            <p class="sp-section-sub">L'intégration IA touche tous les aspects de l'organisation — des processus opérationnels à la stratégie, en passant par la gouvernance et la conformité.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>IA générative &amp; productivité</h3>
+                <p>Déploiement de ChatGPT, Claude et des LLMs en entreprise — cas d'usage, politiques d'utilisation, formation et mesure de l'impact sur la productivité.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Conformité réglementaire IA</h3>
+                <p>AI Act européen, RGPD et éthique IA — évaluation des risques, obligations légales et mise en conformité des systèmes IA utilisés en entreprise.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Gouvernance des données</h3>
+                <p>Sans données de qualité, pas d'IA performante — mise en place des fondations : catalogue de données, pipelines, qualité et conformité RGPD.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Transformation RH par l'IA</h3>
+                <p>Recrutement prédictif, analyse des compétences, chatbot RH, onboarding automatisé — vos RH augmentés par l'IA pour se concentrer sur l'humain.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'intégration de l'IA en entreprise ?</h2>
+            <p class="sp-section-sub">Trois niveaux d'accompagnement selon la maturité IA de votre organisation et vos ambitions de transformation.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Diagnostic IA entreprise</p>
+                    <p class="sp-plan__price"><span>1 900 – 3 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Évaluation &amp; roadmap — 1 à 3 semaines</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Évaluation maturité IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Identification des cas d'usage</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse conformité AI Act</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap IA sur mesure</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement intégration IA</p>
+                    <p class="sp-plan__price"><span>4 900 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Déploiement accompagné — 2 à 4 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Diagnostic + déploiement complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration des outils IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation &amp; conduite du changement</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise en conformité AI Act</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi des performances 3 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Programme transformation IA</p>
+                    <p class="sp-plan__price"><span>12 000 – 30 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Transformation globale — 4 à 12 mois</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Transformation organisationnelle complète</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gouvernance IA &amp; données</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-départements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Centre d'excellence IA interne</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement stratégique continu</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Nous contacter</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires pour votre intégration IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Identifiez les opportunités IA avant de définir votre stratégie d'intégration.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Déployez des agents IA autonomes pour vos processus clés.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Solutions IA sur mesure</strong><p>Développement de solutions IA spécifiques à vos besoins métiers.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Formation IA</strong><p>Formez vos équipes en parallèle du déploiement pour maximiser l'adoption.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'IA en entreprise</h2>
+                <p>Notre équipe répond sous 24h pour vous conseiller sur votre stratégie d'intégration IA et le niveau d'accompagnement adapté.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Démarrer mon diagnostic</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Par où commencer pour intégrer l'IA dans mon entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La meilleure entrée est un <strong>diagnostic IA</strong> : identifier les processus à fort potentiel, évaluer la maturité digitale et définir une roadmap priorisée. Nous recommandons de démarrer par <strong>2 à 3 cas d'usage à ROI rapide</strong> pour créer une dynamique positive avant d'aborder les projets plus complexes.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment gérer la résistance au changement face à l'IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La conduite du changement est aussi importante que la technologie. Nous recommandons : impliquer les équipes dès le début, communiquer clairement (l'IA augmente, elle ne remplace pas), identifier des ambassadeurs internes et <strong>former avant de déployer</strong>. Les entreprises qui réussissent traitent le volet humain avec autant de sérieux que le volet technique.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il être conforme à l'AI Act pour utiliser l'IA en entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'AI Act impose des obligations selon le <strong>niveau de risque</strong> des systèmes IA. Les usages à haut risque (RH, crédit, décisions automatisées) ont des obligations spécifiques. Pour les usages courants (productivité, contenu, automatisation basique), les obligations sont limitées. Nous évaluons votre exposition et vous accompagnons dans la <a href="/intelligence-artificielle/ia-entreprise/conformite-ia-et-ai-act-pour-les-entreprises">mise en conformité</a>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel budget prévoir pour l'intégration de l'IA dans une PME ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Pour une PME, un budget de <strong>5 000 à 15 000 €</strong> couvre généralement un diagnostic complet, le déploiement de 3 à 5 usages prioritaires et la formation. Les coûts récurrents (outils IA) représentent ensuite 500 à 2 000 €/mois. Le ROI est généralement atteint en <strong>6 à 12 mois</strong>.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à intégrer l'IA dans votre organisation et à construire votre avantage concurrentiel ?</h2>
+                <p>Décrivez votre entreprise, vos enjeux et votre niveau de maturité IA — nous vous proposons un diagnostic et une feuille de route adaptée.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
+                    Diagnostiquer mon organisation IA
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic IA inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité AI Act vérifiée</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conduite du changement incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

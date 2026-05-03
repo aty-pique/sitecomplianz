@@ -1,0 +1,600 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 149 chars description) ───────────────── #}
+{% block title %}Mise en conformité RGPD, ISO &amp; réglementaire{% endblock %}
+
+{% block description %}Audit de conformité complet : RGPD, ISO 9001, ISO 27001, SMQ, exigences sectorielles. Identifiez vos écarts, sécurisez votre activité. Devis gratuit sous 24h.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Mise en conformité RGPD, ISO & réglementaire",
+      "url": "{{ app_url }}/audit-conformite/certifications-iso",
+      "description": "Analyse complète du niveau de conformité de l'entreprise au regard des normes, réglementations et obligations applicables (RGPD, ISO 9001, ISO 27001, SMQ, exigences sectorielles). Identification des écarts, des risques juridiques et du plan d'actions correctives.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit de conformité réglementaire et normative",
+      "offers": [
+        { "@type": "Offer", "name": "Audit RGPD simple",        "price": "1500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } },
+        { "@type": "Offer", "name": "Audit conformité intermédiaire", "price": "3000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6000" } },
+        { "@type": "Offer", "name": "Audit complet ISO / multi-réglementaire", "price": "6000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                          "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",      "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Mise en conformité RGPD & ISO",    "item": "{{ app_url }}/audit-conformite/certifications-iso" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit de conformité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit de conformité est une analyse structurée du niveau de respect des obligations légales, réglementaires ou normatives d'une entreprise (RGPD, ISO 9001, ISO 27001, SMQ…). Il permet d'identifier les écarts, d'évaluer les risques et de définir un plan d'actions correctives prioritaires." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles normes couvre votre audit de conformité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intervenons sur l'ensemble des référentiels applicables : RGPD (données personnelles), ISO 9001 (qualité), ISO 27001 (sécurité de l'information), ISO 13485 (dispositifs médicaux), SMQ, et les exigences sectorielles spécifiques à votre activité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un audit RGPD et un audit ISO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit RGPD évalue le traitement et la protection des données personnelles selon le règlement européen. L'audit ISO analyse la conformité à des normes de management (qualité, sécurité informatique…). Les deux peuvent être menés simultanément pour une vision globale de votre conformité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un audit de conformité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le coût dépend du périmètre et de la taille de votre entreprise : de 1 500 à 3 000 € pour un audit RGPD simple, de 3 000 à 6 000 € pour un audit intermédiaire (ISO + RGPD), et de 6 000 à 12 000 €+ pour un audit complet multi-réglementaire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les risques en cas de non-conformité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les risques varient selon le référentiel : sanctions CNIL jusqu'à 20 M€ ou 4% du CA pour le RGPD, perte de certifications ISO, litiges contractuels, responsabilité du dirigeant, atteinte à la réputation. Un audit préventif est largement moins coûteux qu'un contrôle subi." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <span>Mise en conformité</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Audit de conformité réglementaire</span>
+                Mise en conformité RGPD, ISO &amp; réglementaire&nbsp;: sécurisez votre entreprise
+            </h1>
+            <p class="sp-hero__lead">
+                Nous analysons <strong>l'intégralité de vos obligations</strong> (RGPD, ISO 9001, ISO 27001, SMQ, normes sectorielles), identifions vos écarts et vous livrons un <strong>plan d'actions correctives</strong> priorisé pour atteindre un niveau de conformité fiable et maîtrisé.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis gratuit
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir le périmètre
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Devis gratuit sous 24h</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Experts certifiés RGPD &amp; ISO</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport sous 5 jours</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous savez à la fin</p>
+                        <p class="sp-deliverables-card__subtitle">En sortie d'audit de conformité</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vous savez <strong>exactement où vous en êtes</strong> face à vos obligations, <strong>ce qui est à risque</strong> pour votre entreprise, et <strong>comment le sécuriser</strong> en priorité.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>1–6</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>personnalisé</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>1</strong>
+                        <span>plan correctif</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> les entreprises auditées réduisent leur risque de sanction de <strong>80%</strong> dès la 1ère année</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — EN HAUT DE PAGE (demande client)
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos domaines de conformité</p>
+        <div class="sp-subservices__grid">
+
+            <a href="/audit-conformite/conformite-rgpd" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Mise en conformité RGPD</h2>
+                    <p>Protection des données personnelles, registre des traitements, DPO externalisé, politique de confidentialité.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/certifications-iso/iso-9001" class="sp-subsvc-card sp-subsvc-card--green">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Certification ISO</h2>
+                    <p>Accompagnement à la certification ISO 9001 (qualité), ISO 27001 (sécurité SI), ISO 13485 et autres normes sectorielles.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/certifications-iso/smq" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Système de Management Qualité (SMQ)</h2>
+                    <p>Mise en place, structuration et pilotage de votre système qualité pour préparer la certification et améliorer la performance.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/certifications-iso/audit-qualite" class="sp-subsvc-card sp-subsvc-card--soft">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit qualité interne</h2>
+                    <p>Évaluation indépendante de vos processus qualité, identification des non-conformités et recommandations d'amélioration continue.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Premier échange sans engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Devis personnalisé sous 48h
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Confidentialité garantie
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <p><strong>+150</strong> entreprises auditées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p><strong>0</strong> sanction CNIL client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE COMPREND L'AUDIT — 9 axes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Périmètre d'intervention</p>
+            <h2>Ce que comprend notre audit de conformité</h2>
+            <p class="sp-section-sub">Une analyse exhaustive, adaptée à votre secteur et aux normes qui vous sont applicables.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                </div>
+                <div><h3>Analyse des obligations applicables</h3><p>Identification de toutes les normes et réglementations qui vous concernent</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Audit RGPD</h3><p>Données, traitements, sécurité, registre, contrats sous-traitants</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div><h3>Audit processus qualité ISO / SMQ</h3><p>Conformité aux exigences ISO 9001, 27001, 13485 et autres</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Analyse documentaire</h3><p>Procédures, registres, contrats, politiques internes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div><h3>Analyse des outils &amp; systèmes</h3><p>ERP, CRM, logiciels, infrastructure technique</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div><h3>Identification des écarts</h3><p>Cartographie des non-conformités par niveau de criticité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Évaluation des risques</h3><p>Juridiques, organisationnels, financiers et réputationnels</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Rapport détaillé</h3><p>Bilan complet, niveau de conformité, preuves et constats</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Plan d'actions correctives</h3><p>Priorisé par impact et faisabilité, avec responsables et délais</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi se mettre en conformité</p>
+            <h2>Ce que vous gagnez avec un audit de conformité</h2>
+            <p class="sp-section-sub">La conformité n'est pas une contrainte&nbsp;: c'est un avantage concurrentiel qui protège votre activité et renforce la confiance de vos clients.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Identification des risques juridiques</h3>
+                <p>Connaître vos obligations réelles — pas supposées — et savoir lesquelles exposent votre dirigeant à une responsabilité personnelle.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Réduction du risque de sanctions</h3>
+                <p>Amendes CNIL (jusqu'à 20 M€), litiges ISO, responsabilités sectorielles&nbsp;: un audit préventif coûte 10x moins qu'un contrôle subi.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Mise en sécurité de l'activité</h3>
+                <p>Processus, données, outils et contrats conformes&nbsp;: votre entreprise est protégée face aux audits externes et aux partenaires exigeants.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Clarté sur vos vraies obligations</h3>
+                <p>Sortir de l'incertitude&nbsp;: savoir exactement ce qui est obligatoire, ce qui est recommandé, et ce qui est inutile pour votre profil.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </div>
+                <h3>Priorisation des actions</h3>
+                <p>Un plan correctif clair, ordonné par criticité et effort, pour traiter d'abord ce qui protège votre entreprise immédiatement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Sérénité face aux contrôles</h3>
+                <p>Audits CNIL, certification ISO, due diligence investisseurs&nbsp;: votre dossier de conformité est prêt et défendable à tout moment.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES / POUR QUEL PROFIL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Adapté à votre situation</p>
+                    <h2>Un audit de conformité sur-mesure selon votre profil</h2>
+                    <p class="sp-section-sub">Le périmètre et le coût s'adaptent à votre contexte. Voici les variables qui déterminent le niveau d'audit adapté.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type de norme</span>
+                        <span class="sp-variable-value">RGPD, ISO 9001, 27001, 13485…</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de normes</span>
+                        <span class="sp-variable-value">Audit mono ou multi-référentiel</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille de l'entreprise</span>
+                        <span class="sp-variable-value">TPE, PME, ETI, grand groupe</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Secteur d'activité</span>
+                        <span class="sp-variable-value">Santé, finance, industrie (ultra-réglementés)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau d'exigence</span>
+                        <span class="sp-variable-value">Préparation certification vs audit simple</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Format</span>
+                        <span class="sp-variable-value">Audit partiel ou complet, présentiel / distanciel</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 5.png" alt="Audit de conformité sur-mesure" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit de conformité ?</h2>
+            <p class="sp-section-sub">Le prix varie selon la taille de l'entreprise, le nombre de normes et la complexité du secteur. Plus il y a de normes et de complexité métier, plus le prix monte.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit RGPD simple</p>
+                    <p class="sp-plan__price"><span>1 500 – 3 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE / PME jusqu'à 50 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit RGPD complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Registre des traitements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de conformité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'actions correctives</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution orale (1h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit conformité intermédiaire</p>
+                    <p class="sp-plan__price"><span>3 000 – 6 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ISO + RGPD, PME 20 à 200 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit RGPD + ISO (1 norme)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse documentaire complète</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entretiens équipes clés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie des risques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport + plan correctif priorisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution CODIR (2h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit complet multi-réglementaire</p>
+                    <p class="sp-plan__price"><span>6 000 – 12 000 €+</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ISO multi-normes, secteur réglementé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit 360° toutes normes</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RGPD + ISO 9001 + 27001 + secteur</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation certification incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement post-audit (1 mois)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi mensuel (3 mois)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 24h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE INTER-COCONS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Complétez votre démarche de conformité</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité RGPD</strong><p>Protection des données, registre des traitements, DPO externalisé.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit &amp; cybersécurité</strong><p>La conformité ISO 27001 va de pair avec la sécurité informatique de vos systèmes.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit global d'entreprise</strong><p>L'audit de conformité s'intègre dans un diagnostic organisationnel complet.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div><strong>Démarche RSE</strong><p>La conformité réglementaire est souvent le premier pilier d'une stratégie RSE solide.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit de conformité</h2>
+                <p>Notre équipe répond sous 24h à toute question sur votre situation.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit de conformité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit de conformité</strong> est une analyse structurée du respect de vos obligations légales, réglementaires ou normatives (RGPD, ISO 9001, ISO 27001, SMQ…). Il identifie vos écarts, évalue vos risques et produit un plan d'actions correctives priorisé.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles normes couvre votre audit ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous intervenons sur <strong>tous les référentiels applicables</strong>&nbsp;: RGPD, ISO 9001 (qualité), <a href="/audit-conformite/certifications-iso/iso-27001">ISO 27001</a> (sécurité de l'information), ISO 13485 (dispositifs médicaux), <a href="/audit-conformite/certifications-iso/smq">SMQ</a>, et les exigences spécifiques à votre secteur (santé, finance, transport…).</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre un audit RGPD et un audit ISO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<a href="/audit-conformite/conformite-rgpd/audit-rgpd">audit RGPD</a> évalue le traitement et la protection des données personnelles. L'audit ISO analyse la conformité à un système de management (qualité, sécurité…). Les deux peuvent être menés simultanément pour une vision globale de votre conformité.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un audit de conformité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 500 € à 3 000 €</strong> pour un audit RGPD simple, de <strong>3 000 € à 6 000 €</strong> pour un audit RGPD + ISO intermédiaire, et de <strong>6 000 € à 12 000 €+</strong> pour un audit complet multi-normes. Un devis personnalisé est remis sous 24h.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels sont les risques en cas de non-conformité ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les sanctions varient selon le référentiel&nbsp;: <strong>amendes CNIL jusqu'à 20 M€</strong> ou 4% du CA mondial pour le RGPD, perte de certifications ISO, exclusion de marchés publics, litiges contractuels, responsabilité du dirigeant. Un audit préventif est 10 à 100x moins coûteux qu'un contrôle subi.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à connaître votre niveau de conformité réel ?</h2>
+                <p>Nos experts auditent votre entreprise et vous livrent un rapport complet sous 5 jours. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander mon audit de conformité
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Réponse sous 24h</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Experts certifiés RGPD &amp; ISO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

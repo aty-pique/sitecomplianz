@@ -1,0 +1,60 @@
+TYPOGRAPHIES OFFICIELLES - A RESPECTER
+======================================
+
+1) HIERARCHIE TYPOGRAPHIQUE
+---------------------------
+- Titres: League Spartan
+- Sous-titres et textes de mise en valeur: Lexend Deca
+- Contenu (corps de texte): Quicksand
+
+2) REGLES D'USAGE
+-----------------
+- Aucune substitution de police n'est autorisee.
+- Respecter les tailles, styles (gras/italique) et interlignages definis.
+- Noir 100% par defaut pour les textes.
+- Les coloris de la charte sont autorises selon les usages de marque.
+
+3) REGLAGES PAR NIVEAU
+----------------------
+Titres (League Spartan):
+- Taille de corps: 20 a 25
+- Interlignage: 1.4
+- Approche de lettres (letter-spacing): 0
+- Couleur: Noir 100% ou coloris de la charte
+
+Sous-titres / Mise en valeur (Lexend Deca):
+- Taille de corps: 13 a 20
+- Interlignage: 1.4
+- Approche de lettres (letter-spacing): 0
+- Couleur: Noir 100% ou coloris de la charte
+
+Contenu (Quicksand):
+- Taille de corps: 11 a 16
+- Interlignage: 1.0
+- Approche de lettres (letter-spacing): 0
+- Couleur: Noir 100%
+- Exception: pour numeros de telephone, adresses e-mail et URL, les coloris de la charte sont autorises.
+
+4) REFERENCE DE RENDU
+---------------------
+- Titres: League Spartan
+- Sous-titres: Lexend
+- Corps de texte: Quicksand
+
+5) CONSIGNES IMPRESSION (REFERENCE)
+-----------------------------------
+- A4: 210 x 297 mm - impression quadrichromie
+- Cartes de visite: 85 x 55 mm - impression en quadrichromie
+- Enveloppe a fenetre: 220 x 110 mm - impression monochrome bleu, monochrome rouge, ou quadrichromie
+
+6) DEPOT DES FICHIERS
+---------------------
+- Deposer les fichiers de police dans:
+  - /public/assets/fonts/LeagueSpartan/
+  - /public/assets/fonts/LexendDeca/
+  - /public/assets/fonts/Quicksand/
+
+Formats recommandes:
+- .woff2 (prioritaire)
+- .woff (fallback)
+- .ttf (si necessaire)

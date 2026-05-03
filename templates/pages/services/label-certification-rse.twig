@@ -1,0 +1,500 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (57 chars titre / 149 chars description) ─────────────────── #}
+{% block title %}Label & certification RSE | Engagement responsable certifié | Complianz{% endblock %}
+
+{% block description %}Obtenez un label RSE reconnu (Lucie 26000, Ecovadis, B Corp…) pour valoriser vos engagements. Accompagnement complet du diagnostic à la certification.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Label & certification RSE — Valorisez vos engagements responsables",
+      "url": "{{ app_url }}/audit-conformite/rse/label-certification-rse",
+      "description": "Accompagnement complet pour l'obtention d'un label RSE reconnu (LUCIE 26000, EcoVadis, B Corp, Engagé RSE AFNOR). Du diagnostic initial à l'obtention du label, nous vous guidons à chaque étape de la certification.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Certification et label RSE",
+      "offers": [
+        { "@type": "Offer", "name": "Accompagnement Label LUCIE 26000",  "price": "4500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8500"  } },
+        { "@type": "Offer", "name": "Accompagnement EcoVadis",           "price": "3500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500"  } },
+        { "@type": "Offer", "name": "Pack Label RSE complet",            "price": "7000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "13000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Accompagnement RSE",          "item": "{{ app_url }}/audit-conformite/rse" },
+        { "@type": "ListItem", "position": 4, "name": "Label & certification RSE",   "item": "{{ app_url }}/audit-conformite/rse/label-certification-rse" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels sont les principaux labels RSE en France ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les principaux labels RSE reconnus en France sont : LUCIE 26000 (référence française basée sur la norme ISO 26000, reconnu par l'ADEME), EcoVadis (évaluation en ligne utilisée par les grands donneurs d'ordre), B Corp (label international pour les entreprises à mission), Engagé RSE de l'AFNOR (4 niveaux progressifs), et Label Responsable+. Chaque label a ses spécificités en termes de périmètre, de coût et de reconnaissance sectorielle." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour obtenir une certification RSE ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le délai dépend du label visé et du niveau de maturité RSE de l'entreprise. Pour Engagé RSE AFNOR (niveau 1-2) : 3 à 6 mois. Pour LUCIE 26000 : 12 à 18 mois avec une démarche RSE existante. Pour EcoVadis : 2 à 4 mois pour le questionnaire + délai d'évaluation. Pour B Corp : 12 à 24 mois. Nous évaluons dès le diagnostic le chemin le plus court vers le label cible." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre un label RSE et une norme ISO 26000 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'ISO 26000 est un référentiel de lignes directrices — elle n'est pas certifiable et ne donne pas lieu à un label officiel. Elle sert de base à plusieurs labels comme LUCIE 26000. Un label RSE, lui, est une certification tierce qui atteste formellement de votre niveau d'engagement RSE selon un référentiel défini, après évaluation par un organisme indépendant. C'est le label qui a une valeur de communication externe et de différenciation commerciale." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel label RSE choisir pour son entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le choix du label dépend de votre secteur, de vos objectifs et de vos parties prenantes. EcoVadis est indispensable si vos clients grand compte l'exigent dans leurs appels d'offres. LUCIE 26000 est la référence française pour les PME souhaitant une démarche complète et un label reconnu institutionnellement. B Corp est idéal pour les entreprises à fort impact positif souhaitant une notoriété internationale. Engagé RSE est accessible pour les entreprises débutantes. Nous vous guidons dans le choix optimal." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/rse">RSE</a>
+                <span>›</span>
+                <span>Label &amp; certification RSE</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Label &amp; certification RSE</span>
+                Label &amp; certification RSE&nbsp;: valorisez vos engagements responsables par une reconnaissance officielle
+            </h1>
+            <p class="sp-hero__lead">
+                Nous vous accompagnons du diagnostic initial à l'obtention de votre <strong>label RSE reconnu</strong> — LUCIE 26000, EcoVadis, B Corp, Engagé RSE ou Label Responsable+. Vos engagements méritent d'être prouvés, pas seulement déclarés.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Viser mon label RSE
+                </a>
+                <a href="#labels" class="btn btn-outline">
+                    Voir les labels couverts
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Diagnostic label offert au démarrage</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Taux de réussite &gt; 95%</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Accompagnement de A à Z</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À l'issue de l'accompagnement</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Un <strong>label RSE reconnu</strong> par vos clients, partenaires et donneurs d'ordre — une preuve officielle, tierce et crédible de votre engagement responsable.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>6–18</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>&gt;95%</strong>
+                        <span>de réussite</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>6</strong>
+                        <span>labels couverts</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>60% des appels d'offres</strong> incluent désormais des critères RSE dans les marchés publics et grands comptes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services RSE</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/audit-conformite/rse/strategie-rse" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Stratégie RSE</h2>
+                    <p>Définissez vos engagements prioritaires, votre feuille de route RSE et vos indicateurs de performance responsable.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/rse/bilan-carbone-reporting" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2.63 8.5A10 10 0 0 1 12 4c3.27 0 6.17 1.57 8 4"/><path d="M2 12h5"/><path d="M17 12h5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Bilan carbone &amp; reporting ESG</h2>
+                    <p>Mesurez votre empreinte carbone, construisez votre reporting ESG et préparez-vous aux exigences CSRD.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/rse/label-certification-rse" class="sp-subsvc-card sp-subsvc-card--blue sp-subsvc-card--active">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Label &amp; certification RSE</h2>
+                    <p>Obtenez une reconnaissance officielle de votre démarche RSE (Lucie 26000, B-Corp, Ecovadis…).</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Taux de réussite &gt; 95% à la première candidature
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Accompagnement de A à Z du diagnostic à la certification
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                6 labels couverts, tous secteurs
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                <p><strong>+40</strong> certifications obtenues</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/></svg>
+                <p><strong>&gt;95%</strong> taux de réussite</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LABELS COUVERTS — 6 labels
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="labels">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Labels couverts</p>
+            <h2>Les 6 labels RSE pour lesquels nous vous accompagnons</h2>
+            <p class="sp-section-sub">Chaque label a ses spécificités — nous vous guidons dans le choix du plus adapté à votre secteur, vos objectifs et vos parties prenantes.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div><h3>Label LUCIE 26000</h3><p>La référence française RSE, basée sur la norme ISO 26000 et reconnue par l'ADEME — idéale pour les PME et ETI</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                </div>
+                <div><h3>EcoVadis</h3><p>La plateforme d'évaluation RSE plébiscitée par les grands donneurs d'ordre — incontournable pour les sous-traitants</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                </div>
+                <div><h3>B Corp</h3><p>Le label international pour les entreprises à mission souhaitant une certification reconnue à l'échelle mondiale</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>ISO 26000 (lignes directrices)</h3><p>Le référentiel international de responsabilité sociétale — fondement de plusieurs labels, non certifiable mais structurant</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Engagé RSE (AFNOR)</h3><p>4 niveaux progressifs (Initié, Confirmé, Exemplaire, Référent) — le label accessible pour les entreprises débutantes en RSE</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Label Responsable+</h3><p>Label sectoriel adapté à certaines filières — reconnu par les donneurs d'ordre de votre secteur d'activité</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — 4 profils clients
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Qui a besoin d'un label ou d'une certification RSE ?</h2>
+            <p class="sp-section-sub">Un label RSE transforme vos bonnes pratiques en preuve vérifiable — indispensable pour convaincre vos clients, partenaires, investisseurs et candidats.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Sous-traitants de grands donneurs d'ordre</h3>
+                <p>Vos clients grands comptes exigent une évaluation EcoVadis ou un label RSE dans leurs appels d'offres — sans label, vous risquez d'être écarté des marchés.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Entreprises à mission</h3>
+                <p>Vous avez formalisé votre raison d'être et vos objectifs sociaux ou environnementaux — B Corp ou LUCIE 26000 donnent une reconnaissance internationale à votre engagement.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                </div>
+                <h3>PME avec démarche RSE existante</h3>
+                <p>Vous avez déjà des pratiques RSE mais elles ne sont pas reconnues officiellement — un label formalise et valorise ce que vous faites déjà.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg>
+                </div>
+                <h3>Entreprises cherchant des financements ESG</h3>
+                <p>Les investisseurs ESG et les banques exigent des preuves tangibles de votre engagement — un label RSE reconnu est un gage de crédibilité pour vos financeurs.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'accompagnement vers un label RSE ?</h2>
+            <p class="sp-section-sub">Le coût dépend du label visé, de la maturité RSE initiale de l'entreprise et de la quantité de documentation et d'actions à mettre en place avant la certification.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement Label LUCIE 26000</p>
+                    <p class="sp-plan__price"><span>4 500 – 8 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME/ETI, démarche RSE existante ou à créer</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic de maturité LUCIE</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement de la démarche RSE</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Constitution du dossier de candidature</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Préparation à l'évaluation externe</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement jusqu'à l'obtention</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus demandé</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement EcoVadis</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME sous-traitantes de grands groupes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit EcoVadis blanc (simulation)</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Aide à la complétion du questionnaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Constitution des preuves documentaires</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Actions correctrices prioritaires</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi jusqu'au score cible</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Label RSE complet</p>
+                    <p class="sp-plan__price"><span>7 000 – 13 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Stratégie RSE + label + reporting</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Stratégie RSE complète incluse</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement vers le label cible</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport RSE communicable</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-labels possible (EcoVadis + LUCIE)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi annuel de renouvellement inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés au label &amp; certification RSE</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/rse/strategie-rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <div><strong>Stratégie RSE</strong><p>La stratégie RSE est le fondement indispensable avant toute démarche de certification ou de label.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse/bilan-carbone-reporting" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg></div>
+                <div><strong>Bilan carbone &amp; reporting ESG</strong><p>EcoVadis et B Corp exigent un bilan carbone rigoureux — nous le réalisons en amont de la certification.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><strong>Accompagnement RSE global</strong><p>Découvrez l'ensemble de notre offre RSE pour une démarche complète de A à la certification.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Certifications ISO</strong><p>ISO 14001 (environnement) et ISO 9001 (qualité) sont des atouts complémentaires à votre label RSE.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur les labels &amp; certifications RSE</h2>
+                <p>Nos experts RSE répondent sous 48h à toute question sur votre démarche de certification.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quels sont les principaux labels RSE en France ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les principaux labels RSE reconnus en France sont : <strong>LUCIE 26000</strong> (référence française, reconnue par l'ADEME), <strong>EcoVadis</strong> (évaluation plébiscitée par les grands donneurs d'ordre), <strong>B Corp</strong> (label international pour entreprises à mission), <strong>Engagé RSE AFNOR</strong> (4 niveaux progressifs, accessible aux débutants), et <strong>Label Responsable+</strong> (sectoriel). Chaque label a ses spécificités — nous vous aidons à choisir le plus adapté.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour obtenir une certification RSE ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le délai dépend du label visé et de votre maturité RSE actuelle. Pour <strong>Engagé RSE AFNOR</strong> (niveau 1-2) : 3 à 6 mois. Pour <strong>LUCIE 26000</strong> : 12 à 18 mois. Pour <strong>EcoVadis</strong> : 2 à 4 mois pour le questionnaire + délai d'évaluation. Pour <strong>B Corp</strong> : 12 à 24 mois. Nous évaluons dès le diagnostic le chemin le plus court vers le label cible selon votre situation.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle est la différence entre un label RSE et la norme ISO 26000 ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'<strong>ISO 26000</strong> est un référentiel de lignes directrices — elle n'est pas certifiable et ne donne pas lieu à un label officiel en soi. Elle sert de base à plusieurs labels comme <a href="#labels">LUCIE 26000</a>. Un <strong>label RSE</strong> est une certification tierce qui atteste formellement de votre niveau d'engagement après évaluation par un organisme indépendant — c'est lui qui a une valeur de communication externe et de différenciation commerciale.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel label RSE choisir pour son entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le choix dépend de votre secteur, de vos objectifs et de vos parties prenantes. <strong>EcoVadis</strong> est indispensable si vos clients grands comptes l'exigent. <strong>LUCIE 26000</strong> est la référence française pour les PME souhaitant une démarche complète. <strong>B Corp</strong> est idéal pour les entreprises à fort impact positif. <strong>Engagé RSE</strong> est accessible pour les entreprises débutantes. Nous vous guidons dans le choix optimal lors d'un premier diagnostic gratuit.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à valoriser vos engagements RSE par une certification reconnue ?</h2>
+                <p>Nos experts évaluent votre maturité RSE et vous proposent le label le plus adapté à vos objectifs et vos parties prenantes. Diagnostic offert, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Viser mon label RSE
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> &gt;95% de réussite</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement de A à Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

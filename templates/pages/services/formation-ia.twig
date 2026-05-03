@@ -1,0 +1,449 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ──────────────────────────────────────────────────────────── #}
+{% block title %}Formation IA entreprise | Formation intelligence artificielle | Complianz{% endblock %}
+
+{% block description %}Formez vos équipes à l'intelligence artificielle : outils IA, prompt engineering, automatisation et IA générative. Formations éligibles CPF et intra-entreprise.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Formation IA pour entreprises",
+      "url": "{{ app_url }}/intelligence-artificielle/formation-ia",
+      "description": "Formations IA pour entreprises : outils IA, prompt engineering, IA générative, automatisation. Formations intra-entreprise, éligibles CPF, adaptées à tous les niveaux.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Formation IA et intelligence artificielle",
+      "offers": [
+        { "@type": "Offer", "name": "Formation initiation IA (1 jour)", "price": "690", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1200" } },
+        { "@type": "Offer", "name": "Formation avancée IA (3 jours)", "price": "1800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3200" } },
+        { "@type": "Offer", "name": "Programme sur mesure intra-entreprise", "price": "0", "priceCurrency": "EUR", "description": "Sur devis selon besoins" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Formation IA", "item": "{{ app_url }}/intelligence-artificielle/formation-ia" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les formations IA sont-elles éligibles CPF ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Certaines de nos formations IA sont éligibles au Compte Personnel de Formation (CPF) via des certifications reconnues. Nos formations certifiantes permettent de financer tout ou partie de la formation sans avancer de frais. Contactez-nous pour vérifier l'éligibilité CPF de la formation qui vous intéresse et vous accompagner dans la procédure de financement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pour quel niveau sont adaptées les formations IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nos formations sont disponibles pour tous les niveaux : débutants complets (aucune connaissance technique requise), utilisateurs intermédiaires souhaitant approfondir leurs usages IA, et profils avancés voulant maîtriser le prompt engineering, l'automatisation ou le développement IA. Chaque formation est adaptée au public et au niveau déclaré lors du questionnaire préalable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils IA sont abordés dans les formations ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Selon la formation choisie, nous abordons : ChatGPT, Claude, Gemini et les LLMs pour l'IA générative ; Midjourney, DALL-E pour l'IA image ; n8n, Make et Zapier pour l'automatisation ; Perplexity, Notion AI, Copilot pour la productivité ; des outils sectoriels pour le marketing, le SEO, la comptabilité et les RH. Les formations sont mises à jour régulièrement pour intégrer les derniers outils." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les formations sont-elles disponibles en présentiel ou à distance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nos formations sont disponibles en présentiel (dans vos locaux ou dans nos espaces de formation) et en distanciel (visioconférence interactive avec exercices pratiques). Pour les formations intra-entreprise, le présentiel est recommandé pour favoriser la dynamique de groupe. Les formations individuelles sont disponibles à distance. Nous proposons également des formats hybrides." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <span>Formation IA</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Formation IA entreprise</span>
+                Formation IA pour entreprises — Montez en compétences sur l'IA
+            </h1>
+            <p class="sp-hero__lead">
+                Formez vos équipes à <strong>l'intelligence artificielle</strong> avec des formations pratiques et opérationnelles : outils IA, prompt engineering, IA générative et automatisation. Formats intra-entreprise, éligibles CPF, adaptés à tous les niveaux. <strong>Passez à l'IA dès le premier jour de formation.</strong>
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Demander un programme de formation
+                </a>
+                <a href="#tarifs" class="btn btn-outline">
+                    Voir les tarifs
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formations éligibles CPF disponibles</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>100% pratique et opérationnel</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Contenus mis à jour en continu</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Des équipes opérationnelles sur l'IA</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Vos équipes maîtrisent les <strong>outils IA de leur métier</strong> — productivité améliorée, contenus générés plus vite, processus automatisés dès le retour en poste.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>+40%</strong>
+                        <span>productivité constatée</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>1 jour</strong>
+                        <span>pour démarrer</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>CPF</strong>
+                        <span>financement possible</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les équipes formées à l'IA constatent en moyenne <strong>40% de gain de productivité</strong> dès la première semaine de mise en pratique</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos formations IA spécialisées</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-eligible-cpf" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation IA éligible CPF</h2>
+                    <p>Utilisez votre compte CPF pour vous former à l'IA sans avancer de frais.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-generative" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation IA générative</h2>
+                    <p>Maîtrisez ChatGPT, Claude, Gemini et le prompt engineering.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-pour-dirigeants-d-entreprise" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation IA pour dirigeants</h2>
+                    <p>Comprendre les enjeux stratégiques de l'IA pour piloter la transformation.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia/formation-ia-pour-le-marketing" class="sp-subsvc-card" style="border-color: var(--pole-4-bg); background: var(--pole-4-bg);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Formation IA pour le marketing</h2>
+                    <p>Contenus, SEO, social media et automatisation marketing avec l'IA.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formations 100% pratiques sur cas réels
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Financement CPF disponible
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Contenus mis à jour chaque trimestre
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p><strong>+500</strong> apprenants formés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>+40%</strong> productivité après formation</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction apprenants</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Programmes de formation</p>
+            <h2>Nos formations IA pour chaque profil et chaque besoin</h2>
+            <p class="sp-section-sub">Des programmes adaptés à votre secteur, votre niveau et vos objectifs — du collaborateur débutant au dirigeant souhaitant piloter la transformation IA.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>IA générative &amp; LLMs</h3>
+                <p>ChatGPT, Claude, Gemini, prompt engineering, création de contenu, rédaction et assistance à la décision — la boîte à outils IA générative pour tous les collaborateurs.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Automatisation no-code</h3>
+                <p>n8n, Make, Zapier — créez vos propres automatisations IA sans coder, connectez vos outils et déployez des workflows intelligents en autonomie.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>IA pour le marketing</h3>
+                <p>Génération de contenus, SEO IA, social media, campagnes email et publicité — tous les cas d'usage IA marketing avec les meilleurs outils du marché.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>IA stratégique pour dirigeants</h3>
+                <p>Comprendre les enjeux, identifier les opportunités, piloter la transformation IA — formation décisionnelle pour DG, dirigeants et managers stratégiques.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une formation IA pour votre entreprise ?</h2>
+            <p class="sp-section-sub">Tarifs par personne pour les formations inter-entreprises. Nous proposons également des formations intra-entreprise sur devis, avec tarifs préférentiels à partir de 5 participants.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Formation initiation IA</p>
+                    <p class="sp-plan__price"><span>690 – 1 200 €</span> <em>HT/pers</em></p>
+                    <p class="sp-plan__duration">1 jour — tous niveaux</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Panorama des outils IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Prompt engineering bases</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cas d'usage pratiques</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support de formation inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Formation avancée IA</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 200 €</span> <em>HT/pers</em></p>
+                    <p class="sp-plan__duration">3 jours — niveau intermédiaire à avancé</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Prompt engineering avancé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisation no-code (n8n/Make)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agents IA simples</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Projets pratiques sur vos cas réels</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support post-formation 1 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Programme sur mesure intra</p>
+                    <p class="sp-plan__price"><span>Sur devis</span> <em></em></p>
+                    <p class="sp-plan__duration">Format et durée adaptés à vos besoins</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Programme 100% personnalisé</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cas d'usage de votre secteur</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Vos outils internes intégrés</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plusieurs groupes / services</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi d'implémentation inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Complétez votre montée en compétences IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/formation-ia/formation-agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Formation agents IA</strong><p>Créez vos propres agents IA — formation technique pour les profils plus avancés.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA</strong><p>Passez à la pratique — automatisez vos processus après la formation.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/outils-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>Outils IA pour entreprises</strong><p>Sélection et déploiement des meilleurs outils IA pour votre activité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA</strong><p>Identifiez les opportunités IA dans votre entreprise avant de former vos équipes.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la formation IA</h2>
+                <p>Notre équipe répond sous 24h pour vous proposer le programme de formation le mieux adapté à votre équipe et vos objectifs.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un programme</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Les formations IA sont-elles éligibles CPF ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Certaines de nos formations sont <strong>éligibles CPF</strong> via des certifications reconnues. Elles permettent de financer tout ou partie de la formation sans avancer de frais. Consultez notre page <a href="/intelligence-artificielle/formation-ia/formation-ia-eligible-cpf">formation IA CPF</a> ou contactez-nous pour vérifier l'éligibilité et vous accompagner dans la procédure.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pour quel niveau sont adaptées les formations IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nos formations sont disponibles pour <strong>tous les niveaux</strong> : débutants complets (aucune connaissance technique requise), intermédiaires souhaitant approfondir leurs usages, et profils avancés voulant maîtriser le prompt engineering ou l'automatisation. Un questionnaire préalable adapte le programme au niveau réel du groupe.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils IA sont abordés dans les formations ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Selon la formation : <strong>ChatGPT, Claude, Gemini</strong> pour l'IA générative ; n8n, Make pour l'automatisation ; Perplexity, Notion AI, Copilot pour la productivité ; des outils sectoriels pour le marketing, SEO, comptabilité et RH. Les contenus sont <strong>mis à jour en continu</strong> pour intégrer les dernières avancées.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Les formations sont-elles disponibles en présentiel ou à distance ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nos formations sont disponibles en <strong>présentiel</strong> (dans vos locaux ou nos espaces) et en <strong>distanciel</strong> interactif. Pour les formations intra-entreprise, le présentiel est recommandé pour la dynamique de groupe. Nous proposons également des formats hybrides selon vos contraintes géographiques.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à former vos équipes à l'IA et à accélérer votre transformation digitale ?</h2>
+                <p>Décrivez votre équipe, vos objectifs et votre niveau — nous vous proposons le programme de formation IA adapté à votre contexte.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Demander un programme de formation
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Financement CPF possible</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Programme 100% sur mesure</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Opérationnel dès J+1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

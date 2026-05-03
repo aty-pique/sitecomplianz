@@ -1,0 +1,507 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (59 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}Netlinking & backlinks SEO | Stratégie de liens | Complianz{% endblock %}
+
+{% block description %}Renforcez l'autorité de votre site avec une stratégie de netlinking éthique. Acquisition de backlinks qualitatifs, guest posting et partenariats éditoriaux.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Netlinking & stratégie de liens",
+      "url": "{{ app_url }}/performance-digitale/seo/netlinking",
+      "description": "Stratégie d'acquisition de backlinks qualitatifs pour renforcer l'autorité de domaine et améliorer les positions Google. Approche 100% white hat : guest posting, partenariats éditoriaux et digital PR.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Netlinking et stratégie de backlinks SEO",
+      "offers": [
+        { "@type": "Offer", "name": "Netlinking Starter (5 liens/mois)",   "price": "590",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "990"  } },
+        { "@type": "Offer", "name": "Netlinking Standard (10 liens/mois)", "price": "990",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "1800" } },
+        { "@type": "Offer", "name": "Netlinking Premium (20+ liens/mois)", "price": "1800", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3500" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                           "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Performance Digitale & Stratégie", "item": "{{ app_url }}/performance-digitale" },
+        { "@type": "ListItem", "position": 3, "name": "Référencement naturel (SEO)",       "item": "{{ app_url }}/performance-digitale/seo" },
+        { "@type": "ListItem", "position": 4, "name": "Netlinking",                        "item": "{{ app_url }}/performance-digitale/seo/netlinking" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le netlinking en SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le netlinking (ou link building) est la stratégie d'acquisition de liens entrants (backlinks) depuis d'autres sites web vers le vôtre. Plus un site reçoit de liens de qualité depuis des sources faisant autorité, plus Google lui accorde un score d'autorité élevé (Domain Authority), ce qui améliore son positionnement dans les résultats de recherche. Le netlinking est l'un des 3 piliers fondamentaux du référencement naturel." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre netlinking white hat et black hat ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le netlinking white hat respecte les règles de Google : acquisition naturelle de liens depuis des sites thématiquement cohérents, guest posting éditorial, partenariats légitimes. Le black hat utilise des réseaux de sites privés (PBN), des fermes de liens ou des liens payants cachés — des pratiques qui exposent votre site à des pénalités Google pouvant faire chuter votre trafic de 50% ou plus. Nous travaillons exclusivement en white hat pour une croissance durable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de backlinks faut-il pour progresser en SEO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La quantité n'est pas le critère principal : 10 backlinks de sites d'autorité dans votre secteur valent plus que 100 liens de sites sans intérêt. Ce qui compte, c'est la qualité (autorité du site source), la pertinence thématique et la diversité des ancres. Notre approche cible des sites avec un Domain Authority supérieur à 30, thématiquement cohérents avec votre activité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour voir l'effet des backlinks ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les backlinks sont indexés par Google en 2 à 8 semaines. Leur effet sur les positions se manifeste progressivement sur 3 à 6 mois. Le netlinking est une stratégie de long terme qui accumule des gains — votre autorité de domaine croît dans le temps et renforce durablement toutes vos positions." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero sp-hero--beige" style="background: linear-gradient(135deg, var(--pole-2-bg) 0%, #fdf8f3 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/performance-digitale">Performance Digitale &amp; Stratégie</a>
+                <span>›</span>
+                <a href="/performance-digitale/seo">SEO</a>
+                <span>›</span>
+                <span>Netlinking &amp; stratégie de liens</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-2);">Netlinking & backlinks SEO</span>
+                Renforcez votre autorité de domaine — et progressez durablement sur Google
+            </h1>
+            <p class="sp-hero__lead">
+                Nous construisons votre <strong>profil de backlinks qualitatifs</strong> pour renforcer l'autorité de votre domaine et améliorer vos positions Google. Approche 100% white hat — guest posting éditorial, partenariats thématiques, digital PR — pour une <strong>croissance durable et sans risque de pénalité</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    Analyser mon profil de liens
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit du profil de liens offert</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>100% white hat — 0 risque de pénalité</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport mensuel — liens livrés garantis</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-2);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Autorité renforcée, positions en hausse</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre <strong>Domain Authority croît progressivement</strong> et vos pages cibles progressent sur leurs mots-clés — un capital SEO durable qui continue de travailler après l'arrêt des investissements.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>+DA</strong>
+                        <span>autorité de domaine</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>Top 10</strong>
+                        <span>mots-clés cibles</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>×3</strong>
+                        <span>trafic organique</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>Les backlinks</strong> restent l'un des <strong>3 facteurs de classement</strong> les plus importants de Google — sans eux, difficile d'atteindre la première page sur des requêtes concurrentielles</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES SEO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Les autres services SEO</p>
+        <div class="sp-subservices__grid sp-subservices__grid--4">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Audit SEO</h2>
+                    <p>Analysez votre profil de liens actuel et identifiez les opportunités de netlinking prioritaires.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-technique" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO technique</h2>
+                    <p>Optimisez les fondations techniques pour maximiser l'impact de chaque backlink acquis.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Rédaction SEO</h2>
+                    <p>Créez du contenu de qualité qui attire naturellement des liens depuis d'autres sites.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-local" class="sp-subsvc-card sp-subsvc-card--accent">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>SEO local</h2>
+                    <p>Construisez une autorité locale avec des backlinks issus de médias et annuaires de votre région.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit du profil de liens offert
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                100% white hat — zéro risque de pénalité
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Nombre de liens garantis chaque mois
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <p><strong>+2 500</strong> backlinks acquis</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>DA 30+</strong> site source en moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>100%</strong> liens white hat garantis</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que comprend le netlinking
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'action</p>
+            <h2>Ce que comprend une stratégie de netlinking</h2>
+            <p class="sp-section-sub">Du diagnostic du profil de liens existant à l'acquisition mensuelle de backlinks qualitatifs — une approche structurée pour renforcer votre autorité de domaine en toute sécurité.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit du profil de liens existants</h3><p>Analyse complète de vos backlinks actuels : qualité, pertinence thématique, ancres, liens toxiques à désavouer et liens perdus à récupérer</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>
+                </div>
+                <div><h3>Identification des opportunités</h3><p>Benchmark concurrentiel pour identifier les sources de backlinks de vos concurrents que vous n'avez pas encore et les secteurs thématiques à cibler</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div><h3>Outreach &amp; acquisition de backlinks</h3><p>Prise de contact personnalisée avec des webmasters et éditeurs pour obtenir des liens naturels depuis des sites d'autorité de votre secteur</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div><h3>Guest posting sur sites thématiques</h3><p>Rédaction et publication d'articles invités de qualité sur des sites référents de votre secteur, avec un lien naturel vers vos pages cibles</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div><h3>Récupération des liens perdus</h3><p>Identification et réactivation des backlinks perdus suite à des changements de pages ou des suppressions — récupérez votre capital de liens existant</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-2);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div><h3>Rapport mensuel &amp; suivi du Domain Authority</h3><p>Bilan mensuel avec les liens acquis, leur qualité, l'évolution de votre Domain Authority et l'impact sur vos positions Google</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos méthodes</p>
+            <h2>Les 4 leviers de notre stratégie netlinking</h2>
+            <p class="sp-section-sub">Nous combinons plusieurs techniques complémentaires pour construire un profil de liens naturel et diversifié — ce que Google valorise le plus.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3>Guest posting éditorial</h3>
+                <p>Rédaction d'articles de qualité publiés sur des sites thématiques de votre secteur — liens naturels et contextuels vers vos pages cibles, avec un vrai contenu éditorial.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h3>Outreach &amp; partenariats</h3>
+                <p>Prise de contact avec des webmasters et blogueurs pour obtenir des mentions et des liens depuis des pages existantes — un levier rapide et très qualitatif.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                </div>
+                <h3>Digital PR &amp; médias</h3>
+                <p>Relations presse digitales pour obtenir des citations et des backlinks depuis des médias en ligne, journaux sectoriels et sites d'information à forte autorité.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-2)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <h3>Récupération de liens perdus</h3>
+                <p>Audit et réactivation des backlinks perdus — souvent le levier le plus rapide pour récupérer de l'autorité sans avoir à acquérir de nouveaux liens.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte une stratégie de netlinking ?</h2>
+            <p class="sp-section-sub">Le budget dépend du nombre de liens à acquérir chaque mois, du niveau d'autorité ciblé et de la concurrence dans votre secteur. L'audit du profil de liens est toujours offert.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Netlinking Starter</p>
+                    <p class="sp-plan__price"><span>590 – 990 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">5 liens/mois — DA 20-35</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5 backlinks qualitatifs/mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sites thématiques DA 20+</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel des liens</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi Domain Authority</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--beige">
+                <div class="sp-plan__badge sp-badge--beige">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Netlinking Standard</p>
+                    <p class="sp-plan__price"><span>990 – 1 800 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">10 liens/mois — DA 30-50</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>10 backlinks qualitatifs/mois</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sites thématiques DA 30+</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Guest posting + outreach</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Récupération des liens perdus</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport mensuel + positions</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-2); border-color: var(--pole-2);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--beige">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Netlinking Premium</p>
+                    <p class="sp-plan__price"><span>1 800 – 3 500 €</span> <em>HT/mois</em></p>
+                    <p class="sp-plan__duration">20+ liens/mois — DA 40-70</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>20+ backlinks premium/mois</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sites médias &amp; DA 40+</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Digital PR &amp; relations presse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie d'ancres personnalisée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dashboard DA &amp; positions live</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT — engagement 6 mois minimum pour des résultats mesurables. Liens garantis chaque mois — si un lien disparaît, nous le remplaçons. Audit du profil de liens offert.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires au netlinking</h2>
+        <div class="sp-related__grid">
+            <a href="/performance-digitale/seo/audit-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit SEO</strong><p>Analysez votre profil de liens actuel avant de démarrer la stratégie d'acquisition.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/seo-technique" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><strong>SEO technique</strong><p>Optimisez les fondations techniques pour que chaque backlink acquis ait un impact maximal.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo/redaction-seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                <div><strong>Rédaction SEO &amp; contenu</strong><p>Créez du contenu linkable qui attire naturellement des backlinks depuis d'autres sites.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/performance-digitale/seo" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Stratégie SEO globale</strong><p>Intégrez le netlinking dans une stratégie SEO complète pour un impact maximal et cohérent.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur le netlinking &amp; les backlinks</h2>
+                <p>Notre équipe répond sous 24h. L'audit de votre profil de liens est toujours gratuit et sans engagement.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-2); border-color: var(--pole-2);">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce que le netlinking en SEO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>netlinking</strong> est la stratégie d'acquisition de liens entrants (backlinks) depuis d'autres sites vers le vôtre. Plus vous recevez de liens de qualité depuis des sites faisant autorité, plus Google vous accorde un score d'autorité élevé — ce qui améliore vos <strong>positions dans les résultats de recherche</strong>. C'est l'un des 3 piliers fondamentaux du SEO.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre white hat et black hat netlinking ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le <strong>white hat</strong> respecte les règles Google&nbsp;: acquisition naturelle, guest posting éditorial, partenariats légitimes. Le <strong>black hat</strong> utilise des PBN (réseaux de sites privés) ou des liens payants cachés — des pratiques exposant votre site à des pénalités pouvant faire chuter votre trafic de 50%+. Nous travaillons exclusivement en <strong>white hat éthique</strong>.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de backlinks faut-il pour progresser ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La <strong>qualité prime sur la quantité</strong>&nbsp;: 10 backlinks depuis des sites d'autorité dans votre secteur valent plus que 100 liens sans valeur. Nous ciblons des sites avec un Domain Authority supérieur à 30, thématiquement cohérents avec votre activité. L'<a href="/performance-digitale/seo/audit-seo">audit SEO</a> initial détermine le nombre de liens nécessaires selon votre niveau de concurrence.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps pour voir l'effet des backlinks ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Les backlinks sont indexés par Google en <strong>2 à 8 semaines</strong>. Leur effet sur les positions se manifeste progressivement sur <strong>3 à 6 mois</strong>. Le netlinking est une stratégie de long terme — votre autorité de domaine croît et renforce durablement toutes vos positions, même après l'arrêt des investissements.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à renforcer votre autorité de domaine et à progresser durablement sur Google ?</h2>
+                <p>Audit gratuit de votre profil de liens pour identifier vos opportunités de netlinking et vous proposer une stratégie adaptée à votre secteur et vos objectifs de positions.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-2); border-color: var(--pole-2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    Analyser mon profil de liens
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% white hat</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Liens garantis chaque mois</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

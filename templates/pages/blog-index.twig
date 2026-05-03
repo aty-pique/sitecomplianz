@@ -1,0 +1,197 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ meta_description }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog Complianz",
+  "description": {{ meta_description|json_encode|raw }},
+  "url": "{{ app_url }}/blog",
+  "publisher": { "@type": "Organization", "name": {{ app_name|json_encode|raw }} }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="blog-hero" aria-labelledby="blog-hero-title">
+    <div class="blog-hero__bg" aria-hidden="true"></div>
+    <div class="container blog-hero__inner">
+        <nav class="sp-breadcrumb blog-breadcrumb blog-breadcrumb--on-dark" aria-label="Fil d’Ariane">
+            <a href="/">Accueil</a>
+            <span class="sp-breadcrumb__sep">/</span>
+            <span aria-current="page">Blog</span>
+        </nav>
+        <p class="blog-hero__eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Ressources &amp; expertise
+        </p>
+        <h1 id="blog-hero-title" class="blog-hero__title">Le blog de la <span class="blog-hero__gradient">performance structurée</span></h1>
+        <p class="blog-hero__lead">Conseils d’experts sur la conformité, le développement, la performance digitale, l’exploitation des systèmes et l’IA appliquée à votre contexte.</p>
+        <form class="blog-hero__search" action="/blog" method="get" role="search">
+            {% if pole_filter is not null and pole_filter != '' %}
+            <input type="hidden" name="pole" value="{{ pole_filter }}">
+            {% endif %}
+            <span class="blog-hero__search-ico" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </span>
+            <label class="visually-hidden" for="blog-search-q">Rechercher un article</label>
+            <input type="search" id="blog-search-q" name="q" value="{{ search_q }}" placeholder="Rechercher un article…" autocomplete="off">
+        </form>
+    </div>
+</section>
+
+{% if featured_article %}
+<article class="blog-featured">
+    <div class="container">
+        <div class="blog-featured__card">
+            <a href="/blog/{{ featured_article.slug }}" class="blog-featured__media" aria-label="Lire l’article : {{ featured_article.title }}">
+                {% if featured_article.image %}
+                <img src="{{ featured_article.image }}" alt="{{ featured_article.image_alt|e }}" width="640" height="400" loading="eager" class="blog-featured__img">
+                {% else %}
+                <div class="blog-featured__img blog-featured__img--ph blog-featured__img--pole-{{ featured_article.pole }}">
+                    {% include 'partials/blog-pole-icon.twig' with { pole_id: featured_article.pole } only %}
+                </div>
+                {% endif %}
+                <span class="blog-featured__badge">Article vedette</span>
+            </a>
+            <div class="blog-featured__body">
+                {% if featured_pole %}
+                <p class="blog-featured__meta">
+                    <span class="blog-cat blog-cat--pole-{{ featured_article.pole }}">{{ featured_pole.name }}</span>
+                    <span class="blog-featured__time">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        {{ featured_article.read_min }} min
+                    </span>
+                </p>
+                {% endif %}
+                <h2 class="blog-featured__title">
+                    <a href="/blog/{{ featured_article.slug }}">{{ featured_article.title }}</a>
+                </h2>
+                <p class="blog-featured__excerpt">{{ featured_article.excerpt }}</p>
+                <div class="blog-featured__foot">
+                    <div class="blog-author">
+                        <span class="blog-author__avatar" aria-hidden="true">{{ featured_article.author.initials }}</span>
+                        <div>
+                            <span class="blog-author__name">{{ featured_article.author.name }}</span>
+                            <span class="blog-author__date">{{ featured_article.date_label }}</span>
+                        </div>
+                    </div>
+                    <a href="/blog/{{ featured_article.slug }}" class="blog-link-arrow">Lire l’article
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+{% endif %}
+
+<div class="blog-filters-wrap">
+    <div class="container">
+        <nav class="blog-filters" aria-label="Filtrer par pôle">
+            <a href="{{ url_blog_all }}"
+               class="blog-filter-pill{% if pole_filter is null or pole_filter == '' %} is-active{% endif %}"
+               {% if pole_filter is null or pole_filter == '' %}aria-current="true"{% endif %}>
+                Tous les articles
+                <span class="blog-filter-pill__count">{{ article_total_count }}</span>
+            </a>
+            {% for p in blog_poles %}
+            <a href="{{ url_blog_pole[p.id] }}"
+               class="blog-filter-pill blog-filter-pill--pole-{{ p.id }}{% if pole_filter is not null and pole_filter != '' and pole_filter == p.id ~ '' %} is-active{% endif %}"
+               {% if pole_filter is not null and pole_filter != '' and pole_filter == p.id ~ '' %}aria-current="true"{% endif %}>
+                <span class="blog-filter-pill__icon" aria-hidden="true">
+                    {% include 'partials/blog-pole-icon.twig' with { pole_id: p.id } only %}
+                </span>
+                <span class="blog-filter-pill__text">{{ p.name }}</span>
+                <span class="blog-filter-pill__count">{{ counts_by_pole[p.id] ?? 0 }}</span>
+            </a>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+
+<section class="blog-grid-section" aria-label="Articles">
+    <div class="container">
+        {% if search_q != '' %}
+        <p class="blog-results-hint">Résultats pour «&nbsp;{{ search_q }}&nbsp;» — <a href="/blog">effacer</a></p>
+        {% endif %}
+        {% if articles_grid|length == 0 %}
+        <p class="blog-empty">Aucun article ne correspond à ces critères. <a href="/blog">Réinitialiser les filtres</a></p>
+        {% else %}
+        <ul class="blog-grid" id="blog-article-grid">
+            {% for article in articles_grid %}
+            <li>
+                <article class="blog-card blog-card--pole-{{ article.pole }}{% if loop.index0 >= 9 %} blog-card--folded{% endif %}" data-blog-card>
+                    <a href="/blog/{{ article.slug }}" class="blog-card__link" aria-label="{{ article.title }}">
+                        <div class="blog-card__visual">
+                            {% include 'partials/blog-pole-icon.twig' with { pole_id: article.pole } only %}
+                        </div>
+                        <div class="blog-card__body">
+                            {% for p in blog_poles %}
+                                {% if p.id == article.pole %}
+                                <span class="blog-cat blog-cat--mini blog-cat--pole-{{ article.pole }}">{{ p.name }}</span>
+                                {% endif %}
+                            {% endfor %}
+                            <p class="blog-card__meta">{{ article.date_label }} <span class="blog-card__dot">•</span> {{ article.read_min }} min</p>
+                            <h3 class="blog-card__title">{{ article.title }}</h3>
+                            <p class="blog-card__excerpt">{{ article.excerpt }}</p>
+                            <div class="blog-card__foot">
+                                <span class="blog-author blog-author--compact">
+                                    <span class="blog-author__avatar">{{ article.author.initials }}</span>
+                                    <span class="blog-author__name">{{ article.author.name }}</span>
+                                </span>
+                                <span class="blog-card__chev" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% set folded_total = articles_grid|length > 9 ? articles_grid|length - 9 : 0 %}
+        {% if folded_total > 0 %}
+        <div class="blog-more-wrap">
+            <button type="button" class="btn btn-outline btn-lg blog-more-btn" id="blog-load-more" data-blog-more="{{ folded_total }}">
+                Voir plus d’articles
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="blog-newsletter sp-section sp-section--flush">
+    <div class="container blog-newsletter__inner">
+        <div class="blog-newsletter__copy">
+            <p class="blog-newsletter__eyebrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                Restez informé
+            </p>
+            <h2 class="blog-newsletter__title">Recevez nos conseils directement dans votre boîte mail</h2>
+            <p class="blog-newsletter__text">Un e-mail par mois avec nos meilleurs contenus sur la structuration, la conformité et la performance digitale.</p>
+        </div>
+        <div class="blog-newsletter__form" id="blog-newsletter-form">
+            <label class="visually-hidden" for="blog-nl-email">Votre e-mail professionnel</label>
+            <input type="email" id="blog-nl-email" placeholder="votre@email.pro" autocomplete="email">
+            <button type="button" class="btn btn-primary blog-newsletter__btn" id="blog-nl-submit">S’inscrire
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+        <p class="blog-newsletter__legal">Pas de spam. Désabonnement en un clic. <a href="/contact">Nous contacter</a> pour toute demande.</p>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/js/blog.js" defer></script>
+{% endblock %}

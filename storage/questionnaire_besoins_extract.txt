@@ -1,0 +1,1788 @@
+Pourquoi ?
+Quelques informations de base Ce questionnaire a été conçu pour mieux comprendre votre projet et vos attentes concernant votre accompagnement et votre formation. Les informations que vous fournirez nous permettront d’évaluer vos besoins, de vous proposer des solutions adaptées et un devis précis. Prenez le temps de répondre à chaque question avec soin : plus nous en savons, mieux nous pourrons répondre à vos attentes. Si vous avez des doutes ou des questions, n’hésitez pas à nous contacter ! Merci pour votre collaboration, et au plaisir de travailler ensemble !
+Informations de facturation
+Nom de votre entreprise ou projet :
+Adresse e-mail :
+Numéro de téléphone :
+Coordonnées de facturation pour le devis :
+(Nom de l’entreprise ou Nom/prénom Adresse postale SIRET Si hors france, numéro de TVA intracommunautaire)
+Tronc commun
+“Pouvez-vous nous présenter brièvement votre entreprise ?”Type : réponse courte / paragraphe
+“Quelle est la taille de votre entreprise ?”Choix :
+1 personne (indépendant / solo)
+2 à 10 personnes
+10 à 50 personnes
+50 à 250 personnes
+250+
+“Où en est votre entreprise aujourd’hui ?”
+Lancement / structuration
+Activité stable
+En croissance
+En forte croissance / scaling
+En transformation
+“Quel est aujourd’hui votre principal problème ?”
+Manque d’organisation / désordre interne
+Outils inadaptés ou mal utilisés
+Difficulté à piloter l’activité
+Manque de performance (CA, leads…)
+Problèmes de conformité / réglementation
+Problèmes techniques / bugs / instabilité
+Sécurité / risques / données
+Autre
+“Quelles sont les conséquences concrètes de ce problème ?”
+Perte de temps
+Perte d’argent
+Stress / surcharge
+Manque de visibilité
+Erreurs fréquentes
+Blocage de la croissance
+Risque juridique / sécurité
+Autre
+“Quel est votre objectif prioritaire ?”
+Structurer mon entreprise
+Gagner du temps
+Améliorer la rentabilité
+Mettre en place des outils efficaces
+Sécuriser mon activité
+Générer plus de clients
+Avoir une vision claire
+Autre
+“Comment évaluez-vous votre niveau de structuration actuel ?”
+Très désorganisé
+Peu structuré
+Moyennement structuré
+Structuré
+Très structuré
+“Utilisez-vous actuellement des outils pour gérer votre activité ?”
+Oui, plusieurs outils
+Oui, mais peu / mal utilisés
+Non
+Je ne sais pas
+“Si oui, lesquels ?”
+“Quel est votre niveau d’urgence ?”
+Urgent (problème actuel bloquant)
+Court terme (1-3 mois)
+Moyen terme
+Exploration
+“Avez-vous déjà une idée claire de ce que vous souhaitez mettre en place ?”
+Oui, très clair
+Oui, mais à affiner
+Non, j’ai besoin d’aide
+Suite questionnaire par pôle d’offre
+MODULE 1 — Pôle offre 1
+Bloc 1 - Organisation
+“Quels problèmes rencontrez-vous aujourd’hui dans votre organisation ?”
+Manque de clarté dans les rôles
+Processus inexistants ou non respectés
+Mauvaise communication interne
+Difficulté à déléguer
+Dépendance forte au dirigeant
+Problèmes de coordination
+Trop de tâches inutiles
+Autre
+“Avez-vous des processus formalisés dans votre entreprise ?”
+Oui, clairement définis
+Oui, mais peu utilisés ou non efficaces
+Non
+Je ne sais pas
+“Comment pilotez-vous aujourd’hui votre activité ?”
+Aucun pilotage réel
+Pilotage intuitif (à l’instinct)
+Quelques indicateurs
+Pilotage structuré (KPI, suivi)
+“Comment sont prises les décisions importantes ?”
+Au feeling
+Dans l’urgence
+Basées sur des données partielles
+Basées sur des données claires
+“Votre équipe est-elle aujourd’hui autonome ?”
+Non, tout repose sur moi
+Peu autonome
+Moyennement autonome
+Autonome
+Très autonome
+“Si vous deviez résoudre un seul problème dans votre organisation, lequel serait-ce ?”
+Réponse libre
+“Comment percevez-vous votre organisation aujourd’hui ?”
+Trop simple / pas structuré
+Adaptée
+Trop complexe / usine à gaz
+“Quel est votre objectif principal en termes d’organisation ?”
+Mettre de l’ordre
+Structurer pour grandir
+Gagner en efficacité
+Mieux déléguer
+Avoir une vision claire
+Autre
+“Quel type d’accompagnement recherchez-vous ?”
+Diagnostic uniquement
+Recommandations
+Accompagnement à la mise en place
+Accompagnement complet + suivi
+Module dynamique Structuration organisationnelle
+trigger :
+Organisation = “désorganisée” / “floue”OU
+Problèmes :
+manque de process
+dépendance dirigeant
+mauvaise coordination
+“Avez-vous aujourd’hui une organisation formalisée (rôles, responsabilités, process) ?”
+Oui, clairement définie
+Partiellement
+Non
+“Les rôles et responsabilités sont-ils clairement définis dans votre entreprise ?”
+Oui
+Partiellement
+Non
+“Disposez-vous de processus documentés pour vos activités clés ?”
+Oui
+Quelques-uns
+Non
+“Quels sont les processus que vous souhaitez prioritairement structurer ?”
+Commercial
+Production / prestation
+Support / SAV
+Administratif
+Autre
+“Quel est aujourd’hui votre principal blocage organisationnel ?” (champ libre)
+“Quel niveau d’accompagnement souhaitez-vous pour structurer votre organisation ?”
+Diagnostic uniquement
+Recommandations
+Mise en place
+Accompagnement complet
+Module dynamique Pilotage & KPI
+Trigger :
+pilotage = faible
+décisions au feeling
+manque de visibilité
+“Disposez-vous aujourd’hui d’indicateurs de performance (KPI) pour piloter votre activité ?”
+Oui
+Partiellement
+Non
+“Quels types d’indicateurs suivez-vous actuellement ?”
+Chiffre d’affaires
+Rentabilité
+Performance commerciale
+Performance opérationnelle
+Aucun
+“Souhaitez-vous mettre en place un système de pilotage plus structuré ?”
+Oui
+Non
+Je ne sais pas
+“À quelle fréquence souhaitez-vous suivre vos performances ?”
+Hebdomadaire
+Mensuelle
+Trimestrielle
+Je ne sais pas
+Module dynamique Optimisation organisationnelle
+Trigger :
+organisation = existante MAIS inefficace
+complexité
+perte de temps
+“Pensez-vous que votre organisation actuelle est optimale ?”
+Oui
+Non
+Partiellement
+“Quels sont les principaux points d’inefficacité ?”
+Trop de tâches manuelles
+Processus trop lourds
+Mauvaise circulation de l’information
+Manque de coordination
+Autre
+“Souhaitez-vous simplifier et optimiser votre organisation ?”
+Oui
+Non
+Je ne sais pas
+“Quels résultats attendez-vous de cette optimisation ?”
+Gain de temps
+Réduction des erreurs
+Meilleure performance
+Meilleure organisation
+Autre
+Bloc 2 - Conformité & réglementation
+Êtes-vous soumis à des obligations réglementaires ?
+Oui
+Non
+Je ne sais pas
+Lesquelles ?
+RGPD
+ISO 9001
+ISO 27001
+ISO 13485
+Réglementation sectorielle (santé, finance, etc.)
+Appels d’offres / exigences clients
+Je ne sais pas
+“Quel est votre niveau de conformité actuel ?”
+Non conforme
+Partiellement conforme
+Conforme
+Certifié
+Je ne sais pas
+“Quel est votre objectif principal aujourd’hui ?”
+Se mettre en conformité
+Se préparer à une certification
+Maintenir / améliorer un système existant
+Répondre à une exigence client / appel d’offres
+Sécuriser l’entreprise
+Je ne sais pas
+“Quel est le périmètre concerné par votre projet ?”
+Une partie de l’entreprise
+Un service
+L’ensemble de l’entreprise
+Plusieurs entités
+“Combien de personnes sont concernées par cette démarche ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Avez-vous une échéance ou une contrainte de délai ?”
+Oui
+Non
+SI OUI :
+“Merci de préciser la date ou le délai souhaité”
+“Avez-vous un budget défini pour ce projet ?”
+< 3 000 €
+3 000 – 10 000 €
+10 000 – 25 000 €
+25 000 € +
+Je ne sais pas
+“Qui est impliqué dans la prise de décision pour ce projet ?”
+Moi uniquement
+Plusieurs personnes
+Direction / comité
+SOUS-MODULE 1 — RGPD
+“Avez-vous déjà mis en place une démarche RGPD dans votre entreprise ?”
+Oui
+Non
+En cours
+“Disposez-vous des éléments suivants ?”
+Registre des traitements
+Politique de confidentialité
+Gestion des consentements
+Procédures internes
+Aucun
+“Traitez-vous des données sensibles (santé, données personnelles critiques, etc.) ?”
+Oui
+Non
+Je ne sais pas
+“Combien de personnes ont accès aux données ?”
+1
+2 à 5
+5 à 20
+20+
+SOUS-MODULE 2 — ISO / QUALITÉ
+“Quelle norme souhaitez-vous mettre en place ou améliorer ?”
+ISO 9001
+ISO 27001
+ISO 13485
+Autre
+“Quel est votre objectif ?”
+Mise en place
+Certification
+Amélioration
+Audit interne
+“Avez-vous déjà un système de management en place ?”
+Oui
+Partiellement
+Non
+“Souhaitez-vous être accompagné jusqu’à la certification ?”
+Oui
+Non
+Je ne sais pas
+SOUS-MODULE 3 — CONFORMITÉ SECTORIELLE
+“Dans quel secteur évoluez-vous ?”
+👉 (champ libre ou liste)
+“Êtes-vous soumis à des contrôles ou audits réguliers ?”
+Oui
+Non
+“Avez-vous déjà rencontré des difficultés ou non-conformités ?”
+Oui
+Non
+Bloc 3 - Qualité & SMQ
+“Avez-vous actuellement un système de management de la qualité (SMQ) en place dans votre entreprise ?”
+Oui
+En cours de mise en place
+Non
+Je ne sais pas
+“Comment évaluez-vous le niveau de structuration de votre système qualité aujourd’hui ?”
+Aucun système en place
+Quelques éléments informels
+Système partiellement structuré
+Système structuré
+Système certifié
+“Disposez-vous des éléments suivants dans votre organisation ?”
+Procédures documentées
+Indicateurs qualité
+Processus formalisés
+Suivi des non-conformités
+Audits internes
+Aucun
+Objectif ?
+Mise en place
+Structuration
+Certification
+Amélioration
+“Combien de personnes sont concernées par le système qualité ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Combien de processus principaux souhaitez-vous structurer ou formaliser ?”
+1 à 3
+3 à 5
+5 à 10
+10+
+“Votre entreprise est-elle multi-sites ou multi-entités ?”
+Oui
+Non
+“Quel niveau d’accompagnement souhaitez-vous ?”
+Diagnostic
+Recommandations
+Mise en place
+Accompagnement complet jusqu’à certification
+“Avez-vous un budget défini pour ce projet ?”
+< 5 000 €
+5 000 – 15 000 €
+15 000 – 30 000 €
+30 000 € +
+Je ne sais pas
+SOUS-MODULE 1 — Mise en place SMQ
+Trigger :
+“aucun système”
+ou “informel”
+“Souhaitez-vous mettre en place un système qualité structuré dans votre entreprise ?”
+Oui
+Non
+Je ne sais pas
+“Quel est votre objectif principal avec la mise en place d’un SMQ ?”
+Structurer l’organisation
+Améliorer la qualité
+Répondre à des exigences clients
+Préparer une certification
+Autre
+“Quel est le périmètre concerné ?”
+Une activité
+Un service
+Toute l’entreprise
+SOUS-MODULE 2 — Certification (ISO)
+Trigger :
+objectif certification
+ou système déjà structuré
+“Souhaitez-vous obtenir une certification ?”
+Oui
+Non
+Je ne sais pas
+SI OUI :
+“Avez-vous déjà engagé des démarches en ce sens ?”
+Oui
+Non
+“Avez-vous une échéance pour cette certification ?”
+Oui
+Non
+SI OUI :
+“Merci de préciser la date cible”
+SOUS-MODULE 3 — Amélioration / optimisation
+Trigger :
+système existant
+mais pas optimal
+“Souhaitez-vous améliorer ou optimiser votre système qualité actuel ?”
+Oui
+Non
+Je ne sais pas
+“Quels sont les principaux points à améliorer ?”
+Processus
+Documentation
+Suivi des performances
+Non-conformités
+Organisation
+Autre
+BLOC 4 - RSE
+“Votre entreprise a-t-elle déjà mis en place des actions liées à la RSE (responsabilité sociétale, environnement, social, etc.) ?”
+Oui, plusieurs actions structurées
+Oui, quelques actions ponctuelles
+Non
+Je ne sais pas
+“Sur quels axes souhaitez-vous travailler en priorité ?”
+Environnement (impact, réduction, etc.)
+Social (conditions de travail, RH, etc.)
+Gouvernance / organisation
+Image / communication
+Réponse à des exigences clients / appels d’offres
+Je ne sais pas
+“Quel niveau de structuration souhaitez-vous mettre en place ?”
+Définir des actions simples
+Structurer une démarche
+Mettre en place une stratégie complète
+Intégrer la RSE dans toute l’entreprise
+“Quel est le périmètre concerné par cette démarche ?”
+Une partie de l’entreprise
+Un service
+L’ensemble de l’entreprise
+Plusieurs entités
+“Combien de personnes sont concernées par la démarche ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Cette démarche RSE répond-elle à une contrainte spécifique ?”
+Oui, exigence client
+Oui, appel d’offres
+Oui, obligation réglementaire
+Non
+“Disposez-vous déjà de documents ou d’éléments liés à votre démarche RSE ?”
+Oui
+Non
+SI OUI : “Merci de préciser lesquels :” (champ libre)
+“Quel niveau d’accompagnement souhaitez-vous ?”
+Diagnostic uniquement
+Recommandations
+Mise en place
+Accompagnement complet (suivi, pilotage)
+Avez-vous une échéance ou une contrainte de délai pour ce projet ?”
+Oui
+Non
+SI OUI : “Merci de préciser la date ou le délai souhaité”
+“Avez-vous un budget défini pour ce projet ?”
+< 3 000 €
+3 000 – 10 000 €
+10 000 – 20 000 €
+20 000 € +
+Je ne sais pas
+BLOC 5 – Stratégie
+“Sur quels sujets avez-vous besoin d’accompagnement aujourd’hui ?”
+Clarifier la vision et la direction
+Structurer le développement de l’entreprise
+Améliorer la rentabilité
+Prioriser les actions
+Résoudre des problèmes de croissance
+Mieux piloter l’activité
+Autre
+“Disposez-vous aujourd’hui d’une stratégie claire et formalisée ?”
+Non
+Partiellement
+Oui
+“Quel est aujourd’hui votre principal blocage dans le développement de votre entreprise ?”
+(champ libre)
+“Sur quel périmètre souhaitez-vous travailler ?”
+Un sujet précis
+Plusieurs sujets
+L’ensemble de l’entreprise
+“Quel type d’accompagnement souhaitez-vous ?”
+Diagnostic stratégique
+Recommandations
+Accompagnement ponctuel
+Accompagnement régulier
+Accompagnement long terme
+“À quelle fréquence souhaitez-vous être accompagné ?”
+Ponctuel
+Mensuel
+Hebdomadaire
+À définir
+“Avez-vous une échéance ou un objectif de timing pour ce travail stratégique ?”
+Oui
+Non
+SI OUI :“Merci de préciser le délai souhaité”
+“Quel budget avez-vous prévu pour cet accompagnement stratégique ?”
+< 3 000 €
+3 000 – 10 000 €
+10 000 – 25 000 €
+25 000 € +
+Je ne sais pas
+SOUS-MODULE 1 — Structuration stratégique globale
+Trigger :
+périmètre large
+plusieurs sujets
+“Sur quels éléments souhaitez-vous structurer votre stratégie ?”
+Vision / positionnement
+Offres
+Organisation
+Modèle économique
+Développement commercial
+“Avez-vous déjà travaillé sur ces éléments auparavant ?”
+Oui
+Partiellement
+Non
+“À quel niveau souhaitez-vous intervenir ?”
+Clarification uniquement
+Structuration
+Transformation complète
+“Souhaitez-vous un accompagnement dans la mise en œuvre ou uniquement la définition ?”
+Définition uniquement
+Définition + mise en œuvre
+Accompagnement complet dans la durée
+SOUS-MODULE 2 — Rentabilité & modèle économique
+Trigger :
+rentabilité / pricing
+“Souhaitez-vous analyser ou améliorer les éléments suivants ?”
+Structure de coûts
+Marges
+Offres
+Pricing
+Rentabilité globale
+“Avez-vous aujourd’hui une vision claire de votre rentabilité ?”
+Oui
+Partiellement
+Non
+“Disposez-vous de données fiables pour analyser votre activité ?”
+Oui
+Non
+Partiellement
+“Quel est votre objectif principal ?”
+Améliorer la rentabilité
+Clarifier les coûts
+Revoir les offres
+Optimiser les marges
+SOUS-MODULE 3 — Croissance & développement
+Trigger :
+croissance
+“Quel est votre objectif de développement à court / moyen terme ?”
+Stabiliser
+Structurer
+Accélérer
+Changer d’échelle
+“Quels sont aujourd’hui les principaux freins à votre croissance ?”
+(champ libre
+“Votre croissance est-elle aujourd’hui maîtrisée ?”
+Oui
+Non
+Partiellement
+“Souhaitez-vous structurer votre développement commercial ?”
+Oui
+Non
+Je ne sais pas
+BLOC 6 – Sécurité
+“Avez-vous déjà réalisé un audit de sécurité informatique ou de vos systèmes ?”
+Oui
+Non
+Je ne sais pas
+“Avez-vous déjà rencontré un incident de sécurité ?”
+Oui
+Non
+SI OUI :
+“Quel type d’incident avez-vous rencontré ?”
+Tentative de piratage
+Fuite de données
+Accès non autorisé
+Perte de données
+Autre
+“Quels éléments souhaitez-vous sécuriser ?”
+Site internet
+Application / logiciel
+Serveur / infrastructure
+Données clients
+Système interne
+Ensemble du système
+“Combien d’utilisateurs accèdent à vos systèmes ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Combien d’environnements souhaitez-vous sécuriser ?”
+1
+2 à 3
+3 à 5
+5+
+“Votre système est-il :”
+Simple
+Intermédiaire
+Complexe
+Très complexe
+Je ne sais pas
+“Avez-vous une contrainte de délai pour ce projet ?”
+Oui
+Non
+SI OUI : “Merci de préciser le délai souhaité”
+“Quel budget avez-vous prévu pour la sécurisation de vos systèmes ?”
+< 3 000 €
+3 000 – 10 000 €
+10 000 – 25 000 €
+25 000 € +
+Je ne sais pas
+SOUS-MODULE 1 — Audit de sécurité
+Trigger :
+pas d’audit
+doute
+“je ne sais pas”
+“Souhaitez-vous réaliser un audit de sécurité pour identifier les failles de votre système ?”
+Oui
+Non
+Je ne sais pas
+“Quel est le périmètre de l’audit souhaité ?”
+Un outil
+Plusieurs outils
+L’ensemble du système
+“Disposez-vous d’une documentation technique de vos systèmes ?”
+Oui
+Non
+Partiellement
+“Avez-vous des contraintes spécifiques (hébergement, réglementation, etc.) ?”
+(champ libre)
+SOUS-MODULE 2 — Pentest (test d’intrusion)
+Trigger :
+besoin sécurité avancée
+site / app / infra critique
+“Souhaitez-vous réaliser un test d’intrusion (pentest) ?”
+Oui
+Non
+Je ne sais pas
+“Sur quels éléments souhaitez-vous réaliser ce test ?”
+Site web
+Application
+API
+Infrastructure
+Autre
+“Quel est le niveau de criticité de votre système ?”
+Faible
+Moyen
+Élevé
+Critique
+“Votre système est-il accessible publiquement (internet) ?”
+Oui
+Non
+MODULE 2 – Pôle offre 2
+BLOC 1 - État actuel des outils
+“Quels types d’outils utilisez-vous actuellement pour gérer votre activité ?”
+CRM
+ERP
+Logiciels métiers
+Outils marketing (emailing, automation…)
+Outils de gestion (facturation, comptabilité…)
+Site internet
+Aucun
+Autre
+(cases à cocher)
+“Pouvez-vous préciser les principaux outils que vous utilisez aujourd’hui ?”
+(champ libre)
+“Disposez-vous aujourd’hui d’un outil central pour piloter votre activité (type CRM ou ERP) ?”
+Oui
+Non
+Je ne sais pas
+trigger :
+SI non → CRM / ERP
+SI oui → optimisation
+“Vos outils sont-ils connectés entre eux ?”
+Oui, tous
+Partiellement
+Non
+Je ne sais pas
+“Comment évaluez-vous l’efficacité globale de vos outils aujourd’hui ?”
+Très inefficaces
+Peu efficaces
+Moyennement efficaces
+Efficaces
+Très efficaces
+“Quels problèmes rencontrez-vous avec vos outils actuels ?”
+Trop d’outils différents
+Outils non adaptés
+Manque de visibilité
+Perte de temps
+Erreurs fréquentes
+Données mal structurées
+Outils non connectés
+Difficulté d’utilisation
+Autre
+“Certaines tâches reposent-elles encore fortement sur des actions manuelles ?”
+Oui
+Non
+Partiellement
+“Combien de personnes utilisent ces outils au quotidien ?”
+1
+2 à 5
+5 à 20
+20 à 50
+50+
+“Comment qualifieriez-vous la complexité de votre système actuel ?”
+Simple
+Moyenne
+Complexe
+Très complexe
+Je ne sais pas
+“Rencontrez-vous des problèmes techniques (bugs, lenteurs, instabilité) ?”
+Oui
+Non
+Parfois
+trigger :
+debug
+maintenance
+infra
+“Avez-vous déjà fait évoluer vos outils récemment ?”
+Oui
+Non
+BLOC 2 - Besoin en structuration des outils
+“Souhaitez-vous aujourd’hui structurer ou améliorer vos outils de gestion ?”
+Oui
+Non
+Je ne sais pas
+“Quel est votre besoin principal concernant vos outils ?”
+Mettre en place de nouveaux outils
+Améliorer les outils existants
+Centraliser mes outils
+Automatiser certaines tâches
+Remplacer un système existant
+Je ne sais pas
+“Souhaitez-vous mettre en place ou améliorer un outil central (CRM, ERP) pour piloter votre activité ?”
+Oui, mettre en place
+Oui, améliorer
+Non
+Je ne sais pas
+“Souhaitez-vous centraliser vos données et vos processus dans un seul outil ou système ?”
+Oui
+Non
+Partiellement
+Je ne sais pas
+“Souhaitez-vous automatiser certaines tâches ou processus dans votre entreprise ?”
+Oui
+Non
+Je ne sais pas
+SI OUI :
+“Quels types de tâches souhaitez-vous automatiser ?”
+Gestion commerciale
+Suivi client
+Facturation
+Marketing
+Reporting
+Processus internes
+Autre
+“Envisagez-vous de remplacer totalement ou partiellement votre système actuel ?”
+Oui
+Non
+Je ne sais pas
+“Quel est l’objectif principal de cette évolution de vos outils ?”
+Gagner du temps
+Réduire les erreurs
+Améliorer la visibilité
+Structurer l’entreprise
+Faciliter la croissance
+Autre
+“Quel est le périmètre concerné par ce projet ?”
+Une activité
+Un service
+Toute l’entreprise
+Plusieurs entités
+“Ce projet est-il une priorité pour vous aujourd’hui ?”
+Oui
+Non
+À moyen terme
+BLOC 3 - Développement spécifique
+“Sur quels types de projets souhaitez-vous être accompagné ?”
+Mise en place ou amélioration d’un CRM / ERP
+Développement d’un outil ou logiciel sur mesure
+Création ou refonte d’un site internet
+Automatisation de tâches / interconnexion d’outils
+Mise en place ou amélioration de l’infrastructure (serveur, hébergement…)
+Maintenance / correction de problèmes existants
+Je ne sais pas encore
+LOGIQUE DE ROUTAGE
+Pour chaque choix :
+Choix
+Sous-module déclenché
+CRM / ERP
+Sous-module CRM / ERP
+Dev sur mesure
+Sous-module Développement
+Site web
+Sous-module Site
+Automatisation
+Sous-module Automatisation
+Infrastructure
+Sous-module Infra
+Maintenance
+Sous-module Support / maintenance
+“Avez-vous déjà une idée précise de votre besoin pour ce ou ces projets ?”
+Oui, très clair
+Oui, mais à affiner
+Non, j’ai besoin d’accompagnement
+“S’agit-il plutôt :”
+D’une création (nouveau projet)
+D’une amélioration de l’existant
+D’une refonte complète
+Je ne sais pas
+“Comment évaluez-vous la complexité de votre projet ?”
+Simple
+Moyenne
+Complexe
+Très complexe
+Je ne sais pas
+SOUS-MODULE 1 — CRM / ERP
+“Souhaitez-vous :”
+Mettre en place un CRM
+Mettre en place un ERP
+Améliorer un outil existant
+Remplacer un système existant
+“Quels usages souhaitez-vous couvrir avec cet outil ?”
+Gestion commerciale
+Suivi client
+Gestion de projet
+Facturation
+Production / opérations
+Reporting
+Autre
+“Combien de personnes utiliseront cet outil ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Utilisez-vous actuellement un outil similaire ?”
+Oui
+Non
+SI OUI :
+“Souhaitez-vous migrer vos données vers le nouveau système ?”
+Oui
+Non
+Je ne sais pas
+“Quel niveau de personnalisation souhaitez-vous ?”
+Standard (outil existant configuré)
+Personnalisé
+Sur mesure
+“Souhaitez-vous connecter cet outil à d’autres systèmes ?”
+Oui
+Non
+Je ne sais pas
+SOUS-MODULE 2 — DÉVELOPPEMENT SUR MESURE
+“Quel type d’outil souhaitez-vous développer ?”
+Logiciel métier
+Application web
+Application mobile
+Plateforme
+Outil interne
+Autre
+“Quel est l’objectif principal de cet outil ?”
+(champ libre)
+“Combien d’utilisateurs utiliseront cet outil ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Combien de fonctionnalités principales souhaitez-vous intégrer ?”
+1 à 3
+3 à 5
+5 à 10
+10+
+“Cet outil devra-t-il être connecté à d’autres systèmes ?”
+Oui
+Non
+Je ne sais pas
+“Existe-t-il déjà une base (outil existant, prototype, cahier des charges) ?”
+Oui
+Non
+BLOC 4 - Automatisation & interconnexions
+“Souhaitez-vous automatiser certaines tâches ou connecter vos outils entre eux ?”
+Oui
+Non
+Je ne sais pas
+“Quels types de processus souhaitez-vous automatiser ?”
+Gestion commerciale (leads, clients…)
+Suivi client
+Facturation / administratif
+Marketing (emailing, campagnes…)
+Reporting / tableaux de bord
+Process internes
+Autre
+“Combien de processus ou automatisations souhaitez-vous mettre en place ?”
+1 à 2
+3 à 5
+5 à 10
+10+
+“Ces automatisations concernent-elles plusieurs outils à connecter entre eux ?”
+Oui
+Non
+Je ne sais pas
+SI OUI :
+“Combien d’outils différents sont concernés ?”
+2
+3 à 5
+5 à 10
+10+
+“Souhaitez-vous :”
+Des automatisations simples (no-code)
+Des automatisations avancées
+Des intégrations sur mesure (API / développement)
+“Ces automatisations sont-elles critiques pour votre activité ?”
+Oui
+Non
+Partiellement
+“Avez-vous déjà mis en place des automatisations ?”
+Oui
+Non
+SI OUI :
+“Souhaitez-vous les améliorer ou les remplacer ?”
+Oui
+Non
+“Quel est l’objectif principal de ces automatisations ?”
+Gagner du temps
+Réduire les erreurs
+Structurer les processus
+Améliorer la performance
+Autre
+“Combien de personnes seront impactées par ces automatisations ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Avez-vous une contrainte de délai pour ce projet ?”
+Oui
+Non
+SI OUI : “Merci de préciser le délai souhaité”
+“Avez-vous un budget défini pour ce projet ?”
+< 2 000 €
+2 000 – 5 000 €
+5 000 – 15 000 €
+15 000 € +
+Je ne sais pas
+BLOC 5 - Site web & présence digitale
+“Avez-vous actuellement un site internet ?”
+Oui
+Non
+En cours
+“Comment évaluez-vous la performance de votre site internet ?”
+Inefficace
+Peu performant
+Correct
+Performant
+Très performant
+“Souhaitez-vous créer, refondre ou améliorer votre site internet ?”
+Créer un site
+Refaire un site
+Améliorer un site existant
+Non
+Bloc approfondi si besoin d’un site
+“Quel type de site souhaitez-vous créer ou refondre ?”
+Site vitrine
+Site e-commerce
+Plateforme / web app
+Landing page
+Autre
+“Quel est l’objectif principal de votre site ?”
+Présenter mon activité
+Générer des leads
+Vendre en ligne
+Automatiser des processus
+Autre
+“Combien de pages souhaitez-vous pour votre site ?”
+1 page (landing)
+2 à 5 pages
+5 à 10 pages
+10 à 20 pages
+20+
+“Quelles fonctionnalités souhaitez-vous intégrer à votre site ?”
+Formulaire de contact
+Espace client
+Paiement en ligne
+Réservation / agenda
+Blog
+Multilingue
+API / connexions externes
+Autre
+SI e-commerce :
+“Quel système de paiement souhaitez-vous utiliser ?”
+Stripe
+PayPal
+Banque
+Je ne sais pas
+“Disposez-vous déjà des contenus pour votre site ?”
+Oui (textes + images)
+Partiellement
+Non
+“Disposez-vous d’une charte graphique ?”
+Oui
+Partielle
+Non
+“Souhaitez-vous optimiser votre site pour le référencement naturel (SEO) ?”
+Oui
+Non
+Je ne sais pas
+“Souhaitez-vous être accompagné après la mise en ligne du site ?”
+Oui (maintenance)
+Non
+Je ne sais pas
+“Avez-vous déjà un nom de domaine et un hébergement ?”
+Oui
+Non
+Je ne sais pas
+“Avez-vous une contrainte de délai pour ce projet ?”
+Oui
+Non
+SI OUI :“Merci de préciser la date souhaitée”
+“Quel budget avez-vous prévu pour ce projet ?”
+< 2 000 €
+2 000 – 5 000 €
+5 000 – 10 000 €
+10 000 € +
+Je ne sais pas
+“Disposez-vous déjà d’un cahier des charges ou d’un document de cadrage ?”
+Oui
+Non
+BLOC 6 - Infrastructure & hébergement
+“Disposez-vous actuellement d’une infrastructure technique (serveurs, hébergement, cloud, etc.) ?”
+Oui
+Non
+Je ne sais pas
+“Quel type d’infrastructure utilisez-vous aujourd’hui ?”
+Hébergement mutualisé
+Cloud (AWS, GCP, Azure…)
+Serveur dédié
+Infrastructure interne (on-premise)
+Je ne sais pas
+“Quels éléments sont concernés par votre infrastructure ?”
+Site internet
+Applications / logiciels
+Bases de données
+Outils internes
+Ensemble du système
+“Rencontrez-vous actuellement des problèmes liés à votre infrastructure ?”
+Lenteur
+Pannes
+Instabilité
+Difficulté de gestion
+Problèmes de sécurité
+Aucun
+“Quel est votre besoin principal concernant votre infrastructure ?”
+Mise en place
+Optimisation
+Migration
+Maintenance
+Sécurisation
+“Combien d’utilisateurs accèdent à vos systèmes ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Quel est le volume de données à gérer ?”
+Faible
+Moyen
+Important
+Très important
+Je ne sais pas
+“Votre activité nécessite-t-elle une haute disponibilité ?”
+Oui
+Non
+“Avez-vous une contrainte de délai pour ce projet ?”
+Oui
+Non
+SI OUI :“Merci de préciser le délai souhaité”
+“Quel budget avez-vous prévu pour votre infrastructure ?”
+< 3 000 €
+3 000 – 10 000 €
+10 000 – 25 000 €
+25 000 € +
+Je ne sais pas
+SOUS-MODULE 1 — Mise en place / migration
+Trigger :
+“mise en place”
+“migration”
+“Souhaitez-vous :”
+Créer une nouvelle infrastructure
+Migrer une infrastructure existante
+“Combien d’environnements souhaitez-vous mettre en place ou migrer ?”
+1
+2 à 3
+3 à 5
+5+
+“Avez-vous des contraintes spécifiques (performance, localisation, réglementation…) ?”
+(champ libre)
+“Souhaitez-vous une infrastructure :”
+Standard
+Optimisée
+Haute performance / haute disponibilité
+SOUS-MODULE 2 — Maintenance & exploitation
+Trigger :
+“maintenance”
+problèmes
+“Souhaitez-vous un accompagnement en maintenance de votre infrastructure ?”
+Oui
+Non
+“Quel niveau de maintenance souhaitez-vous ?”
+Corrective (en cas de problème)
+Préventive
+Supervision continue
+Infogérance complète
+“Avez-vous besoin d’une disponibilité continue (24/7) ?”
+Oui
+Non
+“À quelle fréquence souhaitez-vous des interventions ou un suivi ?”
+Ponctuel
+Mensuel
+Hebdomadaire
+Continu
+SOUS-MODULE 3 — Optimisation / performance
+Trigger :
+lenteur
+inefficacité
+“Quels sont les principaux points à améliorer ?”
+Performance
+Stabilité
+Coûts
+Organisation de l’infrastructure
+Autre
+“Votre infrastructure actuelle est-elle dimensionnée pour votre activité ?”
+Oui
+Non
+Je ne sais pas
+“Souhaitez-vous optimiser vos coûts d’hébergement ?”
+Oui
+Non
+MODULE 3 – Pôle offre 3
+BLOC 1 — ÉTAT ACTUEL (DIGITAL & BUSINESS)
+“Quels canaux utilisez-vous aujourd’hui pour développer votre activité ?”
+Site internet
+Réseaux sociaux
+SEO (référencement naturel)
+Publicité payante
+Email marketing
+Prospection commerciale
+Aucun
+Autre
+“Comment évaluez-vous votre performance digitale aujourd’hui ?”
+Très faible
+Faible
+Moyenne
+Bonne
+Très bonne
+“Générez-vous régulièrement des leads ou des clients grâce à vos actions digitales ?”
+Oui
+Non
+Irrégulièrement
+“Disposez-vous d’un tunnel de conversion structuré (parcours client) ?”
+Oui
+Non
+Je ne sais pas
+“Suivez-vous des indicateurs de performance (KPI) ?”
+Oui
+Non
+Partiellement
+BLOC 2 — OBJECTIFS & BESOINS
+“Quel est votre objectif principal aujourd’hui ?”
+Générer plus de leads
+Augmenter les ventes
+Améliorer la conversion
+Structurer le marketing
+Mieux piloter la performance
+Autre
+“Sur quels leviers souhaitez-vous travailler ?”
+Stratégie digitale globale
+SEO / référencement
+Tunnel de conversion
+Acquisition (trafic)
+Analyse de performance (data / KPI)
+Structuration marketing
+Je ne sais pas
+“Votre stratégie actuelle est-elle claire et définie ?”
+Oui
+Non
+Partiellement
+“Quel est aujourd’hui votre principal blocage dans votre développement digital ?”
+(champ libre)
+BLOC 3 — DÉCLENCHEMENT DES SOUS-MODULES
+“Sur quels sujets souhaitez-vous être accompagné en priorité ?”
+Stratégie digitale globale
+SEO / optimisation du site
+Optimisation du tunnel de conversion
+Pilotage commercial digital
+Analyse de performance (data, KPI)
+Structuration marketing
+Choix
+Sous-module
+Stratégie
+stratégie digitale
+SEO
+SEO
+Tunnel
+conversion
+Pilotage
+pilotage
+Data
+KPI
+Marketing
+structuration
+SOUS-MODULE 1 — STRATÉGIE DIGITALE GLOBALE
+“Souhaitez-vous structurer quels éléments de votre stratégie digitale ?”
+Positionnement
+Offres
+Parcours client
+Acquisition
+Conversion
+Organisation marketing
+“Avez-vous déjà une stratégie formalisée ?”
+Oui
+Non
+Partiellement
+“Sur quel périmètre souhaitez-vous travailler ?”
+Site Site internet
+Réseaux sociaux
+SEO (référencement naturel)
+Publicité payante
+Email marketing
+Prospection commerciale
+Aucun
+“Souhaitez-vous un accompagnement :”
+En cadrage uniquement
+En stratégie + plan d’action
+En accompagnement dans la durée
+SOUS-MODULE 2 — SEO / OPTIMISATION SITE
+“Quel est votre besoin principal en SEO ?”
+Audit SEO
+Optimisation technique
+Création de contenu
+Stratégie SEO globale
+“Quel est le volume de votre site ?”
+1 à 5 pages
+5 à 20 pages
+20 à 50 pages
+50+ pages
+“Travaillez-vous déjà votre référencement naturel ?”
+Oui
+Non
+Un peu
+“Souhaitez-vous produire du contenu régulièrement ?”
+Oui
+Non
+Je ne sais pas
+SOUS-MODULE 3 — OPTIMISATION TUNNEL DE CONVERSION
+“Disposez-vous aujourd’hui d’un tunnel de conversion structuré ?”
+Oui
+Non
+Partiellement
+“Quel est votre objectif principal ?”
+Générer des leads
+Augmenter le taux de conversion
+Automatiser le parcours client
+Vendre en ligne
+“Quels éléments souhaitez-vous optimiser ?”
+Pages de vente
+Landing pages
+Tunnel email
+Parcours client global
+Automatisation
+“Disposez-vous de données sur vos performances (taux de conversion, etc.) ?”
+Oui
+Non
+Partiellement
+SOUS-MODULE 4 — PILOTAGE COMMERCIAL DIGITAL
+“Souhaitez-vous structurer le pilotage de votre activité commerciale ?”
+Oui
+Non
+Je ne sais pas
+“Quels éléments souhaitez-vous suivre ?”
+Chiffre d’affaires
+Leads
+Conversion
+Performance marketing
+Performance commerciale
+“À quelle fréquence souhaitez-vous piloter votre activité ?”
+Hebdomadaire
+Mensuelle
+Trimestrielle
+Je ne sais pas
+“Souhaitez-vous un accompagnement dans l’analyse et la prise de décision ?”
+Oui
+Non
+SOUS-MODULE 5 — ANALYSE DE PERFORMANCE (DATA / KPI)
+“Disposez-vous actuellement d’outils de suivi de performance (analytics, dashboards…) ?”
+Oui
+Non
+Partiellement
+“Souhaitez-vous :”
+Mettre en place un suivi
+Améliorer l’existant
+Créer des dashboards
+Automatiser le reporting
+“Quels indicateurs souhaitez-vous suivre ?”
+Trafic
+Conversion
+Chiffre d’affaires
+Acquisition
+Performance globale
+“Souhaitez-vous un accompagnement dans l’analyse des données ?”
+Oui
+Non
+SOUS-MODULE 6 — STRUCTURATION MARKETING
+“Disposez-vous aujourd’hui d’une organisation marketing structurée ?”
+Oui
+Non
+Partiellement
+“Quels éléments souhaitez-vous structurer ?”
+Stratégie marketing
+Plan d’action
+Outils marketing
+Process
+Organisation
+“Souhaitez-vous internaliser ou externaliser votre marketing ?”
+Internaliser
+Externaliser
+Mix des deux
+“Souhaitez-vous un accompagnement dans la mise en place opérationnelle ?”
+Oui
+Non
+SOUS-MODULE 7 — STRATÉGIE RÉSEAUX SOCIAUX
+“Sur quelles plateformes êtes-vous actuellement présent ?”
+Instagram
+LinkedIn
+Facebook
+TikTok
+YouTube
+Aucune
+Autre
+“Quel est votre niveau d’activité actuel sur ces réseaux ?”
+Aucun contenu publié
+Publication occasionnelle
+Publication régulière
+Stratégie structurée
+“Quel est votre objectif principal sur les réseaux sociaux ?”
+Gagner en visibilité
+Générer des leads
+Développer une communauté
+Vendre
+Travailler l’image de marque
+“Souhaitez-vous :”
+Définir une stratégie
+Créer du contenu
+Planifier et publier
+Gérer vos réseaux
+Faire de la publicité
+“Sur combien de plateformes souhaitez-vous être actif ?”
+1
+2
+3
+4+
+“Souhaitez-vous déléguer totalement ou partiellement la gestion de vos réseaux ?”
+Totalement
+Partiellement
+Non
+SOUS-MODULE 8 — EMAIL / MARKETING AUTOMATION
+“Utilisez-vous actuellement l’email marketing dans votre activité ?”
+Oui
+Non
+Très peu
+“Disposez-vous d’une base de contacts / prospects ?”
+Oui
+Non
+“Quelle est la taille de votre base de contacts ?”
+0 à 100
+100 à 1 000
+1 000 à 10 000
+10 000+
+“Quel est votre objectif principal avec l’email marketing ?”
+Générer des ventes
+Fidéliser
+Nourrir des prospects
+Automatiser la relation client
+“Souhaitez-vous mettre en place :”
+Des campagnes ponctuelles
+Des séquences automatisées
+Un tunnel email complet
+Une stratégie globale
+“Utilisez-vous déjà un outil d’emailing ?”
+Oui
+Non
+SI OUI : “Lequel ?” (champ libre)
+“Souhaitez-vous être accompagné sur :”
+La stratégie
+La rédaction
+La mise en place technique
+L’automatisation
+Le suivi des performances
+BLOC 4 — VARIABLES PROJET & BUSINESS
+“Disposez-vous de ressources internes pour travailler sur ces sujets ?”
+Oui
+Non
+Partiellement
+“Quel type de ressources internes avez-vous ?”
+Marketing
+Technique
+Commercial
+Direction
+Autre
+“Quel niveau d’accompagnement souhaitez-vous ?”
+Conseil / stratégie uniquement
+Mise en place
+Accompagnement complet
+Suivi dans la durée
+“Avez-vous une contrainte de délai pour ce projet ?”
+Oui
+Non
+SI OUI : “Merci de préciser la date ou le délai souhaité”
+“Quel budget avez-vous prévu pour ce projet ?”
+< 2 000 €
+2 000 – 5 000 €
+5 000 – 15 000 €
+15 000 – 30 000 €
+30 000 € +
+Je ne sais pas
+“Qui est impliqué dans la prise de décision pour ce projet ?”
+Moi uniquement
+Plusieurs personnes
+Direction / comité
+“Où en êtes-vous dans votre réflexion ?”
+Idée
+Projet en réflexion
+Projet défini
+Projet prêt à démarrer
+MODULE 4 — SUPPORT & MAINTENANCE
+BLOC 1 — SITUATION ACTUELLE
+“Disposez-vous aujourd’hui d’un support technique pour vos outils et systèmes ?”
+Oui
+Non
+Partiellement
+“Qui gère actuellement vos problématiques techniques ?”
+En interne
+Un prestataire externe
+Personne
+Plusieurs intervenants
+“Quels types d’éléments nécessitent un support dans votre activité ?”
+Site internet
+Applications / logiciels
+Serveurs / infrastructure
+Outils internes
+Automatisations
+Autre
+“À quelle fréquence rencontrez-vous des problèmes techniques ?”
+Rarement
+Occasionnellement
+Régulièrement
+Très souvent
+BLOC 2 — PROBLÈMES & BESOINS
+“Quels types de problèmes rencontrez-vous ?”
+Bugs
+Pannes
+Lenteur
+Problèmes d’accès
+Problèmes de sécurité
+Dysfonctionnements
+Autre
+“Quel est l’impact de ces problèmes sur votre activité ?”
+Faible
+Moyen
+Important
+Critique
+“Quel est votre besoin principal aujourd’hui ?”
+Corriger des problèmes existants
+Mettre en place un support technique
+Améliorer la stabilité
+Sécuriser les systèmes
+Mettre en place une maintenance
+BLOC 3 — DÉCLENCHEMENT DES SOUS-MODULES
+“Sur quels types de services souhaitez-vous être accompagné ?”
+Maintenance corrective
+Maintenance évolutive
+Support technique
+Debug (site, logiciel, serveur)
+Infogérance / gestion serveurs
+Hébergement
+SOUS-MODULE — MAINTENANCE CORRECTIVE
+“Pouvez-vous décrire précisément les problèmes ou bugs que vous rencontrez actuellement ?”Réponse libre
+“Sur quels éléments ces problèmes apparaissent-ils ?”
+Site internet
+Application web
+Logiciel métier
+ERP / CRM
+Serveur
+Automatisation
+Base de données
+Autre
+“Depuis quand ces problèmes sont-ils présents ?”
+Moins de 7 jours
+Entre 1 semaine et 1 mois
+Depuis plusieurs mois
+Je ne sais pas
+“À quelle fréquence ces problèmes se produisent-ils ?”
+Rarement
+Occasionnellement
+Régulièrement
+En continu
+“Quel est l’impact de ces problèmes sur votre activité ?”
+Faible
+Gênant
+Bloquant
+Critique
+“Le problème empêche-t-il totalement l’utilisation du système concerné ?”
+Oui
+Non
+Partiellement
+“Disposez-vous d’un accès technique aux éléments concernés (administration, serveur, code, CMS, hébergeur, etc.) ?”
+Oui
+Non
+Partiellement
+“Avez-vous déjà tenté des actions de correction ?”
+Oui
+Non
+Si oui :
+“Merci de préciser les actions déjà tentées.”Réponse libre
+“Souhaitez-vous une intervention ponctuelle ou la mise en place d’une maintenance corrective continue ?”
+Intervention ponctuelle
+Forfait de correction
+Maintenance corrective continue
+Je ne sais pas encore
+Sous-module — Maintenance évolutive
+“Quels outils ou systèmes souhaitez-vous faire évoluer ?”
+Site internet
+Application web
+Logiciel métier
+ERP / CRM
+Automatisation
+Serveur / infrastructure
+Autre
+“Quel type d’évolutions souhaitez-vous mettre en place ?”
+Ajout de nouvelles fonctionnalités
+Amélioration de l’interface utilisateur
+Optimisation des performances
+Refonte partielle de certaines parties
+Mises à jour techniques
+Évolutions liées à la sécurité
+Autre
+“Pouvez-vous décrire les évolutions attendues ?”Réponse libre
+“À quelle fréquence pensez-vous avoir besoin de faire évoluer vos outils ?”
+Ponctuellement
+Tous les mois
+Régulièrement dans l’année
+En continu
+“Combien d’éléments ou de modules sont concernés par ces évolutions ?”
+1
+2 à 3
+3 à 5
+5+
+“Disposez-vous déjà d’une feuille de route ou d’une liste priorisée des évolutions souhaitées ?”
+Oui
+Non
+Partiellement
+“Souhaitez-vous un accompagnement uniquement technique ou également dans la priorisation et le cadrage des évolutions ?”
+Technique uniquement
+Technique + priorisation
+Accompagnement complet
+Je ne sais pas encore
+“Y a-t-il des contraintes spécifiques à prendre en compte pour ces évolutions ?”Réponse libre
+Sous-module — Support technique
+“Quel type de support technique recherchez-vous ?”
+Assistance ponctuelle
+Support réactif en cas de problème
+Support régulier
+Support prioritaire
+Support dédié
+“Sur quels éléments le support doit-il porter ?”
+Site internet
+Outils métiers
+ERP / CRM
+Messagerie / outils bureautiques
+Automatisations
+Serveurs / hébergement
+Autre
+“Qui aura besoin de ce support ?”
+Moi uniquement
+Quelques personnes
+Une équipe
+Plusieurs services
+“Combien d’utilisateurs sont concernés par le support ?”
+1 à 5
+5 à 20
+20 à 50
+50+
+“Quels types de demandes de support rencontrez-vous le plus souvent ?”
+Problèmes d’accès / connexion
+Compréhension de l’outil
+Dysfonctionnements techniques
+Erreurs utilisateurs
+Besoin d’assistance rapide
+Autre
+“Quels canaux de support souhaitez-vous proposer ou utiliser ?”
+Email
+Téléphone
+Ticketing
+Chat / messagerie
+Visioconférence
+“Quel temps de réponse attendez-vous idéalement ?”
+Sous 48h
+Sous 24h
+Dans la journée
+En quelques heures
+Dès que possible
+“Avez-vous besoin d’un support sur des horaires spécifiques ?”
+Heures ouvrées uniquement
+Horaires élargis
+Soirs / week-ends
+24h/24 - 7j/7
+“Souhaitez-vous un support purement technique ou également un accompagnement utilisateur / formation ?”
+Support technique uniquement
+Support + accompagnement utilisateur
+Support + mini-formation
+Je ne sais pas encore
+Sous-module — Debug (sites, logiciels, serveurs)
+“Quel type de problème souhaitez-vous faire diagnostiquer ou résoudre ?”
+Bug fonctionnel
+Erreur technique
+Lenteur / performance
+Problème d’intégration
+Instabilité
+Comportement anormal
+Autre
+“Sur quel environnement le problème se situe-t-il ?”
+Site internet
+Application web
+Logiciel métier
+ERP / CRM
+Serveur
+Automatisation
+API
+Base de données
+Autre
+“Pouvez-vous décrire précisément le comportement observé ?”Réponse libre
+“Le problème est-il reproductible ?”
+Oui
+Non
+Partiellement
+Je ne sais pas
+“Avez-vous des messages d’erreur, logs, captures d’écran ou éléments techniques à disposition ?”
+Oui
+Non
+Si oui :
+“Merci de préciser les éléments disponibles.”Réponse libre
+“Avez-vous déjà identifié une piste ou une cause probable ?”
+Oui
+Non
+Partiellement
+“Avez-vous déjà essayé de corriger ce problème ?”
+Oui
+Non
+Si oui :
+“Merci de préciser les actions déjà entreprises.”Réponse libre
+“Disposez-vous d’un accès technique complet pour permettre l’investigation ?”
+Oui
+Non
+Partiellement
+“Ce problème est-il bloquant pour votre activité ?”
+Oui
+Non
+Partiellement
+Sous-module — Infogérance / gestion serveurs
+“Quel type d’infrastructure utilisez-vous actuellement ?”
+Hébergement mutualisé
+VPS
+Serveur dédié
+Cloud public
+Infrastructure interne
+Je ne sais pas
+“Combien de serveurs, instances ou environnements sont concernés ?”
+1
+2 à 3
+3 à 5
+5+
+“Quel est le rôle principal de ces serveurs ou environnements ?”
+Site internet
+Application métier
+Base de données
+Stockage / fichiers
+Outils internes
+Environnements de test / préproduction
+Autre
+“Souhaitez-vous déléguer quel niveau de gestion ?”
+Supervision uniquement
+Maintenance technique
+Gestion des mises à jour
+Sauvegardes
+Sécurisation
+Infogérance complète
+“Avez-vous actuellement des outils de monitoring ou de supervision ?”
+Oui
+Non
+Je ne sais pas
+“Avez-vous des sauvegardes en place ?”
+Oui, régulières
+Oui, mais partielles
+Non
+Je ne sais pas
+“Votre activité nécessite-t-elle une disponibilité continue ?”
+Non
+Oui, importante
+Oui, critique
+Oui, 24h/24 - 7j/7
+“Avez-vous des contraintes spécifiques à respecter ?”
+Haute disponibilité
+Sécurité renforcée
+Localisation des données
+Conformité réglementaire
+Réduction des coûts
+Autre
+“Disposez-vous d’une documentation technique de votre infrastructure ?”
+Oui
+Non
+Partiellement
+“Souhaitez-vous une reprise de l’existant ou une réorganisation de l’infrastructure ?”
+Reprise de l’existant
+Réorganisation / optimisation
+Je ne sais pas encore
+Sous-module — Hébergement
+“Quel type de projet souhaitez-vous héberger ?”
+Site vitrine
+Site e-commerce
+Application web
+Logiciel métier
+Plateforme / SaaS
+Autre
+“S’agit-il d’un nouvel hébergement ou d’une migration depuis un hébergement existant ?”
+Nouvel hébergement
+Migration
+Je ne sais pas encore
+“Quel niveau de performance attendez-vous pour cet hébergement ?”
+Standard
+Optimisé
+Haute performance
+Je ne sais pas
+“Quel volume de trafic ou de fréquentation anticipez-vous ?”
+Faible
+Moyen
+Élevé
+Très élevé
+Je ne sais pas
+“Avez-vous besoin de fonctionnalités spécifiques ?”
+Sauvegardes automatiques
+CDN
+Haute disponibilité
+Sécurité renforcée
+Accès techniques avancés
+Environnement de test
+Autre
+“Disposez-vous déjà d’un nom de domaine ?”
+Oui
+Non
+“Disposez-vous déjà d’un hébergement existant ?”
+Oui
+Non
+“Souhaitez-vous que nous gérions également la maintenance ou l’exploitation de l’hébergement ?”
+Oui
+Non
+Peut-être
+“Avez-vous des contraintes particulières sur l’hébergement ?”
+Localisation des données
+Règlementation spécifique
+Besoin de montée en charge
+Budget serré
+Autre
+“Avez-vous une échéance de mise en ligne ou de migration ?”
+Oui
+Non
+Si oui :
+“Merci de préciser la date ou le délai souhaité.”Réponse libre
+BLOC 4 — VARIABLES
+“Combien d’éléments doivent être maintenus ou supportés ?”
+1
+2 à 3
+3 à 5
+5+
+“Souhaitez-vous un accompagnement :”
+Ponctuel
+Mensuel
+Hebdomadaire
+Continu
+“Quel est le niveau de criticité de vos systèmes ?”
+Faible
+Moyen
+Élevé
+Critique
+“Avez-vous une contrainte de délai ou d’intervention ?”
+Oui
+Non
+SI OUI : “Merci de préciser”
+“Quel budget souhaitez-vous allouer à ce support / maintenance ?”
+< 1 000 €
+1 000 – 3 000 €
+3 000 – 10 000 €
+10 000 € +
+Je ne sais pas

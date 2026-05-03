@@ -1,0 +1,217 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Impact IA sur l'emploi | L'IA va-t-elle remplacer les emplois ? | Complianz{% endblock %}
+
+{% block description %}Découvrez l'impact réel de l'IA sur l'emploi : métiers transformés, compétences émergentes et stratégies d'adaptation. Une analyse équilibrée.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Impact de l'IA sur l'emploi",
+      "url": "{{ app_url }}/intelligence-artificielle/impact-ia/impact-de-l-ia-sur-l-emploi",
+      "description": "Analyse équilibrée de l'impact de l'IA sur l'emploi : métiers transformés, compétences émergentes, emplois créés et stratégies d'adaptation pour les entreprises et les individus.",
+      "author": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "publisher": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle", "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Impact IA", "item": "{{ app_url }}/intelligence-artificielle/impact-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Impact de l'IA sur l'emploi", "item": "{{ app_url }}/intelligence-artificielle/impact-ia/impact-de-l-ia-sur-l-emploi" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'IA va-t-elle remplacer les emplois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'IA transforme les emplois plus qu'elle ne les supprime — du moins à court terme. Les études montrent que 60 à 70% des emplois actuels seront significativement modifiés par l'IA, mais la suppression nette reste limitée. Historiquement, chaque révolution technologique a créé plus d'emplois qu'elle n'en a détruits — mais avec des transitions difficiles pour les professions exposées. Les emplois les plus à risque sont ceux basés sur des tâches répétitives et standardisées. Les emplois nécessitant créativité, empathie, jugement complexe et relations humaines sont beaucoup moins exposés." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels métiers sont les plus impactés par l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les métiers les plus transformés par l'IA sont : saisie de données et traitement administratif (IA automatise 80-90% des tâches), service client de niveau 1 (chatbots traitent les requêtes simples), rédaction standard et traduction (outils IA génèrent des premiers jets), analyse financière de routine, développement logiciel basique (Copilot accélère les tâches répétitives). Les métiers les moins exposés : soins médicaux, travail social, arts créatifs, management d'équipes, conseil stratégique, artisanat complexe." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles compétences développer pour rester employable avec l'IA ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les compétences les plus valorisées à l'ère de l'IA sont : la maîtrise des outils IA (prompt engineering, utilisation des LLMs), la pensée critique et le jugement (valider les outputs de l'IA), la créativité et l'innovation, l'intelligence émotionnelle et relationnelle, la capacité d'adaptation et d'apprentissage continu, et les compétences techniques hybrides (comprendre l'IA sans être data scientist). La compétence la plus universelle : apprendre à travailler avec l'IA, pas contre elle." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment les entreprises doivent-elles gérer la transition IA pour leurs équipes ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La transition IA réussie pour les équipes repose sur : communication transparente sur les changements attendus, formation proactive aux outils IA avant leur déploiement, redéfinition des fiches de poste pour intégrer les nouvelles tâches, accompagnement des reconversions pour les postes les plus exposés, association des équipes à la conception des nouveaux processus IA, et mesure et partage des gains de productivité. Les entreprises qui gèrent bien la transition IA obtiennent de meilleurs résultats que celles qui l'imposent sans préparation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg"><span class="sp-blob sp-blob--1"></span><span class="sp-blob sp-blob--2"></span></div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a><span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a><span>›</span>
+                <a href="/intelligence-artificielle/impact-ia">Impact IA</a><span>›</span>
+                <span>Impact de l'IA sur l'emploi</span>
+            </nav>
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Impact IA — Emploi</span>
+                Impact de l'IA sur l'emploi
+            </h1>
+            <p class="sp-hero__lead">
+                L'IA va-t-elle détruire les emplois ? La réalité est plus nuancée. Découvrez <strong>quels métiers sont transformés, quelles compétences développer et comment préparer vos équipes</strong> à la transition IA — une analyse équilibrée et fondée sur les données.
+            </p>
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Préparer mes équipes à l'IA</a>
+                <a href="/intelligence-artificielle/impact-ia" class="btn btn-outline">Impact de l'IA</a>
+            </div>
+        </div>
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                    <div><p class="sp-deliverables-card__title">L'essentiel à retenir</p><p class="sp-deliverables-card__subtitle">IA et emploi — analyse réaliste</p></div>
+                </div>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat"><strong>60-70%</strong><span>emplois modifiés</span></div>
+                    <div class="sp-dc-stat"><strong>Transformation</strong><span>pas destruction</span></div>
+                    <div class="sp-dc-stat"><strong>Adaptation</strong><span>clé de la réussite</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-content-sections">
+    <div class="container">
+        <div class="sp-content-sections__inner">
+            <div class="sp-content-section">
+                <h2>L'IA remplace-t-elle les emplois ? Une analyse factuelle</h2>
+                <p>La réalité est plus complexe que le discours ambiant. L'IA transforme les emplois plus qu'elle ne les supprime à court terme. 60 à 70% des emplois actuels seront significativement modifiés — mais la suppression nette reste limitée. Historiquement, chaque révolution technologique (mécanisation, informatique, internet) a créé plus d'emplois à long terme qu'elle n'en a détruits — mais avec des transitions difficiles et des inégalités importantes à court terme.</p>
+                <p>Les emplois les plus à risque : tâches répétitives et standardisées, traitement administratif, service client niveau 1, rédaction standard. Les emplois les moins exposés : créativité, empathie, jugement complexe, relations humaines, artisanat complexe.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Les métiers les plus transformés par l'IA en 2026</h2>
+                <p><strong>Très impactés :</strong> agents de saisie de données, traducteurs de textes standards, opérateurs de service client niveau 1, rédacteurs de contenus génériques, analystes financiers sur données structurées. Ces tâches sont automatisées à 70-90%.</p>
+                <p><strong>Significativement transformés :</strong> développeurs logiciels (Copilot et Cursor accélèrent mais ne remplacent pas), marketeurs (l'IA gère la production, le stratège reste humain), comptables (automatisation de la comptabilité courante), RH (tri des CV, onboarding automatisé). Ces professionnels font plus avec moins.</p>
+                <p><strong>Peu impactés à court terme :</strong> médecins, infirmiers, travailleurs sociaux, managers d'équipe, artisans qualifiés, psychologues, enseignants. L'empathie, le jugement complexe et les relations humaines restent hors de portée de l'IA actuelle.</p>
+            </div>
+            <div class="sp-content-section">
+                <h2>Préparer ses équipes à la transition IA — stratégies concrètes</h2>
+                <p>Communication transparente sur les changements attendus, formation proactive avant le déploiement, redéfinition des fiches de poste, accompagnement des reconversions, association des équipes à la conception des nouveaux processus. Les entreprises qui gèrent bien la transition IA obtiennent de meilleurs résultats que celles qui l'imposent sans préparation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header"><p class="sp-section-tag">Points clés</p><h2>Ce que vous devez savoir sur l'IA et l'emploi</h2></div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><h3>Transformation, pas destruction</h3><p>L'IA transforme 60-70% des emplois mais la suppression nette reste limitée — comme les révolutions technologiques précédentes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><h3>Maîtrise de l'IA = compétence clé</h3><p>La compétence la plus universelle et la plus protectrice : savoir utiliser l'IA pour amplifier sa valeur professionnelle</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <div><h3>L'humain reste irremplaçable</h3><p>Créativité, empathie, jugement complexe, relations humaines — les compétences spécifiquement humaines sont hors de portée de l'IA actuelle</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><h3>La formation est stratégique</h3><p>Les entreprises qui forment leurs équipes à l'IA avant le déploiement obtiennent de meilleurs résultats et moins de résistance au changement</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Approfondir votre compréhension de l'impact IA</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+                <div><strong>Formation IA pour entreprises</strong><p>Formez vos équipes à l'IA avant qu'elles soient dépassées.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia/ia-responsable-et-ethique-en-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <div><strong>IA responsable et éthique</strong><p>Adoptez l'IA de manière responsable vis-à-vis de vos équipes.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/impact-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2z"/></svg></div>
+                <div><strong>Impact de l'IA</strong><p>Vue d'ensemble — environnement, emploi et éthique.</p></div><span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/ia-entreprise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div><strong>IA en entreprise</strong><p>Intégrez l'IA de manière responsable dans votre organisation.</p></div><span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'IA et l'emploi</h2>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Préparer mes équipes</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>L'IA va-t-elle remplacer les emplois ?</summary>
+                    <div class="sp-faq-item__answer"><p>L'IA <strong>transforme plus qu'elle ne supprime</strong> — du moins à court terme. 60-70% des emplois seront significativement modifiés. Historiquement, chaque révolution technologique a créé plus d'emplois à long terme qu'elle n'en a détruits.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels métiers sont les plus impactés par l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p>Les plus exposés : <strong>saisie de données, service client niveau 1, rédaction générique, traduction standard</strong>. Les moins exposés : médecins, travailleurs sociaux, enseignants, artisans qualifiés — l'empathie et le jugement complexe restent humains.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelles compétences développer pour rester employable avec l'IA ?</summary>
+                    <div class="sp-faq-item__answer"><p><strong>Maîtrise des outils IA</strong> (prompt engineering), pensée critique, créativité, intelligence émotionnelle, et capacité d'apprentissage continu. La compétence universelle : <strong>apprendre à travailler avec l'IA, pas contre elle</strong>.</p></div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment gérer la transition IA pour ses équipes ?</summary>
+                    <div class="sp-faq-item__answer"><p>Communication transparente, <strong>formation proactive avant déploiement</strong>, redéfinition des fiches de poste, accompagnement des reconversions et association des équipes à la conception. Les entreprises qui préparent réussissent mieux que celles qui imposent.</p></div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à préparer vos équipes à la transition IA et à transformer ce défi en avantage concurrentiel ?</h2>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">Préparer mes équipes à l'IA</a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement humain inclus</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation et conduite du changement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

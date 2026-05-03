@@ -1,0 +1,473 @@
+{# Configurateur de pré-devis — champs alignés sur le questionnaire besoins (tronc commun + modules par pôle) #}
+<form class="quote-wizard" id="quote-wizard" action="/contact/quote" method="post" novalidate>
+    <div class="quote-wizard__progress" role="tablist" aria-label="Étapes du configurateur">
+        {% for i in 1..5 %}
+            <span class="quote-wizard__step-label{% if i == 1 %} is-active{% endif %}" data-step-indicator="{{ i }}">Étape {{ i }}</span>
+        {% endfor %}
+    </div>
+
+    {# —— Étape 1 : coordonnées & facturation —— #}
+    <div class="quote-wizard__pane is-active" data-step="1">
+        <h3 class="quote-wizard__pane-title">Vos coordonnées pour le devis</h3>
+        <p class="quote-wizard__pane-intro">Les informations de facturation peuvent être identiques à votre entreprise.</p>
+        <div class="contact-form__grid contact-form__grid--2">
+            <label class="contact-field">
+                <span class="contact-field__label">Nom de votre entreprise ou projet <abbr title="requis">*</abbr></span>
+                <input type="text" name="quote[company_name]" required autocomplete="organization" placeholder="Ma société SAS">
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Adresse e-mail <abbr title="requis">*</abbr></span>
+                <input type="email" name="quote[email]" required autocomplete="email" placeholder="vous@entreprise.fr">
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Téléphone <abbr title="requis">*</abbr></span>
+                <input type="tel" name="quote[phone]" required autocomplete="tel" placeholder="06 12 34 56 78">
+            </label>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Coordonnées de facturation pour le devis</span>
+                <textarea name="quote[billing_details]" rows="3" placeholder="Raison sociale, adresse postale, SIRET — Si hors France : n° TVA intracommunautaire"></textarea>
+            </label>
+        </div>
+    </div>
+
+    {# —— Étape 2 : tronc commun —— #}
+    <div class="quote-wizard__pane" data-step="2" hidden>
+        <h3 class="quote-wizard__pane-title">Comprendre votre contexte</h3>
+        <p class="quote-wizard__pane-intro">Questions issues du questionnaire besoins — tronc commun.</p>
+        <label class="contact-field contact-field--full">
+            <span class="contact-field__label">Présentez brièvement votre entreprise <abbr title="requis">*</abbr></span>
+            <textarea name="quote[presentation]" required rows="3" placeholder="Secteur, offre, clients cibles…"></textarea>
+        </label>
+        <div class="contact-form__grid contact-form__grid--2">
+            <label class="contact-field">
+                <span class="contact-field__label">Taille de l’entreprise <abbr title="requis">*</abbr></span>
+                <select name="quote[company_size]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="1">1 personne (indépendant / solo)</option>
+                    <option value="2-10">2 à 10 personnes</option>
+                    <option value="10-50">10 à 50 personnes</option>
+                    <option value="50-250">50 à 250 personnes</option>
+                    <option value="250+">250+</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Où en est votre entreprise aujourd’hui ? <abbr title="requis">*</abbr></span>
+                <select name="quote[company_stage]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="lancement">Lancement / structuration</option>
+                    <option value="stable">Activité stable</option>
+                    <option value="croissance">En croissance</option>
+                    <option value="scaling">En forte croissance / scaling</option>
+                    <option value="transformation">En transformation</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Principal problème aujourd’hui <abbr title="requis">*</abbr></span>
+                <select name="quote[main_problem]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="organisation">Manque d’organisation / désordre interne</option>
+                    <option value="outils">Outils inadaptés ou mal utilisés</option>
+                    <option value="pilotage">Difficulté à piloter l’activité</option>
+                    <option value="performance">Manque de performance (CA, leads…)</option>
+                    <option value="conformite">Conformité / réglementation</option>
+                    <option value="technique">Problèmes techniques / bugs / instabilité</option>
+                    <option value="securite">Sécurité / risques / données</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Niveau d’urgence <abbr title="requis">*</abbr></span>
+                <select name="quote[urgency]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="urgent">Urgent (bloquant)</option>
+                    <option value="court">Court terme (1–3 mois)</option>
+                    <option value="moyen">Moyen terme</option>
+                    <option value="exploration">Exploration</option>
+                </select>
+            </label>
+        </div>
+        <fieldset class="contact-fieldset">
+            <legend class="contact-field__label">Conséquences concrètes de ce problème <small>(plusieurs choix)</small></legend>
+            <div class="contact-checkgrid">
+                {% set cons = ['Perte de temps','Perte d’argent','Stress / surcharge','Manque de visibilité','Erreurs fréquentes','Blocage de la croissance','Risque juridique / sécurité','Autre'] %}
+                {% for c in cons %}
+                    <label class="contact-check"><input type="checkbox" name="quote[consequences][]" value="{{ c }}"> {{ c }}</label>
+                {% endfor %}
+            </div>
+        </fieldset>
+        <div class="contact-form__grid contact-form__grid--2">
+            <label class="contact-field">
+                <span class="contact-field__label">Objectif prioritaire <abbr title="requis">*</abbr></span>
+                <select name="quote[priority_goal]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="structurer">Structurer mon entreprise</option>
+                    <option value="temps">Gagner du temps</option>
+                    <option value="rentabilite">Améliorer la rentabilité</option>
+                    <option value="outils">Mettre en place des outils efficaces</option>
+                    <option value="securiser">Sécuriser mon activité</option>
+                    <option value="clients">Générer plus de clients</option>
+                    <option value="vision">Avoir une vision claire</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Niveau de structuration actuel <abbr title="requis">*</abbr></span>
+                <select name="quote[structuration_level]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="tres_desorganise">Très désorganisé</option>
+                    <option value="peu">Peu structuré</option>
+                    <option value="moyen">Moyennement structuré</option>
+                    <option value="structure">Structuré</option>
+                    <option value="tres">Très structuré</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Outils pour gérer l’activité <abbr title="requis">*</abbr></span>
+                <select name="quote[tools_usage]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="plusieurs">Oui, plusieurs outils</option>
+                    <option value="peu">Oui, mais peu / mal utilisés</option>
+                    <option value="non">Non</option>
+                    <option value="ns">Je ne sais pas</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Idée claire du dispositif à mettre en place ? <abbr title="requis">*</abbr></span>
+                <select name="quote[idea_clarity]" required>
+                    <option value="">— Choisir —</option>
+                    <option value="clair">Oui, très clair</option>
+                    <option value="affiner">Oui, mais à affiner</option>
+                    <option value="aide">Non, j’ai besoin d’aide</option>
+                </select>
+            </label>
+        </div>
+        <label class="contact-field contact-field--full">
+            <span class="contact-field__label">Si oui, précisez les outils utilisés</span>
+            <input type="text" name="quote[tools_detail]" placeholder="CRM, ERP, suite Google, etc.">
+        </label>
+    </div>
+
+    {# —— Étape 3 : domaines (pôles) —— #}
+    <div class="quote-wizard__pane" data-step="3" hidden>
+        <h3 class="quote-wizard__pane-title">Quels domaines vous intéressent ?</h3>
+        <p class="quote-wizard__pane-intro">Cochez un ou plusieurs pôles — les questions détaillées suivront à l’étape suivante.</p>
+        <div class="quote-pole-cards">
+            <label class="quote-pole-card"><input type="checkbox" name="quote[poles][]" value="p0" data-pole-checkbox="p0"> <span><strong>Conseil, Audit &amp; Conformité</strong><small>Organisation, RGPD, ISO, cybersécurité, RSE…</small></span></label>
+            <label class="quote-pole-card"><input type="checkbox" name="quote[poles][]" value="p1" data-pole-checkbox="p1"> <span><strong>Solutions &amp; Développement</strong><small>Sites, CRM/ERP, logiciel, SaaS, API…</small></span></label>
+            <label class="quote-pole-card"><input type="checkbox" name="quote[poles][]" value="p2" data-pole-checkbox="p2"> <span><strong>Performance digitale</strong><small>SEO, tunnel, acquisition, data…</small></span></label>
+            <label class="quote-pole-card"><input type="checkbox" name="quote[poles][]" value="p3" data-pole-checkbox="p3"> <span><strong>Support &amp; Maintenance</strong><small>Infogérance, hébergement, debug…</small></span></label>
+            <label class="quote-pole-card"><input type="checkbox" name="quote[poles][]" value="p4" data-pole-checkbox="p4"> <span><strong>Intelligence artificielle</strong><small>Agents IA, automatisation, formation…</small></span></label>
+        </div>
+        <p class="quote-wizard__hint">Si aucun pôle ne correspond, décrivez votre besoin à l’étape suivante dans les champs ouverts.</p>
+    </div>
+
+    {# —— Étape 4 : modules conditionnels par pôle —— #}
+    <div class="quote-wizard__pane" data-step="4" hidden>
+        <h3 class="quote-wizard__pane-title">Précisions par domaine</h3>
+        <p class="quote-wizard__pane-intro">Modules inspirés du questionnaire — uniquement les sections utiles selon vos choix.</p>
+
+        <div class="quote-pole-section" data-pole-section="p0" hidden>
+            <h4 class="quote-pole-section__title" style="--pole-accent: var(--pole-0)">Conseil, Audit &amp; Conformité</h4>
+            <label class="contact-field">
+                <span class="contact-field__label">Obligations réglementaires ?</span>
+                <select name="quote[p0][reg_obligations]">
+                    <option value="">—</option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                    <option value="ns">Je ne sais pas</option>
+                </select>
+            </label>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Lesquelles ? <small>(plusieurs choix)</small></legend>
+                <div class="contact-checkgrid">
+                    {% for tag in ['RGPD','ISO 9001','ISO 27001','ISO 13485','Secteur réglementé','Appels d’offres / clients','Je ne sais pas'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p0][reg_which][]" value="{{ tag }}"> {{ tag }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <div class="contact-form__grid contact-form__grid--2">
+                <label class="contact-field">
+                    <span class="contact-field__label">Niveau de conformité actuel</span>
+                    <select name="quote[p0][compliance_level]">
+                        <option value="">—</option>
+                        <option value="non">Non conforme</option>
+                        <option value="partiel">Partiellement conforme</option>
+                        <option value="ok">Conforme</option>
+                        <option value="certifie">Certifié</option>
+                    </select>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Objectif principal</span>
+                    <select name="quote[p0][compliance_goal]">
+                        <option value="">—</option>
+                        <option value="conformite">Se mettre en conformité</option>
+                        <option value="certification">Préparer / certification</option>
+                        <option value="maintenir">Maintenir / améliorer un système</option>
+                        <option value="client">Exigence client / AO</option>
+                        <option value="securiser">Sécuriser l’entreprise</option>
+                    </select>
+                </label>
+            </div>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Contexte ou contraintes (échéances, audit client…)</span>
+                <textarea name="quote[p0][notes]" rows="2" placeholder="Optionnel"></textarea>
+            </label>
+        </div>
+
+        <div class="quote-pole-section" data-pole-section="p1" hidden>
+            <h4 class="quote-pole-section__title" style="--pole-accent: var(--pole-1)">Solutions &amp; Développement</h4>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Outils actuels <small>(plusieurs choix)</small></legend>
+                <div class="contact-checkgrid">
+                    {% for t in ['CRM','ERP','Logiciels métiers','Marketing / automation','Compta / facturation','Site internet','Aucun','Autre'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p1][tools][]" value="{{ t }}"> {{ t }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Précisez les outils ou logiciels</span>
+                <textarea name="quote[p1][tools_free]" rows="2"></textarea>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Outil central CRM / ERP pour piloter ?</span>
+                <select name="quote[p1][central_tool]">
+                    <option value="">—</option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                    <option value="ns">Je ne sais pas</option>
+                </select>
+            </label>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Types de projet envisagés</legend>
+                <div class="contact-checkgrid">
+                    {% for t in ['CRM / ERP','Développement sur mesure','Site / refonte','Automatisation / API','Infrastructure','Maintenance / debug'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p1][project_types][]" value="{{ t }}"> {{ t }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Besoin principal</span>
+                <textarea name="quote[p1][need]" rows="2"></textarea>
+            </label>
+        </div>
+
+        <div class="quote-pole-section" data-pole-section="p2" hidden>
+            <h4 class="quote-pole-section__title" style="--pole-accent: var(--pole-2)">Performance digitale</h4>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Canaux utilisés aujourd’hui</legend>
+                <div class="contact-checkgrid">
+                    {% for c in ['Site internet','Réseaux sociaux','SEO','Publicité','Email marketing','Prospection','Aucun','Autre'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p2][channels][]" value="{{ c }}"> {{ c }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <div class="contact-form__grid contact-form__grid--2">
+                <label class="contact-field">
+                    <span class="contact-field__label">Performance digitale perçue</span>
+                    <select name="quote[p2][digital_perf]">
+                        <option value="">—</option>
+                        <option value="tres_faible">Très faible</option>
+                        <option value="faible">Faible</option>
+                        <option value="moyenne">Moyenne</option>
+                        <option value="bonne">Bonne</option>
+                        <option value="tres_bonne">Très bonne</option>
+                    </select>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Objectif principal</span>
+                    <select name="quote[p2][digital_goal]">
+                        <option value="">—</option>
+                        <option value="leads">Plus de leads</option>
+                        <option value="ventes">Augmenter les ventes</option>
+                        <option value="conversion">Améliorer la conversion</option>
+                        <option value="marketing">Structurer le marketing</option>
+                        <option value="pilotage">Mieux piloter la performance</option>
+                    </select>
+                </label>
+            </div>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Leviers souhaités</legend>
+                <div class="contact-checkgrid">
+                    {% for l in ['Stratégie digitale','SEO','Tunnel de conversion','Acquisition','Data / KPI','Structuration marketing'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p2][levers][]" value="{{ l }}"> {{ l }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Principal blocage digital aujourd’hui</span>
+                <textarea name="quote[p2][blocker]" rows="2"></textarea>
+            </label>
+        </div>
+
+        <div class="quote-pole-section" data-pole-section="p3" hidden>
+            <h4 class="quote-pole-section__title" style="--pole-accent: var(--pole-3)">Support &amp; Maintenance</h4>
+            <label class="contact-field">
+                <span class="contact-field__label">Support technique actuel ?</span>
+                <select name="quote[p3][has_support]">
+                    <option value="">—</option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                    <option value="partiel">Partiellement</option>
+                </select>
+            </label>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Problèmes rencontrés</legend>
+                <div class="contact-checkgrid">
+                    {% for x in ['Bugs','Pannes','Lenteur','Accès','Sécurité','Dysfonctionnements','Autre'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p3][issues][]" value="{{ x }}"> {{ x }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Services envisagés</legend>
+                <div class="contact-checkgrid">
+                    {% for s in ['Maintenance corrective','Maintenance évolutive','Support technique','Debug','Infogérance','Hébergement'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p3][services][]" value="{{ s }}"> {{ s }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Description synthétique du besoin</span>
+                <textarea name="quote[p3][context]" rows="3"></textarea>
+            </label>
+        </div>
+
+        <div class="quote-pole-section" data-pole-section="p4" hidden>
+            <h4 class="quote-pole-section__title" style="--pole-accent: var(--pole-4)">Intelligence artificielle</h4>
+            <fieldset class="contact-fieldset">
+                <legend class="contact-field__label">Cas d’usage prioritaires</legend>
+                <div class="contact-checkgrid">
+                    {% for u in ['Automatisation de processus','Agents IA / chatbots','Documentation / knowledge','Ventes & marketing','RH','Analyse de données','Formation équipes','Autre'] %}
+                        <label class="contact-check"><input type="checkbox" name="quote[p4][use_cases][]" value="{{ u }}"> {{ u }}</label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <div class="contact-form__grid contact-form__grid--2">
+                <label class="contact-field">
+                    <span class="contact-field__label">Maturité IA interne</span>
+                    <select name="quote[p4][maturity]">
+                        <option value="">—</option>
+                        <option value="decouverte">Découverte</option>
+                        <option value="experimentation">Expérimentation</option>
+                        <option value="deploiement">Déploiement ciblé</option>
+                        <option value="industrialisation">Industrialisation</option>
+                    </select>
+                </label>
+                <label class="contact-field">
+                    <span class="contact-field__label">Contraintes (RGPD, hébergement UE, etc.)</span>
+                    <input type="text" name="quote[p4][constraints]" placeholder="Optionnel">
+                </label>
+            </div>
+            <label class="contact-field contact-field--full">
+                <span class="contact-field__label">Objectif IA à 3–6 mois</span>
+                <textarea name="quote[p4][goal]" rows="2"></textarea>
+            </label>
+        </div>
+
+        <p class="quote-wizard__empty-poles" id="quote-no-poles-msg" hidden>Aucun pôle sélectionné : vous pouvez tout de même préciser votre besoin ci-dessous ou revenir à l’étape précédente.</p>
+        <label class="contact-field contact-field--full">
+            <span class="contact-field__label">Précisions libres complémentaires</span>
+            <textarea name="quote[free_notes]" rows="3" placeholder="Tout élément utile pour chiffrer votre pré-devis."></textarea>
+        </label>
+    </div>
+
+    {# —— Étape 5 : budget + créneau RDV + finalisation —— #}
+    <div class="quote-wizard__pane" data-step="5" hidden>
+        <h3 class="quote-wizard__pane-title">Budget, délai, créneau &amp; finalisation</h3>
+        <p class="quote-wizard__pane-intro">Dernière étape : indiquez vos contraintes, proposez un créneau pour échanger avec nous, ou demandez le devis sans fixer de rendez-vous.</p>
+        <div class="contact-form__grid contact-form__grid--2">
+            <label class="contact-field">
+                <span class="contact-field__label">Échéance ou contrainte de délai ?</span>
+                <select name="quote[has_deadline]" id="quote-has-deadline">
+                    <option value="">—</option>
+                    <option value="non">Non</option>
+                    <option value="oui">Oui</option>
+                </select>
+            </label>
+            <label class="contact-field" id="quote-deadline-detail-wrap" hidden>
+                <span class="contact-field__label">Date ou délai souhaité</span>
+                <input type="text" name="quote[deadline_detail]" placeholder="Ex. avant fin Q2, lancement site…">
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Budget envisagé</span>
+                <select name="quote[budget]">
+                    <option value="">—</option>
+                    <option value="<3000">&lt; 3 000 €</option>
+                    <option value="3000-10000">3 000 – 10 000 €</option>
+                    <option value="10000-25000">10 000 – 25 000 €</option>
+                    <option value="25000+">25 000 € +</option>
+                    <option value="ns">Je ne sais pas</option>
+                </select>
+            </label>
+            <label class="contact-field">
+                <span class="contact-field__label">Décideurs impliqués</span>
+                <select name="quote[decision]">
+                    <option value="">—</option>
+                    <option value="solo">Moi uniquement</option>
+                    <option value="plusieurs">Plusieurs personnes</option>
+                    <option value="comite">Direction / comité</option>
+                </select>
+            </label>
+        </div>
+        <label class="contact-field contact-field--full">
+            <span class="contact-field__label">Où en êtes-vous dans votre réflexion ?</span>
+            <select name="quote[reflection_stage]">
+                <option value="">—</option>
+                <option value="idee">Idée</option>
+                <option value="reflexion">Projet en réflexion</option>
+                <option value="defini">Projet défini</option>
+                <option value="pret">Prêt à démarrer</option>
+            </select>
+        </label>
+
+        <div class="quote-rdv-section" id="quote-rdv-section">
+            <h4 class="quote-rdv-section__title">Votre agenda — créneau souhaité</h4>
+            <p class="quote-rdv-section__intro">Sélectionnez un jour puis un créneau indicatif (visio ou téléphone). Nous vous recontacterons pour confirmer.</p>
+            <input type="hidden" name="quote[rdv_preferred_date]" id="quote-rdv-date" value="">
+            <input type="hidden" name="quote[rdv_preferred_slot]" id="quote-rdv-slot" value="">
+            <input type="hidden" name="quote[rdv_skip]" id="quote-rdv-skip" value="0">
+            <p class="quote-rdv-section__warn" id="quote-rdv-validation-msg" hidden role="alert">Choisissez une date et un créneau ci-dessous, ou utilisez le bouton « Obtenir mon devis sans rendez-vous ».</p>
+            <div class="quote-rdv-layout">
+                <div class="quote-rdv-cal" aria-labelledby="quote-rdv-cal-title">
+                    <div class="quote-rdv-cal__toolbar">
+                        <button type="button" class="quote-rdv-cal__nav" id="quote-rdv-prev-month" aria-label="Mois précédent">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <h5 id="quote-rdv-cal-title" class="quote-rdv-cal__title"></h5>
+                        <button type="button" class="quote-rdv-cal__nav" id="quote-rdv-next-month" aria-label="Mois suivant">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                    <div class="quote-rdv-cal__weekdays" aria-hidden="true">
+                        <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+                    </div>
+                    <div class="quote-rdv-cal__grid" id="quote-rdv-cal-grid"></div>
+                </div>
+                <div class="quote-rdv-slots" id="quote-rdv-slots" hidden>
+                    <p class="quote-rdv-slots__hint" id="quote-rdv-slots-hint"></p>
+                    <p class="quote-rdv-slots__label">Créneau</p>
+                    <div class="quote-rdv-slots__row" role="group" aria-label="Créneaux horaires">
+                        <button type="button" class="quote-rdv-slot-btn" data-quote-rdv-slot="Matin (9h–12h)">Matin · 9h–12h</button>
+                        <button type="button" class="quote-rdv-slot-btn" data-quote-rdv-slot="Après-midi (14h–17h)">Après-midi · 14h–17h</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <label class="contact-check contact-check--legal">
+            <input type="checkbox" name="quote[privacy_ok]" value="1" required>
+            <span>J’accepte la <a href="/audit-conformite/conformite-rgpd/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a> et l’utilisation de mes données pour traiter ma demande de pré-devis et me recontacter.</span>
+        </label>
+    </div>
+
+    <div class="quote-wizard__nav">
+        <button type="button" class="btn btn-outline quote-wizard__prev" id="quote-prev" disabled>Retour</button>
+        <div class="quote-wizard__nav-actions">
+            <button type="button" class="btn btn-outline quote-wizard__skip-rdv" id="quote-submit-no-rdv" hidden>Obtenir mon devis sans rendez-vous</button>
+            <span class="quote-wizard__nav-cta">
+                <button type="button" class="btn btn-primary quote-wizard__next" id="quote-next">Continuer</button>
+                <button type="submit" class="btn btn-primary quote-wizard__submit" id="quote-submit" hidden>Envoyer ma demande de pré-devis</button>
+            </span>
+        </div>
+    </div>
+</form>

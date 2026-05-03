@@ -1,0 +1,732 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO ────────────────────────────────────────────────────────────── #}
+{% block title %}Audit d'entreprise | Audit Global &amp; Conseil Stratégique{% endblock %}
+
+{% block description %}Réalisez un audit d'entreprise complet avec nos experts en conseil stratégique. Diagnostic organisationnel, structuration &amp; gouvernance, accompagnement dirigeant. Devis gratuit sous 24h.{% endblock %}
+
+{% block head %}
+{# ── Données structurées JSON-LD ──────────────────────────────────── #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit global & Conseil stratégique",
+      "url": "{{ app_url }}/audit-conformite/audit-conseil",
+      "description": "Audit d'entreprise complet : diagnostic organisationnel, structuration & gouvernance, accompagnement à la création d'entreprise et au développement stratégique.",
+      "provider": {
+        "@type": "Organization",
+        "name": "{{ app_name }}",
+        "url": "{{ app_url }}"
+      },
+      "areaServed": "FR",
+      "serviceType": "Conseil & Audit stratégique d'entreprise",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Audit Flash",
+          "price": "1500",
+          "priceCurrency": "EUR",
+          "description": "Diagnostic express sur 1 journée."
+        },
+        {
+          "@type": "Offer",
+          "name": "Audit Complet",
+          "price": "3000",
+          "priceCurrency": "EUR",
+          "description": "Audit organisationnel approfondi sur 3 à 5 jours."
+        },
+        {
+          "@type": "Offer",
+          "name": "Audit Stratégique 360°",
+          "price": "8000",
+          "priceCurrency": "EUR",
+          "description": "Audit complet avec plan d'action et accompagnement sur 2 semaines."
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Audit global & Conseil stratégique", "item": "{{ app_url }}/audit-conformite/audit-conseil" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit d'entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un audit d'entreprise est un examen approfondi et objectif de l'organisation, des processus, des ressources et de la stratégie d'une entreprise. Il vise à identifier les forces, les faiblesses, les risques et les opportunités afin de formuler des recommandations concrètes d'amélioration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte un audit d'entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le coût d'un audit d'entreprise varie selon la taille de l'entreprise et le périmètre d'analyse. Nos prestations débutent à 1 500 € pour un audit flash d'une journée, et atteignent 8 000 € pour un audit stratégique 360° complet sur 2 semaines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la durée d'un audit d'entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La durée dépend du niveau d'audit choisi : de 1 journée pour un diagnostic express à 2 semaines pour un audit stratégique complet. Un audit standard couvre généralement 3 à 5 jours d'intervention."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quand faut-il réaliser un audit d'entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un audit d'entreprise est recommandé lors d'un changement stratégique majeur (croissance, diversification, fusion/acquisition), avant une levée de fonds, en cas de baisse de performance, ou encore à l'occasion d'une transmission d'entreprise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les différents types d'audit en entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il existe plusieurs types d'audit : l'audit organisationnel (structure et processus), l'audit financier (comptes et trésorerie), l'audit stratégique (positionnement et concurrence), l'audit RH (capital humain), et l'audit de conformité (RGPD, ISO, normes légales)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            {# Breadcrumb #}
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span aria-hidden="true">›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span aria-hidden="true">›</span>
+                <span>Audit d'entreprise</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Audit global &amp; Conseil stratégique</span>
+                Audit d'entreprise&nbsp;: identifiez vos leviers de performance
+            </h1>
+            <p class="sp-hero__lead">
+                Nos experts réalisent un <strong>audit d'entreprise</strong> complet pour diagnostiquer votre organisation, renforcer votre gouvernance et accélérer votre développement stratégique. Résultats en 3 à 5 jours.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis gratuit
+                </a>
+                <a href="#processus" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Devis gratuit sous 24h</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Experts certifiés</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport remis en 5 jours</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            {# ── Card "Ce que vous obtenez" ── #}
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">En sortie d'audit</p>
+                    </div>
+                </div>
+
+                <p class="sp-deliverables-card__text">
+                    Vous comprenez <strong>pourquoi votre entreprise n'est pas aussi performante</strong> qu'elle pourrait l'être, et vous savez <strong>exactement quoi faire</strong> pour y remédier.
+                </p>
+
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>2–4</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>sur-mesure</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>1</strong>
+                        <span>plan d'action</span>
+                    </div>
+                </div>
+
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>En moyenne,</strong> nos clients récupèrent <strong>15h/semaine</strong> après optimisation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Premier échange sans engagement
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Devis personnalisé sous 48h
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Confidentialité garantie
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <p><strong>+150</strong> entreprises accompagnées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p><strong>92%</strong> de recommandation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE COMPREND L'AUDIT — grille 8 éléments
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre périmètre d'intervention</p>
+            <h2>Ce que comprend notre audit d'entreprise</h2>
+            <p class="sp-section-sub">Chaque audit est unique car chaque entreprise l'est. Voici les 8 axes systématiquement analysés par nos consultants.</p>
+        </div>
+
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+                </div>
+                <div>
+                    <h3>Entretiens approfondis</h3>
+                    <p>Avec le dirigeant et les équipes clés</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="4" cy="19" r="3"/><circle cx="20" cy="19" r="3"/><path d="M12 8v4M8.5 17l3.5-5M15.5 17l-3.5-5"/></svg>
+                </div>
+                <div>
+                    <h3>Analyse organisationnelle</h3>
+                    <p>Structure, rôles, responsabilités</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                    <h3>Audit des outils</h3>
+                    <p>ERP, CRM, logiciels métiers</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div>
+                    <h3>Analyse des processus</h3>
+                    <p>Workflows, procédures, automatisations</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div>
+                    <h3>Évaluation de la performance</h3>
+                    <p>KPIs, rentabilité, productivité</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h3>Vérification conformité</h3>
+                    <p>RGPD, obligations sectorielles</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 13 15 13"/><polyline points="9 17 13 17"/></svg>
+                </div>
+                <div>
+                    <h3>Restitution détaillée</h3>
+                    <p>Rapport complet et actionnable</p>
+                </div>
+            </div>
+
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div>
+                    <h3>Plan d'action structuré</h3>
+                    <p>Priorisé par impact et effort</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   6 RAISONS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pourquoi nous choisir</p>
+            <h2>6 raisons de réaliser un audit de votre entreprise</h2>
+            <p class="sp-section-sub">Un <strong>audit d'entreprise</strong> est un investissement stratégique qui révèle ce que les tableaux de bord ne montrent pas.</p>
+        </div>
+
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <img src="/assets/images/icons/SVG/Plan de travail 3958.svg" alt="" aria-hidden="true" width="48" height="48">
+                </div>
+                <h3>Identifier les dysfonctionnements</h3>
+                <p>Repérez les goulets d'étranglement, les redondances et les sources de perte de performance avant qu'ils ne s'aggravent.</p>
+            </article>
+
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect width="48" height="48" rx="12" fill="var(--color-secondary)" opacity=".12"/><polyline points="10 32 20 20 28 26 38 14" stroke="var(--color-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="34 14 38 14 38 18" stroke="var(--color-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Optimiser vos processus</h3>
+                <p>Réduisez vos coûts opérationnels et améliorez votre rentabilité grâce à une analyse rigoureuse de vos méthodes de travail.</p>
+            </article>
+
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect width="48" height="48" rx="12" fill="var(--color-accent)" opacity=".3"/><circle cx="24" cy="18" r="7" stroke="var(--color-accent-dark)" stroke-width="2.5"/><path d="M10 38c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="var(--color-accent-dark)" stroke-width="2.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Renforcer la gouvernance</h3>
+                <p>Clarifiez les rôles, formalisez les processus décisionnels et renforcez la structure de direction de votre entreprise.</p>
+            </article>
+
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect width="48" height="48" rx="12" fill="var(--color-primary)" opacity=".12"/><rect x="10" y="26" width="8" height="12" rx="2" fill="var(--color-primary)"/><rect x="20" y="18" width="8" height="20" rx="2" fill="var(--color-primary)" opacity=".7"/><rect x="30" y="10" width="8" height="28" rx="2" fill="var(--color-primary)" opacity=".5"/></svg>
+                </div>
+                <h3>Préparer une levée de fonds</h3>
+                <p>Présentez un dossier solide à vos investisseurs avec une analyse indépendante et crédible de votre organisation et de votre potentiel.</p>
+            </article>
+
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--green">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect width="48" height="48" rx="12" fill="var(--color-secondary)" opacity=".12"/><path d="M24 10l3.09 9.26H37l-7.45 5.41 2.84 9.26L24 28.52l-8.39 5.41 2.84-9.26L11 18.26h9.91L24 10z" stroke="var(--color-secondary)" stroke-width="2" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Structurer votre croissance</h3>
+                <p>Posez les bases solides pour une expansion maîtrisée : organisation scalable, processus documentés, indicateurs de pilotage.</p>
+            </article>
+
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--accent">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect width="48" height="48" rx="12" fill="var(--color-accent)" opacity=".3"/><path d="M12 22s0-12 12-12 12 12 12 12v8a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4v-8z" stroke="var(--color-accent-dark)" stroke-width="2.5"/><path d="M19 34v4M29 34v4" stroke="var(--color-accent-dark)" stroke-width="2.5" stroke-linecap="round"/><path d="M16 22h16" stroke="var(--color-accent-dark)" stroke-width="2.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Sécuriser une transmission</h3>
+                <p>Anticipez la cession ou la succession de votre entreprise en valorisant vos actifs et en identifiant les risques avant la transaction.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PROCESSUS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-process" id="processus">
+    <div class="container">
+        <div class="sp-process__inner">
+            <div class="sp-process__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Notre méthode</p>
+                    <h2>Comment se déroule un audit d'entreprise ?</h2>
+                    <p class="sp-section-sub">Une démarche structurée en 4 étapes pour vous livrer un rapport d'audit d'entreprise précis, actionnable et sans langue de bois.</p>
+                </div>
+
+                <ol class="sp-steps">
+                    <li class="sp-step">
+                        <div class="sp-step__num">1</div>
+                        <div class="sp-step__body">
+                            <h3>Diagnostic initial</h3>
+                            <p>Entretien de cadrage avec les dirigeants, collecte des documents stratégiques (organigramme, bilans, processus) et définition du périmètre d'audit.</p>
+                        </div>
+                    </li>
+                    <li class="sp-step">
+                        <div class="sp-step__num">2</div>
+                        <div class="sp-step__body">
+                            <h3>Analyse terrain approfondie</h3>
+                            <p>Observations sur site, entretiens avec les équipes clés, analyse des indicateurs de performance et benchmark sectoriel. L'<strong>audit organisationnel</strong> couvre tous les départements.</p>
+                        </div>
+                    </li>
+                    <li class="sp-step">
+                        <div class="sp-step__num">3</div>
+                        <div class="sp-step__body">
+                            <h3>Rapport d'audit &amp; recommandations</h3>
+                            <p>Rapport complet remis sous 5 jours ouvrés : synthèse des constats, hiérarchisation des risques, et feuille de route priorisée pour votre transformation.</p>
+                        </div>
+                    </li>
+                    <li class="sp-step">
+                        <div class="sp-step__num">4</div>
+                        <div class="sp-step__body">
+                            <h3>Plan d'action &amp; accompagnement</h3>
+                            <p>Restitution orale avec votre comité de direction, puis option d'accompagnement à la mise en œuvre : <a href="/audit-conformite/audit-conseil/structuration-gouvernance">structuration &amp; gouvernance</a>, formation d'équipes, suivi mensuel.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="sp-process__visual">
+                <img
+                    src="/assets/images/illustrations/PNG/Plan de travail 3.png"
+                    alt="Processus d'audit d'entreprise en 4 étapes"
+                    width="480" height="480"
+                    loading="lazy"
+                >
+                <div class="sp-process__badge">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 13 12 16 15 13"/><line x1="12" y1="16" x2="12" y2="9"/></svg>
+                    <span>Rapport remis<br><strong>sous 5 jours</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES LIÉS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-services">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos expertises</p>
+            <h2>Nos services d'audit et de conseil stratégique</h2>
+            <p class="sp-section-sub">Chaque mission est personnalisée selon votre secteur, votre taille et vos enjeux spécifiques.</p>
+        </div>
+
+        <div class="sp-services__grid">
+            <a href="/audit-conformite/audit-conseil/audit-organisationnel" class="sp-service-card">
+                <div class="sp-service-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                </div>
+                <div class="sp-service-card__body">
+                    <h3>Audit organisationnel</h3>
+                    <p>Analyse complète de votre structure, de vos processus internes et de votre efficacité opérationnelle. Identification des zones à risque et des leviers d'amélioration.</p>
+                    <ul class="sp-service-card__features">
+                        <li>Cartographie des processus</li>
+                        <li>Analyse RH &amp; compétences</li>
+                        <li>Benchmark sectoriel</li>
+                    </ul>
+                </div>
+                <span class="sp-service-card__cta">En savoir plus →</span>
+            </a>
+
+            <a href="/audit-conformite/audit-conseil/structuration-gouvernance" class="sp-service-card">
+                <div class="sp-service-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="4" cy="19" r="3"/><circle cx="20" cy="19" r="3"/><path d="M12 8v4M8.5 17l3.5-5M15.5 17l-3.5-5"/></svg>
+                </div>
+                <div class="sp-service-card__body">
+                    <h3>Structuration &amp; gouvernance</h3>
+                    <p>Définissez des rôles clairs, formalisez vos instances de décision et mettez en place une gouvernance adaptée à votre ambition de croissance.</p>
+                    <ul class="sp-service-card__features">
+                        <li>Organigramme &amp; délégations</li>
+                        <li>Comités de direction</li>
+                        <li>Tableaux de bord dirigeant</li>
+                    </ul>
+                </div>
+                <span class="sp-service-card__cta">En savoir plus →</span>
+            </a>
+
+            <a href="/audit-conformite/audit-conseil/creation-entreprise" class="sp-service-card">
+                <div class="sp-service-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div class="sp-service-card__body">
+                    <h3>Accompagnement à la création d'entreprise</h3>
+                    <p>De l'idée à l'immatriculation : nous vous guidons dans la structuration de votre projet, le choix du statut juridique et la définition de votre modèle économique.</p>
+                    <ul class="sp-service-card__features">
+                        <li>Business plan &amp; prévisionnel</li>
+                        <li>Choix du statut juridique</li>
+                        <li>Recherche de financements</li>
+                    </ul>
+                </div>
+                <span class="sp-service-card__cta">En savoir plus →</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit d'entreprise ?</h2>
+            <p class="sp-section-sub">Des formules transparentes, adaptées à la taille et aux besoins de votre structure. Tous nos prix s'entendent hors taxes.</p>
+        </div>
+
+        <div class="sp-pricing__grid">
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit Flash</p>
+                    <p class="sp-plan__price"><span>1 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">1 journée d'intervention</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic organisationnel express</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entretiens dirigeants &amp; N-1</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de synthèse (10-15 pages)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5 recommandations prioritaires</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution orale (1h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit Complet</p>
+                    <p class="sp-plan__price"><span>3 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">3 à 5 jours d'intervention</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit organisationnel complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entretiens toutes équipes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse processus &amp; outils</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport approfondi (30-40 pages)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'action priorisé</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution CODIR (2h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit Stratégique 360°</p>
+                    <p class="sp-plan__price"><span>8 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">2 semaines d'intervention</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit 360° : organisation + stratégie</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Benchmark &amp; analyse concurrentielle</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse financière incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan de transformation sur 3 ans</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement mise en œuvre (1 mois)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi mensuel (3 mois)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+        </div>
+
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Les tarifs sont indicatifs et dépendent de la taille de votre entreprise et du périmètre défini. Un devis personnalisé vous est remis sous 24h.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE INTER-COCONS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Complétez votre démarche avec nos autres expertises</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <strong>Mise en conformité RGPD</strong>
+                    <p>Un audit révèle souvent des non-conformités RGPD. Nous les traitons en parallèle.</p>
+                </div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso" class="sp-related-card">
+                <div class="sp-related-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div>
+                    <strong>Certifications ISO</strong>
+                    <p>L'audit organisationnel est le point de départ naturel de toute démarche ISO 9001.</p>
+                </div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div>
+                    <strong>Audit cybersécurité</strong>
+                    <p>Intégrez la dimension sécurité informatique à votre diagnostic stratégique global.</p>
+                </div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse" class="sp-related-card">
+                <div class="sp-related-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div>
+                    <strong>Démarche RSE</strong>
+                    <p>Transformez les conclusions de votre audit en politique RSE structurée et valorisante.</p>
+                </div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit d'entreprise</h2>
+                <p>Vous avez d'autres questions ? Notre équipe répond sous 24h.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit d'entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit d'entreprise</strong> est un examen approfondi et objectif de l'organisation, des processus, des ressources et de la stratégie d'une entreprise. Il vise à identifier les forces, faiblesses, risques et opportunités pour formuler des recommandations concrètes et actionnables.</p>
+                    </div>
+                </details>
+
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un audit d'entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le coût varie selon le périmètre et la taille de votre entreprise. Nos formules commencent à <strong>1 500 € HT</strong> pour un audit flash d'une journée, et atteignent <strong>8 000 € HT</strong> pour un audit stratégique 360° sur 2 semaines avec accompagnement.</p>
+                    </div>
+                </details>
+
+                <details class="sp-faq-item">
+                    <summary>Quelle est la durée d'un audit d'entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La durée dépend de la formule choisie : de 1 journée (audit flash) à 2 semaines (audit 360°). Un audit complet couvre généralement <strong>3 à 5 jours d'intervention</strong> sur site, plus 3 à 5 jours de rédaction du rapport.</p>
+                    </div>
+                </details>
+
+                <details class="sp-faq-item">
+                    <summary>Quand faut-il réaliser un audit d'entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un audit est particulièrement recommandé avant un <strong>changement stratégique majeur</strong> (croissance, recrutement clé, levée de fonds, cession), en cas de baisse de performance inexpliquée, ou lorsque vous souhaitez structurer votre organisation pour passer à l'étape suivante.</p>
+                    </div>
+                </details>
+
+                <details class="sp-faq-item">
+                    <summary>Quels sont les différents types d'audit d'entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Il en existe plusieurs types : <strong>audit organisationnel</strong> (structure et processus), audit financier (comptes et trésorerie), audit stratégique (positionnement marché), audit RH (capital humain), et <a href="/audit-conformite/conformite-rgpd/audit-rgpd">audit de conformité RGPD</a>. Nous intervenons sur l'ensemble de ces dimensions.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à passer à l'action ?</h2>
+                <p>Nos experts analysent votre entreprise et vous remettent un rapport d'audit actionnable sous 5 jours. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un devis gratuit
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Réponse sous 24h
+                    </span>
+                    <span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Sans engagement
+                    </span>
+                    <span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Confidentialité garantie
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,500 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 146 chars description) ─────────────────── #}
+{% block title %}Stratégie RSE | Accompagnement démarche responsable | Complianz{% endblock %}
+
+{% block description %}Définissez et déployez une stratégie RSE cohérente avec vos valeurs. Diagnostic, plan d'actions, parties prenantes et reporting extra-financier.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Stratégie RSE — Démarche responsable sur mesure",
+      "url": "{{ app_url }}/audit-conformite/rse/strategie-rse",
+      "description": "Accompagnement dans la définition et le déploiement d'une stratégie RSE cohérente : diagnostic RSE initial (matrice de matérialité), définition des axes prioritaires, plan d'actions sur 3 ans, KPI RSE, rapport RSE et communication extra-financière.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Stratégie RSE et démarche responsable",
+      "offers": [
+        { "@type": "Offer", "name": "Stratégie RSE Starter",          "price": "3500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500"  } },
+        { "@type": "Offer", "name": "Stratégie RSE Complète",         "price": "6500", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "14000" } },
+        { "@type": "Offer", "name": "Accompagnement RSE annuel",      "price": "2400", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "4800"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Accompagnement RSE",          "item": "{{ app_url }}/audit-conformite/rse" },
+        { "@type": "ListItem", "position": 4, "name": "Stratégie RSE",               "item": "{{ app_url }}/audit-conformite/rse/strategie-rse" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une stratégie RSE ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une stratégie RSE (Responsabilité Sociétale des Entreprises) est une feuille de route qui définit les engagements prioritaires de l'entreprise sur les 3 piliers ESG (Environnemental, Social, Gouvernance), les actions concrètes à déployer, les indicateurs de mesure et les objectifs chiffrés. Elle transforme des intentions en actions mesurables et communicables." }
+        },
+        {
+          "@type": "Question",
+          "name": "La RSE est-elle obligatoire pour mon entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La RSE n'est pas légalement obligatoire pour toutes les entreprises, mais elle devient incontournable. La directive CSRD impose un reporting de durabilité aux grandes entreprises depuis 2024. Les donneurs d'ordre et grands comptes intègrent de plus en plus des critères RSE dans leurs appels d'offres. Et les consommateurs, candidats et investisseurs sont de plus en plus sensibles à l'engagement responsable des entreprises." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le ROI d'une stratégie RSE ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le ROI d'une stratégie RSE est multiple : réduction des coûts énergétiques (économies sur les consommations), meilleure attractivité (recrutement de profils qualifiés), fidélisation des clients sensibles à l'engagement responsable, accès à de nouveaux marchés (appels d'offres RSE), réduction du risque réglementaire et prime à la valorisation pour les investisseurs ESG." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour déployer une stratégie RSE ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un diagnostic RSE + stratégie prend 6 à 10 semaines. Le déploiement complet d'une stratégie RSE avec plan d'actions et indicateurs prend 6 à 12 mois. L'accompagnement annuel est ensuite recommandé pour maintenir la dynamique, ajuster les objectifs et préparer le reporting. Nous adaptons le rythme à votre organisation et vos ressources." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/rse">RSE</a>
+                <span>›</span>
+                <span>Stratégie RSE</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Stratégie &amp; démarche responsable</span>
+                Stratégie RSE&nbsp;: engagez votre entreprise dans une démarche responsable concrète et valorisable
+            </h1>
+            <p class="sp-hero__lead">
+                Nous vous accompagnons dans la <strong>définition et le déploiement de votre stratégie RSE</strong>&nbsp;: diagnostic de maturité, matrice de matérialité, plan d'actions sur 3 ans, indicateurs de performance et rapport RSE. Une démarche sincère, alignée avec vos valeurs et utile à votre performance globale.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Démarrer ma stratégie RSE
+                </a>
+                <a href="#perimetre" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>RSE sincère, pas du greenwashing</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Diagnostic offert au démarrage</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Adaptée à votre taille et secteur</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À l'issue de l'accompagnement</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>stratégie RSE structurée</strong>, des engagements mesurables et un rapport communicable — que vous pouvez valoriser auprès de vos clients, partenaires et équipes.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>6–12</strong>
+                        <span>mois</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>3 ans</strong>
+                        <span>plan d'actions</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+Image</strong>
+                        <span>&amp; crédibilité</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>74% des consommateurs</strong> déclarent privilégier les entreprises engagées RSE (Ifop 2024)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOUS-SERVICES — haut de page
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services RSE</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/audit-conformite/rse/strategie-rse" class="sp-subsvc-card sp-subsvc-card--blue sp-subsvc-card--active">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Stratégie RSE</h2>
+                    <p>Définissez vos engagements prioritaires, votre feuille de route RSE et vos indicateurs de performance responsable.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/rse/bilan-carbone-reporting" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2.63 8.5A10 10 0 0 1 12 4c3.27 0 6.17 1.57 8 4"/><path d="M2 12h5"/><path d="M17 12h5"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Bilan carbone &amp; reporting ESG</h2>
+                    <p>Mesurez votre empreinte carbone, construisez votre reporting ESG et préparez-vous aux exigences CSRD.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+
+            <a href="/audit-conformite/rse/label-certification-rse" class="sp-subsvc-card sp-subsvc-card--blue">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Label &amp; certification RSE</h2>
+                    <p>Obtenez une reconnaissance officielle de votre démarche RSE (Lucie 26000, B-Corp, Ecovadis…).</p>
+                </div>
+                <span class="sp-subsvc-card__arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                RSE sincère, pas du greenwashing
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Résultats mesurables et communicables
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Adaptée à votre taille et secteur
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <p><strong>+60</strong> stratégies RSE déployées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg>
+                <p><strong>74%</strong> des clients valorisent la RSE</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   PÉRIMÈTRE — ce que comprend l'accompagnement
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="perimetre">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre intervention</p>
+            <h2>Ce que comprend l'accompagnement Stratégie RSE</h2>
+            <p class="sp-section-sub">Un accompagnement complet, de l'état des lieux à la communication externe — pour une RSE concrète, mesurable et vraiment utile à votre entreprise.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Diagnostic RSE initial (matrice de matérialité)</h3><p>État des lieux de vos pratiques E, S et G — identification des enjeux les plus importants pour votre secteur et vos parties prenantes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </div>
+                <div><h3>Définition des axes prioritaires</h3><p>Co-construction avec la direction des engagements RSE prioritaires alignés avec votre vision et votre modèle d'affaires</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Plan d'actions RSE sur 3 ans</h3><p>Feuille de route concrète avec actions prioritaires par pilier (E, S, G), responsables et calendrier de déploiement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div><h3>Indicateurs de performance (KPI RSE)</h3><p>Tableau de bord RSE avec indicateurs mesurables, base de données pour le reporting et suivi de progression annuel</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div><h3>Rapport RSE &amp; communication</h3><p>Rédaction du rapport RSE, communication interne et externe anti-greenwashing, valorisation des engagements</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div><h3>Formation des équipes</h3><p>Sensibilisation des collaborateurs, formation des relais RSE et mobilisation des parties prenantes internes</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE — 4 profils clients
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Pour qui ?</p>
+            <h2>Qui a besoin d'une stratégie RSE ?</h2>
+            <p class="sp-section-sub">La RSE n'est plus l'apanage des grands groupes — elle est devenue un enjeu de compétitivité pour toute entreprise qui veut attirer clients, talents et partenaires.</p>
+        </div>
+        <div class="sp-reasons__grid">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>PME en croissance</h3>
+                <p>Vos clients et donneurs d'ordre vous demandent de justifier votre démarche RSE — il est temps de la structurer, la mesurer et la valoriser.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Entreprises soucieuses d'attractivité</h3>
+                <p>Recruter les meilleurs profils et fidéliser vos talents exige aujourd'hui un projet d'entreprise responsable — la RSE est devenue un argument RH décisif.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                </div>
+                <h3>Entreprises préparant leur CSRD</h3>
+                <p>La directive CSRD impose un reporting de durabilité aux grandes entreprises — anticiper la mise en place d'une stratégie RSE est la meilleure préparation.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon sp-icon--blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h3>Candidats à la certification RSE</h3>
+                <p>Vous visez le label LUCIE 26000, EcoVadis ou B Corp — la stratégie RSE est le fondement indispensable avant toute démarche de certification.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un accompagnement Stratégie RSE ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la maturité RSE initiale, de la taille de l'entreprise et du niveau de structuration souhaité — de la PME à ses premiers pas RSE jusqu'à la stratégie intégrée.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie RSE Starter</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE/PME, premiers pas RSE</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic RSE initial (E, S, G)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse de matérialité simplifiée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'actions RSE (15 à 20 actions)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Charte RSE basique</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution + kit de communication</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Stratégie RSE Complète</p>
+                    <p class="sp-plan__price"><span>6 500 – 14 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME 20 à 200 collaborateurs</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Diagnostic + matrice de matérialité</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stratégie RSE + feuille de route 3 ans</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> KPI RSE + tableau de bord durabilité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport RSE + communication externe</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipes &amp; sensibilisation incluses</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Accompagnement RSE annuel</p>
+                    <p class="sp-plan__price"><span>2 400 – 4 800 €</span> <em>HT / an</em></p>
+                    <p class="sp-plan__duration">Suivi et pilotage continu</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Pilotage mensuel de la feuille de route</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Revues RSE trimestrielles</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mise à jour du rapport RSE annuel</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Veille réglementaire RSE &amp; CSRD</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement vers certification (option)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services liés à la stratégie RSE</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><strong>Accompagnement RSE global</strong><p>Découvrez l'ensemble de notre offre RSE et toutes les dimensions de notre accompagnement responsable.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse/bilan-carbone-reporting" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg></div>
+                <div><strong>Bilan carbone &amp; reporting ESG</strong><p>Mesurez votre empreinte carbone et construisez le reporting ESG associé à votre stratégie RSE.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/rse/label-certification-rse" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Label &amp; certification RSE</strong><p>Valorisez votre stratégie RSE par une certification reconnue (LUCIE, EcoVadis, B Corp).</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit global &amp; conseil stratégique</strong><p>Intégrez la RSE dans votre stratégie globale de performance et de développement d'entreprise.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la stratégie RSE</h2>
+                <p>Nos experts RSE répondent sous 48h à toute question sur votre démarche responsable.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'une stratégie RSE ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Une <strong>stratégie RSE</strong> est une feuille de route qui définit les engagements prioritaires de l'entreprise sur les 3 piliers ESG (Environnemental, Social, Gouvernance), les actions concrètes à déployer, les indicateurs de mesure et les objectifs chiffrés. Elle transforme des intentions en actions mesurables et valorisables auprès de vos clients, partenaires et équipes.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>La RSE est-elle obligatoire pour mon entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La RSE n'est pas légalement obligatoire pour toutes les entreprises, mais elle devient <strong>incontournable</strong>. La directive CSRD impose un reporting de durabilité aux grandes entreprises depuis 2024. Les donneurs d'ordre intègrent de plus en plus des critères RSE dans leurs appels d'offres. Et les consommateurs, candidats et investisseurs sont de plus en plus sensibles à l'engagement responsable. Mieux vaut anticiper que subir.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quel est le ROI d'une stratégie RSE ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le ROI d'une stratégie RSE est multiple : réduction des coûts énergétiques, meilleure attractivité pour recruter des profils qualifiés, fidélisation des clients sensibles à l'engagement responsable, accès à de nouveaux marchés (appels d'offres avec critères RSE), réduction du risque réglementaire (<a href="/audit-conformite/rse/bilan-carbone-reporting">CSRD</a>) et prime à la valorisation pour les investisseurs ESG.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour déployer une stratégie RSE ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>diagnostic RSE + stratégie</strong> prend 6 à 10 semaines. Le déploiement complet avec plan d'actions et indicateurs prend 6 à 12 mois. Un <strong>accompagnement annuel</strong> est ensuite recommandé pour maintenir la dynamique, ajuster les objectifs et préparer le reporting. Nous adaptons le rythme à votre organisation. Une démarche <a href="/audit-conformite/rse/label-certification-rse">vers la certification RSE</a> peut prendre 12 à 18 mois supplémentaires.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à transformer vos valeurs en stratégie RSE concrète et valorisable ?</h2>
+                <p>Nos experts RSE analysent votre situation et vous proposent une feuille de route adaptée. Diagnostic offert, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Lancer ma stratégie RSE
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic offert</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> RSE sincère, pas du greenwashing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

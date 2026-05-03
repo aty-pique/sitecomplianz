@@ -1,0 +1,466 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (56 chars titre / 148 chars description) ─────────────────── #}
+{% block title %}Audit RGPD | Évaluation conformité données personnelles | Complianz{% endblock %}
+
+{% block description %}Réalisez un audit RGPD complet pour identifier vos risques et points de non-conformité. Rapport détaillé et plan d'actions. Résultats en 3-5 semaines.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Audit RGPD — Évaluation complète de votre conformité",
+      "url": "{{ app_url }}/audit-conformite/conformite-rgpd/audit-rgpd",
+      "description": "Audit RGPD complet pour identifier les risques de non-conformité : cartographie des traitements de données personnelles, analyse des risques, gap analysis RGPD, rapport de conformité et plan d'actions priorisé. Résultats livrés en 3 à 5 semaines.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Audit RGPD",
+      "offers": [
+        { "@type": "Offer", "name": "Audit RGPD PME",                 "price": "1500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "2900"  } },
+        { "@type": "Offer", "name": "Audit RGPD ETI / Grand compte",  "price": "3500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "7000"  } },
+        { "@type": "Offer", "name": "Audit RGPD + Plan d'actions",    "price": "4500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "8500"  } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                     "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité", "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Conformité RGPD",             "item": "{{ app_url }}/audit-conformite/conformite-rgpd" },
+        { "@type": "ListItem", "position": 4, "name": "Audit RGPD",                 "item": "{{ app_url }}/audit-conformite/conformite-rgpd/audit-rgpd" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un audit RGPD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un audit RGPD est une évaluation complète et structurée de la conformité d'une organisation au Règlement Général sur la Protection des Données. Il comprend la cartographie des traitements de données personnelles, l'analyse des risques, une gap analysis par rapport aux exigences réglementaires et un plan d'actions priorisé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien dure un audit RGPD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La durée d'un audit RGPD varie selon la taille de l'organisation et le nombre de traitements. En général, de 2 à 3 semaines pour une PME (moins de 50 salariés) et de 3 à 5 semaines pour une ETI ou une organisation avec des traitements complexes. Le rapport final est livré dans ce délai." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qui réalise l'audit RGPD ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit RGPD est réalisé par nos consultants spécialisés en protection des données, titulaires de certifications DPO reconnues (CNIL, IAPP CIPM). Ils maîtrisent les exigences du RGPD, les lignes directrices de la CNIL et les bonnes pratiques sectorielles." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un audit RGPD et un DPO ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'audit RGPD est une mission ponctuelle d'évaluation et de diagnostic : il identifie vos non-conformités et vous remet un plan d'actions. Le DPO (Délégué à la Protection des Données) est une fonction continue : il pilote, maintient et fait vivre votre conformité dans la durée. Les deux sont complémentaires." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/conformite-rgpd">Conformité RGPD</a>
+                <span>›</span>
+                <span>Audit RGPD</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Diagnostic RGPD &amp; évaluation de conformité</span>
+                Audit RGPD — Évaluation complète de votre conformité données personnelles
+            </h1>
+            <p class="sp-hero__lead">
+                Nous réalisons un <strong>audit RGPD complet</strong> pour identifier vos risques de non-conformité&nbsp;: cartographie des traitements, analyse des bases légales, gap analysis et rapport de conformité. Résultat&nbsp;: vous savez exactement où vous en êtes et quoi corriger en priorité.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander un audit RGPD
+                </a>
+                <a href="#delivrables" class="btn btn-outline">
+                    Voir les livrables
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Rapport livré en 3 à 5 semaines</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Consultants certifiés DPO / IAPP</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Plan d'actions priorisé inclus</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">À l'issue de l'audit RGPD</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Une <strong>vision claire</strong> de votre niveau de conformité RGPD, vos risques identifiés et classés, et un <strong>plan d'actions concret</strong> pour vous mettre en conformité efficacement.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3–5</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>100%</strong>
+                        <span>personnalisé</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>5</strong>
+                        <span>livrables</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>68% des PME</strong> françaises sont exposées à des risques RGPD sans le savoir — un audit les identifie tous</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Rapport de conformité sous 5 semaines
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Confidentialité totale des données
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Zéro jargon, 100% opérationnel
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <p><strong>+150</strong> audits RGPD réalisés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p><strong>0</strong> sanction CNIL post-audit</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   LIVRABLES DE L'AUDIT RGPD
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="delivrables">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Livrables de l'audit</p>
+            <h2>Ce que vous recevez à l'issue de l'audit RGPD</h2>
+            <p class="sp-section-sub">Un rapport complet et un plan d'actions exploitables — pas un document théorique qui finit dans un tiroir.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div><h3>Cartographie des traitements</h3><p>Inventaire complet de toutes vos activités de traitement de données personnelles avec leurs caractéristiques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Analyse des risques</h3><p>Évaluation de chaque traitement selon son niveau de risque pour les droits et libertés des personnes</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Gap analysis RGPD</h3><p>Analyse des écarts entre votre situation et les exigences réglementaires, point par point</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div><h3>Rapport de conformité RGPD</h3><p>Document de synthèse complet présentant votre niveau de conformité actuel et les points de vigilance</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div><h3>Plan d'actions priorisé</h3><p>Feuille de route détaillée classée par priorité (critique / élevée / moyenne) avec délais et responsables</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MÉTHODE AUDIT RGPD — 4 phases
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-process">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment se déroule un audit RGPD ?</h2>
+            <p class="sp-section-sub">Une approche structurée, collaborative, qui mobilise peu de temps de vos équipes tout en garantissant un diagnostic exhaustif.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number">01</div>
+                <div class="sp-step__content">
+                    <h3>Cadrage et collecte documentaire</h3>
+                    <p>Réunion de lancement, envoi d'un questionnaire de collecte, revue des documents existants (politique de confidentialité, contrats sous-traitants, registre éventuel). Phase peu intrusive pour vos équipes.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 semaine
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">02</div>
+                <div class="sp-step__content">
+                    <h3>Entretiens et cartographie des traitements</h3>
+                    <p>Interviews des responsables de services (RH, marketing, IT, direction…), identification et qualification de tous les traitements de données personnelles selon les exigences de l'article 30 RGPD.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 2 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">03</div>
+                <div class="sp-step__content">
+                    <h3>Analyse de conformité et évaluation des risques</h3>
+                    <p>Gap analysis détaillée, analyse des risques pour chaque traitement, vérification de la légalité des bases légales, des durées de conservation, des transferts hors UE et des mesures de sécurité.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 semaine
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">04</div>
+                <div class="sp-step__content">
+                    <h3>Rapport et restitution</h3>
+                    <p>Rédaction du rapport de conformité, du plan d'actions priorisé et de la cartographie des traitements. Restitution orale avec votre direction pour expliquer les résultats et répondre à vos questions.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 semaine
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte un audit RGPD ?</h2>
+            <p class="sp-section-sub">Le coût dépend de la taille de votre organisation, du nombre de traitements et de la complexité de votre périmètre. Un devis précis est remis sous 48h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit RGPD PME</p>
+                    <p class="sp-plan__price"><span>1 500 – 2 900 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">TPE / PME jusqu'à 50 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie des traitements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gap analysis RGPD</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de conformité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution orale (1h)</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit RGPD + Plan d'actions</p>
+                    <p class="sp-plan__price"><span>4 500 – 8 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">PME 50 à 200 salariés</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit RGPD complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des risques détaillée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plan d'actions priorisé complet</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution CODIR + suivi 1 mois</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Registre des traitements inclus</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit RGPD ETI / Grand compte</p>
+                    <p class="sp-plan__price"><span>3 500 – 7 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">ETI, organisations complexes</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Audit multi-entités / multi-sites</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Analyse des flux transfrontaliers</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit des sous-traitants</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport de conformité groupe</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Restitution COMEX</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs — un devis personnalisé vous est remis sous 48h selon votre périmètre exact.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre audit RGPD</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité RGPD complète</strong><p>L'audit est le point de départ — passez à l'action avec notre accompagnement complet à la mise en conformité.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/conformite-rgpd/dpo-externalise" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>DPO externalisé</strong><p>Après l'audit, nommez un DPO externalisé pour piloter et maintenir votre conformité dans la durée.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/cybersecurite/audit-cybersecurite" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div><strong>Audit de cybersécurité</strong><p>Complétez votre audit RGPD par un audit sécurité SI pour couvrir la dimension technique de la protection des données.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit &amp; conseil global</strong><p>Intégrez l'audit RGPD dans un diagnostic global d'entreprise pour une vision à 360°.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'audit RGPD</h2>
+                <p>Nos experts RGPD répondent sous 24h à toute question sur votre audit de conformité.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Qu'est-ce qu'un audit RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Un <strong>audit RGPD</strong> est une évaluation complète et structurée de la conformité d'une organisation au Règlement Général sur la Protection des Données. Il comprend la cartographie des traitements, l'analyse des risques, une gap analysis et un <a href="/audit-conformite/conformite-rgpd">plan de mise en conformité</a> priorisé.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien dure un audit RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>2 à 3 semaines</strong> pour une PME (moins de 50 salariés) et de <strong>3 à 5 semaines</strong> pour une ETI ou une organisation avec des traitements complexes. Le rapport final est livré dans ce délai, avec une restitution orale incluse.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Qui réalise l'audit RGPD ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'audit RGPD est réalisé par nos consultants spécialisés en protection des données, titulaires de certifications <strong>DPO reconnues</strong> (CNIL, IAPP CIPM). Ils maîtrisent les exigences du RGPD, les lignes directrices CNIL et les bonnes pratiques sectorielles.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quelle différence entre un audit RGPD et un DPO ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'audit RGPD est une <strong>mission ponctuelle</strong> de diagnostic qui identifie vos non-conformités et vous remet un plan d'actions. Le <a href="/audit-conformite/conformite-rgpd/dpo-externalise">DPO externalisé</a> est une <strong>fonction continue</strong> qui pilote et maintient votre conformité dans la durée. L'audit précède généralement la nomination du DPO.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à évaluer votre niveau de conformité RGPD ?</h2>
+                <p>Nos experts RGPD réalisent un audit complet et vous remettent un rapport de conformité en 3 à 5 semaines. Premier échange gratuit, sans engagement.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Demander mon audit RGPD
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rapport sous 5 semaines</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Consultants certifiés DPO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

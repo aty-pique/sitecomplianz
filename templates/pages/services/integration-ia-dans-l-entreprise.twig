@@ -1,0 +1,681 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (59 chars titre / 152 chars description) ─────────────────── #}
+{% block title %}Intégration IA en entreprise — système digital intelligent{% endblock %}
+
+{% block description %}Transformez votre système d'information avec l'IA : automatisation des tâches, aide à la décision, intégration CRM/ERP et accompagnement continu. Audit & cadrage inclus.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Intégration de l'IA dans les systèmes d'information",
+      "url": "{{ app_url }}/intelligence-artificielle/outils-ia/integration-ia-dans-l-entreprise",
+      "description": "Accompagnement dans l'intégration de solutions d'intelligence artificielle au sein du système d'information de l'entreprise afin d'optimiser les processus, automatiser les tâches, améliorer la prise de décision et renforcer la performance globale. Transformation du système digital existant en un écosystème intelligent.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Intégration IA entreprise et transformation digitale intelligente",
+      "offers": [
+        { "@type": "Offer", "name": "Audit & cadrage IA",                     "price": "1000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "5000" } },
+        { "@type": "Offer", "name": "Intégration simple",                     "price": "3000",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "10000" } },
+        { "@type": "Offer", "name": "Intégration avancée (multi-outils)",    "price": "10000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "30000" } },
+        { "@type": "Offer", "name": "Intégration complète SI + IA",           "price": "30000", "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "100000" } },
+        { "@type": "Offer", "name": "Accompagnement & évolution",             "price": "500",   "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                        "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Artificielle",      "item": "{{ app_url }}/intelligence-artificielle" },
+        { "@type": "ListItem", "position": 3, "name": "Outils IA pour entreprises",     "item": "{{ app_url }}/intelligence-artificielle/outils-ia" },
+        { "@type": "ListItem", "position": 4, "name": "Intégration IA dans l'entreprise", "item": "{{ app_url }}/intelligence-artificielle/outils-ia/integration-ia-dans-l-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Par où commencer pour intégrer l'IA dans son entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La première étape est toujours un audit du système d'information existant et l'identification des cas d'usage IA les plus pertinents pour votre activité. Il s'agit d'identifier les tâches répétitives, les processus générateurs de données non exploitées et les points de friction qui pourraient être optimisés par l'IA. Cet audit permet de prioriser les intégrations selon leur ROI potentiel et leur faisabilité technique." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte l'intégration de l'IA dans une entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le budget varie selon l'étendue du projet : de 1 000 à 5 000 € pour un audit et cadrage initial, de 3 000 à 10 000 € pour une intégration simple (un ou deux outils IA existants), de 10 000 à 30 000 € pour une intégration avancée multi-outils avec automatisation de workflows, et de 30 000 à 100 000 €+ pour une transformation complète du SI. Un accompagnement mensuel continu est disponible à partir de 500 €/mois." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils IA peut-on intégrer dans un système d'information existant ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intégrons tous types d'outils IA dans les systèmes existants : IA générative (GPT, Claude) pour la génération de contenu et l'assistance, outils d'automatisation intelligente (n8n, Make avec IA), agents IA pour la gestion commerciale et RH, outils d'analyse prédictive, chatbots intelligents, IA de traitement d'image et de documents, et solutions NLP pour l'analyse de données textuelles. Chaque outil est sélectionné selon vos besoins spécifiques." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'intégration IA nécessite-t-elle de changer tout le système d'information ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, l'intégration IA se fait de façon progressive et non destructive. Nous analysons votre système existant (CRM, ERP, outils métier) et y connectons des couches IA sans remplacer ce qui fonctionne. L'objectif est d'enrichir et d'automatiser vos outils actuels, pas de les remplacer. La transformation peut commencer par un seul cas d'usage et s'étendre progressivement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment s'assurer que les équipes adoptent les outils IA intégrés ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'adoption est un facteur clé de succès. Nous intégrons systématiquement une phase de formation des équipes dans notre démarche — formations pratiques adaptées à chaque profil (dirigeants, managers, opérationnels). L'accompagnement continu post-déploiement permet également d'ajuster les outils selon les retours des utilisateurs et d'optimiser en continu leur utilisation." }
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero" style="background: linear-gradient(135deg, var(--pole-4-bg, #ebf5f1) 0%, #f2faf7 100%);">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle">Intelligence Artificielle</a>
+                <span>›</span>
+                <a href="/intelligence-artificielle/outils-ia">Outils IA</a>
+                <span>›</span>
+                <span>Intégration IA dans l'entreprise</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow" style="color: var(--pole-4);">Intégration IA &amp; gestion du système digital</span>
+                Transformez votre système d'information en un écosystème intelligent capable d'automatiser, analyser et optimiser votre activité
+            </h1>
+            <p class="sp-hero__lead">
+                Nous accompagnons l'<strong>intégration de l'intelligence artificielle dans votre système d'information</strong> — de l'audit initial à la mise en production. Automatisation des tâches répétitives, aide à la décision, connexion des outils existants (CRM, ERP) à l'IA : votre entreprise gagne en <strong>efficacité, en rapidité et en compétitivité</strong>.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Démarrer l'audit de mon SI
+                </a>
+                <a href="#methode" class="btn btn-outline">
+                    Voir notre méthode
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Audit & cadrage avant tout développement</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Intégration progressive — sans tout remplacer</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Formation des équipes incluse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon" style="color: var(--pole-4);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Un SI transformé par l'IA</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre système d'information devient <strong>intelligent et automatisé</strong> — capable d'analyser, d'apprendre et d'optimiser votre activité en continu.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>–40%</strong>
+                        <span>tâches répétitives</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>+35%</strong>
+                        <span>productivité équipes</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>ROI</strong>
+                        <span>mesurable dès 6 mois</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight" style="--highlight-color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p>Les entreprises qui intègrent l'IA à leur SI gagnent en moyenne <strong>40% de temps</strong> sur les tâches répétitives et réduisent leurs coûts opérationnels de <strong>20 à 30%</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SERVICES CONNEXES IA
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-subservices">
+    <div class="container">
+        <p class="sp-subservices__label">Nos services d'intelligence artificielle</p>
+        <div class="sp-subservices__grid sp-subservices__grid--3">
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg, #ebf5f1); background: var(--pole-4-bg, #ebf5f1);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Automatisation IA des processus</h2>
+                    <p>Automatisation intelligente de vos workflows — n8n, Make, agents IA pour les processus métier répétitifs.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg, #ebf5f1); background: var(--pole-4-bg, #ebf5f1);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Agents IA sur mesure</h2>
+                    <p>Assistants IA autonomes pour vos équipes commerciales, RH et support — disponibles 24h/24.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+            <a href="/intelligence-artificielle/solutions-ia" class="sp-subsvc-card" style="border-color: var(--pole-4-bg, #ebf5f1); background: var(--pole-4-bg, #ebf5f1);">
+                <div class="sp-subsvc-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="sp-subsvc-card__body">
+                    <h2>Solutions IA sur mesure</h2>
+                    <p>Développement d'outils IA spécifiques à vos métiers et processus — analyse prédictive, NLP, vision.</p>
+                </div>
+                <span class="sp-subsvc-card__arrow" style="color: var(--pole-4);">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Audit du SI avant tout engagement — ROI estimé
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Intégration non destructive — vos outils existants valorisés
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Formation &amp; accompagnement pour une adoption réelle
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <p><strong>+80</strong> projets IA intégrés</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <p><strong>–40%</strong> tâches répétitives en moyenne</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.8/5</strong> satisfaction client</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CAS D'USAGE IA — types d'intégration
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-usecases">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Cas d'usage IA</p>
+            <h2>Quels cas d'usage IA intégrons-nous dans votre SI ?</h2>
+            <p class="sp-section-sub">L'IA peut être intégrée à chaque niveau de votre système d'information — des processus opérationnels aux outils de décision stratégique. Voici les cas d'usage les plus fréquents et à fort ROI.</p>
+        </div>
+        <div class="sp-usecases__grid">
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>Automatisation des tâches répétitives</h3>
+                <p>Traitement automatique des emails, saisies, rapports, relances, devis — l'IA prend en charge les tâches à faible valeur ajoutée pour libérer vos équipes.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Analyse de données &amp; aide à la décision</h3>
+                <p>IA analytique et prédictive intégrée à votre CRM, ERP ou outil de reporting — prévisions de ventes, détection d'anomalies, recommandations automatiques.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Chatbots &amp; assistants IA internes</h3>
+                <p>Assistant IA connecté à votre base de connaissances — répond aux questions de vos équipes, guide les processus et réduit la charge sur le support interne.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Traitement intelligent des documents</h3>
+                <p>Extraction automatique d'informations depuis des documents (factures, contrats, formulaires), classification intelligente et alimentation automatique de vos outils.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Intégration IA dans CRM &amp; ERP</h3>
+                <p>Enrichissement de votre CRM/ERP avec de l'IA — scoring clients, prévision de churn, recommandations d'actions, génération automatique de comptes rendus et emails.</p>
+            </div>
+            <div class="sp-usecase-card">
+                <div class="sp-usecase-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pole-4)" stroke-width="1.8" width="32" height="32" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>IA pour les ressources humaines</h3>
+                <p>Tri et qualification des CV, entretiens assistés par IA, onboarding automatisé, analyse du bien-être des équipes et recommandations de formation personnalisées.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MÉTHODE D'INTÉGRATION — 9 étapes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="methode">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment intégrons-nous l'IA dans votre système d'information ?</h2>
+            <p class="sp-section-sub">Une démarche structurée de l'audit à l'optimisation continue — pour s'assurer que chaque intégration IA apporte un ROI mesurable et une adoption réelle des équipes.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div><h3>Audit du SI existant</h3><p>Cartographie complète de votre système d'information — outils utilisés, flux de données, processus manuels et points de friction à automatiser</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div><h3>Identification des cas d'usage IA</h3><p>Priorisation des opportunités IA selon le ROI potentiel, la faisabilité technique et l'impact sur votre activité — roadmap IA chiffrée</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><h3>Sélection des outils &amp; technologies</h3><p>Choix des solutions IA adaptées — outils généralistes (GPT, Claude), spécialisés ou sur mesure — selon vos cas d'usage, budget et contraintes techniques</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Conception des intégrations IA</h3><p>Architecture technique de l'intégration — comment les outils IA se connectent à votre SI existant, gestion des données et des API, sécurité et conformité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                </div>
+                <div><h3>Mise en place des automatisations</h3><p>Développement et déploiement des automatisations intelligentes — workflows IA, connecteurs avec CRM/ERP, agents autonomes et pipelines de traitement de données</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div><h3>Intégration dans les outils existants</h3><p>Connexion des solutions IA à vos outils métier (CRM, ERP, outils collaboratifs) via API — vos outils existants enrichis sans migration complexe</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Tests &amp; validation</h3><p>Tests fonctionnels complets, validation des résultats IA, ajustements des modèles et des prompts — déploiement seulement quand les résultats sont validés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div><h3>Formation des équipes</h3><p>Sessions de formation pratiques adaptées à chaque profil — dirigeants, managers, opérationnels — pour une adoption maximale des outils IA déployés</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon" style="color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <div><h3>Suivi &amp; optimisation continue</h3><p>Monitoring des performances IA, amélioration continue des modèles et des workflows, ajout de nouveaux cas d'usage selon l'évolution de vos besoins</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   BÉNÉFICES — 8 items
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-reasons">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que ça change</p>
+            <h2>Ce que vous gagnez en intégrant l'IA dans votre SI</h2>
+            <p class="sp-section-sub">L'intégration IA dans le système d'information n'est plus réservée aux grandes entreprises. Les PME et ETI qui franchissent le pas constatent un retour sur investissement mesurable dès 6 mois — en productivité, en réduction des coûts et en avantage concurrentiel.</p>
+        </div>
+        <div class="sp-reasons__grid sp-reasons__grid--4col">
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3>Automatisation intelligente des tâches</h3>
+                <p>Les tâches répétitives sont automatisées — vos équipes se concentrent sur les activités à forte valeur ajoutée.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Gain de temps significatif</h3>
+                <p>–40% de temps sur les processus opérationnels — traitement plus rapide, moins d'erreurs, décisions prises en temps réel.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Amélioration de la productivité</h3>
+                <p>Chaque collaborateur est augmenté par l'IA — assistants intelligents, suggestions automatiques, accès instantané à l'information.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Meilleure exploitation des données</h3>
+                <p>Vos données deviennent un actif exploitable — l'IA les analyse, les structure et en extrait des insights actionnables.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <h3>Aide à la prise de décision</h3>
+                <p>L'IA analyse les données en temps réel et formule des recommandations — vos décisions sont éclairées par les données, pas par l'intuition seule.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Réduction des coûts opérationnels</h3>
+                <p>Automatisation des processus coûteux, réduction des erreurs humaines, optimisation des ressources — 20 à 30% de réduction des coûts opérationnels.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Amélioration de l'expérience client</h3>
+                <p>Personnalisation à grande échelle, réponses plus rapides, anticipation des besoins — vos clients bénéficient d'une expérience améliorée par l'IA.</p>
+            </article>
+            <article class="sp-reason-card">
+                <div class="sp-reason-card__icon" style="background: var(--pole-4-bg, #ebf5f1); color: var(--pole-4);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>Modernisation du système d'information</h3>
+                <p>Votre SI devient progressivement plus intelligent, plus agile et plus compétitif — sans tout remplacer, en valorisant l'existant.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   VARIABLES DU PROJET
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-profiles">
+    <div class="container">
+        <div class="sp-profiles__inner">
+            <div class="sp-profiles__content">
+                <div class="sp-section-header sp-section-header--left">
+                    <p class="sp-section-tag">Variables du projet</p>
+                    <h2>Ce qui détermine le budget d'intégration IA</h2>
+                    <p class="sp-section-sub">Chaque projet d'intégration IA est unique. Ces variables sont analysées lors de l'audit initial pour estimer le budget et la durée du projet avec précision.</p>
+                </div>
+                <div class="sp-variables-grid">
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Taille du SI</span>
+                        <span class="sp-variable-value">Quelques outils simples (CRM + site) à écosystème complet multi-outils interconnectés</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre d'outils à intégrer</span>
+                        <span class="sp-variable-value">1–2 outils isolés à intégration cross-plateforme (CRM + ERP + communication + data)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Nombre de cas d'usage IA</span>
+                        <span class="sp-variable-value">1 cas d'usage ciblé (ex: génération email) à transformation complète multi-usages</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Type d'IA nécessaire</span>
+                        <span class="sp-variable-value">IA générative (GPT/Claude), prédictive, NLP, vision par ordinateur, agents autonomes</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Niveau d'automatisation</span>
+                        <span class="sp-variable-value">Assistance humaine (IA suggère) à automatisation complète (IA agit de façon autonome)</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Volume de données</span>
+                        <span class="sp-variable-value">Peu de données structurées à gros volumes nécessitant pipeline de traitement de données</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Maturité digitale</span>
+                        <span class="sp-variable-value">Début de digitalisation à entreprise déjà digitalisée avec API disponibles</span>
+                    </div>
+                    <div class="sp-variable-item">
+                        <span class="sp-variable-label">Besoin en formation</span>
+                        <span class="sp-variable-value">Équipes sensibilisées à l'IA à formation complète nécessaire pour toutes les équipes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-profiles__visual">
+                <img src="/assets/images/illustrations/PNG/Plan de travail 1 copie 7.png" alt="Intégration IA système d'information entreprise" width="460" height="400" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS — 5 formules
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing" id="tarifs">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Budget d'un projet d'intégration IA</h2>
+            <p class="sp-section-sub">Variable selon la complexité du système et le niveau d'intégration. Un audit initial est réalisé pour chiffrer précisément votre projet avant tout engagement.</p>
+        </div>
+        <div class="sp-pricing__grid sp-pricing__grid--2col">
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Audit &amp; cadrage IA</p>
+                    <p class="sp-plan__price"><span>1 000 – 5 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Étape préalable recommandée</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cartographie du SI existant</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Identification des cas d'usage IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap IA priorisée &amp; chiffrée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI estimé par cas d'usage</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Démarrer l'audit</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Intégration simple</p>
+                    <p class="sp-plan__price"><span>3 000 – 10 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">1–2 outils IA, 1 cas d'usage</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration d'outils IA existants</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Connexion à 1–2 outils métier</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation équipes incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documentation &amp; support post-déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured" style="border-color: var(--pole-4); box-shadow: 0 8px 32px rgba(114,170,149,.25);">
+                <div class="sp-plan__badge" style="background: var(--pole-4);">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Intégration avancée</p>
+                    <p class="sp-plan__price"><span>10 000 – 30 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Multi-outils &amp; automatisation IA</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Multi-outils IA interconnectés</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automatisation de workflows complexes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Intégration CRM + ERP + IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Formation complète de toutes les équipes</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement 6 mois post-déploiement</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn" style="background: var(--pole-4); border-color: var(--pole-4);">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Transformation complète SI + IA</p>
+                    <p class="sp-plan__price"><span>30 000 – 100 000 €</span> <em>HT+</em></p>
+                    <p class="sp-plan__duration">Transformation globale du SI</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Refonte du SI avec couche IA</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Architecture IA sur mesure</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conduite du changement incluse</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gouvernance des données IA</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement 12 mois</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Nous contacter</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Un <strong>accompagnement mensuel continu</strong> (suivi, optimisation, nouvelles intégrations) est disponible de 500 à 3 000 €/mois — pour maintenir et faire évoluer votre écosystème IA dans la durée.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services IA complémentaires</h2>
+        <div class="sp-related__grid">
+            <a href="/intelligence-artificielle/automatisation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><strong>Automatisation IA des processus</strong><p>Automatisation intelligente de vos workflows métier avec n8n, Make et agents IA.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/agents-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><strong>Agents IA sur mesure</strong><p>Assistants IA autonomes pour vos équipes — disponibles 24h/24, connectés à vos outils.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/audit-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><strong>Audit IA &amp; évaluation des systèmes</strong><p>Audit complet de vos processus pour identifier les opportunités IA à fort ROI.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/intelligence-artificielle/formation-ia" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Formation à l'Intelligence Artificielle</strong><p>Formez vos équipes à l'IA pour maximiser l'adoption des outils déployés.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur l'intégration IA</h2>
+                <p>Notre équipe répond sous 24h pour analyser votre SI et vous proposer les cas d'usage IA les plus pertinents pour votre activité.</p>
+                <a href="/contact" class="btn btn-primary" style="background: var(--pole-4); border-color: var(--pole-4);">Démarrer l'audit</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Par où commencer pour intégrer l'IA dans son entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>La première étape est toujours un <strong>audit du système d'information existant</strong> et l'identification des cas d'usage IA à fort ROI. Cela permet de prioriser les intégrations selon leur impact réel et de démarrer par des victoires rapides avant d'aller vers des projets plus complexes. L'<a href="/intelligence-artificielle/audit-ia">audit IA</a> est l'étape préalable recommandée.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il tout remplacer dans son SI pour intégrer l'IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Non, absolument pas. L'<strong>intégration IA est non destructive</strong> — nous connectons des couches IA à vos outils existants (CRM, ERP, site web) via API. L'objectif est d'enrichir ce qui fonctionne déjà, pas de tout remplacer. La transformation peut commencer par un seul cas d'usage et s'étendre progressivement selon vos résultats et votre appétit.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien coûte un projet d'intégration IA ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>De <strong>1 000 à 5 000 €</strong> pour un audit et cadrage, de <strong>3 000 à 10 000 €</strong> pour une intégration simple, de <strong>10 000 à 30 000 €</strong> pour une intégration avancée multi-outils (le niveau le plus courant), et de <strong>30 000 à 100 000 €+</strong> pour une transformation complète du SI. Un accompagnement mensuel continu est disponible de 500 à 3 000 €/mois.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Quels outils IA peut-on intégrer dans le SI ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Nous intégrons tous types d'outils IA : <strong>IA générative</strong> (GPT-4, Claude) pour la génération de contenu et l'assistance, <strong>automatisation intelligente</strong> (n8n, Make avec IA), <a href="/intelligence-artificielle/agents-ia">agents IA</a> autonomes, IA prédictive pour l'analyse de données, NLP pour le traitement de documents et chatbots intelligents connectés à votre CRM/ERP.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Comment s'assurer de l'adoption par les équipes ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>L'adoption est un facteur clé de succès — c'est pourquoi nous intégrons systématiquement une phase de <a href="/intelligence-artificielle/formation-ia">formation des équipes</a> à chaque projet. Des sessions pratiques adaptées à chaque profil, un accompagnement post-déploiement et des ajustements basés sur les retours utilisateurs garantissent une adoption maximale et un ROI réel.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à transformer votre système d'information en un écosystème intelligent capable d'automatiser et d'optimiser votre activité ?</h2>
+                <p>Commençons par un audit de votre SI — nous identifions les cas d'usage IA à fort ROI et vous proposons une roadmap d'intégration progressive et réaliste.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg" style="background: var(--pole-4); border-color: var(--pole-4);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Démarrer l'audit de mon SI
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit initial</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap IA chiffrée</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ROI estimé avant engagement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

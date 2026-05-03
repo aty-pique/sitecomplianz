@@ -1,0 +1,472 @@
+{% extends 'layouts/base.twig' %}
+
+{# ── SEO (59 chars titre / 150 chars description) ─────────────────── #}
+{% block title %}Accompagnement création d'entreprise | Business plan &amp; juridique | Complianz{% endblock %}
+
+{% block description %}Créez votre entreprise sereinement avec un accompagnement expert : statuts juridiques, business plan, prévisionnel financier et conformité dès le départ.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Accompagnement à la création d'entreprise",
+      "url": "{{ app_url }}/audit-conformite/audit-conseil/creation-entreprise",
+      "description": "Accompagnement complet à la création d'entreprise : choix de la forme juridique, rédaction des statuts, business plan financier, immatriculation, mise en conformité initiale (RGPD, mentions légales…) et accompagnement bancaire. Dès 1 900€ HT.",
+      "provider": { "@type": "Organization", "name": "{{ app_name }}", "url": "{{ app_url }}" },
+      "areaServed": "FR",
+      "serviceType": "Accompagnement création d'entreprise",
+      "offers": [
+        { "@type": "Offer", "name": "Pack Création Essentiel",  "price": "1900",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "3500"  } },
+        { "@type": "Offer", "name": "Pack Création Standard",   "price": "3500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "6500"  } },
+        { "@type": "Offer", "name": "Pack Création Premium",    "price": "6500",  "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "maxPrice": "12000" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil",                       "item": "{{ app_url }}/" },
+        { "@type": "ListItem", "position": 2, "name": "Conseil, Audit & Conformité",   "item": "{{ app_url }}/audit-conformite" },
+        { "@type": "ListItem", "position": 3, "name": "Audit & Conseil",               "item": "{{ app_url }}/audit-conformite/audit-conseil" },
+        { "@type": "ListItem", "position": 4, "name": "Création d'entreprise",         "item": "{{ app_url }}/audit-conformite/audit-conseil/creation-entreprise" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle forme juridique choisir pour créer son entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le choix de la forme juridique dépend de votre situation : activité solo ou à plusieurs associés, niveau de protection patrimoniale souhaité, fiscalité cible et perspectives de croissance. SAS, SARL, EURL, SA, entreprise individuelle — chaque structure a ses avantages. Nos experts analysent votre situation et vous recommandent la forme juridique la plus adaptée." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi faire appel à un accompagnant pour créer son entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Créer une entreprise implique des choix structurants (forme juridique, fiscalité, statuts) qui auront des conséquences durables. Un accompagnement expert évite les erreurs coûteuses, optimise la structure dès le départ, sécurise la rédaction des statuts et garantit une conformité légale immédiate (RGPD, mentions légales…). Le coût d'un accompagnement est généralement bien inférieur au coût des corrections ultérieures." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour créer une entreprise avec accompagnement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Avec un accompagnement complet, la création d'une entreprise prend généralement 3 à 6 semaines : 1 à 2 semaines pour le conseil juridique et la rédaction des statuts, 1 à 2 semaines pour le business plan et le prévisionnel financier, et 1 à 2 semaines pour les formalités d'immatriculation. Les délais réels dépendent des organismes officiels." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il être conforme au RGPD dès la création de l'entreprise ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, dès que votre entreprise collecte des données personnelles (clients, prospects, employés…), elle est soumise au RGPD. Il est bien plus simple et économique de mettre en place les bases de la conformité RGPD dès la création plutôt que de corriger des non-conformités plus tard. Nous intégrons systématiquement la conformité RGPD dans notre accompagnement à la création." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-hero">
+    <div class="sp-hero__bg">
+        <span class="sp-blob sp-blob--1"></span>
+        <span class="sp-blob sp-blob--2"></span>
+    </div>
+    <div class="container sp-hero__inner">
+        <div class="sp-hero__content">
+            <nav class="sp-breadcrumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span>›</span>
+                <a href="/audit-conformite">Conseil &amp; Audit</a>
+                <span>›</span>
+                <a href="/audit-conformite/audit-conseil">Audit &amp; Conseil</a>
+                <span>›</span>
+                <span>Création d'entreprise</span>
+            </nav>
+
+            <h1 class="sp-hero__title">
+                <span class="sp-hero__eyebrow">Création &amp; structuration d'entreprise</span>
+                Accompagnement à la création d'entreprise — de l'idée à l'immatriculation
+            </h1>
+            <p class="sp-hero__lead">
+                Nous accompagnons les créateurs d'entreprise de A à Z&nbsp;: choix de la <strong>forme juridique</strong>, rédaction des statuts, business plan financier, immatriculation et <strong>mise en conformité initiale</strong> (RGPD, mentions légales). Partez sur des bases solides dès le premier jour.
+            </p>
+
+            <div class="sp-hero__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer mon entreprise sereinement
+                </a>
+                <a href="#inclus" class="btn btn-outline">
+                    Voir ce que comprend l'accompagnement
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+            </div>
+
+            <div class="sp-hero__trust">
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Structure juridique optimisée dès le départ</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Conformité RGPD intégrée dès J1</span>
+                </div>
+                <div class="sp-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Business plan prêt pour votre banque</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-hero__visual">
+            <div class="sp-deliverables-card">
+                <div class="sp-deliverables-card__header">
+                    <div class="sp-deliverables-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+                    </div>
+                    <div>
+                        <p class="sp-deliverables-card__title">Ce que vous obtenez</p>
+                        <p class="sp-deliverables-card__subtitle">Au terme de l'accompagnement</p>
+                    </div>
+                </div>
+                <p class="sp-deliverables-card__text">
+                    Votre entreprise est <strong>immatriculée</strong>, votre business plan est <strong>finalisé</strong> pour votre banque, vos statuts sont rédigés et vous êtes <strong>conforme</strong> dès le premier jour — prêt à vous concentrer sur votre activité.
+                </p>
+                <div class="sp-deliverables-card__stats">
+                    <div class="sp-dc-stat">
+                        <strong>3–6</strong>
+                        <span>semaines</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>dès 1 900</strong>
+                        <span>€ HT</span>
+                    </div>
+                    <div class="sp-dc-stat">
+                        <strong>6</strong>
+                        <span>volets couverts</span>
+                    </div>
+                </div>
+                <div class="sp-deliverables-card__highlight">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <p><strong>50% des créateurs</strong> font des erreurs de forme juridique coûteuses — évitez-les avec un accompagnement expert</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   SOCIAL PROOF BAR
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-social-proof">
+    <div class="container">
+        <div class="sp-social-proof__reassurance">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Structuration juridique optimisée
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Business plan prêt pour les banques
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Conformité légale dès le premier jour
+            </span>
+        </div>
+        <div class="sp-social-proof__stats">
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+                <p><strong>+100</strong> créations accompagnées</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <p><strong>4.9/5</strong> satisfaction client</p>
+            </div>
+            <div class="sp-sp-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <p><strong>90%</strong> de financement obtenu</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CE QUE COMPREND L'ACCOMPAGNEMENT
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-audit-includes" id="inclus">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Ce que comprend l'accompagnement</p>
+            <h2>Tous les volets de votre création d'entreprise couverts</h2>
+            <p class="sp-section-sub">De la forme juridique à la conformité RGPD — nous couvrons tous les aspects pour un démarrage solide et serein.</p>
+        </div>
+        <div class="sp-audit-grid">
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div><h3>Choix de la forme juridique</h3><p>Analyse de votre situation et recommandation de la forme juridique optimale : SAS, SARL, EURL, SA, EI selon vos objectifs</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                </div>
+                <div><h3>Rédaction des statuts</h3><p>Statuts sur mesure incluant la gouvernance, la répartition du capital, les clauses protectrices et les dispositions fiscales optimisées</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div><h3>Business plan financier</h3><p>Prévisionnel financier sur 3 ans (compte de résultat, bilan, trésorerie), hypothèses de chiffre d'affaires et seuil de rentabilité</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div><h3>Immatriculation</h3><p>Constitution du dossier, dépôt au greffe du tribunal de commerce et suivi des formalités jusqu'à l'obtention du Kbis</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div><h3>Mise en conformité initiale (RGPD, mentions légales…)</h3><p>Politique de confidentialité, mentions légales, politique cookies et bases de la conformité RGPD dès le lancement</p></div>
+            </div>
+            <div class="sp-audit-item">
+                <div class="sp-audit-item__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+                </div>
+                <div><h3>Accompagnement bancaire</h3><p>Préparation du dossier de financement, structuration de l'argumentation et accompagnement aux rendez-vous bancaires</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MÉTHODE — 4 étapes
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-process">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Notre méthode</p>
+            <h2>Comment nous vous accompagnons de l'idée à l'immatriculation</h2>
+            <p class="sp-section-sub">Une approche structurée en 4 étapes, de la validation de votre projet à l'ouverture de votre entreprise — sans rien laisser au hasard.</p>
+        </div>
+        <div class="sp-process__steps">
+            <div class="sp-step">
+                <div class="sp-step__number">01</div>
+                <div class="sp-step__content">
+                    <h3>Cadrage du projet et choix de la structure</h3>
+                    <p>Analyse de votre projet, de vos objectifs, de votre situation personnelle (régime fiscal, protection du patrimoine, associés…) et recommandation de la forme juridique et fiscale optimale.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 semaine
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">02</div>
+                <div class="sp-step__content">
+                    <h3>Rédaction des documents fondateurs</h3>
+                    <p>Rédaction des statuts sur mesure, du règlement intérieur le cas échéant, du pacte d'associés si nécessaire et de l'ensemble des documents juridiques fondateurs de votre société.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 2 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">03</div>
+                <div class="sp-step__content">
+                    <h3>Business plan et prévisionnel financier</h3>
+                    <p>Structuration de votre modèle économique, élaboration du prévisionnel financier sur 3 ans, calcul du seuil de rentabilité et préparation du dossier de financement bancaire.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 2 semaines
+                    </span>
+                </div>
+            </div>
+            <div class="sp-step">
+                <div class="sp-step__number">04</div>
+                <div class="sp-step__content">
+                    <h3>Immatriculation et conformité initiale</h3>
+                    <p>Constitution et dépôt du dossier d'immatriculation, mise en place de la conformité RGPD initiale, rédaction des mentions légales et politique de confidentialité pour votre site web.</p>
+                    <span class="sp-step__duration">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        1 à 2 semaines
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   TARIFS
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-pricing">
+    <div class="container">
+        <div class="sp-section-header">
+            <p class="sp-section-tag">Nos tarifs</p>
+            <h2>Combien coûte l'accompagnement à la création d'entreprise ?</h2>
+            <p class="sp-section-sub">Des packs adaptés à la complexité de votre projet — de la simple création jusqu'à l'accompagnement complet avec levée de fonds. Devis sous 24h.</p>
+        </div>
+        <div class="sp-pricing__grid">
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Création Essentiel</p>
+                    <p class="sp-plan__price"><span>1 900 – 3 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Création simple, associé unique</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Choix de la forme juridique</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Rédaction des statuts</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Immatriculation (hors frais greffe)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mentions légales &amp; conformité RGPD de base</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--featured sp-plan--blue">
+                <div class="sp-plan__badge">Le plus choisi</div>
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Création Standard</p>
+                    <p class="sp-plan__price"><span>3 500 – 6 500 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Création avec associés ou financement</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Pack Essentiel complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Business plan financier (3 ans)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pacte d'associés (si plusieurs associés)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accompagnement bancaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité RGPD complète</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary sp-plan__btn">Demander un devis</a>
+            </div>
+
+            <div class="sp-plan sp-plan--blue">
+                <div class="sp-plan__header">
+                    <p class="sp-plan__name">Pack Création Premium</p>
+                    <p class="sp-plan__price"><span>6 500 – 12 000 €</span> <em>HT</em></p>
+                    <p class="sp-plan__duration">Projet complexe, levée de fonds, holding</p>
+                </div>
+                <ul class="sp-plan__features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Pack Standard complet</strong></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Structuration holding le cas échéant</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optimisation fiscale avancée</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Pitch deck investisseurs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suivi 6 mois post-création</li>
+                </ul>
+                <a href="/contact" class="btn btn-outline sp-plan__btn">Demander un devis</a>
+            </div>
+
+        </div>
+        <p class="sp-pricing__note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Tarifs indicatifs HT hors frais de greffe et de publication légale (~300-600€). Devis personnalisé sous 24h.
+        </p>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   MAILLAGE — services complémentaires
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-related">
+    <div class="container">
+        <h2 class="sp-related__title">Services complémentaires à votre création d'entreprise</h2>
+        <div class="sp-related__grid">
+            <a href="/audit-conformite/conformite-rgpd" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><strong>Mise en conformité RGPD</strong><p>Après votre création, approfondissez votre conformité RGPD avec un audit et une documentation complète.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/structuration-gouvernance" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                <div><strong>Structuration &amp; gouvernance</strong><p>Dès le lancement, structurez vos processus et votre gouvernance pour une croissance maîtrisée.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/audit-conseil" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <div><strong>Audit &amp; conseil</strong><p>Découvrez l'ensemble de nos services d'audit et conseil stratégique pour accompagner votre développement.</p></div>
+                <span>→</span>
+            </a>
+            <a href="/audit-conformite/certifications-iso/iso-9001" class="sp-related-card">
+                <div class="sp-related-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="24" height="24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><strong>Certification ISO 9001</strong><p>Préparez votre certification ISO 9001 dès la création pour être prêt à conquérir les grands comptes.</p></div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-faq">
+    <div class="container">
+        <div class="sp-faq__inner">
+            <div class="sp-faq__sidebar">
+                <p class="sp-section-tag">FAQ</p>
+                <h2>Vos questions sur la création d'entreprise</h2>
+                <p>Nos experts en création d'entreprise répondent sous 24h à toute question sur votre projet.</p>
+                <a href="/contact" class="btn btn-primary">Nous contacter</a>
+            </div>
+            <div class="sp-faq__list">
+                <details class="sp-faq-item" open>
+                    <summary>Quelle forme juridique choisir pour créer son entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Le choix dépend de votre situation&nbsp;: activité solo ou avec associés, niveau de protection patrimoniale souhaité, fiscalité cible et perspectives de croissance. <strong>SAS, SARL, EURL, SA, EI</strong> — chaque structure a ses avantages. Nos experts analysent votre situation et vous recommandent la forme juridique la plus adaptée lors d'un premier entretien gratuit.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Pourquoi faire appel à un accompagnant pour créer son entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Créer une entreprise implique des choix <strong>structurants et durables</strong> (forme juridique, fiscalité, statuts). Un accompagnement expert évite les erreurs coûteuses, optimise la structure dès le départ et garantit une <strong>conformité légale immédiate</strong>. Le coût d'un accompagnement est généralement bien inférieur au coût des corrections ultérieures.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Combien de temps faut-il pour créer une entreprise ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Avec un accompagnement complet, la création prend généralement <strong>3 à 6 semaines</strong>&nbsp;: 1 à 2 semaines pour le conseil juridique et la rédaction des statuts, 1 à 2 semaines pour le business plan, et 1 à 2 semaines pour les formalités d'immatriculation. Les délais réels dépendent des organismes officiels.</p>
+                    </div>
+                </details>
+                <details class="sp-faq-item">
+                    <summary>Faut-il être conforme au RGPD dès la création ?</summary>
+                    <div class="sp-faq-item__answer">
+                        <p>Oui, dès que votre entreprise collecte des données personnelles (clients, prospects, employés…), elle est soumise au <strong>RGPD</strong>. Il est bien plus simple et économique de mettre en place les bases de la <a href="/audit-conformite/conformite-rgpd">conformité RGPD</a> dès la création plutôt que de corriger des non-conformités plus tard. Nous l'intégrons systématiquement dans notre accompagnement.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ══════════════════════════════════════════════════════
+   CTA FINAL
+   ══════════════════════════════════════════════════════ #}
+<section class="sp-cta-final">
+    <div class="container">
+        <div class="sp-cta-final__inner">
+            <div class="sp-cta-final__text">
+                <h2>Prêt à créer votre entreprise sur des bases solides ?</h2>
+                <p>Nos experts vous accompagnent de l'idée à l'immatriculation. Structure juridique optimisée, business plan prêt pour votre banque, conformité RGPD dès J1. Premier échange gratuit.</p>
+            </div>
+            <div class="sp-cta-final__actions">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                    Créer mon entreprise sereinement
+                </a>
+                <div class="sp-cta-final__reassurance">
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dès 1 900€ HT</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Premier échange gratuit</span>
+                    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conformité RGPD incluse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+<h2 id="versioning">Versioning</h2>
+<p>Préfixe d’URL ou en-tête <code>Accept-Version</code> selon l’endpoint — toujours indiqué dans la fiche d’endpoint.</p>
+
+<h2 id="erreurs">Erreurs</h2>
+<p>Enveloppe JSON homogène : <code>error.code</code>, <code>error.message</code>, <code>error.details[]</code> optionnel.</p>
+
+<h2 id="table-endpoints">Tableau d’endpoints (exemple)</h2>
+<div class="wiki-table-wrap" role="region" aria-label="Endpoints exemple" tabindex="0">
+    <table class="wiki-table">
+        <thead>
+            <tr><th>Méthode</th><th>Chemin</th><th>Rôle</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><code>GET</code></td><td><code>/api/v1/health</code></td><td>Sonde liveness</td></tr>
+            <tr><td><code>POST</code></td><td><code>/api/v1/events</code></td><td>Ingestion d’événements</td></tr>
+            <tr><td><code>GET</code></td><td><code>/api/v1/exports/:id</code></td><td>Téléchargement signé</td></tr>
+        </tbody>
+    </table>
+</div>
+<div class="wiki-code-block">
+    <div class="wiki-code-block__head">
+        <span class="wiki-code-block__label">Réponse erreur</span>
+        <button type="button" class="wiki-code-block__copy" data-wiki-copy>Copier</button>
+    </div>
+    <pre><code class="language-json">{
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message": "Champ obligatoire manquant",
+    "details": [{ "field": "email", "issue": "required" }]
+  }
+}</code></pre>
+</div>
