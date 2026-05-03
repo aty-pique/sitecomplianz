@@ -682,59 +682,6 @@
     </div>
 </section>
 
-{% if guide.title is defined and guide.title and guide.id is defined and guide_subs|length > 0 %}
-<section class="pole-lp-editorial sp-section" id="{{ guide.id }}" aria-labelledby="pole-editorial-title">
-    <div class="container pole-lp-editorial__inner">
-        <header class="pole-lp-editorial__head">
-            <h2 id="pole-editorial-title" class="pole-lp-editorial__title">{{ guide.title }}</h2>
-            {% if guide.lead is defined and guide.lead %}
-            <p class="pole-lp-editorial__lead">{{ guide.lead }}</p>
-            {% endif %}
-        </header>
-        {% for sub in guide_subs %}
-        <article class="pole-lp-editorial__chunk" id="{{ guide.id }}-h3-{{ sub.slug }}">
-            <h3 class="pole-lp-editorial__h3">{{ sub.title }}</h3>
-            {% for para in sub.paragraphs|default([]) %}
-            <p class="pole-lp-editorial__p">{{ para }}</p>
-            {% endfor %}
-            {% if sub.service_links is defined and sub.service_links|length > 0 %}
-            <ul class="pole-lp-editorial__svc">
-                {% for sl in sub.service_links %}
-                <li><a href="{{ sl.href }}">{{ sl.label }}</a></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </article>
-        {% endfor %}
-        {% if guide_wiki|length > 0 or guide_blog|length > 0 %}
-        <div class="pole-lp-editorial__refs">
-            <h3 class="pole-lp-editorial__h3 pole-lp-editorial__h3--small">Pour aller plus loin</h3>
-            <ul class="pole-lp-editorial__ref-list">
-                {% for l in guide_blog %}
-                <li><a href="{{ l.href }}">{{ l.label }}</a></li>
-                {% endfor %}
-                {% for l in guide_wiki %}
-                <li><a href="{{ l.href }}">{{ l.label }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        {% if guide.cases_intro is defined and guide.cases_intro %}
-        <div class="pole-lp-editorial__cases">
-            <p class="pole-lp-editorial__cases-intro">{{ guide.cases_intro }}</p>
-            {% if guide.cases_links is defined and guide.cases_links|length > 0 %}
-            <ul class="pole-lp-editorial__ref-list">
-                {% for cl in guide.cases_links %}
-                <li><a href="{{ cl.href }}">{{ cl.label }}</a></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-        {% endif %}
-    </div>
-</section>
-{% endif %}
-
 {% set cta_fin = pole.cta_final|default({}) %}
 {% include 'partials/pole-final-cta.twig' with { cta_fin: cta_fin, ph: ph } only %}
 

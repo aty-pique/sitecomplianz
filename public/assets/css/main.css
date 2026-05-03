@@ -5802,26 +5802,6 @@ body.rdv-modal-open {
 .pole-lp-final-cta.sp-cta-final .pole-lp-final-cta__feat-ico {
     color: #fff;
 }
-.pole-lp-final-cta.sp-cta-final .pole-lp-final-cta__proof {
-    color: rgba(226, 232, 240, 0.88);
-}
-.pole-lp-final-cta.sp-cta-final .pole-lp-final-cta__avatar {
-    background: #fff;
-    border-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
-}
-.pole-lp-final-cta.sp-cta-final .pole-lp-final-cta__avatar--logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    overflow: hidden;
-}
-.pole-lp-final-cta.sp-cta-final .pole-lp-final-cta__avatar--logo img {
-    width: 68%;
-    height: 68%;
-    object-fit: contain;
-}
 .pole-lp-final-cta.sp-cta-final .pole-lp-final-cta__orbit {
     background: rgba(255, 255, 255, 0.14);
     border-color: rgba(255, 255, 255, 0.22);
@@ -5990,42 +5970,6 @@ body.rdv-modal-open {
     line-height: 1.45;
     color: var(--color-gray);
 }
-.pole-lp-final-cta__social {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px 20px;
-}
-.pole-lp-final-cta__avatars {
-    display: flex;
-    align-items: center;
-}
-.pole-lp-final-cta__avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    margin-left: -10px;
-    background: linear-gradient(135deg, #93c5fd, #3b82f6);
-    box-shadow: 0 1px 3px rgba(0,0,0,.12);
-}
-.pole-lp-final-cta__avatar:first-child { margin-left: 0; }
-.pole-lp-final-cta__avatar--b { background: linear-gradient(135deg, #86efac, #22c55e); }
-.pole-lp-final-cta__avatar--c { background: linear-gradient(135deg, #fcd34d, #ea580c); }
-.pole-lp-final-cta__avatar--d { background: linear-gradient(135deg, #c4b5fd, #7c3aed); }
-.pole-lp-final-cta__avatar--e { background: linear-gradient(135deg, #fbcfe8, #db2777); }
-.pole-lp-final-cta__proof {
-    flex: 1 1 100%;
-    margin: 0;
-    font-size: 13px;
-    font-weight: 600;
-    color: #64748b;
-}
-@media (min-width: 520px) {
-    .pole-lp-final-cta__proof {
-        flex: 0 1 auto;
-    }
-}
 .pole-lp-final-cta__viz {
     display: flex;
     justify-content: center;
@@ -6055,22 +5999,17 @@ body.rdv-modal-open {
     align-items: center;
     justify-content: center;
     z-index: 1;
+    pointer-events: none;
 }
-.pole-lp-final-cta__orbit-hex {
-    width: 78px;
-    height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    filter: drop-shadow(0 8px 20px rgba(15, 23, 42, 0.14));
-}
+/* Logo SVG brut — aucune pastille ni fond : proportions natives du fichier */
 .pole-lp-final-cta__orbit-logo {
     display: block;
-    width: 56px;
-    height: 56px;
+    width: auto;
+    height: auto;
+    max-width: min(42%, 200px);
+    max-height: min(50%, 240px);
     object-fit: contain;
+    object-position: center;
 }
 .pole-lp-final-cta__orbit-card {
     position: absolute;
@@ -7276,18 +7215,20 @@ body.rdv-modal-open {
 }
 
 .pole-lp-pack-method {
-    border: 1px solid #dfe7f2;
-    background: #fff;
-    border-radius: 12px;
-    padding: 10px 12px;
-    margin-bottom: 14px;
+    margin-top: 4.5%;
+    margin-bottom: 4.5%;
+    padding: 3.5% clamp(12px, 2.5vw, 28px);
+    border: none;
+    border-radius: 16px;
+    background: #597aaf;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 .pole-lp-pack-method__label {
-    margin: 0 0 8px;
-    color: #355989;
+    margin: 0 0 3.5%;
+    color: rgba(248, 250, 252, 0.95);
     font-size: 0.84rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     font-weight: 800;
 }
 .pole-lp-pack-method__track {
@@ -7295,23 +7236,38 @@ body.rdv-modal-open {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
-    gap: 6px 8px;
+    gap: 10px 12px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
     scrollbar-width: thin;
 }
 .pole-lp-pack-method__step {
     display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 8px;
-    align-items: center;
+    grid-template-columns: 40px 1fr;
+    gap: 12px 14px;
+    align-items: start;
+    align-content: start;
     flex: 1 1 0;
+    min-width: 0;
+    min-height: clamp(7.5rem, 18vw, 9.5rem);
+    padding: 1.1rem 0.85rem 1.15rem;
+    background: #fff;
+    border-radius: 12px;
+    border: none;
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.1),
+        0 1px 3px rgba(15, 23, 42, 0.06);
+}
+.pole-lp-pack-method__step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     min-width: 0;
 }
 .pole-lp-pack-method__orb {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 1px solid #d6e0ef;
     background: #eef3fb;
@@ -7320,19 +7276,21 @@ body.rdv-modal-open {
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
+    flex-shrink: 0;
 }
 .pole-lp-pack-method__step-title {
     display: block;
     font-size: 0.96rem;
     font-weight: 800;
     color: #0f172a;
+    line-height: 1.25;
 }
 .pole-lp-pack-method__step-desc {
     display: block;
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     color: #64748b;
-    line-height: 1.35;
+    line-height: 1.45;
 }
 .pole-lp-pack-method__arrow {
     display: flex;
@@ -7341,9 +7299,9 @@ body.rdv-modal-open {
     flex: 0 0 auto;
     align-self: center;
     padding: 0 2px;
-    color: #8ca0bf;
+    color: rgba(255, 255, 255, 0.82);
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1;
 }
 
@@ -7690,7 +7648,7 @@ body.rdv-modal-open {
 
 /* Section guide hub */
 .pole-lp-guide {
-    background: #f1f5f9;
+    background: #fff;
 }
 .pole-lp-guide__head {
     display: flex;
@@ -8206,8 +8164,11 @@ body.rdv-modal-open {
 .pole-lp-guide__news-inner {
     border-radius: 14px;
     padding: clamp(16px, 2.5vw, 22px);
-    background: #e2e8f0;
-    border: 1px solid rgba(15, 23, 42, 0.06);
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.06),
+        0 1px 3px rgba(15, 23, 42, 0.04);
     display: grid;
     gap: 16px;
     align-items: start;
@@ -8326,100 +8287,6 @@ body.rdv-modal-open {
 }
 .pole-lp-guide-news-card__more:hover {
     text-decoration: underline;
-}
-
-/* Contenu long sous le guide hub (ancres #id-h3-slug) */
-.pole-lp-editorial {
-    background: #fff;
-    border-top: 1px solid #e2e8f0;
-}
-.pole-lp-editorial__inner {
-    max-width: 760px;
-}
-.pole-lp-editorial__head {
-    margin-bottom: 20px;
-}
-.pole-lp-editorial__title {
-    margin: 0 0 12px;
-    font-family: var(--font-title);
-    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-}
-.pole-lp-editorial__lead {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.65;
-    color: #475569;
-}
-.pole-lp-editorial__chunk {
-    scroll-margin-top: 100px;
-    padding: 18px 0;
-    border-top: 1px solid #eef2f7;
-}
-.pole-lp-editorial__chunk:first-of-type {
-    border-top: none;
-    padding-top: 0;
-}
-.pole-lp-editorial__h3 {
-    margin: 0 0 10px;
-    font-size: 1.12rem;
-    font-weight: 800;
-    color: #1e3a5f;
-}
-.pole-lp-editorial__h3--small {
-    font-size: 1rem;
-    margin-bottom: 8px;
-}
-.pole-lp-editorial__p {
-    margin: 0 0 10px;
-    font-size: 0.95rem;
-    line-height: 1.65;
-    color: #334155;
-}
-.pole-lp-editorial__svc {
-    margin: 12px 0 0;
-    padding-left: 1.15em;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: #334155;
-}
-.pole-lp-editorial__svc a {
-    color: #355989;
-    font-weight: 700;
-    text-decoration: none;
-}
-.pole-lp-editorial__svc a:hover {
-    text-decoration: underline;
-}
-.pole-lp-editorial__refs,
-.pole-lp-editorial__cases {
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid #eef2f7;
-}
-.pole-lp-editorial__ref-list {
-    margin: 0;
-    padding-left: 1.15em;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: #334155;
-}
-.pole-lp-editorial__ref-list a {
-    color: #355989;
-    font-weight: 600;
-    text-decoration: none;
-}
-.pole-lp-editorial__ref-list a:hover {
-    text-decoration: underline;
-}
-.pole-lp-editorial__cases-intro {
-    margin: 0 0 10px;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: #475569;
 }
 
 .pole-lp-guide__quick {

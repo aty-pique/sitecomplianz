@@ -24,14 +24,13 @@
 {% set microcopy = c.microcopy|default('Sans engagement • 2 minutes') %}
 {% set primary_label = c.primary_label|default('Faire un diagnostic gratuit') %}
 {% set secondary_label = c.secondary_label|default('Être rappelé par un expert') %}
-{% set secondary_href = c.secondary_href|default('/contact') %}
 {% set features = c.features|default([
     { icon: 'search', title: 'Vision claire', text: 'Priorités et risques mis à plat avant d’investir.' },
     { icon: 'clock', title: 'Gain de temps', text: 'Moins de ressaisies et de dossiers « pour la forme ».' },
     { icon: 'shield', title: 'Conformité utile', text: 'RGPD et ISO reliés à vos processus réels.' },
     { icon: 'chart', title: 'Pilotage mesurable', text: 'Indicateurs lisibles pour la direction et les équipes.' },
 ]) %}
-{% set logo_hub = 'assets/images/logo/Monochromes/WebP/Plan de travail 1 copie 16.webp' %}
+{% set logo_hub = 'assets/images/logo/Monochromes/SVG/Plan de travail 1 copie 16.svg' %}
 {% set orbit_items = c.orbit|default([
     { icon: 'target', title: 'Stratégie', subtitle: 'Alignée', accent: 'green', pos: 'tl' },
     { icon: 'shield', title: 'Conformité', subtitle: 'Maîtrisée', accent: 'blue', pos: 'tr' },
@@ -66,10 +65,10 @@
                         {{ primary_label }}
                         <span class="pole-lp-final-cta__btn-arrow" aria-hidden="true">→</span>
                     </button>
-                    <a href="{{ secondary_href }}" class="pole-lp-final-cta__btn pole-lp-final-cta__btn--ghost btn btn-lg">
+                    <button type="button" class="pole-lp-final-cta__btn pole-lp-final-cta__btn--ghost btn btn-lg" data-open-rdv-modal>
                         <svg class="pole-lp-final-cta__btn-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         {{ secondary_label }}
-                    </a>
+                    </button>
                 </div>
                 <p class="pole-lp-final-cta__micro">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -93,9 +92,7 @@
                     <span class="pole-lp-final-cta__orbit-ring pole-lp-final-cta__orbit-ring--b"></span>
                     <span class="pole-lp-final-cta__orbit-ring pole-lp-final-cta__orbit-ring--c"></span>
                     <div class="pole-lp-final-cta__orbit-center">
-                        <div class="pole-lp-final-cta__orbit-hex" aria-hidden="true">
-                            <img class="pole-lp-final-cta__orbit-logo" src="{{ asset_base }}/{{ logo_hub|replace({' ': '%20'}) }}" alt="" width="56" height="56" loading="lazy" decoding="async" />
-                        </div>
+                        <img class="pole-lp-final-cta__orbit-logo" src="{{ asset_base }}/{{ logo_hub|replace({' ': '%20'}) }}" alt="" width="1208" height="1653" loading="lazy" decoding="async" />
                     </div>
                     {% for oc in orbit_items %}
                     {% set acc = oc.accent|default('green') %}

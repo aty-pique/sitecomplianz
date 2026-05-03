@@ -38,7 +38,7 @@
  *                 cta_label, cta_href, articles[] date|tag|title|href), guide_aside_trust (text sous le CTA latéral).
  *
  * cta_final (optionnel) : bandeau conversion bas de page — title / title_before + title_highlight + title_after,
- *                 text (string ou lignes), text_lines[], badge, microcopy, primary_label, secondary_label, secondary_href,
+ *                 text (string ou lignes), text_lines[], badge, microcopy, primary_label, secondary_label (ouvre la modale RDV),
  *                 features[] (icon, title, text), orbit[] (icon, title, subtitle, accent green|blue, pos ; ou label seul).
  *                 Coordonnées : footer du site.
  *
@@ -192,10 +192,10 @@ return [
             'guide_search_placeholder'  => 'Rechercher un sujet, un guide, une norme…',
             'guide_nav'                 => [
                 ['label' => 'Vue d’ensemble', 'href' => '#pole-guide-title', 'icon' => 'target', 'active' => true],
-                ['label' => 'Audit & diagnostic', 'href' => '#comprendre-audit-conformite-h3-audit-organisationnel', 'icon' => 'search'],
-                ['label' => 'Conformité & sécurité', 'href' => '#comprendre-audit-conformite-h3-audit-rgpd', 'icon' => 'shield'],
-                ['label' => 'Normes & certifications', 'href' => '#comprendre-audit-conformite-h3-certification-iso', 'icon' => 'award'],
-                ['label' => 'Structuration & gouvernance', 'href' => '#comprendre-audit-conformite-h3-structuration-entreprise', 'icon' => 'layers'],
+                ['label' => 'Audit & diagnostic', 'href' => '/audit-conformite/audit-conseil/audit-organisationnel', 'icon' => 'search'],
+                ['label' => 'Conformité & sécurité', 'href' => '/audit-conformite/conformite-rgpd', 'icon' => 'shield'],
+                ['label' => 'Normes & certifications', 'href' => '/audit-conformite/certifications-iso', 'icon' => 'award'],
+                ['label' => 'Structuration & gouvernance', 'href' => '/audit-conformite/audit-conseil/structuration-gouvernance', 'icon' => 'layers'],
                 ['label' => 'Outils & digitalisation', 'href' => '/wiki/flux-et-donnees', 'icon' => 'gear'],
                 ['label' => 'Cas pratiques', 'href' => '/blog?pole=0', 'icon' => 'file'],
                 ['label' => 'Guides méthodologiques', 'href' => '/wiki', 'icon' => 'book'],
@@ -205,28 +205,28 @@ return [
                 [
                     'title'   => 'Comprendre la conformité',
                     'text'    => 'Cadre RGPD, ISO et audit : enjeux, livrables et ordre des priorités pour la direction.',
-                    'href'    => '#comprendre-audit-conformite-h3-audit-rgpd',
+                    'href'    => '/audit-conformite/conformite-rgpd',
                     'icon'    => 'shield',
                     'accent'  => 'green',
                 ],
                 [
                     'title'   => 'Diagnostiquer sans perdre de temps',
                     'text'    => 'Méthode d’audit organisationnel : constats exploitables et plan d’action priorisé.',
-                    'href'    => '#comprendre-audit-conformite-h3-audit-organisationnel',
+                    'href'    => '/audit-conformite/audit-conseil/audit-organisationnel',
                     'icon'    => 'search',
                     'accent'  => 'blue',
                 ],
                 [
                     'title'   => 'Préparer une certification',
                     'text'    => 'ISO 9001, 27001 : préparation réaliste, preuves utiles et conduite du changement.',
-                    'href'    => '#comprendre-audit-conformite-h3-certification-iso',
+                    'href'    => '/audit-conformite/certifications-iso',
                     'icon'    => 'award',
                     'accent'  => 'blue',
                 ],
                 [
                     'title'   => 'Structurer pour durer',
                     'text'    => 'Rôles, processus et pilotage : les bases avant outillage et conformité « décorrélée ».',
-                    'href'    => '#comprendre-audit-conformite-h3-structuration-entreprise',
+                    'href'    => '/audit-conformite/audit-conseil/structuration-gouvernance',
                     'icon'    => 'layers',
                     'accent'  => 'green',
                 ],
@@ -475,7 +475,6 @@ return [
             'microcopy'         => 'Sans engagement • 2 minutes',
             'primary_label'     => 'Faire un diagnostic gratuit',
             'secondary_label'   => 'Être rappelé par un expert',
-            'secondary_href'    => '/contact',
             'features'          => [
                 ['icon' => 'search', 'title' => 'Vision claire', 'text' => 'Priorités et risques mis à plat avant d\'investir.'],
                 ['icon' => 'clock', 'title' => 'Gain de temps', 'text' => 'Moins de ressaisies et de dossiers « pour la forme ».'],
