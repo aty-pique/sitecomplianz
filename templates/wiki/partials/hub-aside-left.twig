@@ -1,0 +1,41 @@
+{# Navigation hub wiki — ancres vers sections du centre #}
+<nav class="wiki-hub-side-nav" aria-label="Plan du wiki">
+    <a href="/wiki" class="wiki-hub-side-nav__home is-active" aria-current="page">
+        <span class="wiki-hub-side-nav__ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'home', size: 18 } %}</span>
+        Accueil
+    </a>
+
+    <p class="wiki-hub-side-nav__jump-label">Aller à une section</p>
+    {% if wiki_search %}
+        <p class="wiki-hub-side-nav__search-note">Recherche active — <a href="/wiki">afficher tout le hub</a> pour les blocs accès rapides et découverte.</p>
+    {% else %}
+        <ul class="wiki-hub-side-nav__jumps">
+            <li><a href="/wiki#wiki-hub-acces-rapides">Accès rapides</a></li>
+            <li><a href="/wiki#wiki-hub-categories-principales">Catégories principales</a></li>
+            <li><a href="/wiki#wiki-hub-decouverte">Par où commencer &amp; à la une</a></li>
+            <li><a href="/wiki#wiki-hub-toutes-pages">Toutes les pages</a></li>
+            <li><a href="/wiki#wiki-hub-liens-pratiques">Liens utiles (colonne droite)</a></li>
+        </ul>
+    {% endif %}
+
+    {% for group in wiki_config.nav %}
+        {% set ico = group.icon == 'code' ? 'gear' : (group.icon == 'help' ? 'book' : group.icon) %}
+        <div class="wiki-hub-side-nav__group">
+            <p class="wiki-hub-side-nav__group-title">
+                <span class="wiki-hub-side-nav__ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: ico, size: 16 } %}</span>
+                {{ group.label }}
+            </p>
+            <ul class="wiki-hub-side-nav__list">
+                {% for p in group.pages %}
+                    <li><a href="/wiki/{{ p.slug }}">{{ p.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</nav>
+
+<div class="wiki-hub-side-card">
+    <p class="wiki-hub-side-card__title">Besoin d’aide ?</p>
+    <p class="wiki-hub-side-card__text">Une question sur l’intégration ou la méthode : passez par le contact ou la FAQ.</p>
+    <a href="/contact" class="wiki-hub-side-card__btn">Contacter le support</a>
+</div>

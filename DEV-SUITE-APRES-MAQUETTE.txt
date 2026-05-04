@@ -1,0 +1,387 @@
+================================================================================
+  COMPLIANZ — SUITE DE DÉVELOPPEMENT APRÈS LA MAQUETTE LOCALE
+  (Ce que la maquette ne fait pas / ne peut pas faire — à prendre en charge côté dev / prod)
+================================================================================
+
+Document à destination des développeurs et de l’infra. La maquette sert au
+design, aux parcours et aux contenus statiques ; les points ci-dessous
+nécessitent un environnement réel, des secrets, des intégrations tierces ou
+une persistance sécurisée.
+
+--------------------------------------------------------------------------------
+1. AUTHENTIFICATION & COMPTES UTILISATEURS
+--------------------------------------------------------------------------------
+
+  • Page /connexion (templates/pages/connexion.twig) : aujourd’hui maquette
+    uniquement — formulaires sans backend, preventDefault côté navigateur.
+
+  À faire :
+  - Modèle utilisateur (base de données ou annuaire d’entreprise).
+  - Inscription / validation e-mail / vérification anti-bot (CAPTCHA).
+  - Connexion sécurisée (sessions PHP, cookies HttpOnly / Secure, rotation).
+  - Hachage des mots de passe (ex. password_hash PASSWORD_DEFAULT), politique
+    de complexité et rate limiting sur les tentatives.
+  - « Mot de passe oublié » : génération de jeton à usage unique, e-mail de
+    réinitialisation, expiration, journalisation.
+  - Option SSO / OIDC (Azure AD, Google Workspace, etc.) si besoin métier.
+  - Protection CSRF sur tous les POST d’auth.
+  - Pages légales : CGU espace client, traitement des données, droit à
+    l’effacement.
+
+--------------------------------------------------------------------------------
+2. ESPACE CLIENT / DASHBOARD / BACK-OFFICE
+--------------------------------------------------------------------------------
+
+  • La maquette expose une admin minimale des pré-devis (JSON) :
+    routes /admin/devis — à durcir et isoler en production.
+
+  À faire :
+  - Authentification forte pour tout accès admin / back-office.
+  - Tableau de bord client (projets, documents, messages, factures) si prévu.
+  - Rôles et permissions (admin, commercial, client).
+  - Audit log (qui a vu / modifié quoi).
+
+--------------------------------------------------------------------------------
+3. FORMULAIRE DE CONTACT — RÉCEPTION DES MESSAGES
+--------------------------------------------------------------------------------
+
+  • Contrôleur : src/Controllers/ContactController.php — méthode message().
+  • Stockage actuel : append dans storage/contact_messages.jsonl (preuve de
+    concept uniquement — pas d’e-mail, pas de CRM).
+
+  À faire :
+  - Envoi d’e-mail transactionnel (SMTP, SendGrid, Brevo, etc.) vers la boîte
+    équipe + accusé réception optionnel vers le visiteur.
+  - Ou webhook vers CRM (HubSpot, Pipedrive, Salesforce) / outil interne.
+  - Validation serveur stricte, sanitization, anti-spam (honeypot, CAPTCHA).
+  - File d’attente + retry si le provider mail est indisponible.
+  - Ne pas versionner de données personnelles : .gitignore sur storage/ en prod
+    ou stockage direct en base chiffrée selon politique RGPD.
+
+--------------------------------------------------------------------------------
+3 bis. NEWSLETTERS (HUB, BLOG, WIKI) — CAPTURE DES LEADS & EXPLOITATION
+--------------------------------------------------------------------------------
+
+  • Comportement actuel de la maquette (redirection « contournement » vers le
+    contact, pas d’inscription liste réelle) :
+    - Blog : templates/pages/blog-index.twig (bloc .blog-newsletter, bouton
+      #blog-nl-submit) — public/assets/js/blog.js : clic → redirection vers
+      /contact?prefill_email=…
+    - Hub : templates/pages/hub.twig (section #lab-newsletter, #lab-nl-btn /
+      #lab-nl-email), textes dans config/hub.php (clé newsletter) —
+      public/assets/js/hub-lab.js : même redirection /contact + prefill e-mail.
+    - Wiki : pas de bloc newsletter dédié dans les templates wiki à ce jour ;
+      si vous en ajoutez un (hub doc, pied de page wiki), brancher le même
+      principe ou un flux direct (voir ci-dessous).
+
+  À faire — connecter à un espace de collecte et d’usage des leads :
+  - Choisir la brique « source de vérité » : outil e-mailing (Brevo, Mailchimp,
+    HubSpot lists, etc.), CRM avec module newsletter, ou API interne + base
+    (table inscrits avec source, date, double opt-in).
+  - Endpoint dédié (ex. POST /api/subscribe ou webhook signé) : validation e-mail,
+    anti-bot, consentement RGPD explicite (case + lien politique), enregistrement
+    de la provenance (blog | hub | wiki | lab-…) pour segmentation et reporting.
+  - Double opt-in si obligation légale ou politique interne ; messages de
+    confirmation et désinscription conformes.
+  - Exploitation métier : listes / segments (ex. intéressés lab vs blog), déclenchement
+    de séquences, attribution aux commerciaux, mesure des taux d’ouverture / clic
+    (hors maquette).
+  - Remplacer ou compléter la redirection vers /contact : soit formulaire en AJAX
+    vers l’API avec message de succès inline, soit redirection vers une page
+    « Merci » avec tracking ; garder un repli propre en cas d’erreur API.
+  - Harmoniser les trois surfaces (même wording légal, même logique technique)
+    pour éviter les incohérences de traitement des données.
+
+--------------------------------------------------------------------------------
+4. PRÉ-DEVIS / DEMANDE DE DEVIS (WIZARD MODAL)
+--------------------------------------------------------------------------------
+
+  • Routes : POST /contact/quote, POST /contact/quote/estimate (JSON étape 6).
+  • Contrôleur : ContactController::quote() — écrit un fichier JSON sous
+    storage/quote_submissions/ incluant estimation (QuotePricingEstimator).
+
+  À faire :
+  - Notification e-mail / Slack / Teams à chaque nouveau dossier.
+  - Intégration CRM : création de lead / opportunité avec pièces jointes métier.
+  - RGPD : base légale, durée de conservation, export / suppression.
+  - Signature électronique ou double validation si le montant engage.
+
+--------------------------------------------------------------------------------
+5. ESTIMATIONS PRÉ-DEVIS → LOGICIEL DE FACTURATION / COMPTA
+--------------------------------------------------------------------------------
+
+  • Le moteur d’estimation est local : src/Services/QuotePricingEstimator.php
+    (règles métier simplifiées pour la démo).
+
+  À faire :
+  - Définir le flux métier : quand créer un devis / une facture (après
+    validation commerciale ? après acompte ?).
+  - Connecteur vers l’outil cible (ex. Pennylane, QuickBooks, Facture.net,
+    API interne) : création de client, lignes de devis, TVA, mentions légales.
+  - Idempotence : éviter les doublons si l’utilisateur renvoie le formulaire.
+  - Traçabilité : ID externe stocké en base lié au submission_id interne.
+
+--------------------------------------------------------------------------------
+6. PRISE DE RENDEZ-VOUS — CRÉNEAUX RÉELS & AGENDAS
+--------------------------------------------------------------------------------
+
+  • Modales et UI : templates/partials/rdv-modal.twig, logique calendrier /
+    créneaux simulés dans public/assets/js/quote-modal.js (calendrier du wizard
+    pré-devis, etc.).
+  • La page contact propose aussi une prise de RDV « indicatif » : à brancher
+    sur la réalité des disponibilités.
+
+  À faire :
+  - Source de vérité des disponibilités : Google Calendar, Microsoft 365,
+    Calendly, Cal.com, ou agenda interne exposé en API.
+  - Gestion fuseaux horaires, jours fériés, buffers entre RDV.
+  - Confirmation + invitation ICS / liens visio (Meet, Teams).
+  - Annulation / modification avec jetons sécurisés dans l’e-mail.
+  - Synchronisation bidirectionnelle si plusieurs conseillers.
+
+--------------------------------------------------------------------------------
+7. BOT IA — BARRE DE RECHERCHE HERO (PAGE D’ACCUEIL)
+--------------------------------------------------------------------------------
+
+  • Emplacement maquette : templates/pages/home.twig — bloc <section class="hero-search">
+    avec formulaire .search-form (champ #home-search-q), suggestions statiques
+    sous .search-suggestions. Le formulaire pointe aujourd’hui vers action="#"
+    : aucun appel modèle, pas de réponse conversationnelle.
+
+  À faire :
+  - Définir le comportement produit : assistant conversationnel (chat sous la
+    barre), redirection vers pages services avec scores, ou mix (réponse courte
+    + liens « voir aussi »).
+  - API côté serveur (ou BFF) appelant un LLM : gestion des clés (OpenAI,
+    Azure OpenAI, Anthropic, modèle self-hosté, etc.) — jamais exposer la clé au
+    navigateur ; appels depuis le backend uniquement.
+  - Contexte métier (RAG) : indexer pages du site, fiches services, FAQ, wiki
+    pour des réponses ancrées sur vos contenus ; politique de citation des sources.
+  - Streaming des tokens (SSE ou WebSocket) pour l’UX ; timeouts et messages d’erreur.
+  - Limitation de débit par IP / session, quotas, protection contre abus et
+    injections de prompt ; journalisation des requêtes (sans données sensibles
+    en clair si RGPD).
+  - Consentement / mentions : l’utilisateur sait qu’il interagit avec une IA ;
+    durée de rétention des conversations ; droit d’effacement.
+  - Accessibilité : focus clavier, annonce lecteur d’écran pour les réponses,
+    alternative si l’API est indisponible (recherche classique ou message).
+  - Brancher le submit / l’input sur la route réelle (ex. POST /api/hero-assistant
+    ou GET avec query encodée) et retirer le # en production.
+
+--------------------------------------------------------------------------------
+7 bis. ACCUEIL — SECTION « CHAOS → SYSTÈME » (SCROLL / STICKY / HIJACKING LÉGER)
+--------------------------------------------------------------------------------
+
+  • Bloc concerné : page d’accueil, section #differentiation — classes .home-cs,
+    .home-cs__track (data-home-cs), .home-cs__sticky. Données texte : config/home.php
+    (clé positioning.scroll_story). Styles : public/assets/css/main.css (bloc
+    « Différenciation — narration scroll »). Script scroll / progression 0→1 :
+    public/assets/js/home-chaos-system.js. Le site expose déjà --site-sticky-top
+    sur <html> selon la hauteur réelle du .site-header (public/assets/js/main.js).
+
+  Problèmes à corriger côté dev / intégration (retours maquette locale) :
+  - Le sticky s’épingle avec top: var(--home-cs-sticky-top) où --home-cs-sticky-top
+    est encore un clamp fixe (ex. 92px–188px) : si le header réel (topbar + nav +
+    méga-menu) est plus haut, la carte .home-cs__card passe sous le header au scroll.
+    → Aligner la valeur sur la hauteur mesurée : par ex. utiliser var(--site-sticky-top)
+    (avec repli + unité sûre) ou recalcul JS dédié au montage / resize.
+  - « Épingler la section avant le début du bloc » : ajuster le point zéro de la
+    timeline scroll (getScrollProgress dans home-chaos-system.js : rect du
+    .home-cs__track) pour que l’animation démarre quand le haut du bloc est déjà
+    sous le header, pas quand il est encore rogné — éventuellement padding-top /
+    scroll-margin sur .home-cs ou offset dans le calcul (scrolled = -rect.top ± offset).
+  - Marge ou vide excessif après la section : revoir .home-cs (padding-top),
+    hauteur .home-cs__track (--home-cs-track, min-height), et l’enchaînement avec
+    .home-below / .home-approach-strip pour supprimer le trou visuel si besoin
+    (marges cumulées, padding du premier bloc suivant).
+  - Vérifier prefers-reduced-motion : classe .home-cs--reduced doit rester un
+    parcours lisible sans animation longue.
+  - Après correction : tests multi-viewports + header méga-menu ouvert/fermé,
+    et ancres type /#differentiation.
+
+--------------------------------------------------------------------------------
+8. RECHERCHE GLOBALE (HEADER) — PAGE DE RÉSULTATS
+--------------------------------------------------------------------------------
+
+  • Maquette : templates/partials/header.twig — formulaire .header-search__form
+    en GET vers action="/recherche", paramètre de requête name="q" (champ
+    #header-search-input). À ce jour la route GET /recherche n’est pas déclarée
+    dans config/routes.php : prévoir une implémentation complète côté app.
+
+  À faire — page de résultats de recherche :
+  - Ajouter la route (ex. GET /recherche) + contrôleur qui lit q (trim, longueur
+    max, sanitization), exécute la recherche et rend un template dédié
+    (ex. templates/pages/recherche.twig ou pages/search-results.twig).
+  - UI résultats : titre de page du type « Résultats pour « … » », liste groupée
+    (pages services, articles blog, fiches wiki, pages fixes), extrait ou surlignage
+    des occurrences, lien « voir la page », état vide (« aucun résultat ») avec
+    suggestions ou lien contact.
+  - Pagination ou « charger plus » si volumétrie importante ; conserver q dans
+    l’URL pour partage et retour arrière.
+  - Source des données : index full-text (Elasticsearch, Meilisearch, Algolia),
+    ou recherche SQL / scan contrôlé des contenus exportés depuis routes_csv /
+    config — à trancher selon perf et hébergement.
+  - Perf & robustesse : timeout, cache court sur requêtes fréquentes, rate
+    limiting anti-abus sur /recherche.
+  - Accessibilité : annonce du nombre de résultats (live region), focus management
+    après navigation depuis le header.
+  - Cohérence : même paramètre q si d’autres points du site redirigent vers la
+    recherche globale (éviter plusieurs conventions d’URL).
+
+--------------------------------------------------------------------------------
+9. WIKI & CONTENUS
+--------------------------------------------------------------------------------
+
+  • Wiki servi depuis config/wiki.php + templates — idéal pour la maquette ;
+    en production : CMS headless, Git-based docs, ou base éditoriale avec
+    workflow de publication.
+
+  Fichiers utiles aujourd’hui : config/wiki.php (nav, hub_categories, pages,
+    hub_quick_access, hub_changelog, etc.), templates/pages/wiki/index.twig,
+    templates/pages/wiki/doc.twig, templates/wiki/bodies/*.twig,
+    templates/wiki/partials/, public/assets/css/wiki.css, public/assets/js/wiki.js.
+
+  À faire — documentation à produire (pilotage) :
+  - Établir une liste / backlog des documentations à rédiger ou à mettre à jour
+    (tableau : titre, slug, public cible, pôle / thème, priorité, statut brouillon /
+    relecture / publié, responsable, date cible). Synchroniser avec les trous
+    constatés sur les landings pôles (liens wiki) et avec le hub /wiki.
+  - Définir les gabarits de page (intro, TOC, CTAs, related) et un guide de style
+    rédactionnel (ton, longueur, exemples de code, captures).
+  - Prévoir la traduction ou la version multilingue si besoin (URLs, hreflang).
+
+  À faire — production du contenu wiki :
+  - Soit continuer à alimenter config/wiki.php + corps Twig (rapide pour une
+    petite équipe technique) ;
+  - Soit migrer vers un outil éditorial (Notion export, MDX, CMS) avec pipeline
+    de publication et prévisualisation hors prod.
+  - Rédiger ou compléter les pages manquantes référencées par la maquette
+    (exemples : sujets avancés API, méthodologie, runbooks) et tenir à jour
+    hub_changelog / dates « updated » dans les métadonnées des pages.
+  - Relier les ancres du hub (/wiki#…) aux futures sections une fois le contenu
+    stabilisé ; vérifier les liens depuis config/poles_landing.php et les guides.
+
+--------------------------------------------------------------------------------
+9 bis. HUB D’INNOVATION (/hub) — PROJETS À METTRE EN AVANT & LES DÉTAILLER
+--------------------------------------------------------------------------------
+
+  • Page : route /hub → PageController + templates/pages/hub.twig. Données
+    structurées : config/hub.php (hero, stats, blocs ongoing / beta / ideas,
+    participate, etc.). Fiches lab associées : GET /lab/:slug (LabProjectController),
+    templates/pages/lab-project.twig — contenus dans config/lab_projects.php
+    (une entrée par slug).
+
+  À faire — cadrage & contenu produit :
+  - Dresser la liste officielle des projets à mettre en avant (priorité, statut
+    réel : idée / POC / bêta / en cours, visibilité publique ou non). Aligner
+    avec la roadmap interne et le discours commercial.
+  - Pour chaque carte (ongoing, beta, ideas) : rédiger titres, descriptions,
+    tags, métriques affichées, CTA (href, cta_href, feedback_href) ; remplacer les
+    textes génériques « détail à venir » par des pitchs stables.
+  - Décider quand retirer coming_soon et ouvrir les liens vers les vraies pages
+    lab ou sites externes ; harmoniser avec public/assets/js/hub-lab.js (modale
+    « Bientôt disponible » si applicable).
+
+  À faire — pages lab & technique :
+  - Compléter le contenu de chaque fiche /lab/{slug} (sections, captures,
+    limitations connues, canal feedback).
+  - Si « intérêt » / votes sur les idées : persistance (base, analytics) au lieu
+    du seul compteur statique de la maquette.
+  - Champ de recherche du hero hub (placeholder dans hub.php) : brancher sur une
+    recherche filtrée dans les projets ou sur la recherche globale (cf. section 8).
+  - Mettre à jour les compteurs hero.stats pour refléter la réalité ou les retirer
+    s’ils ne sont pas tenus à jour automatiquement.
+
+--------------------------------------------------------------------------------
+10. APPLICATION MOBILE & BOUTON « TÉLÉCHARGER L’APP »
+--------------------------------------------------------------------------------
+
+  • Liens maquette vers /telecharger : templates/partials/header.twig (topbar,
+    bouton « Télécharger l’app ») et templates/partials/footer.twig. Route
+    statique : config/routes.php → /telecharger (titre « Télécharger l’app ») ;
+    pas de template dédié pages/telecharger.twig dans le dépôt — page générique
+    ou vide selon config SEO.
+
+  À faire — côté produit / mobile (hors maquette web seule) :
+  - Choisir la stack : app native (Swift/Kotlin), React Native / Flutter, ou
+    PWA avancée selon besoins (notifications push, offline, accès capteurs).
+  - Parcours utilisateur : authentification (cf. section 1), espace client,
+    suivi dossiers / messages, cohérence avec le site.
+  - API backend sécurisée (REST ou GraphQL) : même source de vérité que le web
+    ou services dédiés ; tokens OAuth2 / refresh, certificat pinning si pertinent.
+  - Stores : comptes Apple Developer & Google Play, fiches App Store / Play
+    Console, captures, politique de confidentialité mobile, classification âge.
+  - Builds CI (signatures, versions), beta TestFlight / Play Internal testing.
+  - Deep links / Universal Links / App Links : ouvrir l’app depuis un e-mail ou
+    le site (ex. complianz:// ou https://…).
+
+  À faire — côté site web (relier le bouton à la réalité) :
+  - Créer une page dédiée templates/pages/telecharger.twig (ou équivalent) avec
+    QR codes, badges App Store / Google Play, version minimale OS, changelog court.
+  - Remplacer les href statiques si besoin par les URLs finales des stores ou
+    une smart banner (détection iOS / Android / desktop).
+  - Tracking : événements analytics au clic sur « Télécharger l’app » (UTM,
+    Matomo, GA4, etc.).
+  - Fallback : si l’app n’est pas encore publiée, page « Bientôt » + liste
+    d’attente ou lien vers une beta privée.
+
+--------------------------------------------------------------------------------
+11. SÉCURITÉ, CONFIGURATION & DÉPLOIEMENT
+--------------------------------------------------------------------------------
+
+  • Variables d’environnement (.env) : ne jamais committer secrets / clés API.
+  • HTTPS obligatoire, en-têtes sécurité (CSP, HSTS, X-Frame-Options).
+  • Sauvegardes, monitoring, logs centralisés (Sentry, etc.).
+  • CI/CD : tests automatisés avant mise en prod.
+
+--------------------------------------------------------------------------------
+12. RÉCAP DES CHEMINS / FICHIERS UTILES DANS CE DÉPÔT
+--------------------------------------------------------------------------------
+
+  Authentification (UI seule)     templates/pages/connexion.twig
+                                   public/assets/css/auth-page.css
+
+  Hero accueil + recherche (UI)  templates/pages/home.twig
+                                   (section .hero-search — branchement BOT IA à prévoir)
+                                   + section #differentiation (.home-cs — scroll/sticky)
+                                   public/assets/js/home-chaos-system.js
+                                   public/assets/css/main.css (.home-cs …)
+
+  Header (recherche → /recherche)  templates/partials/header.twig (GET ?q=)
+                                   route + page résultats /recherche à créer (config/routes.php)
+
+  Bouton « Télécharger l’app »    templates/partials/header.twig
+                                   templates/partials/footer.twig
+                                   route /telecharger → config/routes.php (page à compléter + stores)
+
+  Newsletters (hub / blog → contact)  templates/pages/hub.twig (#lab-newsletter)
+                                   templates/pages/blog-index.twig (.blog-newsletter)
+                                   public/assets/js/hub-lab.js, public/assets/js/blog.js
+                                   (à remplacer par API / outil mailing — cf. § 3 bis)
+
+  Contact & devis                  src/Controllers/ContactController.php
+  Stockage messages                storage/contact_messages.jsonl
+  Stockage pré-devis               storage/quote_submissions/*.json
+  Estimation tarifaire             src/Services/QuotePricingEstimator.php
+
+  Admin pré-devis (liste JSON)     src/Controllers/AdminQuoteController.php
+
+  Modale devis / calendrier RDV    public/assets/js/quote-modal.js
+                                   templates/partials/quote-modal.twig
+                                   templates/partials/rdv-modal.twig
+
+  Wiki (config + corps + assets)   config/wiki.php
+                                   templates/pages/wiki/, templates/wiki/
+                                   public/assets/css/wiki.css, public/assets/js/wiki.js
+
+  Hub d’innovation (/hub)         config/hub.php
+                                   templates/pages/hub.twig
+                                   Fiches lab /lab/:slug          config/lab_projects.php
+                                   templates/pages/lab-project.twig, public/assets/js/hub-lab.js
+
+================================================================================
+  Fin du document — à compléter au fil des choix d’outils (CRM, facturation,
+  calendrier, hébergeur mail, LLM / RAG pour le bot hero, app mobile & stores,
+  correctif scroll section chaos→système sur l’accueil, backlog & rédaction wiki,
+  page résultats GET /recherche pour la barre du header,   détail des projets hub /hub, branchement newsletters hub/blog/wiki vers CRM ou outil mailing).
+================================================================================

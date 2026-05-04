@@ -85,6 +85,35 @@ return [
         ],
     ],
 
+    'hub_quick_access' => [
+        ['slug' => 'introduction', 'accent' => 'blue'],
+        ['slug' => 'parcours-par-profil', 'accent' => 'green'],
+        ['slug' => 'vue-d-ensemble', 'accent' => 'violet'],
+        ['slug' => 'conventions-api', 'accent' => 'amber'],
+        ['slug' => 'faq', 'accent' => 'teal'],
+    ],
+
+    'hub_popular_slugs' => ['introduction', 'flux-et-donnees', 'conventions-api', 'faq'],
+
+    'hub_getting_started' => [
+        ['slug' => 'introduction', 'text' => 'Lire l’introduction : périmètre, navigation et principes du wiki.'],
+        ['slug' => 'parcours-par-profil', 'text' => 'Choisir un parcours selon votre rôle (dev, métier, partenaire).'],
+        ['slug' => 'vue-d-ensemble', 'text' => 'S’orienter dans l’architecture avant d’approfondir flux et API.'],
+    ],
+
+    'hub_useful_links' => [
+        ['label' => 'Hub d’innovation', 'href' => '/hub', 'icon' => 'layers', 'external' => false],
+        ['label' => 'Espace projets & contact', 'href' => '/contact', 'icon' => 'file', 'external' => false],
+        ['label' => 'Blog & actualités', 'href' => '/blog', 'icon' => 'book', 'external' => false],
+        ['label' => 'Demander un devis', 'href' => '/contact', 'icon' => 'chart', 'external' => false],
+    ],
+
+    'hub_changelog' => [
+        ['slug' => 'introduction', 'note' => 'Mise à jour du sommaire et des objectifs pédagogiques.', 'date' => '2026-05-02'],
+        ['slug' => 'conventions-api', 'note' => 'Précisions sur les codes d’erreur et l’idempotence.', 'date' => '2026-05-02'],
+        ['slug' => 'faq', 'note' => 'Nouveaux symptômes fréquents et pistes de dépannage.', 'date' => '2026-05-02'],
+    ],
+
     'pages' => [
         'introduction' => [
             'nav_section' => 'demarrer',

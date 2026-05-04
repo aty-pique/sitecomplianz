@@ -18,7 +18,7 @@
                 <span class="wiki-hub-hero__dot" aria-hidden="true"></span>
                 Documentation · architecture · intégration
             </p>
-            <h1 id="wiki-hub-title" class="wiki-hub-hero__title">Le wiki Complianz — clair, navigable, évolutif</h1>
+            <h1 id="wiki-hub-title" class="wiki-hub-hero__title">Bienvenue dans la documentation Complianz System</h1>
             <p class="wiki-hub-hero__lead">
                 Une base unique pour comprendre le produit, brancher vos systèmes et débloquer les cas limites.
                 Pensée <strong>accessibilité</strong>, <strong>recherche</strong> et <strong>profils multiples</strong> (dev, métier, partenaire).
@@ -26,7 +26,8 @@
 
             <form class="wiki-hub-search" action="/wiki" method="get" role="search" aria-label="Rechercher dans le wiki">
                 <label class="visually-hidden" for="wiki-hub-q">Recherche</label>
-                <input type="search" id="wiki-hub-q" name="q" value="{{ wiki_search|e('html_attr') }}" placeholder="Ex. API, flux, authentification…" autocomplete="off">
+                <span class="wiki-hub-search__icon" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'search', size: 20 } %}</span>
+                <input type="search" id="wiki-hub-q" name="q" value="{{ wiki_search|e('html_attr') }}" placeholder="Rechercher un sujet, une méthodologie, un module…" autocomplete="off">
                 <button type="submit" class="wiki-hub-search__btn">Rechercher</button>
             </form>
 
@@ -46,44 +47,162 @@
         </div>
     </header>
 
-    <main id="wiki-hub-main" class="wiki-hub-main container">
-        {% if wiki_search %}
-            <p class="wiki-hub-results-hint" role="status">Résultats pour « <strong>{{ wiki_search|e }}</strong> » — cartes filtrées ci-dessous.</p>
-        {% endif %}
+    <div class="wiki-hub-board">
+        <div class="wiki-hub-board__shell">
+            <div class="wiki-hub-board__grid">
+            <aside class="wiki-hub-board__col wiki-hub-board__col--left" aria-label="Navigation documentation">
+                {% include 'wiki/partials/hub-aside-left.twig' %}
+            </aside>
 
-        <section class="wiki-hub-section" aria-labelledby="wiki-hub-cat-title">
-            <h2 id="wiki-hub-cat-title" class="wiki-hub-section__title">Ressources par grande catégorie</h2>
-            <p class="wiki-hub-section__intro">Chaque bloc regroupe des pages liées : commencez par celui qui correspond à votre intention.</p>
+            <div class="wiki-hub-board__col wiki-hub-board__col--main-stack">
+            <main id="wiki-hub-main" class="wiki-hub-board__main">
+                {% if wiki_search %}
+                    <p class="wiki-hub-results-hint wiki-hub-anchor" id="wiki-hub-resultats" role="status">Résultats pour « <strong>{{ wiki_search|e }}</strong> » — cartes filtrées ci-dessous.</p>
+                {% endif %}
 
-            <div class="wiki-hub-grid" id="wiki-hub-cards" data-wiki-cards>
-                {% for cat in wiki_cards %}
-                    <article class="wiki-hub-card wiki-hub-card--{{ cat.accent|default('blue') }}" data-wiki-card>
-                        <h3 class="wiki-hub-card__title">{{ cat.title }}</h3>
-                        <p class="wiki-hub-card__desc">{{ cat.description }}</p>
-                        <ul class="wiki-hub-card__links">
-                            {% for link in cat.links %}
-                                <li><a href="/wiki/{{ link.slug }}">{{ link.label }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </article>
+                {% if not wiki_search %}
+                <section id="wiki-hub-acces-rapides" class="wiki-hub-anchor wiki-hub-panel" aria-labelledby="wiki-hub-quick-title">
+                    <div class="wiki-hub-panel__head">
+                        <h2 id="wiki-hub-quick-title" class="wiki-hub-panel__title">Accès rapides</h2>
+                        <p class="wiki-hub-panel__lead">Les entrées les plus utiles pour démarrer ou creuser un sujet.</p>
+                    </div>
+                    <div class="wiki-hub-qgrid">
+                        {% for q in wiki_hub_quick %}
+                            <article class="wiki-hub-qcard wiki-hub-qcard--{{ q.accent|e('html_attr') }}">
+                                <div class="wiki-hub-qcard__icon-wrap" aria-hidden="true">
+                                    {% include 'partials/pole-guide-icon.twig' with { name: 'file', size: 22 } %}
+                                </div>
+                                <h3 class="wiki-hub-qcard__title"><a href="/wiki/{{ q.slug }}">{{ q.label }}</a></h3>
+                                <p class="wiki-hub-qcard__desc">{{ q.description }}</p>
+                                <a href="/wiki/{{ q.slug }}" class="wiki-hub-qcard__cta">Découvrir <span aria-hidden="true">→</span></a>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section id="wiki-hub-categories-principales" class="wiki-hub-anchor wiki-hub-panel" aria-labelledby="wiki-hub-mcat-title">
+                    <div class="wiki-hub-panel__head">
+                        <h2 id="wiki-hub-mcat-title" class="wiki-hub-panel__title">Catégories principales</h2>
+                        <p class="wiki-hub-panel__lead">Chaque bloc regroupe des pages liées : choisissez celui qui correspond à votre intention.</p>
+                    </div>
+                    <div class="wiki-hub-mgrid">
+                        {% for cat in wiki_cards %}
+                            <article class="wiki-hub-mcat wiki-hub-mcat--{{ cat.accent|default('blue') }}">
+                                <div class="wiki-hub-mcat__icon-wrap" aria-hidden="true">
+                                    {% include 'partials/pole-guide-icon.twig' with { name: 'layers', size: 24 } %}
+                                </div>
+                                <h3 class="wiki-hub-mcat__title">{{ cat.title }}</h3>
+                                <p class="wiki-hub-mcat__desc">{{ cat.description }}</p>
+                                <p class="wiki-hub-mcat__count">{{ cat.links|length }} page{{ cat.links|length > 1 ? 's' : '' }}</p>
+                                <ul class="wiki-hub-mcat__links">
+                                    {% for link in cat.links|slice(0, 3) %}
+                                        <li><a href="/wiki/{{ link.slug }}">{{ link.label }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                {% if cat.links|length > 3 %}
+                                    <a href="/wiki#wiki-hub-toutes-pages" class="wiki-hub-mcat__more">Voir la liste complète <span aria-hidden="true">→</span></a>
+                                {% endif %}
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section id="wiki-hub-decouverte" class="wiki-hub-anchor wiki-hub-panel wiki-hub-panel--flush" aria-labelledby="wiki-hub-start-title">
+                    <div class="wiki-hub-triple">
+                        <div class="wiki-hub-triple__col">
+                            <h2 id="wiki-hub-start-title" class="wiki-hub-triple__title">Par où commencer ?</h2>
+                            <ol class="wiki-hub-steps">
+                                {% for st in wiki_hub_started %}
+                                    <li class="wiki-hub-steps__item">
+                                        <span class="wiki-hub-steps__num">{{ st.n }}</span>
+                                        <div class="wiki-hub-steps__body">
+                                            <a href="/wiki/{{ st.slug }}" class="wiki-hub-steps__link">{{ st.label }}</a>
+                                            <p class="wiki-hub-steps__text">{{ st.text }}</p>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                            <a href="/wiki/introduction" class="wiki-hub-triple__foot">Voir le guide de démarrage <span aria-hidden="true">→</span></a>
+                        </div>
+                        <div class="wiki-hub-triple__col">
+                            <h2 class="wiki-hub-triple__title">Articles populaires</h2>
+                            <ul class="wiki-hub-article-list">
+                                {% for pop in wiki_hub_popular %}
+                                    <li>
+                                        <a href="/wiki/{{ pop.slug }}" class="wiki-hub-article-list__row">
+                                            <span class="wiki-hub-article-list__ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'file', size: 18 } %}</span>
+                                            <span class="wiki-hub-article-list__label">{{ pop.label }}</span>
+                                            <span class="wiki-hub-tagpill {{ pop.tag_class }}">{{ pop.tag }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/wiki#wiki-hub-toutes-pages" class="wiki-hub-triple__foot">Voir tous les articles <span aria-hidden="true">→</span></a>
+                        </div>
+                        <div class="wiki-hub-triple__col">
+                            <h2 class="wiki-hub-triple__title">Derniers articles</h2>
+                            <ul class="wiki-hub-article-list">
+                                {% for rec in wiki_hub_recent %}
+                                    <li>
+                                        <a href="/wiki/{{ rec.slug }}" class="wiki-hub-article-list__row">
+                                            <span class="wiki-hub-article-list__ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: 'clock', size: 18 } %}</span>
+                                            <span class="wiki-hub-article-list__label">{{ rec.label }}</span>
+                                            {% if rec.updated %}
+                                                <time class="wiki-hub-article-list__meta" datetime="{{ rec.updated|e('html_attr') }}">{{ rec.updated }}</time>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/wiki#wiki-hub-toutes-pages" class="wiki-hub-triple__foot">Voir tous les articles <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </section>
                 {% else %}
-                    <p class="wiki-hub-empty">Aucune catégorie ne correspond à votre recherche. <a href="/wiki">Réinitialiser</a>.</p>
-                {% endfor %}
-            </div>
-        </section>
+                <section id="wiki-hub-categories-principales" class="wiki-hub-anchor wiki-hub-panel" aria-labelledby="wiki-hub-cat-title">
+                    <div class="wiki-hub-panel__head">
+                        <h2 id="wiki-hub-cat-title" class="wiki-hub-panel__title">Résultats par catégorie</h2>
+                        <p class="wiki-hub-panel__lead">Filtre sur le titre et le contenu des cartes.</p>
+                    </div>
+                    <div class="wiki-hub-grid" id="wiki-hub-cards" data-wiki-cards>
+                        {% for cat in wiki_cards %}
+                            <article class="wiki-hub-card wiki-hub-card--{{ cat.accent|default('blue') }}" data-wiki-card>
+                                <h3 class="wiki-hub-card__title">{{ cat.title }}</h3>
+                                <p class="wiki-hub-card__desc">{{ cat.description }}</p>
+                                <ul class="wiki-hub-card__links">
+                                    {% for link in cat.links %}
+                                        <li><a href="/wiki/{{ link.slug }}">{{ link.label }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </article>
+                        {% else %}
+                            <p class="wiki-hub-empty">Aucune catégorie ne correspond à votre recherche. <a href="/wiki">Réinitialiser</a>.</p>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
 
-        <section class="wiki-hub-section wiki-hub-section--muted" aria-labelledby="wiki-hub-all-title">
-            <h2 id="wiki-hub-all-title" class="wiki-hub-section__title">Toutes les pages</h2>
-            <ul class="wiki-hub-all-list" id="wiki-hub-all-pages" data-wiki-all-pages>
-                {% for item in wiki_flat %}
-                    <li data-wiki-search-text="{{ (item.label ~ ' ' ~ item.section ~ ' ' ~ item.tags)|lower|e('html_attr') }}">
-                        <a href="/wiki/{{ item.slug }}">{{ item.label }}</a>
-                        <span class="wiki-hub-all-list__meta">{{ item.section }}</span>
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    </main>
+                <section id="wiki-hub-toutes-pages" class="wiki-hub-section wiki-hub-section--muted wiki-hub-anchor" aria-labelledby="wiki-hub-all-title">
+                    <h2 id="wiki-hub-all-title" class="wiki-hub-section__title">Toutes les pages</h2>
+                    <p class="wiki-hub-section__intro">Liste complète avec filtre sur la recherche ci-dessus.</p>
+                    <ul class="wiki-hub-all-list" id="wiki-hub-all-pages" data-wiki-all-pages>
+                        {% for item in wiki_flat %}
+                            <li data-wiki-search-text="{{ (item.label ~ ' ' ~ item.section ~ ' ' ~ item.tags)|lower|e('html_attr') }}">
+                                <a href="/wiki/{{ item.slug }}">{{ item.label }}</a>
+                                <span class="wiki-hub-all-list__meta">{{ item.section }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </main>
+
+            <div id="wiki-hub-liens-pratiques" class="wiki-hub-anchor wiki-hub-board__rail" aria-label="Ressources et aide">
+                {% include 'wiki/partials/hub-aside-right.twig' %}
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 

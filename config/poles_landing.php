@@ -198,7 +198,7 @@ return [
                 ['label' => 'Structuration & gouvernance', 'href' => '/audit-conformite/audit-conseil/structuration-gouvernance', 'icon' => 'layers'],
                 ['label' => 'Outils & digitalisation', 'href' => '/wiki/flux-et-donnees', 'icon' => 'gear'],
                 ['label' => 'Cas pratiques', 'href' => '/blog?pole=0', 'icon' => 'file'],
-                ['label' => 'Guides méthodologiques', 'href' => '/wiki', 'icon' => 'book'],
+                ['label' => 'Guides méthodologiques', 'href' => '/wiki#wiki-hub-categories-principales', 'icon' => 'book'],
                 ['label' => 'Ressources gratuites', 'href' => '/blog', 'icon' => 'wiki'],
             ],
             'guide_start_cards'         => [
@@ -235,7 +235,7 @@ return [
                 [
                     'title'            => 'Se mettre en conformité',
                     'href'             => '/audit-conformite/conformite-rgpd',
-                    'resources_href'   => '/wiki',
+                    'resources_href'   => '/wiki#wiki-hub-categories-principales',
                     'resources_label'  => 'Voir les ressources',
                     'icon'             => 'shield',
                 ],
@@ -584,7 +584,7 @@ return [
             ],
             'guide_objectives'          => [
                 ['title' => 'Passer vite en ligne sans bricolage', 'href' => '/solutions-developpement/creation-site-web', 'resources_href' => '/blog', 'resources_label' => 'Voir le blog', 'icon' => 'rocket'],
-                ['title' => 'Réduire les ressaisies entre outils', 'href' => '/solutions-developpement/erp-crm', 'resources_href' => '/wiki', 'resources_label' => 'Wiki', 'icon' => 'chart'],
+                ['title' => 'Réduire les ressaisies entre outils', 'href' => '/solutions-developpement/erp-crm', 'resources_href' => '/wiki#wiki-hub-acces-rapides', 'resources_label' => 'Wiki', 'icon' => 'chart'],
                 ['title' => 'Industrialiser les releases', 'href' => '/solutions-developpement/developpement-logiciel', 'resources_href' => '/contact', 'resources_label' => 'Parler à un expert', 'icon' => 'gear'],
             ],
             'guide_popular'             => [
@@ -854,7 +854,7 @@ return [
             'guide_objectives'          => [
                 ['title' => 'Aligner marketing et vente', 'href' => '/performance-digitale/strategie-digitale', 'resources_href' => '/blog', 'resources_label' => 'Blog', 'icon' => 'target'],
                 ['title' => 'Réduire le CPA sans sacrifier la qualité', 'href' => '/performance-digitale/tunnel-de-vente', 'resources_href' => '/contact', 'resources_label' => 'Expert', 'icon' => 'trend'],
-                ['title' => 'Construire une vision data partagée', 'href' => '/performance-digitale/pilotage-commercial', 'resources_href' => '/wiki', 'resources_label' => 'Wiki', 'icon' => 'chart'],
+                ['title' => 'Construire une vision data partagée', 'href' => '/performance-digitale/pilotage-commercial', 'resources_href' => '/wiki#wiki-hub-categories-principales', 'resources_label' => 'Wiki', 'icon' => 'chart'],
             ],
             'guide_popular'             => [
                 ['label' => 'Référencement naturel (SEO)', 'href' => '/performance-digitale/seo', 'icon' => 'chart'],
@@ -1113,7 +1113,7 @@ return [
             ],
             'guide_objectives'          => [
                 ['title' => 'Réduire les incidents surprises', 'href' => '/support-maintenance/maintenance', 'resources_href' => '/blog', 'resources_label' => 'Blog', 'icon' => 'clock'],
-                ['title' => 'Industrialiser les mises à jour', 'href' => '/support-maintenance/infogerance', 'resources_href' => '/wiki', 'resources_label' => 'Wiki', 'icon' => 'gear'],
+                ['title' => 'Industrialiser les mises à jour', 'href' => '/support-maintenance/infogerance', 'resources_href' => '/wiki#wiki-hub-decouverte', 'resources_label' => 'Wiki', 'icon' => 'gear'],
             ],
             'guide_popular'             => [
                 ['label' => 'Infogérance & hébergement', 'href' => '/support-maintenance/infogerance', 'icon' => 'monitor'],
@@ -1343,7 +1343,7 @@ return [
             'guide_objectives'          => [
                 ['title' => 'Passer du POC à la prod', 'href' => '/intelligence-artificielle/ia-entreprise', 'resources_href' => '/blog', 'resources_label' => 'Blog', 'icon' => 'rocket'],
                 ['title' => 'Réduire le traitement manuel', 'href' => '/intelligence-artificielle/automatisation-ia', 'resources_href' => '/contact', 'resources_label' => 'Expert', 'icon' => 'layers'],
-                ['title' => 'Déployer des agents fiables', 'href' => '/intelligence-artificielle/agents-ia', 'resources_href' => '/wiki', 'resources_label' => 'Wiki', 'icon' => 'monitor'],
+                ['title' => 'Déployer des agents fiables', 'href' => '/intelligence-artificielle/agents-ia', 'resources_href' => '/wiki#wiki-hub-toutes-pages', 'resources_label' => 'Wiki', 'icon' => 'monitor'],
             ],
             'guide_popular'             => [
                 ['label' => 'Agents IA sur mesure', 'href' => '/intelligence-artificielle/agents-ia', 'icon' => 'monitor'],

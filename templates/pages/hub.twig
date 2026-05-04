@@ -107,14 +107,22 @@
                     <div class="lab-card__foot">
                         {% if item.cta_beta %}
                         <div class="lab-card__foot-row lab-card__foot-row--split">
+                            {% if item.coming_soon|default(false) %}
+                            <a href="#" class="lab-card__btn-outline" data-lab-soon-trigger role="button">{{ item.link_label }} &gt;</a>
+                            {% else %}
                             <a href="{{ item.href }}" class="lab-card__btn-outline">{{ item.link_label }} &gt;</a>
+                            {% endif %}
                             <a href="{{ item.beta_href|default('#lab-beta') }}" class="lab-card__btn-beta">
                                 <svg class="lab-card__btn-beta-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                                 {{ item.beta_cta_label|default('Rejoindre la bêta') }}
                             </a>
                         </div>
                         {% else %}
-                        <a href="{{ item.href }}" class="lab-card__btn-outline lab-card__btn-outline--block">{{ item.link_label }} &gt;</a>
+                            {% if item.coming_soon|default(false) %}
+                            <a href="#" class="lab-card__btn-outline lab-card__btn-outline--block" data-lab-soon-trigger role="button">{{ item.link_label }} &gt;</a>
+                            {% else %}
+                            <a href="{{ item.href }}" class="lab-card__btn-outline lab-card__btn-outline--block">{{ item.link_label }} &gt;</a>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </article>
@@ -148,6 +156,8 @@
                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="6" ry="2"/><path d="M6 5v4c0 1.1 2.7 2 6 2s6-.9 6-2V5"/><path d="M6 9v4c0 1.1 2.7 2 6 2s6-.9 6-2V9"/><path d="M6 13v4c0 1.1 2.7 2 6 2s6-.9 6-2v-4"/></svg>
                             {% elseif item.icon is defined and item.icon == 'robot' %}
                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V5"/><circle cx="12" cy="12" r="3"/><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 14h.01M16 14h.01"/></svg>
+                            {% elseif item.icon is defined and item.icon == 'layout' %}
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
                             {% else %}
                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
                             {% endif %}
@@ -164,7 +174,11 @@
                     <h3 class="lab-beta-card__title">{{ item.title }}</h3>
                     <p class="lab-beta-card__desc">{{ item.description }}</p>
                     <div class="lab-beta-card__actions">
+                        {% if item.coming_soon|default(false) %}
+                        <a href="#" class="lab-beta-card__btn lab-beta-card__btn--access" data-lab-soon-trigger role="button">
+                        {% else %}
                         <a href="{{ item.cta_href|default('/contact') }}" class="lab-beta-card__btn lab-beta-card__btn--access">
+                        {% endif %}
                             <svg class="lab-beta-card__btn-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                             {{ item.cta }}
                         </a>
@@ -202,6 +216,8 @@
                         <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v4"/><path d="M8 15h8"/></svg>
                         {% elseif item.icon is defined and item.icon == 'leaf' %}
                         <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                        {% elseif item.icon is defined and item.icon == 'mushroom' %}
+                        <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-6"/><path d="M8 16h8"/><path d="M6 10a6 6 0 0 1 12 0c0 2.5-2 4-6 4s-6-1.5-6-4Z"/></svg>
                         {% else %}
                         <svg class="lab-card__idea-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>
                         {% endif %}
@@ -211,9 +227,18 @@
                     <div class="lab-card__idea-foot">
                         <span class="lab-card__idea-social">
                             <svg class="lab-card__idea-social-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            <span>{{ item.interested|default(0) }} intéressés</span>
+                            {% set n = item.interested|default(0) %}
+                            {% if n > 0 %}
+                            <span>{{ n }} intéressés</span>
+                            {% else %}
+                            <span>Nouveau</span>
+                            {% endif %}
                         </span>
+                        {% if item.coming_soon|default(false) %}
+                        <a href="#" class="lab-card__vote" data-lab-soon-trigger role="button">{{ hub.ideas.cta_label|default('voter pour ce projet') }} →</a>
+                        {% else %}
                         <a href="{{ item.href }}" class="lab-card__vote">{{ hub.ideas.cta_label|default('voter pour ce projet') }} →</a>
+                        {% endif %}
                     </div>
                 </article>
             </li>
@@ -305,11 +330,16 @@
     </div>
 </section>
 
-<nav class="container sp-breadcrumb lab-breadcrumb" aria-label="Fil d’Ariane">
-    <a href="/">Accueil</a>
-    <span class="sp-breadcrumb__sep">/</span>
-    <span aria-current="page">Laboratoire</span>
-</nav>
+<div class="lab-soon-modal" id="lab-soon-modal" hidden aria-hidden="true">
+    <div class="lab-soon-modal__backdrop" data-lab-soon-close tabindex="-1"></div>
+    <div class="lab-soon-modal__panel" role="dialog" aria-modal="true" aria-labelledby="lab-soon-modal-title">
+        <button type="button" class="lab-soon-modal__close" data-lab-soon-close aria-label="Fermer la fenêtre">&times;</button>
+        <p class="lab-soon-modal__eyebrow">Hub d’innovation</p>
+        <h2 id="lab-soon-modal-title" class="lab-soon-modal__title">Bientôt disponible</h2>
+        <p class="lab-soon-modal__text">La fiche détaillée de ce projet arrive très prochainement. En attendant, vous pouvez nous écrire depuis la page <a href="/contact">Contact</a>.</p>
+        <button type="button" class="btn btn-primary lab-soon-modal__ok" data-lab-soon-close>Compris</button>
+    </div>
+</div>
 
 {% endblock %}
 

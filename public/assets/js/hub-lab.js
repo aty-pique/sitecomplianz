@@ -1,6 +1,33 @@
-/* Laboratoire / hub — recherche client & formulaire participation */
+/* Laboratoire / hub — recherche client & formulaire participation & modale « bientôt » */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const soonModal = document.getElementById('lab-soon-modal');
+    const openSoon = () => {
+        if (!soonModal) return;
+        soonModal.hidden = false;
+        soonModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lab-soon-modal-open');
+        const ok = soonModal.querySelector('.lab-soon-modal__ok');
+        if (ok) ok.focus();
+    };
+    const closeSoon = () => {
+        if (!soonModal) return;
+        soonModal.hidden = true;
+        soonModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lab-soon-modal-open');
+    };
+    document.querySelectorAll('[data-lab-soon-trigger]').forEach((el) => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            openSoon();
+        });
+    });
+    document.querySelectorAll('[data-lab-soon-close]').forEach((el) => {
+        el.addEventListener('click', () => closeSoon());
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && soonModal && !soonModal.hidden) closeSoon();
+    });
     const searchInput = document.getElementById('lab-hero-search');
     if (searchInput) {
         searchInput.addEventListener('input', () => {

@@ -1,0 +1,46 @@
+<div class="wiki-hub-rail">
+    <section class="wiki-hub-rail__block" aria-labelledby="wiki-hub-useful-title">
+        <h2 id="wiki-hub-useful-title" class="wiki-hub-rail__title">Liens utiles</h2>
+        <ul class="wiki-hub-useful">
+            {% for link in wiki_hub_useful %}
+                <li>
+                    <a href="{{ link.href }}" class="wiki-hub-useful__row"{% if link.external|default(false) %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                        <span class="wiki-hub-useful__ico" aria-hidden="true">{% include 'partials/pole-guide-icon.twig' with { name: link.icon|default('file'), size: 18 } %}</span>
+                        <span class="wiki-hub-useful__label">{{ link.label }}</span>
+                        <span class="wiki-hub-useful__ext" aria-hidden="true">
+                            {% if link.external|default(false) %}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            {% else %}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                            {% endif %}
+                        </span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="wiki-hub-rail__block" aria-labelledby="wiki-hub-changelog-title">
+        <h2 id="wiki-hub-changelog-title" class="wiki-hub-rail__title">Dernières mises à jour</h2>
+        <ul class="wiki-hub-updates">
+            {% for u in wiki_hub_changelog %}
+                <li class="wiki-hub-updates__item">
+                    <span class="wiki-hub-updates__dot" aria-hidden="true"></span>
+                    <div class="wiki-hub-updates__body">
+                        <time class="wiki-hub-updates__date" datetime="{{ u.date|e('html_attr') }}">{{ u.date }}</time>
+                        <a href="{{ u.href }}" class="wiki-hub-updates__link">{{ u.title }}</a>
+                        <p class="wiki-hub-updates__note">{{ u.note }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/wiki#wiki-hub-toutes-pages" class="wiki-hub-rail__footer-link">Voir toutes les pages <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="wiki-hub-rail__block wiki-hub-rail__block--cta" aria-labelledby="wiki-hub-help-title">
+        <h2 id="wiki-hub-help-title" class="wiki-hub-rail__title">Besoin d’aide ?</h2>
+        <p class="wiki-hub-rail__lead">Consultez la FAQ ou contactez notre équipe.</p>
+        <a href="/contact" class="wiki-hub-rail__btn wiki-hub-rail__btn--primary">Poser une question</a>
+        <a href="/wiki/faq" class="wiki-hub-rail__btn wiki-hub-rail__btn--ghost">Voir la FAQ</a>
+    </section>
+</div>

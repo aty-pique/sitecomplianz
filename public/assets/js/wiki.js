@@ -96,4 +96,17 @@
         hubInput.addEventListener('input', filterHub);
         filterHub();
     }
+
+    /* Hub — défilement vers une ancre (#wiki-hub-…) depuis les pages pôles */
+    if (document.querySelector('.wiki-hub-board')) {
+        var h = (window.location.hash || '').replace(/^#/, '');
+        if (h && document.getElementById(h)) {
+            window.requestAnimationFrame(function () {
+                var target = document.getElementById(h);
+                if (target) {
+                    target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                }
+            });
+        }
+    }
 })();
