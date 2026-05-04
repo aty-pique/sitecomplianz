@@ -47,7 +47,7 @@ Complianz System structure, sécurise et optimise votre entreprise : conformité
             Nous transformons des organisations fragiles ou désorganisées en <strong>systèmes cohérents, maîtrisés et durables</strong> — en réunissant structuration, technologie, conformité, pilotage de la performance et <strong>intelligence artificielle</strong>.
         </p>
         <div class="about-hero__actions">
-            <a href="/contact" class="btn btn-lg about-hero__btn-primary">Parlons de votre projet</a>
+            <a href="/contact" class="btn btn-lg about-hero__btn-primary" data-no-quote-modal>Parlons de votre projet</a>
             <a href="#nos-poles" class="btn btn-lg about-hero__btn-outline">Les 5 pôles d'expertise</a>
         </div>
     </div>
@@ -83,7 +83,7 @@ Complianz System structure, sécurise et optimise votre entreprise : conformité
                 <p>Nous ne vendons pas des prestations isolées.</p>
                 <p class="about-quote__accent">Nous bâtissons des systèmes d'entreprise.</p>
             </blockquote>
-            <p class="about-quote__footer">Message différenciant — la performance vient de la structure globale.</p>
+            <p class="about-quote__footer">La performance vient de la structure globale.</p>
         </aside>
     </div>
 </section>
@@ -110,14 +110,18 @@ Complianz System structure, sécurise et optimise votre entreprise : conformité
             <h3 class="about-founders__title">Les fondateurs</h3>
             <ul class="about-founders__list">
                 <li class="about-founder">
-                    <span class="about-founder__avatar" style="--avatar-bg: var(--pole-0);">PM</span>
+                    <span class="about-founder__avatar about-founder__avatar--photo">
+                        <img src="{{ asset_base }}/assets/images/photos/Pierre.jpeg" alt="Portrait de Pierre Matifas" width="48" height="48" loading="lazy" decoding="async">
+                    </span>
                     <div>
                         <strong class="about-founder__name">Pierre Matifas</strong>
                         <p class="about-founder__role">Plus de 20 ans d'expérience entrepreneuriale, création de nombreuses entreprises — expertise terrain et vision système.</p>
                     </div>
                 </li>
                 <li class="about-founder">
-                    <span class="about-founder__avatar" style="--avatar-bg: var(--pole-1);">EG</span>
+                    <span class="about-founder__avatar about-founder__avatar--photo">
+                        <img src="{{ asset_base }}/assets/images/photos/Elisa.png" alt="Portrait d'Elisa Guyon" width="48" height="48" loading="lazy" decoding="async">
+                    </span>
                     <div>
                         <strong class="about-founder__name">Elisa Guyon</strong>
                         <p class="about-founder__role">Expertise transverse en communication, marketing digital et structuration stratégique.</p>
@@ -211,10 +215,6 @@ Complianz System structure, sécurise et optimise votre entreprise : conformité
                 <h3 class="about-mvv-card__title">Vision</h3>
                 <p>Devenir une référence dans la structuration et la performance des entreprises, avec une approche globale alliant <strong>technologie</strong>, <strong>conformité</strong>, <strong>stratégie</strong> et <strong>IA</strong>.</p>
             </article>
-            <article class="about-mvv-card about-mvv-card--why">
-                <h3 class="about-mvv-card__title">Golden Circle — Pourquoi</h3>
-                <p>Permettre aux entreprises de <strong>reprendre le contrôle</strong> : ne plus subir, comprendre, maîtriser et performer sereinement.</p>
-            </article>
         </div>
 
         <h2 class="about-h2 about-mvv__angles-title">Angles qui nous ressemblent</h2>
@@ -239,9 +239,13 @@ Complianz System structure, sécurise et optimise votre entreprise : conformité
     </div>
 </section>
 
-{# ── Comment / Quoi (Golden Circle suite) ─────────────────────── #}
+{# ── Pourquoi / Comment / Quoi (Golden Circle) ───────────────── #}
 <section class="about-golden">
     <div class="container about-golden__grid">
+        <div class="about-golden-block">
+            <h3 class="about-golden-block__label">Pourquoi</h3>
+            <p>Permettre aux entreprises de <strong>reprendre le contrôle</strong> : ne plus subir, comprendre, maîtriser et performer sereinement.</p>
+        </div>
         <div class="about-golden-block">
             <h3 class="about-golden-block__label">Comment</h3>
             <p>En structurant votre écosystème global — technologie, conformité, stratégie et IA — dans une approche <strong>cohérente</strong>, <strong>claire</strong> et <strong>opérationnelle</strong>.</p>
@@ -338,7 +342,7 @@ Complianz System structure, sécurise et optimise votre entreprise : conformité
                 <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Approche système 360°</span>
             </div>
         </div>
-        <a href="/contact" class="btn btn-primary btn-lg">Contact</a>
+        <a href="/contact" class="btn btn-primary btn-lg" data-no-quote-modal>Contact</a>
     </div>
 </section>
 

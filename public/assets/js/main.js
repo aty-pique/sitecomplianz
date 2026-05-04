@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ── Liens actifs nav (exact ou préfixe pour /blog/…) ────────────────────── */
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-    document.querySelectorAll('.header-nav a').forEach(link => {
+    document.querySelectorAll('.header-nav a, .megamenu-mobile-navlinks a').forEach(link => {
         const raw = link.getAttribute('href');
         if (!raw || raw === '#') return;
         const href = raw.replace(/\/$/, '') || '/';
@@ -49,24 +49,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (bar && panels) {
         let closeTimer = null;
+        const mqMgmMobile = window.matchMedia('(max-width: 768px)');
+        const isMobileMegamenu = () => mqMgmMobile.matches;
+
+        const burger = document.getElementById('header-burger');
+        const mobileCloseBtn = document.getElementById('megamenu-mobile-close');
+        const mobileBackBtn = document.getElementById('mgm-mobile-back');
+
+        /** Remet tous les panneaux dans #megamenu-panels (ordre data-panel) — requis desktop & après mobile */
+        function restorePanelsToContainer() {
+            if (!panels) return;
+            const list = Array.from(document.querySelectorAll('.mgm-panel')).sort(
+                (a, b) => Number(a.dataset.panel) - Number(b.dataset.panel)
+            );
+            list.forEach(p => panels.appendChild(p));
+        }
+
+        /** Mobile : panneau du pôle directement sous l’onglet cliqué (dernier enfant du li) */
+        function placeMobilePanel(index) {
+            const tabLi = tabs[index];
+            const panel = document.querySelector(`.mgm-panel[data-panel="${index}"]`);
+            if (!tabLi || !panel) return;
+            tabLi.appendChild(panel);
+        }
+
+        function closeMobileDrawer() {
+            restorePanelsToContainer();
+            document.body.classList.remove('megamenu-mobile-open', 'megamenu-mobile-drilled');
+            document.body.style.overflow = '';
+            if (burger) {
+                burger.setAttribute('aria-expanded', 'false');
+            }
+            clearTimeout(closeTimer);
+            tabs.forEach(t => t.classList.remove('active'));
+            allPanels.forEach(p => {
+                p.classList.remove('active');
+                deactivateCards(p);
+            });
+            panels.classList.remove('open');
+        }
+
+        function collapseMobilePolePanel() {
+            restorePanelsToContainer();
+            document.body.classList.remove('megamenu-mobile-drilled');
+            tabs.forEach(t => t.classList.remove('active'));
+            allPanels.forEach(p => {
+                p.classList.remove('active');
+                deactivateCards(p);
+            });
+            panels.classList.remove('open');
+        }
 
         function openTab(index) {
             clearTimeout(closeTimer);
+            restorePanelsToContainer();
             tabs.forEach(t => t.classList.remove('active'));
             allPanels.forEach(p => p.classList.remove('active'));
             tabs[index]?.classList.add('active');
             const panel = document.querySelector(`.mgm-panel[data-panel="${index}"]`);
             if (panel) {
                 panel.classList.add('active');
-                /* Afficher les packs par défaut (aucune carte activée) */
                 deactivateCards(panel);
             }
             panels.classList.add('open');
+            if (isMobileMegamenu()) {
+                document.body.classList.add('megamenu-mobile-drilled');
+                placeMobilePanel(index);
+                if (panel) {
+                    panel.querySelectorAll('.mgm-sub .mgm-sub-title').forEach(t => {
+                        t.setAttribute('role', 'button');
+                    });
+                }
+            }
         }
 
         function deactivateCards(panel) {
             panel.querySelectorAll('.mgm-card').forEach(c => c.classList.remove('active'));
-            panel.querySelectorAll('.mgm-sub').forEach(s => s.classList.remove('active'));
+            panel.querySelectorAll('.mgm-sub').forEach(s => {
+                s.classList.remove('active', 'mgm-sub--expanded');
+                const tt = s.querySelector('.mgm-sub-title');
+                if (tt) tt.setAttribute('aria-expanded', 'false');
+            });
             const packs = panel.querySelector('.mgm-packs-default');
             if (packs) packs.classList.remove('hidden');
             const right = panel.querySelector('.mgm-panel-right');
@@ -74,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function closeMegamenu() {
+            if (isMobileMegamenu()) return;
             closeTimer = setTimeout(() => {
                 tabs.forEach(t => t.classList.remove('active'));
                 allPanels.forEach(p => p.classList.remove('active'));
@@ -82,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function activateCard(card) {
+            if (isMobileMegamenu()) return;
             const panel = card.closest('.mgm-panel');
             if (!panel) return;
             panel.querySelectorAll('.mgm-card').forEach(c => c.classList.remove('active'));
@@ -103,9 +168,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        tabs.forEach((tab, i) => tab.addEventListener('mouseenter', () => openTab(i)));
+        tabs.forEach((tab, i) => {
+            tab.addEventListener('mouseenter', () => {
+                if (!isMobileMegamenu()) openTab(i);
+            });
+            const link = tab.querySelector('.mgm-tab-link');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (!isMobileMegamenu()) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!document.body.classList.contains('megamenu-mobile-open')) {
+                        document.body.classList.add('megamenu-mobile-open');
+                        document.body.style.overflow = 'hidden';
+                        if (burger) burger.setAttribute('aria-expanded', 'true');
+                    }
+                    openTab(i);
+                });
+            }
+        });
+
         panels.addEventListener('mouseenter', () => clearTimeout(closeTimer));
-        bar.addEventListener('mouseleave', closeMegamenu);
+        bar.addEventListener('mouseleave', () => {
+            if (!isMobileMegamenu()) closeMegamenu();
+        });
         allCards.forEach(card => card.addEventListener('mouseenter', () => activateCard(card)));
 
         /*
@@ -114,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
          */
         document.querySelectorAll('.mgm-panel-layout').forEach(layout => {
             layout.addEventListener('mouseleave', (e) => {
+                if (isMobileMegamenu()) return;
                 const next = e.relatedTarget;
                 if (next instanceof Node && layout.contains(next)) return;
                 const panel = layout.closest('.mgm-panel');
@@ -121,7 +208,86 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        if (burger) {
+            burger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isMobileMegamenu()) return;
+                if (document.body.classList.contains('megamenu-mobile-open')) {
+                    closeMobileDrawer();
+                } else {
+                    document.body.classList.add('megamenu-mobile-open');
+                    document.body.style.overflow = 'hidden';
+                    burger.setAttribute('aria-expanded', 'true');
+                    collapseMobilePolePanel();
+                }
+            });
+        }
+
+        if (mobileCloseBtn) {
+            mobileCloseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeMobileDrawer();
+            });
+        }
+
+        if (mobileBackBtn) {
+            mobileBackBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isMobileMegamenu()) return;
+                collapseMobilePolePanel();
+            });
+        }
+
+        /** Mobile : sous-sections en accordéon (un bloc ouvert à la fois) */
+        bar.addEventListener('click', e => {
+            if (!isMobileMegamenu() || !document.body.classList.contains('megamenu-mobile-open')) return;
+            const title = e.target.closest('.mgm-sub-title');
+            if (!title || !bar.contains(title)) return;
+            const sub = title.closest('.mgm-sub');
+            if (!sub || !sub.closest('.mgm-panel.active')) return;
+            e.preventDefault();
+            e.stopPropagation();
+            const wasOpen = sub.classList.contains('mgm-sub--expanded');
+            const right = sub.closest('.mgm-panel-right');
+            if (right) {
+                right.querySelectorAll('.mgm-sub').forEach(s => {
+                    s.classList.remove('mgm-sub--expanded');
+                    const tt = s.querySelector('.mgm-sub-title');
+                    if (tt) tt.setAttribute('aria-expanded', 'false');
+                });
+            }
+            if (!wasOpen) {
+                sub.classList.add('mgm-sub--expanded');
+                title.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        const onMqMgmMobileChange = () => {
+            if (!isMobileMegamenu()) {
+                restorePanelsToContainer();
+                closeMobileDrawer();
+            }
+        };
+        if (typeof mqMgmMobile.addEventListener === 'function') {
+            mqMgmMobile.addEventListener('change', onMqMgmMobileChange);
+        } else if (typeof mqMgmMobile.addListener === 'function') {
+            mqMgmMobile.addListener(onMqMgmMobileChange);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.body.classList.contains('megamenu-mobile-open')) {
+                closeMobileDrawer();
+            }
+        });
+
         document.addEventListener('click', e => {
+            if (isMobileMegamenu() && document.body.classList.contains('megamenu-mobile-open')) {
+                if (bar.contains(e.target) || (burger && burger.contains(e.target))) {
+                    return;
+                }
+                closeMobileDrawer();
+                return;
+            }
             if (!bar.contains(e.target)) {
                 tabs.forEach(t => t.classList.remove('active'));
                 allPanels.forEach(p => p.classList.remove('active'));
@@ -202,9 +368,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (panelRight) panelRight.removeAttribute('hidden');
                 resultsBox.setAttribute('hidden', '');
                 resultsBox.innerHTML = '';
-                // Réactiver la première carte
                 const firstCard = panel.querySelector('.mgm-card');
-                if (firstCard) activateCard(firstCard);
+                if (firstCard) {
+                    if (isMobileMegamenu()) {
+                        deactivateCards(panel);
+                    } else {
+                        activateCard(firstCard);
+                    }
+                }
                 return;
             }
 

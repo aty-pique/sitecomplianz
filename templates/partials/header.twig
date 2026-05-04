@@ -58,11 +58,26 @@
                     </button>
                 </div>
             </div>
+
+            <button type="button" class="header-burger" id="header-burger" aria-label="Ouvrir le menu des offres" aria-expanded="false" aria-controls="megamenu-bar">
+                <span class="header-burger__line" aria-hidden="true"></span>
+                <span class="header-burger__line" aria-hidden="true"></span>
+                <span class="header-burger__line" aria-hidden="true"></span>
+            </button>
         </div>
     </div>
 
     {# ── Barre des pôles ─────────────────────── #}
     <div class="megamenu-bar" id="megamenu-bar">
+        <div class="megamenu-mobile-toolbar">
+            <button type="button" class="mgm-mobile-back" id="mgm-mobile-back" aria-label="Retour à la liste des pôles">← Pôles</button>
+            <button type="button" class="megamenu-mobile-close" id="megamenu-mobile-close" aria-label="Fermer le menu">Fermer</button>
+        </div>
+        <nav class="megamenu-mobile-navlinks" aria-label="Navigation rapide">
+            <a href="/">Accueil</a>
+            <a href="/hub">Hub d’innovation</a>
+            <a href="/wiki">Wiki</a>
+        </nav>
         <div class="container">
             <ul class="megamenu-tabs" role="list" id="megamenu-tabs">
 
